@@ -71,7 +71,6 @@
     <string name="deleteConfirmation">Usunąć tę kartę na stałe\?</string>
     <string name="app_contributors">Możliwe dzięki: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brązowy</string>
-    <string name="settings_grey_theme">Szary</string>
     <string name="settings_green_theme">Zielony</string>
     <string name="settings_sky_blue_theme">Błękitny</string>
     <string name="settings_blue_theme">Niebieski</string>
@@ -240,12 +239,6 @@
     <string name="barcodeLongPressMessage">W galerii możesz otworzyć tylko obrazy</string>
     <string name="failedToOpenUrl">Najpierw zainstaluj przeglądarkę</string>
     <string name="welcome">Witaj w Catima</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Wyświetl zarchiwizowaną (<xliff:g>%1$d</xliff:g> kartę)</item>
-        <item quantity="few">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
-        <item quantity="many">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
-        <item quantity="other">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
-    </plurals>
     <string name="currentBalanceSentence">Bieżące saldo: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">By zeskanować kody kreskowe, Catima musi mieć dostęp do twojej kamery. Dotknij tutaj by zmienić swoje ustawienia dostępu.</string>
     <string name="updateBalanceTitle">Ile wydałeś lub otrzymałeś?</string>

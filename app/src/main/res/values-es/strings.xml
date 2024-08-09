@@ -161,7 +161,6 @@
     </plurals>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Marrón</string>
-    <string name="settings_grey_theme">Gris</string>
     <string name="settings_green_theme">Verde</string>
     <string name="settings_sky_blue_theme">Azul cielo</string>
     <string name="settings_blue_theme">Azul</string>
@@ -210,11 +209,6 @@
     <string name="rate_this_app">Califica esta aplicación</string>
     <string name="options">Opciones</string>
     <string name="failedToOpenUrl">Instale primero un navegador web</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Ver archivo (<xliff:g>%1$d</xliff:g> tarjeta)</item>
-        <item quantity="many">Ver archivo (<xliff:g>%1$d</xliff:g> tarjetas)</item>
-        <item quantity="other">Ver archivo (<xliff:g>%1$d</xliff:g> tarjetas)</item>
-    </plurals>
     <string name="welcome">Bienvenido/a a Catima</string>
     <string name="group_name_already_in_use">Nombre del grupo ya está en uso</string>
     <string name="group_name_is_empty">El nombre del grupo no debe estar vacío</string>

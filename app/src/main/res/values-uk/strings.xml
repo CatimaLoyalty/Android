@@ -172,7 +172,6 @@
     <string name="settings_system_locale">Системна</string>
     <string name="settings_locale">Мова</string>
     <string name="settings_brown_theme">Коричневий</string>
-    <string name="settings_grey_theme">Сірий</string>
     <string name="settings_green_theme">Зелений</string>
     <string name="settings_sky_blue_theme">Небесно-синій</string>
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
@@ -236,12 +235,6 @@
     <string name="failedLaunchingPhotoPicker">Підтримуваний застосунок галереї не знайдено</string>
     <string name="previousCard">Попередня</string>
     <string name="nextCard">Наступна</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Переглянути архів (<xliff:g>%1$d</xliff:g> картка)</item>
-        <item quantity="few">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
-        <item quantity="many">Переглянути архів (<xliff:g>%1$d</xliff:g> карток)</item>
-        <item quantity="other">Переглянути архів (<xliff:g>%1$d</xliff:g> карток)</item>
-    </plurals>
     <string name="failedToOpenUrl">Спочатку встановіть браузер</string>
     <string name="welcome">Ласкаво просимо до Catima</string>
     <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>

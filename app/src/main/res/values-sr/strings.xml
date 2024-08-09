@@ -178,11 +178,6 @@
     <string name="previousCard">Prethodna</string>
     <string name="nextCard">Sledeća</string>
     <string name="failedToOpenUrl">Prvo instalirajte internet pregledač</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
-        <item quantity="few">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartice)</item>
-        <item quantity="other">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
-    </plurals>
     <string name="welcome">Dobrodošli u Catima aplikaciju</string>
     <string name="importCards">Uvezi kartice</string>
     <string name="updateBalanceTitle">Koliko si potrošio ili primio?</string>
@@ -273,7 +268,6 @@
     <string name="settings_green_theme">Zelena</string>
     <string name="barcodeLongPressMessage">Samo fotografije mogu da se otvore u galerija aplikaciji</string>
     <string name="settings_blue_theme">Plava</string>
-    <string name="settings_grey_theme">Siva</string>
     <string name="translate_platform">na Weblate-u</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>

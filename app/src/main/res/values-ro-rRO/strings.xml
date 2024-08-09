@@ -97,11 +97,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Aș dori să partajez niște carduri cu tine</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Drepturi de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os și contribuitorii</string>
     <string name="translate_platform">pe Weblate</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Vizualizați arhiva (<xliff:g>%1$d</xliff:g> card)</item>
-        <item quantity="few">Vizualizați arhiva (<xliff:g>%1$d</xliff:g> carduri)</item>
-        <item quantity="other">Vizualizați arhiva (<xliff:g>%1$d</xliff:g> de carduri)</item>
-    </plurals>
     <string name="card_id_must_not_be_empty">Identificatorul cardului nu poate fi liber</string>
     <string name="duplicateCard">Duplicare</string>
     <string name="balanceParsingFailed">Sold invalid</string>
@@ -215,7 +210,6 @@
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
     <string name="settings_landscape_orientation">Orizontal</string>
     <string name="privacy_policy">Politica de Confidențialitate</string>
-    <string name="settings_grey_theme">Gri</string>
     <string name="importStocardMessage">Selectați exportul dvs. <i>***.zip</i> din Stocard pentru a-l importa.
 \nLuați-l prin e-mail către support@stocardapp.com cerând un export al datelor dumneavoastră.</string>
     <string name="openBackImageInGalleryApp">Deschideți imaginea spate în aplicația galerie</string>

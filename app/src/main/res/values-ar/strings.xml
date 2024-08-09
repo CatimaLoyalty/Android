@@ -119,7 +119,6 @@
     <string name="settings_blue_theme">أزرق</string>
     <string name="settings_sky_blue_theme">أزرق سماوي</string>
     <string name="settings_green_theme">أخضر</string>
-    <string name="settings_grey_theme">رمادي</string>
     <string name="settings_brown_theme">بني</string>
     <string name="app_contributors">أصبح ممكنًا بواسطة: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">فرز</string>
@@ -253,14 +252,6 @@
     <string name="welcome">مرحبا بك في كاتيما</string>
     <string name="updateBalanceTitle">كم أنفقت أو استلمت؟</string>
     <string name="currentBalanceSentence">الرصيد الحالي: <xliff:g> %s </xliff:g></string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="zero">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقة)</item>
-        <item quantity="one">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقة)</item>
-        <item quantity="two">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقتين)</item>
-        <item quantity="few">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقات)</item>
-        <item quantity="many">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقات)</item>
-        <item quantity="other">عرض الأرشيف (<xliff:g>%1$d</xliff:g> بطاقات)</item>
-    </plurals>
     <string name="importCards">استيراد البطاقات</string>
     <string name="newBalanceSentence">الرصيد الجديد: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">تعذر الوصول إلى الكاميرا</string>

@@ -151,7 +151,6 @@
     <string name="setIcon">Ορισμός εικονιδίου</string>
     <string name="settings_sky_blue_theme">Γαλάζιο</string>
     <string name="settings_green_theme">Πράσινο</string>
-    <string name="settings_grey_theme">Γκρι</string>
     <string name="settings_brown_theme">Καφέ</string>
     <string name="sort_by_expiry">Λήξη</string>
     <plurals name="groupCardCount">
@@ -230,10 +229,6 @@
     <string name="updateBalance">Ενημέρωση υπολοίπου</string>
     <string name="barcodeLongPressMessage">Μόνο εικόνες μπορούν να ανοιχτούν στην εφαρμογή φωτογραφιών</string>
     <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμωτούς κώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> κάρτας)</item>
-        <item quantity="other">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> καρτών)</item>
-    </plurals>
     <string name="importCards">Εισαγωγή καρτών</string>
     <string name="updateBalanceHint">Εισάγετε ποσό</string>
     <string name="currentBalanceSentence">Τωρινό υπόλοιπο <xliff:g>%s</xliff:g></string>

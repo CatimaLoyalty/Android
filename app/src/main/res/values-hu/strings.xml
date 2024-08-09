@@ -62,7 +62,6 @@
     <string name="exportPasswordHint">Kód beírása</string>
     <string name="failedGeneratingShareURL">Nem lehetett megosztható webcímet előállítani. Kérjük, ezt jelentse.</string>
     <string name="settings_theme_color">Téma színe</string>
-    <string name="settings_grey_theme">Szürke</string>
     <string name="sort">Rendezés</string>
     <string name="on_google_play">a Google Playen</string>
     <string name="and_data_usage">és adathasználat</string>
@@ -233,10 +232,6 @@
     <string name="barcodeLongPressMessage">Csak képek nyithatók meg a galéria alkalmazásban</string>
     <string name="unarchived">Kártya archiválása megszüntetve</string>
     <string name="welcome">Üdvözöljük a Catimában</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártya)</item>
-        <item quantity="other">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártya)</item>
-    </plurals>
     <string name="updateBalance">Egyenleg frissítése</string>
     <string name="noCameraPermissionDirectToSystemSetting">A vonalkódok leolvasásához a Catimának hozzá kell férnie a kamerához. Koppintson ide az engedélybeállítások módosításához.</string>
     <string name="validFromDate">Érvényesség kezdete</string>

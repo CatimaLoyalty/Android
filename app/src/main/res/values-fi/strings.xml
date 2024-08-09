@@ -157,7 +157,6 @@
     <string name="turn_flashlight_off">Sammuta salamavalo</string>
     <string name="app_contributors">Mahdollistanut: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Ruskea</string>
-    <string name="settings_grey_theme">Harmaa</string>
     <string name="settings_green_theme">Vihreä</string>
     <string name="settings_sky_blue_theme">Taivaansininen</string>
     <string name="settings_blue_theme">Siniset</string>
@@ -224,10 +223,6 @@
     <string name="nextCard">Seuraava</string>
     <string name="failedToOpenUrl">Asenna ensin verkkoselain</string>
     <string name="welcome">Tervetuloa Catimaan</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Näytä arkisto (<xliff:g>%1$d</xliff:g> kortti)</item>
-        <item quantity="other">Näytä arkisto (<xliff:g>%1$d</xliff:g> korttia)</item>
-    </plurals>
     <string name="updateBalanceTitle">Kuinka paljon kulutit tai tienasit?</string>
     <string name="updateBalanceHint">Syötä summa</string>
     <string name="barcodeLongPressMessage">Vain kuvia on mahdollista avata galleriasovelluksessa</string>

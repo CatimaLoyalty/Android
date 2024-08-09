@@ -137,7 +137,6 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="settings_sky_blue_theme">Azul celeste</string>
     <string name="settings_green_theme">Verde</string>
-    <string name="settings_grey_theme">Cinza</string>
     <string name="settings_brown_theme">Marrom</string>
     <string name="app_contributors">Só foi possível graças a: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
@@ -163,11 +162,6 @@
     <string name="failedToOpenUrl">Instale um navegador primeiro</string>
     <string name="welcome">Bem-vindo(a) ao Catima</string>
     <string name="importCards">Importar cartões</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Ver arquivamento (<xliff:g>%1$d</xliff:g> cartão)</item>
-        <item quantity="many">Ver arquivamento (<xliff:g>%1$d</xliff:g> cartões)</item>
-        <item quantity="other">Ver arquivamento (<xliff:g>%1$d</xliff:g> cartões)</item>
-    </plurals>
     <string name="height">Altura:</string>
     <string name="switchToBarcode">Mudar para código de barras</string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>

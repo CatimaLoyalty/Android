@@ -87,7 +87,6 @@
     <string name="settings_blue_theme">藍色</string>
     <string name="settings_sky_blue_theme">天空藍</string>
     <string name="settings_green_theme">綠色</string>
-    <string name="settings_grey_theme">灰色</string>
     <string name="settings_brown_theme">棕色</string>
     <string name="sort_by_name">名稱</string>
     <string name="sort_by_most_recently_used">最近使用</string>
@@ -220,9 +219,6 @@
     <string name="previousCard">上一張</string>
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用 Catima</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">檢視封存（<xliff:g>%1$d</xliff:g> 張卡片）</item>
-    </plurals>
     <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
     <string name="importCards">導入卡片</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima 需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>

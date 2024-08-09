@@ -97,7 +97,6 @@
     <string name="setIcon">Postavi sličicu</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_green_theme">Zelena</string>
-    <string name="settings_grey_theme">Siva</string>
     <string name="sort_by_expiry">Istek</string>
     <string name="barcodeImageDescriptionWithType">Slika vrste crtičnog koda <xliff:g>%s</xliff:g></string>
     <string name="importLoyaltyCardKeychain">Uvezi iz Loyalty Card Keychain</string>
@@ -256,11 +255,6 @@
     <string name="updateBalanceHint">Upiši iznos</string>
     <string name="about_title_fmt">Informacije o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="failedToOpenUrl">Najprije instaliraj web preglednik</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Pogledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
-        <item quantity="few">Pogledaj arhivu (<xliff:g>%1$d</xliff:g> kartice)</item>
-        <item quantity="other">Pogledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
-    </plurals>
     <string name="icon_header_click_text">Dugim pritiskom uredi sličicu</string>
     <string name="show_name_below_image_thumbnail">Prikaži ime ispod sličice</string>
     <string name="show_note">Prikaži bilješku</string>

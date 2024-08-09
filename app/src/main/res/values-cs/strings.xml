@@ -87,7 +87,6 @@
     <string name="moveDown">Přesunout dolů</string>
     <string name="moveUp">Přesunout nahoru</string>
     <string name="settings_brown_theme">Hnědá</string>
-    <string name="settings_grey_theme">Šedá</string>
     <string name="settings_green_theme">Zelená</string>
     <string name="settings_sky_blue_theme">Azurová</string>
     <string name="settings_blue_theme">Modrá</string>
@@ -231,11 +230,6 @@
     <string name="nextCard">Následující</string>
     <string name="failedToOpenUrl">Nejprve nainstalujte webový prohlížeč</string>
     <string name="welcome">Vítejte v Catima</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karta)</item>
-        <item quantity="few">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karty)</item>
-        <item quantity="other">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karet)</item>
-    </plurals>
     <string name="barcodeLongPressMessage">V aplikaci pro galerii mohou být otevírány pouze obrázky</string>
     <string name="failedToRetrieveImageFile">Nepodařilo se získat soubor obrázku</string>
     <string name="cameraPermissionDeniedTitle">Nelze získat přístup k fotoaparátu</string>

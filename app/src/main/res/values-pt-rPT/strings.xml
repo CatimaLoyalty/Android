@@ -100,7 +100,6 @@
     <string name="photos">Fotografias</string>
     <string name="passwordRequired">Introduza a palavra-passe</string>
     <string name="settings_green_theme">Verde</string>
-    <string name="settings_grey_theme">Cinzento</string>
     <string name="settings_brown_theme">Castanho</string>
     <string name="updateBarcodeQuestionTitle">Atualizar o valor do código de barras\?</string>
     <string name="updateBarcodeQuestionText">Alterou o identificador. Também quer atualizar o código de barras para usar o mesmo valor\?</string>
@@ -231,11 +230,6 @@
     <string name="nextCard">Próximo</string>
     <string name="previousCard">Anterior</string>
     <string name="failedToOpenUrl">Instale primeiro um navegador de Internet</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Ver arquivo (<xliff:g>%1$d</xliff:g> cartão)</item>
-        <item quantity="many">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
-        <item quantity="other">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
-    </plurals>
     <string name="welcome">Bem-vindo ao Catima</string>
     <string name="failedToRetrieveImageFile">Falha ao recuperar o ficheiro de imagem</string>
     <string name="barcodeLongPressMessage">Só podem ser abertas imagens na aplicação da galeria</string>

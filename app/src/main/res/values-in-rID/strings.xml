@@ -55,7 +55,6 @@
     <string name="settings_blue_theme">Biru</string>
     <string name="settings_green_theme">Hijau</string>
     <string name="settings_sky_blue_theme">Biru Langit</string>
-    <string name="settings_grey_theme">Abu-abu</string>
     <string name="settings_brown_theme">Cokelat</string>
     <string name="settings_violet_theme">Ungu</string>
     <string name="settings_magenta_theme">Magenta</string>
@@ -199,9 +198,6 @@
     <string name="translate_platform">di Weblate</string>
     <string name="welcome">Selamat datang di Catima</string>
     <string name="failedToOpenUrl">Install browser web terlebih dahulu</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">Lihat arsip (<xliff:g>%1$d</xliff:g> kartu)</item>
-    </plurals>
     <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
     <string name="previousCard">Sebelumnya</string>
     <string name="nextCard">Berikutnya</string>

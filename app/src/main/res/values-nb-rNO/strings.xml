@@ -159,7 +159,6 @@
     <string name="settings_magenta_theme">Magentarød</string>
     <string name="app_contributors">Muliggjort av: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brun</string>
-    <string name="settings_grey_theme">Grå</string>
     <string name="settings_green_theme">Grønn</string>
     <string name="settings_sky_blue_theme">Himmelblå</string>
     <string name="settings_blue_theme">Blå</string>
@@ -226,10 +225,6 @@
     </plurals>
     <string name="failedToOpenUrl">Installer en nettleser først</string>
     <string name="welcome">Velkommen til Catima</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
-        <item quantity="other">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
-    </plurals>
     <string name="failedToRetrieveImageFile">Kunne ikke hente bildefil</string>
     <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriprogrammet</string>
     <string name="cameraPermissionDeniedTitle">Fikk ikke tilgang til kameraet</string>

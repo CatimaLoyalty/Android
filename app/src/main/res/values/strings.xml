@@ -237,7 +237,6 @@
     <string name="settings_blue_theme">Blue</string>
     <string name="settings_sky_blue_theme">Sky blue</string>
     <string name="settings_green_theme">Green</string>
-    <string name="settings_grey_theme">Grey</string>
     <string name="settings_brown_theme">Brown</string>
     <string name="settings_key_catima_theme" translatable="false">catima_theme</string>
     <string name="settings_key_pink_theme" translatable="false">pink_theme</string>
@@ -246,7 +245,6 @@
     <string name="settings_key_blue_theme" translatable="false">blue_theme</string>
     <string name="settings_key_sky_blue_theme" translatable="false">sky_blue_theme</string>
     <string name="settings_key_green_theme" translatable="false">green_theme</string>
-    <string name="settings_key_grey_theme" translatable="false">grey_theme</string>
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
@@ -290,10 +288,6 @@
     <string name="previousCard">Previous</string>
     <string name="nextCard">Next</string>
     <string name="failedToOpenUrl">Install a web browser first</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">View archive (<xliff:g>%1$d</xliff:g> card)</item>
-        <item quantity="other">View archive (<xliff:g>%1$d</xliff:g> cards)</item>
-    </plurals>
     <string name="welcome">Welcome to Catima</string>
     <string name="importCards">Import cards</string>
     <string name="updateBalanceTitle">How much did you spend or receive?</string>

@@ -1,0 +1,1 @@
+- 對卡片檢視進行修改，以顯示備註、允許卡片 ID 佔用多行並顯示商店名稱。(PR #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

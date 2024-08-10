@@ -1,0 +1,3 @@
+- 點選條碼現在會將其移至螢幕頂端 (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- 在條碼周圍新增空白以改善深色模式下的掃描效果 (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- 修正匯入按鈕互換的問題 (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

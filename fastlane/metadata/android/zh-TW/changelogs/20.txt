@@ -1,0 +1,1 @@
+- 解決在某些 Android 版本（可能是 Android 5 及以下）安裝時的當機問題。(PR #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

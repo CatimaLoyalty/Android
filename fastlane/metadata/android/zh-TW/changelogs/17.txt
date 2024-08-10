@@ -1,0 +1,2 @@
+- 新增從啟動器/主畫面新增會員卡捷徑的支援。（PR #161 (https://github.com/brarcher/loyalty-card-locker/pull/161)）
+- 移除從應用程式內新增會員卡捷徑的支援。這樣就不再需要捷徑權限。（PR #163 (https://github.com/brarcher/loyalty-card-locker/pull/163)）

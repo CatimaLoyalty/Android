@@ -1,0 +1,1 @@
+- 防止渲染條碼時因應用程式記憶體不足而當機。(PR #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Lisa</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valitud</item>
@@ -38,4 +38,60 @@
     <string name="cancel">Katkesta</string>
     <string name="save">Salvesta</string>
     <string name="deleteTitle">Kustuta kaart</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autoriõigused © 2019–<xliff:g>%d</xliff:g> Sylvia van Os ja kaasautorid</string>
+    <string name="app_copyright_old">Põhineb sarnasel rakendusel Loyalty Card Keychain
+\nautoriõigused © 2016–2020 Branden Archer</string>
+    <string name="selectBarcodeTitle">Vali triipkood</string>
+    <string name="settings_light_theme">Hele kujundus</string>
+    <string name="settings_dark_theme">Tume kujundus</string>
+    <string name="thumbnailDescription">Pisipilt</string>
+    <string name="settings_theme">Kujundus</string>
+    <string name="settings_card_orientation">Triipkoodi suund</string>
+    <string name="settings_follow_sensor_orientation">Alati pööra (eira süsteemset paigutust)</string>
+    <string name="settings_landscape_orientation">Rõhtvaade</string>
+    <string name="settings_display_barcode_max_brightness">Eredam triipkoodivaade</string>
+    <string name="app_license">Copyleft-tüüpi autoriõiguste alusel loodud avatud lähtekoodiga tarkvara, mis on avaldatud GPLv3+ all</string>
+    <string name="settings_keep_screen_on">Hoia ekraan sisselülitatuna</string>
+    <string name="cardShortcut">Kaardi kiirviide</string>
+    <string name="noCardsMessage">Esmalt lisa kaart</string>
+    <string name="barcodeImageDescriptionWithType">Kaardi <xliff:g>%s</xliff:g> tiipkood</string>
+    <string name="noCardExistsError">Seda kaarti ei leidu</string>
+    <string name="failedParsingImportUriError">Impordi aadressi töötlemine ei õnnestunud</string>
+    <string name="importExport">Import/eksport</string>
+    <string name="exportName">Ekspordi</string>
+    <string name="importExportHelp">Andmete varundamine võimaldab sul neid tõsta mõnda teise seadmesse.</string>
+    <string name="importSuccessfulTitle">Imporditud</string>
+    <string name="importFailedTitle">Import ei õnnestunud</string>
+    <string name="exportSuccessfulTitle">Eksporditud</string>
+    <string name="exportFailedTitle">Eksportimine ei õnenstunud</string>
+    <string name="exportFailed">Eksportimist ei õnnestunud teha</string>
+    <string name="importing">Impordime…</string>
+    <string name="exporting">Ekspordime…</string>
+    <string name="storageReadPermissionRequired">Selle tegevuse jaoks on vajalikud õigused andmekandalt lugemiseks…</string>
+    <string name="importFailed">Importimist ei õnnestunud teha</string>
+    <string name="cameraPermissionRequired">Selle tegevuse jaoks on vajalikud õigused kaamera kasutamiseks…</string>
+    <string name="permissionReadCardsLabel">Loe Catima kaarte</string>
+    <string name="permissionReadCardsDescription">loe kõiki oma Catima kaarte koos nende üksikasjadega, sealhulgas märkuste ja piltidega</string>
+    <string name="cameraPermissionDeniedTitle">Puudub ligipääs kaamerale</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Triipkoodide skaneerimiseks vajab Catima õigust asutada kaamerat. Õiguste andmiseks klõpsi siin.</string>
+    <string name="exportOptionExplanation">Andmed salvestame sinu valitud asukohta.</string>
+    <string name="importOptionFilesystemTitle">Impordi failisüsteemist</string>
+    <string name="importOptionFilesystemExplanation">Vali vajalik impordifail failisüsteemist.</string>
+    <string name="importOptionFilesystemButton">Vali failisüsteemist</string>
+    <string name="importOptionApplicationTitle">Kasuta muud rakendust</string>
+    <string name="importOptionApplicationExplanation">Kasuta faili avamiseks mõnda muud rakendust või sinu lemmikfailihaldurit.</string>
+    <string name="importOptionApplicationButton">Kasuta muud rakendust</string>
+    <string name="about">Rakenduse teave</string>
+    <string name="app_copyright_short">Autoriõigused © Sylvia van Os ja kaasautorid</string>
+    <string name="about_title_fmt">Teave <xliff:g id="app_name">%s</xliff:g> kohta</string>
+    <string name="debug_version_fmt">Versioon: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_libraries">Kolmandate osapoolte avatud lähtekoodiga teegid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Kolmandate osapoolte avatud lähtekoodiga tarvikud: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="starImage">Lemmikut märkiv täht</string>
+    <string name="settings">Seadistused</string>
+    <string name="settings_system_theme">Süsteemi kujundus</string>
+    <string name="settings_follow_system_orientation">Järgi süsteemset paigutust</string>
+    <string name="settings_portrait_orientation">Püstvaade</string>
+    <string name="settings_lock_on_opening_orientation">Kaardivaate avamisel lukusta paigutus</string>
+    <string name="settings_display_barcode_max_brightness_summary">See on vajalik mõnede skännerite toimimiseks</string>
 </resources>

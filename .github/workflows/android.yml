@@ -64,5 +64,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4.3.6
       with:
-        name: test-results
+        name: test-results-api${{ matrix.api-level }}
         path: app/build/reports

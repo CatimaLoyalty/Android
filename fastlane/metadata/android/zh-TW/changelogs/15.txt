@@ -1,0 +1,2 @@
+- 新增應用程式捷徑支援（Android 7.1+），最近使用的卡片將顯示為捷徑。（PR #145 (https://github.com/brarcher/loyalty-card-locker/pull/145)）
+- 新增一個小工具，其運作方式類似於固定應用程式捷徑，以支援在於 Android 7.1 以下的裝置運作。（PR #142 (https://github.com/brarcher/loyalty-card-locker/pull/142)）

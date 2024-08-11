@@ -1,0 +1,3 @@
+- 支援匯入 Voucher Vault (https://github.com/tim-smart/vouchervault/) 的匯出檔案
+- 新增在檢視會員卡時保持螢幕常亮的選項
+- 新增在檢視會員卡時暫停鎖定螢幕的選項

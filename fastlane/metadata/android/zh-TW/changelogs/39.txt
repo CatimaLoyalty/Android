@@ -1,0 +1,3 @@
+- 修正退出全螢幕時條碼置中的問題 (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- 允許選擇備份匯出位置 (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- 更新翻譯 (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

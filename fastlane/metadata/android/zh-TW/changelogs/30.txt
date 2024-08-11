@@ -1,0 +1,4 @@
+- 新增一個設定來控制顯示條碼時的螢幕亮度 (PR #259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- 新增希臘語翻譯 (PR #252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- 新增斯洛維尼亞語翻譯 (PR #260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- 更新翻譯 (PR #260 (https://github.com/brarcher/loyalty-card-locker/pull/260), PR #254 (https://github.com/brarcher/loyalty-card-locker/pull/254))

@@ -1,0 +1,2 @@
+- 檢視卡片時減少標頭的空間。(PR #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- 停用掃描條碼時的嗶嗶聲。(PR #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

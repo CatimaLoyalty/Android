@@ -1,0 +1,2 @@
+- 修正於 Android SDK 24+ 上使用檔案選擇匯入選項會導致當機的問題。（PR #170 (https://github.com/brarcher/loyalty-card-locker/pull/170)）
+- 新圖示和配色方案。（PR #171 (https://github.com/brarcher/loyalty-card-locker/pull/171)）

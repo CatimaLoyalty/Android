@@ -1,0 +1,2 @@
+- 將最低 SDK 版本從 17 降至 15。(PR #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- 移除僅在單元測試中使用的舊版 Apache 函式庫，因為已經用不到了。(PR #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

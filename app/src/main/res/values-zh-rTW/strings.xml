@@ -288,4 +288,8 @@
     <string name="add_manually_warning_message">對於某些商店，條碼值與卡片上寫的數字並不相同。因此，手動輸入條碼可能並不總是有效。強烈建議使用相機掃描條碼。你還想繼續嗎？</string>
     <string name="spend">花費</string>
     <string name="noCameraFoundGuideText">您的裝置似乎沒有相機鏡頭。如果實際上有相機鏡頭，請嘗試重新啟動此裝置，否則請點選下方的「更多」按鈕，以其它方式新增條碼。</string>
+    <string name="exportCancelled">已取消匯出</string>
+    <string name="importCancelled">已取消匯入</string>
+    <string name="useFrontImage">使用正面圖片</string>
+    <string name="useBackImage">使用背面圖片</string>
 </resources>

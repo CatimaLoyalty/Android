@@ -1,0 +1,2 @@
+- 主畫面現在可以打開一個「關於」對話框，該對話框提供有關應用程式及其在 GitHub 上專案的詳細資訊 (Issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- 允許從外部儲存裝置的 CSV 檔案匯入/匯出會員卡資訊 (Issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), Issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

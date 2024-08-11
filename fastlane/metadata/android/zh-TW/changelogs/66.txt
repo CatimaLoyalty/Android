@@ -1,0 +1,4 @@
+- 支援匯入 Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme) 的匯出檔案
+- 允許從使用者的 Android 圖庫中匯入卡片圖片
+- 修正多行註解被截斷的問題
+- 將隱私對話框中的「謝謝」文字更改為「接受」，因為華為太拘泥細節

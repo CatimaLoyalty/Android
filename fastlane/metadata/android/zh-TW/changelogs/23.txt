@@ -1,0 +1,3 @@
+- 在條碼的開頭/結尾新增空白區域。(PR #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- 新增選項以配置商店名稱字體和背景的顏色。(PR #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- 新增選項以調整卡片列表頁面和單張卡片頁面的字體大小。(PR #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

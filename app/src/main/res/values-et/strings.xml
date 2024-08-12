@@ -86,7 +86,7 @@
     <string name="about_title_fmt">Teave <xliff:g id="app_name">%s</xliff:g> kohta</string>
     <string name="debug_version_fmt">Versioon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_libraries">Kolmandate osapoolte avatud lähtekoodiga teegid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Kolmandate osapoolte avatud lähtekoodiga tarvikud: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Kolmandate osapoolte avatud lähtekoodiga materjalid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="starImage">Lemmikut märkiv täht</string>
     <string name="settings">Seadistused</string>
     <string name="settings_system_theme">Süsteemi kujundus</string>

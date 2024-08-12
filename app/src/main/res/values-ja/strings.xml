@@ -13,9 +13,6 @@
 \nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
     <string name="importCatima">Catimaからインポート</string>
     <string name="accept">承認</string>
-    <string name="privacy_policy_popup_text">プライバシーポリシーの案内:
-\n
-\nこのアプリはユーザーのデータを一切収集しません。</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">インポート元を選択</string>

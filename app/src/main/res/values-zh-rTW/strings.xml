@@ -9,9 +9,6 @@
     <string name="cardId">卡片 ID</string>
     <string name="barcodeType">條碼種類</string>
     <string name="noBarcode">無條碼</string>
-    <string name="privacy_policy_popup_text">隱私權政策（某些應用程式商店需要此條目）: 
-\n
-\n我們並不會收集任何資料！任何人都可以檢視我們的原始碼並驗證這點。</string>
     <string name="star">新增至收藏</string>
     <string name="app_license">公共版權（Copylefted）的自由軟體，許可 GPLv3+</string>
     <string name="unstar">從收藏中移除</string>

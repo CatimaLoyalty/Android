@@ -75,9 +75,6 @@
 \nSukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia ten paspausdami Eksportuoti.</string>
     <string name="importCatima">Importuoti iš Catima</string>
     <string name="accept">Priimti</string>
-    <string name="privacy_policy_popup_text">Privatumo politikos pranešimas (kurio reikalaujama kai kuriose programėlių parduotuvėse):
-\n
-\nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra laisvoji programinė įranga.</string>
     <string name="privacy_policy">Privatumo politika</string>
     <string name="chooseImportType">Importuoti duomenis iš</string>
     <string name="points">Taškai</string>

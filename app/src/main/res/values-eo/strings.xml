@@ -168,9 +168,6 @@
     <string name="expiryStateSentenceExpired">Eksvalidiĝis: <xliff:g>%s</xliff:g></string>
     <string name="balanceParsingFailed">Nevalida saldo</string>
     <string name="chooseImportType">Importi datumojn de</string>
-    <string name="privacy_policy_popup_text">Regularo pri privateco (postulata de iuj aplikaĵejoj):
-\n
-\nNENIUJ DATUMOJ ESTAS KOLEKTATAJ. Iu ajn povas konfirmi tion ĉar nia apo estas libera programaro.</string>
     <string name="importCatima">Importi el Catima</string>
     <string name="settings_green_theme">Verda</string>
     <string name="updateBalance">Ĝisdatigi saldon</string>

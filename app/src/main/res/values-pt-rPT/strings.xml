@@ -133,9 +133,6 @@
     <string name="points">Pontos</string>
     <string name="app_loyalty_card_keychain">Chaveiro de cartão de fidelidade</string>
     <string name="privacy_policy">Política de privacidade</string>
-    <string name="privacy_policy_popup_text">Aviso de política de privacidade (exigido por algumas lojas de aplicações):
-\n
-\nNENHUM DADO É RECOLHIDO DE FORMA ALGUMA, o que qualquer pessoa pode confirmar, já que a nossa aplicação é um software livre de código-fonte aberto.</string>
     <string name="accept">Aceitar</string>
     <string name="importCatima">Importar do Catima</string>
     <string name="importCatimaMessage">Selecione a exportação <i>catima.zip</i> do Catima a importar.

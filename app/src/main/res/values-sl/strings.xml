@@ -206,9 +206,6 @@
     <string name="failedToOpenUrl">Prvo namestite spletni brskalnik</string>
     <string name="welcome">Pozdravljeni v Catimi</string>
     <string name="noGiftCardsGroup">Kreiraj kartice in jim dodeli skupino tukaj.</string>
-    <string name="privacy_policy_popup_text">Obvestilo o politiki zasebnosti (nekatere trgovine aplikacij to zahtevajo):
-\n
-\nPODATKI SE NE ZBIRAJO, kar se lahko preveri v programski kodi, saj je aplikacija prosta programska oprema.</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Izbriši <xliff:g>%d</xliff:g> kartico zvestobe</item>
         <item quantity="two">Izbriši <xliff:g>%d</xliff:g> kartici zvestobe</item>

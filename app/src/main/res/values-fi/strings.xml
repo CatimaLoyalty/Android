@@ -23,9 +23,6 @@
 \nLuo se Catima-sovelluksen Tuo/vie-valikosta painamalla siellä ensin Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
     <string name="accept">Hyväksy</string>
-    <string name="privacy_policy_popup_text">Tietosuojaseloste (joidenkin sovelluskauppojen vaatimus):
-\n
-\nMITÄÄN TIETOJA EI KERÄTÄ LAINKAAN, minkä kuka tahansa voi vahvistaa, koska sovelluksemma on vapaa ohjelmisto.</string>
     <string name="privacy_policy">Tietosuojakäytäntö</string>
     <string name="app_loyalty_card_keychain">Kanta-asiakaskortin avainnippu</string>
     <string name="chooseImportType">Tuo tietoja kohteesta</string>

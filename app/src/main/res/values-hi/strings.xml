@@ -110,9 +110,6 @@
         <item quantity="one"><xliff:g>%s</xliff:g> बिंदु</item>
         <item quantity="other"><xliff:g>%s</xliff:g> अंक</item>
     </plurals>
-    <string name="privacy_policy_popup_text">निजता नीति नोटिस (कुछ ऐप स्टोर के लिए आवश्यक):
-\n
-\nकोई भी डेटा एकत्र नहीं किया जाता है, जिसकी पुष्टि कोई भी कर सकता है क्योंकि हमारा ऐप मुफ्त सॉफ्टवेयर है।</string>
     <string name="importCatimaMessage">आयात करने के लिए, <i>catima.zip</i> फाइल को चुने जो की Catima से निर्यात किया गया था.
 \nदूसरे Catima ऍप के आयात/निर्यात मेनू से निर्यात बटन दबाकर, पहले catima.zip फाइल को बनाये.</string>
     <plurals name="selectedCardCount">

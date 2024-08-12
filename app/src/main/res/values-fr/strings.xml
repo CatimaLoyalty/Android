@@ -80,9 +80,6 @@
     </plurals>
     <string name="groupsList">Groupes : <xliff:g>%s</xliff:g></string>
     <string name="accept">Accepter</string>
-    <string name="privacy_policy_popup_text">Avis sur la politique de confidentialité (exigé par certains magasins d’applications) :
-\n
-\nAUCUNE DONNÉE N’EST COLLECTÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importer les données depuis</string>

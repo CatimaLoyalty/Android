@@ -21,7 +21,6 @@
     <!-- Padding for layouts-->
     <dimen name="activity_scanner_padding">10dp</dimen>
     <dimen name="alert_dialog_content_padding">@dimen/mtrl_alert_dialog_picker_background_inset</dimen>
-    <dimen name="alert_dialog_title_padding">8dp</dimen>
     <!-- The default letter tile text size -->
     <dimen name="tileLetterFontSize">66sp</dimen>
     <dimen name="tileLetterFontSizeForShortcut">48dp</dimen>

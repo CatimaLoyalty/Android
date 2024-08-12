@@ -49,9 +49,6 @@
 \nBaşka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importCatima">Catima\'dan içe aktar</string>
     <string name="accept">Kabul et</string>
-    <string name="privacy_policy_popup_text">Gizlilik politikası bildirimi (bazı uygulama mağazaları için gerekli):
-\n
-\nHİÇBİR VERİ TOPLANMAMAKTADIR ve uygulamamız özgür yazılım olduğu için bunu herkes doğrulayabilir.</string>
     <string name="privacy_policy">Gizlilik Politikası</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Verileri şuradan içe aktar</string>

@@ -95,9 +95,6 @@
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
-    <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (von einigen App-Stores verlangt):
-\n
-\nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.

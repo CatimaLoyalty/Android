@@ -177,9 +177,6 @@
     <string name="turn_flashlight_off">Opriți lanterna</string>
     <string name="show_note">Afișați notița</string>
     <string name="report_error">Raportați o eroare</string>
-    <string name="privacy_policy_popup_text">Înștiințare despre politica de confidențialitate (necesar de către unele magazine de aplicații):
-\n
-\nDATELE NU SUNT COLECTATE, și oricine poate confirma deoarece aplicația noastră este software deschis.</string>
     <string name="switchToBackImage">Schimbați la imaginea spate</string>
     <string name="settings_follow_system_orientation">Urmare sistem</string>
     <string name="reverse">...în ordine inversă</string>

@@ -173,9 +173,6 @@
     <string name="chooseExpiryDate">মেয়াদ শেষ হওয়ার তারিখ মনোনীত করুন</string>
     <string name="moveBarcodeToTopOfScreen">বারকোডটি স্ক্রিনের উপরে উঠিয়ে দিন</string>
     <string name="errorReadingImage">ছবিটি স্ক্যান করা যাচ্ছে না</string>
-    <string name="privacy_policy_popup_text">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি নোটিশ (কিছু অ্যাপ স্টোরের এটি লাগে):
-\n
-\nকোন তথ্য একেবারেই সংগ্রহ করা হয় না, যা যে কেউ নিশ্চিত করতে পারবেন কারন আমাদের অ্যাপ মুক্ত সফটওয়্যার।</string>
     <string name="balance">ব্যালান্স</string>
     <string name="points">পয়েন্ট</string>
     <string name="chooseImportType">এখান থেকে তথ্য আমদানি করুন</string>

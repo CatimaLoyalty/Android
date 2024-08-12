@@ -104,9 +104,6 @@
     <string name="chooseImportType">Uvoz podataka iz</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Politika privatnosti</string>
-    <string name="privacy_policy_popup_text">Obaveštenje o politici privatnosti (zahtevano od nekih prodavnica aplikacija): 
-\n
-\nPODACI SE UOPŠTE NE PRIKUPLJAJU, što svako može proveriti jer je naša aplikacija slobodni softver.</string>
     <string name="accept">Prihvati</string>
     <string name="importCatima">Uvezi iz Catime</string>
     <string name="importFidme">Uvoz iz FidMe</string>

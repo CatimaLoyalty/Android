@@ -75,9 +75,6 @@
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
     <string name="points">Баллы</string>
     <string name="addManually">Ручной ввод номера</string>
-    <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
-\n
-\nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Откуда импортировать данные</string>

@@ -137,10 +137,7 @@
     <string name="balance">Saldo</string>
     <string name="chooseImportType">Uvezi podatke iz</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy_popup_text">Obavijest o politici privatnosti (obavezna za neke trgovine aplikacija):
-\n
-\nPODACI SE UOPĆE NE PRIKUPLJAJU, što svatko može potvrditi budući da je naša aplikacija slobodan softver.</string>
-    <string name="importCatimaMessage">Odaberi tvoju iz Catima izvezenu <i>catima.zip</i> datoteku koju želiš uvesti. 
+    <string name="importCatimaMessage">Odaberi tvoju iz Catima izvezenu <i>catima.zip</i> datoteku koju želiš uvesti.
 \nStvori je putem izbornika „Uvoz/Izvoz” jedne druge Catima aplikacije pritiskom na „Izvoz”.</string>
     <string name="height">Visina:</string>
     <string name="switchToFrontImage">Prebaci na prednju sliku</string>

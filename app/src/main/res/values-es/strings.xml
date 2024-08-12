@@ -128,9 +128,6 @@
     <string name="importFidme">Importar desde FidMe</string>
     <string name="importCatima">Importar desde Catima</string>
     <string name="accept">Aceptar</string>
-    <string name="privacy_policy_popup_text">Aviso de política de privacidad (requerido por algunas tiendas de apps):
-\n
-\nNINGÚN DATO SE RECOPILA, cualquiera puede confirmar ya que nuestra aplicación es software libre.</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="app_loyalty_card_keychain">Llavero con tarjeta de fidelización</string>
     <string name="chooseImportType">Importar datos de</string>

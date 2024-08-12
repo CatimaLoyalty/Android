@@ -115,9 +115,6 @@
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>
     <string name="app_loyalty_card_keychain">Lοyalty Card Keychain</string>
-    <string name="privacy_policy_popup_text">Σημείωμα πολιτικής απορρήτου ( υποχρεωτικό σε κάποια \"μαγαζιά\" εφαρμογών)
-\n
-\nΜΗΔΕΝΙΚΆ ΔΕΔΟΜΈΝΑ ΣΥΛΛΈΓΟΝΤΑΙ, ο οποιοσδήποτε μπορεί να το επιβεβαιώσει μιας και η εφαρμογή είναι ελεύθερο λογισμικό.</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> κάρτα ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκε)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> κάρτες ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκαν)</item>

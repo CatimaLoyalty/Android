@@ -133,9 +133,6 @@
     <string name="exportSuccessfulTitle">Exporten lyckades</string>
     <string name="scanCardBarcode">Skanna streckkod</string>
     <string name="settings_system_theme">Systemtemat</string>
-    <string name="privacy_policy_popup_text">Notis rörande integritetspolicy (krävs av vissa appbutiker):
-\n
-\nINGEN DATA ALLS SAMLAS IN, vilket vem som helst kan bekräfta eftersom vår app är fri programvara.</string>
     <string name="privacy_policy">Integritetspolicy</string>
     <string name="expiryStateSentenceExpired">Förföll: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">Välj förfallodatum</string>

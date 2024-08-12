@@ -115,9 +115,6 @@
         <item quantity="other"><xliff:g>%s</xliff:g> punkti</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy_popup_text">Paziņojums par privātuma politiku (nepieciešams dažiem lietotņu veikaliem):
-\n
-\nNEKĀDI DATI NETIEK VĀKTI, par ko var pārliecināties ikkatrs, jo mūsu lietotne ir brīva, atvērta koda programmatūra.</string>
     <string name="importCatimaMessage">Izvēlieties jūstu <i>catima.zip</i> failu importam.
 \nFailu var izveidot eksportējot datus no Catima lietotnes citā ierīce, sadaļā \"Imports/Eksports\".</string>
     <string name="importLoyaltyCardKeychainMessage">Importam izvēlieties Jūsu <i>LoyaltyCardKeychain.csv</i> eksporta failu no Loyalty Card Keychain.

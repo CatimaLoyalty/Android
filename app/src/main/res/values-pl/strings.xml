@@ -118,9 +118,6 @@
 \nUtwórz go z menu Importuj/Eksportuj innej aplikacji Catima, wpierw klikając tam Eksportuj.</string>
     <string name="importCatima">Importuj z Catima</string>
     <string name="accept">Zaakceptuj</string>
-    <string name="privacy_policy_popup_text">Informacja o polityce prywatności (wymagana przez niektóre sklepy z aplikacjami):
-\n
-\nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="app_loyalty_card_keychain">Brelok dla twoich kart lojalnościowych</string>
     <string name="chooseImportType">Importuj dane z</string>

@@ -94,9 +94,6 @@
     <string name="app_loyalty_card_keychain">Kundekortknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått</string>
-    <string name="privacy_policy_popup_text">Personvernspraksis-notis (påkrevd av noen programbutikker):
-\n
-\nINGEN DATA SAMLES INN I DET HELE TATT, noe alle kan bekreftes siden programmet vårt er fri programvare.</string>
     <string name="accept">Godta</string>
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="importFidme">Importer fra FidMe</string>

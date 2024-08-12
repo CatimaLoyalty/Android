@@ -217,9 +217,6 @@
     <string name="chooseValidFromDate">Zvoliť dátum platné od</string>
     <string name="validFromSentence">Platnosť od: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">Pre túto akciu je potrebné oprávnenie na prístup k fotoaparátu…</string>
-    <string name="privacy_policy_popup_text">Oznámenie o zásadách ochrany osobných údajov (vyžaduje sa v niektorých obchodoch s aplikáciami):
-\n
-\nNEZHROMAŽĎUJÚ SA VÔBEC ŽIADNE ÚDAJE, čo môže ktokoľvek potvrdiť, keďže naša aplikácia je slobodný softvér.</string>
     <string name="importLoyaltyCardKeychainMessage">Vyberte svoj export <i>LoyaltyCardKeychain.csv</i> z Kľúčenky vernostných kariet, ktorý chcete importovať.
 \nVytvorte ho z ponuky Import/Export v aplikácii Loyalty Card Keychain tak, že tam najprv stlačíte tlačidlo Exportovať.</string>
     <string name="importVoucherVaultMessage">Vyberte svoj <i>vouchervault.json</i> export z Trezoru poukážok pre import.

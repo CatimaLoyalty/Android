@@ -198,9 +198,6 @@
     <string name="groupsList">Csoportok: <xliff:g>%s</xliff:g></string>
     <string name="importCatimaMessage">Válassza ki az exportált <i>catima.zip</i> fájlt az importáláshoz.
 \nLétrehozhatja az Importálás/exportálás menüből az Exportálást megnyomva egy másik Catima alkalmazásban.</string>
-    <string name="privacy_policy_popup_text">Adatvédelmi irányelvek nyilatkozata (némely alkalmazásbolt kéri):
-\n
-\nSEMMILYEN ADAT NEM KERÜL GYŰJTÉSRE, amit bárki ellenőrizhet, hiszen az alkalmazás szabad szoftver.</string>
     <string name="importFidmeMessage">Válassza ki a FidMeből exportált <i>fidme-export-request-xxxxxx.zip</i> fájl majd importálja be, és utána válassza a kézi vonalkódbeírást.
 \nEzt hozza létre a FidMe-profiljában az Adatvédelem rész választásával, majd a Saját adatok kinyerése megnyomásával.</string>
     <string name="settings_card_orientation">Vonalkód tájolása</string>

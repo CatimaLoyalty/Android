@@ -277,9 +277,6 @@
     <string name="privacy_policy">Política de Privacidade</string>
     <string name="currency">Moeda</string>
     <string name="chooseImportType">Importar dados de</string>
-    <string name="privacy_policy_popup_text">Declaração de Política de Privacidade
-\n
-\nNENHUM DADO É COLETADO, o que pode ser confimado por qualquer pessoa já que o nosso aplicativo é software livre.</string>
     <string name="importCatima">Importar do Catima</string>
     <string name="balanceParsingFailed">Saldo inválido</string>
     <string name="accept">Aceitar</string>

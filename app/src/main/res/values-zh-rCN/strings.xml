@@ -32,9 +32,6 @@
 \n先按另一个 Catima 应用程序导入/导出菜单中“导出”创建文件。</string>
     <string name="importCatima">从 Catima 导入</string>
     <string name="accept">接受</string>
-    <string name="privacy_policy_popup_text">隐私政策通知（一些应用程序商店要求）。
-\n
-\n本应用没有收集任何数据，任何人都可以查阅源码来确认，因为本软件是自由软件。</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="app_loyalty_card_keychain">会员卡卡包</string>
     <string name="chooseImportType">数据导入源</string>

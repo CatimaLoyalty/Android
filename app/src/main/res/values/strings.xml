@@ -122,7 +122,6 @@
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
-    <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
@@ -181,7 +180,6 @@
     <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nNO DATA IS COLLECTED AT ALL, which anyone can confirm since our app is libre software.</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
     <string name="importCatimaMessage">Select your <i>catima.zip</i> export from Catima to import.

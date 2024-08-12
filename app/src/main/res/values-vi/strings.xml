@@ -112,9 +112,6 @@
     <string name="turn_flashlight_off">Tắt đèn pin</string>
     <string name="show_note">Hiện ghi chú</string>
     <string name="report_error">Báo Lỗi</string>
-    <string name="privacy_policy_popup_text">Thông báo về chính sách quyền riêng tư (yêu cầu bởi vài cửa hàng ứng dụng)
-\n
-\nKHÔNG BẤT KỲ DỮ LIỆU NÀO BỊ THU THẬP, bất cứ ai cũng có thể xác nhận điều này vì ứng dụng của chúng tôi là phần mền mã nguồn mở.</string>
     <string name="passwordRequired">Xin mời nhập mật khẩu</string>
     <string name="settings_follow_system_orientation">Hệ thống theo dõi</string>
     <string name="intent_import_card_from_url_share_text">Tôi muốn chia sẻ thẻ với bạn</string>

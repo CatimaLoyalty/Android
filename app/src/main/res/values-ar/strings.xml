@@ -237,9 +237,6 @@
     <string name="importLoyaltyCardKeychainMessage">حدد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد.
 \nقم بإنشائه من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
     <string name="importStocard">الاستيراد من Stocard</string>
-    <string name="privacy_policy_popup_text">إشعار سياسة الخصوصية (مطلوب من قبل بعض متاجر التطبيقات):
-\n
-\nلا يتم جمع أي بيانات على الإطلاق ، والتي يمكن لأي شخص تأكيدها لأن تطبيقنا هو برنامج حر.</string>
     <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة. الرجاء الإبلاغ عن هذا.</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
     <string name="on_google_play">على Google Play</string>

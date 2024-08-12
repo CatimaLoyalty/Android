@@ -51,9 +51,6 @@
     <string name="importFidme">Внасяне от FidMe</string>
     <string name="exportOptionExplanation">Данните ще бъдат запазени на място по ваш избор.</string>
     <string name="accept">Приемане</string>
-    <string name="privacy_policy_popup_text">Политика за личните данни (необходима от някои магазини за приложения):
-\n
-\nНЕ СЕ СЪБИРАТ ИЗОБЩО НИКАКВИ ДАННИ, което може да бъде потвърдено, защото приложението е със свободен код.</string>
     <string name="privacy_policy">Политика за личните данни</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_off">Изключва светкавицата</string>

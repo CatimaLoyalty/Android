@@ -94,9 +94,6 @@
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Schermvergrendeling uitschakelen</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
-    <string name="privacy_policy_popup_text">Privacybeleid (vereist door sommige appwinkels):
-\n
-\nER WORDEN GEEN GEGEVENS VERZAMELD. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
     <string name="privacy_policy">Privacybeleid</string>
     <string name="accept">Accepteren</string>
     <string name="importVoucherVaultMessage">Kies het te importeren <i>vouchervault.json</i>-exportbestand.

@@ -1,0 +1,4 @@
+- Dlhé názvov obchodov v náhľade budú zalomené v niekoľkých riadkoch
+- Možnosť použiť predný alebo zadný obrázok karty v menu miniatúry
+- Malé opravy importu/exportu
+- Malé opravy UI

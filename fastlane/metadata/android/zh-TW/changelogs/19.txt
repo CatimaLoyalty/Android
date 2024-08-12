@@ -1,0 +1,3 @@
+- 修正匯入某些類型的損壞 CSV 檔案時發生的崩潰。（PR #177 (https://github.com/brarcher/loyalty-card-locker/pull/177)）
+- 修正直接從檔案系統匯入備份的問題。（PR #180 (https://github.com/brarcher/loyalty-card-locker/pull/180)）
+- 修正從某些類型的內容提供者匯入備份的問題。（PR #179 (https://github.com/brarcher/loyalty-card-locker/pull/179)）

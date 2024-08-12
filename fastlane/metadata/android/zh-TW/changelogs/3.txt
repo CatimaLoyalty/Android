@@ -1,0 +1,14 @@
+- 現在正式支援以下一維和二維條碼：
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- 產生的條碼更大，更易於掃描設備掃描

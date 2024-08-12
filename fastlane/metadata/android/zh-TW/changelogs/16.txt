@@ -1,0 +1,5 @@
+- 新增在新增或編輯卡片時將捷徑新增至主畫面的支援。（PR #155 (https://github.com/brarcher/loyalty-card-locker/pull/155)）
+- 移除小工具，因為它是一個較差的捷徑替代品。（PR #155 (https://github.com/brarcher/loyalty-card-locker/pull/155)）
+- 修正於 Android 7+ 上匯出備份的問題。（PR #153 (https://github.com/brarcher/loyalty-card-locker/pull/153)）
+- 匯出備份資料時回報更準確的 MIME 類型。（PR #156 (https://github.com/brarcher/loyalty-card-locker/pull/156)）
+- 修正無法編輯卡片的錯誤。（PR #155 (https://github.com/brarcher/loyalty-card-locker/pull/155)）

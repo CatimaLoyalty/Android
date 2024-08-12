@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="delete">Forigi</string>
-    <string name="noBarcode">Sen strekokodo</string>
-    <string name="barcodeType">Tipo de strekokodo</string>
+    <string name="noBarcode">Sen strikodo</string>
+    <string name="barcodeType">Tipo de strikodo</string>
     <string name="cardId">Identigilo de karto</string>
     <string name="settings">Agordoj</string>
-    <string name="selectBarcodeTitle">Elekti strekokodon</string>
+    <string name="selectBarcodeTitle">Elekti strikodon</string>
     <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Pri <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopirajto © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopirajto © 2019–<xliff:g>%d</xliff:g> Sylvia van Os kaj kontribuantoj</string>
     <string name="importOptionFilesystemButton">El dosiersistemo</string>
     <string name="importOptionFilesystemTitle">Enporti el dosiersistemo</string>
-    <string name="exportFailedTitle">Elportado malsukcesis</string>
-    <string name="exportSuccessfulTitle">Elportado sukcesis</string>
-    <string name="importFailedTitle">Enportado malsukcesis</string>
-    <string name="importSuccessfulTitle">Enportado sukcesis</string>
-    <string name="exporting">Elportante…</string>
-    <string name="importing">Enportante…</string>
+    <string name="exportFailedTitle">Eksportado malsukcesis</string>
+    <string name="exportSuccessfulTitle">Eksportado sukcesis</string>
+    <string name="importFailedTitle">Importado malsukcesis</string>
+    <string name="importSuccessfulTitle">Importado sukcesis</string>
+    <string name="exporting">Eksportante…</string>
+    <string name="importing">Importante…</string>
     <string name="exportName">Elporti</string>
-    <string name="importExport">Enporti/elporti</string>
+    <string name="importExport">Importi/eksporti</string>
     <string name="addCardTitle">Aldoni karton</string>
     <string name="editCardTitle">Redakti karton</string>
     <string name="sendLabel">Sendi…</string>
@@ -28,7 +28,7 @@
     <string name="photos">Fotoj</string>
     <string name="points">Poentoj</string>
     <string name="currency">Valuto</string>
-    <string name="editBarcode">Redakti strekokodon</string>
+    <string name="editBarcode">Redakti strikodon</string>
     <string name="card">Karto</string>
     <string name="never">Neniam</string>
     <string name="groupsList">Grupoj: <xliff:g>%s</xliff:g></string>
@@ -50,37 +50,254 @@
     <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
     <string name="deleteTitle">Forigi karton</string>
     <string name="settings_display_barcode_max_brightness">Heligi barcode vido</string>
-    <string name="starImage">Preferata stelo</string>
-    <string name="thumbnailDescription">Bildeto por karto</string>
+    <string name="starImage">Stelmarko</string>
+    <string name="thumbnailDescription">Bildeto</string>
     <string name="app_copyright_old">Bazita sur Lojaleco Karto Keychain
-\nkopirajto © 2016-2020 Branden Archer.</string>
-    <string name="importOptionApplicationButton">Uzi alian app</string>
-    <string name="importOptionApplicationExplanation">Uzi ajna app aŭ via preferata dosiera # mana\? ero por malfermi dosieron.</string>
+\nkopirajto © 2016-2020 Branden Archer</string>
+    <string name="importOptionApplicationButton">Uzi alian apon</string>
+    <string name="importOptionApplicationExplanation">Uzi ajnan apon aŭ vian preferatan dosiermastrumilon por malfermi dosieron.</string>
     <string name="importOptionApplicationTitle">Uzi alian app</string>
     <string name="importOptionFilesystemExplanation">Elektu specifa dosiero de la dosiersistemo.</string>
     <string name="exportOptionExplanation">La datumoj estos skribita al loko de via elekto.</string>
-    <string name="exportFailed">Ne povis eksporti kartoj</string>
-    <string name="importFailed">Ne povis importi kartoj</string>
-    <string name="importExportHelp">Subtenanta supre vian kartoj permesas vin movi ilin al alia aparato.</string>
-    <string name="failedParsingImportUriError">Ne eblis analizi la importado URI</string>
-    <string name="noCardExistsError">Ne eblis trovi karto</string>
-    <string name="noCardsMessage">Aldoni karto unua</string>
+    <string name="exportFailed">Ne povis fari eksportadon</string>
+    <string name="importFailed">Ne povis fari importadon</string>
+    <string name="importExportHelp">Fari savkopion de viaj datumoj permesas movi ilin al alia aparato.</string>
+    <string name="failedParsingImportUriError">Ne eblis analizi la URI de la importado</string>
+    <string name="noCardExistsError">Ne eblis trovi tiun karton</string>
+    <string name="noCardsMessage">Aldonu karton unue</string>
     <string name="cardShortcut">Karto Mallongirejo</string>
-    <string name="scanCardBarcode">Scintigrafio Barcode Card</string>
+    <string name="scanCardBarcode">Skani strikodon</string>
     <string name="share">Interŝanĝado</string>
-    <string name="star">Aldoni al miaj plej ŝatataj</string>
+    <string name="star">Aldoni al miaj markitaj</string>
     <string name="settings_keep_screen_on">Teni sur ekrano</string>
-    <string name="importSuccessful">Karto datumo importitaj</string>
-    <string name="enter_group_name">Eniri nomo de la grupo</string>
-    <string name="noGroups">Klaki la + plus butonon por aldoni grupoj por categorization unua.</string>
+    <string name="importSuccessful">Datumoj importitaj</string>
+    <string name="enter_group_name">Entajpu nomo de la grupo</string>
+    <string name="noGroups">Klaki la + plus butonon por aldoni grupojn por enkategoriigo.</string>
     <string name="all">Ĉiuj</string>
     <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>
-    <string name="exportSuccessful">Karto datumo eksportita</string>
-    <string name="noGroupCards">Ĉi tiu grupo ne enhavas ajnan kartoj</string>
-    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu uzi menuo \" ⋮\".</string>
+    <string name="exportSuccessful">Datumoj eksportitaj</string>
+    <string name="noGroupCards">Ĉi tiu grupo estas malplena</string>
+    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu el la menuo \" ⋮\".</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektita</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektitaj</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> elektita</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> elektitaj</item>
     </plurals>
     <string name="app_name">Catima</string>
+    <string name="barcodeImageDescriptionWithType">Bildo <xliff:g>%s</xliff:g> strikodo</string>
+    <string name="cameraPermissionRequired">Permeso atingi fotilon estas bezonata por ĉi tiu ago…</string>
+    <string name="permissionReadCardsLabel">Legi Catima kartojn</string>
+    <string name="noMatchingGiftCards">Neniu rezulto. Provu ŝanĝi vian serĉon.</string>
+    <string name="noGiftCardsGroup">Kreu kartojn kaj poste atribuu ilin al la grupo ĉi tie.</string>
+    <string name="storageReadPermissionRequired">Permeso legi stokadon estas bezonata por ĉi tiu ago…</string>
+    <string name="unstar">Forigi de miaj markitaj</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Forigi <xliff:g>%d</xliff:g> karton</item>
+        <item quantity="other">Forigi <xliff:g>%d</xliff:g> kartojn</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Forigi ĉi tiun <xliff:g>%d</xliff:g> karton daŭre?</item>
+        <item quantity="other">Forigi ĉi tiujn <xliff:g>%d</xliff:g> kartojn daŭre?</item>
+    </plurals>
+    <string name="expiryDate">Valida ĝis</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="noBarcodeFound">Ne eblis trovi strikodon</string>
+    <string name="balance">Saldo</string>
+    <string name="moveBarcodeToTopOfScreen">Movi la strekodon al la supro de la ekrano</string>
+    <string name="errorReadingImage">Ne eblis legi bildon</string>
+    <string name="settings_brown_theme">Bruna</string>
+    <string name="showMoreInfo">Montri informojn</string>
+    <string name="on_github">sur GitHub</string>
+    <string name="archive">Enarkivigi</string>
+    <string name="duplicateCard">Duoblaĵo</string>
+    <string name="unarchived">Karto elarkivigita</string>
+    <string name="archived">Karto enarkivigita</string>
+    <string name="failedLaunchingPhotoPicker">Ne povis trovi subtenatan galerian apon</string>
+    <string name="failedToOpenUrl">Unue instalu retumilon</string>
+    <string name="importCards">Importi kartojn</string>
+    <string name="switchToBackImage">Ŝanĝi al malantaŭa bildo</string>
+    <string name="setBarcodeHeight">Starigi altecon de strikodo</string>
+    <string name="icon_header_click_text">Premi longe por redakti bildeton</string>
+    <string name="show_validity">Montri validecon</string>
+    <string name="addFromImage">Elekti bildon el la galerio</string>
+    <string name="shortcutSelectCard">Elekti karton</string>
+    <string name="chooseValidFromDate">Elekti startdaton de valideco</string>
+    <string name="privacy_policy">Regularo pri privateco</string>
+    <string name="chooseExpiryDate">Elektu findaton de valideco</string>
+    <string name="group_updated">Grupo ĝisdatigita</string>
+    <string name="leaveWithoutSaveTitle">Eliri</string>
+    <string name="moveDown">Movi malsupren</string>
+    <string name="leaveWithoutSaveConfirmation">Eliri sen konservi?</string>
+    <string name="validFromDate">Valida ekde</string>
+    <string name="accept">Akcepti</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="settings_sky_blue_theme">Ĉielblua</string>
+    <string name="unarchive">Elarkivigi</string>
+    <string name="switchToBarcode">Ŝanĝi al strikodo</string>
+    <string name="currentBalanceSentence">Nuna saldo: <xliff:g>%s</xliff:g></string>
+    <string name="height">Alteco:</string>
+    <string name="settings_category_title_general">Ĝenerala</string>
+    <string name="settings_category_title_privacy">Privateco</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punkto</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punktoj</item>
+    </plurals>
+    <string name="group_edit">Redakti grupon</string>
+    <string name="updateBalanceTitle">Kiom vi elspezis aŭ ricevis?</string>
+    <string name="updateBalanceHint">Entajpi kvanton</string>
+    <string name="previousCard">Antaŭa</string>
+    <string name="nextCard">Sekva</string>
+    <string name="reverse">inversi la ordon</string>
+    <string name="translate_platform">sur Weblate</string>
+    <string name="failedToRetrieveImageFile">Malsukcesis ricevi bildodosieron</string>
+    <string name="help_translate_this_app">Helpi traduki ĉi tiun apon</string>
+    <string name="welcome">Bonvenon al Catima</string>
+    <string name="donate">Doni</string>
+    <string name="validFromSentence">Valida ekde: <xliff:g>%s</xliff:g></string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Preventas ekranŝloson dum rigardo al karto</string>
+    <string name="settings_allow_content_provider_read_summary">Apoj devos peti permeson por ricevi aliron</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> karto</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartoj</item>
+    </plurals>
+    <string name="group_name_already_in_use">Gruponomo jam uzata</string>
+    <string name="group_name_is_empty">Gruponomo devas ne esti malplena</string>
+    <string name="deleteConfirmationGroup">Forigi grupon?</string>
+    <string name="failedOpeningFileManager">Unue instalu dosiermastrumilon.</string>
+    <string name="addManually">Entajpi la strikodon permane</string>
+    <string name="editGroup">Redaktante grupon: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Eksvalidiĝis: <xliff:g>%s</xliff:g></string>
+    <string name="balanceParsingFailed">Nevalida saldo</string>
+    <string name="chooseImportType">Importi datumojn de</string>
+    <string name="privacy_policy_popup_text">Regularo pri privateco (postulata de iuj aplikaĵejoj):
+\n
+\nNENIUJ DATUMOJ ESTAS KOLEKTATAJ. Iu ajn povas konfirmi tion ĉar nia apo estas libera programaro.</string>
+    <string name="importCatima">Importi el Catima</string>
+    <string name="settings_green_theme">Verda</string>
+    <string name="settings_grey_theme">Griza</string>
+    <string name="updateBalance">Ĝisdatigi saldon</string>
+    <string name="barcodeLongPressMessage">Nur bildoj povas esti malfermitaj en la galeria apo</string>
+    <string name="sort_by_name">Nomo</string>
+    <string name="sort_by_most_recently_used">Plej laste uzitaj</string>
+    <string name="sort_by_expiry">Dato de eksvalidiĝo</string>
+    <string name="sort_by">Ordigi laŭ</string>
+    <string name="version_history">Versio historio</string>
+    <string name="credits">Dankoj</string>
+    <string name="license">Permesilo</string>
+    <string name="and_data_usage">kaj datumuzado</string>
+    <string name="rate_this_app">Taksi ĉi tiun apon</string>
+    <string name="report_error">Raporti eraron</string>
+    <string name="starred">Markitaj</string>
+    <string name="newBalanceSentence">Nova saldo: <xliff:g>%s</xliff:g></string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Montri arkivitan (<xliff:g>%1$d</xliff:g> karton)</item>
+        <item quantity="other">Montri arkivitajn (<xliff:g>%1$d</xliff:g> kartojn)</item>
+    </plurals>
+    <string name="anyDate">Iam ajn</string>
+    <string name="switchToFrontImage">Ŝanĝi al antaŭa bildo</string>
+    <string name="openFrontImageInGalleryApp">Malfermi la antaŭan bildon en galeria apo</string>
+    <string name="openBackImageInGalleryApp">Malfermi la malantaŭan bildon en galeria apo</string>
+    <string name="show_name_below_image_thumbnail">Montri nomon sub la bildeto</string>
+    <string name="show_note">Montri noton</string>
+    <string name="settings_category_title_cards">Kartoj</string>
+    <string name="action_display_options">Agordoj de montrado</string>
+    <string name="show_archived_cards">Montri arkivitajn kartojn</string>
+    <string name="view_online">Vidi enrete</string>
+    <string name="action_more_options">Pliaj opcioj</string>
+    <string name="settings_keep_screen_on_summary">Malŝaltas tempolimon de la ekrano dum rigardo al karto</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Preventi la ekranŝloson</string>
+    <string name="settings_allow_content_provider_read_title">Permesi al aliaj apoj aliri miajn datumojn</string>
+    <string name="moveUp">Movi supren</string>
+    <string name="expiryStateSentence">Valida ĝis: <xliff:g>%s</xliff:g></string>
+    <string name="app_contributors">Ebligita de: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">Ordigi</string>
+    <string name="source_repository">Koda deponejo</string>
+    <string name="on_google_play">sur Google Play</string>
+    <string name="include_if_asking_support">Si vi volas peti subtenon, inkluzivu la sekvan informon:</string>
+    <string name="options">Opcioj</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> karto (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartoj (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+    </plurals>
+    <string name="show_balance">Montri saldon</string>
+    <string name="addWithoutBarcode">Aldoni karton sen strikodo</string>
+    <string name="permissionReadCardsDescription">legi viajn Catima-kartojn kaj ĉiujn iliajn detalojn, inkluzive de notoj kaj bildoj</string>
+    <string name="cameraPermissionDeniedTitle">Fotilo neatingebla</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Por skani strikodojn Catima bezonas atingorajton al via fotilo. Klaku ĉi tie por ŝanĝi viajn permesajn agordojn.</string>
+    <string name="app_copyright_short">Kopirajto © Sylvia van Os kaj kontribuantoj</string>
+    <string name="settings_card_orientation">Orientiĝo de strikodo</string>
+    <string name="settings_follow_system_orientation">Laŭ la sistemo</string>
+    <string name="settings_portrait_orientation">Vertikala</string>
+    <string name="settings_landscape_orientation">Horizontala</string>
+    <string name="settings_display_barcode_max_brightness_summary">Bezonata por ke iuj skaniloj funkciu</string>
+    <string name="unsupportedBarcodeType">Ne eblas montri ĉi tiun strikodspecon. Ĝi eble estos subtenata en posta versio de la apo.</string>
+    <string name="importVoucherVaultMessage">Elektu la <i>vouchervault.json</i> eksporton de Voucher Vault kiun vi volas importi.
+\nKreu ĝin unue elektante \"Export\" en Voucher Vault.</string>
+    <string name="sameAsCardId">Sama kiel la identigo</string>
+    <string name="setBarcodeId">Starigi la valoron de la strikodo</string>
+    <string name="barcodeId">Valoro de la strikodo</string>
+    <string name="passwordRequired">Bonvolu entajpi la pasvorton</string>
+    <string name="exportPasswordHint">Entajpi pasvorton</string>
+    <string name="settings_oled_dark_summary">Malpligrandigas baterian uzadon sur OLED-ekranoj</string>
+    <string name="selectColor">Elekti koloron</string>
+    <string name="setIcon">Starigi bildeton</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Rozkolora</string>
+    <string name="field_must_not_be_empty">Kampo devas ne esti malplena</string>
+    <string name="manually_enter_barcode_instructions">Entajpu la identigilon aŭ tekston sur via karto kaj premu la strikodon kiu aspektas kiel tiu sur via karto.</string>
+    <string name="importStocardMessage">Elektu la <i>***.zip</i> eksoporton de Stocard kiun vi volas importi.
+\nAkiru ĝin sendante retpoŝton al support@stocardapp.com petante eksporton de viaj datumoj.</string>
+    <string name="turn_flashlight_off">Malŝalti poŝlampon</string>
+    <string name="add_manually_warning_title">Skani estas rekomendata</string>
+    <string name="continue_">Daŭrigi</string>
+    <string name="settings_oled_dark">Pura nigra fono por malhela temo</string>
+    <string name="importLoyaltyCardKeychain">Importi el Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Elektu la <i>fidme-export-request-xxxxxx.zip</i> exporton de FidMe kiun vi volas importi kaj poste elektu la tipojn de strikodo permane.
+\nKreu ĝin en via FidMe profilo elektante \"Data Protection\" kaj poste \"Extract my data\".</string>
+    <string name="backImageDescription">Malantaŭa bildo</string>
+    <string name="noCameraFoundGuideText">Via aparato ŝajnas ne havi fotilon. Se jes, provu restartigi la aparaton. Alie, uzu la butonon \"Pliaj opcioj\" sube por aldoni strikodon alimaniere.</string>
+    <string name="wrongValueForBarcodeType">La valoro ne validas por la elektita tipo de strikodo</string>
+    <string name="importCancelled">Importado nuligita</string>
+    <string name="exportCancelled">Eksportado nuligita</string>
+    <string name="settings_theme_color">Koloro de la temo</string>
+    <string name="app_libraries">Liberaj triaj bibliotekoj: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="addFromPdfFile">Elekti PDF-dosieron</string>
+    <string name="failedLaunchingFileManager">Subtenata dosiermastrumilo ne trovebla</string>
+    <string name="errorReadingFile">Dosiero nelegebla</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Kiun el la trovitaj strikodoj vi volas uzi?</string>
+    <string name="pageWithNumber">Paĝo <xliff:g>%d</xliff:g></string>
+    <string name="settings_system_locale">Sistemo</string>
+    <string name="app_resources">Liberaj triaj risurcoj: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="settings_follow_sensor_orientation">Ĉiam turni (ignori la agordojn de la sistemo)</string>
+    <string name="settings_lock_on_opening_orientation">Fiksi al la orientiĝo uzata dum malfermado de la karto</string>
+    <string name="importCatimaMessage">Elektu la <i>catima.zip</i> eksporton kiun vi volas importi.
+\nKreu ĝin unue en la importi/eksporti menuo en alia Catima apo elektante \'eksporti\' tie.</string>
+    <string name="importFidme">Importi el FidMe</string>
+    <string name="exportPassword">Starigi pasvorton por protekti vian eksporton (nedevige)</string>
+    <string name="failedGeneratingShareURL">Komunigebla URL ne generebla. Bonvolu raporti.</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Mi volas kunhavigi kelkajn kartojn kun vi</string>
+    <string name="frontImageDescription">Antaŭa bildo</string>
+    <string name="setFrontImage">Starigi antaŭan bildon</string>
+    <string name="setBackImage">Starigi malantaŭan bildon</string>
+    <string name="removeImage">Forigi bildon</string>
+    <string name="updateBarcodeQuestionTitle">Ĉu ĝisdatigi strikodvaloron?</string>
+    <string name="updateBarcodeQuestionText">Vi ŝanĝis la identigon. Ĉu vi volas ankaŭ ĝisdatigi la strikodon por uzi la saman valoron?</string>
+    <string name="importLoyaltyCardKeychainMessage">Elektu la <i>LoyaltyCardKeychain.csv</i> eksporton de Loyalty Card Keychain kiun vi volas importi.
+\nKreu ĝin unue de la \"Importi/eksporti\" menuo en Loyalty Card Keychain elektante \"eksporti\" tie.</string>
+    <string name="importStocard">Importi de Stocard</string>
+    <string name="importVoucherVault">Importi el Voucher Vault</string>
+    <string name="turn_flashlight_on">Enŝalti poŝlampon</string>
+    <string name="settings_locale">Lingvo</string>
+    <string name="settings_magenta_theme">Maĝenta</string>
+    <string name="settings_violet_theme">Viola</string>
+    <string name="settings_blue_theme">Blua</string>
+    <string name="enter_card_id">Entajpu la identigilon aŭ tekston sur via karto</string>
+    <string name="card_id_must_not_be_empty">Identigilo devas ne esti malplena</string>
+    <string name="add_a_card_in_a_different_way">Aldoni karton alimaniere</string>
+    <string name="add_manually_warning_message">Ĉe kelkaj butikoj la strikodo malsamas la numero skribita sur la karto. Pro tio, enigi strikodon permane eble ne ĉiam funkcias. Estas forte rekomendite skani la strikodon per via fotilo anstataŭe. Ĉu vi ankoraŭ volas daŭrigi?</string>
+    <string name="spend">Elspezi</string>
+    <string name="receive">Ricevi</string>
+    <string name="app_license">Rajtocedita libera softwaro, licencita laŭ GPLv3+</string>
+    <string name="amountParsingFailed">Nevalida kvanto</string>
+    <string name="useBackImage">Uzi la malantaŭan bildon</string>
+    <string name="useFrontImage">Uzi la antaŭan bildon</string>
 </resources>

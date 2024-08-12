@@ -302,4 +302,9 @@
     <string name="failedLaunchingFileManager">Nepodarilo sa nájsť podporovaného správcu súborov</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Ktorý z nájdených čiarových kódov chcete použiť?</string>
     <string name="pageWithNumber">Stránka <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Zdá sa, že Vaše zariadenie nemá fotoaparát. Ak ho má, skúste zariadenie reštartovať. V opačnom prípade, použite tlačidlo Viac možností na pridanie čiarového kódu iným spôsobom.</string>
+    <string name="importCancelled">Import zrušený</string>
+    <string name="exportCancelled">Export zrušený</string>
+    <string name="useFrontImage">Použiť obrázok prednej strany</string>
+    <string name="useBackImage">Použiť obrázok zadnej strany</string>
 </resources>

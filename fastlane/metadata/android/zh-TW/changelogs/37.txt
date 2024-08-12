@@ -1,0 +1,1 @@
+- 修正分享不含背景顏色的卡片問題 (PR #343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

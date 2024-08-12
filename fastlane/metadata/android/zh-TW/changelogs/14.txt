@@ -1,0 +1,3 @@
+- 顯示卡片時新增螢幕旋轉鎖定選單選項。如果已鎖定，螢幕將轉至其「自然」方向，並且阻止進一步的螢幕旋轉。（PR #128 (https://github.com/brarcher/loyalty-card-locker/pull/128)）
+- 如果從主畫面選擇了無法載入的卡片，應用程式將以安全方式失敗並顯示訊息。（PR #132 (https://github.com/brarcher/loyalty-card-locker/pull/132)）
+- 修正找不到介紹精靈的版面配置 ID 的情況。（PR #128 (https://github.com/brarcher/loyalty-card-locker/pull/128)）

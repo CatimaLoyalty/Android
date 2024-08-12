@@ -1,0 +1,4 @@
+- 更新翻譯。(PR #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- 條碼渲染更新：(PR #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - 螢幕旋轉時重新載入卡片檢視活動，確保條碼圖片尺寸正確。
+  - 在更大的空間中渲染一維條碼，使其更好地填滿螢幕。

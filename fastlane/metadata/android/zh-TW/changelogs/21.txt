@@ -1,0 +1,2 @@
+- 改進卡片列表的版面配置。(PR #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- 改進卡片檢視時的版面配置。(PR #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

@@ -168,12 +168,8 @@
     <string name="expiryStateSentenceExpired">Eksvalidiĝis: <xliff:g>%s</xliff:g></string>
     <string name="balanceParsingFailed">Nevalida saldo</string>
     <string name="chooseImportType">Importi datumojn de</string>
-    <string name="privacy_policy_popup_text">Regularo pri privateco (postulata de iuj aplikaĵejoj):
-\n
-\nNENIUJ DATUMOJ ESTAS KOLEKTATAJ. Iu ajn povas konfirmi tion ĉar nia apo estas libera programaro.</string>
     <string name="importCatima">Importi el Catima</string>
     <string name="settings_green_theme">Verda</string>
-    <string name="settings_grey_theme">Griza</string>
     <string name="updateBalance">Ĝisdatigi saldon</string>
     <string name="barcodeLongPressMessage">Nur bildoj povas esti malfermitaj en la galeria apo</string>
     <string name="sort_by_name">Nomo</string>
@@ -188,10 +184,6 @@
     <string name="report_error">Raporti eraron</string>
     <string name="starred">Markitaj</string>
     <string name="newBalanceSentence">Nova saldo: <xliff:g>%s</xliff:g></string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Montri arkivitan (<xliff:g>%1$d</xliff:g> karton)</item>
-        <item quantity="other">Montri arkivitajn (<xliff:g>%1$d</xliff:g> kartojn)</item>
-    </plurals>
     <string name="anyDate">Iam ajn</string>
     <string name="switchToFrontImage">Ŝanĝi al antaŭa bildo</string>
     <string name="openFrontImageInGalleryApp">Malfermi la antaŭan bildon en galeria apo</string>

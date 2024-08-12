@@ -75,9 +75,6 @@
 \nSukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia ten paspausdami Eksportuoti.</string>
     <string name="importCatima">Importuoti iš Catima</string>
     <string name="accept">Priimti</string>
-    <string name="privacy_policy_popup_text">Privatumo politikos pranešimas (kurio reikalaujama kai kuriose programėlių parduotuvėse):
-\n
-\nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra laisvoji programinė įranga.</string>
     <string name="privacy_policy">Privatumo politika</string>
     <string name="chooseImportType">Importuoti duomenis iš</string>
     <string name="points">Taškai</string>
@@ -162,7 +159,6 @@
     <string name="settings_system_locale">Sistemos</string>
     <string name="settings_locale">Kalba</string>
     <string name="settings_brown_theme">Ruda</string>
-    <string name="settings_grey_theme">Pilka</string>
     <string name="settings_green_theme">Žalia</string>
     <string name="settings_sky_blue_theme">Dangaus mėlynumo</string>
     <string name="settings_blue_theme">Mėlyna</string>
@@ -204,11 +200,6 @@
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>
     <string name="previousCard">Ankstesnė</string>
     <string name="nextCard">Kita</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Peržiūrėti archyvą (<xliff:g>%1$d</xliff:g> kortelė)</item>
-        <item quantity="few">Peržiūrėti archyvą (<xliff:g>%1$d</xliff:g> kortelės)</item>
-        <item quantity="other">Peržiūrėti archyvą (<xliff:g>%1$d</xliff:g> kortelių)</item>
-    </plurals>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kortelė ( archyvuota)<xliff:g id="archivedCount">%2$d</xliff:g></item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> kortelės ( archyvuotos)<xliff:g id="archivedCount">%2$d</xliff:g></item>

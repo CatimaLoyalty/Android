@@ -149,7 +149,6 @@
     <string name="settings_blue_theme">Modrá</string>
     <string name="settings_sky_blue_theme">Azurová</string>
     <string name="settings_green_theme">Zelená</string>
-    <string name="settings_grey_theme">Šedá</string>
     <string name="settings_brown_theme">Hnedá</string>
     <string name="sort">Zoradiť</string>
     <string name="help_translate_this_app">Pomôžte preložiť túto aplikáciu</string>
@@ -218,9 +217,6 @@
     <string name="chooseValidFromDate">Zvoliť dátum platné od</string>
     <string name="validFromSentence">Platnosť od: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">Pre túto akciu je potrebné oprávnenie na prístup k fotoaparátu…</string>
-    <string name="privacy_policy_popup_text">Oznámenie o zásadách ochrany osobných údajov (vyžaduje sa v niektorých obchodoch s aplikáciami):
-\n
-\nNEZHROMAŽĎUJÚ SA VÔBEC ŽIADNE ÚDAJE, čo môže ktokoľvek potvrdiť, keďže naša aplikácia je slobodný softvér.</string>
     <string name="importLoyaltyCardKeychainMessage">Vyberte svoj export <i>LoyaltyCardKeychain.csv</i> z Kľúčenky vernostných kariet, ktorý chcete importovať.
 \nVytvorte ho z ponuky Import/Export v aplikácii Loyalty Card Keychain tak, že tam najprv stlačíte tlačidlo Exportovať.</string>
     <string name="importVoucherVaultMessage">Vyberte svoj <i>vouchervault.json</i> export z Trezoru poukážok pre import.
@@ -231,11 +227,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> karta (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaná)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> archivované)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kariet (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaných)</item>
-    </plurals>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Zobraziť archív (<xliff:g>%1$d</xliff:g> karta)</item>
-        <item quantity="few">Zobraziť archív (<xliff:g>%1$d</xliff:g> karty)</item>
-        <item quantity="other">Zobraziť archív (<xliff:g>%1$d</xliff:g> kariet)</item>
     </plurals>
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>

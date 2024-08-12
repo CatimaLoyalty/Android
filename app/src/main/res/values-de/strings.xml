@@ -95,9 +95,6 @@
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
-    <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (von einigen App-Stores verlangt):
-\n
-\nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
@@ -158,7 +155,6 @@
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Sprache</string>
     <string name="settings_brown_theme">Braun</string>
-    <string name="settings_grey_theme">Grau</string>
     <string name="settings_green_theme">Grün</string>
     <string name="settings_sky_blue_theme">Himmelblau</string>
     <string name="settings_blue_theme">Blau</string>
@@ -224,10 +220,6 @@
     <string name="previousCard">Vorherige</string>
     <string name="nextCard">Nächste</string>
     <string name="failedToOpenUrl">Bitte installiere einen Webbrowser</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Archiv ansehen (<xliff:g>%1$d</xliff:g> Karte)</item>
-        <item quantity="other">Archiv ansehen (<xliff:g>%1$d</xliff:g> Karten)</item>
-    </plurals>
     <string name="welcome">Willkommen bei Catima</string>
     <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>

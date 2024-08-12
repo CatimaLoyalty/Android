@@ -96,9 +96,6 @@
     <string name="chooseImportType">Importa i dati da</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>
-    <string name="privacy_policy_popup_text">Informativa sulla riservatezza (richiesta da alcuni app store):
-\n
-\nNESSUN DATO VIENE RACCOLTO, cosa che chiunque può confermare dato che la nostra applicazione è un software libero.</string>
     <string name="privacy_policy">Informativa sulla riservatezza</string>
     <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione <i>vouchervault.json</i> da Voucher Vault per importarlo.
 \nCrealo premendo prima Esporta in Voucher Vault.</string>
@@ -161,7 +158,6 @@
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_locale">Lingua</string>
     <string name="settings_brown_theme">Marrone</string>
-    <string name="settings_grey_theme">Grigio</string>
     <string name="settings_green_theme">Verde</string>
     <string name="settings_sky_blue_theme">Azzurro</string>
     <string name="settings_blue_theme">Blu</string>
@@ -231,11 +227,6 @@
     <string name="nextCard">Successivo</string>
     <string name="welcome">Benvenuti su Catima</string>
     <string name="failedToOpenUrl">Installa prima un browser web</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Visualizza archivio (<xliff:g>%1$d</xliff:g> scheda)</item>
-        <item quantity="many">Visualizza archivio (<xliff:g>%1$d</xliff:g> carta)</item>
-        <item quantity="other">Visualizza archivio (<xliff:g>%1$d</xliff:g> carte)</item>
-    </plurals>
     <string name="failedToRetrieveImageFile">Impossibile ottenere il file dell\'immagine</string>
     <string name="barcodeLongPressMessage">Si possono aprire solo immagini dell\'app della galleria</string>
     <string name="cameraPermissionDeniedTitle">È impossibile accedere alla fotocamera</string>

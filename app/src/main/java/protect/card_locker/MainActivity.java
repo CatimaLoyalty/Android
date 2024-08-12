@@ -250,37 +250,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mGroup = null;
         updateLoyaltyCardList(true);
 
-        /*
-         * This was added for Huawei, but Huawei is just too much of a fucking pain.
-         * Just leaving this commented out if needed for the future idk
-         * https://twitter.com/SylvieLorxu/status/1379437902741012483
-         *
-
-        // Show privacy policy on first run
-        SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_privacy_policy_shown),
-                Context.MODE_PRIVATE);
-
-
-        if (privacyPolicyShownPref.getInt(getString(R.string.sharedpreference_privacy_policy_shown), 0) == 0) {
-            SharedPreferences.Editor privacyPolicyShownPrefEditor = privacyPolicyShownPref.edit();
-            privacyPolicyShownPrefEditor.putInt(getString(R.string.sharedpreference_privacy_policy_shown), 1);
-            privacyPolicyShownPrefEditor.apply();
-
-            new AlertDialog.Builder(this)
-                    .setTitle(R.string.privacy_policy)
-                    .setMessage(R.string.privacy_policy_popup_text)
-                    .setPositiveButton(R.string.accept, null)
-                    .setNegativeButton(R.string.privacy_policy, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            openPrivacyPolicy();
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_info)
-                    .show();
-        }
-         */
-
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             // Exit early if the user cancelled the scan (pressed back/home)
             if (result.getResultCode() != RESULT_OK) {

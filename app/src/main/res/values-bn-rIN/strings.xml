@@ -173,9 +173,6 @@
     <string name="chooseExpiryDate">মেয়াদ শেষ হওয়ার তারিখ মনোনীত করুন</string>
     <string name="moveBarcodeToTopOfScreen">বারকোডটি স্ক্রিনের উপরে উঠিয়ে দিন</string>
     <string name="errorReadingImage">ছবিটি স্ক্যান করা যাচ্ছে না</string>
-    <string name="privacy_policy_popup_text">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি নোটিশ (কিছু অ্যাপ স্টোরের এটি লাগে):
-\n
-\nকোন তথ্য একেবারেই সংগ্রহ করা হয় না, যা যে কেউ নিশ্চিত করতে পারবেন কারন আমাদের অ্যাপ মুক্ত সফটওয়্যার।</string>
     <string name="balance">ব্যালান্স</string>
     <string name="points">পয়েন্ট</string>
     <string name="chooseImportType">এখান থেকে তথ্য আমদানি করুন</string>
@@ -195,10 +192,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
     </plurals>
     <string name="nextCard">পরবর্তী</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">সংরক্ষণাগার দেখুন (<xliff:g>%1$d</xliff:g> কার্ড)</item>
-        <item quantity="other">সংরক্ষণাগার দেখুন (<xliff:g>%1$d</xliff:g> কার্ডগুলি)</item>
-    </plurals>
     <string name="failedToOpenUrl">প্রথমে একটি ওয়েব ব্রাউজার ইন্সটল করুন</string>
     <string name="newBalanceSentence">নতুন ব্যালেন্স: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">তারিখ থেকে বৈধ নির্বাচন করুন</string>
@@ -219,7 +212,6 @@
 \nপ্রথমে ভাউচার ভল্টে এক্সপোর্ট টিপে এটি তৈরি করুন।</string>
     <string name="settings_oled_dark">অন্ধকার থিমের জন্য খাঁটি কালো পটভূমি</string>
     <string name="setIcon">আইকন সেট করুন</string>
-    <string name="settings_grey_theme">ধূসর</string>
     <string name="updateBalance">ব্যালেন্স আপডেট করুন</string>
     <string name="barcodeLongPressMessage">গ্যালারি অ্যাপে শুধুমাত্র ছবি খোলা যাবে</string>
     <string name="translate_platform">Weblate-এ</string>

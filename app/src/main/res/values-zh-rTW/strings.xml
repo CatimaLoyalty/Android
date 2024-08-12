@@ -9,9 +9,6 @@
     <string name="cardId">卡片 ID</string>
     <string name="barcodeType">條碼種類</string>
     <string name="noBarcode">無條碼</string>
-    <string name="privacy_policy_popup_text">隱私權政策（某些應用程式商店需要此條目）: 
-\n
-\n我們並不會收集任何資料！任何人都可以檢視我們的原始碼並驗證這點。</string>
     <string name="star">新增至收藏</string>
     <string name="app_license">公共版權（Copylefted）的自由軟體，許可 GPLv3+</string>
     <string name="unstar">從收藏中移除</string>
@@ -87,7 +84,6 @@
     <string name="settings_blue_theme">藍色</string>
     <string name="settings_sky_blue_theme">天空藍</string>
     <string name="settings_green_theme">綠色</string>
-    <string name="settings_grey_theme">灰色</string>
     <string name="settings_brown_theme">棕色</string>
     <string name="sort_by_name">名稱</string>
     <string name="sort_by_most_recently_used">最近使用</string>
@@ -220,9 +216,6 @@
     <string name="previousCard">上一張</string>
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用 Catima</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">檢視封存（<xliff:g>%1$d</xliff:g> 張卡片）</item>
-    </plurals>
     <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
     <string name="importCards">導入卡片</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima 需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>

@@ -133,9 +133,6 @@
     <string name="exportSuccessfulTitle">Exporten lyckades</string>
     <string name="scanCardBarcode">Skanna streckkod</string>
     <string name="settings_system_theme">Systemtemat</string>
-    <string name="privacy_policy_popup_text">Notis rörande integritetspolicy (krävs av vissa appbutiker):
-\n
-\nINGEN DATA ALLS SAMLAS IN, vilket vem som helst kan bekräfta eftersom vår app är fri programvara.</string>
     <string name="privacy_policy">Integritetspolicy</string>
     <string name="expiryStateSentenceExpired">Förföll: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">Välj förfallodatum</string>
@@ -158,7 +155,6 @@
     <string name="settings_locale">Språk</string>
     <string name="app_contributors">Möjliggjordes av: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brunt</string>
-    <string name="settings_grey_theme">Grått</string>
     <string name="settings_green_theme">Grönt</string>
     <string name="settings_sky_blue_theme">Himmelblått</string>
     <string name="settings_blue_theme">Blått</string>
@@ -224,10 +220,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkiverade)</item>
     </plurals>
     <string name="failedToOpenUrl">Installera en webbläsare först</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Visa arkiv (<xliff:g>%1$d</xliff:g> card)</item>
-        <item quantity="other">Visa arkiv (<xliff:g>%1$d</xliff:g> cards)</item>
-    </plurals>
     <string name="welcome">Välkommen till Catima</string>
     <string name="importCards">Importera kort</string>
     <string name="cameraPermissionDeniedTitle">Kunde inte komma åt kamera</string>

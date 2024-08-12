@@ -55,7 +55,6 @@
     <string name="settings_blue_theme">Biru</string>
     <string name="settings_green_theme">Hijau</string>
     <string name="settings_sky_blue_theme">Biru Langit</string>
-    <string name="settings_grey_theme">Abu-abu</string>
     <string name="settings_brown_theme">Cokelat</string>
     <string name="settings_violet_theme">Ungu</string>
     <string name="settings_magenta_theme">Magenta</string>
@@ -136,9 +135,6 @@
     <string name="points">Poin</string>
     <string name="app_loyalty_card_keychain">Gantungan kunci kartu kesetiaan</string>
     <string name="privacy_policy">Kebijakan Privasi</string>
-    <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 
-\n
-\nTIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah libre software.</string>
     <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor.
 \nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
     <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya.
@@ -199,9 +195,6 @@
     <string name="translate_platform">di Weblate</string>
     <string name="welcome">Selamat datang di Catima</string>
     <string name="failedToOpenUrl">Install browser web terlebih dahulu</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">Lihat arsip (<xliff:g>%1$d</xliff:g> kartu)</item>
-    </plurals>
     <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
     <string name="previousCard">Sebelumnya</string>
     <string name="nextCard">Berikutnya</string>

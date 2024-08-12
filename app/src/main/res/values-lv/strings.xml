@@ -115,9 +115,6 @@
         <item quantity="other"><xliff:g>%s</xliff:g> punkti</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy_popup_text">Paziņojums par privātuma politiku (nepieciešams dažiem lietotņu veikaliem):
-\n
-\nNEKĀDI DATI NETIEK VĀKTI, par ko var pārliecināties ikkatrs, jo mūsu lietotne ir brīva, atvērta koda programmatūra.</string>
     <string name="importCatimaMessage">Izvēlieties jūstu <i>catima.zip</i> failu importam.
 \nFailu var izveidot eksportējot datus no Catima lietotnes citā ierīce, sadaļā \"Imports/Eksports\".</string>
     <string name="importLoyaltyCardKeychainMessage">Importam izvēlieties Jūsu <i>LoyaltyCardKeychain.csv</i> eksporta failu no Loyalty Card Keychain.
@@ -212,7 +209,6 @@
     <string name="settings_theme_color">Tēmas krāsa</string>
     <string name="settings_violet_theme">Violeta</string>
     <string name="settings_blue_theme">Zila</string>
-    <string name="settings_grey_theme">Pelēka</string>
     <string name="sort">Kārtot</string>
     <string name="showMoreInfo">Rādīt informāciju</string>
     <string name="sort_by_most_recently_used">Nesen lietotās</string>
@@ -222,11 +218,6 @@
     <string name="failedLaunchingPhotoPicker">Nevarēja atrast atbalstītu galerijas lietotni</string>
     <string name="previousCard">Iepriekšējā</string>
     <string name="nextCard">Nākamā</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="zero">Skatīt arhivētu (<xliff:g>%1$d</xliff:g> karti)</item>
-        <item quantity="one">Skatīt arhivētu (<xliff:g>%1$d</xliff:g> karti)</item>
-        <item quantity="other">Skatīt arhivētas (<xliff:g>%1$d</xliff:g> kartes)</item>
-    </plurals>
     <plurals name="groupCardCountWithArchived">
         <item quantity="zero"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> arhivēta)</item>
         <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> arhivēta)</item>

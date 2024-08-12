@@ -62,7 +62,6 @@
     <string name="exportPasswordHint">Kód beírása</string>
     <string name="failedGeneratingShareURL">Nem lehetett megosztható webcímet előállítani. Kérjük, ezt jelentse.</string>
     <string name="settings_theme_color">Téma színe</string>
-    <string name="settings_grey_theme">Szürke</string>
     <string name="sort">Rendezés</string>
     <string name="on_google_play">a Google Playen</string>
     <string name="and_data_usage">és adathasználat</string>
@@ -199,9 +198,6 @@
     <string name="groupsList">Csoportok: <xliff:g>%s</xliff:g></string>
     <string name="importCatimaMessage">Válassza ki az exportált <i>catima.zip</i> fájlt az importáláshoz.
 \nLétrehozhatja az Importálás/exportálás menüből az Exportálást megnyomva egy másik Catima alkalmazásban.</string>
-    <string name="privacy_policy_popup_text">Adatvédelmi irányelvek nyilatkozata (némely alkalmazásbolt kéri):
-\n
-\nSEMMILYEN ADAT NEM KERÜL GYŰJTÉSRE, amit bárki ellenőrizhet, hiszen az alkalmazás szabad szoftver.</string>
     <string name="importFidmeMessage">Válassza ki a FidMeből exportált <i>fidme-export-request-xxxxxx.zip</i> fájl majd importálja be, és utána válassza a kézi vonalkódbeírást.
 \nEzt hozza létre a FidMe-profiljában az Adatvédelem rész választásával, majd a Saját adatok kinyerése megnyomásával.</string>
     <string name="settings_card_orientation">Vonalkód tájolása</string>
@@ -233,10 +229,6 @@
     <string name="barcodeLongPressMessage">Csak képek nyithatók meg a galéria alkalmazásban</string>
     <string name="unarchived">Kártya archiválása megszüntetve</string>
     <string name="welcome">Üdvözöljük a Catimában</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártya)</item>
-        <item quantity="other">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártya)</item>
-    </plurals>
     <string name="updateBalance">Egyenleg frissítése</string>
     <string name="noCameraPermissionDirectToSystemSetting">A vonalkódok leolvasásához a Catimának hozzá kell férnie a kamerához. Koppintson ide az engedélybeállítások módosításához.</string>
     <string name="validFromDate">Érvényesség kezdete</string>

@@ -223,9 +223,6 @@
     <string name="noGroupCards">이 그룹은 비어 있습니다</string>
     <string name="app_loyalty_card_keychain">로열티 카드 키체인</string>
     <string name="privacy_policy">개인 정보 정책</string>
-    <string name="privacy_policy_popup_text">개인 정보 보호 정책 공지(일부 앱 스토어에서 필요):
-\n
-\n아무런 데이터도 수집하지 않습니다. 우리 앱은 자유 소프트웨어이기 때문에 누구나 이를 확인할 수 있습니다.</string>
     <string name="importCatima">Catima에서 가져오기</string>
     <string name="importCatimaMessage">가져올 Catima에서 <i>catima.zip</i> 내보내기를 선택합니다.
 \n먼저 내보내기를 눌러 다른 Catima 앱의 가져오기/내보내기 메뉴에서 생성합니다.</string>
@@ -242,13 +239,9 @@
     <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다.
 \n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>
     <string name="sameAsCardId">아이디와 동일</string>
-    <string name="settings_grey_theme">회색</string>
     <string name="settings_sky_blue_theme">하늘색</string>
     <string name="settings_green_theme">초록색</string>
     <string name="settings_brown_theme">갈색</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">보관소 보기 (<xliff:g>%1$d</xliff:g> 카)</item>
-    </plurals>
     <string name="previousCard">이전의</string>
     <string name="nextCard">다음</string>
     <string name="failedToOpenUrl">먼저 웹 브라우저를 설치하십시오</string>

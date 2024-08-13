@@ -13,6 +13,7 @@
     <locale android:name="eo" />
     <locale android:name="es" />
     <locale android:name="es-AR" />
+    <locale android:name="et" />
     <locale android:name="fi" />
     <locale android:name="fr" />
     <locale android:name="he-IL" />

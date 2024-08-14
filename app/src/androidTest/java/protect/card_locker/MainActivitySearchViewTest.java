@@ -11,9 +11,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assume.assumeTrue;
-
-import android.os.Build;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.test.core.app.ActivityScenario;
@@ -28,8 +25,7 @@ import org.junit.runner.RunWith;
 public class MainActivitySearchViewTest {
 
     @Test
-    public void onAndroid13WhenSearchViewIsExpandedAndBackIsPressedThenMenuItemShouldNotBeCollapsed() {
-        assumeTrue(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
+    public void whenSearchViewIsExpandedAndBackIsPressedThenMenuItemShouldNotBeCollapsed() {
         String query = "random arbitrary text";
         try (ActivityScenario<MainActivity> mainActivityScenario = ActivityScenario.launch(MainActivity.class)) {
             mainActivityScenario.onActivity(this::makeSearchMenuItemVisible);
@@ -44,8 +40,7 @@ public class MainActivitySearchViewTest {
     }
 
     @Test
-    public void onAndroid13WhenSearchViewIsExpandedThenItShouldOnlyBeCollapsedWhenBackIsPressedTwice() {
-        assumeTrue(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
+    public void whenSearchViewIsExpandedThenItShouldOnlyBeCollapsedWhenBackIsPressedTwice() {
         try (ActivityScenario<MainActivity> mainActivityScenario = ActivityScenario.launch(MainActivity.class)) {
             mainActivityScenario.onActivity(this::makeSearchMenuItemVisible);
             onView(withId(R.id.action_search)).perform(click());

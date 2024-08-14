@@ -28,6 +28,8 @@ android {
         multiDexEnabled = true
 
         resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "et", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sr", "sv", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -110,9 +112,18 @@ dependencies {
     implementation("io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0")
 
     // Testing
-    testImplementation("androidx.test:core:1.6.1")
-    testImplementation("junit:junit:4.13.2")
+    val androidXTestVersion = "1.6.1"
+    val junitVersion = "4.13.2"
+    testImplementation("androidx.test:core:$androidXTestVersion")
+    testImplementation("junit:junit:$junitVersion")
     testImplementation("org.robolectric:robolectric:4.13")
+
+    androidTestImplementation("androidx.test:core:$androidXTestVersion")
+    androidTestImplementation("junit:junit:$junitVersion")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:$androidXTestVersion")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }
 
 tasks.withType<SpotBugsTask>().configureEach {

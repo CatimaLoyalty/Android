@@ -28,6 +28,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        api-level: [ 21, 34 ]
     steps:
     - uses: actions/checkout@v4.1.7
     - name: Fail on bad translations
@@ -44,11 +47,22 @@ jobs:
       run: ./gradlew lintRelease
     - name: Run unit tests
       run: timeout 5m ./gradlew testReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testReleaseUnitTest; }
+    - name: Enable KVM
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
+    - name: Run instrumented tests
+      uses: ReactiveCircus/android-emulator-runner@v2
+      with:
+        api-level: ${{ matrix.api-level }}
+        arch: x86_64
+        script: ./gradlew connectedCheck
     - name: SpotBugs
       run: ./gradlew spotbugsRelease
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v4.3.6
       with:
-        name: test-results
+        name: test-results-api${{ matrix.api-level }}
         path: app/build/reports

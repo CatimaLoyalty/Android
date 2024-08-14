@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
@@ -511,7 +513,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
-            mSearchView = (SearchView) inputMenu.findItem(R.id.action_search).getActionView();
+            MenuItem searchMenuItem = inputMenu.findItem(R.id.action_search);
+            mSearchView = (SearchView) searchMenuItem.getActionView();
             mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             mSearchView.setSubmitButtonEnabled(false);
 
@@ -519,6 +522,30 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 invalidateOptionsMenu();
                 return false;
             });
+
+            /*
+             * On Android 13 and later, pressing Back while the search view is open hides the keyboard
+             * and collapses the search view at the same time.
+             * This brings back the old behavior on Android 12 and lower: pressing Back once
+             * hides the keyboard, press again while keyboard is hidden to collapse the search view.
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                searchMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+                    @Override
+                    public boolean onMenuItemActionExpand(@NonNull MenuItem item) {
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onMenuItemActionCollapse(@NonNull MenuItem item) {
+                        if (mSearchView.hasFocus()) {
+                            mSearchView.clearFocus();
+                            return false;
+                        }
+                        return true;
+                    }
+                });
+            }
 
             mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override

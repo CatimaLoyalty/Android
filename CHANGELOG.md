@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 138
+
+- Fix back gesture on main screen dismissing keyboard and search on Android 13+
+
 ## v2.31.0 - 137 (2024-07-26)
 
 - Allow long store names in preview to split over multiple lines

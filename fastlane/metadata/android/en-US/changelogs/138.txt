@@ -1,0 +1,1 @@
+- Fix back gesture on main screen dismissing keyboard and search on Android 13+

@@ -193,7 +193,7 @@
 \nSellise faili saad saates kirja aadressile support@stocardapp.com ning küsides oma andmeid.</string>
     <string name="chooseImportType">Importimise valikud</string>
     <string name="importVoucherVault">Impordi rakendusest Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.jsonv</i> Voucher Vaulti ekspordifail. 
+    <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.json</i> Voucher Vaulti ekspordifail. 
 \nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>
     <string name="barcodeId">Triipkoodi väärtus</string>
     <string name="sameAsCardId">Sama, kui ID</string>

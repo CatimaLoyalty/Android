@@ -97,6 +97,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
 
+    static final String BUNDLE_ID = "id";
+    static final String BUNDLE_CARDLIST = "cardList";
+    static final String BUNDLE_TRANSITION_RIGHT = "transition_right";
+
     final private TaskHandler mTasks = new TaskHandler();
     Runnable barcodeImageGenerationFinishedCallback;
 
@@ -181,8 +185,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
-        loyaltyCardId = b != null ? b.getInt("id") : 0;
-        cardList = b != null ? b.getIntegerArrayList("cardList") : null;
+        loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
+        cardList = b != null ? b.getIntegerArrayList(BUNDLE_CARDLIST) : null;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
@@ -208,7 +212,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 return;
             }
 
-            int transitionRight = incomingIntentExtras.getInt("transition_right", -1);
+            int transitionRight = incomingIntentExtras.getInt(BUNDLE_TRANSITION_RIGHT, -1);
             if (transitionRight == 1) {
                 // right side transition
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -572,8 +576,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Restart activity with new card id and index
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
-        b.putInt("id", loyaltyCardId);
-        b.putInt("transition_right", transitionRight ? 1 : 0);
+        b.putInt(BUNDLE_ID, loyaltyCardId);
+        b.putInt(BUNDLE_TRANSITION_RIGHT, transitionRight ? 1 : 0);
         intent.putExtras(b);
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

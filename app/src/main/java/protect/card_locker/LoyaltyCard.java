@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,72 +11,203 @@ import androidx.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class LoyaltyCard implements Parcelable {
-    public final int id;
-    public final String store;
-    public final String note;
+    public int id;
+    public String store;
+    public String note;
     @Nullable
-    public final Date validFrom;
+    public Date validFrom;
     @Nullable
-    public final Date expiry;
-    public final BigDecimal balance;
+    public Date expiry;
+    public BigDecimal balance;
     @Nullable
-    public final Currency balanceType;
-    public final String cardId;
+    public Currency balanceType;
+    public String cardId;
     @Nullable
-    public final String barcodeId;
+    public String barcodeId;
     @Nullable
-    public final CatimaBarcode barcodeType;
+    public CatimaBarcode barcodeType;
     @Nullable
-    public final Integer headerColor;
-    public final int starStatus;
-    public final int archiveStatus;
-    public final long lastUsed;
+    public Integer headerColor;
+    public int starStatus;
+    public long lastUsed;
     public int zoomLevel;
+    public int archiveStatus;
 
+    public static final String BUNDLE_LOYALTY_CARD_ID = "loyaltyCardId";
+    public static final String BUNDLE_LOYALTY_CARD_STORE = "loyaltyCardStore";
+    public static final String BUNDLE_LOYALTY_CARD_NOTE = "loyaltyCardNote";
+    public static final String BUNDLE_LOYALTY_CARD_VALID_FROM = "loyaltyCardValidFrom";
+    public static final String BUNDLE_LOYALTY_CARD_EXPIRY = "loyaltyCardExpiry";
+    public static final String BUNDLE_LOYALTY_CARD_BALANCE = "loyaltyCardBalance";
+    public static final String BUNDLE_LOYALTY_CARD_BALANCE_TYPE = "loyaltyCardBalanceType";
+    public static final String BUNDLE_LOYALTY_CARD_CARD_ID = "loyaltyCardCardId";
+    public static final String BUNDLE_LOYALTY_CARD_BARCODE_ID = "loyaltyCardBarcodeId";
+    public static final String BUNDLE_LOYALTY_CARD_BARCODE_TYPE = "loyaltyCardBarcodeType";
+    public static final String BUNDLE_LOYALTY_CARD_HEADER_COLOR = "loyaltyCardHeaderColor";
+    public static final String BUNDLE_LOYALTY_CARD_STAR_STATUS = "loyaltyCardStarStatus";
+    public static final String BUNDLE_LOYALTY_CARD_LAST_USED = "loyaltyCardLastUsed";
+    public static final String BUNDLE_LOYALTY_CARD_ZOOM_LEVEL = "loyaltyCardZoomLevel";
+    public static final String BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS = "loyaltyCardArchiveStatus";
+
+    /**
+     * Create a loyalty card object with default values
+     */
+    public LoyaltyCard() {
+        setId(-1);
+        setStore("");
+        setNote("");
+        setValidFrom(null);
+        setExpiry(null);
+        setBalance(new BigDecimal("0"));
+        setBalanceType(null);
+        setCardId("");
+        setBarcodeId(null);
+        setBarcodeType(null);
+        setHeaderColor(null);
+        setStarStatus(0);
+        setLastUsed(0);
+        setZoomLevel(100);
+        setArchiveStatus(0);
+    }
+
+    /**
+     * Create a new loyalty card
+     *
+     * @param id
+     * @param store
+     * @param note
+     * @param validFrom
+     * @param expiry
+     * @param balance
+     * @param balanceType
+     * @param cardId
+     * @param barcodeId
+     * @param barcodeType
+     * @param headerColor
+     * @param starStatus
+     * @param lastUsed
+     * @param zoomLevel
+     * @param archiveStatus
+     */
     public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
                        @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus) {
+        setId(id);
+        setStore(store);
+        setNote(note);
+        setValidFrom(validFrom);
+        setExpiry(expiry);
+        setBalance(balance);
+        setBalanceType(balanceType);
+        setCardId(cardId);
+        setBarcodeId(barcodeId);
+        setBarcodeType(barcodeType);
+        setHeaderColor(headerColor);
+        setStarStatus(starStatus);
+        setLastUsed(lastUsed);
+        setZoomLevel(zoomLevel);
+        setArchiveStatus(archiveStatus);
+    }
+
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public void setStore(@NonNull String store) {
         this.store = store;
+    }
+
+    public void setNote(@Nullable String note) {
         this.note = note;
+    }
+
+    public void setValidFrom(@Nullable Date validFrom) {
         this.validFrom = validFrom;
+    }
+
+    public void setExpiry(@Nullable Date expiry) {
         this.expiry = expiry;
+    }
+
+    public void setBalance(@Nullable BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public void setBalanceType(@Nullable Currency balanceType) {
         this.balanceType = balanceType;
+    }
+
+    public void setCardId(@NonNull String cardId) {
         this.cardId = cardId;
+    }
+
+    public void setBarcodeId(@Nullable String barcodeId) {
         this.barcodeId = barcodeId;
+    }
+
+    public void setBarcodeType(@Nullable CatimaBarcode barcodeType) {
         this.barcodeType = barcodeType;
+    }
+
+    public void setHeaderColor(@Nullable Integer headerColor) {
         this.headerColor = headerColor;
+    }
+
+    public void setStarStatus(int starStatus) {
+        if (starStatus != 0 && starStatus != 1) {
+            throw new IllegalArgumentException("starStatus must be 0 or 1");
+        }
+
         this.starStatus = starStatus;
+    }
+
+    public void setLastUsed(long lastUsed) {
         this.lastUsed = lastUsed;
+    }
+
+    public void setZoomLevel(int zoomLevel) {
+        if (zoomLevel < 0 || zoomLevel > 100) {
+            throw new IllegalArgumentException("zoomLevel must be in range 0-100");
+        }
+
         this.zoomLevel = zoomLevel;
+    }
+
+    public void setArchiveStatus(int archiveStatus) {
+        if (archiveStatus != 0 && archiveStatus != 1) {
+            throw new IllegalArgumentException("archiveStatus must be 0 or 1");
+        }
+
         this.archiveStatus = archiveStatus;
     }
 
     protected LoyaltyCard(Parcel in) {
-        id = in.readInt();
-        store = in.readString();
-        note = in.readString();
+        setId(in.readInt());
+        setStore(Objects.requireNonNull(in.readString()));
+        setNote(in.readString());
         long tmpValidFrom = in.readLong();
-        validFrom = tmpValidFrom != -1 ? new Date(tmpValidFrom) : null;
+        setValidFrom(tmpValidFrom != -1 ? new Date(tmpValidFrom) : null);
         long tmpExpiry = in.readLong();
-        expiry = tmpExpiry != -1 ? new Date(tmpExpiry) : null;
-        balance = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
-        balanceType = (Currency) in.readValue(Currency.class.getClassLoader());
-        cardId = in.readString();
-        barcodeId = in.readString();
+        setExpiry(tmpExpiry != -1 ? new Date(tmpExpiry) : null);
+        setBalance((BigDecimal) in.readValue(BigDecimal.class.getClassLoader()));
+        setBalanceType((Currency) in.readValue(Currency.class.getClassLoader()));
+        setCardId(Objects.requireNonNull(in.readString()));
+        setBarcodeId(in.readString());
         String tmpBarcodeType = in.readString();
-        barcodeType = !tmpBarcodeType.isEmpty() ? CatimaBarcode.fromName(tmpBarcodeType) : null;
+        setBarcodeType((tmpBarcodeType != null && !tmpBarcodeType.isEmpty()) ? CatimaBarcode.fromName(tmpBarcodeType) : null);
         int tmpHeaderColor = in.readInt();
-        headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
-        starStatus = in.readInt();
-        lastUsed = in.readLong();
-        zoomLevel = in.readInt();
-        archiveStatus = in.readInt();
+        setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
+        setStarStatus(in.readInt());
+        setLastUsed(in.readLong());
+        setZoomLevel(in.readInt());
+        setArchiveStatus(in.readInt());
     }
 
     @Override
@@ -97,7 +229,103 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(archiveStatus);
     }
 
-    public static LoyaltyCard toLoyaltyCard(Cursor cursor) {
+    public static LoyaltyCard fromBundle(Bundle bundle) {
+        // Grab default card
+        LoyaltyCard loyaltyCard = new LoyaltyCard();
+
+        // Update from bundle
+        loyaltyCard.updateFromBundle(bundle);
+
+        // Return updated version
+        return loyaltyCard;
+    }
+
+    public void updateFromBundle(Bundle bundle) {
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
+            setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_STORE)) {
+            setStore(Objects.requireNonNull(bundle.getString(BUNDLE_LOYALTY_CARD_STORE)));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_NOTE)) {
+            setNote(bundle.getString(BUNDLE_LOYALTY_CARD_NOTE));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
+            long tmpValidFrom = bundle.getLong(BUNDLE_LOYALTY_CARD_VALID_FROM, -1);
+            setValidFrom(tmpValidFrom != -1 ? new Date(tmpValidFrom) : null);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_EXPIRY)) {
+            long tmpExpiry = bundle.getLong(BUNDLE_LOYALTY_CARD_EXPIRY, -1);
+            setExpiry(tmpExpiry != -1 ? new Date(tmpExpiry) : null);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE)) {
+            setBalance(new BigDecimal(bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE)));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
+            String tmpBalanceType = bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, null);
+            setBalanceType(tmpBalanceType != null ? Currency.getInstance(tmpBalanceType) : null);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_CARD_ID)) {
+            setCardId(Objects.requireNonNull(bundle.getString(BUNDLE_LOYALTY_CARD_CARD_ID)));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_ID)) {
+            setBarcodeId(bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_ID));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_TYPE)) {
+            String tmpBarcodeType = bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, null);
+            setBarcodeType(tmpBarcodeType != null ? CatimaBarcode.fromName(tmpBarcodeType) : null);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
+            int tmpHeaderColor = bundle.getInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, -1);
+            setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_STAR_STATUS)) {
+            setStarStatus(bundle.getInt(BUNDLE_LOYALTY_CARD_STAR_STATUS));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_LAST_USED)) {
+            setLastUsed(bundle.getLong(BUNDLE_LOYALTY_CARD_LAST_USED));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL)) {
+            setZoomLevel(bundle.getInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL));
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS)) {
+            setArchiveStatus(bundle.getInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS));
+        }
+    }
+
+    public Bundle toBundle() {
+        Bundle bundle = new Bundle();
+
+        bundle.putInt(BUNDLE_LOYALTY_CARD_ID, id);
+        bundle.putString(BUNDLE_LOYALTY_CARD_STORE, store);
+        bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
+        if (validFrom != null) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom.getTime());
+        }
+        if (expiry != null) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry.getTime());
+        }
+        bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
+        if (balanceType != null) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, balanceType.toString());
+        }
+        bundle.putString(BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
+        bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ID, barcodeId);
+        if (barcodeType != null) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType.name());
+        }
+        if (headerColor != null) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor);
+        }
+        bundle.putInt(BUNDLE_LOYALTY_CARD_STAR_STATUS, starStatus);
+        bundle.putLong(BUNDLE_LOYALTY_CARD_LAST_USED, lastUsed);
+        bundle.putInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL, zoomLevel);
+        bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
+
+        return bundle;
+    }
+
+    public static LoyaltyCard fromCursor(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
         String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
@@ -106,10 +334,10 @@ public class LoyaltyCard implements Parcelable {
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
-        int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
+        int starStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
         long lastUsed = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.LAST_USED));
         int zoomLevel = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL));
-        int archived = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
+        int archiveStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
 
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
@@ -141,7 +369,7 @@ public class LoyaltyCard implements Parcelable {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, archived);
+        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, zoomLevel, archiveStatus);
     }
 
     public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {

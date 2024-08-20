@@ -42,10 +42,10 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
         Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
         return subscriber -> {
             while (loyaltyCardCursor.moveToNext()) {
-                LoyaltyCard card = LoyaltyCard.toLoyaltyCard(loyaltyCardCursor);
+                LoyaltyCard card = LoyaltyCard.fromCursor(loyaltyCardCursor);
                 Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("id", card.id);
+                        .putExtra(LoyaltyCardViewActivity.BUNDLE_ID, card.id);
                 PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), card.id, openIntent, PendingIntent.FLAG_IMMUTABLE);
                 subscriber.onNext(
                         new Control.StatelessBuilder(PREFIX + card.id, pendingIntent)
@@ -73,7 +73,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
                 if (card != null) {
                     Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            .putExtra("id", card.id);
+                            .putExtra(LoyaltyCardViewActivity.BUNDLE_ID, card.id);
                     PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), card.id, openIntent, PendingIntent.FLAG_IMMUTABLE);
                     control = new Control.StatefulBuilder(controlId, pendingIntent)
                             .setTitle(card.store)
@@ -129,7 +129,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
         consumer.accept(ControlAction.RESPONSE_OK);
         Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .putExtra("id", controlIdToCardId(controlId));
+                .putExtra(LoyaltyCardViewActivity.BUNDLE_ID, controlIdToCardId(controlId));
         startActivity(openIntent);
 
         closePowerScreenOnAndroid11();

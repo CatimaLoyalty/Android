@@ -428,8 +428,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             public void onUserChoseBarcode(BarcodeValues barcodeValues) {
                 Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle newBundle = new Bundle();
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+                newBundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeValues.format());
+                newBundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, barcodeValues.content());
+                newBundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, null);
                 if (group != null) {
                     newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
                 }
@@ -781,14 +782,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             Intent intent = new Intent(this, LoyaltyCardViewActivity.class);
             intent.setAction("");
             final Bundle b = new Bundle();
-            b.putInt("id", loyaltyCard.id);
+            b.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id);
 
             ArrayList<Integer> cardList = new ArrayList<>();
             for (int i = 0; i < mAdapter.getItemCount(); i++) {
                 cardList.add(mAdapter.getCard(i).id);
             }
 
-            b.putIntegerArrayList("cardList", cardList);
+            b.putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList);
             intent.putExtras(b);
 
             startActivity(intent);

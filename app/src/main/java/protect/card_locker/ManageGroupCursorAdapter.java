@@ -33,7 +33,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
 
     @Override
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(inputCursor);
         Boolean overlayValue = mInGroupOverlay.get(loyaltyCard.id);
         if ((overlayValue != null ? overlayValue : isLoyaltyCardInGroup(loyaltyCard.id))) {
             mAnimationItemsIndex.put(inputCursor.getPosition(), true);

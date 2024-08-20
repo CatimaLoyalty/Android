@@ -1,11 +1,14 @@
 package protect.card_locker;
 
+import androidx.annotation.Nullable;
+
 public class BarcodeValues {
+    @Nullable
     private final String mFormat;
     private final String mContent;
     private String mNote;
 
-    public BarcodeValues(String format, String content) {
+    public BarcodeValues(@Nullable String format, String content) {
         mFormat = format;
         mContent = content;
     }
@@ -14,7 +17,7 @@ public class BarcodeValues {
         mNote = note;
     }
 
-    public String format() {
+    public @Nullable String format() {
         return mFormat;
     }
 

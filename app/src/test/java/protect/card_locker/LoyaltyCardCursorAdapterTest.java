@@ -137,7 +137,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(4, cursor.getCount());
 
         assertTrue(cursor.moveToFirst());
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(cursor);
         assertEquals("storeD", loyaltyCard.store);
         View view = createView(cursor);
         ConstraintLayout star = view.findViewById(R.id.star);
@@ -146,7 +146,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.GONE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(cursor);
         assertEquals("storeC", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
@@ -155,7 +155,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.GONE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(cursor);
         assertEquals("storeB", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
@@ -164,7 +164,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.VISIBLE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(cursor);
         assertEquals("storeA", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);

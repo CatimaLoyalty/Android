@@ -82,7 +82,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
-        cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
+        cardId = b != null ? b.getString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID) : null;
         addGroup = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
         Log.d(TAG, "Scan activity: id=" + cardId);
     }
@@ -338,7 +338,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Buttons
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            returnResult(input.getText().toString(), "");
+            returnResult(input.getText().toString(), null);
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
@@ -373,7 +373,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
             if (cardId != null) {
                 final Bundle b = new Bundle();
-                b.putString("initialCardId", cardId);
+                b.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
                 i.putExtras(b);
             }
             manualAddLauncher.launch(i);

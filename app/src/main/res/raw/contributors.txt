@@ -39,6 +39,7 @@ mdvhimself
 Milan Šalka
 Skrripy
 huuhaa
+Priit Jõerüüt
 Projjal Moitra
 Quentin PAGÈS
 ikanakova
@@ -47,7 +48,6 @@ Silvério Santos
 waffshappen
 Ziad OUALHADJ
 Robin Liu
-Priit Jõerüüt
 Denis Shilin
 しいたけ
 Alexander Ivanov

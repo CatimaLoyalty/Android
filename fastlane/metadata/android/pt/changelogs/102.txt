@@ -1,0 +1,2 @@
+- Várias pequenas correções
+- Correção de falha quando Norueguês é utilizado

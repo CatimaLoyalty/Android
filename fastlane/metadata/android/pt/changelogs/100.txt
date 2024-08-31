@@ -1,0 +1,2 @@
+- Esconder pesquisa, expandir e organizar ícones desde que haja pelo menos 1 cartão
+- Várias correções nos temas

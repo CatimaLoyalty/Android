@@ -3,17 +3,17 @@ Nustokite ieškoti plastikinių lojalumo kortelių parduotuvėje ar parduotuvėj
 
 Pamirškite piniginę arba laikykite ją itin lengvą tik vertingiems daiktams.
 
-Naudodami šį būtiną kasdienio naudojimo (EDC) įrankį galite nenaudingą plastiką pakeisti grynaisiais pinigais.
+Su šiuo būtinu kasdienio nešiojimo (EDC) įrankiu nenaudingą plastiką galite pakeisti grynaisiais pinigais.
 
 - Išvenkite šnipinėjimo, programėlė prašo labai nedaug leidimų. Jokios prieigos prie interneto ir jokių reklamų.
-- Pridėkite korteles ar kodus su pavadinimais ir pasirenkamomis spalvomis.
-- Rankiniu būdu įveskite kodą, jei nėra saugotino brūkšninio kodo arba jo negalima naudoti.
+- Pridėkite korteles arba kodus su pavadinimais ir pasirenkamomis spalvomis.
+- Rankiniu būdu įveskite kodą, jei nėra saugotino brūkšninio kodo arba jei jis neįskaitomas.
 - Importuokite korteles ir kodus iš failų, "Catima", "FidMe", "Loyalty Card Keychain", "Stocard", "Voucher Vault".
-- Padarykite atsarginę visų kortelių kopiją ir, jei norite, perkelkite jas į naują įrenginį.
+- Padarykite atsarginę kopiją visų kortelių ir, jei norite, perkelkite jas į naują įrenginį.
 - Dalinkitės kuponais, išskirtiniais pasiūlymais, reklaminiais kodais arba kortelėmis ir kodais naudodami bet kurią programą.
 - Tamsi tema ir parinktys naudotojams su regos sutrikimais.
 - "Libre" programinės įrangos bendruomenės sukurta visiems.
-- Lokalizuoti rankų darbo vertimai į daugiau nei 20 kalbų.
+- Lokalizuoti rankų darbo vertimai į daugiau nei 40 kalbų.
 - Nemokama, remiama bendruomenės įnašais.
 - Naudokite, studijuokite, keiskite ir dalinkitės, kaip norite; <i>su visais</i>.
 - Ne tik laisvoji programinė įranga / atvirasis kodas. <i>"Copylefted"</i> laisvosios programinės įrangos (GPLv3+) kortelių valdymas.

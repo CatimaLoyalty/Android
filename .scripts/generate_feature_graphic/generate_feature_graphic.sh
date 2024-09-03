@@ -4,6 +4,11 @@ set -euo pipefail
 script_location="$(dirname "$(readlink -f "$0")")"
 
 for lang in "$script_location/../../fastlane/metadata/android/"*; do
+  # Skip languages without title.txt
+  if [ ! -f "$lang/title.txt" ]; then
+    continue
+  fi
+
   pushd "$lang"
   # Place temporary copy for editing if needed
   cp "$script_location/featureGraphic.svg" featureGraphic.svg

@@ -291,7 +291,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
         Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
             @Override
             public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                returnResult(barcodeValues.content(), barcodeValues.format());
+                CatimaBarcode barcodeType = barcodeValues.format();
+
+                returnResult(barcodeValues.content(), barcodeType != null ? barcodeType.name() : null);
             }
 
             @Override

@@ -4,11 +4,11 @@ import androidx.annotation.Nullable;
 
 public class BarcodeValues {
     @Nullable
-    private final String mFormat;
+    private final CatimaBarcode mFormat;
     private final String mContent;
     private String mNote;
 
-    public BarcodeValues(@Nullable String format, String content) {
+    public BarcodeValues(@Nullable CatimaBarcode format, String content) {
         mFormat = format;
         mContent = content;
     }
@@ -17,7 +17,7 @@ public class BarcodeValues {
         mNote = note;
     }
 
-    public @Nullable String format() {
+    public @Nullable CatimaBarcode format() {
         return mFormat;
     }
 

@@ -70,7 +70,7 @@ public class LoyaltyCard implements Parcelable {
         setBarcodeType(null);
         setHeaderColor(null);
         setStarStatus(0);
-        setLastUsed(0);
+        setLastUsed(Utils.getUnixTime());
         setZoomLevel(100);
         setArchiveStatus(0);
     }
@@ -229,67 +229,97 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(archiveStatus);
     }
 
-    public static LoyaltyCard fromBundle(Bundle bundle) {
+    public static LoyaltyCard fromBundle(Bundle bundle, boolean requireFull) {
         // Grab default card
         LoyaltyCard loyaltyCard = new LoyaltyCard();
 
         // Update from bundle
-        loyaltyCard.updateFromBundle(bundle);
+        loyaltyCard.updateFromBundle(bundle, requireFull);
 
         // Return updated version
         return loyaltyCard;
     }
 
-    public void updateFromBundle(Bundle bundle) {
+    public void updateFromBundle(Bundle bundle, boolean requireFull) {
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
             setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_ID);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_STORE)) {
             setStore(Objects.requireNonNull(bundle.getString(BUNDLE_LOYALTY_CARD_STORE)));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_STORE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_NOTE)) {
             setNote(bundle.getString(BUNDLE_LOYALTY_CARD_NOTE));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_NOTE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
             long tmpValidFrom = bundle.getLong(BUNDLE_LOYALTY_CARD_VALID_FROM, -1);
             setValidFrom(tmpValidFrom != -1 ? new Date(tmpValidFrom) : null);
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_VALID_FROM);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_EXPIRY)) {
             long tmpExpiry = bundle.getLong(BUNDLE_LOYALTY_CARD_EXPIRY, -1);
             setExpiry(tmpExpiry != -1 ? new Date(tmpExpiry) : null);
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_EXPIRY);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE)) {
             setBalance(new BigDecimal(bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE)));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BALANCE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
             String tmpBalanceType = bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, null);
             setBalanceType(tmpBalanceType != null ? Currency.getInstance(tmpBalanceType) : null);
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BALANCE_TYPE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_CARD_ID)) {
             setCardId(Objects.requireNonNull(bundle.getString(BUNDLE_LOYALTY_CARD_CARD_ID)));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_CARD_ID);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_ID)) {
             setBarcodeId(bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_ID));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_ID);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_TYPE)) {
             String tmpBarcodeType = bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, null);
             setBarcodeType(tmpBarcodeType != null ? CatimaBarcode.fromName(tmpBarcodeType) : null);
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_TYPE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
             int tmpHeaderColor = bundle.getInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, -1);
             setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_HEADER_COLOR);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_STAR_STATUS)) {
             setStarStatus(bundle.getInt(BUNDLE_LOYALTY_CARD_STAR_STATUS));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_STAR_STATUS);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_LAST_USED)) {
             setLastUsed(bundle.getLong(BUNDLE_LOYALTY_CARD_LAST_USED));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_LAST_USED);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL)) {
             setZoomLevel(bundle.getInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_ZOOM_LEVEL);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS)) {
             setArchiveStatus(bundle.getInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS);
         }
     }
 

@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import androidx.annotation.NonNull;
+
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Arrays;
@@ -45,15 +47,15 @@ public class CatimaBarcode {
         mBarcodeFormat = barcodeFormat;
     }
 
-    public static CatimaBarcode fromBarcode(BarcodeFormat barcodeFormat) {
+    public static CatimaBarcode fromBarcode(@NonNull BarcodeFormat barcodeFormat) {
         return new CatimaBarcode(barcodeFormat);
     }
 
-    public static CatimaBarcode fromName(String name) {
+    public static CatimaBarcode fromName(@NonNull String name) {
         return new CatimaBarcode(BarcodeFormat.valueOf(name));
     }
 
-    public static CatimaBarcode fromPrettyName(String prettyName) {
+    public static CatimaBarcode fromPrettyName(@NonNull String prettyName) {
         try {
             return new CatimaBarcode(barcodeFormats.get(barcodePrettyNames.indexOf(prettyName)));
         } catch (IndexOutOfBoundsException e) {

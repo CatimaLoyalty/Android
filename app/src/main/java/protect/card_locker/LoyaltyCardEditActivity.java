@@ -307,7 +307,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         // If the intent contains any loyalty card fields, override those fields in our current temp card
         if (b != null) {
-            tempLoyaltyCard.updateFromBundle(b);
+            tempLoyaltyCard.updateFromBundle(b, false);
         }
 
         Log.d(TAG, "Edit activity: id=" + loyaltyCardId
@@ -704,19 +704,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
                     @Override
                     public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-<<<<<<< Updated upstream
-                        Bundle bundle = new Bundle();
-                        bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, barcodeValues.content());
-                        bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeValues.format());
-                        bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, "");
-                        tempLoyaltyCard.updateFromBundle(bundle);
-=======
-                        CatimaBarcode barcodeType = barcodeValues.format();
-
                         setLoyaltyCardCardId(barcodeValues.content());
-                        setLoyaltyCardBarcodeType(barcodeType);
+                        setLoyaltyCardBarcodeType(barcodeValues.format());
                         setLoyaltyCardBarcodeId("");
->>>>>>> Stashed changes
                     }
 
                     @Override
@@ -957,7 +947,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         }
 
         // Fix up some fields
-        // TODO: Double check if necessary and if can't reflow differently
         if (tempLoyaltyCard.barcodeType != null) {
             try {
                 barcodeTypeField.setText(tempLoyaltyCard.barcodeType.prettyName());
@@ -998,9 +987,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         generateIcon(storeFieldEdit.getText().toString().trim());
 
-        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
-        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
-        // NP_NULL_PARAM_DEREF: Method call passes null for non-null parameter
         Integer headerColor = tempLoyaltyCard.headerColor;
         if (headerColor != null) {
             thumbnail.setOnClickListener(new ChooseCardImage());

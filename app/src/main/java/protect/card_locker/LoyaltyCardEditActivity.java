@@ -208,31 +208,43 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         super.attachBaseContext(base);
     }
 
-    protected void setLoyaltyCardStore(String store) {
+    protected void setLoyaltyCardStore(@NonNull String store) {
         tempLoyaltyCard.setStore(store);
 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardNote(String note) {
+    protected void setLoyaltyCardNote(@NonNull String note) {
         tempLoyaltyCard.setNote(note);
 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardBalance(BigDecimal balance) {
+    protected void setLoyaltyCardValidFrom(@Nullable Date validFrom) {
+        tempLoyaltyCard.setValidFrom(validFrom);
+
+        hasChanged = true;
+    }
+
+    protected void setLoyaltyCardExpiry(@Nullable Date expiry) {
+        tempLoyaltyCard.setExpiry(expiry);
+
+        hasChanged = true;
+    }
+
+    protected void setLoyaltyCardBalance(@NonNull BigDecimal balance) {
         tempLoyaltyCard.setBalance(balance);
 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardBalanceType(Currency balanceType) {
+    protected void setLoyaltyCardBalanceType(@Nullable Currency balanceType) {
         tempLoyaltyCard.setBalanceType(balanceType);
 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardCardId(String cardId) {
+    protected void setLoyaltyCardCardId(@NonNull String cardId) {
         tempLoyaltyCard.setCardId(cardId);
 
         generateBarcode();
@@ -240,7 +252,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardBarcodeId(String barcodeId) {
+    protected void setLoyaltyCardBarcodeId(@Nullable String barcodeId) {
         tempLoyaltyCard.setBarcodeId(barcodeId);
 
         generateBarcode();
@@ -248,7 +260,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardBarcodeType(CatimaBarcode barcodeType) {
+    protected void setLoyaltyCardBarcodeType(@Nullable CatimaBarcode barcodeType) {
         tempLoyaltyCard.setBarcodeType(barcodeType);
 
         generateBarcode();
@@ -256,20 +268,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         hasChanged = true;
     }
 
-    protected void setLoyaltyCardHeaderColor(Integer headerColor) {
+    protected void setLoyaltyCardHeaderColor(@Nullable Integer headerColor) {
         tempLoyaltyCard.setHeaderColor(headerColor);
-
-        hasChanged = true;
-    }
-
-    protected void setLoyaltyCardValidFrom(Date validFrom) {
-        tempLoyaltyCard.setValidFrom(validFrom);
-
-        hasChanged = true;
-    }
-
-    protected void setLoyaltyCardExpiry(Date expiry) {
-        tempLoyaltyCard.setExpiry(expiry);
 
         hasChanged = true;
     }

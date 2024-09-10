@@ -428,18 +428,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             public void onUserChoseBarcode(BarcodeValues barcodeValues) {
                 CatimaBarcode barcodeType = barcodeValues.format();
 
-                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle newBundle = new Bundle();
-
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, barcodeValues.content());
                 bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
-                newBundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, null);
+                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, null);
                 if (group != null) {
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+                    bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
                 }
-                newIntent.putExtras(newBundle);
-                startActivity(newIntent);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
 
             @Override

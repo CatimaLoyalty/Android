@@ -1,0 +1,32 @@
+name: Build and Publish Image
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  packages: write
+  attestations: write
+  id-token: write
+
+jobs:
+  build-publish-dev-image:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+      - name: Set git tag and SHA
+        run: |
+          VERSION=$(git tag --sort=committerdate | grep -E '[0-9]' | tail -1 | cut -b 1-7)
+          SHORT_SHA=${GITHUB_SHA:0:7}
+          TAG="${VERSION}-${SHORT_SHA}"
+          echo "TAG=${TAG}" >> $GITHUB_ENV
+
+      - name: Echo Git Tag
+        run: |
+          echo ${{ env.TAG }}
+

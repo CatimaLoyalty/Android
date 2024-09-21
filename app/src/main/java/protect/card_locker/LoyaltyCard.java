@@ -152,7 +152,7 @@ public class LoyaltyCard implements Parcelable {
         this.barcodeId = barcodeId;
     }
 
-        public void setBarcodeType(@Nullable CatimaBarcode barcodeType) {
+    public void setBarcodeType(@Nullable CatimaBarcode barcodeType) {
         this.barcodeType = barcodeType;
     }
 
@@ -193,9 +193,9 @@ public class LoyaltyCard implements Parcelable {
         setStore(Objects.requireNonNull(in.readString()));
         setNote(Objects.requireNonNull(in.readString()));
         long tmpValidFrom = in.readLong();
-        setValidFrom(tmpValidFrom != -1 ? new Date(tmpValidFrom) : null);
+        setValidFrom(tmpValidFrom > 0 ? new Date(tmpValidFrom) : null);
         long tmpExpiry = in.readLong();
-        setExpiry(tmpExpiry != -1 ? new Date(tmpExpiry) : null);
+        setExpiry(tmpExpiry > 0 ? new Date(tmpExpiry) : null);
         setBalance((BigDecimal) in.readValue(BigDecimal.class.getClassLoader()));
         setBalanceType((Currency) in.readValue(Currency.class.getClassLoader()));
         setCardId(Objects.requireNonNull(in.readString()));
@@ -258,13 +258,13 @@ public class LoyaltyCard implements Parcelable {
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
             long tmpValidFrom = bundle.getLong(BUNDLE_LOYALTY_CARD_VALID_FROM);
-            setValidFrom(tmpValidFrom != -1 ? new Date(tmpValidFrom) : null);
+            setValidFrom(tmpValidFrom > 0 ? new Date(tmpValidFrom) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_VALID_FROM);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_EXPIRY)) {
-            long tmpExpiry = bundle.getLong(BUNDLE_LOYALTY_CARD_EXPIRY, -1);
-            setExpiry(tmpExpiry != -1 ? new Date(tmpExpiry) : null);
+            long tmpExpiry = bundle.getLong(BUNDLE_LOYALTY_CARD_EXPIRY);
+            setExpiry(tmpExpiry > 0 ? new Date(tmpExpiry) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_EXPIRY);
         }
@@ -274,7 +274,7 @@ public class LoyaltyCard implements Parcelable {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BALANCE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
-            String tmpBalanceType = bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, null);
+            String tmpBalanceType = bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE);
             setBalanceType(tmpBalanceType != null ? Currency.getInstance(tmpBalanceType) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BALANCE_TYPE);
@@ -290,13 +290,13 @@ public class LoyaltyCard implements Parcelable {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_ID);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_TYPE)) {
-            String tmpBarcodeType = bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, null);
+            String tmpBarcodeType = bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE);
             setBarcodeType(tmpBarcodeType != null ? CatimaBarcode.fromName(tmpBarcodeType) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_TYPE);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
-            int tmpHeaderColor = bundle.getInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, -1);
+            int tmpHeaderColor = bundle.getInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR);
             setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_HEADER_COLOR);
@@ -363,41 +363,27 @@ public class LoyaltyCard implements Parcelable {
         // note
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
         // validFrom
-        Date validFrom = null;
         long validFromLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM));
-        if (validFromLong > 0) {
-            validFrom = new Date(validFromLong);
-        }
+        Date validFrom = validFromLong > 0 ? new Date(validFromLong) : null;
         // expiry
-        Date expiry = null;
         long expiryLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY));
-        if (expiryLong > 0) {
-            expiry = new Date(expiryLong);
-        }
+        Date expiry = expiryLong > 0 ? new Date(expiryLong) : null;
         // balance
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         // balanceType
-        Currency balanceType = null;
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
-        if (!cursor.isNull(balanceTypeColumn)) {
-            balanceType = Currency.getInstance(cursor.getString(balanceTypeColumn));
-        }
+        Currency balanceType = !cursor.isNull(balanceTypeColumn) ? Currency.getInstance(cursor.getString(balanceTypeColumn)) : null;
         // cardId
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         // barcodeId
-        String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
+        int barcodeIdColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID);
+        String barcodeId = !cursor.isNull(barcodeIdColumn) ? cursor.getString(barcodeIdColumn) : null;
         // barcodeType
-        CatimaBarcode barcodeType = null;
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
-        if (!cursor.isNull(barcodeTypeColumn)) {
-            barcodeType = CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn));
-        }
+        CatimaBarcode barcodeType = !cursor.isNull(barcodeTypeColumn) ? CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn)) : null;
         // headerColor
-        Integer headerColor = null;
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
-        if (!cursor.isNull(headerColorColumn)) {
-            headerColor = cursor.getInt(headerColorColumn);
-        }
+        Integer headerColor = !cursor.isNull(headerColorColumn) ? cursor.getInt(headerColorColumn) : null;
         // starStatus
         int starStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
         // lastUsed

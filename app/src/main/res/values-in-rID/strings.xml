@@ -282,4 +282,8 @@
     <string name="amountParsingFailed">Jumlah tidak valid</string>
     <string name="add_manually_warning_message">Untuk beberapa toko, nilai barcode berbeda dengan nomor yang tertulis di kartu. Oleh karena itu, memasukkan barcode secara manual mungkin tidak selalu berhasil. Sangat disarankan untuk memindai barcode dengan kamera anda. Apakah anda masih ingin melanjutkan?</string>
     <string name="noCameraFoundGuideText">Perangkat Anda sepertinya tidak memiliki kamera. Jika iya, coba mulai ulang perangkat. Jika tidak, gunakan tombol Opsi lainnya di bawah untuk menambahkan barcode dengan cara lain.</string>
+    <string name="importCancelled">Impor dibatalkan</string>
+    <string name="exportCancelled">Ekspor dibatalkan</string>
+    <string name="useFrontImage">Gunakan gambar depan</string>
+    <string name="useBackImage">Gunakan gambar belakang</string>
 </resources>

@@ -174,7 +174,7 @@ public class ImportExportTest {
         int index = 1;
 
         while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);
@@ -200,7 +200,7 @@ public class ImportExportTest {
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
 
         while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
 
             // ID goes up for duplicates (b/c the cursor orders by store), down for originals
             int index = card.id > numCards ? card.id - numCards : numCards - card.id + 1;
@@ -236,7 +236,7 @@ public class ImportExportTest {
 
         while (index < 10) {
             cursor.moveToNext();
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);
@@ -258,7 +258,7 @@ public class ImportExportTest {
 
         index = 1;
         while (cursor.moveToNext() && index < 5) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);

@@ -133,8 +133,7 @@ class ShortcutHelper {
         // one replace it.
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         final Bundle bundle = new Bundle();
-        bundle.putInt("id", loyaltyCard.id);
-        bundle.putBoolean("view", true);
+        bundle.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id);
         intent.putExtras(bundle);
 
         Bitmap iconBitmap = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);

@@ -332,7 +332,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Set<String> files = new HashSet<>();
         Cursor cardCursor = getLoyaltyCardCursor(database);
         while (cardCursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor);
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 String name = Utils.getCardImageFileName(card.id, imageLocationType);
                 if (Utils.retrieveCardImageAsFile(context, name).exists()) {
@@ -542,7 +542,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (data.getCount() == 1) {
             data.moveToFirst();
-            card = LoyaltyCard.toLoyaltyCard(data);
+            card = LoyaltyCard.fromCursor(data);
         }
 
         data.close();

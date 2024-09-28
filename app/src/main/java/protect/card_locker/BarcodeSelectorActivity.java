@@ -71,7 +71,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
         });
 
         final Bundle b = getIntent().getExtras();
-        final String initialCardId = b != null ? b.getString("initialCardId") : null;
+        final String initialCardId = b != null ? b.getString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID) : null;
 
         if (initialCardId != null) {
             cardId.setText(initialCardId);

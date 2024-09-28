@@ -275,4 +275,5 @@
     <string name="addWithoutBarcode">Lägg till kort utan streckkod</string>
     <string name="field_must_not_be_empty">Obligatoriskt fält</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Rotera automatiskt (ignorerar systeminställningar)</string>
 </resources>

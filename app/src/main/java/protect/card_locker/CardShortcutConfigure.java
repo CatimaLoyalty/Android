@@ -61,7 +61,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     private void onClickAction(int position) {
         Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
         selected.moveToPosition(position);
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(selected);
 
         Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
 

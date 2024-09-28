@@ -97,7 +97,7 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.github.yalantis:ucrop:2.2.9")
     implementation("androidx.activity:activity:1.8.0")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.1")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
 
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")

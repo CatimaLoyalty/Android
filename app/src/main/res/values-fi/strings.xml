@@ -287,4 +287,9 @@
     <string name="failedLaunchingFileManager">Tuettua tiedostonhallintasovellusta ei löytynyt</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Mitä löytyneistä viivakoodeista haluat käyttää?</string>
     <string name="pageWithNumber">Sivu <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Laitteessasi ei näytä olevan kameraa. Jos näin käy, yritä käynnistää laite uudelleen. Muussa tapauksessa käytä alla olevaa Lisää vaihtoehtoja -painiketta lisätäksesi viivakoodin toisella tavalla.</string>
+    <string name="importCancelled">Tuonti peruttu</string>
+    <string name="exportCancelled">Vienti peruttu</string>
+    <string name="useBackImage">Käytä takakuvaa</string>
+    <string name="useFrontImage">Käytä etukuvaa</string>
 </resources>

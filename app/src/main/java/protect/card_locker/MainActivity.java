@@ -428,15 +428,18 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Utils.makeUserChooseBarcodeFromList(MainActivity.this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
             @Override
             public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle newBundle = new Bundle();
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+                CatimaBarcode barcodeType = barcodeValues.format();
+
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, barcodeValues.content());
+                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
+                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, null);
                 if (group != null) {
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+                    bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
                 }
-                newIntent.putExtras(newBundle);
-                startActivity(newIntent);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
 
             @Override
@@ -783,14 +786,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             Intent intent = new Intent(this, LoyaltyCardViewActivity.class);
             intent.setAction("");
             final Bundle b = new Bundle();
-            b.putInt("id", loyaltyCard.id);
+            b.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id);
 
             ArrayList<Integer> cardList = new ArrayList<>();
             for (int i = 0; i < mAdapter.getItemCount(); i++) {
                 cardList.add(mAdapter.getCard(i).id);
             }
 
-            b.putIntegerArrayList("cardList", cardList);
+            b.putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList);
             intent.putExtras(b);
 
             startActivity(intent);

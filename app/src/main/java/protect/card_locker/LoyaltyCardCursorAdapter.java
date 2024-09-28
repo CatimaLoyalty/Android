@@ -79,7 +79,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public LoyaltyCard getCard(int position) {
         mCursor.moveToPosition(position);
-        return LoyaltyCard.toLoyaltyCard(mCursor);
+        return LoyaltyCard.fromCursor(mCursor);
     }
 
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
@@ -87,7 +87,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         boolean showDivider = false;
         inputHolder.mDivider.setVisibility(View.GONE);
 
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(inputCursor);
         Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
 
         if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && icon != null) {
@@ -192,7 +192,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         int i;
         for (i = 0; i < mSelectedItems.size(); i++) {
             mCursor.moveToPosition(mSelectedItems.keyAt(i));
-            result.add(LoyaltyCard.toLoyaltyCard(mCursor));
+            result.add(LoyaltyCard.fromCursor(mCursor));
         }
 
         return result;

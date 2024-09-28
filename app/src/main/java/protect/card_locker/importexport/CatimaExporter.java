@@ -64,7 +64,7 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
         while (cardCursor.moveToNext()) {
             // For each card
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor);
 
             // For each image
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
@@ -142,7 +142,7 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
 
         while (cardCursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor);
 
             printer.printRecord(card.id,
                     card.store,
@@ -176,7 +176,7 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor2 = DBHelper.getLoyaltyCardCursor(database);
 
         while (cardCursor2.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor2);
+            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor2);
 
             for (Group group : DBHelper.getLoyaltyCardGroups(database, card.id)) {
                 printer.printRecord(card.id, group._id);

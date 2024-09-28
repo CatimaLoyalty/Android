@@ -317,7 +317,7 @@ public class Utils {
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
 
-            return Collections.singletonList(new BarcodeValues(format, contents));
+            return Collections.singletonList(new BarcodeValues(format != null ? CatimaBarcode.fromName(format) : null, contents));
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
@@ -385,7 +385,7 @@ public class Utils {
                 Log.i(TAG, "Read barcode id: " + barcodeResult.getText());
                 Log.i(TAG, "Read format: " + barcodeResult.getBarcodeFormat().name());
 
-                barcodeValuesList.add(new BarcodeValues(barcodeResult.getBarcodeFormat().name(), barcodeResult.getText()));
+                barcodeValuesList.add(new BarcodeValues(CatimaBarcode.fromBarcode(barcodeResult.getBarcodeFormat()), barcodeResult.getText()));
             }
 
             return barcodeValuesList;
@@ -406,7 +406,7 @@ public class Utils {
         CharSequence[] barcodeDescriptions = new CharSequence[barcodeValuesList.size()];
         for (int i = 0; i < barcodeValuesList.size(); i++) {
             BarcodeValues barcodeValues = barcodeValuesList.get(i);
-            CatimaBarcode catimaBarcode = CatimaBarcode.fromName(barcodeValues.format());
+            CatimaBarcode catimaBarcode = barcodeValues.format();
 
             String barcodeContent = barcodeValues.content();
             // Shorten overly long barcodes
@@ -415,9 +415,9 @@ public class Utils {
             }
 
             if (barcodeValues.note() != null) {
-                barcodeDescriptions[i] = String.format("%s: %s (%s)", barcodeValues.note(), catimaBarcode.prettyName(), barcodeContent);
+                barcodeDescriptions[i] = String.format("%s: %s (%s)", barcodeValues.note(), catimaBarcode != null ? catimaBarcode.prettyName() : context.getString(R.string.noBarcode), barcodeContent);
             } else {
-                barcodeDescriptions[i] = String.format("%s (%s)", catimaBarcode.prettyName(), barcodeContent);
+                barcodeDescriptions[i] = String.format("%s (%s)", catimaBarcode != null ? catimaBarcode.prettyName() : context.getString(R.string.noBarcode), barcodeContent);
             }
         }
 

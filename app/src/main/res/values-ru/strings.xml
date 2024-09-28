@@ -75,9 +75,6 @@
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
     <string name="points">Баллы</string>
     <string name="addManually">Ручной ввод номера</string>
-    <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
-\n
-\nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Откуда импортировать данные</string>
@@ -168,7 +165,6 @@
     <string name="settings_sky_blue_theme">Голубой</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_brown_theme">Коричневый</string>
-    <string name="settings_grey_theme">Серый</string>
     <string name="settings_green_theme">Зелёный</string>
     <string name="settings_blue_theme">Синий</string>
     <string name="settings_violet_theme">Фиолетовый</string>
@@ -238,12 +234,6 @@
     <string name="previousCard">Предыдущая</string>
     <string name="welcome">Добро пожаловать в Catima</string>
     <string name="failedToOpenUrl">Сначала необходимо установить браузер</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Просмотр архива (<xliff:g>%1$d</xliff:g> карта)</item>
-        <item quantity="few">Просмотр архива (<xliff:g>%1$d</xliff:g> карты)</item>
-        <item quantity="many">Просмотр архива (<xliff:g>%1$d</xliff:g> карт)</item>
-        <item quantity="other">Просмотр архива (<xliff:g>%1$d</xliff:g> карт)</item>
-    </plurals>
     <string name="failedToRetrieveImageFile">Невозможно получить файл изображения</string>
     <string name="barcodeLongPressMessage">В приложении галереи можно открывать только изображения</string>
     <string name="noCameraPermissionDirectToSystemSetting">Для сканирования штрих-кодов Catima требуется доступ к камере устройства. Нажмите здесь, чтобы изменить настройки разрешений.</string>

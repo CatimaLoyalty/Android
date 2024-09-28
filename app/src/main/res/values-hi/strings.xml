@@ -110,9 +110,6 @@
         <item quantity="one"><xliff:g>%s</xliff:g> बिंदु</item>
         <item quantity="other"><xliff:g>%s</xliff:g> अंक</item>
     </plurals>
-    <string name="privacy_policy_popup_text">निजता नीति नोटिस (कुछ ऐप स्टोर के लिए आवश्यक):
-\n
-\nकोई भी डेटा एकत्र नहीं किया जाता है, जिसकी पुष्टि कोई भी कर सकता है क्योंकि हमारा ऐप मुफ्त सॉफ्टवेयर है।</string>
     <string name="importCatimaMessage">आयात करने के लिए, <i>catima.zip</i> फाइल को चुने जो की Catima से निर्यात किया गया था.
 \nदूसरे Catima ऍप के आयात/निर्यात मेनू से निर्यात बटन दबाकर, पहले catima.zip फाइल को बनाये.</string>
     <plurals name="selectedCardCount">
@@ -200,7 +197,6 @@
     <string name="options">विकल्प</string>
     <string name="settings_magenta_theme">मैजेंटा</string>
     <string name="failedGeneratingShareURL">साझा करने योग्य यूआरएल जैनरेट नहीं किया जा सकता. कृपया इसकी रिपोर्ट करें।</string>
-    <string name="settings_grey_theme">स्लेटी</string>
     <string name="sort_by_most_recently_used">सबसे हाल ही में उपयोग किया गया</string>
     <string name="settings_theme_color">थीम रंग</string>
     <string name="settings_sky_blue_theme">आसमानी नीला</string>
@@ -250,10 +246,6 @@
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> कार्ड (<xliff:g id="archivedCount">%2$d</xliff:g> संग्रहीत)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> कार्ड (<xliff:g id="archivedCount">%2$d</xliff:g> संग्रहीत)</item>
-    </plurals>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
-        <item quantity="other">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
     </plurals>
     <string name="updateBalanceTitle">आपने कितना खर्च या प्राप्त किया?</string>
     <string name="chooseValidFromDate">दिनांक से वैध चुनें</string>

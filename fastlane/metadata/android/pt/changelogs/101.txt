@@ -1,0 +1,3 @@
+- Correção no recortado para que use a cor do tema
+- Correção de pequenos problemas nos temas
+- Adicionar tema escuro "pure black" para ecrãs OLED

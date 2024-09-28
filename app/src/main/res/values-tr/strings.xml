@@ -2,7 +2,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Kahverengi</string>
-    <string name="settings_grey_theme">Gri</string>
     <string name="settings_green_theme">Yeşil</string>
     <string name="settings_sky_blue_theme">Gök mavisi</string>
     <string name="settings_blue_theme">Mavi</string>
@@ -50,9 +49,6 @@
 \nBaşka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importCatima">Catima\'dan içe aktar</string>
     <string name="accept">Kabul et</string>
-    <string name="privacy_policy_popup_text">Gizlilik politikası bildirimi (bazı uygulama mağazaları için gerekli):
-\n
-\nHİÇBİR VERİ TOPLANMAMAKTADIR ve uygulamamız özgür yazılım olduğu için bunu herkes doğrulayabilir.</string>
     <string name="privacy_policy">Gizlilik Politikası</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Verileri şuradan içe aktar</string>
@@ -225,10 +221,6 @@
     <string name="previousCard">Önceki</string>
     <string name="nextCard">Sonraki</string>
     <string name="failedToOpenUrl">Önce bir web tarayıcısı kurun</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Arşivi görüntüle (<xliff:g>%1$d</xliff:g> kart)</item>
-        <item quantity="other">Arşivi görüntüle (<xliff:g>%1$d</xliff:g> kart)</item>
-    </plurals>
     <string name="welcome">Catima\'ya Hoş Geldiniz</string>
     <string name="failedToRetrieveImageFile">Resim dosyası alınamadı</string>
     <string name="barcodeLongPressMessage">Galeri uygulamasında yalnızca resimler açılabilir</string>

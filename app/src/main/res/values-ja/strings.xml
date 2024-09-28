@@ -13,9 +13,6 @@
 \nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
     <string name="importCatima">Catimaからインポート</string>
     <string name="accept">承認</string>
-    <string name="privacy_policy_popup_text">プライバシーポリシーの案内:
-\n
-\nこのアプリはユーザーのデータを一切収集しません。</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">インポート元を選択</string>
@@ -151,7 +148,6 @@
     <string name="barcodeImageDescriptionWithType">バーコード形式の画像 <xliff:g>%s</xliff:g></string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">ブラウン/茶色</string>
-    <string name="settings_grey_theme">グレー/灰色</string>
     <string name="settings_green_theme">グリーン/緑色</string>
     <string name="settings_sky_blue_theme">スカイブルー/水色</string>
     <string name="settings_blue_theme">ブルー/青色</string>

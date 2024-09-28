@@ -115,9 +115,6 @@
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>
     <string name="app_loyalty_card_keychain">Lοyalty Card Keychain</string>
-    <string name="privacy_policy_popup_text">Σημείωμα πολιτικής απορρήτου ( υποχρεωτικό σε κάποια \"μαγαζιά\" εφαρμογών)
-\n
-\nΜΗΔΕΝΙΚΆ ΔΕΔΟΜΈΝΑ ΣΥΛΛΈΓΟΝΤΑΙ, ο οποιοσδήποτε μπορεί να το επιβεβαιώσει μιας και η εφαρμογή είναι ελεύθερο λογισμικό.</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> κάρτα ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκε)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> κάρτες ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκαν)</item>
@@ -151,7 +148,6 @@
     <string name="setIcon">Ορισμός εικονιδίου</string>
     <string name="settings_sky_blue_theme">Γαλάζιο</string>
     <string name="settings_green_theme">Πράσινο</string>
-    <string name="settings_grey_theme">Γκρι</string>
     <string name="settings_brown_theme">Καφέ</string>
     <string name="sort_by_expiry">Λήξη</string>
     <plurals name="groupCardCount">
@@ -230,10 +226,6 @@
     <string name="updateBalance">Ενημέρωση υπολοίπου</string>
     <string name="barcodeLongPressMessage">Μόνο εικόνες μπορούν να ανοιχτούν στην εφαρμογή φωτογραφιών</string>
     <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμωτούς κώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> κάρτας)</item>
-        <item quantity="other">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> καρτών)</item>
-    </plurals>
     <string name="importCards">Εισαγωγή καρτών</string>
     <string name="updateBalanceHint">Εισάγετε ποσό</string>
     <string name="currentBalanceSentence">Τωρινό υπόλοιπο <xliff:g>%s</xliff:g></string>
@@ -296,4 +288,8 @@
     <string name="manually_enter_barcode_instructions">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
     <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>
     <string name="noCameraFoundGuideText">Η συσκευή σας δεν φαίνεται να διαθέτει κάμερα. Αν έχει, δοκιμάστε να κάνετε επανεκκίνηση της συσκευής. Διαφορετικά, χρησιμοποιήστε το κουμπί Περισσότερες επιλογές παρακάτω για να προσθέσετε έναν γραμμωτό κώδικα με άλλο τρόπο.</string>
+    <string name="importCancelled">Η εισαγωγή ακυρώθηκε</string>
+    <string name="exportCancelled">Η εξαγωγή ακυρώθηκε</string>
+    <string name="useFrontImage">Χρήση μπροστινής εικόνας</string>
+    <string name="useBackImage">Χρήση οπίσθιας εικόνας</string>
 </resources>

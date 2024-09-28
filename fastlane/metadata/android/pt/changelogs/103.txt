@@ -1,0 +1,2 @@
+- Correção em todo o lado da seleção manual de linguagem
+- Correção da falha na vista de editor em locais sem região

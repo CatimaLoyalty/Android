@@ -31,7 +31,7 @@ Samantaz Fox
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
-arno-github
+Arno-github
 Milo Ivir
 Jose Delvani
 Balázs Meskó
@@ -39,6 +39,7 @@ mdvhimself
 Milan Šalka
 Skrripy
 huuhaa
+Priit Jõerüüt
 Projjal Moitra
 Quentin PAGÈS
 ikanakova
@@ -52,6 +53,7 @@ Denis Shilin
 Alexander Ivanov
 Miha Frangež
 Viet Nguyen Hoang
+stavpup
 ehrt74
 Virginie
 Michael Gangolf

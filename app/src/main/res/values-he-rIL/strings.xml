@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
     <string name="action_add">הוספה</string>
     <string name="cardId">מזהה כרטיס</string>
     <string name="cancel">ביטול</string>
@@ -61,4 +61,12 @@
         <item quantity="many">מעט</item>
         <item quantity="other">אחר</item>
     </plurals>
+    <string name="importCancelled">ייבוא בוטל</string>
+    <string name="exportCancelled">ייצוא בוטל</string>
+    <string name="addFromPdfFile">בחר קובץ PDF</string>
+    <string name="errorReadingFile">לא ניתן לקרוא את הקובץ</string>
+    <string name="failedLaunchingFileManager">לא נמצא קובץ ניהול נתמך</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">באיזה מהברקודים שנמצאו אתה רוצה להשתמש?</string>
+    <string name="useFrontImage">השתמש בתמונה קדמית</string>
+    <string name="useBackImage">השתמש בתמונה אחורית</string>
 </resources>

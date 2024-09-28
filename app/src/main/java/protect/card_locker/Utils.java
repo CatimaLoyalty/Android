@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -10,6 +9,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
@@ -53,7 +53,6 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.multi.GenericMultipleBarcodeReader;
 import com.google.zxing.multi.MultipleBarcodeReader;
@@ -224,6 +223,11 @@ public class Utils {
                     PdfRenderer.Page page = renderer.openPage(i);
 
                     renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+
+                    Canvas canvas = new Canvas(renderedPage);
+                    canvas.drawColor(Color.WHITE);
+                    canvas.drawBitmap(renderedPage, 0, 0, null);
+
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
 
                     // debug
@@ -359,7 +363,7 @@ public class Utils {
 
         // debug
         String path = Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS
-                + "/" + UUID.randomUUID().toString() + ".jpg";
+                + "/gbfbr-" + UUID.randomUUID().toString() + ".jpg";
         try {
 
             FileOutputStream fileOutputStream = new FileOutputStream(path);
@@ -492,7 +496,6 @@ public class Utils {
     }
 
     private static BigDecimal fromParsed(Number parsed){
-        if(parsed instanceof BigDecimal)
         if(parsed instanceof BigDecimal)
             return (BigDecimal) parsed;
 

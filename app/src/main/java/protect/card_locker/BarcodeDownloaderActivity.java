@@ -133,26 +133,32 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
                 if (cursor.moveToFirst()) {
                     int columnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
                     if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(columnIndex)) {
-                        String file = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
 
-                        if (Objects.nonNull(file)) {
-                            File mfile = new File(Uri.parse(file).getPath());
+                        int colIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
+
+                        if (colIdx >=0 && Objects.nonNull(cursor.getString(colIdx))){
+
+                            String fileLocalUri = cursor.getString(colIdx);
+
+                            File mfile = new File(Uri.parse(fileLocalUri).getPath());
                             if (mfile.exists()) {
                                 try {
-                                    String contentType = null;
+                                    colIdx = cursor.getColumnIndex(DownloadManager.COLUMN_MEDIA_TYPE);
 
-                                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                    String contentType = colIdx >=0 ? cursor.getString(colIdx) : null;
+
+                                    if (Objects.isNull(contentType) && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                                         contentType = Files.probeContentType(mfile.toPath());
                                     }
 
                                     TextView nomView = findViewById(R.id.downloadMessage);
-                                    nomView.setText(file + " ( " + contentType + ")");
+                                    nomView.setText(fileLocalUri + " ( " + contentType + ")");
 
                                     List<BarcodeValues> barcodes = new ArrayList<>();
 
                                     if (contentType.equals("application/pdf")) {
 
-                                        barcodes = Utils.retrieveBarcodesFromPdf(context, Uri.parse(file));
+                                        barcodes = Utils.retrieveBarcodesFromPdf(context, Uri.parse(fileLocalUri));
 
                                     }
 

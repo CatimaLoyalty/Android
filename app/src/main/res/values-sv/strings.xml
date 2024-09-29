@@ -244,7 +244,7 @@
     <string name="height">Höjd:</string>
     <string name="settings_category_title_general">Generellt</string>
     <string name="switchToBarcode">Byt till streckkod</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset när kortet visas</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset medans kort visas</string>
     <string name="permissionReadCardsDescription">Se dina kort med alla dess detaljer, inklusive anteckningar och bilder</string>
     <string name="action_display_options">Visningsalternativ</string>
     <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
@@ -265,7 +265,7 @@
     <string name="show_archived_cards">Visa arkiverade kort</string>
     <string name="settings_category_title_privacy">Sekretess</string>
     <string name="show_balance">Visa konto</string>
-    <string name="settings_keep_screen_on_summary">Stänger av skärmens tidsgräns medan ett kort visas</string>
+    <string name="settings_keep_screen_on_summary">Stänger av skärmtidsgräns medans ett kort visas</string>
     <string name="card_id_must_not_be_empty">Kort id får inte vara tomt</string>
     <string name="balanceParsingFailed">Ogiltiga balanser</string>
     <string name="add_a_card_in_a_different_way">Lägg till kort på annat sätt</string>

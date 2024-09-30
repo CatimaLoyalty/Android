@@ -63,7 +63,7 @@
     <string name="importSuccessfulTitle">Imporditud</string>
     <string name="importFailedTitle">Import ei õnnestunud</string>
     <string name="exportSuccessfulTitle">Eksporditud</string>
-    <string name="exportFailedTitle">Eksportimine ei õnenstunud</string>
+    <string name="exportFailedTitle">Eksportimine ei õnnestunud</string>
     <string name="exportFailed">Eksportimist ei õnnestunud teha</string>
     <string name="importing">Impordime…</string>
     <string name="exporting">Ekspordime…</string>

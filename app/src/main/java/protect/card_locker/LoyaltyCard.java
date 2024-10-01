@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class LoyaltyCard implements Parcelable {
@@ -227,6 +228,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(archiveStatus);
     }
 
+    @NonNull
     public static LoyaltyCard fromBundle(Bundle bundle, boolean requireFull) {
         // Grab default card
         LoyaltyCard loyaltyCard = new LoyaltyCard();
@@ -238,7 +240,7 @@ public class LoyaltyCard implements Parcelable {
         return loyaltyCard;
     }
 
-    public void updateFromBundle(Bundle bundle, boolean requireFull) {
+    public void updateFromBundle(@NonNull Bundle bundle, boolean requireFull) {
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
             setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
         } else if (requireFull) {
@@ -321,34 +323,56 @@ public class LoyaltyCard implements Parcelable {
         }
     }
 
-    public Bundle toBundle() {
+    public Bundle toBundle(List<String> exportLimit) {
+        boolean exportIsLimited = !exportLimit.isEmpty();
+
         Bundle bundle = new Bundle();
 
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ID, id);
-        bundle.putString(BUNDLE_LOYALTY_CARD_STORE, store);
-        bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
-        if (validFrom != null) {
-            bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom.getTime());
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_ID)) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ID, id);
         }
-        if (expiry != null) {
-            bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry.getTime());
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_STORE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_STORE, store);
         }
-        bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
-        if (balanceType != null) {
-            bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, balanceType.toString());
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_NOTE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
         }
-        bundle.putString(BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
-        bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ID, barcodeId);
-        if (barcodeType != null) {
-            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType.name());
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom != null ? validFrom.getTime() : -1);
         }
-        if (headerColor != null) {
-            bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor);
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_EXPIRY)) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry != null ? expiry.getTime() : -1);
         }
-        bundle.putInt(BUNDLE_LOYALTY_CARD_STAR_STATUS, starStatus);
-        bundle.putLong(BUNDLE_LOYALTY_CARD_LAST_USED, lastUsed);
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL, zoomLevel);
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BALANCE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, balanceType != null ? balanceType.toString() : null);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_CARD_ID)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BARCODE_ID)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ID, barcodeId);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BARCODE_TYPE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor != null ? headerColor : -1);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_STAR_STATUS)) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_STAR_STATUS, starStatus);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_LAST_USED)) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_LAST_USED, lastUsed);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL)) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL, zoomLevel);
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS)) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
+        }
 
         return bundle;
     }

@@ -360,6 +360,5 @@
     <string name="exportCancelled">Export cancelled</string>
     <string name="useFrontImage">Use front image</string>
     <string name="useBackImage">Use back image</string>
-    <string name="addFromPkpass">Select a Passbook file (.pkpass)</string>
     <string name="unsupportedFile">This file is not supported</string>
 </resources>

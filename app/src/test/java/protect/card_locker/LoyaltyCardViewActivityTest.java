@@ -231,10 +231,14 @@ public class LoyaltyCardViewActivityTest {
         assertNotNull(bundle);
 
         Intent resultIntent = new Intent(intent);
-        Bundle resultBundle = new Bundle();
-        resultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, BARCODE_DATA);
-        resultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, BARCODE_TYPE.name());
-        resultIntent.putExtras(resultBundle);
+
+        LoyaltyCard loyaltyCard = new LoyaltyCard();
+        loyaltyCard.setBarcodeId(null);
+        loyaltyCard.setBarcodeType(BARCODE_TYPE);
+        loyaltyCard.setCardId(BARCODE_DATA);
+        ParseResult parseResult = new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard);
+
+        resultIntent.putExtras(parseResult.toLoyaltyCardBundle());
 
         // Respond to image capture, success
         shadowOf(activity).receiveResult(
@@ -267,10 +271,14 @@ public class LoyaltyCardViewActivityTest {
         assertNotNull(bundle);
 
         Intent resultIntent = new Intent(intent);
-        Bundle resultBundle = new Bundle();
-        resultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeType);
-        resultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeData);
-        resultIntent.putExtras(resultBundle);
+
+        LoyaltyCard loyaltyCard = new LoyaltyCard();
+        loyaltyCard.setBarcodeId(null);
+        loyaltyCard.setBarcodeType(barcodeType != null ? CatimaBarcode.fromName(barcodeType) : null);
+        loyaltyCard.setCardId(barcodeData);
+        ParseResult parseResult = new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard);
+
+        resultIntent.putExtras(parseResult.toLoyaltyCardBundle());
 
         // Respond to barcode selection, success
         shadowOf(activity).receiveResult(

@@ -257,12 +257,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 return;
             }
 
-            Intent intent = result.getData();
-            List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
-
-            Bundle inputBundle = intent.getExtras();
-            String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
-            processBarcodeValuesList(barcodeValuesList, group, false);
+            Intent editIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            editIntent.putExtras(result.getData().getExtras());
+            startActivity(editIntent);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -422,21 +419,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void processBarcodeValuesList(List<BarcodeValues> barcodeValuesList, String group, boolean closeAppOnNoBarcode) {
-        if (barcodeValuesList.isEmpty()) {
-            throw new IllegalArgumentException("barcodesValues may not be empty");
+    private void processParseResultList(List<ParseResult> parseResultList, String group, boolean closeAppOnNoBarcode) {
+        if (parseResultList.isEmpty()) {
+            throw new IllegalArgumentException("parseResultList may not be empty");
         }
 
-        Utils.makeUserChooseBarcodeFromList(MainActivity.this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+        Utils.makeUserChooseParseResultFromList(MainActivity.this, parseResultList, new ParseResultListDisambiguatorCallback() {
             @Override
-            public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                CatimaBarcode barcodeType = barcodeValues.format();
-
+            public void onUserChoseParseResult(ParseResult parseResult) {
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, barcodeValues.content());
-                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
-                bundle.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_BARCODE_ID, null);
+                Bundle bundle = parseResult.toLoyaltyCardBundle();
                 if (group != null) {
                     bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
                 }
@@ -459,25 +451,27 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Check if an image or file was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
-            List<BarcodeValues> barcodeValuesList;
+            List<ParseResult> parseResultList;
 
             if (receivedType.equals("text/plain")) {
-                barcodeValuesList = Collections.singletonList(new BarcodeValues(null, intent.getStringExtra(Intent.EXTRA_TEXT)));
+                LoyaltyCard loyaltyCard = new LoyaltyCard();
+                loyaltyCard.setCardId(intent.getStringExtra(Intent.EXTRA_TEXT));
+                parseResultList = Collections.singletonList(new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard));
             } else if (receivedType.startsWith("image/")) {
-                barcodeValuesList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+                parseResultList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else if (receivedType.equals("application/pdf")) {
-                barcodeValuesList = Utils.retrieveBarcodesFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+                parseResultList = Utils.retrieveBarcodesFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else {
                 Log.e(TAG, "Wrong mime-type");
                 return;
             }
 
-            if (barcodeValuesList.isEmpty()) {
+            if (parseResultList.isEmpty()) {
                 finish();
                 return;
             }
 
-            processBarcodeValuesList(barcodeValuesList, null, true);
+            processParseResultList(parseResultList, null, true);
         }
     }
 

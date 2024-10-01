@@ -699,14 +699,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     return;
                 }
 
-                List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
+                List<ParseResult> parseResultList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
 
-                Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+                Utils.makeUserChooseParseResultFromList(this, parseResultList, new ParseResultListDisambiguatorCallback() {
                     @Override
-                    public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                        setLoyaltyCardCardId(barcodeValues.content());
-                        setLoyaltyCardBarcodeType(barcodeValues.format());
-                        setLoyaltyCardBarcodeId("");
+                    public void onUserChoseParseResult(ParseResult parseResult) {
+                        tempLoyaltyCard.updateFromBundle(parseResult.toLoyaltyCardBundle(), false);
+                        generateBarcode();
+                        hasChanged = true;
                     }
 
                     @Override

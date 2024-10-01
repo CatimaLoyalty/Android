@@ -227,6 +227,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(archiveStatus);
     }
 
+    @NonNull
     public static LoyaltyCard fromBundle(Bundle bundle, boolean requireFull) {
         // Grab default card
         LoyaltyCard loyaltyCard = new LoyaltyCard();
@@ -238,7 +239,7 @@ public class LoyaltyCard implements Parcelable {
         return loyaltyCard;
     }
 
-    public void updateFromBundle(Bundle bundle, boolean requireFull) {
+    public void updateFromBundle(@NonNull Bundle bundle, boolean requireFull) {
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
             setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
         } else if (requireFull) {
@@ -321,34 +322,56 @@ public class LoyaltyCard implements Parcelable {
         }
     }
 
-    public Bundle toBundle() {
+    public Bundle toBundle(boolean skipDefaults) {
         Bundle bundle = new Bundle();
 
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ID, id);
-        bundle.putString(BUNDLE_LOYALTY_CARD_STORE, store);
-        bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
-        if (validFrom != null) {
+        LoyaltyCard defaultLoyaltyCard = new LoyaltyCard();
+
+        if (!skipDefaults || id != defaultLoyaltyCard.id) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ID, id);
+        }
+        if (!skipDefaults || !store.equals(defaultLoyaltyCard.store)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_STORE, store);
+        }
+        if (!skipDefaults || !note.equals(defaultLoyaltyCard.note)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
+        }
+        if (validFrom != null && (!skipDefaults || !validFrom.equals(defaultLoyaltyCard.validFrom))) {
             bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom.getTime());
         }
-        if (expiry != null) {
+        if (expiry != null && (!skipDefaults || !expiry.equals(defaultLoyaltyCard.expiry))) {
             bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry.getTime());
         }
-        bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
-        if (balanceType != null) {
+        if (!skipDefaults || !balance.equals(defaultLoyaltyCard.balance)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
+        }
+        if (balanceType != null && (!skipDefaults || !balanceType.equals(defaultLoyaltyCard.balanceType))) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, balanceType.toString());
         }
-        bundle.putString(BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
-        bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ID, barcodeId);
-        if (barcodeType != null) {
+        if (!skipDefaults || !cardId.equals(defaultLoyaltyCard.cardId)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_CARD_ID, cardId);
+        }
+        if (!skipDefaults || !Objects.equals(barcodeId, defaultLoyaltyCard.barcodeId)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ID, barcodeId);
+        }
+        if (barcodeType != null && (!skipDefaults || !barcodeType.equals(defaultLoyaltyCard.barcodeType))) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType.name());
         }
-        if (headerColor != null) {
+        if (headerColor != null && (!skipDefaults || !headerColor.equals(defaultLoyaltyCard.headerColor))) {
             bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor);
         }
-        bundle.putInt(BUNDLE_LOYALTY_CARD_STAR_STATUS, starStatus);
-        bundle.putLong(BUNDLE_LOYALTY_CARD_LAST_USED, lastUsed);
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL, zoomLevel);
-        bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
+        if (!skipDefaults || starStatus != defaultLoyaltyCard.starStatus) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_STAR_STATUS, starStatus);
+        }
+        if (!skipDefaults || lastUsed != defaultLoyaltyCard.lastUsed) {
+            bundle.putLong(BUNDLE_LOYALTY_CARD_LAST_USED, lastUsed);
+        }
+        if (!skipDefaults || zoomLevel != defaultLoyaltyCard.zoomLevel) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ZOOM_LEVEL, zoomLevel);
+        }
+        if (!skipDefaults || archiveStatus != defaultLoyaltyCard.archiveStatus) {
+            bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
+        }
 
         return bundle;
     }

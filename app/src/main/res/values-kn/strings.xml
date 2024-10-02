@@ -17,4 +17,36 @@
     </plurals>
     <string name="note">ಸೂಚನೆ</string>
     <string name="action_add">ಸೇರಿಸಿ</string>
+    <string name="addFromImage">ಗ್ಯಾಲರಿಯಿಂದ ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="balance">ಸಮತೋಲನ</string>
+    <string name="balanceParsingFailed">ಅಮಾನ್ಯ ಬ್ಯಾಲೆನ್ಸ್</string>
+    <string name="chooseImportType">ನಿಂದ ಡೇಟಾವನ್ನು ಆಮದು ಮಾಡಿ</string>
+    <string name="currency">ಕರೆನ್ಸಿ</string>
+    <string name="archive"></string>
+    <string name="action_display_options">ಪ್ರದರ್ಶನ ಆಯ್ಕೆಗಳು</string>
+    <string name="add_manually_warning_title">ಸ್ಕ್ಯಾನಿಂಗ್ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ</string>
+    <string name="cameraPermissionDeniedTitle">ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
+    <string name="addManually">ಬಾರ್ಕೋಡ್ ಅನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ನಮೂದಿಸಿ</string>
+    <string name="card">ಕಾರ್ಡ್</string>
+    <string name="chooseExpiryDate">ಮುಕ್ತಾಯ ದಿನಾಂಕವನ್ನು ಆರಿಸಿ</string>
+    <string name="barcodeId">ಬಾರ್ಕೋಡ್ ಮೌಲ್ಯ</string>
+    <string name="backImageDescription">ಹಿಂದಿನ ಚಿತ್ರ</string>
+    <string name="credits">ಸಾಲಗಳು</string>
+    <string name="and_data_usage">ಮತ್ತು ಡೇಟಾ ಬಳಕೆ</string>
+    <string name="anyDate">ಯಾವುದೇ ದಿನಾಂಕ</string>
+    <string name="card_id_must_not_be_empty">ಕಾರ್ಡ್ ಐಡಿ ಖಾಲಿಯಾಗಿರಬಾರದು</string>
+    <string name="donate">ದಾನ ಮಾಡಿ</string>
+    <string name="action_more_options">ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳು</string>
+    <string name="add_a_card_in_a_different_way">ಬೇರೆ ರೀತಿಯಲ್ಲಿ ಕಾರ್ಡ್ ಸೇರಿಸಿ</string>
+    <string name="barcodeLongPressMessage">ಗ್ಯಾಲರಿ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಚಿತ್ರಗಳನ್ನು ಮಾತ್ರ ತೆರೆಯಬಹುದು</string>
+    <string name="all">ಎಲ್ಲವೂ</string>
+    <string name="chooseValidFromDate">ದಿನಾಂಕದಿಂದ ಮಾನ್ಯವಾಗಿ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="delete">ಅಳಿಸಿ</string>
+    <string name="cardShortcut">ಕಾರ್ಡ್ ಶಾರ್ಟ್‌ಕಟ್</string>
+    <string name="addCardTitle">ಕಾರ್ಡ್ ಸೇರಿಸಿ</string>
+    <string name="about">ಸುಮಾರು</string>
+    <string name="cameraPermissionRequired">ಈ ಕ್ರಿಯೆಗೆ ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲು ಅನುಮತಿ ಅಗತ್ಯವಿದೆ…</string>
+    <string name="amountParsingFailed">ಅಮಾನ್ಯ ಮೊತ್ತ</string>
+    <string name="accept">ಸ್ವೀಕರಿಸಿ</string>
+    <string name="confirm">ದೃಢೀಕರಿಸಿ</string>
 </resources>

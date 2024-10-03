@@ -22,7 +22,6 @@
     <string name="balanceParsingFailed">ಅಮಾನ್ಯ ಬ್ಯಾಲೆನ್ಸ್</string>
     <string name="chooseImportType">ನಿಂದ ಡೇಟಾವನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="currency">ಕರೆನ್ಸಿ</string>
-    <string name="archive"></string>
     <string name="action_display_options">ಪ್ರದರ್ಶನ ಆಯ್ಕೆಗಳು</string>
     <string name="add_manually_warning_title">ಸ್ಕ್ಯಾನಿಂಗ್ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ</string>
     <string name="cameraPermissionDeniedTitle">ಕ್ಯಾಮರಾವನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>

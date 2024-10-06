@@ -33,6 +33,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
@@ -83,6 +85,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -146,29 +149,51 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
-    static public List<BarcodeValues> retrieveBarcodesFromText(Context context, String text) {
-        Log.i(TAG, "Received text with possible barcode");
+    static public Optional<Uri> textContainsUrl(String text) {
+
         String simpleRegex = ".*(https?:\\/\\/[a-zA-Z0-9_\\-\\.\\/\\?\\&\\=]+).*";
 
-        Pattern pattern = Pattern.compile(simpleRegex, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(simpleRegex, Pattern.MULTILINE | Pattern.UNIX_LINES | Pattern.DOTALL);
         Matcher matcher = pattern.matcher(text);
 
-        if (matcher.matches()){
-            return retrieveBarcodesFromUrl(context, Uri.parse(matcher.group(1)));
+        if (matcher.matches()) {
+            return Optional.of(Uri.parse(matcher.group(1)));
+        }
+        return Optional.empty();
+    }
 
+    static public List<BarcodeValues> retrieveBarcodesFromText(Context context, String text) {
+
+        Optional<Uri> uri = textContainsUrl(text);
+        if (uri.isPresent()){
+            Log.i(TAG, "Received text with url include");
+            return retrieveBarcodesFromUrl(context, uri.get());
         }
 
+        Log.i(TAG, "Received text with possible barcode");
         return Collections.singletonList(new BarcodeValues(null, text));
     }
 
     static public List<BarcodeValues> retrieveBarcodesFromUrl(Context context, Uri uri) {
 
+        ActivityResultLauncher<Intent> activity01Launcher =
+                    ((CatimaAppCompatActivity)context).registerForActivityResult(
+                            new  ActivityResultContracts.StartActivityForResult(),
+
+                        (result) -> {
+
+                                Log.i(TAG, "result from barcode url activity");
+                                List<BarcodeValues> barcodes = new ArrayList<>();
+
+                            // code to process data from activity called
+                        }
+                );
+
         Intent intent = new Intent(context, BarcodeDownloaderActivity.class);
         intent.setData(uri);
-        context.startActivity(intent);
+        activity01Launcher.launch(intent);
 
         return Collections.emptyList();
-
     }
 
     static public List<BarcodeValues> retrieveBarcodesFromImage(Context context, Uri uri) {
@@ -229,21 +254,6 @@ public class Utils {
                     canvas.drawBitmap(renderedPage, 0, 0, null);
 
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
-
-                    // debug
-                    String path = Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS
-                            + "/" + UUID.randomUUID().toString() + ".jpg";
-                    try {
-
-                        FileOutputStream fileOutputStream = new FileOutputStream(path);
-                        renderedPage.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                        fileOutputStream.close();
-                    } catch (IOException e){
-                        Log.e(TAG, e.getMessage());
-                    }
-                    // end debug
-
-
                     page.close();
 
                     List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
@@ -360,19 +370,6 @@ public class Utils {
         // ...and then turned into a binary bitmap from its luminance
         LuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
         BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
-
-        // debug
-        String path = Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS
-                + "/gbfbr-" + UUID.randomUUID().toString() + ".jpg";
-        try {
-
-            FileOutputStream fileOutputStream = new FileOutputStream(path);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-            fileOutputStream.close();
-        } catch (IOException e){
-            Log.e(TAG, e.getMessage());
-        }
-        // end debug
 
         List<BarcodeValues> barcodeValuesList = new ArrayList<>();
         try {

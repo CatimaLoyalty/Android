@@ -34,7 +34,6 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
 
     private DownloadManager downloadmanager;
     private long downloadId;
-
     private File downloadedFile;
 
     @Override
@@ -43,20 +42,18 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
 
         this.prepareDownloadFileAndDirectory();
 
-
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_barcode_downloader);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+       /* ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
+        });*/
 
         Uri intentDataUri = getIntent().getData();
-        this.downloadmanager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
-        registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
         if (Objects.nonNull(intentDataUri)) {
+            this.downloadmanager = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+            registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
             this.startDownload(intentDataUri);
         }
     }
@@ -85,10 +82,10 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
-            if (downloadedFile.exists()){
+            if (downloadedFile.exists()) {
                 downloadedFile.delete();
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.e(TAG, "error when deleting file " + downloadedFile.getAbsoluteFile(), e);
         }
     }
@@ -96,23 +93,21 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
     private void startDownload(@NonNull Uri uri) {
 
         try {
-
-            //File outputDir = this.getCacheDir(); // context being the Activity pointer
-            //File outputFile = File.createTempFile("download_", ".tmp", outputDir);
-            //File outputFile = Utils.createTempFile(this, "download_" + downloadId);
-
             DownloadManager.Request request = new DownloadManager.Request(uri)
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)// Visibility of the download Notification
                     .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadedFile.getName())
-                    .setTitle(String.valueOf(downloadId))
+                    //.setTitle(String.valueOf(downloadId))
                     //outputFile.getName())// Title of the Download Notification
                     .setDescription("Downloading")// Description of the Download Notification
                     //.setRequiresCharging(false)// Set if charging is required to begin the download
                     .setAllowedOverMetered(true)// Set if download is allowed on Mobile network
                     .setAllowedOverRoaming(true);// Set if download is allowed on roaming network
 
-            Log.i(TAG, "starting downloading file " + downloadId);
             this.downloadId = this.downloadmanager.enqueue(request);
+
+            TextView nomView = findViewById(R.id.downloadMessage);
+            nomView.setText("Downloading\n" + uri.toString());
+
             Log.i(TAG, "downloading file " + String.valueOf(downloadId));
 
         } catch (Exception e) {
@@ -136,39 +131,42 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
 
                         int colIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
 
-                        if (colIdx >=0 && Objects.nonNull(cursor.getString(colIdx))){
+                        if (colIdx >= 0 && Objects.nonNull(cursor.getString(colIdx))) {
 
                             String fileLocalUri = cursor.getString(colIdx);
-
                             File mfile = new File(Uri.parse(fileLocalUri).getPath());
+
                             if (mfile.exists()) {
                                 try {
                                     colIdx = cursor.getColumnIndex(DownloadManager.COLUMN_MEDIA_TYPE);
 
-                                    String contentType = colIdx >=0 ? cursor.getString(colIdx) : null;
+                                    String contentType = colIdx >= 0 ? cursor.getString(colIdx) : null;
 
                                     if (Objects.isNull(contentType) && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                                         contentType = Files.probeContentType(mfile.toPath());
                                     }
 
                                     TextView nomView = findViewById(R.id.downloadMessage);
-                                    nomView.setText(fileLocalUri + " ( " + contentType + ")");
+                                    nomView.setText("Download is succesfull.\nParsing file to find barcode in.");
 
                                     List<BarcodeValues> barcodes = new ArrayList<>();
 
                                     if (contentType.equals("application/pdf")) {
-
                                         barcodes = Utils.retrieveBarcodesFromPdf(context, Uri.parse(fileLocalUri));
-
                                     }
 
                                     Log.i(TAG, "found barcodes " + barcodes.size());
-                                    //Utils.process
 
-                                } catch (IOException e){
+                                    Intent downloadResult = new Intent();
+                                    Bundle bundle = new Bundle();
+                                    bundle.putParcelableArrayList("barcodes", (ArrayList<BarcodeValues>) barcodes);
+                                    downloadResult.putExtras(bundle);
+                                    BarcodeDownloaderActivity.this.setResult(RESULT_OK, downloadResult);
+                                    finish();
+
+                                } catch (IOException e) {
                                     Log.e(TAG, "unable to probe content type");
                                 }
-                                // Utils.processBarcodeValuesList
                             }
                         }
                     }
@@ -176,6 +174,8 @@ public class BarcodeDownloaderActivity extends AppCompatActivity {
 
 
             }
+
+
         }
 
     };

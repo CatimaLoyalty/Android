@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -40,6 +41,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.databinding.ContentMainBinding;
@@ -75,6 +77,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
     private ActivityResultLauncher<Intent> mSettingsLauncher;
+    private ActivityResultLauncher<Intent> mBarcodeDownloadLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
         @Override
@@ -460,7 +463,31 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             List<BarcodeValues> barcodeValuesList;
 
             if (receivedType.equals("text/plain")) {
-                barcodeValuesList = Utils.retrieveBarcodesFromText(this, intent.getStringExtra(Intent.EXTRA_TEXT));
+                String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+                Optional<Uri> uri = Utils.textContainsUrl(text);
+                if (uri.isPresent()){
+
+                    Log.i(TAG, "Received text with url include");
+
+                    mBarcodeDownloadLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                        // Exit early if the user cancelled the scan (pressed back/home)
+                        if (result.getResultCode() != RESULT_OK) {
+                            return;
+                        }
+                        Intent _intent = result.getData();
+                        List<BarcodeValues> _barcodeValuesList = _intent.getExtras().getParcelableArrayList("barcodes");
+                        processBarcodeValuesList(_barcodeValuesList, null, false);
+                    });
+                    Intent urlIntent = new Intent(getApplicationContext(), BarcodeDownloaderActivity.class);
+                    urlIntent.setData(uri.get());
+                    mBarcodeDownloadLauncher.launch(urlIntent);
+                    return;
+
+                } else {
+                    barcodeValuesList = Utils.retrieveBarcodesFromText(this, intent.getStringExtra(Intent.EXTRA_TEXT));
+                }
+
             } else if (receivedType.startsWith("image/")) {
                 barcodeValuesList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else if (receivedType.equals("application/pdf")) {

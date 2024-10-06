@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BarcodeDownloaderActivity">
+    android:fitsSystemWindows="true"
+    tools:context="protect.card_locker.BarcodeDownloaderActivity">
+
+
+    <ImageView
+        android:id="@+id/welcome_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:contentDescription="Catima logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/downloadMessage"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="wrap_content"
 
-        android:text="downloading..."
+        android:layout_below="@id/welcome_icon"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:autoText="false"
+        android:text="Downloading..."
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="63dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

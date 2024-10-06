@@ -91,4 +91,8 @@ public class Settings {
     public String getColor() {
         return getString(R.string.setting_key_theme_color, mContext.getResources().getString(R.string.settings_key_system_theme));
     }
+
+    public boolean useVolumeKeysForNavigation() {
+        return getBoolean(R.string.settings_key_use_volume_keys, false);  // default is false
+    }
 }

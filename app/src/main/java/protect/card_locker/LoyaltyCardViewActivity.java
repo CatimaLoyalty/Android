@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -19,6 +20,7 @@ import android.text.method.DigitsKeyListener;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,6 +49,7 @@ import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -103,6 +106,30 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     final private TaskHandler mTasks = new TaskHandler();
     Runnable barcodeImageGenerationFinishedCallback;
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // Access the SharedPreferences to check if volume keys for navigation are enabled
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isVolumeKeysEnabled = sharedPreferences.getBoolean(getString(R.string.settings_key_use_volume_keys), false);
+
+        if (isVolumeKeysEnabled) {
+            if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+                // Navigate to the previous card
+                prevNextCard(false); // Call your existing function for previous card
+                return true; // Indicate that we've handled the event
+            } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+                // Navigate to the next card
+                prevNextCard(true); // Call your existing function for next card
+                return true; // Indicate that we've handled the event
+            }
+        }
+
+        // If not handled, pass the event to the superclass
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     public void onMainImageTap() {
         // If we're in fullscreen, leave fullscreen
@@ -223,6 +250,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isVolumeKeysEnabled = sharedPreferences.getBoolean(getString(R.string.settings_key_use_volume_keys), false);
+
         binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;

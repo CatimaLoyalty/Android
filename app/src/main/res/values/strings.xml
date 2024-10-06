@@ -121,6 +121,11 @@
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
+
+    <string name="settings_key_use_volume_keys" translatable="false">use_volume_keys_navigation</string>
+    <string name="volume_keys_navigation" translatable="false">Use volume keys to switch visible card</string>
+    <string name="volume_keys_navigation_summary" translatable="false">Use the volume up/down buttons to navigate between saved cards.</string>
+
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>

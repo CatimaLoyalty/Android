@@ -108,6 +108,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     Runnable barcodeImageGenerationFinishedCallback;
 
 
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // Access the SharedPreferences to check if volume keys for navigation are enabled

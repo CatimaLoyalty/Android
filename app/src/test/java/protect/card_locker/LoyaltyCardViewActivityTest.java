@@ -14,6 +14,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -26,6 +27,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowInsets;
@@ -41,6 +43,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.preference.PreferenceManager;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -327,6 +330,29 @@ public class LoyaltyCardViewActivityTest {
             checkFieldProperties(activity, R.id.frontImage, View.VISIBLE, frontImage, FieldTypeView.ImageView);
             checkFieldProperties(activity, R.id.backImage, View.VISIBLE, backImage, FieldTypeView.ImageView);
         }
+    }
+
+    @Test
+    public void testSharedPreferencesStorage() {
+        // Obtain shared preferences in the same way the app would
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ApplicationProvider.getApplicationContext());
+
+        // Save a value, e.g., the last viewed barcode ID
+        String testBarcodeId = "123456789";
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("last_viewed_barcode", testBarcodeId);
+        editor.apply();
+
+        // Retrieve the stored value
+        String savedBarcodeId = sharedPreferences.getString("last_viewed_barcode", null);
+
+        // Check if the value was saved and retrieved correctly
+        assertEquals("Stored barcode ID should match the test value", testBarcodeId, savedBarcodeId);
+
+        // Optionally: Test removal of the value
+        editor.remove("last_viewed_barcode").apply();
+        String removedBarcodeId = sharedPreferences.getString("last_viewed_barcode", null);
+        assertNull("After removal, the barcode ID should be null", removedBarcodeId);
     }
 
     @Test

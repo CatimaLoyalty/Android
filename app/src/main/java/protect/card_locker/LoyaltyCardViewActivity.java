@@ -19,6 +19,7 @@ import android.text.method.DigitsKeyListener;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -103,6 +104,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     final private TaskHandler mTasks = new TaskHandler();
     Runnable barcodeImageGenerationFinishedCallback;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (settings.useVolumeKeysForNavigation()) {
+            if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+                // Navigate to the previous card
+                prevNextCard(false);
+                return true;
+            } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+                // Navigate to the next card
+                prevNextCard(true);
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     public void onMainImageTap() {
         // If we're in fullscreen, leave fullscreen

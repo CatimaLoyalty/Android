@@ -187,16 +187,16 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            // Add the "Use volume keys to switch visible card" option
-            Preference volumeKeyPreference = findPreference(getResources().getString(R.string.settings_key_use_volume_keys));
-            if (volumeKeyPreference != null) {
-                volumeKeyPreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                    // Handle enabling/disabling the volume keys for navigation
-                    boolean useVolumeKeys = (Boolean) newValue;
-                    // You can add additional logic here if necessary
-                    return true;  // Save the new value
-                });
-            }
+//            // Add the "Use volume keys to switch visible card" option
+//            Preference volumeKeyPreference = findPreference(getResources().getString(R.string.settings_key_use_volume_keys));
+//            if (volumeKeyPreference != null) {
+//                volumeKeyPreference.setOnPreferenceChangeListener((preference, newValue) -> {
+//                    // Handle enabling/disabling the volume keys for navigation
+//                    boolean useVolumeKeys = (Boolean) newValue;
+//                    // You can add additional logic here if necessary
+//                    return true;  // Save the new value
+//                });
+//            }
 
             // Disable content provider on SDK < 23 since dangerous permissions
             // are granted at install-time

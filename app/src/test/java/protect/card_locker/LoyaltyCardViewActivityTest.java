@@ -333,29 +333,6 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    public void testSharedPreferencesStorage() {
-        // Obtain shared preferences in the same way the app would
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ApplicationProvider.getApplicationContext());
-
-        // Save a value, e.g., the last viewed barcode ID
-        String testBarcodeId = "123456789";
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("last_viewed_barcode", testBarcodeId);
-        editor.apply();
-
-        // Retrieve the stored value
-        String savedBarcodeId = sharedPreferences.getString("last_viewed_barcode", null);
-
-        // Check if the value was saved and retrieved correctly
-        assertEquals("Stored barcode ID should match the test value", testBarcodeId, savedBarcodeId);
-
-        // Optionally: Test removal of the value
-        editor.remove("last_viewed_barcode").apply();
-        String removedBarcodeId = sharedPreferences.getString("last_viewed_barcode", null);
-        assertNull("After removal, the barcode ID should be null", removedBarcodeId);
-    }
-
-    @Test
     @Config(qualifiers="de")
     public void noCrashOnRegionlessLocale() {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();

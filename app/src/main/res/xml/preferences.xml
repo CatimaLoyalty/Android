@@ -52,6 +52,15 @@
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
+            android:defaultValue="false"
+            android:key="@string/settings_key_use_volume_keys_navigation"
+            android:summary="@string/settings_use_volume_keys_navigation_summary"
+            android:title="@string/settings_use_volume_keys_navigation"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+
+        <SwitchPreferenceCompat
+            android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"
             android:summary="@string/settings_display_barcode_max_brightness_summary"
@@ -87,15 +96,6 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
-        <SwitchPreferenceCompat
-            android:widgetLayout="@layout/preference_material_switch"
-            android:defaultValue="false"
-            android:key="@string/settings_key_use_volume_keys"
-            android:summary="@string/volume_keys_navigation_summary"
-            android:title="@string/volume_keys_navigation"
-            app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -115,4 +115,3 @@
 
 
 </PreferenceScreen>
-

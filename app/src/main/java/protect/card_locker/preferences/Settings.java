@@ -93,6 +93,6 @@ public class Settings {
     }
 
     public boolean useVolumeKeysForNavigation() {
-        return getBoolean(R.string.settings_key_use_volume_keys, false);  // default is false
+        return getBoolean(R.string.settings_key_use_volume_keys_navigation, false);
     }
 }

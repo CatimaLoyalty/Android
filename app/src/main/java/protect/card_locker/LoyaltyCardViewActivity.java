@@ -111,23 +111,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // Access the SharedPreferences to check if volume keys for navigation are enabled
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isVolumeKeysEnabled = sharedPreferences.getBoolean(getString(R.string.settings_key_use_volume_keys), false);
-
-        if (isVolumeKeysEnabled) {
+        if (settings.useVolumeKeysForNavigation()) {
             if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                 // Navigate to the previous card
-                prevNextCard(false); // Call your existing function for previous card
-                return true; // Indicate that we've handled the event
+                prevNextCard(false);
+                return true;
             } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                 // Navigate to the next card
-                prevNextCard(true); // Call your existing function for next card
-                return true; // Indicate that we've handled the event
+                prevNextCard(true);
+                return true;
             }
         }
-
-        // If not handled, pass the event to the superclass
         return super.onKeyDown(keyCode, event);
     }
 
@@ -251,9 +245,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         super.onCreate(savedInstanceState);
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isVolumeKeysEnabled = sharedPreferences.getBoolean(getString(R.string.settings_key_use_volume_keys), false);
 
         binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

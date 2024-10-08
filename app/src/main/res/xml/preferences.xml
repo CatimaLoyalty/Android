@@ -95,7 +95,6 @@
             android:title="@string/settings_disable_lockscreen_while_viewing_card"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -112,6 +111,5 @@
             app:singleLineTitle="false" />
 
     </PreferenceCategory>
-
 
 </PreferenceScreen>

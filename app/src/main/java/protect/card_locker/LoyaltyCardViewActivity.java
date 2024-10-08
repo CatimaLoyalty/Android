@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -49,7 +48,6 @@ import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.preference.PreferenceManager;
 
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -107,8 +105,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     final private TaskHandler mTasks = new TaskHandler();
     Runnable barcodeImageGenerationFinishedCallback;
 
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (settings.useVolumeKeysForNavigation()) {
@@ -124,7 +120,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
     public void onMainImageTap() {
         // If we're in fullscreen, leave fullscreen
@@ -245,7 +240,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         super.onCreate(savedInstanceState);
-
         binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;

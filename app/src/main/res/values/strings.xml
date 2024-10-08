@@ -95,7 +95,7 @@
     <string name="settings_key_light_theme" translatable="false">light</string>
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
-    <string name="settings_card_orientation">Barcode orientation</string>
+    <string name="settings_card_orientation">Screen orientation</string>
     <string name="settings_key_card_orientation" translatable="false">pref_card_orientation</string>
     <string name="settings_follow_system_orientation">Follow system</string>
     <string name="settings_key_follow_system_orientation" translatable="false">follow_system</string>
@@ -108,7 +108,7 @@
     <string name="settings_lock_on_opening_orientation">Lock to orientation used when opening the card</string>
     <string name="settings_key_lock_on_opening_orientation" translatable="false">lock_on_opening</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
-    <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
+    <string name="settings_display_barcode_max_brightness">Brighten screen</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessary for some scanners to work</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_keep_screen_on">Keep screen on</string>
@@ -121,6 +121,9 @@
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
+    <string name="settings_use_volume_keys_navigation">Switch cards using volume buttons</string>
+    <string name="settings_use_volume_keys_navigation_summary">Use the volume buttons to change which card is displayed</string>
+    <string name="settings_key_use_volume_keys_navigation" translatable="false">pref_use_volume_keys_navigation</string>
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
@@ -314,7 +317,7 @@
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
     <string name="sharedpreference_card_details_show_archived_cards" translatable="false">sharedpreference_card_details_show_archived_cards</string>
-    <string name="settings_category_title_cards">Cards</string>
+    <string name="settings_category_title_cards">Card view</string>
     <string name="settings_category_title_general">General</string>
     <string name="settings_category_title_privacy">Privacy</string>
     <string name="action_display_options">Display options</string>

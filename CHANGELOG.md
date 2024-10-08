@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 139
+
+- Option to navigate cards using the volume buttons
+
 ## v2.31.1 - 138 (2024-08-24)
 
 - Fix back gesture on main screen dismissing keyboard and search on Android 13+

@@ -105,16 +105,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     final private TaskHandler mTasks = new TaskHandler();
     Runnable barcodeImageGenerationFinishedCallback;
 
+    private long initTime = System.currentTimeMillis();
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (settings.useVolumeKeysForNavigation()) {
             if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                 // Navigate to the previous card
-                prevNextCard(false);
+                if (initTime < (System.currentTimeMillis() - 1000)) {
+                    prevNextCard(false);
+                }
                 return true;
             } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                 // Navigate to the next card
-                prevNextCard(true);
+                if (initTime < (System.currentTimeMillis() - 1000)) {
+                    prevNextCard(true);
+                }
                 return true;
             }
         }

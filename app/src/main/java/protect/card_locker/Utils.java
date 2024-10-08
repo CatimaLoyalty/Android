@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
@@ -17,6 +18,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.Layout;
@@ -31,6 +33,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
@@ -81,6 +85,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -143,6 +149,53 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
+    static public Optional<Uri> textContainsUrl(String text) {
+
+        String simpleRegex = ".*(https?:\\/\\/[a-zA-Z0-9_\\-\\.\\/\\?\\&\\=]+).*";
+
+        Pattern pattern = Pattern.compile(simpleRegex, Pattern.MULTILINE | Pattern.UNIX_LINES | Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(text);
+
+        if (matcher.matches()) {
+            return Optional.of(Uri.parse(matcher.group(1)));
+        }
+        return Optional.empty();
+    }
+
+    static public List<BarcodeValues> retrieveBarcodesFromText(Context context, String text) {
+
+        Optional<Uri> uri = textContainsUrl(text);
+        if (uri.isPresent()){
+            Log.i(TAG, "Received text with url include");
+            return retrieveBarcodesFromUrl(context, uri.get());
+        }
+
+        Log.i(TAG, "Received text with possible barcode");
+        return Collections.singletonList(new BarcodeValues(null, text));
+    }
+
+    static public List<BarcodeValues> retrieveBarcodesFromUrl(Context context, Uri uri) {
+
+        ActivityResultLauncher<Intent> activity01Launcher =
+                    ((CatimaAppCompatActivity)context).registerForActivityResult(
+                            new  ActivityResultContracts.StartActivityForResult(),
+
+                        (result) -> {
+
+                                Log.i(TAG, "result from barcode url activity");
+                                List<BarcodeValues> barcodes = new ArrayList<>();
+
+                            // code to process data from activity called
+                        }
+                );
+
+        Intent intent = new Intent(context, BarcodeDownloaderActivity.class);
+        intent.setData(uri);
+        activity01Launcher.launch(intent);
+
+        return Collections.emptyList();
+    }
+
     static public List<BarcodeValues> retrieveBarcodesFromImage(Context context, Uri uri) {
         Log.i(TAG, "Received image file with possible barcode");
 
@@ -193,7 +246,13 @@ public class Utils {
                 Bitmap renderedPage;
                 for (int i = 0; i < renderer.getPageCount(); i++) {
                     PdfRenderer.Page page = renderer.openPage(i);
+
                     renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+
+                    Canvas canvas = new Canvas(renderedPage);
+                    canvas.drawColor(Color.WHITE);
+                    canvas.drawBitmap(renderedPage, 0, 0, null);
+
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
                     page.close();
 

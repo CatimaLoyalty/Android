@@ -1,8 +1,14 @@
 package protect.card_locker;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class BarcodeValues {
+import java.io.Serializable;
+
+public class BarcodeValues implements Parcelable {
     @Nullable
     private final CatimaBarcode mFormat;
     private final String mContent;
@@ -26,4 +32,29 @@ public class BarcodeValues {
     }
 
     public String note() { return mNote; }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Parcelable. Creator<BarcodeValues> CREATOR
+            = new Parcelable. Creator<BarcodeValues>() {
+        public BarcodeValues createFromParcel(Parcel in) {
+            return new BarcodeValues(in);
+        }
+
+        public BarcodeValues[] newArray(int size) {
+            return new BarcodeValues[size];
+        }
+    };
+    public BarcodeValues(Parcel from){
+        this(CatimaBarcode.fromName(from.readString()), from.readString());
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(mFormat.name());
+        dest.writeString(mContent);
+    }
 }

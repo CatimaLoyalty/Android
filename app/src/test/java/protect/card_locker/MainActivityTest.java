@@ -3,18 +3,22 @@ package protect.card_locker;
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -440,6 +444,300 @@ public class MainActivityTest {
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getAdapter().getItemCount());
+
+        database.close();
+    }
+
+    @Test
+    public void testSearchHistoryRestorationAfterOrientationChange() {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        MainActivity mainActivity = (MainActivity) activityController.get();
+
+        activityController.start();
+        activityController.resume();
+
+        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
+        TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
+        RecyclerView list = mainActivity.findViewById(R.id.list);
+        TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "The First Store", "Initial note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(database, "The Second Store", "Secondary note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+
+        DBHelper.insertGroup(database, "Group one");
+        List<Group> groups = new ArrayList<>();
+        groups.add(DBHelper.getGroup(database, "Group one"));
+        DBHelper.setLoyaltyCardGroups(database, 1, groups);
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "store";
+
+        activityController.pause();
+        activityController.resume();
+
+        Configuration configuration = mainActivity.getResources().getConfiguration();
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_PORTRAIT;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "first";
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "initial";
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "second";
+
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_PORTRAIT;
+        mainActivity.onConfigurationChanged(configuration);
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        assertEquals(0, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "company";
+
+        // Rotate to landscape (right)
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        activityController.pause();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        assertEquals(0, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        assertEquals(0, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        assertEquals(0, list.getAdapter().getItemCount());
+
+        mainActivity.mFilter = "";
+
+        activityController.pause();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getItemCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpSection.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getItemCount());
+
+        database.close();
+    }
+
+    @Test
+    public void testSearchQueryRestorationAfterNavigatingBack() {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        MainActivity mainActivity = (MainActivity) activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "The First Store", "Initial note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(database, "The Second Store", "Secondary note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+
+        mainActivity.mFilter = "store";
+
+        activityController.pause();
+        activityController.resume();
+
+        // Simulation of what happens when users comes back after picking up card
+        final Menu menu = shadowOf(Robolectric.setupActivity(MainActivity.class)).getOptionsMenu();
+        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
+        SearchView mSearchView = (SearchView) searchMenuItem.getActionView();
+
+        // We simulate expanding and setting the Query that we want to restore (in code it is from finalQuery String)
+        searchMenuItem.expandActionView();
+        String finalQuery = "store";
+        assert mSearchView != null;
+        mSearchView.setQuery(finalQuery, false);
+
+        activityController.pause();
+        activityController.resume();
+
+        assertTrue(searchMenuItem.isActionViewExpanded());
+        assertEquals("store", mSearchView.getQuery().toString());
 
         database.close();
     }

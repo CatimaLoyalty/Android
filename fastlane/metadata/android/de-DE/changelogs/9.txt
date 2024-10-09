@@ -2,6 +2,6 @@ Der Name „Locker“ war missverständlich. Ein neues Icon von betsythefc und d
 
 Zusätzliche Funktionen/Verbesserungen:
 
-- Flexibleres Import/Export von Karten. (Pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
-- Litauische Übersetzung hinzugefügt. (Pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
-- Französische Übersetzung hinzugefügt. (Pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))
+- Flexiblerer Import/Export von Karten. (https://github.com/brarcher/loyalty-card-locker/pull/76)
+- NEU: Litauische Übersetzung. (https://github.com/brarcher/loyalty-card-locker/pull/62)
+- NEU: Französische Übersetzung. (https://github.com/brarcher/loyalty-card-locker/pull/80)

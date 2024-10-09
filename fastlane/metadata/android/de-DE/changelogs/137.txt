@@ -1,3 +1,4 @@
 - Lange Store-Namen in der Vorschau auf mehrere Zeilen aufteilen
 - Vorder- oder Hintergrundbild im Thumbnail-Menü verwenden
 - Kleine Fehlerbehebungen bei Import/Export
+- Kleine Fehlerbehebungen beim UI

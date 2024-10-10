@@ -46,7 +46,7 @@
     <string name="selectBarcodeTitle">Barcode auswählen</string>
     <string name="thumbnailDescription">Vorschaubild</string>
     <string name="settings">Einstellungen</string>
-    <string name="settings_display_barcode_max_brightness">Displayhelligkeit in der Barcodeansicht erhöhen</string>
+    <string name="settings_display_barcode_max_brightness">Displayhelligkeit erhöhen</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>
@@ -207,7 +207,7 @@
     <string name="settings_portrait_orientation">Hochformat</string>
     <string name="duplicateCard">Duplizieren</string>
     <string name="unarchive">Archivierung aufheben</string>
-    <string name="settings_card_orientation">Barcode-Ausrichtung</string>
+    <string name="settings_card_orientation">Bildschirm-Ausrichtung</string>
     <string name="unarchived">Karte aus dem Archiv entfernt</string>
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
@@ -258,7 +258,7 @@
     <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>
     <string name="settings_oled_dark_summary">Reduziert den Batterieverbrauch bei OLED-Displays</string>
-    <string name="settings_category_title_cards">Karten</string>
+    <string name="settings_category_title_cards">Kartenansicht</string>
     <string name="settings_category_title_privacy">Datenschutz</string>
     <string name="settings_category_title_general">Allgemein</string>
     <string name="view_online">Online anzeigen</string>
@@ -292,4 +292,6 @@
     <string name="importCancelled">Import abgebrochen</string>
     <string name="useFrontImage">Vorderseite verwenden</string>
     <string name="useBackImage">Rückseite verwenden</string>
+    <string name="settings_use_volume_keys_navigation">Karten mit Lautstärketasten wechseln</string>
+    <string name="settings_use_volume_keys_navigation_summary">Benutzen Sie die Lautstärketasten, um zu ändern, welche Karte angezeigt wird</string>
 </resources>

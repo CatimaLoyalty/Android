@@ -75,7 +75,7 @@
     <string name="groups">Списъци</string>
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
-    <string name="settings_display_barcode_max_brightness">Максимална яркост при видим щрихкод</string>
+    <string name="settings_display_barcode_max_brightness">Максимална яркост на екрана</string>
     <string name="settings_keep_screen_on">Без изключване на екрана</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Без заключване на екрана</string>
     <string name="settings_dark_theme">Тъмна</string>
@@ -203,7 +203,7 @@
     </plurals>
     <string name="settings_oled_dark">Черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
-    <string name="settings_card_orientation">Завъртане на щрихкода</string>
+    <string name="settings_card_orientation">Завъртане на екрана</string>
     <string name="settings_follow_system_orientation">Според системата</string>
     <string name="settings_portrait_orientation">Портрет</string>
     <string name="settings_landscape_orientation">Пейзаж</string>
@@ -258,7 +258,7 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Без заключване на екрана при преглед на карта</string>
     <string name="settings_allow_content_provider_read_summary">Приложенията ще искат разрешение, за да получат достъп</string>
     <string name="settings_oled_dark_summary">Намалява разхода на батерия от OLED дисплеи</string>
-    <string name="settings_category_title_cards">Карти</string>
+    <string name="settings_category_title_cards">Изглед с карти</string>
     <string name="settings_category_title_general">Общи</string>
     <string name="settings_category_title_privacy">Поверителност</string>
     <string name="settings_keep_screen_on_summary">Спира автоматичното заключване на екрана при преглед на карти</string>
@@ -292,4 +292,6 @@
     <string name="exportCancelled">Изнасянето е спряно</string>
     <string name="useFrontImage">Използване на предната страна</string>
     <string name="useBackImage">Използване на задната страна</string>
+    <string name="settings_use_volume_keys_navigation">Сменяне на картите с бутоните за звука</string>
+    <string name="settings_use_volume_keys_navigation_summary">Бутоните за силата на звука сменят видимата карта</string>
 </resources>

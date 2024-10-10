@@ -62,7 +62,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private static final int COMPAT_SCALE_FACTOR_DIP = 320;
 
     private static final int PERMISSION_SCAN_ADD_FROM_IMAGE = 100;
-    private static final int PERMISSION_SCAN_ADD_FROM_PDF = 101;
+    private static final int PERMISSION_SCAN_ADD_FROM_PKPASS = 101;
+    private static final int PERMISSION_SCAN_ADD_FROM_PDF = 102;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -74,6 +75,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
+    private ActivityResultLauncher<Intent> pkpassPickerLauncher;
     private ActivityResultLauncher<Intent> pdfPickerLauncher;
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
@@ -102,6 +104,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
+        pkpassPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_PKPASS_FILE, result.getResultCode(), result.getData()));
         pdfPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_PDF_FILE, result.getResultCode(), result.getData()));
         customBarcodeScannerBinding.fabOtherOptions.setOnClickListener(view -> {
             setScannerActive(false);
@@ -113,6 +116,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
                             getString(R.string.addWithoutBarcode),
                             getString(R.string.addManually),
                             getString(R.string.addFromImage),
+                            getString(R.string.addFromPkpass),
                             getString(R.string.addFromPdfFile)
                     },
                     (dialogInterface, i) -> {
@@ -127,7 +131,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
                                 addFromImage();
                                 break;
                             case 3:
-                                addFromPdfFile();
+                                addFromPkPass();
+                                break;
+                            case 4:
+                                addFromPdf();
                                 break;
                             default:
                                 throw new IllegalArgumentException("Unknown 'Add a card in a different way' dialog option");
@@ -265,35 +272,30 @@ public class ScanActivity extends CatimaAppCompatActivity {
         mScannerActive = isActive;
     }
 
-    private void returnResult(String barcodeContents, String barcodeFormat) {
-        Intent manualResult = new Intent();
-        Bundle manualResultBundle = new Bundle();
-        manualResultBundle.putString(BARCODE_CONTENTS, barcodeContents);
-        manualResultBundle.putString(BARCODE_FORMAT, barcodeFormat);
+    private void returnResult(Bundle loyaltyCardBundle) {
+        Intent result = new Intent();
         if (addGroup != null) {
-            manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+            loyaltyCardBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
         }
-        manualResult.putExtras(manualResultBundle);
-        ScanActivity.this.setResult(RESULT_OK, manualResult);
+        result.putExtras(loyaltyCardBundle);
+        ScanActivity.this.setResult(RESULT_OK, result);
         finish();
     }
 
     private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        List<ParseResult> parseResultList = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
-        if (barcodeValuesList.isEmpty()) {
+        if (parseResultList.isEmpty()) {
             setScannerActive(true);
             return;
         }
 
-        Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+        Utils.makeUserChooseParseResultFromList(this, parseResultList, new ParseResultListDisambiguatorCallback() {
             @Override
-            public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                CatimaBarcode barcodeType = barcodeValues.format();
-
-                returnResult(barcodeValues.content(), barcodeType != null ? barcodeType.name() : null);
+            public void onUserChoseParseResult(ParseResult parseResult) {
+                returnResult(parseResult.toLoyaltyCardBundle());
             }
 
             @Override
@@ -340,7 +342,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Buttons
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            returnResult(input.getText().toString(), null);
+            LoyaltyCard loyaltyCard = new LoyaltyCard();
+            loyaltyCard.setCardId(input.getText().toString());
+            returnResult(new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard).toLoyaltyCardBundle());
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
@@ -389,7 +393,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
         PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_IMAGE);
     }
 
-    public void addFromPdfFile() {
+    public void addFromPkPass() {
+        PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_PKPASS);
+    }
+
+    public void addFromPdf() {
         PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_PDF);
     }
 
@@ -482,10 +490,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
             } else {
                 showCameraPermissionMissingText();
             }
-        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
+        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PKPASS || requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
             if (granted) {
                 if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
                     addFromImageOrFileAfterPermission("image/*", photoPickerLauncher, R.string.addFromImage, R.string.failedLaunchingPhotoPicker);
+                } else if (requestCode == PERMISSION_SCAN_ADD_FROM_PKPASS) {
+                    addFromImageOrFileAfterPermission("application/*", pkpassPickerLauncher, R.string.addFromPkpass, R.string.failedLaunchingFileManager);
                 } else {
                     addFromImageOrFileAfterPermission("application/pdf", pdfPickerLauncher, R.string.addFromPdfFile, R.string.failedLaunchingFileManager);
                 }

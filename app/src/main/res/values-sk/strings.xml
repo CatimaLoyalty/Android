@@ -42,7 +42,7 @@
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="thumbnailDescription">Miniatúra</string>
     <string name="settings">Nastavenia</string>
-    <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
+    <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu</string>
     <string name="deleteTitle">Odstrániť kartu</string>
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
     <string name="star">Pridať k obľúbeným</string>

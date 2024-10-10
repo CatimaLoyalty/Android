@@ -52,7 +52,7 @@
     <string name="settings_system_theme">Системная</string>
     <string name="settings_light_theme">Светлая</string>
     <string name="settings_dark_theme">Тёмная</string>
-    <string name="settings_display_barcode_max_brightness">Максимальная яркость при отображении карты</string>
+    <string name="settings_display_barcode_max_brightness">Максимальная яркость экрана</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться с вами картой</string>
     <string name="exportSuccessful">Данные успешно экспортированы</string>
     <string name="all">Все</string>
@@ -220,7 +220,7 @@
     <string name="unarchive">Разархивировать</string>
     <string name="settings_follow_system_orientation">Как в системе</string>
     <string name="duplicateCard">Дублировать</string>
-    <string name="settings_card_orientation">Ориентация штрих-кода</string>
+    <string name="settings_card_orientation">Ориентация экрана</string>
     <string name="archived">Карта архивирована</string>
     <string name="unarchived">Карта разархивирована</string>
     <string name="failedLaunchingPhotoPicker">Не найдено поддерживаемое приложение галереи</string>
@@ -270,7 +270,7 @@
     <string name="settings_category_title_privacy">Конфиденциальность</string>
     <string name="settings_display_barcode_max_brightness_summary">Необходимо для работы некоторых сканеров</string>
     <string name="settings_keep_screen_on_summary">Отключение функции автоотключения экрана при отображении карты</string>
-    <string name="settings_category_title_cards">Карты</string>
+    <string name="settings_category_title_cards">Отображение карт</string>
     <string name="settings_category_title_general">Общие</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Отключение функции блокировки экрана при отображении карты</string>
     <string name="settings_oled_dark_summary">Снижение расхода заряда батареи на OLED-экранах</string>
@@ -304,4 +304,6 @@
     <string name="exportCancelled">Экспорт отменён</string>
     <string name="useFrontImage">Использовать лицевую сторону</string>
     <string name="useBackImage">Использовать заднюю сторону</string>
+    <string name="settings_use_volume_keys_navigation_summary">Использовать кнопки регулировки громкости для смены отображаемой карты</string>
+    <string name="settings_use_volume_keys_navigation">Переключать карты кнопками громкости</string>
 </resources>

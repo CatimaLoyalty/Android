@@ -89,7 +89,7 @@
     <string name="intent_import_card_from_url_share_text">Seninle bir kart paylaşmak istiyorum</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
     <string name="settings_keep_screen_on">Ekranı açık tut</string>
-    <string name="settings_display_barcode_max_brightness">Barkod görünümünü aydınlat</string>
+    <string name="settings_display_barcode_max_brightness">Ekranı aydınlat</string>
     <string name="settings_dark_theme">Koyu</string>
     <string name="settings_light_theme">Açık</string>
     <string name="settings_system_theme">Sistem</string>
@@ -209,7 +209,7 @@
     <string name="duplicateCard">Çoğalt</string>
     <string name="unarchive">Arşivden çıkar</string>
     <string name="archived">Kart arşivlendi</string>
-    <string name="settings_card_orientation">Barkod yönü</string>
+    <string name="settings_card_orientation">Ekran yönü</string>
     <string name="settings_lock_on_opening_orientation">Kartı açarken kullanılan yönü kilitle</string>
     <string name="unarchived">Kart arşivden çıkarıldı</string>
     <string name="archive">Arşivle</string>
@@ -261,7 +261,7 @@
     <string name="settings_category_title_general">Genel</string>
     <string name="settings_category_title_privacy">Gizlilik</string>
     <string name="settings_oled_dark_summary">OLED ekranlarda güç kullanımını düşürür</string>
-    <string name="settings_category_title_cards">Kartlar</string>
+    <string name="settings_category_title_cards">Kart görünümü</string>
     <string name="app_copyright_short">Telif hakkı © Sylvia van Os ve katkıda bulunanlar</string>
     <string name="action_display_options">Görüntüleme seçenekleri</string>
     <string name="show_archived_cards">Arşivlenen kartları göster</string>
@@ -292,4 +292,6 @@
     <string name="exportCancelled">Dışa aktarma iptal edildi</string>
     <string name="useFrontImage">Ön resmi kullan</string>
     <string name="useBackImage">Arka resmi kullan</string>
+    <string name="settings_use_volume_keys_navigation_summary">Hangi kartın görüntüleneceğini değiştirmek için ses düğmelerini kullanın</string>
+    <string name="settings_use_volume_keys_navigation">Ses düğmelerini kullanarak kartları değiştir</string>
 </resources>

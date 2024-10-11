@@ -50,7 +50,7 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_light_theme">Chiaro</string>
     <string name="settings_dark_theme">Scuro</string>
-    <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando viene aperto un codice a barre</string>
+    <string name="settings_display_barcode_max_brightness">Aumenta la luminosità</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     <string name="exportSuccessful">Dati della carta esportati</string>
     <string name="importSuccessful">Dati importati</string>
@@ -207,7 +207,7 @@
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
     <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
-    <string name="settings_card_orientation">Orientamento del codice a barre</string>
+    <string name="settings_card_orientation">Orientamento dello schermo</string>
     <string name="settings_follow_system_orientation">Segui il sistema</string>
     <string name="duplicateCard">Duplica</string>
     <string name="archive">Archivia</string>
@@ -264,7 +264,7 @@
     <string name="settings_keep_screen_on_summary">Disattiva il timeout dello schermo durante la visualizzazione di una carta</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Disattiva il blocco dello schermo durante la visualizzazione di una carta</string>
     <string name="settings_oled_dark_summary">Riduce il consumo della batteria sui display OLED</string>
-    <string name="settings_category_title_cards">Carte</string>
+    <string name="settings_category_title_cards">Vista carta</string>
     <string name="settings_category_title_general">Generali</string>
     <string name="settings_category_title_privacy">Privacy</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os e contributori</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Esportazione annullata</string>
     <string name="useBackImage">Usa l\'immagine posteriore</string>
     <string name="useFrontImage">Usa l\'immagine anteriore</string>
+    <string name="settings_use_volume_keys_navigation">Cambia carte con i pulsanti di volume</string>
+    <string name="settings_use_volume_keys_navigation_summary">Utilizza i pulsanti di volume per modificare la carta visualizzata</string>
 </resources>

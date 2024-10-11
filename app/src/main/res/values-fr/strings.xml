@@ -42,7 +42,7 @@
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="thumbnailDescription">Miniature</string>
     <string name="settings">Paramètres</string>
-    <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
+    <string name="settings_display_barcode_max_brightness">Augmenter la luminosité</string>
     <string name="exportSuccessful">Données exportées</string>
     <string name="importSuccessful">Données importées</string>
     <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
@@ -207,7 +207,7 @@
     </plurals>
     <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
     <string name="include_if_asking_support">Si vous voulez demander de l\'aide, incluez les informations suivantes :</string>
-    <string name="settings_card_orientation">Orientation du code-barres</string>
+    <string name="settings_card_orientation">Orientation de l\'écran</string>
     <string name="settings_follow_system_orientation">Suivre le système</string>
     <string name="settings_portrait_orientation">Portrait</string>
     <string name="settings_landscape_orientation">Paysage</string>
@@ -263,7 +263,7 @@
     <string name="settings_display_barcode_max_brightness_summary">Nécessaire au fonctionnement de certains scanneurs</string>
     <string name="settings_keep_screen_on_summary">Désactive la temporisation de l\'écran lors de la visualisation d\'une carte</string>
     <string name="settings_oled_dark_summary">Réduit l\'utilisation de la batterie sur les écrans OLED</string>
-    <string name="settings_category_title_cards">Cartes</string>
+    <string name="settings_category_title_cards">Vue carte</string>
     <string name="settings_category_title_general">Généraux</string>
     <string name="settings_category_title_privacy">Confidentialité</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Désactive le verrouillage de l\'écran pendant la visualisation d\'une carte</string>
@@ -298,4 +298,6 @@
     <string name="importCancelled">Importation annulée</string>
     <string name="useFrontImage">Utiliser l\'image de face</string>
     <string name="useBackImage">Utiliser l\'image arrière</string>
+    <string name="settings_use_volume_keys_navigation">Changer de cartes avec les boutons de volume</string>
+    <string name="settings_use_volume_keys_navigation_summary">Utilisez les boutons de volume pour changer la carte affichée</string>
 </resources>

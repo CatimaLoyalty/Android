@@ -64,7 +64,7 @@
     <string name="intent_import_card_from_url_share_text">我想和你分享一张卡</string>
     <string name="settings_disable_lockscreen_while_viewing_card">防止锁屏</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
-    <string name="settings_display_barcode_max_brightness">提高条码界面亮度</string>
+    <string name="settings_display_barcode_max_brightness">提高屏幕亮度</string>
     <string name="settings_dark_theme">暗色</string>
     <string name="settings_light_theme">浅色</string>
     <string name="settings_theme">主题</string>
@@ -199,7 +199,7 @@
     <string name="failedLaunchingPhotoPicker">找不到支持的图库应用</string>
     <string name="previousCard">前一张</string>
     <string name="nextCard">下一张</string>
-    <string name="settings_card_orientation">条形码朝向</string>
+    <string name="settings_card_orientation">屏幕</string>
     <string name="settings_landscape_orientation">横向</string>
     <string name="settings_follow_system_orientation">跟随系统</string>
     <string name="settings_lock_on_opening_orientation">使用上次打开卡片时的朝向</string>
@@ -253,7 +253,7 @@
     <string name="settings_category_title_privacy">隐私</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">查看卡片时禁用屏幕锁</string>
     <string name="settings_display_barcode_max_brightness_summary">一些扫描仪工作所必需的</string>
-    <string name="settings_category_title_cards">卡包</string>
+    <string name="settings_category_title_cards">卡片视图</string>
     <string name="settings_category_title_general">常规</string>
     <string name="action_display_options">显示选项</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">版权所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os 及其贡献者们</string>
@@ -286,4 +286,6 @@
     <string name="exportCancelled">取消了导出</string>
     <string name="useFrontImage">使用正面图</string>
     <string name="useBackImage">使用背面图</string>
+    <string name="settings_use_volume_keys_navigation">用音量按钮切换卡片</string>
+    <string name="settings_use_volume_keys_navigation_summary">是用音量按钮改变展示的卡片</string>
 </resources>

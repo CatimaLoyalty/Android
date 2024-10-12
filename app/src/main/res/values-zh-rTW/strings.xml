@@ -134,7 +134,7 @@
     <string name="noGroupCards">此群組為空</string>
     <string name="settings_light_theme">淺色</string>
     <string name="settings_dark_theme">深色</string>
-    <string name="settings_display_barcode_max_brightness">調高條碼介面螢幕亮度</string>
+    <string name="settings_display_barcode_max_brightness">調高螢幕亮度</string>
     <string name="settings_keep_screen_on">螢幕恆亮</string>
     <string name="settings_disable_lockscreen_while_viewing_card">防止螢幕鎖定</string>
     <string name="importSuccessful">已匯入資料</string>
@@ -197,7 +197,7 @@
     <string name="translate_platform">於 Weblate</string>
     <string name="options">選項</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
-    <string name="settings_card_orientation">條碼方向</string>
+    <string name="settings_card_orientation">螢幕方向</string>
     <string name="failedToRetrieveImageFile">無法擷取圖片檔案</string>
     <string name="barcodeLongPressMessage">圖庫應用程式僅可開啟圖片</string>
     <string name="duplicateCard">重複</string>
@@ -257,7 +257,7 @@
     <string name="action_more_options">更多選項</string>
     <string name="action_display_options">螢幕</string>
     <string name="settings_oled_dark_summary">降低OLED螢幕使用的電力</string>
-    <string name="settings_category_title_cards">卡片</string>
+    <string name="settings_category_title_cards">卡片檢視</string>
     <string name="addWithoutBarcode">新增無條碼卡片</string>
     <string name="show_archived_cards">顯示已封存卡片</string>
     <string name="settings_category_title_privacy">隱私權</string>
@@ -285,4 +285,6 @@
     <string name="importCancelled">已取消匯入</string>
     <string name="useFrontImage">使用正面圖片</string>
     <string name="useBackImage">使用背面圖片</string>
+    <string name="settings_use_volume_keys_navigation_summary">使用音量按鈕來切換顯示的卡片</string>
+    <string name="settings_use_volume_keys_navigation">使用音量按鈕切換卡片</string>
 </resources>

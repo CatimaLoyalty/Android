@@ -1,0 +1,2 @@
+- 長按卡片會出現選項，將卡片 ID 複製到剪貼簿。(PR #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- 匯入/匯出畫面的返回按鈕現在可以使用了，將使用者移動到主畫面

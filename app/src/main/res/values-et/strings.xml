@@ -46,10 +46,10 @@
     <string name="settings_dark_theme">Tume kujundus</string>
     <string name="thumbnailDescription">Pisipilt</string>
     <string name="settings_theme">Kujundus</string>
-    <string name="settings_card_orientation">Triipkoodi suund</string>
+    <string name="settings_card_orientation">Ekraanipaigutuse suund</string>
     <string name="settings_follow_sensor_orientation">Alati pööra (eira süsteemset paigutust)</string>
     <string name="settings_landscape_orientation">Rõhtvaade</string>
-    <string name="settings_display_barcode_max_brightness">Eredam triipkoodivaade</string>
+    <string name="settings_display_barcode_max_brightness">Tee ekraan eredamaks</string>
     <string name="app_license">Copyleft-tüüpi autoriõiguste alusel loodud avatud lähtekoodiga tarkvara, mis on avaldatud GPLv3+ all</string>
     <string name="settings_keep_screen_on">Hoia ekraan sisselülitatuna</string>
     <string name="cardShortcut">Kaardi kiirviide</string>
@@ -120,8 +120,7 @@
     <string name="expiryDate">Aegumise kuupäev</string>
     <string name="never">Mitte kunagi</string>
     <string name="showMoreInfo">Näita teavet</string>
-    <string name="importLoyaltyCardKeychainMessage">Importimiseks vali oma <i>LoyaltyCardKeychain.csv</i> Loyalty Card Keychaini ekspordifail. 
-\nSellise faili saad teha rakendusest Loyalty Card Keychain valides menüüst Import/Eksport valiku Eksport.</string>
+    <string name="importLoyaltyCardKeychainMessage">Importimiseks vali oma <i>LoyaltyCardKeychain.csv</i> Loyalty Card Keychaini ekspordifail. \nSellise faili saad teha rakendusest Loyalty Card Keychain valides menüüst Import/Eksport valiku Eksport.</string>
     <string name="unsupportedBarcodeType">Sellist triipkoodi tüüpi pole veel võimalik kuvada, aga mõnes hilisemas rakenduse versioonis võib see võimalik olla.</string>
     <string name="wrongValueForBarcodeType">Väärtus ei sobi selle triipkoodi tüübiga</string>
     <string name="passwordRequired">Palun sisesta salasõna</string>
@@ -182,19 +181,15 @@
     <string name="privacy_policy">Privaatsuspoliitika</string>
     <string name="accept">Nõustu</string>
     <string name="importCatima">Impordi Catima varukoopiast</string>
-    <string name="importCatimaMessage">Importimiseks vali varem tehtud <i>catima.zip</i> Catima ekspordifail. 
-\nSellise faili saad luua mõnes teises seadmes olevast Catima rakendusest Import/Eksport menüüst valikust Eksport.</string>
+    <string name="importCatimaMessage">Importimiseks vali varem tehtud <i>catima.zip</i> Catima ekspordifail. \nSellise faili saad luua mõnes teises seadmes olevast Catima rakendusest Import/Eksport menüüst valikust Eksport.</string>
     <string name="importFidme">Impordi FidMe varukoopiast</string>
-    <string name="importFidmeMessage">Importimiseks vali oma <i>fidme-export-request-xxxxxx.zip</i>, mille oled FidMe rakendusest eksportinud. Peale importi määra triipkoodi tüübid käsistsi. 
-\nSellise faili loomiseks vali oma FidMe profiilist eelistuse Andmekaitse-Paki lahti.</string>
+    <string name="importFidmeMessage">Importimiseks vali oma <i>fidme-export-request-xxxxxx.zip</i>, mille oled FidMe rakendusest eksportinud. Peale importi määra triipkoodi tüübid käsistsi. \nSellise faili loomiseks vali oma FidMe profiilist eelistuse Andmekaitse-Paki lahti.</string>
     <string name="importLoyaltyCardKeychain">Impordi rakendusest Loyalty Card Keychain</string>
     <string name="importStocard">Impordi Stocardist</string>
-    <string name="importStocardMessage">Importimiseks vali oma <i>***.zip</i> Stocardi ekspordifail. 
-\nSellise faili saad saates kirja aadressile support@stocardapp.com ning küsides oma andmeid.</string>
+    <string name="importStocardMessage">Importimiseks vali oma <i>***.zip</i> Stocardi ekspordifail. \nSellise faili saad saates kirja aadressile support@stocardapp.com ning küsides oma andmeid.</string>
     <string name="chooseImportType">Importimise valikud</string>
     <string name="importVoucherVault">Impordi rakendusest Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.json</i> Voucher Vaulti ekspordifail. 
-\nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>
+    <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.json</i> Voucher Vaulti ekspordifail. \nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>
     <string name="barcodeId">Triipkoodi väärtus</string>
     <string name="sameAsCardId">Sama, kui ID</string>
     <string name="setBarcodeId">Sisesta triipkoodi väärtus</string>
@@ -266,7 +261,7 @@
     <string name="noCameraFoundGuideText">Sinu nutiseadmed ei tundu olema kaamerat. Kui ta siiski on olemas, siis esmalt proovi, kas taaskäivitamine aitab. Lisaks võid nupust „Veel“ leida muid valikuid triipkoodi lisamiseks.</string>
     <string name="action_more_options">Lisavalikud</string>
     <string name="importCancelled">Import on katkestatud</string>
-    <string name="settings_category_title_cards">Kaardid</string>
+    <string name="settings_category_title_cards">Vahekaartide vaade</string>
     <string name="settings_category_title_general">Üldised seadistused</string>
     <string name="settings_category_title_privacy">Privaatsus</string>
     <string name="action_display_options">Ekraani valikud</string>
@@ -292,4 +287,6 @@
     <string name="exportCancelled">Eksport on tühistatud</string>
     <string name="useFrontImage">Kasuta esikülje pilti</string>
     <string name="useBackImage">Kasuta tagakülje pilti</string>
+    <string name="settings_use_volume_keys_navigation">Vaheta kaarte helivaljuse nuppudega</string>
+    <string name="settings_use_volume_keys_navigation_summary">Vaheta kuvatavaid vahekaarte helivaljuse nuppudega</string>
 </resources>

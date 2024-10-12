@@ -3,7 +3,8 @@
 - NEU: Dunkelmodus (https://github.com/brarcher/loyalty-card-locker/pull/322)
 - NEU: Treuekarten ohne Barcode speichern (https://github.com/brarcher/loyalty-card-locker/pull/324)
 - NEU: Notizen über mehrere Zeilen (https://github.com/brarcher/loyalty-card-locker/pull/326)
-- Notizgröße (https://github.com/brarcher/loyalty-card-locker/pull/319), Benachrichtigungen und App-Icon optimiert (https://github.com/brarcher/loyalty-card-locker/pull/330)
+- Optimierung der Notizgrößen (https://github.com/brarcher/loyalty-card-locker/pull/319)
+- Optimierung der Benachrichtigungen und App-Icon Sichtbarkeit (https://github.com/brarcher/loyalty-card-locker/pull/330)
 - Ziel-SDK auf Android 10 aktualisiert
 - Übersetzungen verbessert:
   - Deutsch

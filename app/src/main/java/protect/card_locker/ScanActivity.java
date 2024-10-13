@@ -63,6 +63,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     private static final int PERMISSION_SCAN_ADD_FROM_IMAGE = 100;
     private static final int PERMISSION_SCAN_ADD_FROM_PDF = 101;
+    private static final int PERMISSION_SCAN_ADD_FROM_PKPASS = 102;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -75,6 +76,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
     private ActivityResultLauncher<Intent> pdfPickerLauncher;
+    private ActivityResultLauncher<Intent> pkpassPickerLauncher;
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
     private boolean mScannerActive = true;
@@ -103,6 +105,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
         pdfPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_PDF_FILE, result.getResultCode(), result.getData()));
+        pkpassPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_PKPASS_FILE, result.getResultCode(), result.getData()));
         customBarcodeScannerBinding.fabOtherOptions.setOnClickListener(view -> {
             setScannerActive(false);
 
@@ -113,7 +116,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
                             getString(R.string.addWithoutBarcode),
                             getString(R.string.addManually),
                             getString(R.string.addFromImage),
-                            getString(R.string.addFromPdfFile)
+                            getString(R.string.addFromPdfFile),
+                            getString(R.string.addFromPkpass)
                     },
                     (dialogInterface, i) -> {
                         switch (i) {
@@ -128,6 +132,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
                                 break;
                             case 3:
                                 addFromPdf();
+                                break;
+                            case 4:
+                                addFromPkPass();
                                 break;
                             default:
                                 throw new IllegalArgumentException("Unknown 'Add a card in a different way' dialog option");
@@ -386,6 +393,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
         PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_PDF);
     }
 
+    public void addFromPkPass() {
+        PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_PKPASS);
+    }
+
     private void addFromImageOrFileAfterPermission(String mimeType, ActivityResultLauncher<Intent> launcher, int chooserText, int errorMessage) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType(mimeType);
@@ -475,12 +486,14 @@ public class ScanActivity extends CatimaAppCompatActivity {
             } else {
                 showCameraPermissionMissingText();
             }
-        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
+        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PDF || requestCode == PERMISSION_SCAN_ADD_FROM_PKPASS) {
             if (granted) {
                 if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
                     addFromImageOrFileAfterPermission("image/*", photoPickerLauncher, R.string.addFromImage, R.string.failedLaunchingPhotoPicker);
-                } else {
+                } else if (requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
                     addFromImageOrFileAfterPermission("application/pdf", pdfPickerLauncher, R.string.addFromPdfFile, R.string.failedLaunchingFileManager);
+                } else {
+                    addFromImageOrFileAfterPermission("application/*", pkpassPickerLauncher, R.string.addFromPkpass, R.string.failedLaunchingFileManager);
                 }
             } else {
                 setScannerActive(true);

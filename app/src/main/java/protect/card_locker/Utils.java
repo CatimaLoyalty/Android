@@ -97,12 +97,13 @@ public class Utils {
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
     public static final int BARCODE_IMPORT_FROM_PDF_FILE = 5;
-    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 6;
-    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 7;
-    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 8;
-    public static final int CARD_IMAGE_FROM_FILE_FRONT = 9;
-    public static final int CARD_IMAGE_FROM_FILE_BACK = 10;
-    public static final int CARD_IMAGE_FROM_FILE_ICON = 11;
+    public static final int BARCODE_IMPORT_FROM_PKPASS_FILE = 6;
+    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 7;
+    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 8;
+    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 9;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 10;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 11;
+    public static final int CARD_IMAGE_FROM_FILE_ICON = 12;
 
     public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
 
@@ -172,6 +173,32 @@ public class Utils {
         }
 
         return barcodesFromBitmap;
+    }
+
+    static public List<ParseResult> retrieveBarcodesFromPkPass(Context context, Uri uri) {
+        // FIXME: Also return image
+        Log.i(TAG, "Received Pkpass file with possible barcode");
+        if (uri == null) {
+            Log.e(TAG, "Pkpass did not contain any data");
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return null;
+        }
+
+        PkpassParser pkpassParser = new PkpassParser(context, uri);
+
+        List<String> locales = pkpassParser.listLocales();
+        if (locales.isEmpty()) {
+            return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
+        }
+
+        List<ParseResult> parseResultList = new ArrayList<>();
+        for (String locale : locales) {
+            ParseResult parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
+            parseResult.setNote(locale);
+            parseResultList.add(parseResult);
+        }
+
+        return parseResultList;
     }
 
     static public List<ParseResult> retrieveBarcodesFromPdf(Context context, Uri uri) {
@@ -262,6 +289,10 @@ public class Utils {
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
             return retrieveBarcodesFromPdf(context, intent.getData());
+        }
+
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
+            return retrieveBarcodesFromPkPass(context, intent.getData());
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {

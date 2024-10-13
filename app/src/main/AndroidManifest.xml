@@ -46,6 +46,7 @@
                 <data android:mimeType="text/plain" />
                 <data android:mimeType="image/*" />
                 <data android:mimeType="application/pdf" />
+                <data android:mimeType="application/vnd.apple.pkpass" />
             </intent-filter>
         </activity>
         <activity

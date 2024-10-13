@@ -461,6 +461,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 parseResultList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else if (receivedType.equals("application/pdf")) {
                 parseResultList = Utils.retrieveBarcodesFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+            } else if (receivedType.equals("application/vnd.apple.pkpass")) {
+                parseResultList = Utils.retrieveBarcodesFromPkPass(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else {
                 Log.e(TAG, "Wrong mime-type");
                 return;

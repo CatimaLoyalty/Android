@@ -62,7 +62,7 @@ jobs:
       run: ./gradlew spotbugsRelease
     - name: Archive test results
       if: always()
-      uses: actions/upload-artifact@v4.4.0
+      uses: actions/upload-artifact@v4.4.3
       with:
         name: test-results-api${{ matrix.api-level }}
         path: app/build/reports

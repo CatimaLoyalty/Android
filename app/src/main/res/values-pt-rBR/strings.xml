@@ -210,7 +210,7 @@
     <string name="updateBalanceTitle">Quanto você gastou ou recebeu?</string>
     <string name="currentBalanceSentence">Saldo atual: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Novo saldo: <xliff:g>%s</xliff:g></string>
-    <string name="settings_category_title_cards">Cartões</string>
+    <string name="settings_category_title_cards">Visualização do cartão</string>
     <string name="updateBalanceHint">Inserir quantidade</string>
     <string name="anyDate">Qualquer data</string>
     <string name="settings_category_title_general">Geral</string>
@@ -223,7 +223,7 @@
     <string name="failedLaunchingFileManager">Não foi possível encontrar um gerenciador de arquivos compatível</string>
     <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Qual dos códigos de barras encontrados você quer usar?</string>
-    <string name="settings_display_barcode_max_brightness">Clarear visão do código de barras</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar a tela</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessário para alguns scanners funcionarem</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="balance">Saldo</string>
@@ -233,7 +233,7 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_dark_theme">Escuro</string>
     <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo da tela</string>
-    <string name="settings_card_orientation">Orientação do código de barras</string>
+    <string name="settings_card_orientation">Orientação da tela</string>
     <string name="settings_portrait_orientation">Retrato</string>
     <string name="settings_landscape_orientation">Paisagem</string>
     <string name="settings_keep_screen_on_summary">Desativa o tempo limite de tela enquanto estiver vendo um cartão</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Exportação cancelada</string>
     <string name="useBackImage">Usar imagem traseira</string>
     <string name="useFrontImage">Usar imagem frontal</string>
+    <string name="settings_use_volume_keys_navigation_summary">Use os botões de volume para alterar qual cartão é exibido</string>
+    <string name="settings_use_volume_keys_navigation">Trocar de cartão usando botões de volume</string>
 </resources>

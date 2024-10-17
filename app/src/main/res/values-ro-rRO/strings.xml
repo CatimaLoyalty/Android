@@ -52,7 +52,7 @@
     <string name="settings_light_theme">Lumină</string>
     <string name="settings_dark_theme">Întuneric</string>
     <string name="noBarcodeFound">Nu a fost găsit niciun cod de bare</string>
-    <string name="settings_display_barcode_max_brightness">Luminați vizualizarea codurilor de bare</string>
+    <string name="settings_display_barcode_max_brightness">Iluminare ecran</string>
     <string name="settings_keep_screen_on">Păstrați ecranul pornit</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Preveniți blocarea ecranului</string>
     <string name="balance">Balanță</string>
@@ -167,7 +167,7 @@
     <string name="group_name_is_empty">Numele grupului nu poate fi liber</string>
     <string name="importCards">Importați carduri</string>
     <string name="icon_header_click_text">Apăsați lung pentru a edita miniatura</string>
-    <string name="settings_category_title_cards">Carduri</string>
+    <string name="settings_category_title_cards">Afișare carduri</string>
     <string name="setBarcodeId">Setați valoarea codului de bare</string>
     <string name="ok">OK</string>
     <string name="unarchive">Dezarhivare</string>
@@ -246,7 +246,7 @@
     <string name="settings_violet_theme">Violet</string>
     <string name="include_if_asking_support">Dacă doriți să cereți ajutor, includeți informațiile următoare:</string>
     <string name="show_archived_cards">Afișați cardurile arhivate</string>
-    <string name="settings_card_orientation">Orientarea codului de bare</string>
+    <string name="settings_card_orientation">Orientare ecran</string>
     <string name="app_libraries">Biblioteci terță deschise: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Cât de mult ați cheltuit sau primit?</string>
     <string name="settings_blue_theme">Albastru</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Exportare anulată</string>
     <string name="useBackImage">Utilizează imaginea din spate</string>
     <string name="useFrontImage">Utilizează imaginea din față</string>
+    <string name="settings_use_volume_keys_navigation">Schimbă cardurile folosind butoanele de volum</string>
+    <string name="settings_use_volume_keys_navigation_summary">Folosiți butoanele de volum pentru a schimba ce card este afișat</string>
 </resources>

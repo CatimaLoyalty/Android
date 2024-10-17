@@ -50,7 +50,7 @@
     <string name="settings_system_theme">Systemowy</string>
     <string name="settings_light_theme">Jasny</string>
     <string name="settings_dark_theme">Ciemny</string>
-    <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
+    <string name="settings_display_barcode_max_brightness">Rozjaśnij ekran</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     <string name="deleteConfirmationGroup">Usunąć grupę\?</string>
     <string name="all">Wszystko</string>
@@ -212,7 +212,7 @@
     </plurals>
     <string name="include_if_asking_support">Jeśli chcesz poprosić o pomoc, podaj następujące informacje:</string>
     <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
-    <string name="settings_card_orientation">Orientacja kodu kreskowego</string>
+    <string name="settings_card_orientation">Orientacja ekranu</string>
     <string name="settings_follow_system_orientation">Śledź orientację systemową</string>
     <string name="duplicateCard">Duplikuj</string>
     <string name="starred">Oznaczone gwiazdką</string>
@@ -271,7 +271,7 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Wyłącza blokadę ekranu kiedy wyświetlana jest karta</string>
     <string name="settings_allow_content_provider_read_summary">Aplikacje będą wymagały pozwolenia aby otrzymać dostęp do danych</string>
     <string name="settings_oled_dark_summary">Zmniejsza zużycie baterii na wyświetlaczach OLED</string>
-    <string name="settings_category_title_cards">Karty</string>
+    <string name="settings_category_title_cards">Widok karty</string>
     <string name="settings_category_title_general">Ogólne</string>
     <string name="settings_category_title_privacy">Prywatność</string>
     <string name="app_copyright_short">Wszelkie prawa zastrzeżone © Sylvia van Os i współtwórcy</string>
@@ -304,4 +304,6 @@
     <string name="exportCancelled">Eksport anulowany</string>
     <string name="useBackImage">Użyj obrazu z tyłu</string>
     <string name="useFrontImage">Użyj obrazu z przodu</string>
+    <string name="settings_use_volume_keys_navigation">Przełączaj karty przy użyciu przycisków głośności</string>
+    <string name="settings_use_volume_keys_navigation_summary">Użyj przycisków głośności do przełączania kart</string>
 </resources>

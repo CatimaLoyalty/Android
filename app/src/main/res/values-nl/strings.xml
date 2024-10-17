@@ -52,7 +52,7 @@
     <string name="settings_system_theme">Systeemthema</string>
     <string name="settings_light_theme">Licht thema</string>
     <string name="settings_dark_theme">Donker thema</string>
-    <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
+    <string name="settings_display_barcode_max_brightness">Scherm oplichten bij tonen van barcode</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
     <string name="importSuccessful">De gegevens zijn geïmporteerd</string>
@@ -260,7 +260,7 @@
     <string name="settings_display_barcode_max_brightness_summary">Benodigd voor de werking van sommige scanners</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Schakelt schermvergrendeling uit tijdens het bekijken van een kaart</string>
     <string name="settings_oled_dark_summary">Verlaagt het accuverbruik op oledschermen</string>
-    <string name="settings_category_title_cards">Kaarten</string>
+    <string name="settings_category_title_cards">Kaartenoverzicht</string>
     <string name="settings_category_title_general">Algemeen</string>
     <string name="app_copyright_short">Auteursrecht © Sylvia van Os en bijdragers</string>
     <string name="action_display_options">Weergave-instellingen</string>
@@ -292,4 +292,6 @@
     <string name="exportCancelled">Exporteren geannuleerd</string>
     <string name="useFrontImage">Gebruik voorzijde van kaart</string>
     <string name="useBackImage">Gebruik achterzijde van kaart</string>
+    <string name="settings_use_volume_keys_navigation">Verwissel kaart met de volume knoppen</string>
+    <string name="settings_use_volume_keys_navigation_summary">Gebruik de volume knoppen om te wisselen van getoonde kaart</string>
 </resources>

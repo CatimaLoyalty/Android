@@ -45,7 +45,7 @@
     <string name="noGroups">Clique no botão + para adicionar grupos para categorização.</string>
     <string name="noGroupCards">Este grupo está vazio</string>
     <string name="intent_import_card_from_url_share_text">Quero partilhar um cartão</string>
-    <string name="settings_display_barcode_max_brightness">Iluminar o código de barras</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar o ecrã</string>
     <string name="settings_keep_screen_on">Manter ecrã ligado</string>
     <string name="enter_group_name">Introduza o nome do grupo</string>
     <string name="groups">Grupos</string>
@@ -210,7 +210,7 @@
     <string name="include_if_asking_support">Se quiser pedir ajuda, inclua as seguintes informações:</string>
     <string name="duplicateCard">Duplicar</string>
     <string name="archive">Arquivar</string>
-    <string name="settings_card_orientation">Orientação do código de barras</string>
+    <string name="settings_card_orientation">Orientação do ecrã</string>
     <string name="settings_follow_system_orientation">Definido no sistema</string>
     <string name="settings_portrait_orientation">Retrato</string>
     <string name="settings_landscape_orientation">Paisagem</string>
@@ -265,7 +265,7 @@
     <string name="settings_allow_content_provider_read_summary">Os aplicativos ainda terão que solicitar permissão para receber acesso</string>
     <string name="settings_oled_dark_summary">Reduz a utilização da bateria em ecrãs OLED</string>
     <string name="icon_header_click_text">Pressione e segure para editar o icone</string>
-    <string name="settings_category_title_cards">Cartões</string>
+    <string name="settings_category_title_cards">Vista de cartão</string>
     <string name="settings_category_title_general">Geral</string>
     <string name="settings_category_title_privacy">Privacidade</string>
     <string name="card_id_must_not_be_empty">O ID do cartão não pode estar vazio</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Exportação cancelada</string>
     <string name="useFrontImage">Utilizar imagem frontal</string>
     <string name="useBackImage">Utilizar imagem do verso</string>
+    <string name="settings_use_volume_keys_navigation">Mudar de cartão usando os botões de volume</string>
+    <string name="settings_use_volume_keys_navigation_summary">Utilize os botões de volume para alterar o cartão que é apresentado</string>
 </resources>

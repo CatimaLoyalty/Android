@@ -346,4 +346,7 @@
     <string name="exportCancelled">Export cancelled</string>
     <string name="useFrontImage">Use front image</string>
     <string name="useBackImage">Use back image</string>
+    <string name="acra_catima_has_crashed">We\'re sorry, but <xliff:g id="app_name">%s</xliff:g> has crashed. Please help us fix this issue by sending us an error report.</string>
+    <string name="acra_explain_crash">If possible, please add more details on what you were doing here:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> crash report</string>
 </resources>

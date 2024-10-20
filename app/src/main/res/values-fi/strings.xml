@@ -62,7 +62,7 @@
     <string name="intent_import_card_from_url_share_text">Haluan jakaa kortin kanssasi</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Estä näytön lukitus</string>
     <string name="settings_keep_screen_on">Pidä näyttö päällä</string>
-    <string name="settings_display_barcode_max_brightness">Kirkasta viivakoodinäkymää</string>
+    <string name="settings_display_barcode_max_brightness">Kirkasta näyttöä</string>
     <string name="settings_dark_theme">Tumma</string>
     <string name="settings_light_theme">Vaalea</string>
     <string name="settings_system_theme">Järjestelmän oletus</string>
@@ -210,7 +210,7 @@
     <string name="unarchive">Poista arkistosta</string>
     <string name="archived">Kortti arkistoitu</string>
     <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
-    <string name="settings_card_orientation">Viivakoodin suuntaus</string>
+    <string name="settings_card_orientation">Näytön suunta</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
@@ -260,7 +260,7 @@
     <string name="show_note">Näytä huomautus</string>
     <string name="show_balance">Näytä saldo</string>
     <string name="show_validity">Näytä kelpoisuus</string>
-    <string name="settings_category_title_cards">Kortit</string>
+    <string name="settings_category_title_cards">Korttinäkymä</string>
     <string name="settings_category_title_general">Yleiset</string>
     <string name="action_display_options">Näyttövalinnat</string>
     <string name="app_copyright_short">Tekijänoikeus © Sylvia van Os ja avustajat</string>
@@ -292,4 +292,6 @@
     <string name="exportCancelled">Vienti peruttu</string>
     <string name="useBackImage">Käytä takakuvaa</string>
     <string name="useFrontImage">Käytä etukuvaa</string>
+    <string name="settings_use_volume_keys_navigation">Vaihtele korttien välillä äänenvoimakkuuspainikkeilla</string>
+    <string name="settings_use_volume_keys_navigation_summary">Käytä äänenvoimakkuuspainikkeita vaihtaaksesi näytettävän kortin</string>
 </resources>

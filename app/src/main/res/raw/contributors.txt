@@ -17,8 +17,8 @@ Eric
 GM
 Petr Novák
 laralem
-大王叫我来巡山
 Joel A
+大王叫我来巡山
 Taco
 pfaffenrodt
 Aayush Gupta
@@ -29,30 +29,30 @@ Giovanni Donisi
 Jiri Grönroos
 Priit Jõerüüt
 Samantaz Fox
-Milo Ivir
-Arno-github
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
+Arno-github
+Milo Ivir
 Jose Delvani
-Milan Šalka
-mdvhimself
 Balázs Meskó
+mdvhimself
+Milan Šalka
 Skrripy
 huuhaa
-waffshappen
-Silvério Santos
-ngocanhtve
-ikanakova
-Quentin PAGÈS
 Projjal Moitra
-Denis Shilin
-Robin Liu
+Quentin PAGÈS
+ikanakova
+ngocanhtve
+Silvério Santos
+waffshappen
 Ziad OUALHADJ
+Robin Liu
+Denis Shilin
 しいたけ
 Alexander Ivanov
-Viet Nguyen Hoang
 Miha Frangež
+Viet Nguyen Hoang
 stavpup
 ehrt74
 Virginie
@@ -62,5 +62,6 @@ arshbeerSingh
 Freddo espresso
 Govind S Nair
 Kim Seohyun
-Michael Gangolf
+Renko
 rudy3
+Michael Gangolf

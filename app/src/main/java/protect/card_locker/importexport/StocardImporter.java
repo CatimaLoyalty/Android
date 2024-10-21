@@ -19,12 +19,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.time.Instant;
@@ -111,6 +113,8 @@ public class StocardImporter implements Importer {
 
     private static final String TAG = "Catima";
 
+    private static final int ZIP_DATA_DESCRIPTOR = 0x504b0708;
+
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
         ZIPData zipData = new ZIPData(new HashMap<>(), new HashMap<>());
 
@@ -130,7 +134,8 @@ public class StocardImporter implements Importer {
             throw new FormatException("Issue parsing CSV data", e);
         }
 
-        InputStream input = new FileInputStream(inputFile);
+        InputStream input = new BufferedInputStream(new FileInputStream(inputFile));
+        spannedArchiveMarkerWorkaround(input);
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
         zipData = importZIP(zipInputStream, zipData);
         zipInputStream.close();
@@ -142,6 +147,22 @@ public class StocardImporter implements Importer {
 
         ImportedData importedData = importLoyaltyCardHashMap(context, zipData);
         saveAndDeduplicate(context, database, importedData);
+    }
+
+    private static void spannedArchiveMarkerWorkaround(InputStream input) throws IOException, FormatException {
+        // Workaround: skip a spanned archive marker (data descriptor header at start of file)
+        // before passing the stream to ZipInputStream since zip4j cannot handle those.
+        // NB: we need to wrap with a BufferedInputStream for mark/reset
+        byte[] buf = new byte[4];
+        input.mark(4);
+        for (int i = 0; i < 4; ++i) {
+            if (input.read(buf, i, 1) != 1) {
+                throw new FormatException("File is less than 4 bytes.");
+            }
+        }
+        if (new BigInteger(1, buf).intValue() != ZIP_DATA_DESCRIPTOR) {
+            input.reset();
+        }
     }
 
     public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, FormatException, JSONException {

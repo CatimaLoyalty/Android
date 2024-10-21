@@ -24,6 +24,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,8 @@ import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import protect.card_locker.databinding.CustomBarcodeScannerBinding;
@@ -106,15 +110,40 @@ public class ScanActivity extends CatimaAppCompatActivity {
         customBarcodeScannerBinding.fabOtherOptions.setOnClickListener(view -> {
             setScannerActive(false);
 
+            ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+            String[] texts = new String[]{
+                getString(R.string.addWithoutBarcode),
+                getString(R.string.addManually),
+                getString(R.string.addFromImage),
+                getString(R.string.addFromPdfFile),
+            };
+            Object[] icons = new Object[]{
+                R.drawable.baseline_block_24,
+                R.drawable.ic_edit,
+                R.drawable.baseline_image_24,
+                R.drawable.baseline_picture_as_pdf_24,
+            };
+            String[] columns = new String[]{"text", "icon"};
+
+            for (int i = 0; i < texts.length; i++) {
+                HashMap<String, Object> map = new HashMap<>();
+                map.put(columns[0], texts[i]);
+                map.put(columns[1], icons[i]);
+                list.add(map);
+            }
+
+            ListAdapter adapter = new SimpleAdapter(
+                ScanActivity.this,
+                list,
+                R.layout.alertdialog_row_with_icon,
+                columns,
+                new int[]{R.id.textView, R.id.imageView}
+            );
+
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ScanActivity.this);
             builder.setTitle(getString(R.string.add_a_card_in_a_different_way));
-            builder.setItems(
-                    new CharSequence[]{
-                            getString(R.string.addWithoutBarcode),
-                            getString(R.string.addManually),
-                            getString(R.string.addFromImage),
-                            getString(R.string.addFromPdfFile)
-                    },
+            builder.setAdapter(
+                    adapter,
                     (dialogInterface, i) -> {
                         switch (i) {
                             case 0:

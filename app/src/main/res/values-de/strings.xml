@@ -17,7 +17,7 @@
     <string name="ok">OK</string>
     <string name="sendLabel">Senden…</string>
     <string name="editCardTitle">Karte bearbeiten</string>
-    <string name="addCardTitle">Neue Karte</string>
+    <string name="addCardTitle">Karte hinzufügen</string>
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Kartenkürzel</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
@@ -34,10 +34,10 @@
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="importOptionFilesystemTitle">Aus Dateisystem importieren</string>
-    <string name="importOptionFilesystemExplanation">Eine bestimmte Datei aus dem Dateisystem auswählen.</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus.</string>
     <string name="importOptionFilesystemButton">vom Dateisystem</string>
     <string name="importOptionApplicationTitle">Andere App verwenden</string>
-    <string name="importOptionApplicationExplanation">Beliebige Anwendung oder deinen bevorzugten Dateimanager zur Dateiauswahl verwenden.</string>
+    <string name="importOptionApplicationExplanation">Benutze eine beliebige App oder deinen bevorzugten Dateimanager zur Dateiauswahl.</string>
     <string name="importOptionApplicationButton">Andere App verwenden</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
@@ -71,7 +71,7 @@
     <string name="leaveWithoutSaveTitle">Beenden</string>
     <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
     <string name="noBarcode">Kein Barcode</string>
-    <string name="addManually">Code manuell eingeben</string>
+    <string name="addManually">Barcode manuell eingeben</string>
     <string name="moveDown">Nach unten verschieben</string>
     <string name="moveUp">Nach oben verschieben</string>
     <plurals name="groupCardCount">
@@ -97,14 +97,12 @@
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
-\nErstellen Sie ihn, indem du zuerst auf Export in Voucher Vault drückst.</string>
+    <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus. \nErstelle ihn, indem du zuerst auf Export in Voucher Vault drückst.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
     <string name="importLoyaltyCardKeychainMessage">Wählen du deinen <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
 \nErstelle ihn über das Menü Import/Export in Loyalty Card Keychain, indem du dort zuerst auf Export drückst.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Strichcodetypen manuell aus.
-\nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
+    <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Barcodetypen manuell aus. \nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
     <string name="importCatimaMessage">Wähle deinen <i>catima.zip</i>-Export aus Catima zum Importieren aus.
 \nErstelle ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort zuerst Export drückst.</string>
@@ -113,7 +111,7 @@
     <string name="sameAsCardId">Entspricht Kartennummer</string>
     <string name="barcodeId">Barcodewert</string>
     <string name="errorReadingImage">Konnte das Bild nicht lesen</string>
-    <string name="noBarcodeFound">Kein Barcode erkannt</string>
+    <string name="noBarcodeFound">Keinen Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
     <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
@@ -132,8 +130,7 @@
     <string name="frontImageDescription">Vorderseite</string>
     <string name="backImageDescription">Rückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
-    <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus.
-\nSie erhalten ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bitten.</string>
+    <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus. \nDu erhälst ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bittest.</string>
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Blitzlicht ausschalten</string>
     <string name="turn_flashlight_on">Blitzlicht einschalten</string>
@@ -143,7 +140,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> ausgewählt</item>
     </plurals>
     <string name="deleteTitle">Karte löschen</string>
-    <string name="deleteConfirmation">Diese Karte wirklich löschen?</string>
+    <string name="deleteConfirmation">Diese Karte endgültig löschen?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Diese <xliff:g>%d</xliff:g> Karte endgültig löschen\?</item>
         <item quantity="other">Diese <xliff:g>%d</xliff:g> Karten endgültig löschen\?</item>
@@ -173,9 +170,9 @@
     <string name="reverse">…in umgekehrter Reihenfolge</string>
     <string name="version_history">Versionshistorie</string>
     <string name="credits">Dank an</string>
-    <string name="help_translate_this_app">Hilfe bei der Übersetzung</string>
+    <string name="help_translate_this_app">Hilf bei der Übersetzung</string>
     <string name="and_data_usage">und Datennutzung</string>
-    <string name="rate_this_app">Bewerte die Anwendung</string>
+    <string name="rate_this_app">Bewerte die App</string>
     <string name="on_google_play">auf Google Play</string>
     <string name="license">Lizenz</string>
     <string name="source_repository">Quellcode</string>
@@ -192,7 +189,7 @@
     <string name="setIcon">Vorschaubild festlegen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="translate_platform">auf Weblate</string>
-    <string name="shortcutSelectCard">Wähle eine Karte</string>
+    <string name="shortcutSelectCard">Karte wählen</string>
     <string name="options">Optionen</string>
     <string name="showMoreInfo">Infos anzeigen</string>
     <string name="starred">als Favorit</string>
@@ -206,9 +203,9 @@
     <string name="settings_landscape_orientation">Querformat</string>
     <string name="settings_portrait_orientation">Hochformat</string>
     <string name="duplicateCard">Duplizieren</string>
-    <string name="unarchive">Archivierung aufheben</string>
+    <string name="unarchive">Aus dem Archiv wiederherstellen</string>
     <string name="settings_card_orientation">Bildschirm-Ausrichtung</string>
-    <string name="unarchived">Karte aus dem Archiv entfernt</string>
+    <string name="unarchived">Karte aus dem Archiv wiederhergestellt</string>
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
     <string name="settings_lock_on_opening_orientation">Kartenausrichtung nach dem Öffnen beibehalten</string>
@@ -216,16 +213,16 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-Anwendung gefunden werden</string>
+    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-App gefunden werden</string>
     <string name="previousCard">Vorherige</string>
     <string name="nextCard">Nächste</string>
-    <string name="failedToOpenUrl">Bitte installiere einen Webbrowser</string>
+    <string name="failedToOpenUrl">Bitte installiere zuerst einen Webbrowser</string>
     <string name="welcome">Willkommen bei Catima</string>
     <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
     <string name="updateBalanceTitle">Wie viel hast du ausgegeben oder erhalten?</string>
     <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera möglich</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Um Strichcodes zu scannen, benötigt Catima Zugriff auf deine Kamera. Tippe hier, um deine Berechtigungseinstellungen zu ändern.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Um Barcodes zu scannen, benötigt Catima Zugriff auf deine Kamera. Tippe hier, um deine Berechtigungseinstellungen zu ändern.</string>
     <string name="updateBalanceHint">Betrag eingeben</string>
     <string name="importCards">Karten importieren</string>
     <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
@@ -270,14 +267,14 @@
     <string name="balanceParsingFailed">Ungültiges Guthaben</string>
     <string name="add_a_card_in_a_different_way">Karte anders hinzufügen</string>
     <string name="action_more_options">Mehr Optionen</string>
-    <string name="enter_card_id">Gib die Codenummer oder Ziffernfolge deiner Karte an</string>
-    <string name="addWithoutBarcode">Eine Karte ohne Code hinzufügen</string>
+    <string name="enter_card_id">Gib die Kartennummer oder den Text auf deiner Karte ein</string>
+    <string name="addWithoutBarcode">Eine Karte ohne Barcode hinzufügen</string>
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
-    <string name="manually_enter_barcode_instructions">Trage die ID Nummer oder Text deiner Karte ein und drücke auf den Barcode, der wie der auf deiner Karte aussieht.</string>
+    <string name="manually_enter_barcode_instructions">Trage die Kartenummer oder Text deiner Karte ein und drücke auf den Barcode, der wie der auf deiner Karte aussieht.</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Immer drehen (ignoriert Systemeinstellungen)</string>
     <string name="continue_">Fortfahren</string>
-    <string name="add_manually_warning_title">Es wird empfohlen, zu scannen</string>
+    <string name="add_manually_warning_title">Scannen empfohlen</string>
     <string name="add_manually_warning_message">In einigen Geschäften weicht der Wert des Barcodes von dem auf der Karte angegebenen Wert ab. Aus diesem Grund funktioniert die manuelle Eingabe des Barcodes in einigen Fällen nicht. Es wird dringend empfohlen, den Barcode mit einer Kamera zu scannen. Möchtest du dennoch fortfahren?</string>
     <string name="spend">Zahlen</string>
     <string name="receive">Erhalten</string>
@@ -287,11 +284,11 @@
     <string name="failedLaunchingFileManager">Konnte keinen unterstützten Dateimanager finden</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Welchen der gefundenen Barcodes möchtest du verwenden?</string>
     <string name="pageWithNumber">Seite <xliff:g>%d</xliff:g></string>
-    <string name="noCameraFoundGuideText">Dein Gerät scheint nicht über eine Kamera zu verfügen. Wenn dies der Fall ist, versuche, das Gerät neu zu starten. Andernfalls verwende die Schaltfläche Weitere Optionen unten, um einen Barcode auf andere Weise hinzuzufügen.</string>
+    <string name="noCameraFoundGuideText">Dein Gerät scheint nicht über eine Kamera zu verfügen. Falls doch, versuche, das Gerät neu zu starten. Andernfalls verwende die Schaltfläche Weitere Optionen unten, um einen Barcode auf andere Weise hinzuzufügen.</string>
     <string name="exportCancelled">Export abgebrochen</string>
     <string name="importCancelled">Import abgebrochen</string>
     <string name="useFrontImage">Vorderseite verwenden</string>
     <string name="useBackImage">Rückseite verwenden</string>
     <string name="settings_use_volume_keys_navigation">Karten mit Lautstärketasten wechseln</string>
-    <string name="settings_use_volume_keys_navigation_summary">Benutzen Sie die Lautstärketasten, um zu ändern, welche Karte angezeigt wird</string>
+    <string name="settings_use_volume_keys_navigation_summary">Wähle mit den Lautstärketasten, welche Karte angezeigt werden soll</string>
 </resources>

@@ -107,7 +107,7 @@
     <string name="starImage">Favorit</string>
     <string name="settings_light_theme">Terang</string>
     <string name="settings_dark_theme">Gelap</string>
-    <string name="settings_display_barcode_max_brightness">Terangkan tampilan barcode</string>
+    <string name="settings_display_barcode_max_brightness">Cerahkan layar</string>
     <string name="settings_keep_screen_on">Biarkan layar menyala</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Cegah kunci layar</string>
     <string name="intent_import_card_from_url_share_text">Saya ingin berbagi kartu dengan anda</string>
@@ -198,7 +198,7 @@
     <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
     <string name="previousCard">Sebelumnya</string>
     <string name="nextCard">Berikutnya</string>
-    <string name="settings_card_orientation">Orientasi Barcode</string>
+    <string name="settings_card_orientation">Orientasi layar</string>
     <string name="settings_follow_system_orientation">Ikuti sistem</string>
     <string name="settings_portrait_orientation">Potret</string>
     <string name="settings_landscape_orientation">Lanskap</string>
@@ -254,7 +254,7 @@
     <string name="settings_category_title_general">Umum</string>
     <string name="settings_display_barcode_max_brightness_summary">Diperlukan agar beberapa pemindai dapat berfungsi</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Menonaktifkan kunci layar saat melihat kartu</string>
-    <string name="settings_category_title_cards">Kartu</string>
+    <string name="settings_category_title_cards">Tampilan kartu</string>
     <string name="settings_category_title_privacy">Privasi</string>
     <string name="show_archived_cards">Tampilkan kartu yang sudah disimpan</string>
     <string name="action_display_options">Pilihan tampilan</string>
@@ -286,4 +286,6 @@
     <string name="exportCancelled">Ekspor dibatalkan</string>
     <string name="useFrontImage">Gunakan gambar depan</string>
     <string name="useBackImage">Gunakan gambar belakang</string>
+    <string name="settings_use_volume_keys_navigation">Ganti kartu menggunakan tombol volume</string>
+    <string name="settings_use_volume_keys_navigation_summary">Gunakan tombol volume untuk mengubah kartu mana yang ditampilkan</string>
 </resources>

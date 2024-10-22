@@ -183,7 +183,8 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
         <service android:name=".CardsOnPowerScreenService" android:label="@string/app_name"
-            android:permission="android.permission.BIND_CONTROLS" android:exported="true">
+            android:permission="android.permission.BIND_CONTROLS" android:exported="true"
+            tools:targetApi="r">
             <intent-filter>
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>

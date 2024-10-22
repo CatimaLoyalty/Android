@@ -88,7 +88,7 @@
     <string name="settings_theme">Téma</string>
     <string name="settings_system_theme">Rendszer</string>
     <string name="settings_light_theme">Világos</string>
-    <string name="settings_display_barcode_max_brightness">Vonalkód nézet világosítása</string>
+    <string name="settings_display_barcode_max_brightness">Kijelző világosítása</string>
     <string name="settings_keep_screen_on">A képernyő bekapcsolva tartása</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Képernyőzárólás megakadályozása</string>
     <string name="intent_import_card_from_url_share_text">Meg akarok veled osztani egy kártyát</string>
@@ -200,7 +200,7 @@
 \nLétrehozhatja az Importálás/exportálás menüből az Exportálást megnyomva egy másik Catima alkalmazásban.</string>
     <string name="importFidmeMessage">Válassza ki a FidMeből exportált <i>fidme-export-request-xxxxxx.zip</i> fájl majd importálja be, és utána válassza a kézi vonalkódbeírást.
 \nEzt hozza létre a FidMe-profiljában az Adatvédelem rész választásával, majd a Saját adatok kinyerése megnyomásával.</string>
-    <string name="settings_card_orientation">Vonalkód tájolása</string>
+    <string name="settings_card_orientation">Képernyő tájolása</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
@@ -256,7 +256,7 @@
     <string name="settings_oled_dark_summary">Csökkenti az OLED kijelzők akkumulátor-használatát</string>
     <string name="settings_category_title_privacy">Adatvédelem</string>
     <string name="settings_allow_content_provider_read_title">Engedélyezem más alkalmazások számára az adataimhoz való hozzáférést</string>
-    <string name="settings_category_title_cards">Kártyák</string>
+    <string name="settings_category_title_cards">Kártyanézet</string>
     <string name="settings_category_title_general">Általános</string>
     <string name="settings_keep_screen_on_summary">Letiltja a képernyő időtúllépését a kártya megtekintése közben</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Letiltja a képernyő időtúllépését a kártya megjelenítése közben</string>
@@ -290,4 +290,8 @@
     <string name="noCameraFoundGuideText">Úgy tűnik, az eszközén nincs kamera. Ha van, próbálja meg újraindítani az eszközt. Másképp, használja a További beállítások gombot alul, hogy máshogy hozzáadjon egy vonalkódot.</string>
     <string name="importCancelled">Importálás megszakítva</string>
     <string name="exportCancelled">Exportálás megszakítva</string>
+    <string name="settings_use_volume_keys_navigation">Kártyák váltása a hangerőgombokkal</string>
+    <string name="settings_use_volume_keys_navigation_summary">A hangerőgombok használata a megjelenített kártya átváltásához</string>
+    <string name="useFrontImage">Elülső kép használata</string>
+    <string name="useBackImage">Hátsó kép használata</string>
 </resources>

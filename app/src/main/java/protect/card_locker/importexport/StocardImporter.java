@@ -9,8 +9,9 @@ import androidx.annotation.NonNull;
 
 import com.google.zxing.BarcodeFormat;
 
+import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
-import net.lingala.zip4j.model.LocalFileHeader;
+import net.lingala.zip4j.model.FileHeader;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -20,9 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -130,11 +129,9 @@ public class StocardImporter implements Importer {
             throw new FormatException("Issue parsing CSV data", e);
         }
 
-        InputStream input = new FileInputStream(inputFile);
-        ZipInputStream zipInputStream = new ZipInputStream(input, password);
-        zipData = importZIP(zipInputStream, zipData);
-        zipInputStream.close();
-        input.close();
+        ZipFile zipFile = new ZipFile(inputFile, password);
+        zipData = importZIP(zipFile, zipData);
+        zipFile.close();
 
         if (zipData.cards.keySet().size() == 0) {
             throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
@@ -144,7 +141,7 @@ public class StocardImporter implements Importer {
         saveAndDeduplicate(context, database, importedData);
     }
 
-    public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, FormatException, JSONException {
+    public ZIPData importZIP(ZipFile zipFile, final ZIPData zipData) throws IOException, FormatException, JSONException {
         Map<String, StocardRecord> cards = zipData.cards;
         Map<String, StocardProvider> providers = zipData.providers;
 
@@ -152,9 +149,8 @@ public class StocardImporter implements Importer {
         String[] cardBaseName = null;
         String customProviderId = "";
         String cardName = "";
-        LocalFileHeader localFileHeader;
-        while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
-            String fileName = localFileHeader.getFileName();
+        for (FileHeader fileHeader : zipFile.getFileHeaders()) {
+            String fileName = fileHeader.getFileName();
             String[] nameParts = fileName.split("/");
 
             if (nameParts.length < 2) {
@@ -162,6 +158,7 @@ public class StocardImporter implements Importer {
             }
 
             String userId = nameParts[1];
+            ZipInputStream zipInputStream = zipFile.getInputStream(fileHeader);
 
             if (customProvidersBaseName == null) {
                 // FIXME: can we use the points-account/statement/content.json balance info somehow?
@@ -302,6 +299,8 @@ public class StocardImporter implements Importer {
             } else if (!fileName.endsWith("/")) {
                 Log.d(TAG, "Unknown or unused file " + fileName + ", skipping...");
             }
+
+            zipInputStream.close();
         }
 
         return new ZIPData(cards, providers);

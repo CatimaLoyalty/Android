@@ -693,27 +693,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         mCardIdAndBarCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
-                Intent intent = result.getData();
-                if (intent == null) {
-                    Log.d("barcode card id editor", "barcode and card id editor picker returned without an intent");
+                Intent resultIntent = result.getData();
+                if (resultIntent == null) {
+                    Log.d(TAG, "barcode and card id editor picker returned without an intent");
                     return;
                 }
 
-                List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
+                Bundle resultIntentBundle = resultIntent.getExtras();
+                if (resultIntentBundle == null) {
+                    Log.d(TAG, "barcode and card id editor picker returned without a bundle");
+                    return;
+                }
 
-                Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
-                    @Override
-                    public void onUserChoseBarcode(BarcodeValues barcodeValues) {
-                        setLoyaltyCardCardId(barcodeValues.content());
-                        setLoyaltyCardBarcodeType(barcodeValues.format());
-                        setLoyaltyCardBarcodeId("");
-                    }
-
-                    @Override
-                    public void onUserDismissedSelector() {
-
-                    }
-                });
+                tempLoyaltyCard.updateFromBundle(resultIntentBundle, false);
+                generateBarcode();
+                hasChanged = true;
             }
         });
 

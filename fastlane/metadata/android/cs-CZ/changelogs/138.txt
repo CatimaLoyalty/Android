@@ -1,0 +1,1 @@
+- Oprava gesta zpět na hlavní obrazovce při zamítnutí klávesnice a vyhledávání v systému Android 13+

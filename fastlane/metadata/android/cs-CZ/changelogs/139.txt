@@ -1,0 +1,1 @@
+- Možnost navigace po kartách pomocí tlačítek hlasitosti

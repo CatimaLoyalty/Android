@@ -1,1 +1,2 @@
 - Option to navigate cards using the volume buttons
+- Fix Stocard import

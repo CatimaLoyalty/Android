@@ -159,7 +159,7 @@
     <string name="groups">Skupiny</string>
     <string name="enter_group_name">Zadejte název skupiny</string>
     <string name="exportSuccessful">Data exportována</string>
-    <string name="settings_display_barcode_max_brightness">Vysoký jas při zobrazení čárového kódu</string>
+    <string name="settings_display_barcode_max_brightness">Rozjasnit obrazovku</string>
     <string name="starImage">Hvězdička u oblíbených</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Vybrána <xliff:g>%d</xliff:g> karta</item>
@@ -213,7 +213,7 @@
     <string name="archive">Archivovat</string>
     <string name="unarchive">Vrátit z archivu</string>
     <string name="unarchived">Karta vrácena z archivu</string>
-    <string name="settings_card_orientation">Orientace čárového kódu</string>
+    <string name="settings_card_orientation">Orientace obrazovky</string>
     <string name="settings_landscape_orientation">Na šířku</string>
     <string name="duplicateCard">Duplikovat</string>
     <string name="archived">Karta archivována</string>
@@ -265,7 +265,7 @@
     <string name="settings_category_title_privacy">Soukromí</string>
     <string name="settings_display_barcode_max_brightness_summary">U některých čteček je to potřeba</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Při prohlížení karty zabránit zamčení obrazovky</string>
-    <string name="settings_category_title_cards">Karty</string>
+    <string name="settings_category_title_cards">Zobrazení karty</string>
     <string name="settings_category_title_general">Obecné</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a přispěvatelé</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os a přispěvatelé</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Export zrušen</string>
     <string name="useBackImage">Použijte předchozí obrázek</string>
     <string name="useFrontImage">Použijte přední obrázek</string>
+    <string name="settings_use_volume_keys_navigation_summary">Pomocí tlačítek hlasitosti můžete změnit, která karta se zobrazí</string>
+    <string name="settings_use_volume_keys_navigation">Přepínat karty pomocí tlačítek hlasitosti</string>
 </resources>

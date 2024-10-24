@@ -1,0 +1,4 @@
+- Povolení rozdělení dlouhých názvů obchodů v náhledu na více řádků
+- Možnost použít přední část zadního obrázku v nabídce miniatur
+- Drobné opravy importu/exportu
+- Drobné opravy uživatelského rozhraní

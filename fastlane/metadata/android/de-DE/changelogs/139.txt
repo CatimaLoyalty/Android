@@ -1,1 +1,2 @@
 - Möglichkeit, mit den Lautstärketasten durch die Karten zu navigieren
+- Stocard Importfehler behoben

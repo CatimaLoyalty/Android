@@ -40,7 +40,7 @@
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings">Ajustes</string>
-    <string name="settings_display_barcode_max_brightness">Iluminar vista del código de barras</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar pantalla</string>
     <string name="exportSuccessful">Datos exportados</string>
     <string name="importSuccessful">Datos importados</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
@@ -176,7 +176,7 @@
         <item quantity="other"><xliff:g>%s</xliff:g> puntos</item>
     </plurals>
     <string name="barcodeImageDescriptionWithType">Imagen <xliff:g>%s</xliff:g> código de barras</string>
-    <string name="settings_card_orientation">Orientación del código de barras</string>
+    <string name="settings_card_orientation">Orientación de pantalla</string>
     <string name="settings_portrait_orientation">Formato vertical</string>
     <string name="group_edit">Editar grupo</string>
     <string name="group_updated">Grupo actualizado</string>
@@ -264,7 +264,7 @@
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>
     <string name="settings_allow_content_provider_read_summary">Las aplicaciones todavía tendrán que solicitar permiso para conseguir acceso</string>
     <string name="settings_oled_dark_summary">Reduce el uso de batería en pantallas OLED</string>
-    <string name="settings_category_title_cards">Tarjetas</string>
+    <string name="settings_category_title_cards">Vista de tarjeta</string>
     <string name="settings_category_title_general">General</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deshabilita el bloqueo de pantalla mientras se ve una tarjeta</string>
     <string name="settings_category_title_privacy">Privacidad</string>
@@ -298,4 +298,6 @@
     <string name="exportCancelled">Exportación cancelada</string>
     <string name="useFrontImage">Utilice la imagen frontal</string>
     <string name="useBackImage">Utilice la imagen trasera</string>
+    <string name="settings_use_volume_keys_navigation_summary">Utiliza los botones de volumen para cambiar que tarjeta se muestra</string>
+    <string name="settings_use_volume_keys_navigation">Cambiar de tarjetas usando los botones de volumen</string>
 </resources>

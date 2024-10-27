@@ -91,18 +91,14 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         progress = new ProgressDialog(activity);
         progress.setTitle(doImport ? R.string.importing : R.string.exporting);
 
-        progress.setOnCancelListener(dialog -> cancel(doImport, true));
-        progress.setOnDismissListener(dialog -> cancel(doImport, true));
+        progress.setOnCancelListener(dialog -> cancel());
+        progress.setOnDismissListener(dialog -> cancel());
 
         progress.show();
     }
 
-    private void cancel(boolean isImport, boolean showToast) {
+    private void cancel() {
         ImportExportTask.this.stop();
-
-        if (showToast) {
-            Toast.makeText(activity, isImport ? R.string.importCancelled : R.string.exportCancelled, Toast.LENGTH_LONG).show();
-        }
     }
 
     protected ImportExportResult doInBackground(Void... nothing) {

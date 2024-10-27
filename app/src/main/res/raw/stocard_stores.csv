@@ -13,6 +13,7 @@ _id,name,barcodeFormat
 015cf86e-c4b6-42b5-abed-5821492b2669,Campbells,ITF
 016c8380-d433-4eb1-b7a0-df6fd9254ec6,Friendlies Pharmacy,CODE_128
 0189b6a0-3f02-418f-872e-d5e354619a45,Mencke Gartencenter,EAN_8
+01b239f4-d1db-4311-a33b-bc8bb9c71c19,McEwan,CODE_128
 01ce8326-50e8-4787-9999-e509dfed15cb,Вигода Вопак,CODE_128
 01eafcc6-ee41-447f-bbce-7a93ffb90b6c,Mario Mikke,EAN_13
 01f88e2d-3eb4-4242-a32b-1a847a28e140,Crodux,CODE_128
@@ -31,6 +32,7 @@ _id,name,barcodeFormat
 037f2420-273c-4ffe-9dd3-af22868b1b59,Al Pentolone,EAN_13
 038516b8-3cdd-4f96-9582-97caf9dc3a47,Dier Specialist,CODE_39
 039784f4-4fef-497e-8f03-f026655394ef,террапевтика,EAN_13
+039932ff-caec-4d40-aa9a-0ed185b5cf5f,FNV,CODE_128
 03b89b04-69cd-43cf-88eb-35760f092488,Мегаполис,CODE_128
 03d62f02-8266-493b-b4fd-95d5c853b87b,мта,EAN_13
 03fd0d65-b3dd-427b-9f7c-3554fe3dc99b,Happy Sport,EAN_13
@@ -60,6 +62,7 @@ _id,name,barcodeFormat
 0777b427-2af5-4531-81c3-f7421dde9d63,Евразия Автозапчасти,EAN_13
 078a5228-818d-4a86-8726-c71dd27a3fdc,EU COVID-19 Certificado de Vacunacion,QR_CODE
 078fdcef-2e8a-4179-befe-5959cd588a7e,Клякса,EAN_13
+07a90343-0b80-4cb4-8571-b6a2419cff6e,Maracatú,CODE_128
 07f645dc-3127-4050-94ac-41f42cacdb74,Cats & Dogs,EAN_8
 081924f1-3eff-480a-a8a9-ec08eb4b75e7,Rossetti Market,EAN_13
 0821c8d1-4556-4178-af1b-fe4d1977127d,Feedo,CODE_128
@@ -84,11 +87,14 @@ _id,name,barcodeFormat
 09e1c670-eac2-4077-8a66-b990c3ba1ed8,Gamble & Brown Cafe,CODE_39
 09e38952-3559-4432-821a-84fdee4923f8,Стройка,EAN_13
 0a047088-f9f9-47c5-a982-b307122f09fa,IGA Rewards,EAN_13
+0a058735-ecfd-4278-ae7a-9f6917193a3d,JBs Power Centre,CODE_128
+0a124613-4513-4a4f-b89a-6c4b645e395b,BoniChoix,CODE_128
 0a6c06b6-056d-4bf2-ae78-915a8c52d464,волгорост,EAN_13
 0a7c000b-39eb-4464-bc41-03d0e1f4a20f,Life Pharmacy ,CODE_128
 0ae08429-e2a2-4fe0-840a-e940ce9fd3e5,Zebra,EAN_13
 0b2502b7-f8d7-426e-b518-4482ee6115eb,Лоза,EAN_13
 0b4c67fb-bf76-46e8-9a3b-cb0acfe47e71,Giocheria,CODE_39
+0b539afa-e6b5-42a0-8f03-50d5de9f4af0,MediaMarkt Club Karte,QR_CODE
 0b600df8-f694-49d5-b5ee-56d0b47ab1bc,reima,EAN_13
 0b82965b-29df-4c9e-ae5f-70a5d10f1d32,Fanølinjen,CODE_128
 0bb951c2-c644-4a0b-92c0-754d739a55be,ZALY,EAN_13
@@ -128,8 +134,9 @@ _id,name,barcodeFormat
 0f650862-0a1c-4596-b2f9-30fc8d3bf8d3,Lila Bäcker,QR_CODE
 0f69ba3f-6084-49a5-b959-24277008de45,CJ Express,CODE_128
 0f936e1f-b3ac-4a34-aad7-a18bd76150f2,FOTOLAB,CODE_128
+0fafa67a-b4d2-4365-9f68-c167d43c7070,I TOURS,CODE_128
 0fce03a0-6b7b-427c-a483-26a1169e73b0,EDMINS,EAN_13
-1,Accor Le Club,QR_CODE
+1,Accor Live Limitless,QR_CODE
 10,Aeroplan,CODE_128
 100,Esprit,ITF
 1000,Chemmart Pharmacy,CODE_128
@@ -465,6 +472,7 @@ _id,name,barcodeFormat
 13,Amavita,EAN_13
 130,GNC,UPC_A
 1300,IZOD,CODE_128
+13004ca8-9095-40c2-aa98-1fcf6410efc7,Max Shop,CODE_128
 1301,La Quinta Inns,CODE_128
 1302,Pet Supplies Plus,UPC_A
 1303,Piazza Italia,EAN_13
@@ -501,8 +509,8 @@ _id,name,barcodeFormat
 1331,Bizzbee,QR_CODE
 1332,Blue Box,CODE_39
 1333,Brice,EAN_13
-1334,Bricoman,GS1_128
-1335,Brico Marché,GS1_128
+1334,Tecnomat,GS1_128
+1335,Bricomarché,GS1_128
 1336,Camaieu,CODE_128
 1337,Casino Supermarchés,EAN_13
 1338,Castorama,CODE_128
@@ -680,7 +688,7 @@ _id,name,barcodeFormat
 148f7495-e6f2-40b1-80cd-99b3632cb976,Slam,ITF
 149,Höffner,ITF
 1490,Basko,EAN_13
-1491,Unes,EAN_13
+1491,Unes,CODE_128
 1492,Grande Cinema 3,EAN_13
 1493,Eurobrico,EAN_13
 1494,Isola dei Tesori,EAN_13
@@ -966,7 +974,7 @@ _id,name,barcodeFormat
 172,Jost,ITF
 1720,Wheelup,CODE_39
 1721,BIG4,CODE_128
-1722,Besson Chaussures,EAN_13
+1722,Besson Chaussures,CODE_128
 1723,Cactus,EAN_13
 1724,Idea Bellezza,CODE_39
 1725,Uyum,CODE_128
@@ -983,7 +991,7 @@ _id,name,barcodeFormat
 1733,Mondial Tissus,EAN_13
 1734,Furet du nord,EAN_13
 1735,Maxxess,EAN_13
-1736,Devianne,EAN_13
+1736,Des Marques et Vous,EAN_13
 1737,Colruyt,ITF
 1738,Paul,EAN_13
 1739,JouéClub,EAN_13
@@ -1044,7 +1052,7 @@ _id,name,barcodeFormat
 179,Kastner & Öhler,EAN_13
 1790,MY SIZE,CODE_39
 1791,PetO,CODE_128
-1792,AVEVE,EAN_13
+1792,Aveve,EAN_13
 1793,BIO-Planet,ITF
 1794,Brico,EAN_13
 1795,Club,CODE_128
@@ -1343,9 +1351,10 @@ _id,name,barcodeFormat
 1e43877a-d4f1-4bff-bdb9-cd3346082a46,Scorpion Bay,EAN_13
 1e9469a4-8388-4ca9-a463-95ee73a0d953,FAMO,EAN_13
 1e9a127a-0451-4565-9560-eaa097d3808b,Grill'd,CODE_128
-1ed46ee6-993a-4053-a016-a0d67e26b91b,Lidl SK,CODE_128
+1ed46ee6-993a-4053-a016-a0d67e26b91b,Lidl,CODE_128
 1f01c3b1-08f7-4365-a0f9-f1c9bcbdf58a,Fresco,CODE_128
 1f15d8f3-c35c-46d6-8038-4c9f91a18909,Покров,EAN_8
+1f1ec99d-c8c6-42d3-ac6a-b9658a6e0a0d,xBarvy,EAN_13
 1f661d7a-d355-4590-8d33-0d61630958cc,NDG,CODE_39
 1f6624c6-5acc-4983-ac17-31b9004232d7,Afvalpas Rijssen-Holten,QR_CODE
 1f69337f-7604-4e7a-9031-f0ab182e7cd7,Дешёвая Аптека Вита,CODE_128
@@ -1453,7 +1462,7 @@ _id,name,barcodeFormat
 2085,Billa,EAN_13
 2086,Billa,EAN_13
 2087,BIPA,EAN_13
-2088,Penny,EAN_13
+2088,PENNY,EAN_13
 2089,Penny,EAN_13
 209,MCard,CODE_128
 2090,Shoprite,CODE_128
@@ -1492,6 +1501,7 @@ _id,name,barcodeFormat
 2112,Lindex,CODE_128
 2113,Twilfit,CODE_128
 2114,aClass,CODE_128
+21143721-38a4-466f-b04d-a3e90cb62bad,L'angolo,CODE_128
 2115,Clas Ohlson,CODE_128
 2116,Agrimarket,CODE_128
 2117,Starkki,CODE_128
@@ -1600,7 +1610,7 @@ _id,name,barcodeFormat
 2201,Avance,CODE_128
 2202,berca.be,EAN_13
 2203,Brantano,EAN_13
-2204,Brooklyn,EAN_13
+2204,Brooklyn nv,EAN_13
 2205,CAMELEON,CODE_128
 2206,Carmi,CODE_39
 2207,E5 mode,ITF
@@ -1940,7 +1950,7 @@ _id,name,barcodeFormat
 2488,Proximus,CODE_128
 2489,RS Bútor,CODE_128
 248957ba-dbad-414e-86e4-009fc4e5beee,Самоцветы плюс,ITF
-249,Countdown,CODE_128
+249,Woolworths,CODE_128
 2490,SEIBU PRINCE CLUB,CODE_128
 2491,サミット,EAN_13
 2492,The PUB,CODE_128
@@ -2024,6 +2034,7 @@ _id,name,barcodeFormat
 2557,Artex Fashion,EAN_13
 2558,Askot,CODE_128
 2559,BUTIK,EAN_8
+255d84f7-144d-4d63-b6fd-f00a8e94641f,HUK Autowelt,QR_CODE
 256,Palmers,EAN_13
 2560,Dayli,EAN_13
 2561,De Banier,CODE_128
@@ -2440,6 +2451,7 @@ _id,name,barcodeFormat
 28a46b11-8c45-4b2a-93dd-b7325a2fe013,Dialogues,CODE_128
 28b5866e-f195-4d68-b8a0-02cdb611af4f,Да Здоров! аптека,EAN_13
 28c5ee9a-cf66-4add-b71c-70b66be85570,Agraria,EAN_13
+28cc5dc7-61b4-4c95-a5a6-e125cc4bce9b,Aventurx,CODE_128
 28d93baa-c331-4df8-a85d-65eb86199732,Solar Studio,CODE_128
 28fbdd64-8715-4cdc-8c3f-df7259b1ba65,NOHO,EAN_13
 29,Heathrow Rewards,CODE_128
@@ -2582,6 +2594,7 @@ _id,name,barcodeFormat
 2b1eb78e-9684-4434-ba9b-41f00fc5beab,Sensation Profumerie,EAN_13
 2b29bfc0-26a7-44cb-9d21-2a0bdb467320,Vertex Hotel,ITF
 2b39b807-6375-404c-bfd7-7f3135654258,Планета Игрушек,EAN_13
+2b6062ec-39b1-4ac4-b6d6-cf19048c9f3f,Coripet,UPC_A
 2b6992d5-615a-423a-b196-ab19a418686f,Mimco,CODE_128
 2b7d84ce-c573-44ea-8989-b23a13cf389b,Азбука Красоты,EAN_13
 2bc9768c-56a2-4d7d-8f1c-0be9f208b71b,Profile,CODE_128
@@ -2852,6 +2865,7 @@ _id,name,barcodeFormat
 3199,Navyboot,EAN_13
 31d21202-2674-4c42-9a7e-a19b01d32b63,Vegetalis,EAN_13
 31d3cf0c-7522-4035-9256-7a712cb1a8b3,Канцелярия,EAN_13
+31db4e18-fb97-43d2-b026-c41f39d2faba,Bershka,CODE_128
 31eccc6d-babd-4fee-9ae8-db9a00fc1c63,Pharmactiv,EAN_13
 31f60f6d-633f-42af-b387-e5d0b4e2f45f,SPINNS,EAN_13
 32,Bauking,EAN_13
@@ -3092,6 +3106,7 @@ _id,name,barcodeFormat
 3399,Taxi Jetax,CODE_128
 339bb076-12fd-4e56-899f-3acb79f5da53,Hafenhotel Meereszeiten,CODE_128
 33a430e4-35c7-43e7-98e8-5ce5d039ee70,VPZ,CODE_128
+33cb4886-5d06-473a-80b7-980ca2fb27c2,Bouwcenter Nobel,EAN_13
 33d16d2d-f51e-44c3-92d8-2c3616af2d0f,Apotheke Peer Farmacia,CODE_128
 33dea27e-c7a4-4e40-8621-32da990f7d82,EU COVID-19 Vaccinationsintyg - Andra vaccination Skott,QR_CODE
 33e82e4f-5541-4be1-aa4c-0f2987cfd78f,Данди,EAN_13
@@ -3452,6 +3467,7 @@ _id,name,barcodeFormat
 37,Bessmann,ITF
 370,Virgin Atlantic,CODE_128
 3700,Go Auto,CODE_128
+37003c25-7bc7-4dd9-8a3a-8406005d0dcf,Scouts en Gidsen Vlaanderen,CODE_128
 3701,Good Earth,CODE_128
 3702,Hachem,CODE_128
 3703,Le Magasin,CODE_128
@@ -3949,6 +3965,7 @@ _id,name,barcodeFormat
 4083,Каляев,EAN_13
 4084,Shingle Inn,CODE_128
 4085,Golden Casket,CODE_128
+40853977-7fdb-4815-a64e-85d2c70df347,OROCAJA,CODE_39
 4086,Pet City,CODE_128
 4087,chempro,EAN_13
 4088,merlo,CODE_39
@@ -4313,7 +4330,7 @@ _id,name,barcodeFormat
 4387,Kremer,EAN_13
 4388,Gartencenter Nickl,EAN_13
 4389,Panarottis,QR_CODE
-439,Alitalia,CODE_128
+439,Volare ITA airways.,CODE_128
 4390,Simply Asia,CODE_128
 4391,Ultraliquors,CODE_128
 4392,Cum Books,CODE_128
@@ -4565,6 +4582,7 @@ _id,name,barcodeFormat
 4599,Мокрый Нос,EAN_13
 45b55fa2-835b-4ae5-a318-16a66b4ec85b,Євро Мікс,EAN_8
 45cbba3f-f0d2-4837-8189-16b0ff2707f5,Барс,CODE_128
+45e6b637-a991-45ce-b72d-8f4df03d9f6b,Tradition,CODE_128
 45e6f6d3-e688-40f7-86e2-73e3803c86bd,KüstenCard mini/maxi,CODE_128
 45fa81a4-657e-414c-89ed-ebf1c49c0926,G'DAY REWARDS,CODE_128
 45faf9e5-321c-44a7-b641-7acee8126349,EU COVID-19 Vaccinatiebewijs - Eerste vaccinatieschot,QR_CODE
@@ -4772,6 +4790,7 @@ _id,name,barcodeFormat
 4773,Maximiles,CODE_128
 4774,La Compagnie des Petits,CODE_128
 4775,Totem Family,CODE_128
+477515a9-2257-4d19-af18-3dbcfeb4acd9,Omni,CODE_128
 4776,La Jardinerie,CODE_128
 4777,La Plateforme du Bâtiment,EAN_13
 4778,Animal & Co,EAN_13
@@ -5049,6 +5068,7 @@ _id,name,barcodeFormat
 4adaa99b-282d-4abe-87c8-b16d3958f4c2,Тюменский ЦУМ,CODE_39
 4ae5d40d-45ea-4188-bce8-eb3337733466,Garden Floridea,CODE_128
 4b197111-0d79-4ac5-aecd-5dca6643e390,Евродом,EAN_13
+4b50787c-052c-48e9-8bae-b01373cef1b8,Fbo Clothing,CODE_128
 4b511f9a-5c9c-4b9f-8c71-1631cb78456a,Семейная Аптека,EAN_13
 4b8e7174-b85b-4b82-99ab-b1faee2dfb8f,Diper,EAN_13
 4ba9de66-0015-49e1-a0d1-d24c2328eaa5,Witchery,EAN_13
@@ -5063,14 +5083,18 @@ _id,name,barcodeFormat
 4ccb26a9-3a58-487f-9bdf-5cc4b042c0b3,UNCS,CODE_128
 4cd0da27-9a71-4eb0-88f4-23919b598828,Pins,CODE_128
 4d28254f-9ec6-4262-aa28-ee0bd7620b00,Леонардо,EAN_13
+4d4102e9-115a-4695-b764-c5534e1749a8,twd,EAN_13
 4d7b0d6e-2680-4c6b-bdac-8985df7aa8a3,大昌,EAN_13
+4d8c62b4-b4c5-40b0-9117-6e5022cf7950,MilleMiglia,CODE_128
 4dab7847-f728-4c34-80ea-a464238a3756,Волна,EAN_13
 4db2f926-b58d-4821-8f85-b02d3e32fbcb,Дом посуды,EAN_13
 4dd50f0e-05a1-4a32-97c2-1e5b570d0d9b,MIA,EAN_13
 4dd586bf-d2ed-4357-898c-11b648bcb796,Детский парк,EAN_13
 4dd5aa56-2f5c-4bb5-a281-211bb4e5463e,Joylab,CODE_128
 4e090085-f5bc-4f29-abcf-bb249dd3429d, SSENSE,CODE_128
+4e1001a2-a664-4d37-8b85-a71b02f9f6dc,xFarby,EAN_13
 4e24761b-17a7-4b7d-b04a-16f54076d03b,Forum+,EAN_13
+4e6622db-6fd3-405e-a60e-7157984da5ba,KiemKracht VZW,CODE_128
 4e95cfa4-3011-41c2-ad87-0c560cbd218c,Lincolnshire Co-operative,DATA_MATRIX
 4eb5bcd8-9467-44ce-b54c-fc69521431be,Мир Обоев,CODE_128
 4ed66bc0-04ee-458b-aac7-6bb7bdd35e5c,Пивотека,CODE_39
@@ -5300,6 +5324,7 @@ _id,name,barcodeFormat
 519,Alimerka,CODE_128
 5190,Souris Mini,CODE_128
 5191,Лакомка,EAN_13
+51917108-3469-4067-b1da-8697d60fcfa6,Kingston Frontenac Public Library,CODE_128
 5192,AlphaZoo,CODE_128
 5193,БИГАМ,EAN_8
 5194,Sebastiano,EAN_13
@@ -5406,6 +5431,7 @@ _id,name,barcodeFormat
 55cfc40e-469f-485f-ab26-823014fd8401,Seebauer,EAN_13
 55db252f-70a8-4da7-b0c2-484c8445e750,Kreativmarkt Hamburg,EAN_13
 55e96a49-7157-43cc-aaa7-9867d37cb05f,Народная линия,EAN_13
+55eb9a72-cd1d-49f7-aec1-1f44f6207983,Lina Giorgi snc,CODE_39
 55f414b7-b1a8-46f6-97ad-7f4f0867d8a9,EU COVID-19 Rokotustodistus - Toinen rokotus laukaus,QR_CODE
 56,Brax,CODE_128
 560,Punt Roma,CODE_128
@@ -5492,6 +5518,7 @@ _id,name,barcodeFormat
 5afc2de6-6129-43f5-9caf-be3572d65a90,Sisal,CODE_128
 5b01f59e-97db-4105-9aab-94f56099fc49,real,GS1_128
 5b1da0f0-143e-492d-83a9-ad22957a54c6,Metro Lifestyle,CODE_39
+5b502f6e-7c38-4708-ae56-04f97638692a,Баня Стил,CODE_128
 5bb5ea85-8952-474e-be53-c5ac11f7428f,Farmec,EAN_13
 5bb6dc04-3000-475f-a5d4-ba9427989809,Bimbostore Toys Center,EAN_13
 5bf3f149-2217-45aa-b61b-eec9aeedf5d2,Werdich,CODE_39
@@ -5509,6 +5536,7 @@ _id,name,barcodeFormat
 5d3de23f-b72e-4920-9e3b-1a413979a779,CityCard,CODE_128
 5d426084-854e-493e-a10d-7ce5d34d31fe,Farmacie Comunali Firenze,CODE_128
 5d51a06c-3af4-4400-9776-e3458190be87,Parisnail,EAN_13
+5d5d4520-ee6c-45ea-b5f1-11282a0673f4,Arriva,CODE_128
 5d695da3-f47b-4da8-b5ff-ea9d0fd9486b,Belaton,CODE_128
 5d866631-9858-4393-a5cf-eba96ca066cc,Kiwisun,CODE_128
 5db03921-3703-40d3-ba27-f7d3ff5a40ba,Prodor Supermarché et Boucherie,EAN_13
@@ -5518,6 +5546,7 @@ _id,name,barcodeFormat
 5e18e98b-ad75-426a-a4ac-a80496906906,Beauty X,EAN_13
 5e27a7ae-ad95-4cce-b383-85a4eb822eaa,Supra Baby,EAN_13
 5e402125-50f9-4de9-8769-ce4e0dc1d1a1,Romaest,CODE_128
+5e46de16-6ebf-4d17-933f-2f782df8b3fb,Prima Company,CODE_128
 5e6edac6-a458-4488-861c-f8f403f4b1e1,MABÙ,QR_CODE
 5ee2ee34-5027-4535-a55f-657c1a092d5d,Lady Sharm,CODE_128
 5f01e866-3ef8-46e4-a40a-555594849eb7,ЦУМ,CODE_128
@@ -5532,6 +5561,7 @@ _id,name,barcodeFormat
 6,ACS,CODE_128
 60,Transgourmet,EAN_13
 600,Humanic,ITF
+60046ae3-b41c-4a08-a012-d8e921e8aab0,Multaparts,CODE_128
 600bf563-b7b2-488a-9e21-0ccc63a67b1d,LAUF!,EAN_13
 601,Beauty Alliance,CODE_128
 6014a435-c656-4bf7-bcd6-fa46ed28bac0,Окраина,EAN_13
@@ -5554,10 +5584,12 @@ _id,name,barcodeFormat
 61,Centro,EAN_13
 610,CAA,CODE_128
 611,Calgary Co-op,EAN_13
+6110d522-b979-46ca-a313-ded4eac7db71,Telecomshop Twente,CODE_128
 612,Canada Post,CODE_128
 613,Canadian Tire,CODE_128
 614,Change Lingerie,CODE_39
 615,SCENE,CODE_128
+615a7629-0f60-4613-b41a-e1f571f5c20a,Goelia,CODE_128
 615ddf35-4934-4442-b4df-54b065184476,Сигма,EAN_13
 616,Denny's,CODE_128
 617,DeSerres,CODE_128
@@ -5609,6 +5641,7 @@ _id,name,barcodeFormat
 639,National Car Rental,CODE_39
 63ace5b1-39bb-4486-87a8-692caab2c76b,куулклевер,QR_CODE
 63ad5b7e-ab54-45f2-9224-2da0122a21eb,Forum TC,EAN_13
+63b32bf3-2e99-4487-bc45-7b70132fe53c,Checkers,CODE_128
 63bcf094-bbc1-4caa-adfb-b6e015295f43,Парфюм Лидер,EAN_13
 63bee835-2e9d-4656-b7b6-4b9e9a024470,Арт-Квартал,EAN_13
 63c87418-cb15-4294-a872-035a03da3a62,Belleplant,EAN_13
@@ -5644,7 +5677,7 @@ _id,name,barcodeFormat
 657d61fe-7714-4aed-a3d5-6c718c6e9c2a,EU COVID-19 Vaccinationsattest - Første vaccinationsskud,QR_CODE
 658,Thrifty Foods,CODE_128
 659,Trade Secret,UPC_A
-659c40c9-f997-44a8-b6a8-a29df616c4b2, Alfa-Tec,EAN_13
+659c40c9-f997-44a8-b6a8-a29df616c4b2,Alfa-Tec,EAN_13
 65e6e477-57a3-41c1-88b2-330a6d0cf8bd,Nobis,PDF_417
 65e848d6-edd5-401e-9b12-952a5c6fdf47,Джерела Здоров'я,CODE_39
 66,BCF,CODE_128
@@ -5652,6 +5685,7 @@ _id,name,barcodeFormat
 661,WestJet Rewards,CODE_128
 66104d31-9ae9-440d-b316-0d07a4319af3,Farma Fedeltà,CODE_128
 662,Würzenbach Drogerie,EAN_13
+662e6cc0-3ebe-47db-badf-b31b626ea70c,The Papanui Club,QR_CODE
 66335d92-4622-4334-8384-4a6d5f61f239,Zinger,EAN_13
 664,American Eagle,ITF
 665,TJX Style+,CODE_128
@@ -5696,6 +5730,7 @@ _id,name,barcodeFormat
 687,Thai - Royal Orchid Plus,PDF_417
 688,SportIT,EAN_13
 689,Foster Calzature,EAN_13
+68ac6315-08c6-471d-b2e0-ad42d1a091c8,100 Vetrine,UPC_A
 68c2495e-937d-4e71-a4ad-85f066df0339,Jardival,EAN_13
 68c69327-cce9-4de8-a062-b895c062ee60,Iden,EAN_13
 68d4b527-e419-4346-8078-a4ef07a04f00,Lehner Versand,CODE_128
@@ -5729,6 +5764,7 @@ _id,name,barcodeFormat
 6a5ac3f8-04cb-4d14-884f-1231b72228e8,Топаз,EAN_13
 6a7b1bc8-eca7-4323-9080-68af9414254f,CastoPro,CODE_128
 6a85186a-bfd9-4078-a5da-db1b4e1fb526,Molders,CODE_128
+6a8a8971-821c-46ce-a638-1a8585c9dedd,Booking.com,CODE_128
 6aa89061-d0b5-46a2-9019-b1cb7146e485,Just Plastics,CODE_128
 6aa9bd9a-b099-4997-9fa1-b0a7525c6ec7,AZ Casa,EAN_13
 6ab113ff-77e9-4029-9b23-e420eda105e3,Ehrmann,CODE_39
@@ -5767,6 +5803,7 @@ _id,name,barcodeFormat
 6faff0bd-9236-41f8-9c67-7b546c68085a,BVS,EAN_13
 6fb31971-1cf0-468e-9f85-ebf6133ad3aa,у Палыча,CODE_128
 6fb45bab-d4be-49fd-8b58-d841110eb0cb,AL 48,EAN_13
+6fb4ec1e-c6b7-4597-82a3-5c8d4d69ad4f,Rachelle Béry,CODE_128
 6fe38419-76d2-4b5c-983e-6dbed7822d62,GiorgioMare,CODE_128
 6fea059e-d9ec-4063-8ea4-cba5ac035942,L'arca di Noè,EAN_8
 6ff46a57-e3c9-457e-bfb4-aa922c4c41b4,BENZ,CODE_128
@@ -5855,6 +5892,7 @@ _id,name,barcodeFormat
 740308f3-fda8-4b83-9d86-d13592ef30ab,Dress Code,EAN_13
 741,O'STIN,EAN_13
 74135c63-c1ab-47b8-8d99-4d9dcf602eda,VOIX INTERIORS,CODE_128
+7415ddc5-3d77-410c-a6f8-ab399518a82c,Tradition,CODE_128
 742,Reebok,CODE_128
 742069df-a468-45d5-8cf6-cc152b4aefaf,Bacher Garten-Center,EAN_13
 743,Savage,CODE_128
@@ -5902,6 +5940,7 @@ _id,name,barcodeFormat
 764,Васаби,CODE_128
 7648aaa6-671e-4396-9e4e-759aa66c9f4f,Bouwcenter,EAN_13
 7649e44e-66e4-4af1-a913-87a40c8ae739,Office Centre,CODE_128
+764a67a4-8087-41d1-b53a-d73b8380d5cf,Handy Home,CODE_128
 765,Вестер,CODE_128
 766,Виктория,EAN_13
 767,Газпром АЗС,EAN_13
@@ -5934,6 +5973,7 @@ _id,name,barcodeFormat
 780bd58f-acbb-493c-869d-63f7a93292f3,Schnitz,CODE_128
 781,Кофе Хауз,CODE_128
 782,Красный Куб,CODE_128
+78242148-6c07-4698-9ec1-56017dc687b6,Ideacasa Mercatone,EAN_13
 782b0597-f7e4-4509-ba4b-a9fc35d72b4d,Рада,EAN_13
 782f7353-ec4c-49a8-9aac-1f7d28f4cab2,Remix Moda,EAN_13
 783,Лукойл / Ликард,CODE_128
@@ -5988,7 +6028,7 @@ _id,name,barcodeFormat
 7bd30784-434b-4d73-8dc1-5b5516723eda,Pascal Coste,EAN_13
 7bd61c87-b62d-439a-92e9-cc435345cb53,Infinity Fashion,CODE_39
 7c138f2e-37f9-46d4-ac65-2b20ff90a629,Nai Harn Gym,CODE_39
-7c1b39b5-b938-432e-b0be-3c196320bd37,Checkers,QR_CODE
+7c1b39b5-b938-432e-b0be-3c196320bd37,Checkers,CODE_128
 7c5a9dd0-28b0-4be1-b53f-cac4246990b4,Марафон Обувь,CODE_128
 7c60823a-e9fc-447f-811d-589bf1f95342,Пчёлка маркет,UPC_A
 7c77ce3b-02ad-436b-a4aa-62a6d5d583e3,Plainview-Old Bethpage Public Library,CODABAR
@@ -6004,6 +6044,7 @@ _id,name,barcodeFormat
 7ce87cdb-4c6b-437f-a693-dca518f7436a,Yo-get-it,CODE_39
 7d02542c-fac0-45b5-bc90-d74240715c56,Travis Perkins,CODE_128
 7d11f040-b0a2-4109-bdf1-25711d48d451,Consorzio Infarmacia,EAN_13
+7d168ca5-9370-47bd-ac3e-bf1e1e26f1ec,RISPAWORLD,CODE_128
 7d41888d-cd7d-42ef-bf93-9aeda5ae13f6,Kepro,EAN_13
 7d4345b8-448b-4e12-a1c5-c6e031de2352,Nove25,CODE_128
 7d520d1c-611e-4e81-9937-41a9828e6b08,EU COVID-19 Vaccinatiebewijs,QR_CODE
@@ -6014,6 +6055,7 @@ _id,name,barcodeFormat
 7da65ee3-d140-469c-b3ee-217272ac98d4,Kippie,QR_CODE
 7db0f727-13b4-48c1-8618-550155a878a2,Imperial Games,CODE_128
 7db8a067-1c33-4cd9-9706-31a2592f719a,милый дом,GS1_128
+7dd14421-2fe6-494f-889b-dd8920f61091,Mastro Tortello,QR_CODE
 7dd1b9ca-2a5b-4f3c-8c10-8bc216ff5d2f,Sokolov Jewelry,CODE_128
 7df2728d-3dc9-4724-8756-965e937674e2,Marriott Bonvoy,QR_CODE
 7e3da299-047b-4981-8ff3-e5355c7289b2,GIROPHARM ,EAN_13
@@ -6040,6 +6082,7 @@ _id,name,barcodeFormat
 8045996b-082d-4333-b631-54dc992ebef0,Coop,EAN_13
 805,Старик Хоттабыч,CODE_128
 806,Stockmann,CODE_128
+8069f84c-3b04-4b0a-87fd-d89230547e8b,Happy Pets,QR_CODE
 807,Сток-центр,EAN_13
 8070cf0a-9721-4fe7-b010-6fdca61349fc,Epping Plaza Hotel,CODE_128
 8077e001-6db6-4796-bd82-6716ea5e116e,Palace Cinemas,CODE_39
@@ -6061,6 +6104,7 @@ _id,name,barcodeFormat
 813f818a-e99d-49f2-af6e-653a9bcaab09,Bazar Avenue,EAN_13
 814,ФотоПлюс,CODE_128
 815,ЦентрОбувь,EAN_13
+8153abb1-248f-4af9-a7f8-dd83cdacdc7f,TEKBIR MARKET,CODE_128
 816,ЭКОНИКА,EAN_13
 8166ded7-42b6-47b8-a5dc-032954e82db7,bugatti,EAN_13
 817,Эстель Адони,EAN_13
@@ -6071,7 +6115,7 @@ _id,name,barcodeFormat
 81c5ea7b-aa89-47f8-a22e-297207616f0b,Taurus Sports,CODE_128
 81dd0d8d-4613-400e-8cbd-b2189a88a22d,EULIVIA Apartments,CODE_128
 81e7b9b8-826c-4f9e-9c61-7568a454afa5,Industriya Krasoty,EAN_13
-82,Desigual,CODE_39
+82,Desigual,QR_CODE
 820,Air Miles,EAN_13
 820b5de7-a25a-4d30-ac74-3a70fe682bfd,Мир Электроники,CODE_128
 821,Ajax Amsterdam,CODE_128
@@ -6135,6 +6179,7 @@ _id,name,barcodeFormat
 848,Lake Side,ITF
 848939e3-7e55-40af-a46a-a0b0b434bbcf,Планета ZOO,EAN_13
 849,Le Ballon,ITF
+8495d3db-8532-4bef-a58f-3a77479ff134,C&A,CODE_128
 84a82d8b-1d4f-4673-b1e2-b115bbe5b618,Soul Origin,CODE_128
 84faf272-0010-4f93-8aa1-154caaa11ac2,Pro-Duo Nur für Profis,EAN_8
 85,Diamond Club,CODE_128
@@ -6194,6 +6239,7 @@ _id,name,barcodeFormat
 87737e38-8052-4fdc-a90a-3511b9157481,PETS&CO,CODE_128
 878,Jula,CODE_39
 879,KappAhl,CODE_128
+879a9dd3-45e3-4633-9376-9183fee6ab3e,Bernardi’s Marketplace,CODE_128
 87b3f071-9af7-4163-b512-679717b696ac,Caucciu,EAN_13
 87b925d1-4d9a-47e3-9e54-deaef1981b77,Impfausweis,QR_CODE
 87d141a6-cac3-4d39-9357-a6365850e57f,Coeur de frais,CODE_128
@@ -6247,13 +6293,14 @@ _id,name,barcodeFormat
 8a0dca6e-de83-4e48-a42d-a3009da56653,Park 'N Fly,CODE_39
 8a25357e-ebc3-4ae1-b7fc-a10ff3b1abd0,Конфил,CODE_128
 8a53dffe-df27-40f0-b2ff-58e53add0b3e,La Cartissima,EAN_13
+8a59226e-9895-4924-8616-345549a56aec,Munhowen Drinx,CODE_128
 8a702666-368b-48a5-96fd-4e10aac5ae7f,Brooklyn Jeans,ITF
 8a8095fe-f449-4242-83a1-0d3055874233,Little Sparrow,CODE_128
 8a9c58f4-4db3-4aef-8cf0-d2caa0fcc4d1,EU COVID-19 Potrdilo o cepljenju,QR_CODE
 8aa58d48-ad60-4b6d-aa1d-054f94b6453b,Granola,PDF_417
 8ac5093b-8fc4-49d6-b271-dd845252b60c,Idea Verde Maschi,CODE_128
 8ad83ece-2e55-4937-80c9-04584c598439,COM,EAN_13
-8b0f2db1-ae97-4af8-8e82-c4067a4ac322,Toyota,CODE_128
+8b0f2db1-ae97-4af8-8e82-c4067a4ac322,Ma Toyota Extra,CODE_128
 8b398aea-e5bd-484d-bdf2-5030bacf9157,Thèoria Milano,CODE_128
 8b4c413c-effc-4912-9a34-6baea2972199,Karla,CODE_39
 8b653178-4f49-4f73-9091-7763e039b539,Aléa Déco,CODE_128
@@ -6304,6 +6351,7 @@ _id,name,barcodeFormat
 903,W.KRUK,CODE_128
 904,Galeria Wileńska,UPC_A
 905,YES,EAN_13
+90574104-b485-489f-9872-3d32b7e07c59,America Today,CODE_128
 906,ZiKO Klub,EAN_13
 9062c2a3-eeb1-4797-afb6-41a0394bb481,Městská knihovna - Česká Třebová,EAN_13
 90705634-f152-487c-97eb-27e1728285ef,Миртек,EAN_13
@@ -6332,6 +6380,7 @@ _id,name,barcodeFormat
 91915513-4447-47b0-93ae-d489f6ee3a97,Chrome,EAN_8
 92,Düsseldorf International,EAN_13
 920,Drummond Golf,CODE_39
+92063e91-526a-4327-ba87-f487bfaec724,Rue du Commerce,CODE_128
 920c9bd0-d85c-42c6-9301-fc1ddedd38c2,Idea Casa,CODE_128
 920ce49c-9728-41f1-b9e9-9f9d06f53d92,Русские Самоцветы,EAN_13
 921,NWZ,EAN_13
@@ -6368,11 +6417,13 @@ _id,name,barcodeFormat
 935ef7c3-a93c-43e1-9abd-075bd05c3051,Форне,EAN_13
 936,Orlen - Vitay,CODE_128
 937,Wojas,EAN_13
+937cef67-4a01-42fc-9f51-0a3f3210a686,Idea Città Company,GS1_128
 938,Sizeer,CODE_128
 939,T2 Tea,CODE_128
 93a8cca4-73cd-405c-8142-359a41127416,しまむらグループ,CODE_128
 93a9836f-0984-45ee-97c6-3e6675a34b11,Ludwig Beck,QR_CODE
 93b76ad4-76f3-4132-8fe5-972f6ca5eb8a,Київфарм,EAN_13
+93bda8ac-884e-4db0-ab72-09e12f86a3d2,Naturino Family Store,CODE_39
 93c53a6b-2efb-4167-aa67-c4905f1692b1,ВелоДрайв,EAN_13
 93d1d2d1-801d-4293-a1f1-cdf314ba341a,Nilufar,EAN_13
 93d42408-df2a-42fd-a10c-9f9c725e8000,TuttintiMO,UPC_A
@@ -6420,6 +6471,7 @@ _id,name,barcodeFormat
 962,Монро,EAN_13
 963,Jeans Symphony,EAN_13
 9630a33b-0869-4246-91db-80f928bd7b3a,Harfa Sport,EAN_13
+96394b6b-b91f-4fbd-991c-242b7189e0b0,Shoprite,CODE_128
 963a19ff-687c-434a-a960-c5e9c6d27c1c,La Cage,CODE_128
 964,Спектр,EAN_13
 964bee1b-84ac-42cb-ac20-b182e043a983,SIR,CODE_39
@@ -6469,6 +6521,7 @@ _id,name,barcodeFormat
 989,Toys Center,EAN_13
 98959593-9b79-4d3a-98bf-fd965d99825e,ташир пицца,PDF_417
 98afc021-2350-4686-89de-03bc9bb686a4,Coeliac Australia,EAN_13
+98c597ea-20b1-4d9e-a6ae-0ed84e0f591d,Juttu,CODE_128
 98d5694e-ee5e-4f60-9a32-0ac43d66f54f,Vaprio,CODE_128
 99,Ernsting's Family,ITF
 990,Nando's,CODE_128
@@ -6530,6 +6583,7 @@ _id,name,barcodeFormat
 9dc29233-9613-4851-8630-15b7b39222c3,Kasztelan,CODE_128
 9dc3174d-0990-4d88-a4d6-3c7a6431160d,Янтарь,EAN_13
 9dc63493-8062-498a-99be-db701dfc03a4,Farmacia,CODE_128
+9dd46ad3-336b-4af2-9cbc-4526140558ef,Kiriel,EAN_13
 9e02cf7a-da20-428d-a363-952f7a3fb25c,Kéddo,EAN_13
 9e82e20d-4da0-46c0-bb94-c2ba7b9b3d74,Индустрия красоты,EAN_13
 9ec73fed-0974-4b7c-98e0-27aba810e8e1,Spielwarentraum,CODE_128
@@ -6541,6 +6595,7 @@ _id,name,barcodeFormat
 9fd0773f-f0ee-476c-8351-c02fb65b9360,Plus Market,EAN_13
 a00761f0-abf1-4690-a95a-b18e41c527d2,Pet and Pool,CODE_128
 a017f67b-3483-4587-97a0-2c5c4af6834e,SchuhMarke,CODE_128
+a0284158-4eaf-4891-9768-f93e1049413a,Десятка,EAN_13
 a04e9cdb-caec-4f4f-bf96-9e40fd90cb09,PharmaSave,CODE_128
 a05edd71-80dd-4e23-87cf-5df65a193281,Andre Tan,EAN_13
 a08ccd9d-76ce-4245-8582-24d2840ff7b9,Chanel,CODABAR
@@ -6562,6 +6617,7 @@ a238f465-ff8e-4077-b5fe-a1f250ed90d9,BJ's Wholesale,UPC_A
 a2756aea-2ca4-4870-811e-100871fdb73e,Pratiko,EAN_13
 a29668f6-dd2e-4281-917e-49e28ebff6a1,Koloria,CODE_128
 a2b352d9-5d5d-4080-9f52-eb6a798aa6c6,Ferlenz,CODE_128
+a322cee9-b5c6-4384-a365-c970f335cc5c,Erdkorn,QR_CODE
 a323e0ec-2b0b-4a82-a950-11f7516f2584,OnePass,EAN_13
 a36556e0-433a-4b16-b72c-4751a386d707,EU COVID-19 Impfzertifikat - Erstimpfung,QR_CODE
 a3828047-ff01-4eb4-be10-6e4d635ca029,Leffers,ITF
@@ -6590,6 +6646,7 @@ a6060858-7d83-4f60-8318-b80635013f45,Detershop,EAN_13
 a645973d-7e87-46ab-8c77-0380ca06ae32,Perth Zoo,CODE_39
 a65e3023-fa06-47c0-bfdc-4dc79f54c825,丁丁藥局,EAN_13
 a69154f5-16a8-4543-bb49-b7a68bb3d301,EU COVID-19 Potvrda o cijepljenju,QR_CODE
+a69d8b79-a0e7-422b-a149-64c66b23aea4,Plus More,CODE_128
 a6aa66ba-00b8-4922-b628-98cea029c9e2,Coop,EAN_13
 a6ab3df9-10bc-47df-bed4-839fe1e908be,零食物語,CODE_128
 a6b2c527-afbc-4e71-ae24-e5e5e270d474,Pappert,PDF_417
@@ -6599,6 +6656,7 @@ a7634961-1509-4902-9b25-714ef789e926,2HB,EAN_13
 a78ee36a-3682-404f-9c83-307c1a6b421e,Moda Lina,EAN_13
 a79b9a92-9821-4824-978e-1a257abfbaff,Wormland,CODE_128
 a7b3e795-4746-45a4-9c80-d331fb051632,BonBon,EAN_13
+a7e263c3-75fd-4ac2-98ea-0e7b3e425a74,SUPEREFECTIVO,CODE_39
 a7f1c8c5-2895-4a74-98ac-9740e7c59922,Coffeelat,QR_CODE
 a8090907-7e2e-4038-8831-0c72adaa0664,US FashionStore,EAN_13
 a83b00dc-1bfd-41b6-9fee-3c7f5d33fef5,Baden,EAN_13
@@ -6628,6 +6686,7 @@ aaa82398-d78f-46d6-bfb5-a40843e94cc8,CLEVER WEAR,EAN_13
 aabf2ea4-170c-42e4-906b-ea1253ebf580,Родные масла,EAN_13
 aac03de2-6c97-4bd9-8d72-a7bba15bea6d,La capsuleria,EAN_13
 aae4f87d-ee8c-4ff0-9cb2-88c478b7a0dc,Bonjour,EAN_13
+aae6aab3-e5fb-47c1-b6c1-c30c3f386793,Netto,CODE_128
 aaf65c10-a78e-4b18-8c79-371d5cdef871,La Provençale,CODE_39
 ab0c09c4-d1cc-40a4-8b46-f101dc376655,Trade group SMIT,CODE_128
 ab0c5857-5b3d-4ac3-8910-ec6b8c49a0dc,Three,EAN_13
@@ -6636,6 +6695,7 @@ ab245924-7af0-4996-84a2-f19a6b6a62fa,Hollister,CODE_128
 ab37459c-4368-4684-9ffa-3ac84c69e87a,ДомДоктор,EAN_13
 ab4a36d9-9a11-4575-a6cb-1bd053c6e00f,СБА,CODE_128
 ab6de5de-ea68-47d6-87ad-884e63f63f48,EU COVID-19 Удостоверение за ваксинация - Първа ваксинация,QR_CODE
+ab73cd57-b075-425f-afe6-868e56207a42,Rewe,QR_CODE
 ab7a0e82-ad67-40fb-a85f-83cdd10fb44a,Depot,QR_CODE
 ab9d5459-25c3-4040-bff0-b7804375065f,Забіяка,CODE_128
 aba38815-1a55-456f-84b6-0321d8d34102,Андреич,EAN_13
@@ -6676,11 +6736,13 @@ b000bec7-fe1d-4a01-8134-7e93c72fcf2c,фаэтон,EAN_13
 b00fc66a-460d-43c9-a5f1-86b0a92b125a,Дачник,CODE_128
 b0210273-794f-427b-bba1-c940a7aac7df,Helen,CODE_39
 b0382f02-57d7-4d7a-a3f1-25ea85507c64,Laser Game Evolution,CODE_128
+b059eafb-017b-49f0-9d74-62889d8ee777,City of Whitehorse,CODE_128
 b063caac-e875-4475-8ae6-09a0f979fb85,CLUB SALUTE,CODE_39
 b07244fc-81d3-492b-a9e5-a813a57eea9c,Faciba,EAN_8
 b07e5b4d-d658-4ba6-9305-d497af7a19ae,Nijhof Schoenen,ITF
 b086ef99-b8b8-45a9-80f5-33a4cb01aba8,spudshed,CODE_128
 b0973d67-75d0-45e3-9f17-0f4cb80a4824,Motozem,CODE_128
+b0cfcd52-01a5-4533-8970-6e402e52bcb0,Brikon,UPC_A
 b0e24b5a-4034-44b9-b22b-2a008d0bcde5,Eurodì,CODE_128
 b0efcdb1-872a-44f0-961a-a97ee45c7ba8,Porsche Group,QR_CODE
 b0f4291f-8d68-4071-8d10-cc212b4495cc,Iper d'Oriente,EAN_13
@@ -6707,12 +6769,14 @@ b2ab5d25-1981-4120-be54-86ccda399861,Vitulano,UPC_A
 b2b50b52-83c6-43d3-bb13-008544e2cfa5,Turčianska knižnica,EAN_13
 b2b7d24b-fdbc-468b-be59-b189d4d5fdf9,Het Certificaat B.V.,QR_CODE
 b2c03313-9621-4233-9b61-5faa8d2c66e0,JILL STUART,EAN_13
+b2e520a4-c21a-4ba0-822b-c9ac5fe79f4d,BLUME2000,QR_CODE
 b2f90e3a-4669-4cd4-8c31-65fbb91dc26e,Advantage Pharmacy,CODE_128
 b31982e9-7c22-4e92-8210-e08eaa123727,Linberg,EAN_13
 b334927e-9574-457c-9a1f-1b7dd5928304,Farmanoi,CODE_128
 b359db35-9be6-4369-b796-04b47b4044be,Signorizza,EAN_13
 b36ae43e-8a9c-41f7-8c54-d5ae673c94f5,Bio&Co,EAN_13
 b43d0b6b-db53-44a7-b518-30cace59c222,British Garden Centres,CODE_39
+b4606b36-853e-4014-9524-fc07fa6e1d4a,Cantina Rauscedo,EAN_13
 b4663d4f-dd9f-43cc-ba0e-4ce9b0beccd2,Пивлавка,EAN_13
 b4725b6c-105f-4898-a8d5-ba426ddf9508,Yamazaki,CODE_128
 b472df21-8f40-44ff-a11f-bbe1d76d6d58,Company Shop Group,CODE_39
@@ -6720,9 +6784,11 @@ b497667e-0c92-4db6-9579-63bbe35af881,Праздничный,QR_CODE
 b4b5583a-3d0e-458e-b800-3b43968a8421,Pirex,CODE_128
 b4c412d7-ad0b-4afd-aed8-0cf113f445ca,Аквафор,CODE_128
 b4e4e61f-8605-45b6-b672-fce67898ba4e,Schuhkay,EAN_8
+b4f37441-b068-443f-bbfb-fca23c9f5eec,Tuttigiorni,EAN_13
 b4f4c3c3-4ad3-4431-9048-1d6b0e47a649,Tezenis,CODE_128
 b52836be-a999-4bf8-ba0b-5f2b9b96a509,Youth Hostels Luxembourg,CODE_128
 b54963ea-a217-434b-b0fa-e8114fd6b999,Пинта,EAN_13
+b54ed01d-e46b-4f24-8ce9-e08f624f2ddb,IGA,CODE_128
 b5656988-55fb-46c8-91ab-24a5b8422549,Moja Starówka,CODE_128
 b5695b84-a5cf-4286-87ab-afbe9368be1f,Tulipes,CODE_39
 b5dc4188-75d6-4cf1-b7f2-b0e85a57bc9a,Boulangeries Maison Toulorge,CODE_128
@@ -6757,6 +6823,7 @@ b9c4e2bd-88ee-4345-b0c4-3828e076637c,Pro-Duo Exclusief Professionals,EAN_8
 b9f36613-ed74-441e-abce-66d465b83594,Accademia Italiana della Cucina,CODE_39
 b9f3eacc-e6d9-43e2-93f0-a1e63221b1fe,Più Medical,CODE_128
 b9fc9d9a-da0e-4fe2-82d8-5d6672263b4b,Kačka,CODE_128
+ba063e76-f5be-4e98-a549-7040a825caf7,Trendevice,CODE_128
 ba0d23c2-0030-4b68-9bec-6daf6c0db596,Zoomarket,CODE_128
 ba119be5-7382-453c-93be-625c555aec84,Vitaminas,CODE_128
 ba5aca20-b0fd-417d-8739-ba9b347c8fff,Клиника ЛМС,CODE_128
@@ -6822,6 +6889,7 @@ bfbe8661-ae7a-4338-bb37-fde8cd6c57a1,Хмель и Солод,EAN_13
 bfcd1bbc-3671-4a2b-99d4-8195c5246644,Metalmark,EAN_13
 bfe5aac8-ea2d-41e0-ba15-af949e5437d7,Каприз,EAN_13
 bff24292-b2e3-4322-9462-d5ecc80ce044,Halfords Motoring Club,QR_CODE
+bricoman-it,Bricoman,CODE_128
 c03f0f47-ce09-4bf1-95f8-c1d0c6f1a8ca,Coop,EAN_13
 c043ef0e-49a9-4f10-877f-974247cf0f16,IperBiobottega,EAN_13
 c0712c54-a6a6-4695-b9ba-4f5a296b66cf,Apothical,EAN_13
@@ -6871,6 +6939,7 @@ c51b31d2-056b-41a0-9347-c4d02375df01,офисмаг,EAN_13
 c51c692c-9e90-48fb-9047-38d3bb7fec2d,Мясницкий Ряд,CODE_128
 c53f804f-29e6-4dc0-9f66-0b9b016cdade,Möbel Borst,CODE_39
 c54a0027-fd79-457e-80eb-e73e1332e3e9,Ni Hao,CODE_128
+c57001e2-db2b-4f15-8c49-29c6502a86e8,Underwood Meat Company,CODE_39
 c5846a8f-687a-4de9-a5b5-b575488ac84b,Radhe Wholesale & Retail,EAN_13
 c59fc214-7895-40fc-8f94-9d1d800b66d2,Conradt,CODE_39
 c5acc06c-0b7d-4e4d-bee3-2134e2fb3b9c,Belles Fleurs,EAN_13
@@ -6910,6 +6979,7 @@ c9231cc7-92f2-447c-ad84-8d167c23e9cd,Zwitserse Apotheek,CODE_128
 c925f293-54ee-47ba-ba48-792945c5fa94,Смайл,UPC_A
 c9295edb-4acf-4e21-b931-d07d1b97e9be,Weingärtner Gartencenter,EAN_13
 c935a5b9-03f1-4194-8aa2-39545b376065,Alpina Intimo,CODE_39
+c94a90ff-4118-4310-bcf2-588463110b83,knihovna Rosice,CODE_128
 c964ff0f-5ac9-4976-967f-a55c7ec72e14,Mega Pet Warehouse,CODE_128
 c998f7d2-6403-46c5-ba21-270195e61cd3,MAX & Co,EAN_13
 c9d387cb-7a0f-492f-a18d-f4d559ccbade,Информат,EAN_13
@@ -6921,10 +6991,13 @@ ca4944a1-3892-4803-8b04-b72cd996511f,Diadema,CODE_128
 ca650de4-55cc-4df6-8994-3378274bebf5,Moby Dick,CODE_128
 caa55951-513c-4dca-b0bc-3cb80d85e4f2,PANORAMICO,EAN_13
 cab2ae0e-10bc-4c58-b159-59f4e8566ca7,Hawkesbury Library Service,CODE_39
+cad853d8-b9fa-43d6-b37d-39274a571269,Harmony Beauty,EAN_8
 caddfc56-1d2a-454c-bece-1516b13fa249,Millstream,EAN_13
+cae4d233-caae-43ff-aaba-affdc99c2d98,ALTERNATURA d.o.o.,EAN_13
 cae69560-d7e6-4cb7-9ac5-95199c15f9cc,Blumenmarkt Dietrich,CODE_128
 caff4297-2ae6-4315-9329-614c8510eb7f,Вместе Выгодно,CODE_128
 cb03988e-5063-4f48-aef2-9f959f9771a2,DVV,CODE_128
+cb12d304-17dc-45ba-be1c-5602237320ce,Vero Moda,QR_CODE
 cb1f1114-d1ea-4987-badc-7194d1ab1ca8,Zahradní Centrum,CODE_128
 cb4ead90-a2f7-41ba-80eb-d4970bed83bd,A-Kaart,CODABAR
 cb7b9237-0c2d-437a-ba38-fa6decca977e,萊爾富,CODE_128
@@ -6947,6 +7020,7 @@ cd121cb8-988c-454f-a4ac-10365bf4aa6c,Shop Santé,CODE_128
 cd26930f-c1ac-4543-a23c-0b90cfa0b1f7,36.6 Здоровье,EAN_13
 cd38f71a-1a0a-4ba7-ac1d-43974fd42e1a,Gel Market,EAN_13
 cd73cbfb-68f5-4d67-9411-310695558c6b,NKC,CODE_128
+cd840f28-f17c-44ed-9ec7-15b48aa2f0e1,Knihovna Matěje Josefa Sychry,EAN_13
 cd9d6482-a7dd-4283-a776-f0982ade57a5,Biraghi,EAN_13
 cdd777ae-6fa4-458d-b7e5-f7c18fff857a,EU COVID-19 Vaccinationsintyg,QR_CODE
 cdd87d70-3e73-48a2-a88a-5e1083e41d0a,1000 мелочей,EAN_13
@@ -6968,7 +7042,9 @@ cf4f5874-aef4-492c-ae9c-b47cb2f14224,Jardinerie Loiseau,EAN_13
 cfce4667-ff5d-44f0-8ba7-fbc44bbf2cb5,Orange Club,CODE_128
 cfd15fb5-1bac-455b-a5f7-b808390fba06,Сакура Суши,EAN_8
 cff8ca3d-3620-4098-9b8b-e181f84f6ec8,365,CODE_128
+d0153291-afc6-4d0f-8120-74c0b321434a,SA Guild of Actors,CODE_128
 d0540b51-9716-4d59-bc2f-1582b044c029,Wedding Price Card,CODE_128
+d05b520c-091a-4a9b-84de-689484927109,Lotto Niedersachsen,DATA_MATRIX
 d0a04b4f-df54-4fcd-b410-87ea5d0986aa,EU COVID-19 Očkovací preukaz - Záber na prvé očkovanie,QR_CODE
 d0b9a6b8-f724-4fe7-8195-e810297505af,Chocolaterie Albèrt,EAN_13
 d1018675-b1b2-44bc-91b6-a985d744836f,La Sirena,EAN_13
@@ -7004,6 +7080,7 @@ d403852e-7683-49f0-9de5-6e1ec5ac842d,Andreas,CODE_128
 d4115422-7d2e-4001-9c49-4c1353c8b88d,Secom,EAN_13
 d44c1355-2941-4393-aeb8-1a7ad7122f67,HUALI MARKET,EAN_13
 d4502068-af6b-43ab-b9a5-46dc1899e22a,Ябко,EAN_13
+d4517693-3f1c-45a6-86f2-d60ad19d04e9,U Baristu,QR_CODE
 d4934c41-3cae-40dd-bd5c-2ca88bdcf9f5,Bau-Buy,EAN_8
 d4b67cb7-cfbf-4bac-8711-2088b8592e5f,Wara,EAN_13
 d4e44512-0ac2-4d1f-8603-01cd0497416c,The co-operative,CODE_128
@@ -7034,6 +7111,7 @@ d6eb202f-ba2f-4253-8f5d-1dce44d13bef,Канцлер,EAN_13
 d71e4888-dd0b-4aac-ae5b-937b17ee4149,FQCC,EAN_13
 d7893d3c-c704-4daa-955b-a97f061d0138,ВАБИ САБИ,CODE_128
 d78fc335-cab2-40d7-a56c-333f568b36b4,социалочка,EAN_13
+d7959c14-98b1-4187-9088-494d1a7c5f9f,Canningvale,CODE_128
 d79a1500-206d-407a-b111-724b898aa154,Sportsman's Warehouse,CODE_39
 d7a18a8f-32b5-43f5-8290-5caf4297aaf8,Halfords Colleague Discount,CODE_128
 d7b8deb4-4006-4223-9600-331458fade3d,Пиватерра,EAN_13
@@ -7100,6 +7178,7 @@ dema-be,DEMA,EAN_13
 df2f73ec-a3c1-4169-b47e-4742bcab704d,Digizenz,QR_CODE
 df3228e8-78d0-42c7-8e45-30089e5267ea,Эдисон,EAN_13
 df53a52a-320b-41ce-8ca0-92da86fcae0c,Koutný spol,CODE_93
+df5ad302-ae2d-47db-b9c9-b5e030d3b553,ALDI,CODE_128
 df62dc4f-b31a-4615-a289-94410da0ce7b,Melkior,CODE_128
 df668825-ed7c-4f05-b74b-47ec6daa69f0,Breakers,CODE_39
 dfc5ba69-483e-46ab-8951-3afc7c6d7460,Chaussexpo,CODE_128
@@ -7112,6 +7191,7 @@ e0491f99-5f5b-4bfa-bb1d-f7cfe688ca26,Хмельная Миля,CODE_128
 e0663514-cb9c-413a-ad94-8b83dde796f8,Hommy,EAN_13
 e0b022eb-bc2b-4553-8345-5869e4f644e2,Life 2.0,CODE_39
 e0b2fcbb-e302-4a5e-aa4b-3991fcee7831,KanclerCom,EAN_13
+e0d0863f-c345-4e3d-baf7-853414056795,Sport 2000,EAN_13
 e0db8778-d9a2-4b6c-bece-1b2c4bef11c0,Everyone Fitness,CODE_39
 e0eadec9-539e-4316-b9bd-9e29d59c1abb,Containers for change,CODE_128
 e132948b-f6a2-44cb-b0c1-d9366151a0e2, BSTRONG,CODE_128
@@ -7146,11 +7226,13 @@ e435e3ee-a81f-40f8-86be-2def0a610ac1,Спорт-Марафон,EAN_13
 e4561f48-5c68-4c2e-88ea-7eeb531a8b41,Lubo,CODE_128
 e456ceeb-d76a-4684-9e2a-54935e77daa5,Tendenze Calzature,EAN_13
 e4dfacd9-9513-4231-b09b-51af53151edd,Дворик,EAN_13
+e4f5270b-5a69-41a3-a39e-e3e7e4460ddd,OSCARwash,QR_CODE
 e4f54b47-0238-4fd6-9109-d5ce424981c6,Фламинго,EAN_13
 e5059f27-dc93-4296-b4d5-1162b692c5ec,Северная Звезда,CODE_128
 e550a9a1-c25b-4658-a9fa-38764c584693,Mon Grand Plaisir,QR_CODE
 e55b3ee0-ac34-480c-8fd3-c63c3a6ae28c,Муниципальная Аптека,EAN_13
 e55f98ef-9258-4eb7-97fb-7e97d2aacdaa,COOK Kitchen,QR_CODE
+e5616ded-48e7-45d7-b706-a82ef5ab9667,OROCASH,CODE_39
 e569e534-de02-4cde-a15e-ee5f3e70794e,Partyland,CODE_128
 e570f1ac-a109-4473-8644-9b6daf701d8d,najlepšia lekáreň,CODE_128
 e580263e-726d-4768-a756-1cec4966dbb6,Lower Plenty Hotel,CODE_128
@@ -7163,10 +7245,12 @@ e6b0d8c0-2e2b-4d2c-9c3d-4420ced94877,Багира,EAN_13
 e6b4a59b-4d9a-42c6-aae3-5baf468c1999,Evolution,EAN_13
 e6c68ae5-12f0-4c8b-b5ca-8f725874c704,Полушка,EAN_13
 e6e830c8-16b9-4382-9b84-93dca76ee66c,домаркет,CODE_128
-e6edbb92-d988-4bf3-87f8-e9684b5a3983,UFS Dispensaries,CODE_39
+e6ece7bc-ac39-45c6-b4f3-c225719c3a0e,Mikado,CODE_128
+e6edbb92-d988-4bf3-87f8-e9684b5a3983,UFS Healthcare,CODE_39
 e6efc01d-98bf-478e-a916-f51178a01690,Erborian,CODE_128
 e6f32c21-af1b-4da3-9c8e-36757cccde3b,Sally Beauty,CODE_128
 e6f9e7a3-2b1f-4ec7-8c99-8c5d16988f56,Iндустрiя краси,EAN_13
+e71a67d2-6898-4a05-91dd-7ae19095129f,FMBrikon,UPC_A
 e71b01e0-cdf1-4f6b-bee6-d7e2fc9b3a81,Walder Schuhe,CODE_128
 e760dd3f-aeb2-42a2-bf38-5866c061c2e9,Cash Piscines,CODE_128
 e79c474b-4ee0-4885-a9eb-7349bdc2bfc9,KIA,CODE_39
@@ -7200,6 +7284,7 @@ eaacfd6c-54dd-4bbd-81a2-0394b7b57496,Kmart,EAN_13
 eab09679-f885-46a1-8f96-3f82ea3b9d82,Niké,ITF
 eac387cc-ae67-4874-b420-12dae0150abc,Woss,EAN_13
 eacb1c97-e7c2-4ed6-bf64-84db244fbdd5,Медтехника Ортосалон,EAN_13
+eacdf92e-6601-437d-af01-15156a3ee199,Barossa Co-op,QR_CODE
 eb01f161-6d42-4ae9-b381-2ca0be34cd6f,PiùMe,CODE_128
 eb2cfbfc-1d25-4ff7-9eb6-743a74c302c4,Клеопатра,EAN_13
 eb32c9d7-80b8-4147-942f-3b94ad7dd8fd,Brico Pro,EAN_13
@@ -7253,6 +7338,7 @@ ef56f2fe-b4b0-4639-a0dc-db4c6bd01d06,7я,QR_CODE
 ef8b1a62-353b-44e3-bfba-b1331b6509ab,Evoluphar,CODE_128
 ef8f92d7-a5a1-441e-8e91-133b64da57e5,Anabel Arto,CODE_128
 efdfda06-b4ad-4bd6-ad00-41d6ab9aeaf8,Profi Center,CODE_128
+effbec31-0ed6-4eb3-969b-17d99d340d78, Sedici Piadina,CODE_128
 f01c0047-5952-4805-a48b-4d455d833777,ХозСити,EAN_13
 f032c0d2-9f71-47fa-9574-8970a917b63b,Brianza  Biblioteche,EAN_13
 f0637a9d-47a8-44a0-8342-c409b6c55b6b,Baby,EAN_13
@@ -7269,6 +7355,7 @@ f1843eba-2bcd-49dc-be2c-1444ff5cfd91,EU COVID-19 Očkovací Průkaz,QR_CODE
 f1df75b9-1d7a-4cba-9e9d-f4411f4ea48b,Индейкин Дом,EAN_13
 f1e508d1-b901-45ba-9ace-b98e96c8fd38,Dalbe,EAN_13
 f1f1c15f-8a75-4a18-9b01-251778c8fb45,Optika Anda,CODE_128
+f1fe28ce-0c9a-4b64-a455-c9f14c3fa2be,PME Legend,CODE_128
 f2153289-2b50-463f-91d4-37ceb62f304b,Колесо2,CODE_39
 f21a2eea-3a15-4765-8ea6-3f1ec10fdd87,EU COVID-19 Vaccinationsattest - Anden vaccination Skudt,QR_CODE
 f2292778-e0fe-4925-b939-b4716342fa44,Tread & Miller,CODE_128
@@ -7283,8 +7370,10 @@ f2a92584-5ef8-4220-b0ca-7aa48decd2e4,Artex Ieper,EAN_13
 f2b9fa76-c78f-4d2c-821f-70678bc8d4d5,Parfümerie Becker,EAN_8
 f2c8f722-9c5f-423d-9989-deca7901aa11,Poetry,CODE_128
 f2d3f68c-7b77-4464-91d2-3162e74bea48,Neinver,EAN_13
+f2dc6f84-01cc-4e13-aec2-2ce88367a27f,Ljekarne Prima Pharme,CODE_128
 f3189d64-dd39-468b-872d-3bb70e4d416c,The Watergardens Hotel ,CODE_128
 f3287ab2-0308-42f8-92dc-3147456a4a69,НУЖНО!,EAN_13
+f359407e-234b-4fbb-af07-f3b293a51bbb,MaRinella,EAN_13
 f35a3882-27b2-417d-8093-e87f8f25509a,Первый Семейный,CODE_128
 f3852d29-47fe-4528-83cd-5ae7b31fdb0e,Kraus,PDF_417
 f3e63893-802b-4e40-9480-f3fbfda0a3e4,Аптека живика,EAN_13
@@ -7297,6 +7386,7 @@ f49e49df-1b1c-4e19-994d-3a56c693d91c,GROSBASKET,EAN_13
 f4aefdf7-e66f-4980-a0ee-7e6f1afcc8df,Color Line,EAN_13
 f4b16522-478d-4c84-bfa5-e0825ebf4917,bonVito,PDF_417
 f4d0cac3-70a0-43dc-a204-fe5fd9ab428f,KüstenCard Flexi,CODE_128
+f4e09fa3-b712-4be5-915b-002082002246,Club VW Suisse,QR_CODE
 f5002bd9-8e95-4c11-8a7c-e3d2fae42fe3,BCAA,CODE_128
 f5356dd8-8762-4f36-8c50-f7383eccb840,Twój Market,EAN_13
 f546e937-86b4-40eb-98cb-9a348d5dccec,МаксиФлора,EAN_13
@@ -7332,6 +7422,7 @@ f8f0bd64-d1ae-4560-9c22-0eed805f2016,Дивный Колибри,EAN_8
 f8fa2370-261e-4e19-ba9c-46cd33ead64d,Agri Sud Est,EAN_13
 f90691bf-2879-4424-b2d5-5c09ee9ff700,Кроха,CODE_128
 f915ed01-85f9-4a61-921b-0d33eaf6fd23,ЗооОптТорг.Рф,EAN_13
+f9223231-26b6-4f86-9d2e-5756488c2e74,Jack & Jones,QR_CODE
 f93e7a30-4351-47e5-b8b2-3a9546ad9bb8,BOTICINAL POWERSANTÉ,EAN_13
 f940a1b8-c04b-4541-b307-7fdc1fa8eb91,Veggie Grill,CODE_128
 f9447f67-140e-402d-9a27-e7c11cefebda,Eleganza,CODE_128
@@ -7350,6 +7441,7 @@ fa009005-250b-4994-a6ad-8043b28634fe,No One,CODE_128
 fa11b2c7-a768-4d4b-b03d-c845df6cb341,Terra Viva,CODE_128
 fa1670c0-1713-44f0-b57d-902b278ba741,нива,EAN_13
 fa24b789-4774-41e1-8a52-216efc9de8ba,foodmaster,QR_CODE
+fa3bdecd-2216-4d2b-b39d-fb14681f62fc,Fusion Gyms,CODE_128
 fa5593eb-2f35-4a7f-8c69-1c4a726759be,Форум,EAN_13
 fa7407ee-0ddd-4727-bfc7-05c206c159d0,Toto,EAN_13
 fa7f3968-0cba-4adb-b1bb-fb2083b98b2f,Der Bäcker Eifler,QR_CODE
@@ -7360,6 +7452,7 @@ fac3cc98-d990-4106-b17a-e8b5afe1b843,Fidenza Village,CODE_128
 fadd868f-b34b-4604-8a24-c7fbcd8ea573,Big Marlin,EAN_13
 fae896a0-9c57-4ff8-be30-195fbf137a0b,Lotteria degli Scontrini,CODE_128
 fafa23c9-5cda-4fb8-aab5-6faebc6386a8,NETTO,CODE_128
+fb340faf-4fe5-4446-b811-217d615f5514,  Abbonamento Musei,QR_CODE
 fb507b68-ecf4-4397-969a-23e2427f76f2,Veritas,EAN_13
 fb5e84a1-5e9f-4fa5-ad36-c6060927c415,BIT BY BIT,CODE_128
 fb6edc61-a282-4217-9b44-ac2611b5977c,Kierrätyskeskus,CODE_128
@@ -7400,8 +7493,10 @@ fe488a32-17aa-4b93-8e88-b2df166b30b8,BIEMAR BOIS,CODE_39
 fe54303c-8e1c-4c62-8ee6-b9485e333419,Liverpool Library,CODE_128
 fe889ad0-ea52-4069-a051-b5ceb4c4b4e7,Аптека Гермес,EAN_13
 febc239e-ed07-45ac-905d-b6048a203784,Scarpamondo,EAN_13
+fed489b7-1d23-4b3f-b20f-52c229575de0,Autowaspark Kuzee,QR_CODE
 fee32f93-2fe4-4fa1-ab62-159bdc375668,Покупочка,CODE_128
 fefcdd70-4aa8-4f78-b9e6-1dc18f9cd731,Button Blue,EAN_13
+ff50e5dc-1f3a-43a7-a55d-4a7d96b12757,Le Guidon Niortais,CODE_128
 ff92fe3e-1b38-409f-9701-ee7665fccb5e,EU COVID-19 Certificado de Vacinação - Primeira injeção,QR_CODE
 ff9fd337-4765-4ad1-90a3-62e4a78dc3ec,Нияма,QR_CODE
 ffa57152-01bd-48bc-be45-46bac303c450,Мед Сервис,CODE_128

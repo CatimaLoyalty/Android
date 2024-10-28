@@ -4,7 +4,7 @@
     <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή προσθέστε από το ⋮ μενού.</string>
     <string name="storeName">Όνομα</string>
     <string name="note">Σημείωση</string>
-    <string name="cardId">Κωδικός Κάρτας</string>
+    <string name="cardId">Κωδικός κάρτας</string>
     <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
     <string name="edit">Επεξεργασία</string>
@@ -74,9 +74,9 @@
     <string name="addFromImage">Επιλέξτε μια εικόνα από τη συλλογή</string>
     <string name="expiryStateSentence">Λήγει: <xliff:g>%s</xliff:g></string>
     <string name="expiryDate">Ημερομηνία λήξης</string>
-    <string name="settings_keep_screen_on">Κράτα την οθόνη ανοιχτή</string>
+    <string name="settings_keep_screen_on">Διατήρηση ενεργής οθόνης</string>
     <string name="leaveWithoutSaveTitle">Έξοδος</string>
-    <string name="reverse">... σε αντίθετη σειρά</string>
+    <string name="reverse">...σε αντίστροφη σειρά</string>
     <string name="version_history">Ιστορικό έκδοσης</string>
     <string name="sort_by">Ταξινόμηση κατά</string>
     <string name="credits">Πιστώσεις</string>
@@ -91,8 +91,7 @@
     <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
 \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
     <string name="importFidme">Εισαγωγή από FidMe</string>
-    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα μετέπειτα. 
-\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων πρώτα.</string>
+    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα μετέπειτα.\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων πρώτα.</string>
     <string name="setBarcodeId">Επιλέξτε τιμή γραμμωτού κώδικα</string>
     <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για τον επιλεγμένο γραμμωτό κώδικα</string>
     <string name="setBackImage">Επιλογή οπίσθιας εικόνας</string>
@@ -101,7 +100,7 @@
     <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμωτό κώδικα στην ίδια τιμή;</string>
     <string name="options">Επιλογές</string>
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
-    <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμωτού κώδικα</string>
+    <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός οθόνης</string>
     <string name="group_name_is_empty">Το όνομα της ομάδας δεν πρέπει να είναι κενό</string>
     <string name="group_edit">Επεξεργασία ομάδας</string>
     <string name="star">Προσθήκη στα αγαπημένα</string>
@@ -125,16 +124,16 @@
 \nΠάρτε το στέλνοντας email στο: support@stocardapp.com ζητώντας μια εξαγωγή αρχείων των δεδομένων σας.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
     <string name="editGroup">Επεξεργασία Ομάδας: <xliff:g>%s</xliff:g></string>
-    <string name="setFrontImage">Επιλογή μπροστινής εικόνας</string>
+    <string name="setFrontImage">Επιλογή εμπρόσθιας εικόνας</string>
     <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
 \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
     <string name="unsupportedBarcodeType">Ο τύπος γραμμωτού κώδικα δεν μπορεί να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
-    <string name="frontImageDescription">Μπροστινή εικόνα</string>
+    <string name="frontImageDescription">Εμπρόσθια</string>
     <string name="photos">Φωτογραφίες</string>
-    <string name="backImageDescription">Οπίσθια εικόνα</string>
+    <string name="backImageDescription">Οπίσθια</string>
     <string name="updateBarcodeQuestionTitle">Ενημέρωση τιμής γραμμωτού κώδικα;</string>
     <string name="passwordRequired">Παρακαλώ εισάγετε τον κωδικό</string>
-    <string name="sort_by_most_recently_used">Χρησιμοποιήθηκαν πρόσφατα</string>
+    <string name="sort_by_most_recently_used">Χρήση</string>
     <string name="shortcutSelectCard">Επιλέξτε μία κάρτα</string>
     <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμωτού κώδικα</string>
     <string name="app_libraries">Ελεύθερες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -169,11 +168,11 @@
     <string name="app_copyright_old">Βασισμένο στο Loyalty Card Keychain
 \nπνευματικά δικαιώματα © 2016-2020 Branden Archer</string>
     <string name="settings_follow_system_orientation">Ακολούθηση συστήματος</string>
-    <string name="settings_card_orientation">Προσανατολισμός γραμμωτού κώδικα</string>
+    <string name="settings_card_orientation">Προσανατολισμός οθόνης</string>
     <string name="settings_portrait_orientation">Πορτραίτο</string>
     <string name="settings_landscape_orientation">Οριζόντια</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Πνευματικά δικαιώματα © 2019-<xliff:g>%d</xliff:g> Sylvia van Os</string>
-    <string name="settings_lock_on_opening_orientation">Κλείδωμα τωρινού προσανατολισμού όταν ανοίγει μία κάρτα</string>
+    <string name="settings_lock_on_opening_orientation">Κλείδωμα τρέχοντος προσανατολισμού όταν ανοίγει μία κάρτα</string>
     <string name="intent_import_card_from_url_share_text">Θέλω να μοιραστώ μία κάρτα μαζί σου</string>
     <string name="enter_group_name">Εισάγετε όνομα ομάδας</string>
     <string name="groups">Ομάδες</string>
@@ -214,7 +213,7 @@
     <string name="and_data_usage">και δεδομένα χρήσης</string>
     <string name="rate_this_app">Βαθμολογήστε την εφαρμογή</string>
     <string name="duplicateCard">Αντίγραφο</string>
-    <string name="archive">Αρχειοθετήστε</string>
+    <string name="archive">Αρχειοθέτηση</string>
     <string name="archived">Η κάρτα αρχειοθετήθηκε</string>
     <string name="unarchived">Η κάρτα αφαιρέθηκε από το αρχείο</string>
     <string name="unarchive">Αφαίρεση από το αρχείο</string>
@@ -238,7 +237,7 @@
     <string name="settings_allow_content_provider_read_title">Να επιτρέπεται σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
     <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
     <string name="height">Ύψος:</string>
-    <string name="switchToFrontImage">Μετάβαση στην μπροστινή εικόνα</string>
+    <string name="switchToFrontImage">Μετάβαση στην εμπρόσθια εικόνα</string>
     <string name="switchToBackImage">Μετάβαση στην οπίσθια εικόνα</string>
     <string name="switchToBarcode">Μετάβαση σε γραμμωτό κώδικα</string>
     <string name="validFromSentence">Ισχύει από: <xliff:g>%s</xliff:g></string>
@@ -247,7 +246,7 @@
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
     <string name="donate">Δωρεά</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
-    <string name="openFrontImageInGalleryApp">Ανοίξτε την μπροστινή εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="openFrontImageInGalleryApp">Ανοίξτε την εμπρόσθια εικόνα στην εφαρμογή γκαλερί</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
     <string name="settings_follow_sensor_orientation">Πάντα σε περιστροφή (αγνοεί τις ρυθμίσεις του συστήματος)</string>
     <string name="validFromDate">Ισχύει από</string>
@@ -264,7 +263,7 @@
     <string name="amountParsingFailed">Μη έγκυρο ποσό</string>
     <string name="show_balance">Προβολή υπολοίπου</string>
     <string name="action_display_options">Επιλογές εμφάνισης</string>
-    <string name="settings_category_title_cards">Κάρτες</string>
+    <string name="settings_category_title_cards">Εμφάνιση καρτών</string>
     <string name="settings_category_title_general">Γενικά</string>
     <string name="show_archived_cards">Προβολή αρχειοθετημένων καρτών</string>
     <string name="addWithoutBarcode">Προσθήκη κάρτας χωρίς γραμμωτό κώδικα</string>
@@ -283,13 +282,15 @@
     <string name="show_validity">Εμφάνιση εγκυρότητας</string>
     <string name="add_a_card_in_a_different_way">Προσθέστε μια κάρτα με διαφορετικό τρόπο</string>
     <string name="card_id_must_not_be_empty">Ο κωδικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
-    <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ακόμα να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
+    <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ωστόσο να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
     <string name="field_must_not_be_empty">Το πεδίο δεν πρέπει να είναι κενό</string>
     <string name="manually_enter_barcode_instructions">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
     <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>
     <string name="noCameraFoundGuideText">Η συσκευή σας δεν φαίνεται να διαθέτει κάμερα. Αν έχει, δοκιμάστε να κάνετε επανεκκίνηση της συσκευής. Διαφορετικά, χρησιμοποιήστε το κουμπί Περισσότερες επιλογές παρακάτω για να προσθέσετε έναν γραμμωτό κώδικα με άλλο τρόπο.</string>
     <string name="importCancelled">Η εισαγωγή ακυρώθηκε</string>
     <string name="exportCancelled">Η εξαγωγή ακυρώθηκε</string>
-    <string name="useFrontImage">Χρήση μπροστινής εικόνας</string>
+    <string name="useFrontImage">Χρήση εμπρόσθιας εικόνας</string>
     <string name="useBackImage">Χρήση οπίσθιας εικόνας</string>
+    <string name="settings_use_volume_keys_navigation">Εναλλαγή καρτών με τα κουμπιά έντασης</string>
+    <string name="settings_use_volume_keys_navigation_summary">Χρησιμοποιήστε τα κουμπιά έντασης ήχου για να αλλάξετε την κάρτα που εμφανίζεται</string>
 </resources>

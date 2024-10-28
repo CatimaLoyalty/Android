@@ -1,0 +1,1 @@
+- Fix text wrapping on add dialog

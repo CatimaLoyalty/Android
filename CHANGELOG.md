@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 139
+## v2.32.0 - 139 (2024-10-28)
 
 - Option to navigate cards using the volume buttons
 - Fix Stocard import

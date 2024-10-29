@@ -27,6 +27,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -43,6 +44,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import protect.card_locker.databinding.ContentMainBinding;
 import protect.card_locker.databinding.MainActivityBinding;
 import protect.card_locker.databinding.SortingOptionBinding;
+import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
@@ -357,6 +359,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mBarcodeScannerLauncher.launch(intent);
         });
         addButton.bringToFront();
+
+        var layoutManager = (GridLayoutManager) mCardList.getLayoutManager();
+        if (layoutManager != null) {
+            var settings = new Settings(this);
+            layoutManager.setSpanCount(settings.getPreferredColumnCount());
+        }
     }
 
     private void displayCardSetupOptions(Menu menu, boolean shouldShow) {
@@ -369,6 +377,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mLoyaltyCardCount = DBHelper.getLoyaltyCardCount(mDatabase);
     }
 
+    // TODO isn't this called too often, in onResume AND onCreate?
     private void updateLoyaltyCardList(boolean updateCount) {
         Group group = null;
         if (mGroup != null) {

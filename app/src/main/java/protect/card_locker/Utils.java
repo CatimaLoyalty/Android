@@ -946,16 +946,22 @@ public class Utils {
             // This is necessary because Android's auto sizing will split over lines way before reaching the minimum font size and store names split over multiple lines are harder to scan with a quick glance so we should try to prevent it
             // Because we have to write the text before we can actually know the exact laid out size (trying to delay this causes bugs where the autosize fails) we have to take some... weird shortcuts
 
+            var settings = new Settings(context);
             // At this point textWhenNoImage.getWidth() still returns 0, so we cheat by calculating the whole width of the screen and then dividing it by the amount of columns
-            int textviewWidth = Resources.getSystem().getDisplayMetrics().widthPixels / context.getResources().getInteger(R.integer.main_view_card_columns);
+            int columnWidth = Resources.getSystem().getDisplayMetrics().widthPixels / settings.getPreferredColumnCount();
 
             // Calculate how wide a character is and calculate how many characters fit in a line
+            // text size is generally based on height, so setting 1:1 as width may be fishy
             int characterWidth = TextViewCompat.getAutoSizeMinTextSize(textWhenNoImage);
-            int maxWidthPerLine = textviewWidth - textWhenNoImage.getPaddingStart() - textWhenNoImage.getPaddingEnd();
+            int maxWidthPerLine = columnWidth - textWhenNoImage.getPaddingStart() - textWhenNoImage.getPaddingEnd();
 
-            // Set amount of lines based on what could fit at most
-            int maxLines = ((loyaltyCard.store.length() * characterWidth) / maxWidthPerLine) + 1;
+            // Set number of lines based on what could fit at most
+            int fullTextWidth = loyaltyCard.store.length() * characterWidth;
+            int maxLines = (fullTextWidth / maxWidthPerLine) + 1;
+            // default of 20dp crushes the text
+            var relativePadding = (int) (columnWidth * 0.1);
             textWhenNoImage.setMaxLines(maxLines);
+            textWhenNoImage.setPadding(relativePadding, relativePadding, relativePadding, relativePadding);
 
             // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);

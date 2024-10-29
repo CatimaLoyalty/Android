@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 140
+## v2.32.1 - 140 (2024-10-29)
 
 - Fix text wrapping on add dialog
 

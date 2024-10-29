@@ -1,2 +1,3 @@
 - Möglichkeit, mit den Lautstärketasten durch die Karten zu navigieren
 - Stocard Importfehler behoben
+- Behebt die Meldung "Import abgebrochen" nach erfolgreichem Import

@@ -54,7 +54,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
     </plurals>
     <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
-    <string name="addManually">Εισαγάγετε τον γραμμωτό κώδικα με μη αυτόματο τρόπο</string>
+    <string name="addManually">Εισαγωγή γραμμωτού κώδικα με μη αυτόματο τρόπο</string>
     <string name="never">Ποτέ</string>
     <string name="share">Κοινοποίηση</string>
     <plurals name="balancePoints">
@@ -71,7 +71,7 @@
     <string name="accept">Αποδοχή</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
-    <string name="addFromImage">Επιλέξτε μια εικόνα από τη συλλογή</string>
+    <string name="addFromImage">Επιλογή εικόνας από τη συλλογή</string>
     <string name="expiryStateSentence">Λήγει: <xliff:g>%s</xliff:g></string>
     <string name="expiryDate">Ημερομηνία λήξης</string>
     <string name="settings_keep_screen_on">Διατήρηση ενεργής οθόνης</string>
@@ -242,11 +242,11 @@
     <string name="switchToBarcode">Μετάβαση σε γραμμωτό κώδικα</string>
     <string name="validFromSentence">Ισχύει από: <xliff:g>%s</xliff:g></string>
     <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
-    <string name="openBackImageInGalleryApp">Ανοίξτε την οπίσθια εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="openBackImageInGalleryApp">Ανοίξτε την οπίσθια εικόνα στη συλλογή εικόνων</string>
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
     <string name="donate">Δωρεά</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
-    <string name="openFrontImageInGalleryApp">Ανοίξτε την εμπρόσθια εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="openFrontImageInGalleryApp">Ανοίξτε την εμπρόσθια εικόνα στη συλλογή εικόνων</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
     <string name="settings_follow_sensor_orientation">Πάντα σε περιστροφή (αγνοεί τις ρυθμίσεις του συστήματος)</string>
     <string name="validFromDate">Ισχύει από</string>
@@ -278,13 +278,13 @@
     <string name="settings_oled_dark_summary">Μειώνει τη χρήση της μπαταρίας στις οθόνες OLED</string>
     <string name="show_note">Εμφάνιση σημείωσης</string>
     <string name="action_more_options">Περισσότερες επιλογές</string>
-    <string name="enter_card_id">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας</string>
+    <string name="enter_card_id">Εισάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας</string>
     <string name="show_validity">Εμφάνιση εγκυρότητας</string>
     <string name="add_a_card_in_a_different_way">Προσθέστε μια κάρτα με διαφορετικό τρόπο</string>
     <string name="card_id_must_not_be_empty">Ο κωδικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
     <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ωστόσο να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
     <string name="field_must_not_be_empty">Το πεδίο δεν πρέπει να είναι κενό</string>
-    <string name="manually_enter_barcode_instructions">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
+    <string name="manually_enter_barcode_instructions">Εισάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
     <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>
     <string name="noCameraFoundGuideText">Η συσκευή σας δεν φαίνεται να διαθέτει κάμερα. Αν έχει, δοκιμάστε να κάνετε επανεκκίνηση της συσκευής. Διαφορετικά, χρησιμοποιήστε το κουμπί Περισσότερες επιλογές παρακάτω για να προσθέσετε έναν γραμμωτό κώδικα με άλλο τρόπο.</string>
     <string name="importCancelled">Η εισαγωγή ακυρώθηκε</string>

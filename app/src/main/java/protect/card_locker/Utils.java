@@ -934,7 +934,7 @@ public class Utils {
      * @param textWhenNoImage TextView to write the loyalty card name into if icon is null
      * @return background colour
      */
-    public static int setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
+    public static int setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage, int columnCount) {
         int headerColor = getHeaderColor(context, loyaltyCard);
         backgroundOrIcon.setImageBitmap(icon);
         backgroundOrIcon.setBackgroundColor(headerColor);
@@ -946,9 +946,8 @@ public class Utils {
             // This is necessary because Android's auto sizing will split over lines way before reaching the minimum font size and store names split over multiple lines are harder to scan with a quick glance so we should try to prevent it
             // Because we have to write the text before we can actually know the exact laid out size (trying to delay this causes bugs where the autosize fails) we have to take some... weird shortcuts
 
-            var settings = new Settings(context);
             // At this point textWhenNoImage.getWidth() still returns 0, so we cheat by calculating the whole width of the screen and then dividing it by the amount of columns
-            int columnWidth = Resources.getSystem().getDisplayMetrics().widthPixels / settings.getPreferredColumnCount();
+            int columnWidth = Resources.getSystem().getDisplayMetrics().widthPixels / columnCount;
 
             // Calculate how wide a character is and calculate how many characters fit in a line
             // text size is generally based on height, so setting 1:1 as width may be fishy
@@ -958,10 +957,7 @@ public class Utils {
             // Set number of lines based on what could fit at most
             int fullTextWidth = loyaltyCard.store.length() * characterWidth;
             int maxLines = (fullTextWidth / maxWidthPerLine) + 1;
-            // default of 20dp crushes the text
-            var relativePadding = (int) (columnWidth * 0.1);
             textWhenNoImage.setMaxLines(maxLines);
-            textWhenNoImage.setPadding(relativePadding, relativePadding, relativePadding, relativePadding);
 
             // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);

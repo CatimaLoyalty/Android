@@ -251,9 +251,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
-        mGroup = null;
-        updateLoyaltyCardList(true);
-
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             // Exit early if the user cancelled the scan (pressed back/home)
             if (result.getResultCode() != RESULT_OK) {
@@ -377,7 +374,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mLoyaltyCardCount = DBHelper.getLoyaltyCardCount(mDatabase);
     }
 
-    // TODO isn't this called too often, in onResume AND onCreate?
     private void updateLoyaltyCardList(boolean updateCount) {
         Group group = null;
         if (mGroup != null) {

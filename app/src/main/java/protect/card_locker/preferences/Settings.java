@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.annotation.IntegerRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
@@ -15,7 +16,7 @@ import protect.card_locker.Utils;
 
 public class Settings {
     private final Context mContext;
-    private SharedPreferences mSettings;
+    private final SharedPreferences mSettings;
 
     public Settings(Context context) {
         mContext = context.getApplicationContext();
@@ -42,10 +43,11 @@ public class Settings {
         return mSettings.getBoolean(getResString(keyId), defaultValue);
     }
 
+    @Nullable
     public Locale getLocale() {
         String value = getString(R.string.settings_key_locale, "");
 
-        if (value.length() == 0) {
+        if (value.isEmpty()) {
             return null;
         }
 

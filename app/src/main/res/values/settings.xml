@@ -36,6 +36,40 @@
         <item>@string/settings_brown_theme</item>
     </string-array>
 
+    <string-array name="column_count_portrait_values">
+        <item>@string/settings_key_automatic_column_count</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="column_count_portrait_value_strings">
+        <item>@string/settings_automatic_column_count</item>
+        <item>@string/settings_column_count_1</item>
+        <item>@string/settings_column_count_2</item>
+        <item>@string/settings_column_count_3</item>
+        <item>@string/settings_column_count_4</item>
+    </string-array>
+
+    <string-array name="column_count_landscape_values">
+        <item>@string/settings_key_automatic_column_count</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="column_count_landscape_value_strings">
+        <item>@string/settings_automatic_column_count</item>
+        <item>@string/settings_column_count_3</item>
+        <item>@string/settings_column_count_4</item>
+        <item>@string/settings_column_count_5</item>
+        <item>@string/settings_column_count_6</item>
+        <item>@string/settings_column_count_7</item>
+    </string-array>
+
     <string-array name="color_values_no_dynamic">
         <item>@string/settings_key_system_theme</item>
         <item>@string/settings_key_pink_theme</item>

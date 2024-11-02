@@ -12,15 +12,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import protect.card_locker.databinding.SimpleToolbarListActivityBinding;
+import protect.card_locker.databinding.CardShortcutConfigureActivityBinding;
+import protect.card_locker.preferences.Settings;
 
 /**
  * The configuration screen for creating a shortcut.
  */
 public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
-    private SimpleToolbarListActivityBinding binding;
+    private CardShortcutConfigureActivityBinding binding;
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
@@ -28,7 +28,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        binding = SimpleToolbarListActivityBinding.inflate(getLayoutInflater());
+        binding = CardShortcutConfigureActivityBinding.inflate(getLayoutInflater());
         mDatabase = new DBHelper(this).getReadableDatabase();
 
         // Set the result to CANCELED.  This will cause nothing to happen if the
@@ -47,15 +47,20 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
             finish();
         }
 
-        final RecyclerView cardList = binding.list;
-        GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
-        if (layoutManager != null) {
-            layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
-        }
-
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
         mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this, null);
-        cardList.setAdapter(mAdapter);
+        binding.list.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        var layoutManager = (GridLayoutManager) binding.list.getLayoutManager();
+        if (layoutManager != null) {
+            var settings = new Settings(this);
+            layoutManager.setSpanCount(settings.getPreferredColumnCount());
+        }
     }
 
     private void onClickAction(int position) {

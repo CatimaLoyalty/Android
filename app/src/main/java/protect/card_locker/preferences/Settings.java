@@ -1,9 +1,13 @@
 package protect.card_locker.preferences;
 
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.annotation.IntegerRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
@@ -14,8 +18,9 @@ import protect.card_locker.R;
 import protect.card_locker.Utils;
 
 public class Settings {
+    private static final String TAG = "Catima";
     private final Context mContext;
-    private SharedPreferences mSettings;
+    private final SharedPreferences mSettings;
 
     public Settings(Context context) {
         mContext = context.getApplicationContext();
@@ -42,10 +47,11 @@ public class Settings {
         return mSettings.getBoolean(getResString(keyId), defaultValue);
     }
 
+    @Nullable
     public Locale getLocale() {
         String value = getString(R.string.settings_key_locale, "");
 
-        if (value.length() == 0) {
+        if (value.isEmpty()) {
             return null;
         }
 
@@ -90,6 +96,21 @@ public class Settings {
 
     public String getColor() {
         return getString(R.string.setting_key_theme_color, mContext.getResources().getString(R.string.settings_key_system_theme));
+    }
+
+    public int getPreferredColumnCount() {
+        var defaultSymbol = mContext.getResources().getString(R.string.settings_key_automatic_column_count);
+        var defaultColumnCount = mContext.getResources().getInteger(R.integer.main_view_card_columns);
+        var orientation = mContext.getResources().getConfiguration().orientation;
+        var columnCountPrefKey = orientation == ORIENTATION_PORTRAIT ? R.string.setting_key_column_count_portrait : R.string.setting_key_column_count_landscape;
+        var columnCountSetting = getString(columnCountPrefKey, defaultSymbol);
+        try {
+            // the pref may be unset or explicitly set to default
+            return columnCountSetting.equals(defaultSymbol) ? defaultColumnCount : Integer.parseInt(columnCountSetting);
+        } catch (NumberFormatException nfe) {
+            Log.e(TAG, "Failed to parseInt the column count pref", nfe);
+            return defaultColumnCount;
+        }
     }
 
     public boolean useVolumeKeysForNavigation() {

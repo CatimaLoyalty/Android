@@ -47,6 +47,31 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/settings_category_title_cards_overview"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="@string/setting_key_column_count_portrait"
+            android:title="@string/settings_column_count_portrait"
+            android:defaultValue="@string/settings_key_automatic_column_count"
+            android:entries="@array/column_count_portrait_value_strings"
+            android:entryValues="@array/column_count_portrait_values"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="@string/setting_key_column_count_landscape"
+            android:title="@string/settings_column_count_landscape"
+            android:defaultValue="@string/settings_key_automatic_column_count"
+            android:entries="@array/column_count_landscape_value_strings"
+            android:entryValues="@array/column_count_landscape_values"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/settings_category_title_cards"
         app:iconSpaceReserved="false">
 

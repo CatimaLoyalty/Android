@@ -13,14 +13,14 @@ import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import protect.card_locker.databinding.SimpleToolbarListActivityBinding;
+import protect.card_locker.databinding.CardShortcutConfigureActivityBinding;
 import protect.card_locker.preferences.Settings;
 
 /**
  * The configuration screen for creating a shortcut.
  */
 public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
-    private SimpleToolbarListActivityBinding binding;
+    private CardShortcutConfigureActivityBinding binding;
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
@@ -28,7 +28,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        binding = SimpleToolbarListActivityBinding.inflate(getLayoutInflater());
+        binding = CardShortcutConfigureActivityBinding.inflate(getLayoutInflater());
         mDatabase = new DBHelper(this).getReadableDatabase();
 
         // Set the result to CANCELED.  This will cause nothing to happen if the

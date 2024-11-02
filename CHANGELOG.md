@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 141
+
+- Change default column on wide screens to 4
+- Allow overriding column counts for portrait and landscape in settings
+
 ## v2.32.1 - 140 (2024-10-29)
 
 - Fix text wrapping on add dialog

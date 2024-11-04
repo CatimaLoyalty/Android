@@ -305,4 +305,15 @@
     <string name="useBackImage">Використати зворотне зображення</string>
     <string name="settings_use_volume_keys_navigation">Перемикайте карти за допомогою кнопок гучності</string>
     <string name="settings_use_volume_keys_navigation_summary">Використовуйте кнопки гучності, щоб змінити картку, яка відображається</string>
+    <string name="settings_automatic_column_count">Автоматичний</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_category_title_cards_overview">Огляд карток</string>
+    <string name="settings_column_count_portrait">Стовпці в портретному режимі</string>
+    <string name="settings_column_count_landscape">Стовпці в ландшафтному режимі</string>
+    <string name="settings_column_count_1">1</string>
 </resources>

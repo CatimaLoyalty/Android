@@ -258,7 +258,7 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Без заключване на екрана при преглед на карта</string>
     <string name="settings_allow_content_provider_read_summary">Приложенията ще искат разрешение, за да получат достъп</string>
     <string name="settings_oled_dark_summary">Намалява разхода на батерия от OLED дисплеи</string>
-    <string name="settings_category_title_cards">Изглед с карти</string>
+    <string name="settings_category_title_cards">Преглед на карта</string>
     <string name="settings_category_title_general">Общи</string>
     <string name="settings_category_title_privacy">Поверителност</string>
     <string name="settings_keep_screen_on_summary">Спира автоматичното заключване на екрана при преглед на карти</string>
@@ -294,4 +294,15 @@
     <string name="useBackImage">Използване на задната страна</string>
     <string name="settings_use_volume_keys_navigation">Сменяне на картите с бутоните за звука</string>
     <string name="settings_use_volume_keys_navigation_summary">Бутоните за силата на звука сменят видимата карта</string>
+    <string name="settings_automatic_column_count">Автоматично</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_column_count_landscape">Колони в пейзажен изглед</string>
+    <string name="settings_column_count_portrait">Колони в портретен изглед</string>
+    <string name="settings_category_title_cards_overview">Списък с карти</string>
 </resources>

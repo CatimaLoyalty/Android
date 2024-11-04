@@ -291,4 +291,15 @@
     <string name="useBackImage">Rückseite verwenden</string>
     <string name="settings_use_volume_keys_navigation">Karten mit Lautstärketasten wechseln</string>
     <string name="settings_use_volume_keys_navigation_summary">Wähle mit den Lautstärketasten, welche Karte angezeigt werden soll</string>
+    <string name="settings_column_count_portrait">Spalten im Hochformat</string>
+    <string name="settings_column_count_landscape">Spalten im Querformat</string>
+    <string name="settings_automatic_column_count">Automatisch</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_category_title_cards_overview">Karten Übersicht</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
 </resources>

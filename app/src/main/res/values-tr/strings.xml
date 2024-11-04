@@ -294,4 +294,15 @@
     <string name="useBackImage">Arka resmi kullan</string>
     <string name="settings_use_volume_keys_navigation_summary">Hangi kartın görüntüleneceğini değiştirmek için ses düğmelerini kullanın</string>
     <string name="settings_use_volume_keys_navigation">Ses düğmelerini kullanarak kartları değiştir</string>
+    <string name="settings_category_title_cards_overview">Kartları gözden geçir</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_landscape">Yatay alan modundaki sutunlar</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_automatic_column_count">Otomatik</string>
+    <string name="settings_column_count_portrait">Portre modundaki sutunlar</string>
 </resources>

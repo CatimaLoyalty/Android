@@ -1,0 +1,2 @@
+- Voreingestellte Spaltenanzahl für breite Bildschirme auf 4 geändert
+- Spaltenanzahl für Hoch- und Querformat kann in den Einstellungen überschrieben werden

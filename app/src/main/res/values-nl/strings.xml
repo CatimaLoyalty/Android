@@ -260,7 +260,7 @@
     <string name="settings_display_barcode_max_brightness_summary">Benodigd voor de werking van sommige scanners</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Schakelt schermvergrendeling uit tijdens het bekijken van een kaart</string>
     <string name="settings_oled_dark_summary">Verlaagt het accuverbruik op oledschermen</string>
-    <string name="settings_category_title_cards">Kaartenoverzicht</string>
+    <string name="settings_category_title_cards">Kaart</string>
     <string name="settings_category_title_general">Algemeen</string>
     <string name="app_copyright_short">Auteursrecht © Sylvia van Os en bijdragers</string>
     <string name="action_display_options">Weergave-instellingen</string>
@@ -294,4 +294,8 @@
     <string name="useBackImage">Gebruik achterzijde van kaart</string>
     <string name="settings_use_volume_keys_navigation">Verwissel kaart met de volume knoppen</string>
     <string name="settings_use_volume_keys_navigation_summary">Gebruik de volume knoppen om te wisselen van getoonde kaart</string>
+    <string name="settings_category_title_cards_overview">Kaartenoverzicht</string>
+    <string name="settings_column_count_landscape">Kolommen in landschapmodus</string>
+    <string name="settings_automatic_column_count">Automatisch</string>
+    <string name="settings_column_count_portrait">Kolommen in portretmodus</string>
 </resources>

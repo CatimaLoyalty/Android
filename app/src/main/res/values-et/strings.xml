@@ -289,4 +289,15 @@
     <string name="useBackImage">Kasuta tagakülje pilti</string>
     <string name="settings_use_volume_keys_navigation">Vaheta kaarte helivaljuse nuppudega</string>
     <string name="settings_use_volume_keys_navigation_summary">Vaheta kuvatavaid vahekaarte helivaljuse nuppudega</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_category_title_cards_overview">Kaartide ülevaade</string>
+    <string name="settings_column_count_landscape">Veerge rõhtvaates</string>
+    <string name="settings_automatic_column_count">Automaatne</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_portrait">Veerge püstvaates</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

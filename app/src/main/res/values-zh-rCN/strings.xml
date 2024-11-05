@@ -288,4 +288,15 @@
     <string name="useBackImage">使用背面图</string>
     <string name="settings_use_volume_keys_navigation">用音量按钮切换卡片</string>
     <string name="settings_use_volume_keys_navigation_summary">是用音量按钮改变展示的卡片</string>
+    <string name="settings_category_title_cards_overview">卡片概览</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_automatic_column_count">自动</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_portrait">竖屏模式下的列数</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_landscape">横屏模式下的列数</string>
 </resources>

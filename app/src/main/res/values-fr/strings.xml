@@ -300,4 +300,15 @@
     <string name="useBackImage">Utiliser l\'image arrière</string>
     <string name="settings_use_volume_keys_navigation">Changer de cartes avec les boutons de volume</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilisez les boutons de volume pour changer la carte affichée</string>
+    <string name="settings_category_title_cards_overview">Aperçu des cartes</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_portrait">Colonnes en mode portrait</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_landscape">Colonnes en mode paysage</string>
+    <string name="settings_automatic_column_count">Automatique</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

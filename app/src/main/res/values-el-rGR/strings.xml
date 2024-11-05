@@ -293,4 +293,15 @@
     <string name="useBackImage">Χρήση οπίσθιας εικόνας</string>
     <string name="settings_use_volume_keys_navigation">Εναλλαγή καρτών με τα κουμπιά έντασης</string>
     <string name="settings_use_volume_keys_navigation_summary">Χρησιμοποιήστε τα κουμπιά έντασης ήχου για να αλλάξετε την κάρτα που εμφανίζεται</string>
+    <string name="settings_column_count_landscape">Στήλες σε οριζόντια λειτουργία</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_category_title_cards_overview">Επισκόπηση καρτών</string>
+    <string name="settings_column_count_portrait">Στήλες σε κατακόρυφη λειτουργία</string>
+    <string name="settings_automatic_column_count">Αυτόματα</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

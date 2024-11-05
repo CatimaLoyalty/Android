@@ -306,4 +306,15 @@
     <string name="useBackImage">Использовать заднюю сторону</string>
     <string name="settings_use_volume_keys_navigation_summary">Использовать кнопки регулировки громкости для смены отображаемой карты</string>
     <string name="settings_use_volume_keys_navigation">Переключать карты кнопками громкости</string>
+    <string name="settings_column_count_portrait">Столбцы в портретном режиме</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_category_title_cards_overview">Список карт</string>
+    <string name="settings_column_count_landscape">Столбцы в альбомном режиме</string>
+    <string name="settings_automatic_column_count">Автовыбор</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
 </resources>

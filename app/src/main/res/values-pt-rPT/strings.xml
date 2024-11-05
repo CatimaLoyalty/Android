@@ -300,4 +300,15 @@
     <string name="useBackImage">Utilizar imagem do verso</string>
     <string name="settings_use_volume_keys_navigation">Mudar de cartão usando os botões de volume</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilize os botões de volume para alterar o cartão que é apresentado</string>
+    <string name="settings_category_title_cards_overview">Resumo dos cartões</string>
+    <string name="settings_column_count_portrait">Colunas no modo vertical</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_landscape">Colunas no modo horizontal</string>
+    <string name="settings_automatic_column_count">Automático</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

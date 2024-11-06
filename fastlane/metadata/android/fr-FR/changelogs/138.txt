@@ -1,0 +1,1 @@
+- Correction du geste de retour sur l'écran principal qui rejette le clavier et la recherche sur Android 13+

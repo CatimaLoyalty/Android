@@ -1,0 +1,2 @@
+- Modifier la colonne par défaut sur les écrans larges à 4
+- Permet de surcharger le nombre de colonnes pour le portrait et le paysage dans les paramètres

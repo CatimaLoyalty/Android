@@ -1,0 +1,2 @@
+- toon standaard 4 kolommen op brede schermen
+- laat toe het aantal kolommen in portret- en landschapmodus te veranderen in de instellingen

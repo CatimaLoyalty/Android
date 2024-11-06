@@ -3,18 +3,22 @@ package protect.card_locker;
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -210,9 +214,12 @@ public class MainActivityTest {
 
     @Test
     public void testFiltering() {
+        // FIXME: This test directly sets mFilter instead of using mSearchView, making it not test the search flow correctly
+        // It may falsely succeed or fail, but we're leaving it here so we at least test something instead of nothing
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
         MainActivity mainActivity = (MainActivity) activityController.get();
+
         activityController.start();
         activityController.resume();
 
@@ -243,6 +250,16 @@ public class MainActivityTest {
 
         activityController.pause();
         activityController.resume();
+
+        Configuration configuration = mainActivity.getResources().getConfiguration();
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_PORTRAIT;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
 
         assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -337,6 +354,12 @@ public class MainActivityTest {
 
         mainActivity.mFilter = "second";
 
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
+
+        configuration.orientation = Configuration.ORIENTATION_PORTRAIT;
+        mainActivity.onConfigurationChanged(configuration);
+
         activityController.pause();
         activityController.resume();
 
@@ -370,6 +393,10 @@ public class MainActivityTest {
         assertEquals(1, list.getAdapter().getItemCount());
 
         mainActivity.mFilter = "company";
+
+        // Rotate to landscape (right)
+        configuration.orientation = Configuration.ORIENTATION_LANDSCAPE;
+        mainActivity.onConfigurationChanged(configuration);
 
         activityController.pause();
         activityController.resume();
@@ -440,6 +467,45 @@ public class MainActivityTest {
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getAdapter().getItemCount());
+
+        database.close();
+    }
+
+    @Test
+    public void testSearchQueryRestorationAfterNavigatingBack() {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        MainActivity mainActivity = (MainActivity) activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        final Menu menu = shadowOf(Robolectric.setupActivity(MainActivity.class)).getOptionsMenu();
+        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
+        SearchView mSearchView = (SearchView) searchMenuItem.getActionView();
+
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "The First Store", "Initial note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(database, "The Second Store", "Secondary note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+
+        String finalQuery = "store";
+        assert mSearchView != null;
+        mSearchView.setQuery(finalQuery, false);
+
+        activityController.pause();
+        activityController.resume();
+
+        // Simulation of what happens when users comes back after picking up card
+        // We simulate expanding and setting the Query that we want to restore (in code it is from finalQuery String)
+        searchMenuItem.expandActionView();
+
+        mSearchView.setQuery(finalQuery, false);
+
+        activityController.pause();
+        activityController.resume();
+
+        assertTrue(searchMenuItem.isActionViewExpanded());
+        assertEquals("store", mSearchView.getQuery().toString());
 
         database.close();
     }

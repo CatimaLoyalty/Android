@@ -1,0 +1,3 @@
+- Option pour naviguer sur les cartes en utilisant les boutons de volume
+- Correction de l'importation de Stocard
+- Correction du message « Import annulé » apparaissant après l'importation réussie

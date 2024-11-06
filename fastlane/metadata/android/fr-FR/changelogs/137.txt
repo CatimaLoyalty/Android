@@ -1,3 +1,4 @@
 - Permettre aux noms de magasins longs dans l'aperçu d'être divisés sur plusieurs lignes
 - Possibilité d'utiliser l'image avant ou arrière dans le menu des vignettes
 - Corrections mineures pour l'importation et l'exportation
+- Corrections mineures dans l'interface utilisateur

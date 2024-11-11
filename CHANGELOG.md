@@ -5,6 +5,7 @@
 - Change default column on wide screens to 4
 - Allow overriding column counts for portrait and landscape in settings
 - Keep main screen search filter when rotating screen or opening a card
+- Limit max length of note display on main screen
 
 ## v2.32.1 - 140 (2024-10-29)
 

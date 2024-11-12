@@ -1,3 +1,4 @@
 - Voreingestellte Spaltenanzahl für breite Bildschirme auf 4 geändert
 - Spaltenanzahl für Hoch- und Querformat kann in den Einstellungen überschrieben werden
 - Suchfilter im Hauptbildschirm aktiv halten, wenn der Bildschirm gedreht oder eine Karte geöffnet wird
+- Begrenzung der maximalen Länge, der auf dem Hauptbildschirm angezeigten Notiz

@@ -1,9 +1,9 @@
 package protect.card_locker;
 
+import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class LoyaltyCard implements Parcelable {
+public class LoyaltyCard {
     public int id;
     public String store;
     public String note;
@@ -37,6 +37,13 @@ public class LoyaltyCard implements Parcelable {
     public int zoomLevel;
     public int archiveStatus;
 
+    @Nullable
+    public Bitmap imageThumbnail;
+    @Nullable
+    public Bitmap imageFront;
+    @Nullable
+    public Bitmap imageBack;
+
     public static final String BUNDLE_LOYALTY_CARD_ID = "loyaltyCardId";
     public static final String BUNDLE_LOYALTY_CARD_STORE = "loyaltyCardStore";
     public static final String BUNDLE_LOYALTY_CARD_NOTE = "loyaltyCardNote";
@@ -52,6 +59,13 @@ public class LoyaltyCard implements Parcelable {
     public static final String BUNDLE_LOYALTY_CARD_LAST_USED = "loyaltyCardLastUsed";
     public static final String BUNDLE_LOYALTY_CARD_ZOOM_LEVEL = "loyaltyCardZoomLevel";
     public static final String BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS = "loyaltyCardArchiveStatus";
+    public static final String BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL = "loyaltyCardImageThumbnail";
+    public static final String BUNDLE_LOYALTY_CARD_IMAGE_FRONT = "loyaltyCardImageFront";
+    public static final String BUNDLE_LOYALTY_CARD_IMAGE_BACK = "loyaltyCardImageBack";
+
+    private static final String TEMP_IMAGE_THUMBNAIL_FILE_NAME = "loyaltyCardTempImageThumbnailFileName";
+    private static final String TEMP_IMAGE_FRONT_FILE_NAME = "loyaltyCardTempImageFrontFileName";
+    private static final String TEMP_IMAGE_BACK_FILE_NAME = "loyaltyCardTempImageBackFileName";
 
     /**
      * Create a loyalty card object with default values
@@ -72,6 +86,9 @@ public class LoyaltyCard implements Parcelable {
         setLastUsed(Utils.getUnixTime());
         setZoomLevel(100);
         setArchiveStatus(0);
+        setImageThumbnail(null);
+        setImageFront(null);
+        setImageBack(null);
     }
 
     /**
@@ -97,7 +114,8 @@ public class LoyaltyCard implements Parcelable {
                        @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
-                       final long lastUsed, final int zoomLevel, final int archiveStatus) {
+                       final long lastUsed, final int zoomLevel, final int archiveStatus,
+                       @Nullable Bitmap imageThumbnail, @Nullable Bitmap imageFront, @Nullable Bitmap imageBack) {
         setId(id);
         setStore(store);
         setNote(note);
@@ -113,6 +131,9 @@ public class LoyaltyCard implements Parcelable {
         setLastUsed(lastUsed);
         setZoomLevel(zoomLevel);
         setArchiveStatus(archiveStatus);
+        setImageThumbnail(imageThumbnail);
+        setImageFront(imageFront);
+        setImageBack(imageBack);
     }
 
     public void setId(int id) {
@@ -187,60 +208,32 @@ public class LoyaltyCard implements Parcelable {
         this.archiveStatus = archiveStatus;
     }
 
-    protected LoyaltyCard(Parcel in) {
-        setId(in.readInt());
-        setStore(Objects.requireNonNull(in.readString()));
-        setNote(Objects.requireNonNull(in.readString()));
-        long tmpValidFrom = in.readLong();
-        setValidFrom(tmpValidFrom > 0 ? new Date(tmpValidFrom) : null);
-        long tmpExpiry = in.readLong();
-        setExpiry(tmpExpiry > 0 ? new Date(tmpExpiry) : null);
-        setBalance((BigDecimal) in.readValue(BigDecimal.class.getClassLoader()));
-        setBalanceType((Currency) in.readValue(Currency.class.getClassLoader()));
-        setCardId(Objects.requireNonNull(in.readString()));
-        setBarcodeId(in.readString());
-        String tmpBarcodeType = in.readString();
-        setBarcodeType((tmpBarcodeType != null && !tmpBarcodeType.isEmpty()) ? CatimaBarcode.fromName(tmpBarcodeType) : null);
-        int tmpHeaderColor = in.readInt();
-        setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
-        setStarStatus(in.readInt());
-        setLastUsed(in.readLong());
-        setZoomLevel(in.readInt());
-        setArchiveStatus(in.readInt());
+    public void setImageThumbnail(@Nullable Bitmap imageThumbnail) {
+        this.imageThumbnail = imageThumbnail;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeInt(id);
-        parcel.writeString(store);
-        parcel.writeString(note);
-        parcel.writeLong(validFrom != null ? validFrom.getTime() : -1);
-        parcel.writeLong(expiry != null ? expiry.getTime() : -1);
-        parcel.writeValue(balance);
-        parcel.writeValue(balanceType);
-        parcel.writeString(cardId);
-        parcel.writeString(barcodeId);
-        parcel.writeString(barcodeType != null ? barcodeType.name() : "");
-        parcel.writeInt(headerColor != null ? headerColor : -1);
-        parcel.writeInt(starStatus);
-        parcel.writeLong(lastUsed);
-        parcel.writeInt(zoomLevel);
-        parcel.writeInt(archiveStatus);
+    public void setImageFront(@Nullable Bitmap imageFront) {
+        this.imageFront = imageFront;
     }
 
-    @NonNull
-    public static LoyaltyCard fromBundle(Bundle bundle, boolean requireFull) {
-        // Grab default card
-        LoyaltyCard loyaltyCard = new LoyaltyCard();
-
-        // Update from bundle
-        loyaltyCard.updateFromBundle(bundle, requireFull);
-
-        // Return updated version
-        return loyaltyCard;
+    public void setImageBack(@Nullable Bitmap imageBack) {
+        this.imageBack = imageBack;
     }
 
-    public void updateFromBundle(@NonNull Bundle bundle, boolean requireFull) {
+    @Nullable
+    public Bitmap getImageForImageLocationType(ImageLocationType imageLocationType) {
+        if (imageLocationType == ImageLocationType.icon) {
+            return imageThumbnail;
+        } else if (imageLocationType == ImageLocationType.front) {
+            return imageFront;
+        } else if (imageLocationType == ImageLocationType.back) {
+            return imageBack;
+        }
+
+        throw new IllegalArgumentException("Unknown image location type");
+    }
+
+    public void updateFromBundle(@NonNull Context context, @NonNull Bundle bundle, boolean requireFull) {
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
             setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
         } else if (requireFull) {
@@ -321,9 +314,39 @@ public class LoyaltyCard implements Parcelable {
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS);
         }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL)) {
+            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL);
+            if (tempImageName != null) {
+                setImageThumbnail(Utils.loadTempImage(context, tempImageName));
+            } else {
+                setImageThumbnail(null);
+            }
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_FRONT)) {
+            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT);
+            if (tempImageName != null) {
+                setImageFront(Utils.loadTempImage(context, tempImageName));
+            } else {
+                setImageFront(null);
+            }
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_FRONT);
+        }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_BACK)) {
+            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_BACK);
+            if (tempImageName != null) {
+                setImageBack(Utils.loadTempImage(context, tempImageName));
+            } else {
+                setImageBack(null);
+            }
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_BACK);
+        }
     }
 
-    public Bundle toBundle(List<String> exportLimit) {
+    public Bundle toBundle(Context context, List<String> exportLimit) {
         boolean exportIsLimited = !exportLimit.isEmpty();
 
         Bundle bundle = new Bundle();
@@ -373,11 +396,37 @@ public class LoyaltyCard implements Parcelable {
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS)) {
             bundle.putInt(BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS, archiveStatus);
         }
+        // There is an (undocumented) size limit to bundles of around 2MB(?), when going over it you will experience a random crash
+        // So, instead of storing the bitmaps directly, we write the bitmap to a temp file and store the path
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL)) {
+            if (imageThumbnail != null) {
+                Utils.saveTempImage(context, imageThumbnail, TEMP_IMAGE_THUMBNAIL_FILE_NAME, Bitmap.CompressFormat.PNG);
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL, TEMP_IMAGE_THUMBNAIL_FILE_NAME);
+            } else {
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL, null);
+            }
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_FRONT)) {
+            if (imageFront != null) {
+                Utils.saveTempImage(context, imageFront, TEMP_IMAGE_FRONT_FILE_NAME, Bitmap.CompressFormat.PNG);
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT, TEMP_IMAGE_FRONT_FILE_NAME);
+            } else {
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT, null);
+            }
+        }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_BACK)) {
+            if (imageBack != null) {
+                Utils.saveTempImage(context, imageBack, TEMP_IMAGE_BACK_FILE_NAME, Bitmap.CompressFormat.PNG);
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_BACK, TEMP_IMAGE_BACK_FILE_NAME);
+            } else {
+                bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_BACK, null);
+            }
+        }
 
         return bundle;
     }
 
-    public static LoyaltyCard fromCursor(Cursor cursor) {
+    public static LoyaltyCard fromCursor(Context context, Cursor cursor) {
         // id
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
         // store
@@ -414,11 +463,37 @@ public class LoyaltyCard implements Parcelable {
         int zoomLevel = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL));
         // archiveStatus
         int archiveStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
+        // imageThumbnail
+        Bitmap imageThumbnail = Utils.retrieveCardImage(context, id, ImageLocationType.icon);
+        // imageFront
+        Bitmap imageFront = Utils.retrieveCardImage(context, id, ImageLocationType.front);
+        // imageBack
+        Bitmap imageBack = Utils.retrieveCardImage(context, id, ImageLocationType.back);
 
-        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, zoomLevel, archiveStatus);
+        return new LoyaltyCard(
+                id,
+                store,
+                note,
+                validFrom,
+                expiry,
+                balance,
+                balanceType,
+                cardId,
+                barcodeId,
+                barcodeType,
+                headerColor,
+                starStatus,
+                lastUsed,
+                zoomLevel,
+                archiveStatus,
+                imageThumbnail,
+                imageFront,
+                imageBack
+        );
     }
 
     public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
+        // Note: Bitmap comparing is slow, be careful when calling this method
         // Skip lastUsed & zoomLevel
         return a.id == b.id && // non-nullable int
                 a.store.equals(b.store) && // non-nullable String
@@ -433,12 +508,23 @@ public class LoyaltyCard implements Parcelable {
                         b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
-                a.archiveStatus == b.archiveStatus; // non-nullable int
+                a.archiveStatus == b.archiveStatus && // non-nullable int
+                nullableBitmapsEqual(a.imageThumbnail, b.imageThumbnail) && // nullable Bitmap
+                nullableBitmapsEqual(a.imageFront, b.imageFront) && // nullable Bitmap
+                nullableBitmapsEqual(a.imageBack, b.imageBack); // nullable Bitmap
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public static boolean nullableBitmapsEqual(@Nullable Bitmap a, @Nullable Bitmap b) {
+        if (a == null && b == null) {
+            return true;
+        }
+
+        if (a != null && b != null) {
+            return a.sameAs(b);
+        }
+
+        // One is null and the other isn't, so it's not equal
+        return false;
     }
 
     @NonNull
@@ -447,7 +533,8 @@ public class LoyaltyCard implements Parcelable {
         return String.format(
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
                         + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
-                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  archiveStatus=%s%n}",
+                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  archiveStatus=%s%n"
+                        + "  imageThumbnail=%s,%n  imageFront=%s,%n  imageBack=%s,%n}",
                 this.id,
                 this.store,
                 this.note,
@@ -462,19 +549,10 @@ public class LoyaltyCard implements Parcelable {
                 this.starStatus,
                 this.lastUsed,
                 this.zoomLevel,
-                this.archiveStatus
+                this.archiveStatus,
+                this.imageThumbnail,
+                this.imageFront,
+                this.imageBack
         );
     }
-
-    public static final Creator<LoyaltyCard> CREATOR = new Creator<LoyaltyCard>() {
-        @Override
-        public LoyaltyCard createFromParcel(Parcel in) {
-            return new LoyaltyCard(in);
-        }
-
-        @Override
-        public LoyaltyCard[] newArray(int size) {
-            return new LoyaltyCard[size];
-        }
-    };
 }

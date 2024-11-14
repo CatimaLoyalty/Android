@@ -299,7 +299,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     private void returnResult(ParseResult parseResult) {
         Intent result = new Intent();
-        Bundle bundle = parseResult.toLoyaltyCardBundle();
+        Bundle bundle = parseResult.toLoyaltyCardBundle(ScanActivity.this);
         if (addGroup != null) {
             bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
         }

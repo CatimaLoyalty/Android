@@ -176,7 +176,6 @@ public class Utils {
     }
 
     static public List<ParseResult> retrieveBarcodesFromPkPass(Context context, Uri uri) {
-        // FIXME: Also return image
         Log.i(TAG, "Received Pkpass file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Pkpass did not contain any data");
@@ -836,7 +835,7 @@ public class Utils {
         }
     }
 
-    public static Bitmap loadImage(String path) {
+    public static @Nullable Bitmap loadImage(String path) {
         try {
             return BitmapFactory.decodeStream(new FileInputStream(path));
         } catch (IOException e) {
@@ -845,7 +844,7 @@ public class Utils {
         }
     }
 
-    public static Bitmap loadTempImage(Context context, String name) {
+    public static @Nullable Bitmap loadTempImage(Context context, String name) {
         return loadImage(context.getCacheDir() + "/" + name);
     }
 

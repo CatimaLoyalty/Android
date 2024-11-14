@@ -660,7 +660,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             window.setAttributes(attributes);
         }
 
-        loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
+        loyaltyCard = DBHelper.getLoyaltyCard(this, database, loyaltyCardId);
         if (loyaltyCard == null) {
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
             Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();

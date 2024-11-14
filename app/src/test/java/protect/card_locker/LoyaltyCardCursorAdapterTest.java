@@ -97,7 +97,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapterEmptyNote() {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();
@@ -112,7 +112,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapterWithNote() {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();
@@ -137,7 +137,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(4, cursor.getCount());
 
         assertTrue(cursor.moveToFirst());
-        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(cursor);
+        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
         assertEquals("storeD", loyaltyCard.store);
         View view = createView(cursor);
         ConstraintLayout star = view.findViewById(R.id.star);
@@ -146,7 +146,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.GONE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.fromCursor(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
         assertEquals("storeC", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
@@ -155,7 +155,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.GONE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.fromCursor(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
         assertEquals("storeB", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
@@ -164,7 +164,7 @@ public class LoyaltyCardCursorAdapterTest {
         assertEquals(View.VISIBLE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
-        loyaltyCard = LoyaltyCard.fromCursor(cursor);
+        loyaltyCard = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
         assertEquals("storeA", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
@@ -178,7 +178,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapter0Points() {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();
@@ -193,7 +193,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapter0EUR() {
         DBHelper.insertLoyaltyCard(mDatabase,"store", "", null, null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();
@@ -208,7 +208,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapter100Points() {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();
@@ -223,7 +223,7 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapter10USD() {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         cursor.moveToFirst();

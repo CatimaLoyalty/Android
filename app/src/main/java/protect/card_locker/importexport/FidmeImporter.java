@@ -149,7 +149,26 @@ public class FidmeImporter implements Importer {
         // TODO: Front and back image
 
         // use -1 for the ID, it will be ignored when inserting the card into the DB
-        return new LoyaltyCard(-1, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, archiveStatus);
+        return new LoyaltyCard(
+                -1,
+                store,
+                note,
+                null,
+                null,
+                BigDecimal.valueOf(0),
+                null,
+                cardId,
+                null,
+                barcodeType,
+                headerColor,
+                starStatus,
+                Utils.getUnixTime(),
+                DBHelper.DEFAULT_ZOOM_LEVEL,
+                archiveStatus,
+                null,
+                null,
+                null
+        );
     }
 
     public void saveAndDeduplicate(SQLiteDatabase database, final ImportedData data) {

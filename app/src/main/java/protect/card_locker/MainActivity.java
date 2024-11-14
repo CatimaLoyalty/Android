@@ -429,7 +429,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             @Override
             public void onUserChoseParseResult(ParseResult parseResult) {
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = parseResult.toLoyaltyCardBundle();
+                Bundle bundle = parseResult.toLoyaltyCardBundle(MainActivity.this);
                 if (group != null) {
                     bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
                 }

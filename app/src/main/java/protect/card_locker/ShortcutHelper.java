@@ -86,7 +86,7 @@ class ShortcutHelper {
         for (int index = 0; index < list.size(); index++) {
             ShortcutInfoCompat prevShortcut = list.get(index);
 
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(database, Integer.parseInt(prevShortcut.getId()));
+            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, Integer.parseInt(prevShortcut.getId()));
 
             // skip outdated cards that no longer exist
             if (loyaltyCard != null) {

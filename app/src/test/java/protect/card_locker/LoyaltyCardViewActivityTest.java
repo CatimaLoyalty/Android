@@ -167,7 +167,7 @@ public class LoyaltyCardViewActivityTest {
 
         assertEquals(1, DBHelper.getLoyaltyCardCount(database));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(database, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), database, 1);
         assertEquals(store, card.store);
         assertEquals(note, card.note);
         assertEquals(balance, card.balance);
@@ -216,7 +216,7 @@ public class LoyaltyCardViewActivityTest {
      * Initiate and complete a barcode capture, either in success
      * or in failure
      */
-    private void captureBarcodeWithResult(final Activity activity, final boolean success) throws IOException {
+    private void captureBarcodeWithResult(final Activity activity, final boolean success) {
         // Start image capture
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
@@ -238,7 +238,7 @@ public class LoyaltyCardViewActivityTest {
         loyaltyCard.setCardId(BARCODE_DATA);
         ParseResult parseResult = new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard);
 
-        resultIntent.putExtras(parseResult.toLoyaltyCardBundle());
+        resultIntent.putExtras(parseResult.toLoyaltyCardBundle(activity));
 
         // Respond to image capture, success
         shadowOf(activity).receiveResult(
@@ -251,7 +251,7 @@ public class LoyaltyCardViewActivityTest {
      * Initiate and complete a barcode selection, either in success
      * or in failure
      */
-    private void selectBarcodeWithResult(final Activity activity, final String barcodeData, final String barcodeType, final boolean success) throws IOException {
+    private void selectBarcodeWithResult(final Activity activity, final String barcodeData, final String barcodeType, final boolean success) {
         // Start barcode selector
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
@@ -278,7 +278,7 @@ public class LoyaltyCardViewActivityTest {
         loyaltyCard.setCardId(barcodeData);
         ParseResult parseResult = new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard);
 
-        resultIntent.putExtras(parseResult.toLoyaltyCardBundle());
+        resultIntent.putExtras(parseResult.toLoyaltyCardBundle(activity));
 
         // Respond to barcode selection, success
         shadowOf(activity).receiveResult(
@@ -302,8 +302,10 @@ public class LoyaltyCardViewActivityTest {
         } else if (fieldType == FieldTypeView.ImageView) {
             ImageView imageView = (ImageView) view;
             Bitmap image = null;
-            if (imageView.getTag() != null) {
+            try {
                 image = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+            } catch (ClassCastException e) {
+                // This is probably a VectorDrawable, the placeholder image. Aka: No image.
             }
             assertEquals(contents, image);
         } else {
@@ -419,8 +421,8 @@ public class LoyaltyCardViewActivityTest {
             cardIdField.setText("12345678");
             barcodeField.setText("87654321");
             barcodeTypeField.setText(CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName());
-            activity.setCardImage(frontImageView, frontBitmap, true);
-            activity.setCardImage(backImageView, backBitmap, true);
+            activity.setCardImage(ImageLocationType.front, frontImageView, frontBitmap, true);
+            activity.setCardImage(ImageLocationType.back, backImageView, backBitmap, true);
 
             shadowOf(getMainLooper()).idle();
 

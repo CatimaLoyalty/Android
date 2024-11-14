@@ -25,12 +25,13 @@ import java.util.Date;
 
 @RunWith(RobolectricTestRunner.class)
 public class ImportURITest {
+    private Activity activity;
     private ImportURIHelper importURIHelper;
     private SQLiteDatabase mDatabase;
 
     @Before
     public void setUp() {
-        Activity activity = Robolectric.setupActivity(MainActivity.class);
+        activity = Robolectric.setupActivity(MainActivity.class);
         importURIHelper = new ImportURIHelper(activity);
         mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
     }
@@ -43,7 +44,7 @@ public class ImportURITest {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
 
         // Get card
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         // Card to URI
         Uri cardUri = importURIHelper.toUri(card);
@@ -73,7 +74,7 @@ public class ImportURITest {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
 
         // Get card
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         // Card to URI
         Uri cardUri = importURIHelper.toUri(card);
@@ -103,7 +104,7 @@ public class ImportURITest {
         DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
 
         // Get card
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         // Card to URI, with a trailing slash
         Uri cardUri = importURIHelper.toUri(card).buildUpon().path("/share/").build();

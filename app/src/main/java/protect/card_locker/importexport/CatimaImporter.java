@@ -124,7 +124,7 @@ public class CatimaImporter implements Importer {
         Set<String> existingImages = DBHelper.imageFiles(context, database);
 
         for (LoyaltyCard card : data.cards) {
-            LoyaltyCard existing = DBHelper.getLoyaltyCard(database, card.id);
+            LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
             if (existing == null) {
                 DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
@@ -490,7 +490,26 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, archiveStatus);
+        return new LoyaltyCard(
+                id,
+                store,
+                note,
+                validFrom,
+                expiry,
+                balance,
+                balanceType,
+                cardId,
+                barcodeId,
+                barcodeType,
+                headerColor,
+                starStatus,
+                lastUsed,
+                DBHelper.DEFAULT_ZOOM_LEVEL,
+                archiveStatus,
+                null,
+                null,
+                null
+        );
     }
 
     /**

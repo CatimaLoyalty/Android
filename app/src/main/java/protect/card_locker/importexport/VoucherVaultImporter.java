@@ -151,7 +151,26 @@ public class VoucherVaultImporter implements Importer {
             }
 
             // use -1 for the ID, it will be ignored when inserting the card into the DB
-            importedData.cards.add(new LoyaltyCard(-1, store, "", null, expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, 0));
+            importedData.cards.add(new LoyaltyCard(
+                    -1,
+                    store,
+                    "",
+                    null,
+                    expiry,
+                    balance,
+                    balanceType,
+                    cardId,
+                    null,
+                    barcodeType,
+                    headerColor,
+                    0,
+                    Utils.getUnixTime(),
+                    DBHelper.DEFAULT_ZOOM_LEVEL,
+                    0,
+                    null,
+                    null,
+                    null
+            ));
         }
 
         return importedData;

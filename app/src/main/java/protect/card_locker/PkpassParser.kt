@@ -125,7 +125,10 @@ class PkpassParser(context: Context, uri: Uri?) {
             starStatus,
             lastUsed,
             zoomLevel,
-            archiveStatus
+            archiveStatus,
+            image,
+            null,
+            null
         )
     }
 

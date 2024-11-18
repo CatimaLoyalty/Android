@@ -294,4 +294,8 @@
     <string name="settings_use_volume_keys_navigation_summary">A hangerőgombok használata a megjelenített kártya átváltásához</string>
     <string name="useFrontImage">Elülső kép használata</string>
     <string name="useBackImage">Hátsó kép használata</string>
+    <string name="settings_category_title_cards_overview">Kártyák áttekintése</string>
+    <string name="settings_column_count_landscape">Oszlopok fekvő módban</string>
+    <string name="settings_automatic_column_count">Automatikus</string>
+    <string name="settings_column_count_portrait">Oszlopok álló módban</string>
 </resources>

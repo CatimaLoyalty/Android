@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 141
+## v2.33.0 - 141 (2024-11-19)
 
 - Change default column on wide screens to 4
 - Allow overriding column counts for portrait and landscape in settings

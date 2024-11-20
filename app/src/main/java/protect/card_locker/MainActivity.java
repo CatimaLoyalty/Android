@@ -35,6 +35,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -201,6 +202,28 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onCreate(Bundle inputSavedInstanceState) {
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
+
+        // Delete old cache files
+        // These could be temporary images for the cropper, temporary images in LoyaltyCard toBundle/writeParcel/ etc.
+        new Thread(() -> {
+            long twentyFourHoursAgo = System.currentTimeMillis() - (1000 * 60 * 60 * 24);
+
+            File[] tempFiles = getCacheDir().listFiles();
+
+            if (tempFiles == null) {
+                Log.e(TAG, "getCacheDir().listFiles() somehow returned null, this should never happen... Skipping cache cleanup...");
+                return;
+            }
+
+            for (File file : tempFiles) {
+                if (file.lastModified() < twentyFourHoursAgo) {
+                    if (!file.delete()) {
+                        Log.w(TAG, "Failed to delete cache file " + file.getPath());
+                    }
+                };
+            }
+        }).start();
+
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
         extractIntentFields(getIntent());
 

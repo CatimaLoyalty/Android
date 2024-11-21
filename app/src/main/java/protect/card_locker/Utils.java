@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
@@ -194,6 +195,13 @@ public class Utils {
                 for (int i = 0; i < renderer.getPageCount(); i++) {
                     PdfRenderer.Page page = renderer.openPage(i);
                     renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+
+                    // Ensure the page has a background
+                    // Fixes some transparent PDF files not being read well
+                    Canvas canvas = new Canvas(renderedPage);
+                    canvas.drawColor(Color.WHITE);
+                    canvas.drawBitmap(renderedPage, 0, 0, null);
+
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
                     page.close();
 

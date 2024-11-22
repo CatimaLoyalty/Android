@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 142
+
+- Fix import of transparent PDF files
+
 ## v2.33.0 - 141 (2024-11-19)
 
 - Change default column on wide screens to 4

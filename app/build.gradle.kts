@@ -116,7 +116,7 @@ dependencies {
     val junitVersion = "4.13.2"
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")
-    testImplementation("org.robolectric:robolectric:4.14")
+    testImplementation("org.robolectric:robolectric:4.14.1")
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")

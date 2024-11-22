@@ -1,0 +1,4 @@
+- Vaikimisi veergude arv laial ekraanil on nüüd 4
+- Nüüdsest saab eri laiuste puhul veergude arvu seadistustest määrata
+- Kaardivaate avamisel või ekraani pööramisel jääb otsingufilter samaks
+- Piirasime märkuste maksimaalset pikkust põhivaates

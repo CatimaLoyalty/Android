@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="scanCardBarcode">Scanne kortets stregkode</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="scanCardBarcode">Scan stregkode</string>
     <string name="addCardTitle">Tilføj kort</string>
     <string name="editCardTitle">Rediger kort</string>
     <string name="sendLabel">Afsend…</string>
@@ -24,8 +24,8 @@
     <string name="cardId">Kort ID</string>
     <string name="note">Bemærk</string>
     <string name="storeName">Navn</string>
-    <string name="noMatchingGiftCards">Jeg fandt ikke noget. Prøv at ændre din søgning.</string>
-    <string name="noGiftCards">Klik på + plus-knappen for at tilføje et kort, eller importer først nogle kort fra ⋮-menuen.</string>
+    <string name="noMatchingGiftCards">Ingen resultater. Prøv at ændre din søgning.</string>
+    <string name="noGiftCards">Klik på + plus-knappen for at tilføje et kort, eller importer kort fra ⋮ menuen.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valgt kort</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valgte kort</item>
@@ -34,13 +34,13 @@
     <string name="action_search">Søg</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksport</string>
-    <string name="importExportHelp">Hvis du sikkerhedskopierer dine kort, kan du flytte dem til en anden enhed.</string>
+    <string name="importExportHelp">Sikkerhedskopiering af dit data, giver dig mulighed for at flytte dem til en anden enhed.</string>
     <string name="importSuccessfulTitle">Importeret</string>
     <string name="importFailedTitle">Import mislykkedes</string>
-    <string name="importFailed">Kunne ikke importere kort</string>
+    <string name="importFailed">Kunne ikke udføre importering</string>
     <string name="exportSuccessfulTitle">Eksporteret</string>
     <string name="exportFailedTitle">Eksport mislykkedes</string>
-    <string name="exportFailed">Kunne ikke eksportere kort</string>
+    <string name="exportFailed">Kunne ikke udføre eksportering</string>
     <string name="importing">Importere…</string>
     <string name="exporting">Eksportere…</string>
     <string name="settings_dark_theme">Mørk</string>
@@ -63,7 +63,7 @@
     <string name="importOptionFilesystemTitle">Import fra filsystem</string>
     <string name="exportOptionExplanation">Dataene skrives til en placering efter eget valg.</string>
     <string name="failedParsingImportUriError">Kunne ikke analysere import-URI\'en</string>
-    <string name="noCardExistsError">Kunne ikke finde kort</string>
+    <string name="noCardExistsError">Kunne ikke finde det kort</string>
     <string name="deleteConfirmationGroup">Slet gruppe\?</string>
     <string name="all">Alle</string>
     <string name="noGroupCards">Denne gruppe indeholder ikke nogen kort</string>
@@ -88,4 +88,16 @@
         <item quantity="other">Slet disse <xliff:g>%d</xliff:g> kort permanent\?</item>
     </plurals>
     <string name="app_name">Catima</string>
+    <string name="cameraPermissionRequired">Behov for kamera adgang krævet for denne funktion…</string>
+    <string name="storageReadPermissionRequired">Behov for lager adgang krævet for denne funktion…</string>
+    <string name="permissionReadCardsLabel">Læs Catima Kort</string>
+    <string name="permissionReadCardsDescription">læs dine Catima kort og alle deres detaljer, også noter og billeder</string>
+    <string name="cameraPermissionDeniedTitle">Kunne ikke få adgang til kamera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">For at scanne stregkoder, har Catima behov for at få adgang til dit kamera. Klik her for at ændre dine tilladelser i indstillinger.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os og hjælpere</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os og hjælpere</string>
+    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_license">Copylefted libre software, GPLv3+ licens</string>
+    <string name="barcodeImageDescriptionWithType">Billede<xliff:g>%s</xliff:g> stregkode</string>
 </resources>

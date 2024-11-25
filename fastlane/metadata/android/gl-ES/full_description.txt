@@ -1,0 +1,22 @@
+Deixa de buscar a tarxeta de plástico na tenda cando vas pagar.
+<b>Escanea os códigos de barras ao teu dispositivo coa cámara e esquece as tarxetas.</b>
+
+Esquece a carteira, ou alixéiraa co imprescindible.
+
+Con esta ferramenta de uso esencial (EDC) podes substituír o plástico inútil por efectivo.
+
+- Evita o rastrexo ao precisar poucos permisos. Sen acceso a internet nin publicidade.
+- Engade tarxetas e códigos con nome e cores personalizadas.
+- Engade manualmente os códigos se non ten código propio, ou non se pode usar.
+- Importa tarxetas e códigos desde ficheiros, Catima, FidMe, Loyalty Card Keychain, Stocar e Voucher Vault.
+- Crea unha copia de apoio das tarxetas e transfíreas a outro dispositivo.
+- Comparte cupóns, ofertas exclusivas, códigos promocionais ou tarxetas e códigos usando calquera app.
+- Decorado escuro e opcións de accesibilidade para persoas con dificultades visuais.
+- Feita para todas as persoas de parte da comunidade do software libre.
+- Traducida a máis de 40 idiomas por persoas voluntarias.
+- Gratuíta, mantida por contribucións da comunidade.
+- Utiliza, estuda, modifica e comparte;<i>con calquera</i>.
+- Non só é Software Libre / Código Aberto. Xestión de tarxetas con software libre <i>Copylefted</i> (GPLv3+)
+
+Simplifica a túa vida ao mercar, e non perdas recibos, tarxetas de regalo ou o billete de avión.
+Leva todos os descontos e promocións contigo, e gárdaos no momento en que chos entregan.

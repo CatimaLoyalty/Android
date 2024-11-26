@@ -585,13 +585,13 @@ public class LoyaltyCardViewActivityTest {
         // A change was made
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.confirmExitDialog.isShowing());
-        assertEquals(true, activity.hasChanged);
+        assertEquals(true, activity.viewModel.getHasChanged());
         assertEquals(false, activity.isFinishing());
 
         // Exit after setting hasChanged to false
-        activity.hasChanged = false;
+        activity.viewModel.setHasChanged(false);
         shadowOf(activity).clickMenuItem(android.R.id.home);
-        assertEquals(false, activity.hasChanged);
+        assertEquals(false, activity.viewModel.getHasChanged());
         assertEquals(true, activity.isFinishing());
     }
 
@@ -708,13 +708,13 @@ public class LoyaltyCardViewActivityTest {
         // A change was made
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.confirmExitDialog.isShowing());
-        assertEquals(true, activity.hasChanged);
+        assertEquals(true, activity.viewModel.getHasChanged());
         assertEquals(false, activity.isFinishing());
 
         // Exit after setting hasChanged to false
-        activity.hasChanged = false;
+        activity.viewModel.setHasChanged(false);
         shadowOf(activity).clickMenuItem(android.R.id.home);
-        assertEquals(false, activity.hasChanged);
+        assertEquals(false, activity.viewModel.getHasChanged());
         assertEquals(true, activity.isFinishing());
 
         database.close();

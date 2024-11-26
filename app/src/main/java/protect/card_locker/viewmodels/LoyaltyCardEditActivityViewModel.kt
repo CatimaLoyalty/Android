@@ -4,10 +4,13 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import protect.card_locker.LoyaltyCard
 import protect.card_locker.LoyaltyCardField
+import protect.card_locker.async.TaskHandler
 
 class LoyaltyCardEditActivityViewModel : ViewModel() {
     var initialized: Boolean = false
     var hasChanged: Boolean = false
+
+    var taskHandler: TaskHandler = TaskHandler();
 
     var addGroup: String? = null
     var openSetIconMenu: Boolean = false

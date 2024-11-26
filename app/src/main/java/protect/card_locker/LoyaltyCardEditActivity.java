@@ -156,8 +156,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     ActivityResultLauncher<Intent> mCropperLauncher;
     UCrop.Options mCropperOptions;
 
-    final private TaskHandler mTasks = new TaskHandler();
-
     // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
     private Locale mSystemLocale;
 
@@ -1591,7 +1589,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     }
 
     private void generateBarcode() {
-        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
+        viewModel.getTaskHandler().flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
 
         String cardIdString = viewModel.getLoyaltyCard().barcodeId != null ? viewModel.getLoyaltyCard().barcodeId : viewModel.getLoyaltyCard().cardId;
         CatimaBarcode barcodeFormat = viewModel.getLoyaltyCard().barcodeType;
@@ -1615,13 +1613,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
                             Log.d(TAG, "ImageView size now known");
                             BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, LoyaltyCardEditActivity.this, true);
-                            mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
+                            viewModel.getTaskHandler().executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
             BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, this, true);
-            mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
+            viewModel.getTaskHandler().executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }
 

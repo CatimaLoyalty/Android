@@ -44,7 +44,7 @@
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="thumbnailDescription">Miniatyrbilde</string>
     <string name="settings">Innstillinger</string>
-    <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
+    <string name="settings_display_barcode_max_brightness">Gjør skjermen lysere</string>
     <string name="exportSuccessful">Data eksportert</string>
     <string name="importSuccessful">Data importert</string>
     <string name="intent_import_card_from_url_share_text">Jeg ønsker å dele et kort med deg</string>
@@ -100,7 +100,7 @@
     <string name="importCatima">Importer fra Catima</string>
     <string name="errorReadingImage">Kunne ikke lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>
-    <string name="addFromImage">Velg bilde fra galleri</string>
+    <string name="addFromImage">Velg et bilde fra galleriet</string>
     <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som ID</string>
@@ -203,7 +203,7 @@
     </plurals>
     <string name="settings_oled_dark">Svart bakgrunn for mørk drakt</string>
     <string name="include_if_asking_support">Inkluder følgende info hvis du vil ha hjelp:</string>
-    <string name="settings_card_orientation">Strekkoderetning</string>
+    <string name="settings_card_orientation">Skjermorientering</string>
     <string name="settings_landscape_orientation">Liggende</string>
     <string name="settings_lock_on_opening_orientation">Lås til sideretning brukt ved åpning av kort</string>
     <string name="duplicateCard">Dupliser</string>
@@ -228,7 +228,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Catima trenger kameratilgang for å skanne strekkoder. Trykk her for å endre tilgangsinnstillingene.</string>
     <string name="importCards">Importer kort</string>
     <string name="currentBalanceSentence">Nåværende saldo: <xliff:g>%s</xliff:g></string>
-    <string name="updateBalanceTitle">Hvor mye brukte du?</string>
+    <string name="updateBalanceTitle">Hvor mye brukte eller fikk du?</string>
     <string name="updateBalanceHint">Skriv inn beløp</string>
     <string name="newBalanceSentence">Ny saldo: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Oppdater saldo</string>
@@ -258,7 +258,7 @@
     <string name="settings_keep_screen_on_summary">Skrur av skjermtidsavbrudd under visning av et kort</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Skrur av skjermlås under visning av et kort</string>
     <string name="settings_allow_content_provider_read_title">Tillat andre programmer tilgang til min data</string>
-    <string name="settings_category_title_cards">Kort</string>
+    <string name="settings_category_title_cards">Kortvisning</string>
     <string name="settings_category_title_general">Generelt</string>
     <string name="settings_category_title_privacy">Personvern</string>
     <string name="settings_oled_dark_summary">Reduserer batteribruk for OLED-skjermer</string>
@@ -279,17 +279,30 @@
     <string name="continue_">Fortsett</string>
     <string name="amountParsingFailed">Ugyldig beløp</string>
     <string name="spend">Utgifter</string>
-    <string name="receive">Inntekt</string>
+    <string name="receive">Motta</string>
     <string name="settings_follow_sensor_orientation">Alltid roter (ignorerer systeminnstilling)</string>
-    <string name="add_manually_warning_message">I noen butikker er strekkoden forskjellig fra nummeret på kortet. Som følge av dette kan det hende at å skrive inn strekkoden ikke virker. Det anbefales å skanne strekkoden med kameraet istedenfor. Fortsett?</string>
+    <string name="add_manually_warning_message">I noen butikker er strekkoden forskjellig fra nummeret på kortet. Som følge av dette kan det hende at å skrive inn strekkoden ikke virker. Det anbefales å skanne strekkoden med kameraet istedenfor. Vil du fortsette?</string>
     <string name="pageWithNumber">Side <xliff:g>%d</xliff:g></string>
     <string name="addFromPdfFile">Velg en PDF-fil</string>
     <string name="errorReadingFile">Kunne ikke lese filen</string>
-    <string name="failedLaunchingFileManager">Fant ikke støttet filbehandler</string>
+    <string name="failedLaunchingFileManager">Kunne ikke finne filbehandler som støttes</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Hvilken av de oppdagede strekkodene vil du bruke?</string>
     <string name="noCameraFoundGuideText">Finner ikke kamera på enheten din. Hvis dette ikke stemmer kan du prøve en omstart av den. Ellers kan du legge til strekkoder med «Mer»-knappen nedenfor.</string>
     <string name="importCancelled">Import avbrutt</string>
     <string name="exportCancelled">Eksport avbrutt</string>
-    <string name="useFrontImage">Bruk frontbilde</string>
+    <string name="useFrontImage">Bruk forsidebilde</string>
     <string name="useBackImage">Bruk baksidebilde</string>
+    <string name="settings_use_volume_keys_navigation">Bytt kort ved å bruke volumknappene</string>
+    <string name="settings_use_volume_keys_navigation_summary">Bruk volumknappene for å velge hvilket kort som skal vises</string>
+    <string name="settings_category_title_cards_overview">Kortoversikt</string>
+    <string name="settings_column_count_portrait">Kolonner i portrettmodus</string>
+    <string name="settings_column_count_landscape">Kolonner i landskapsmodus</string>
+    <string name="settings_automatic_column_count">Automatisk</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

@@ -1,0 +1,1 @@
+- Corrige l'import des fiches PDF transparents

@@ -288,4 +288,15 @@
     <string name="useBackImage">Gunakan gambar belakang</string>
     <string name="settings_use_volume_keys_navigation">Ganti kartu menggunakan tombol volume</string>
     <string name="settings_use_volume_keys_navigation_summary">Gunakan tombol volume untuk mengubah kartu mana yang ditampilkan</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_category_title_cards_overview">Ikhtisar kartu</string>
+    <string name="settings_column_count_portrait">Kolom dalam mode potret</string>
+    <string name="settings_column_count_landscape">Kolom dalam mode lanskap</string>
+    <string name="settings_automatic_column_count">Otomatis</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
 </resources>

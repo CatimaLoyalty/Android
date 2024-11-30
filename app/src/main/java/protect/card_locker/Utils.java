@@ -945,11 +945,16 @@ public class Utils {
     public static int setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage, int columnCount) {
         int headerColor = getHeaderColor(context, loyaltyCard);
         backgroundOrIcon.setImageBitmap(icon);
-        backgroundOrIcon.setBackgroundColor(headerColor);
 
         if (icon != null) {
+            // Use header colour to decide if this image will need a white or black background
+            backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+
             textWhenNoImage.setVisibility(View.GONE);
         } else {
+            // Use header colour as background colour
+            backgroundOrIcon.setBackgroundColor(headerColor);
+
             // Manually calculate how many lines will be needed
             // This is necessary because Android's auto sizing will split over lines way before reaching the minimum font size and store names split over multiple lines are harder to scan with a quick glance so we should try to prevent it
             // Because we have to write the text before we can actually know the exact laid out size (trying to delay this causes bugs where the autosize fails) we have to take some... weird shortcuts

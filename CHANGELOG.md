@@ -3,6 +3,7 @@
 ## Unreleased - 142
 
 - Fix import of transparent PDF files
+- Improve display of transparent thumbnails
 
 ## v2.33.0 - 141 (2024-11-19)
 

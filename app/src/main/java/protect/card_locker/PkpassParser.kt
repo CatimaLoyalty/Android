@@ -128,6 +128,9 @@ class PkpassParser(context: Context, uri: Uri?) {
             archiveStatus,
             image,
             null,
+            null,
+            null,
+            null,
             null
         )
     }

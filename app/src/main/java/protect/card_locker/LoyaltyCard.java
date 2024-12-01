@@ -38,11 +38,17 @@ public class LoyaltyCard {
     public int archiveStatus;
 
     @Nullable
-    public Bitmap imageThumbnail;
+    private Bitmap imageThumbnail;
     @Nullable
-    public Bitmap imageFront;
+    private String imageThumbnailPath;
     @Nullable
-    public Bitmap imageBack;
+    private Bitmap imageFront;
+    @Nullable
+    private String imageFrontPath;
+    @Nullable
+    private Bitmap imageBack;
+    @Nullable
+    private String imageBackPath;
 
     public static final String BUNDLE_LOYALTY_CARD_ID = "loyaltyCardId";
     public static final String BUNDLE_LOYALTY_CARD_STORE = "loyaltyCardStore";
@@ -86,9 +92,9 @@ public class LoyaltyCard {
         setLastUsed(Utils.getUnixTime());
         setZoomLevel(100);
         setArchiveStatus(0);
-        setImageThumbnail(null);
-        setImageFront(null);
-        setImageBack(null);
+        setImageThumbnail(null, null);
+        setImageFront(null, null);
+        setImageBack(null, null);
     }
 
     /**
@@ -115,7 +121,9 @@ public class LoyaltyCard {
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus,
-                       @Nullable Bitmap imageThumbnail, @Nullable Bitmap imageFront, @Nullable Bitmap imageBack) {
+                       @Nullable Bitmap imageThumbnail, @Nullable String imageThumbnailPath,
+                       @Nullable Bitmap imageFront, @Nullable String imageFrontPath,
+                       @Nullable Bitmap imageBack, @Nullable String imageBackPath) {
         setId(id);
         setStore(store);
         setNote(note);
@@ -131,9 +139,63 @@ public class LoyaltyCard {
         setLastUsed(lastUsed);
         setZoomLevel(zoomLevel);
         setArchiveStatus(archiveStatus);
-        setImageThumbnail(imageThumbnail);
-        setImageFront(imageFront);
-        setImageBack(imageBack);
+        setImageThumbnail(imageThumbnail, imageThumbnailPath);
+        setImageFront(imageFront, imageFrontPath);
+        setImageBack(imageBack, imageBackPath);
+    }
+
+    @Nullable
+    public Bitmap getImageThumbnail(Context context) {
+        if (imageThumbnailPath != null) {
+            if (imageThumbnailPath.equals(TEMP_IMAGE_THUMBNAIL_FILE_NAME)) {
+                imageThumbnail = Utils.loadTempImage(context, imageThumbnailPath);
+            } else {
+                imageThumbnail = Utils.retrieveCardImage(context, imageThumbnailPath);
+            }
+            imageThumbnailPath = null;
+        }
+
+        if (imageThumbnail == null) {
+            return null;
+        }
+
+        return imageThumbnail.copy(imageThumbnail.getConfig(), imageThumbnail.isMutable());
+    }
+
+    @Nullable
+    public Bitmap getImageFront(Context context) {
+        if (imageFrontPath != null) {
+            if (imageFrontPath.equals(TEMP_IMAGE_FRONT_FILE_NAME)) {
+                imageFront = Utils.loadTempImage(context, imageFrontPath);
+            } else {
+                imageFront = Utils.retrieveCardImage(context, imageFrontPath);
+            }
+            imageFrontPath = null;
+        }
+
+        if (imageFront == null) {
+            return null;
+        }
+
+        return imageFront.copy(imageFront.getConfig(), imageFront.isMutable());
+    }
+
+    @Nullable
+    public Bitmap getImageBack(Context context) {
+        if (imageBackPath != null) {
+            if (imageBackPath.equals(TEMP_IMAGE_BACK_FILE_NAME)) {
+                imageBack = Utils.loadTempImage(context, imageBackPath);
+            } else {
+                imageBack = Utils.retrieveCardImage(context, imageBackPath);
+            }
+            imageBackPath = null;
+        }
+
+        if (imageBack == null) {
+            return null;
+        }
+
+        return imageBack.copy(imageBack.getConfig(), imageBack.isMutable());
     }
 
     public void setId(int id) {
@@ -208,32 +270,47 @@ public class LoyaltyCard {
         this.archiveStatus = archiveStatus;
     }
 
-    public void setImageThumbnail(@Nullable Bitmap imageThumbnail) {
-        this.imageThumbnail = imageThumbnail;
+    public void setImageThumbnail(@Nullable Bitmap imageThumbnail, @Nullable String imageThumbnailPath) {
+        if (imageThumbnail != null && imageThumbnailPath != null) {
+            throw new IllegalArgumentException("Cannot set both thumbnail and path");
+        }
+
+        this.imageThumbnailPath = imageThumbnailPath;
+        this.imageThumbnail = imageThumbnail != null ? imageThumbnail.copy(imageThumbnail.getConfig(), imageThumbnail.isMutable()) : null;
     }
 
-    public void setImageFront(@Nullable Bitmap imageFront) {
-        this.imageFront = imageFront;
+    public void setImageFront(@Nullable Bitmap imageFront, @Nullable String imageFrontPath) {
+        if (imageFront != null && imageFrontPath != null) {
+            throw new IllegalArgumentException("Cannot set both thumbnail and path");
+        }
+
+        this.imageFrontPath = imageFrontPath;
+        this.imageFront = imageFront != null ? imageFront.copy(imageFront.getConfig(), imageFront.isMutable()) : null;
     }
 
-    public void setImageBack(@Nullable Bitmap imageBack) {
-        this.imageBack = imageBack;
+    public void setImageBack(@Nullable Bitmap imageBack, @Nullable String imageBackPath) {
+        if (imageBack != null && imageBackPath != null) {
+            throw new IllegalArgumentException("Cannot set both thumbnail and path");
+        }
+
+        this.imageBackPath = imageBackPath;
+        this.imageBack = imageBack != null ? imageBack.copy(imageBack.getConfig(), imageBack.isMutable()) : null;
     }
 
     @Nullable
-    public Bitmap getImageForImageLocationType(ImageLocationType imageLocationType) {
+    public Bitmap getImageForImageLocationType(Context context, ImageLocationType imageLocationType) {
         if (imageLocationType == ImageLocationType.icon) {
-            return imageThumbnail;
+            return getImageThumbnail(context);
         } else if (imageLocationType == ImageLocationType.front) {
-            return imageFront;
+            return getImageFront(context);
         } else if (imageLocationType == ImageLocationType.back) {
-            return imageBack;
+            return getImageBack(context);
         }
 
         throw new IllegalArgumentException("Unknown image location type");
     }
 
-    public void updateFromBundle(@NonNull Context context, @NonNull Bundle bundle, boolean requireFull) {
+    public void updateFromBundle(@NonNull Bundle bundle, boolean requireFull) {
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_ID)) {
             setId(bundle.getInt(BUNDLE_LOYALTY_CARD_ID));
         } else if (requireFull) {
@@ -315,32 +392,17 @@ public class LoyaltyCard {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_ARCHIVE_STATUS);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL)) {
-            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL);
-            if (tempImageName != null) {
-                setImageThumbnail(Utils.loadTempImage(context, tempImageName));
-            } else {
-                setImageThumbnail(null);
-            }
+            setImageThumbnail(null, bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL));
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_FRONT)) {
-            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT);
-            if (tempImageName != null) {
-                setImageFront(Utils.loadTempImage(context, tempImageName));
-            } else {
-                setImageFront(null);
-            }
+            setImageFront(null, bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT));
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_FRONT);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_IMAGE_BACK)) {
-            String tempImageName = bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_BACK);
-            if (tempImageName != null) {
-                setImageBack(Utils.loadTempImage(context, tempImageName));
-            } else {
-                setImageBack(null);
-            }
+            setImageBack(null, bundle.getString(BUNDLE_LOYALTY_CARD_IMAGE_BACK));
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_IMAGE_BACK);
         }
@@ -399,24 +461,27 @@ public class LoyaltyCard {
         // There is an (undocumented) size limit to bundles of around 2MB(?), when going over it you will experience a random crash
         // So, instead of storing the bitmaps directly, we write the bitmap to a temp file and store the path
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL)) {
-            if (imageThumbnail != null) {
-                Utils.saveTempImage(context, imageThumbnail, TEMP_IMAGE_THUMBNAIL_FILE_NAME, Bitmap.CompressFormat.PNG);
+            Bitmap thumbnail = getImageThumbnail(context);
+            if (thumbnail != null) {
+                Utils.saveTempImage(context, thumbnail, TEMP_IMAGE_THUMBNAIL_FILE_NAME, Bitmap.CompressFormat.PNG);
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL, TEMP_IMAGE_THUMBNAIL_FILE_NAME);
             } else {
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_THUMBNAIL, null);
             }
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_FRONT)) {
-            if (imageFront != null) {
-                Utils.saveTempImage(context, imageFront, TEMP_IMAGE_FRONT_FILE_NAME, Bitmap.CompressFormat.PNG);
+            Bitmap front = getImageFront(context);
+            if (front != null) {
+                Utils.saveTempImage(context, front, TEMP_IMAGE_FRONT_FILE_NAME, Bitmap.CompressFormat.PNG);
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT, TEMP_IMAGE_FRONT_FILE_NAME);
             } else {
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_FRONT, null);
             }
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_IMAGE_BACK)) {
-            if (imageBack != null) {
-                Utils.saveTempImage(context, imageBack, TEMP_IMAGE_BACK_FILE_NAME, Bitmap.CompressFormat.PNG);
+            Bitmap back = getImageBack(context);
+            if (back != null) {
+                Utils.saveTempImage(context, back, TEMP_IMAGE_BACK_FILE_NAME, Bitmap.CompressFormat.PNG);
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_BACK, TEMP_IMAGE_BACK_FILE_NAME);
             } else {
                 bundle.putString(BUNDLE_LOYALTY_CARD_IMAGE_BACK, null);
@@ -463,12 +528,6 @@ public class LoyaltyCard {
         int zoomLevel = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL));
         // archiveStatus
         int archiveStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
-        // imageThumbnail
-        Bitmap imageThumbnail = Utils.retrieveCardImage(context, id, ImageLocationType.icon);
-        // imageFront
-        Bitmap imageFront = Utils.retrieveCardImage(context, id, ImageLocationType.front);
-        // imageBack
-        Bitmap imageBack = Utils.retrieveCardImage(context, id, ImageLocationType.back);
 
         return new LoyaltyCard(
                 id,
@@ -486,13 +545,16 @@ public class LoyaltyCard {
                 lastUsed,
                 zoomLevel,
                 archiveStatus,
-                imageThumbnail,
-                imageFront,
-                imageBack
+                null,
+                Utils.getCardImageFileName(id, ImageLocationType.icon),
+                null,
+                Utils.getCardImageFileName(id, ImageLocationType.front),
+                null,
+                Utils.getCardImageFileName(id, ImageLocationType.back)
         );
     }
 
-    public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
+    public static boolean isDuplicate(Context context, final LoyaltyCard a, final LoyaltyCard b) {
         // Note: Bitmap comparing is slow, be careful when calling this method
         // Skip lastUsed & zoomLevel
         return a.id == b.id && // non-nullable int
@@ -509,9 +571,9 @@ public class LoyaltyCard {
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
                 a.archiveStatus == b.archiveStatus && // non-nullable int
-                nullableBitmapsEqual(a.imageThumbnail, b.imageThumbnail) && // nullable Bitmap
-                nullableBitmapsEqual(a.imageFront, b.imageFront) && // nullable Bitmap
-                nullableBitmapsEqual(a.imageBack, b.imageBack); // nullable Bitmap
+                nullableBitmapsEqual(a.getImageThumbnail(context), b.getImageThumbnail(context)) && // nullable Bitmap
+                nullableBitmapsEqual(a.getImageFront(context), b.getImageFront(context)) && // nullable Bitmap
+                nullableBitmapsEqual(a.getImageBack(context), b.getImageBack(context)); // nullable Bitmap
     }
 
     public static boolean nullableBitmapsEqual(@Nullable Bitmap a, @Nullable Bitmap b) {
@@ -534,7 +596,7 @@ public class LoyaltyCard {
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
                         + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
                         + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  archiveStatus=%s%n"
-                        + "  imageThumbnail=%s,%n  imageFront=%s,%n  imageBack=%s,%n}",
+                        + "  imageThumbnail=%s,%n  imageThumbnailPath=%s,%n  imageFront=%s,%n  imageFrontPath=%s,%n  imageBack=%s,%n  imageBackPath=%s,%n}",
                 this.id,
                 this.store,
                 this.note,
@@ -551,8 +613,11 @@ public class LoyaltyCard {
                 this.zoomLevel,
                 this.archiveStatus,
                 this.imageThumbnail,
+                this.imageThumbnailPath,
                 this.imageFront,
-                this.imageBack
+                this.imageFrontPath,
+                this.imageBack,
+                this.imageBackPath
         );
     }
 }

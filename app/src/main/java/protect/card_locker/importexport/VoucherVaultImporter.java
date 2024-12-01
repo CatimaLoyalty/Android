@@ -169,6 +169,9 @@ public class VoucherVaultImporter implements Importer {
                     0,
                     null,
                     null,
+                    null,
+                    null,
+                    null,
                     null
             ));
         }

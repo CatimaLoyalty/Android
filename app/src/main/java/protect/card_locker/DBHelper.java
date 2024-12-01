@@ -335,7 +335,7 @@ public class DBHelper extends SQLiteOpenHelper {
             LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor);
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 String name = Utils.getCardImageFileName(card.id, imageLocationType);
-                if (card.getImageForImageLocationType(imageLocationType) != null) {
+                if (card.getImageForImageLocationType(context, imageLocationType) != null) {
                     files.add(name);
                 }
             }

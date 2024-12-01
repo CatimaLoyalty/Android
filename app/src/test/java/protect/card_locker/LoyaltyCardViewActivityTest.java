@@ -307,7 +307,12 @@ public class LoyaltyCardViewActivityTest {
             } catch (ClassCastException e) {
                 // This is probably a VectorDrawable, the placeholder image. Aka: No image.
             }
-            assertEquals(contents, image);
+
+            if (contents == null && image == null) {
+                return;
+            }
+
+            assertTrue(image.sameAs((Bitmap) contents));
         } else {
             throw new UnsupportedOperationException();
         }

@@ -372,6 +372,9 @@ public class StocardImporter implements Importer {
                     0,
                     null,
                     null,
+                    null,
+                    null,
+                    null,
                     null
             );
             importedData.cards.add(card);

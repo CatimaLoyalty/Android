@@ -167,6 +167,9 @@ public class FidmeImporter implements Importer {
                 archiveStatus,
                 null,
                 null,
+                null,
+                null,
+                null,
                 null
         );
     }

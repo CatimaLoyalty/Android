@@ -143,6 +143,9 @@ public class ImportURIHelper {
                     0,
                     null,
                     null,
+                    null,
+                    null,
+                    null,
                     null
             );
         } catch (NumberFormatException | UnsupportedEncodingException | ArrayIndexOutOfBoundsException ex) {

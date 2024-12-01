@@ -69,7 +69,7 @@ public class CatimaExporter implements Exporter {
             // For each image
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 // If it exists, add to the .zip file
-                Bitmap image = card.getImageForImageLocationType(imageLocationType);
+                Bitmap image = card.getImageForImageLocationType(context, imageLocationType);
                 if (image != null) {
                     ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType), password);
                     zipOutputStream.putNextEntry(imageZipParameters);

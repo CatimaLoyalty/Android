@@ -1005,33 +1005,25 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         }
     }
 
-    protected void setColorFromIcon() {
-        Object icon = thumbnail.getTag();
-        if (icon != null && (icon instanceof Bitmap)) {
-            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, Utils.getHeaderColor(this, tempLoyaltyCard));
+    protected void setThumbnailImage(@Nullable Bitmap bitmap) {
+        setCardImage(thumbnail, bitmap, false);
+
+        if (bitmap != null) {
+            int headerColor = Utils.getHeaderColorFromImage(bitmap, Utils.getHeaderColor(this, tempLoyaltyCard));
 
             setLoyaltyCardHeaderColor(headerColor);
+
+            thumbnail.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
             thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
             thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
-            Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
-        }
-    }
-
-    protected void setThumbnailImage(@Nullable Bitmap bitmap) {
-        setCardImage(thumbnail, bitmap, false);
-
-        if (bitmap == null) {
             generateIcon(storeFieldEdit.getText().toString().trim());
-        } else {
-            thumbnail.setBackgroundColor(Color.TRANSPARENT);
-            setColorFromIcon();
-        }
 
-        if (tempLoyaltyCard.headerColor != null) {
-            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.BLACK : Color.WHITE);
-            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.WHITE : Color.BLACK);
+            if (tempLoyaltyCard.headerColor != null) {
+                thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.BLACK : Color.WHITE);
+                thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.WHITE : Color.BLACK);
+            }
         }
     }
 

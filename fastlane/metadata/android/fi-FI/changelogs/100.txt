@@ -1,0 +1,2 @@
+- Piilota haku, laajenna ja lajittele ikoneja, kunnes siellä on ainakin yksi kortti
+- Erilaisia teeman korjauksia

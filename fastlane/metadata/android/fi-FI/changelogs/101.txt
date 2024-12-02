@@ -1,0 +1,3 @@
+- Korjattiin kroppaajan teeman käyttämättömyys
+- Korjattiin pieniä teemaongelmia
+- Lisättiin pikimusta-teema OLED-näytöille

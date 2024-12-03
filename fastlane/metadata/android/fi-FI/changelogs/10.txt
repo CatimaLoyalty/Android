@@ -1,0 +1,3 @@
+- Vaihdettiin oletus- tuo/vien tiedostonimi. (veto #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Oikea teksti tuo/vie -sivulle. (veto #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Parannus korttien katsomis -sivun näkymään. Tekstin pitäisi olla helppolukuisempi ja valittavissa pitkällä klikkauksella. (veto #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

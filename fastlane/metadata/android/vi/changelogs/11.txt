@@ -1,0 +1,5 @@
+- Khi chỉnh sửa một thẻ ID, hãy đặt lại ID đang tồn tại để bắt đầu. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Giới hạn chiều rộng của barcodes đã được tạo để giảm bộ nhớ sử dụng và lỗi hết bộ nhớ. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Khi chỉnh sửa thẻ, chuyển nút "Nhập thẻ" thành nút "Chỉnh sửa thẻ" nếu thẻ ID đã tồn tại trước đó. (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Thay đổi màu sắc mềm hơn và tương thích với biểu tượng ứng dụng, và thay đổi giao diện khi xem thẻ trông gọn gàng hơn. (pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Thêm đoạn giới thiệu khởi động khi lần đầu mở ứng dụng. (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

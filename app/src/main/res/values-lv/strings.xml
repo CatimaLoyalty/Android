@@ -115,7 +115,7 @@
         <item quantity="other"><xliff:g>%s</xliff:g> punkti</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="importCatimaMessage">Jāatlasa sava <i>catiam.zip</i> izguves datne no Catima, lai ievietotu. \nTo var izveidot citā ierīcē esošas Catima lietotnes sadaļā \"Ievietot/izgūt\" spiežot \"Izgūt\".</string>
+    <string name="importCatimaMessage">Jāatlasa sava <i>catima.zip</i> izguves datne no Catima, lai ievietotu. \nTo var izveidot citā ierīcē esošas Catima lietotnes sadaļā \"Ievietot/izgūt\" spiežot \"Izgūt\".</string>
     <string name="importLoyaltyCardKeychainMessage">Jāatlasa sava <i>LoyaltyCardKeychain.csv</i> izguves datne no Loyalty Card Keychain, lai ievietotu. \nTo var izveidot Loyalty Card Keychain sadaļā \"Import/Export\" spiežot \"Export\".</string>
     <string name="removeImage">Noņemt attēlu</string>
     <string name="exportPasswordHint">Ievadīt paroli</string>

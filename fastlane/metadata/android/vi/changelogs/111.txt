@@ -1,0 +1,7 @@
+- Hỗ trợ tiếng Ả Rập
+- Hiện thị số lượng thẻ trong tổng quan nhóm.
+-Sửa lỗi phân tích số dư (làm cho thẻ không thể lưu được bằng tiếng Ả Rập và ngôn ngữ khác có số không phải của phương Tây).
+- Sửa tùy chỉnh chủ đề không được áp dụng đúng cách ở màn hình chính.
+- Cải thiện giao diện của thẻ được chọn.
+- Sửa lỗi văng khi xem thẻ trong bố cục RTL cho những thẻ hết hạn hay cân bằng.
+- Sửa phím quay lại chỉ nhầm hướng trong bố cục RTL.

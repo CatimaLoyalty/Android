@@ -1,1 +1,2 @@
 - Import transparenter PDF-Dateien repariert
+- Anzeige transparenter Vorschaubilder verbessert

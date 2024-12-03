@@ -70,7 +70,7 @@
     <string name="settings_system_theme">Hệ thống</string>
     <string name="failedToOpenUrl">Trước tiên, hãy cài đặt trình duyệt web</string>
     <string name="setBackImage">Đặt ảnh mặt sau</string>
-    <string name="settings_display_barcode_max_brightness">Tăng sáng cho chế độ xem mã vạch</string>
+    <string name="settings_display_barcode_max_brightness">Tăng sáng màn hình</string>
     <string name="chooseExpiryDate">Chọn ngày hết hạn</string>
     <string name="permissionReadCardsDescription">đọc thẻ Catima của bạn và mọi thông tin trong đó, bao gồm cả ghi chú và ảnh</string>
     <string name="anyDate">Bất cứ ngày nào</string>
@@ -101,7 +101,7 @@
     <string name="importCards">Nhập thẻ</string>
     <string name="icon_header_click_text">Nhấn đè để sửa ảnh con</string>
     <string name="importFailedTitle">Nhập dữ liệu hỏng</string>
-    <string name="settings_category_title_cards">Thẻ</string>
+    <string name="settings_category_title_cards">Xem thẻ</string>
     <string name="setBarcodeId">Đặt giá trị mã vạch</string>
     <string name="ok">Đồng ý</string>
     <string name="unarchive">Bỏ lưu trữ</string>
@@ -219,7 +219,7 @@
     <string name="show_archived_cards">Hiện thẻ lưu trữ</string>
     <string name="selectBarcodeTitle">Chọn Mã Vạch</string>
     <string name="importSuccessful">Nhập dữ liệu xong</string>
-    <string name="settings_card_orientation">Hướng đặt mã vạch</string>
+    <string name="settings_card_orientation">Hướng màn hình</string>
     <string name="app_libraries">Thư viện mở từ bên thứ 3: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Bạn đã chi tiêu hoặc nhận được bao nhiêu?</string>
     <string name="editCardTitle">Sửa Thẻ</string>
@@ -286,4 +286,17 @@
     <string name="useBackImage">Sử dụng hình ảnh phía sau</string>
     <string name="importCancelled">Đã huỷ nhập</string>
     <string name="exportCancelled">Đã hủy xuất</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_use_volume_keys_navigation">Thay đổi thẻ bằng cách sử dụng phím âm lượng</string>
+    <string name="settings_use_volume_keys_navigation_summary">Sử dụng phím âm lượng để thay đổi thẻ được hiển thị</string>
+    <string name="settings_category_title_cards_overview">Tổng quan thẻ</string>
+    <string name="settings_column_count_portrait">Cột trong chế độ dọc</string>
+    <string name="settings_column_count_landscape">Cột trong chế độ ngang</string>
+    <string name="settings_automatic_column_count">Tự động</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
 </resources>

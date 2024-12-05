@@ -99,7 +99,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
     }
 
     private Bitmap getIcon(Context context, LoyaltyCard loyaltyCard) {
-        Bitmap cardIcon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+        Bitmap cardIcon = loyaltyCard.getImageThumbnail(context);
 
         if (cardIcon != null) {
             return cardIcon;

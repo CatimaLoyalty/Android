@@ -89,7 +89,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mDivider.setVisibility(View.GONE);
 
         LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(mContext, inputCursor);
-        Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+        Bitmap icon = loyaltyCard.getImageThumbnail(mContext);
 
         if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && icon != null) {
             showDivider = true;

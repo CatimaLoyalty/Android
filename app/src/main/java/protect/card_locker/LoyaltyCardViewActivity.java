@@ -329,7 +329,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
 
         binding.iconContainer.setOnClickListener(view -> {
-            if (Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon) != null) {
+            if (loyaltyCard.getImageThumbnail(this) != null) {
                 openImageInGallery(ImageType.ICON);
             } else {
                 Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
@@ -719,7 +719,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
-        Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
+        Bitmap icon = loyaltyCard.getImageThumbnail(this);
         Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText, 1);
 
         // If the background is very bright, we should use dark icons
@@ -748,12 +748,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             imageTypes.add(ImageType.BARCODE);
         }
 
-        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.front);
+        frontImageBitmap = loyaltyCard.getImageFront(this);
         if (frontImageBitmap != null) {
             imageTypes.add(ImageType.IMAGE_FRONT);
         }
 
-        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.back);
+        backImageBitmap = loyaltyCard.getImageBack(this);
         if (backImageBitmap != null) {
             imageTypes.add(ImageType.IMAGE_BACK);
         }

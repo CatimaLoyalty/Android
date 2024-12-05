@@ -33,7 +33,6 @@ class ShortcutHelper {
     private static final int ADAPTIVE_BITMAP_SIZE = 108 * ADAPTIVE_BITMAP_SCALE;
     private static final int ADAPTIVE_BITMAP_VISIBLE_SIZE = 72 * ADAPTIVE_BITMAP_SCALE;
     private static final int ADAPTIVE_BITMAP_IMAGE_SIZE = ADAPTIVE_BITMAP_VISIBLE_SIZE + 5 * ADAPTIVE_BITMAP_SCALE;
-    private static final int PADDING_COLOR_OVERLAY = Color.argb(127, 0, 0, 0);
 
     /**
      * Add a card to the app shortcuts, and maintain a list of the most
@@ -120,7 +119,7 @@ class ShortcutHelper {
     Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor) {
         Bitmap ret = Bitmap.createBitmap(ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE, Bitmap.Config.ARGB_8888);
         Canvas output = new Canvas(ret);
-        output.drawColor(ColorUtils.compositeColors(PADDING_COLOR_OVERLAY, paddingColor));
+        output.drawColor(paddingColor);
         Bitmap resized = Utils.resizeBitmap(in, ADAPTIVE_BITMAP_IMAGE_SIZE);
         output.drawBitmap(resized, (ADAPTIVE_BITMAP_SIZE - resized.getWidth()) / 2f, (ADAPTIVE_BITMAP_SIZE - resized.getHeight()) / 2f, null);
         return ret;
@@ -140,7 +139,7 @@ class ShortcutHelper {
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
         } else {
-            iconBitmap = createAdaptiveBitmap(iconBitmap, Utils.getHeaderColor(context, loyaltyCard));
+            iconBitmap = createAdaptiveBitmap(iconBitmap, Utils.needsDarkForeground(Utils.getHeaderColor(context, loyaltyCard)) ? Color.BLACK : Color.WHITE);
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);

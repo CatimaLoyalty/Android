@@ -34,9 +34,9 @@
     <string name="exportFailed">Невозможно выполнить экспорт</string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
-    <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
-    <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
-    <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
+    <string name="exportOptionExplanation">Данные будут сохранены в выбранное место.</string>
+    <string name="importOptionFilesystemTitle">Импорт из файла</string>
+    <string name="importOptionFilesystemExplanation">Выберете файл в файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
     <string name="importOptionApplicationTitle">Использование другого приложения</string>
     <string name="importOptionApplicationExplanation">Используйте любое приложение или ваш любимый файловый менеджер, чтобы открыть файл.</string>
@@ -294,7 +294,7 @@
     <string name="spend">Потрачено</string>
     <string name="receive">Получено</string>
     <string name="amountParsingFailed">Недопустимая сумма</string>
-    <string name="addFromPdfFile">Выберите PDF-файл</string>
+    <string name="addFromPdfFile">Выбрать PDF-файл</string>
     <string name="errorReadingFile">Невозможно прочитать файл</string>
     <string name="pageWithNumber">Страница <xliff:g>%d</xliff:g></string>
     <string name="failedLaunchingFileManager">Не найден поддерживаемый файловый менеджер</string>

@@ -2,6 +2,7 @@
 
 ## Unreleased - 142
 
+- Add Passbook (.pkpass) support
 - Fix import of transparent PDF files
 - Improve display of transparent thumbnails
 

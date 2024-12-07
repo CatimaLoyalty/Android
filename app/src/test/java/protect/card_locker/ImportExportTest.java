@@ -94,7 +94,7 @@ public class ImportExportTest {
         boolean result = (id != -1);
         assertTrue(result);
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, (int) id);
         assertEquals("No Expiry", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -111,7 +111,7 @@ public class ImportExportTest {
         result = (id != -1);
         assertTrue(result);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, (int) id);
         assertEquals("Past", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -128,7 +128,7 @@ public class ImportExportTest {
         result = (id != -1);
         assertTrue(result);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, (int) id);
         assertEquals("Today", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -148,7 +148,7 @@ public class ImportExportTest {
         result = (id != -1);
         assertTrue(result);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, (int) id);
         assertEquals("Future", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -174,7 +174,7 @@ public class ImportExportTest {
         int index = 1;
 
         while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);
@@ -200,7 +200,7 @@ public class ImportExportTest {
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
 
         while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
             // ID goes up for duplicates (b/c the cursor orders by store), down for originals
             int index = card.id > numCards ? card.id - numCards : numCards - card.id + 1;
@@ -236,7 +236,7 @@ public class ImportExportTest {
 
         while (index < 10) {
             cursor.moveToNext();
-            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);
@@ -258,7 +258,7 @@ public class ImportExportTest {
 
         index = 1;
         while (cursor.moveToNext() && index < 5) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(cursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
             String expectedNote = String.format("note, \"%4d", index);
@@ -649,7 +649,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -675,7 +675,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -713,7 +713,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -739,7 +739,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -765,7 +765,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -798,7 +798,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
@@ -831,7 +831,7 @@ public class ImportExportTest {
 
         // Create card 1
         int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
-        loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
+        loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
         DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, groups);
@@ -845,7 +845,7 @@ public class ImportExportTest {
 
         // Create card 2
         loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
-        loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
+        loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
 
         // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -863,7 +863,7 @@ public class ImportExportTest {
         for (Integer loyaltyCardID : loyaltyCardHashMap.keySet()) {
             LoyaltyCard loyaltyCard = loyaltyCardHashMap.get(loyaltyCardID);
 
-            LoyaltyCard dbLoyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardID);
+            LoyaltyCard dbLoyaltyCard = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardID);
 
             assertEquals(loyaltyCard.id, dbLoyaltyCard.id);
             assertEquals(loyaltyCard.store, dbLoyaltyCard.store);
@@ -950,7 +950,7 @@ public class ImportExportTest {
         assertEquals(Arrays.asList(8, 6), DBHelper.getGroupCardIds(mDatabase, "Fashion"));
 
         // Check all cards
-        LoyaltyCard card1 = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card1 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("Card 1", card1.store);
         assertEquals("Note 1", card1.note);
@@ -967,7 +967,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageLocationType.icon));
 
-        LoyaltyCard card8 = DBHelper.getLoyaltyCard(mDatabase, 8);
+        LoyaltyCard card8 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 8);
 
         assertEquals("Clothes Store", card8.store);
         assertEquals("Note about store", card8.note);
@@ -984,7 +984,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageLocationType.icon));
 
-        LoyaltyCard card2 = DBHelper.getLoyaltyCard(mDatabase, 2);
+        LoyaltyCard card2 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
 
         assertEquals("Department Store", card2.store);
         assertEquals("", card2.note);
@@ -1001,7 +1001,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageLocationType.icon));
 
-        LoyaltyCard card3 = DBHelper.getLoyaltyCard(mDatabase, 3);
+        LoyaltyCard card3 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 3);
 
         assertEquals("Grocery Store", card3.store);
         assertEquals("Multiline note about grocery store\n\nwith blank line", card3.note);
@@ -1018,7 +1018,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageLocationType.icon));
 
-        LoyaltyCard card4 = DBHelper.getLoyaltyCard(mDatabase, 4);
+        LoyaltyCard card4 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 4);
 
         assertEquals("Pharmacy", card4.store);
         assertEquals("", card4.note);
@@ -1035,7 +1035,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageLocationType.icon));
 
-        LoyaltyCard card5 = DBHelper.getLoyaltyCard(mDatabase, 5);
+        LoyaltyCard card5 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 5);
 
         assertEquals("Restaurant", card5.store);
         assertEquals("Note about restaurant here", card5.note);
@@ -1052,7 +1052,7 @@ public class ImportExportTest {
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageLocationType.icon));
 
-        LoyaltyCard card6 = DBHelper.getLoyaltyCard(mDatabase, 6);
+        LoyaltyCard card6 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 6);
 
         assertEquals("Shoe Store", card6.store);
         assertEquals("", card6.note);
@@ -1081,7 +1081,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("Hema", card.store);
         assertEquals("2021-03-24 18:35:08 UTC", card.note);
@@ -1094,7 +1094,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 2);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
 
         assertEquals("test", card.store);
         assertEquals("Test\n2021-03-24 18:34:19 UTC", card.note);
@@ -1107,7 +1107,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 3);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 3);
 
         assertEquals("Albert Heijn", card.store);
         assertEquals("Bonus Kaart\n2021-03-24 16:47:47 UTC\nFirst Last", card.note);
@@ -1138,7 +1138,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("Air Miles", card.store);
         assertEquals("szjsbs", card.note);
@@ -1156,7 +1156,7 @@ public class ImportExportTest {
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back)));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.icon));
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 2);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
 
         assertEquals("GAMMA", card.store);
         assertEquals("", card.note);
@@ -1174,7 +1174,7 @@ public class ImportExportTest {
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.icon));
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 3);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 3);
 
         assertEquals("jö", card.store);
         assertEquals("", card.note);
@@ -1205,7 +1205,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(4, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("Foo", card.store);
         assertEquals("", card.note);
@@ -1223,7 +1223,7 @@ public class ImportExportTest {
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.icon));
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 2);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
 
         assertEquals("Air Miles", card.store);
         assertEquals("szjsbs\nMiles", card.note);
@@ -1241,7 +1241,7 @@ public class ImportExportTest {
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back)));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.icon));
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 3);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 3);
 
         assertEquals("GAMMA", card.store);
         assertEquals("", card.note);
@@ -1259,7 +1259,7 @@ public class ImportExportTest {
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.back));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.icon));
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 4);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 4);
 
         assertEquals("jö", card.store);
         assertEquals("", card.note);
@@ -1289,7 +1289,7 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
 
         assertEquals("Clothes Store", card.store);
         assertEquals("", card.note);
@@ -1303,7 +1303,7 @@ public class ImportExportTest {
         assertEquals(Color.GRAY, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
-        card = DBHelper.getLoyaltyCard(mDatabase, 2);
+        card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
 
         assertEquals("Department Store", card.store);
         assertEquals("", card.note);

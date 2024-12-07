@@ -86,7 +86,7 @@ class ShortcutHelper {
         for (int index = 0; index < list.size(); index++) {
             ShortcutInfoCompat prevShortcut = list.get(index);
 
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(database, Integer.parseInt(prevShortcut.getId()));
+            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, Integer.parseInt(prevShortcut.getId()));
 
             // skip outdated cards that no longer exist
             if (loyaltyCard != null) {
@@ -135,7 +135,7 @@ class ShortcutHelper {
         bundle.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id);
         intent.putExtras(bundle);
 
-        Bitmap iconBitmap = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+        Bitmap iconBitmap = loyaltyCard.getImageThumbnail(context);
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
         } else {

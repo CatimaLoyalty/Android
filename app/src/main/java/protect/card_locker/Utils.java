@@ -79,6 +79,7 @@ import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -96,12 +97,13 @@ public class Utils {
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
     public static final int BARCODE_IMPORT_FROM_PDF_FILE = 5;
-    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 6;
-    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 7;
-    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 8;
-    public static final int CARD_IMAGE_FROM_FILE_FRONT = 9;
-    public static final int CARD_IMAGE_FROM_FILE_BACK = 10;
-    public static final int CARD_IMAGE_FROM_FILE_ICON = 11;
+    public static final int BARCODE_IMPORT_FROM_PKPASS_FILE = 6;
+    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 7;
+    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 8;
+    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 9;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 10;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 11;
+    public static final int CARD_IMAGE_FROM_FILE_ICON = 12;
 
     public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
 
@@ -144,7 +146,7 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
-    static public List<BarcodeValues> retrieveBarcodesFromImage(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromImage(Context context, Uri uri) {
         Log.i(TAG, "Received image file with possible barcode");
 
         if (uri == null) {
@@ -163,7 +165,7 @@ public class Utils {
             return new ArrayList<>();
         }
 
-        List<BarcodeValues> barcodesFromBitmap = getBarcodesFromBitmap(bitmap);
+        List<ParseResult> barcodesFromBitmap = getBarcodesFromBitmap(bitmap);
 
         if (barcodesFromBitmap.isEmpty()) {
             Log.i(TAG, "No barcode found in image file");
@@ -173,7 +175,32 @@ public class Utils {
         return barcodesFromBitmap;
     }
 
-    static public List<BarcodeValues> retrieveBarcodesFromPdf(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromPkPass(Context context, Uri uri) {
+        Log.i(TAG, "Received Pkpass file with possible barcode");
+        if (uri == null) {
+            Log.e(TAG, "Pkpass did not contain any data");
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return null;
+        }
+
+        PkpassParser pkpassParser = new PkpassParser(context, uri);
+
+        List<String> locales = pkpassParser.listLocales();
+        if (locales.isEmpty()) {
+            return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
+        }
+
+        List<ParseResult> parseResultList = new ArrayList<>();
+        for (String locale : locales) {
+            ParseResult parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
+            parseResult.setNote(locale);
+            parseResultList.add(parseResult);
+        }
+
+        return parseResultList;
+    }
+
+    static public List<ParseResult> retrieveBarcodesFromPdf(Context context, Uri uri) {
         Log.i(TAG, "Received PDF file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
@@ -183,7 +210,7 @@ public class Utils {
 
         ParcelFileDescriptor parcelFileDescriptor = null;
         PdfRenderer renderer = null;
-        List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
+        List<ParseResult> barcodesFromPdfPages = new ArrayList<>();
 
         try {
             parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
@@ -205,10 +232,10 @@ public class Utils {
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
                     page.close();
 
-                    List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
-                    for (BarcodeValues barcodeValues : barcodesFromPage) {
-                        barcodeValues.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
-                        barcodesFromPdfPages.add(barcodeValues);
+                    List<ParseResult> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
+                    for (ParseResult parseResult : barcodesFromPage) {
+                        parseResult.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
+                        barcodesFromPdfPages.add(parseResult);
                     }
                 }
             }
@@ -237,17 +264,17 @@ public class Utils {
     }
 
     /**
-     * Returns the Barcode format and content based on the result of an activity.
-     * It shows toasts to notify the end-user as needed itself and will return an empty
-     * BarcodeValues object if the activity was cancelled or nothing could be found.
+     * Returns the ParseResult based on the result of an activity.
+     * It shows toasts to notify the end-user as needed itself and will return an empty list if the
+     * activity was cancelled or nothing could be found.
      *
      * @param requestCode
      * @param resultCode
      * @param intent
      * @param context
-     * @return BarcodeValues
+     * @return List<ParseResult>
      */
-    static public List<BarcodeValues> parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
+    static public List<ParseResult> parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
         String contents;
         String format;
 
@@ -263,6 +290,10 @@ public class Utils {
             return retrieveBarcodesFromPdf(context, intent.getData());
         }
 
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
+            return retrieveBarcodesFromPkPass(context, intent.getData());
+        }
+
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {
             if (requestCode == Utils.BARCODE_SCAN) {
                 Log.i(TAG, "Received barcode information from camera");
@@ -276,7 +307,15 @@ public class Utils {
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
 
-            return Collections.singletonList(new BarcodeValues(format != null ? CatimaBarcode.fromName(format) : null, contents));
+            LoyaltyCard loyaltyCard = new LoyaltyCard();
+            if (format != null) {
+                loyaltyCard.setBarcodeType(CatimaBarcode.fromName(format));
+            }
+            if (contents != null) {
+                loyaltyCard.setCardId(contents);
+            }
+
+            return Collections.singletonList(new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard));
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
@@ -296,7 +335,7 @@ public class Utils {
         return MediaStore.Images.Media.getBitmap(context.getContentResolver(), data);
     }
 
-    static public List<BarcodeValues> getBarcodesFromBitmap(Bitmap bitmap) {
+    static public List<ParseResult> getBarcodesFromBitmap(Bitmap bitmap) {
         // This function is vulnerable to OOM, so we try again with a smaller bitmap is we get OOM
         for (int i = 0; i < 10; i++) {
             try {
@@ -311,7 +350,7 @@ public class Utils {
         return new ArrayList<>();
     }
 
-    static private List<BarcodeValues> getBarcodesFromBitmapReal(Bitmap bitmap) {
+    static private List<ParseResult> getBarcodesFromBitmapReal(Bitmap bitmap) {
         // In order to decode it, the Bitmap must first be converted into a pixel array...
         int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
         bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
@@ -320,7 +359,7 @@ public class Utils {
         LuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
         BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
 
-        List<BarcodeValues> barcodeValuesList = new ArrayList<>();
+        List<ParseResult> parseResultList = new ArrayList<>();
         try {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             MultipleBarcodeReader multipleBarcodeReader = new GenericMultipleBarcodeReader(multiFormatReader);
@@ -331,37 +370,42 @@ public class Utils {
                 Log.i(TAG, "Read barcode id: " + barcodeResult.getText());
                 Log.i(TAG, "Read format: " + barcodeResult.getBarcodeFormat().name());
 
-                barcodeValuesList.add(new BarcodeValues(CatimaBarcode.fromBarcode(barcodeResult.getBarcodeFormat()), barcodeResult.getText()));
+                LoyaltyCard loyaltyCard = new LoyaltyCard();
+                loyaltyCard.setCardId(barcodeResult.getText());
+                loyaltyCard.setBarcodeType(CatimaBarcode.fromBarcode(barcodeResult.getBarcodeFormat()));
+                parseResultList.add(new ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard));
             }
 
-            return barcodeValuesList;
+            return parseResultList;
         } catch (NotFoundException e) {
-            return barcodeValuesList;
+            return parseResultList;
         }
     }
 
-    static public void makeUserChooseBarcodeFromList(Context context, List<BarcodeValues> barcodeValuesList, BarcodeValuesListDisambiguatorCallback callback) {
+    static public void makeUserChooseParseResultFromList(Context context, List<ParseResult> parseResultList, ParseResultListDisambiguatorCallback callback) {
         // If there is only one choice, consider it chosen
-        if (barcodeValuesList.size() == 1) {
-            callback.onUserChoseBarcode(barcodeValuesList.get(0));
+        if (parseResultList.size() == 1) {
+            callback.onUserChoseParseResult(parseResultList.get(0));
             return;
         }
 
         // Ask user to choose a barcode
         // TODO: This should contain an image of the barcode in question to help users understand the choice they're making
-        CharSequence[] barcodeDescriptions = new CharSequence[barcodeValuesList.size()];
-        for (int i = 0; i < barcodeValuesList.size(); i++) {
-            BarcodeValues barcodeValues = barcodeValuesList.get(i);
-            CatimaBarcode catimaBarcode = barcodeValues.format();
+        CharSequence[] barcodeDescriptions = new CharSequence[parseResultList.size()];
+        for (int i = 0; i < parseResultList.size(); i++) {
+            ParseResult parseResult = parseResultList.get(i);
+            CatimaBarcode catimaBarcode = parseResult.getLoyaltyCard().barcodeType;
 
-            String barcodeContent = barcodeValues.content();
+            String barcodeContent = parseResult.getLoyaltyCard().cardId;
             // Shorten overly long barcodes
             if (barcodeContent.length() > 22) {
                 barcodeContent = barcodeContent.substring(0, 20) + "…";
             }
 
-            if (barcodeValues.note() != null) {
-                barcodeDescriptions[i] = String.format("%s: %s (%s)", barcodeValues.note(), catimaBarcode != null ? catimaBarcode.prettyName() : context.getString(R.string.noBarcode), barcodeContent);
+            String parseResultNote = parseResult.getNote();
+
+            if (parseResultNote != null) {
+                barcodeDescriptions[i] = String.format("%s: %s (%s)", parseResultNote, catimaBarcode != null ? catimaBarcode.prettyName() : context.getString(R.string.noBarcode), barcodeContent);
             } else {
                 barcodeDescriptions[i] = String.format("%s (%s)", catimaBarcode != null ? catimaBarcode.prettyName() : context.getString(R.string.noBarcode), barcodeContent);
             }
@@ -371,7 +415,7 @@ public class Utils {
         builder.setTitle(context.getString(R.string.multipleBarcodesFoundPleaseChooseOne));
         builder.setItems(
                 barcodeDescriptions,
-                (dialogInterface, i) -> callback.onUserChoseBarcode(barcodeValuesList.get(i))
+                (dialogInterface, i) -> callback.onUserChoseParseResult(parseResultList.get(i))
         );
         builder.setOnCancelListener(dialogInterface -> callback.onUserDismissedSelector());
         builder.show();
@@ -791,7 +835,7 @@ public class Utils {
         }
     }
 
-    public static Bitmap loadImage(String path) {
+    public static @Nullable Bitmap loadImage(String path) {
         try {
             return BitmapFactory.decodeStream(new FileInputStream(path));
         } catch (IOException e) {
@@ -800,7 +844,7 @@ public class Utils {
         }
     }
 
-    public static Bitmap loadTempImage(Context context, String name) {
+    public static @Nullable Bitmap loadTempImage(Context context, String name) {
         return loadImage(context.getCacheDir() + "/" + name);
     }
 
@@ -877,7 +921,7 @@ public class Utils {
         return typedValue.data;
     }
 
-    public static int getHeaderColorFromImage(Bitmap image, int fallback) {
+    public static int getHeaderColorFromImage(@Nullable Bitmap image, int fallback) {
         if (image == null) {
             return fallback;
         }

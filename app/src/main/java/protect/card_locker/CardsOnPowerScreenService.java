@@ -42,7 +42,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
         Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
         return subscriber -> {
             while (loyaltyCardCursor.moveToNext()) {
-                LoyaltyCard card = LoyaltyCard.fromCursor(loyaltyCardCursor);
+                LoyaltyCard card = LoyaltyCard.fromCursor(this, loyaltyCardCursor);
                 Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra(LoyaltyCardViewActivity.BUNDLE_ID, card.id);
@@ -69,7 +69,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
             for (String controlId : controlIds) {
                 Control control;
                 Integer cardId = this.controlIdToCardId(controlId);
-                LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, cardId);
+                LoyaltyCard card = DBHelper.getLoyaltyCard(this, mDatabase, cardId);
                 if (card != null) {
                     Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -99,7 +99,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
     }
 
     private Bitmap getIcon(Context context, LoyaltyCard loyaltyCard) {
-        Bitmap cardIcon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+        Bitmap cardIcon = loyaltyCard.getImageThumbnail(context);
 
         if (cardIcon != null) {
             return cardIcon;

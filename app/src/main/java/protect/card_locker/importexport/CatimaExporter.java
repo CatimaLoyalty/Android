@@ -49,7 +49,7 @@ public class CatimaExporter implements Exporter {
         // Generate CSV
         ByteArrayOutputStream catimaOutputStream = new ByteArrayOutputStream();
         OutputStreamWriter catimaOutputStreamWriter = new OutputStreamWriter(catimaOutputStream, StandardCharsets.UTF_8);
-        writeCSV(database, catimaOutputStreamWriter);
+        writeCSV(context, database, catimaOutputStreamWriter);
 
         // Add CSV to zip file
         ZipParameters csvZipParameters = createZipParameters("catima.csv", password);
@@ -64,12 +64,12 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
         while (cardCursor.moveToNext()) {
             // For each card
-            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor);
 
             // For each image
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 // If it exists, add to the .zip file
-                Bitmap image = Utils.retrieveCardImage(context, card.id, imageLocationType);
+                Bitmap image = card.getImageForImageLocationType(context, imageLocationType);
                 if (image != null) {
                     ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType), password);
                     zipOutputStream.putNextEntry(imageZipParameters);
@@ -95,7 +95,7 @@ public class CatimaExporter implements Exporter {
         return zipParameters;
     }
 
-    private void writeCSV(SQLiteDatabase database, OutputStreamWriter output) throws IOException, InterruptedException {
+    private void writeCSV(Context context, SQLiteDatabase database, OutputStreamWriter output) throws IOException, InterruptedException {
         CSVPrinter printer = new CSVPrinter(output, CSVFormat.RFC4180);
 
         // Print the version
@@ -142,7 +142,7 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
 
         while (cardCursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor);
+            LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor);
 
             printer.printRecord(card.id,
                     card.store,
@@ -176,7 +176,7 @@ public class CatimaExporter implements Exporter {
         Cursor cardCursor2 = DBHelper.getLoyaltyCardCursor(database);
 
         while (cardCursor2.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(cardCursor2);
+            LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor2);
 
             for (Group group : DBHelper.getLoyaltyCardGroups(database, card.id)) {
                 printer.printRecord(card.id, group._id);

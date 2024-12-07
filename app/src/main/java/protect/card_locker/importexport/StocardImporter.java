@@ -354,7 +354,29 @@ public class StocardImporter implements Importer {
 
             long lastUsed = record.lastUsed != null ? record.lastUsed : Utils.getUnixTime();
 
-            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, record.cardId, null, barcodeType, headerColor, 0, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, 0);
+            LoyaltyCard card = new LoyaltyCard(
+                    tempID,
+                    store,
+                    note,
+                    null,
+                    null,
+                    BigDecimal.valueOf(0),
+                    null,
+                    record.cardId,
+                    null,
+                    barcodeType,
+                    headerColor,
+                    0,
+                    lastUsed,
+                    DBHelper.DEFAULT_ZOOM_LEVEL,
+                    0,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+            );
             importedData.cards.add(card);
 
             Map<ImageLocationType, Bitmap> images = new HashMap<>();

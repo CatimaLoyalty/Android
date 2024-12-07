@@ -46,7 +46,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1);
         assertNotNull(loyaltyCard);
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
@@ -64,7 +64,7 @@ public class DatabaseTest {
         result = DBHelper.deleteLoyaltyCard(mDatabase, mActivity, 1);
         assertTrue(result);
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
-        assertNull(DBHelper.getLoyaltyCard(mDatabase, 1));
+        assertNull(DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1);
         assertNotNull(loyaltyCard);
         assertEquals("store1", loyaltyCard.store);
         assertEquals("note1", loyaltyCard.note);
@@ -105,7 +105,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1);
         assertNotNull(loyaltyCard);
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
@@ -138,7 +138,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1);
         assertNotNull(loyaltyCard);
         assertEquals("", loyaltyCard.store);
         assertEquals("", loyaltyCard.note);
@@ -480,7 +480,7 @@ public class DatabaseTest {
         dbHelper.onUpgrade(database, DBHelper.ORIGINAL_DATABASE_VERSION, DBHelper.DATABASE_VERSION);
 
         // Determine that the entries are queryable and the fields are correct
-        LoyaltyCard card = DBHelper.getLoyaltyCard(database, newCardId);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), database, newCardId);
         assertEquals("store", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -496,7 +496,7 @@ public class DatabaseTest {
         assertEquals(100, card.zoomLevel);
 
         // Determine that the entries are queryable and the fields are correct
-        LoyaltyCard card2 = DBHelper.getLoyaltyCard(database, newCardId2);
+        LoyaltyCard card2 = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), database, newCardId2);
         assertEquals("store", card2.store);
         assertEquals("", card2.note);
         assertEquals(null, card2.validFrom);
@@ -523,7 +523,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), mDatabase, 1);
         assertNotNull(loyaltyCard);
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);

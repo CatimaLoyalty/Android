@@ -304,4 +304,7 @@
     <string name="settings_column_count_2">2</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="generic_error_please_retry">Λυπούμαστε, κάτι πήγε στραβά, δοκιμάστε ξανά...</string>
+    <string name="unsupportedFile">Το αρχείο δεν υποστηρίζεται</string>
+    <string name="addFromPkpass">Επιλογή αρχείου Paasbook (.pkpass)</string>
 </resources>

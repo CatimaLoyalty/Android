@@ -1,2 +1,3 @@
+- Unterstützung für Passbook (.pkpass) hinzugefügt
 - Import transparenter PDF-Dateien repariert
 - Anzeige transparenter Vorschaubilder verbessert

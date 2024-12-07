@@ -9,7 +9,7 @@
     </plurals>
     <string name="noCardsMessage">Először adjon hozzá egy kártyát</string>
     <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz.</string>
-    <string name="noMatchingGiftCards">Nincs találaat. Próbálja módosítani a keresést.</string>
+    <string name="noMatchingGiftCards">Nincs találat. Próbálja módosítani a keresést.</string>
     <string name="storeName">Név</string>
     <string name="note">Feljegyzés</string>
     <string name="cardId">Kártyaazonosító</string>
@@ -24,7 +24,7 @@
     <string name="confirm">Jóváhagyás</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one"><xliff:g>%d</xliff:g> kártya törlése</item>
-        <item quantity="other">Törölje az <xliff:g>%d</xliff:g> kártyákat</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kártya törlése</item>
     </plurals>
     <string name="deleteConfirmation">Véglegesen törli a kártyát\?</string>
     <string name="ok">Rendben</string>

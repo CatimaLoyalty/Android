@@ -302,4 +302,7 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
+    <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
+    <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
+    <string name="addFromPkpass">Passbook-Datei (.pkpass) auswählen</string>
 </resources>

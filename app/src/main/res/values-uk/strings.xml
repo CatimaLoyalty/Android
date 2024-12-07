@@ -316,4 +316,7 @@
     <string name="settings_column_count_portrait">Стовпці в портретному режимі</string>
     <string name="settings_column_count_landscape">Стовпці в ландшафтному режимі</string>
     <string name="settings_column_count_1">1</string>
+    <string name="unsupportedFile">Цей файл не підтримується</string>
+    <string name="generic_error_please_retry">Вибачте, щось пішло не так, спробуйте ще раз...</string>
+    <string name="addFromPkpass">Виберіть файл Passbook (.pkpass)</string>
 </resources>

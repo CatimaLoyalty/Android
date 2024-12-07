@@ -305,4 +305,7 @@
     <string name="settings_column_count_landscape">Колони в пейзажен изглед</string>
     <string name="settings_column_count_portrait">Колони в портретен изглед</string>
     <string name="settings_category_title_cards_overview">Списък с карти</string>
+    <string name="generic_error_please_retry">Съжаляваме, нещо се обърка, опитайте отново…</string>
+    <string name="addFromPkpass">Изберете файл на Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Този вид файлове не се поддържа</string>
 </resources>

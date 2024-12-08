@@ -299,4 +299,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_landscape">横屏模式下的列数</string>
+    <string name="addFromPkpass">选择 Passbook 文件（.pkpass）</string>
+    <string name="unsupportedFile">此文件不受支持</string>
+    <string name="generic_error_please_retry">抱歉，某个东西出错了，请再试…</string>
 </resources>

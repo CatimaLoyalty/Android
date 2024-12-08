@@ -311,4 +311,7 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="unsupportedFile">Este arquivo não é suportado</string>
+    <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass)</string>
+    <string name="generic_error_please_retry">Desculpe, alguma coisa deu errado, por favor tente novamente...</string>
 </resources>

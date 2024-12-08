@@ -306,5 +306,5 @@
     <string name="settings_column_count_7">7</string>
     <string name="generic_error_please_retry">Λυπούμαστε, κάτι πήγε στραβά, δοκιμάστε ξανά...</string>
     <string name="unsupportedFile">Το αρχείο δεν υποστηρίζεται</string>
-    <string name="addFromPkpass">Επιλογή αρχείου Paasbook (.pkpass)</string>
+    <string name="addFromPkpass">Επιλογή αρχείου Passbook (.pkpass)</string>
 </resources>

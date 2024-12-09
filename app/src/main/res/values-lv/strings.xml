@@ -219,7 +219,7 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> arhivētas)</item>
     </plurals>
     <string name="failedToOpenUrl">Vispirms nepieciešams uzstādīt pārlūku</string>
-    <string name="welcome">Laipni lūgti Catima</string>
+    <string name="welcome">Laipni lūdzam Catima</string>
     <string name="cameraPermissionRequired">Šai darbībai ir nepieciešama atļauja piekļūt kamerai…</string>
     <string name="noCameraPermissionDirectToSystemSetting">Lai nolasītu svītrkodus, Catima būs nepieciešama piekļuve kamerai. Piesist šeit, lai mainītu savus atļauju iestatījumus.</string>
     <string name="cameraPermissionDeniedTitle">Nevarēja piekļūt kamerai</string>
@@ -306,4 +306,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="settings_column_count_portrait">Kolonnas stateniskā novietojumā</string>
     <string name="settings_column_count_landscape">Kolonnas guleniskā novietojumā</string>
+    <string name="unsupportedFile">Šī datne netiek atbalstīta</string>
+    <string name="addFromPkpass">Atlasīt Passbook datni (.pkpass)</string>
+    <string name="generic_error_please_retry">Atvainojamies, kaut kas nogāja greizi. Lūgums mēģināt vēlreiz...</string>
 </resources>

@@ -60,7 +60,7 @@
     <string name="leaveWithoutSaveTitle">종료</string>
     <string name="moveDown">아래로 이동</string>
     <string name="starImage">즐겨찾기 별</string>
-    <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
+    <string name="settings_display_barcode_max_brightness">화면 밝게하기</string>
     <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
     <string name="deleteTitle">카드 삭제</string>
     <plurals name="deleteCardsTitle">
@@ -216,7 +216,7 @@
     <string name="importCards">카드 가져오기</string>
     <string name="updateBalanceTitle">지출하거나 수령한 금액은 얼마입니까?</string>
     <string name="newBalanceSentence">새 잔액: <xliff:g>%s</xliff:g></string>
-    <string name="settings_card_orientation">바코드 방향</string>
+    <string name="settings_card_orientation">화면 방향</string>
     <string name="settings_follow_system_orientation">기기 설정 따르기</string>
     <string name="settings_portrait_orientation">세로</string>
     <string name="settings_landscape_orientation">가로</string>
@@ -257,7 +257,7 @@
     <string name="settings_category_title_general">일반</string>
     <string name="action_display_options">디스플레이 옵션</string>
     <string name="settings_display_barcode_max_brightness_summary">스캐너가 작동하는 데 필요합니다</string>
-    <string name="settings_category_title_cards">카드</string>
+    <string name="settings_category_title_cards">카드 보기</string>
     <string name="show_archived_cards">보관된 카드 표시</string>
     <string name="settings_category_title_privacy">프라이버시</string>
     <string name="card_id_must_not_be_empty">카드 ID는 비어 있으면 안됩니다</string>
@@ -286,4 +286,20 @@
     <string name="exportCancelled">내보내기 취소됨</string>
     <string name="useFrontImage">전면 이미지 사용</string>
     <string name="useBackImage">후면 이미지 사용</string>
+    <string name="addFromPkpass">Passbook 파일 선택하기 (.pkpass)</string>
+    <string name="generic_error_please_retry">죄송합니다, 문제가 발생했습니다. 다시 시도해 주세요...</string>
+    <string name="settings_use_volume_keys_navigation">볼륨 버튼을 사용하여 카드 전환하기</string>
+    <string name="unsupportedFile">이 파일은 지원되지 않습니다</string>
+    <string name="settings_use_volume_keys_navigation_summary">볼륨 버튼을 사용하여 표시되는 카드를 변경합니다</string>
+    <string name="settings_category_title_cards_overview">카드 개요</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_column_count_portrait">세로 모드의 열</string>
+    <string name="settings_column_count_landscape">가로 모드의 열</string>
+    <string name="settings_automatic_column_count">자동</string>
+    <string name="settings_column_count_1">1</string>
 </resources>

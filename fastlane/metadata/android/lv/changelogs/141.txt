@@ -1,0 +1,4 @@
+- Noklusējuma kolonna platos ekrānos ir mainīta uz 4
+- Iestatījumos tiek ļauts pārrakstīt kolonnu skaitu stateniskam un guleniskam novietojumama
+- Tiek paturēta galvenā ekrāna meklēšanas atlase, pēc tam kad tiek pagriezts ekrāns vai atvērta karte
+- Galvenajā ekrānā ierobežots lielākais pieļaujamais piezīmju attēlošanas garums

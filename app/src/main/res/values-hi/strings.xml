@@ -56,7 +56,7 @@
     <string name="settings_dark_theme">अँधेरा</string>
     <string name="settings">व्यवस्थाएं (सेटिंगें)</string>
     <string name="settings_system_theme">तंत्र</string>
-    <string name="settings_card_orientation">बारकोड</string>
+    <string name="settings_card_orientation">बारकोड का अनुकूलन(ओरिएंटेशन)</string>
     <string name="settings_landscape_orientation">आयत रूप(लैंडस्केप)</string>
     <string name="settings_follow_system_orientation">सिस्टम का पालन करें</string>
     <string name="settings_portrait_orientation">पोट्रैट</string>

@@ -306,4 +306,6 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
     <string name="addFromPkpass">Kies een Passbook bestand (.pkpass)</string>
+    <string name="unsupportedFile">Dit bestand wordt niet ondersteund</string>
+    <string name="generic_error_please_retry">Sorry, er ging iets mis. Probeer het opnieuw.</string>
 </resources>

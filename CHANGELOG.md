@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 142
+## v2.34.0 - 142 (2024-12-10)
 
 - Add Passbook (.pkpass) support
 - Fix import of transparent PDF files

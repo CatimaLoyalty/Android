@@ -87,7 +87,7 @@
     <string name="editBarcode">Изменить штрих-код</string>
     <string name="card">Карта</string>
     <string name="groupsList">Группы: <xliff:g>%s</xliff:g></string>
-    <string name="moveDown">Переместить ниже</string>
+    <string name="moveDown">Перейти вниз</string>
     <string name="moveUp">Переместить выше</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не давать блокировать экран</string>
     <string name="settings_keep_screen_on">Не отключать экран</string>
@@ -317,4 +317,7 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
+    <string name="unsupportedFile">Данный файл не поддерживается</string>
+    <string name="addFromPkpass">Выбрать файл Passbook (.pkpass)</string>
+    <string name="generic_error_please_retry">Извините, что-то пошло не так, попробуйте ещё раз…</string>
 </resources>

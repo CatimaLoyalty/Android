@@ -311,4 +311,7 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="generic_error_please_retry">Lo sentimos, algo salió mal, por favor inténtelo de nuevo...</string>
+    <string name="unsupportedFile">Este archivo no es compatible</string>
+    <string name="addFromPkpass">Seleccione un archivo Passbook (.pkpass)</string>
 </resources>

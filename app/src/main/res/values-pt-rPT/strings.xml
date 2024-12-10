@@ -12,7 +12,7 @@
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
     <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮.</string>
-    <string name="noBarcode">sem código de barras</string>
+    <string name="noBarcode">Sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
     <string name="importOptionApplicationTitle">Usar outra aplicação</string>
@@ -36,10 +36,10 @@
     <string name="delete">Eliminar</string>
     <string name="cardId">Identificador do cartão</string>
     <string name="cardShortcut">Atalho do cartão</string>
-    <string name="noCardsMessage">Adicione primeiro um cartão</string>
+    <string name="noCardsMessage">Adicione um cartão primeiro</string>
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
-    <string name="importExport">Importar / exportar</string>
+    <string name="importExport">Importar / Exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importSuccessful">Dados importados</string>
     <string name="noGroups">Clique no botão + para adicionar grupos para categorização.</string>
@@ -110,7 +110,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> cartões</item>
     </plurals>
     <string name="importOptionFilesystemTitle">Importar do sistema de ficheiros</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019-<xliff:g>%d</xliff:g> Sylvia van Os e colaboradores</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019-<xliff:g>%d</xliff:g> Sylvia van Os e contribuidores</string>
     <string name="app_copyright_old">Baseado no Loyalty Card Keychain
 \ndireitos de autor © 2016–2020 Branden Archer</string>
     <string name="about_title_fmt">Sobre o <xliff:g id="app_name">%s</xliff:g></string>
@@ -230,7 +230,7 @@
     <string name="welcome">Bem-vindo ao Catima</string>
     <string name="failedToRetrieveImageFile">Falha ao recuperar o ficheiro de imagem</string>
     <string name="barcodeLongPressMessage">Só podem ser abertas imagens na aplicação da galeria</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Para digitalizar código de barras, o Catima tem de aceder à câmara. Clique aqui para mudar as configurações de permissão.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para digitalizar códigos de barras, o Catima tem de aceder à câmara. Clique aqui para mudar as configurações de permissão.</string>
     <string name="cameraPermissionDeniedTitle">Não foi possível aceder à câmara</string>
     <string name="importCards">Importar cartões</string>
     <string name="currentBalanceSentence">Saldo atual: <xliff:g>%s</xliff:g></string>
@@ -254,7 +254,7 @@
     <string name="donate">Doar</string>
     <string name="show_validity">Mostrar validade</string>
     <string name="show_balance">Mostrar saldo</string>
-    <string name="permissionReadCardsLabel">Ler Cartas Catima</string>
+    <string name="permissionReadCardsLabel">Ler Cartões Catima</string>
     <string name="permissionReadCardsDescription">leia seus cartões do Catima e todos os seus detalhes, incluindo notas e imagens</string>
     <string name="show_note">Mostrar nota</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome abaixo da miniatura do ícone</string>
@@ -277,7 +277,7 @@
     <string name="enter_card_id">Digite o número ID ou o texto em seu cartão</string>
     <string name="action_display_options">Opções de visualização</string>
     <string name="addWithoutBarcode">Adicione um cartão sem código de barras</string>
-    <string name="app_copyright_short">Copyright © Sylvia van Os e colaboradores</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os e contribuidores</string>
     <string name="field_must_not_be_empty">O campo não pode estar vazio</string>
     <string name="show_archived_cards">Mostrar cartões arquivados</string>
     <string name="app_name">Catima</string>
@@ -311,4 +311,7 @@
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Este ficheiro não é suportado</string>
+    <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
 </resources>

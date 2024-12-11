@@ -50,11 +50,11 @@
     <string name="settings">اعدادات</string>
     <string name="settings_light_theme">فاتح</string>
     <string name="settings_dark_theme">داكن</string>
-    <string name="settings_card_orientation">اتجاه الباركود</string>
+    <string name="settings_card_orientation">اتجاه الشاشة</string>
     <string name="settings_portrait_orientation">الوضع الرأسي</string>
     <string name="settings_landscape_orientation">الوضع الأفقي</string>
     <string name="settings_theme">مظهر</string>
-    <string name="settings_display_barcode_max_brightness">عرض مشرق علي الباركود</string>
+    <string name="settings_display_barcode_max_brightness">عرض مشرق علي الشاشة</string>
     <string name="importSuccessful">تم استيراد البيانات</string>
     <string name="exportSuccessful">تم تصدير البيانات</string>
     <string name="enter_group_name">أدخل اسم المجموعة</string>
@@ -277,7 +277,7 @@
     <string name="action_display_options">خيارات العرض</string>
     <string name="settings_oled_dark_summary">يقلل من استخدام البطارية على شاشات OLED</string>
     <string name="icon_header_click_text">اضغط لفترة طويلة لتحرير الصورة المصغرة</string>
-    <string name="settings_category_title_cards">البطاقات</string>
+    <string name="settings_category_title_cards">البطاقات الظاهرة</string>
     <string name="show_note">إظهار الملاحظة</string>
     <string name="switchToBackImage">التبديل إلى الصورة الخلفية</string>
     <string name="switchToFrontImage">التبديل إلى الصورة الأمامية</string>
@@ -316,4 +316,20 @@
     <string name="exportCancelled">تم الغاء الاستخراج</string>
     <string name="useFrontImage">استخدام صورة أمامية</string>
     <string name="useBackImage">استخدم صورة خلفية</string>
+    <string name="addFromPkpass">اختر ملف الدفتر(.pkpass)</string>
+    <string name="unsupportedFile">هذا الملف غير مدعوم</string>
+    <string name="generic_error_please_retry">نعتذر، حدث خطأ ما، حاول مرة أخرى...</string>
+    <string name="settings_use_volume_keys_navigation">تبديل البطاقات باستخدام أزرار الصوت</string>
+    <string name="settings_use_volume_keys_navigation_summary">تبديل البطاقات الظاهرة باستخدام أزرار الصوت</string>
+    <string name="settings_category_title_cards_overview">نظرة عامة على البطاقات</string>
+    <string name="settings_column_count_portrait">الأعمدة في الوضع الرأسي</string>
+    <string name="settings_column_count_landscape">الأعمدة في الوضع الأفقي</string>
+    <string name="settings_automatic_column_count">تلقائي</string>
+    <string name="settings_column_count_1">١</string>
+    <string name="settings_column_count_2">٢</string>
+    <string name="settings_column_count_3">٣</string>
+    <string name="settings_column_count_4">٤</string>
+    <string name="settings_column_count_5">٥</string>
+    <string name="settings_column_count_6">٦</string>
+    <string name="settings_column_count_7">٧</string>
 </resources>

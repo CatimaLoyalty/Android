@@ -1,0 +1,5 @@
+- Bir kart kimliğini düzenlerken, başlamak için mevcut kimliği önceden doldurun. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Bellek kullanımını ve bellek yetersizliği hatalarını azaltmak için oluşturulan barkodların genişliğini sınırlayın. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Bir kartı düzenlerken, bir kart kimliği zaten varsa "Kartı Gir" düğmesini "Kartı Düzenle" olarak değiştirin. (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Renk şemasını daha yumuşak ve uygulama simgesiyle uyumlu olacak şekilde değiştirin ve bir kartı görüntülerken düzeni daha temiz olacak şekilde değiştirin. (pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Uygulamanın ilk başlatılışında başlatılan bir giriş sihirbazı ekleyin. (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 143
+## v2.34.1 - 143 (2024-12-12)
 
 - Fix crash when opening invalid pkpass files
 

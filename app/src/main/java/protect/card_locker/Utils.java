@@ -180,10 +180,17 @@ public class Utils {
         if (uri == null) {
             Log.e(TAG, "Pkpass did not contain any data");
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return null;
+            return new ArrayList<>();
         }
 
-        PkpassParser pkpassParser = new PkpassParser(context, uri);
+        PkpassParser pkpassParser;
+        try {
+             pkpassParser = new PkpassParser(context, uri);
+        } catch (Exception e) {
+            Log.e(TAG, "Error reading pkpass file", e);
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return new ArrayList<>();
+        }
 
         List<String> locales = pkpassParser.listLocales();
         if (locales.isEmpty()) {

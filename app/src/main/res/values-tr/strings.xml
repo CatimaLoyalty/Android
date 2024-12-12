@@ -305,4 +305,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="settings_automatic_column_count">Otomatik</string>
     <string name="settings_column_count_portrait">Portre modundaki sutunlar</string>
+    <string name="unsupportedFile">Bu dosya desteklenmiyor</string>
+    <string name="generic_error_please_retry">Üzgünüz, bir şeyler ters gitti, lütfen tekrar deneyin...</string>
+    <string name="addFromPkpass">Bir Passbook dosyası seçin (.pkpass)</string>
 </resources>

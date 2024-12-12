@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 143
+
+- Fix crash when opening invalid pkpass files
+
 ## v2.34.0 - 142 (2024-12-10)
 
 - Add Passbook (.pkpass) support

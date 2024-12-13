@@ -300,4 +300,18 @@
     <string name="useFrontImage">Použijte přední obrázek</string>
     <string name="settings_use_volume_keys_navigation_summary">Pomocí tlačítek hlasitosti můžete změnit, která karta se zobrazí</string>
     <string name="settings_use_volume_keys_navigation">Přepínat karty pomocí tlačítek hlasitosti</string>
+    <string name="generic_error_please_retry">Je nám líto, něco se pokazilo, zkuste to prosím znovu...</string>
+    <string name="settings_column_count_portrait">Sloupce v režimu na výšku</string>
+    <string name="settings_automatic_column_count">Automatický</string>
+    <string name="addFromPkpass">Vyberte soubor Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Tento soubor není podporován</string>
+    <string name="settings_category_title_cards_overview">Přehled karet</string>
+    <string name="settings_column_count_landscape">Sloupce v režimu na šířku</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
 </resources>

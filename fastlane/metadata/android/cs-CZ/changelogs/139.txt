@@ -1,1 +1,3 @@
-- Možnost navigace po kartách pomocí tlačítek hlasitosti
+- Možnost procházet kartami pomocí tlačítek hlasitosti
+ - Oprava importu Stocard
+ - Oprava zprávy "Import zrušen" objevující se po úspěšném importu

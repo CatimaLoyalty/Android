@@ -315,7 +315,7 @@
     <string name="settings_category_title_cards_overview">Przegląd kart</string>
     <string name="settings_column_count_portrait">Kolumny w trybie portretu</string>
     <string name="settings_column_count_landscape">Kolumny w trybie pejzażu</string>
-    <string name="settings_automatic_column_count">Automatyczne</string>
+    <string name="settings_automatic_column_count">Automatycznie</string>
     <string name="settings_column_count_1">1</string>
     <string name="addFromPkpass">Wybierz plik Passbook (.pkpass)</string>
     <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>

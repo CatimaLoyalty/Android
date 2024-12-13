@@ -317,4 +317,7 @@
     <string name="settings_column_count_landscape">Kolumny w trybie pejzażu</string>
     <string name="settings_automatic_column_count">Automatyczne</string>
     <string name="settings_column_count_1">1</string>
+    <string name="addFromPkpass">Wybierz plik Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>
+    <string name="generic_error_please_retry">Coś poszło nie tak, spróbuj ponownie później...</string>
 </resources>

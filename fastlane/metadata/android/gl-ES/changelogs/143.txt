@@ -1,0 +1,1 @@
+- Arranxo do problema ao abrir ficheiros pkpass

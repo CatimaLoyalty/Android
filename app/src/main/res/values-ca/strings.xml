@@ -14,4 +14,5 @@
     <string name="welcome">Benvingut a Catima</string>
     <string name="noGiftCards">Cliqueu el botó + més per afegir una targeta, o importeu-ne des del ⋮ menú.</string>
     <string name="photos">Fotos</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -1,0 +1,4 @@
+- Změňte výchozí sloupec na širokoúhlých obrazovkách na 4
+ - Povolit přepsání počtu sloupců pro výšku a na šířku v nastavení
+ - Při otáčení obrazovky nebo otevírání karty ponechejte filtr vyhledávání na hlavní obrazovce
+ - Omezte maximální délku zobrazení poznámky na hlavní obrazovce

@@ -299,4 +299,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="addFromPdfFile">Elixe un ficheiro PDF</string>
     <string name="errorReadingFile">Non se puido ler o ficheiro</string>
+    <string name="unsupportedFile">Este ficheiro non é compatible</string>
+    <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass)</string>
+    <string name="generic_error_please_retry">Sentímolo, pero algo fallou, inténtao outra vez…</string>
 </resources>

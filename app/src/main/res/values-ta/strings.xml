@@ -3,10 +3,6 @@
     <string name="app_name">கேடிமா</string>
     <string name="action_search">தேடல்</string>
     <string name="action_add">கூட்டு</string>
-    <plurals name="selectedCardCount">
-        <item quantity="one">&lt;xliff: g&gt;%d &lt;/xliff: g&gt; தேர்ந்தெடுக்கப்பட்டது</item>
-        <item quantity="other">&lt;xliff: g&gt;%d &lt;/xliff: g&gt; தேர்ந்தெடுக்கப்பட்டது</item>
-    </plurals>
     <string name="noGiftCards">ஒரு அட்டையைச் சேர்க்க + பிளச் பொத்தானைக் சொடுக்கு செய்க அல்லது ⋮ மெனுவிலிருந்து இறக்குமதி செய்யுங்கள்.</string>
     <string name="noGiftCardsGroup">சில அட்டைகளை உருவாக்கி, பின்னர் அவற்றை இங்கே குழுவிற்கு ஒதுக்குங்கள்.</string>
     <string name="storeName">பெயர்</string>
@@ -17,10 +13,6 @@
     <string name="star">பிடித்தவைகளில் சேர்க்கவும்</string>
     <string name="delete">நீக்கு</string>
     <string name="confirm">உறுதிப்படுத்தவும்</string>
-    <plurals name="deleteCardsTitle">
-        <item quantity="one">&lt;Xliff: g&gt;%d &lt;/xliff: g&gt; அட்டை</item>
-        <item quantity="other">&lt;Xliff: g&gt;%d &lt;/xliff: g&gt; அட்டைகளை நீக்கு</item>
-    </plurals>
     <string name="deleteConfirmation">இந்த அட்டையை நிரந்தரமாக நீக்கவா?</string>
     <string name="ok">சரி</string>
     <string name="share">பங்கு</string>
@@ -76,7 +68,6 @@
     <string name="setIcon">சிறு உருவத்தை அமைக்கவும்</string>
     <string name="settings_blue_theme">நீலம்</string>
     <string name="settings_green_theme">பச்சை</string>
-    <string name="app_contributors">வழங்கியவர்: &lt;xliff: g ஐடி = \"app_contributors\"&gt;%s &lt;/xliff: g&gt;</string>
     <string name="sort">வரிசைப்படுத்து</string>
     <string name="showMoreInfo">தகவலைக் காட்டு</string>
     <string name="nextCard">அடுத்தது</string>
@@ -94,11 +85,6 @@
     <string name="cancel">ரத்துசெய்</string>
     <string name="save">சேமி</string>
     <string name="noCardsMessage">முதலில் ஒரு அட்டையைச் சேர்க்கவும்</string>
-    <plurals name="deleteCardsConfirmation">
-        <item quantity="one">இதை நீக்கு &lt;xliff: g&gt;%d &lt;/xliff: g&gt; அட்டை நிரந்தரமாக?</item>
-        <item quantity="other">இந்த &lt;xliff: g&gt;%d &lt;/xliff: g&gt; அட்டைகளை நிரந்தரமாக நீக்கவா?</item>
-    </plurals>
-    <string name="barcodeImageDescriptionWithType">படம் &lt;xliff: g&gt;%s &lt;/xliff: g&gt; பார்கோடு</string>
     <string name="importExportHelp">உங்கள் தரவை காப்புப் பிரதி எடுப்பது அதை மற்றொரு சாதனத்திற்கு நகர்த்த அனுமதிக்கிறது.</string>
     <string name="importSuccessfulTitle">இறக்குமதி செய்யப்பட்டது</string>
     <string name="permissionReadCardsLabel">கேடிமா அட்டைகளைப் படியுங்கள்</string>
@@ -112,15 +98,10 @@
     <string name="importOptionApplicationTitle">மற்றொரு பயன்பாட்டைப் பயன்படுத்தவும்</string>
     <string name="importOptionApplicationExplanation">கோப்பைத் திறக்க எந்த பயன்பாடு அல்லது உங்களுக்கு பிடித்த கோப்பு மேலாளரைப் பயன்படுத்தவும்.</string>
     <string name="about">பற்றி</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">பதிப்புரிமை © 2019– &lt;xliff: g&gt;%d &lt;/xliff: g&gt; சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="importOptionApplicationButton">மற்றொரு பயன்பாட்டைப் பயன்படுத்தவும்</string>
     <string name="app_copyright_short">பதிப்புரிமை © சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="app_copyright_old">விசுவாச அட்டை கீச்சின் அடிப்படையில்\n பதிப்புரிமை © 2016–2020 பிராண்டன் ஆர்ச்சர்</string>
     <string name="app_license">நகலெடுக்கப்பட்ட லிப்ரே மென்பொருள், உரிமம் பெற்ற GPLV3+</string>
-    <string name="about_title_fmt">&lt;Xliff: g ஐடி = \"app_name\"&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="debug_version_fmt">பதிப்பு: &lt;xliff: g ஐடி = \"பதிப்பு\"&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="app_libraries">லிப்ரே மூன்றாம் தரப்பு நூலகங்கள்: &lt;xliff: g ஐடி = \"app_libraries_list\"&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="app_resources">லிப்ரே மூன்றாம் தரப்பு வளங்கள்: &lt;xliff: g ஐடி = \"app_resources_list\"&gt;%s &lt;/xliff: g&gt;</string>
     <string name="selectBarcodeTitle">பார்கோடு தேர்ந்தெடுக்கவும்</string>
     <string name="thumbnailDescription">சிறுபடம்</string>
     <string name="starImage">பிடித்த விண்மீன்</string>
@@ -147,21 +128,8 @@
     <string name="noGroups">வகைப்படுத்தலுக்கான குழுக்களைச் சேர்க்க + பிளச் பொத்தானைக் சொடுக்கு செய்க.</string>
     <string name="settings_use_volume_keys_navigation_summary">எந்த அட்டை காட்டப்படும் என்பதை மாற்ற தொகுதி பொத்தான்களைப் பயன்படுத்தவும்</string>
     <string name="noGroupCards">இந்த குழு காலியாக உள்ளது</string>
-    <plurals name="groupCardCount">
-        <item quantity="one">&lt;xliff: g&gt;%d &lt;/xliff: g&gt; அட்டை</item>
-        <item quantity="other">&lt;xliff: g&gt;%d &lt;/xliff: g&gt; அட்டைகள்</item>
-    </plurals>
     <string name="moveUp">மேல்நோக்கி நகர்த்தவும்</string>
-    <string name="expiryStateSentence">காலாவதியாகிறது: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="expiryStateSentenceExpired">காலாவதியானது: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="balanceSentence">இருப்பு: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
     <string name="moveDown">கீழ்நோக்கி நகர்த்தவும்</string>
-    <string name="groupsList">குழுக்கள்: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="editGroup">திருத்துதல் குழு: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
-    <plurals name="balancePoints">
-        <item quantity="one">&lt;xliff: g&gt;%s &lt;/xliff: g&gt; புள்ளி</item>
-        <item quantity="other">&lt;xliff: g&gt;%s &lt;/xliff: g&gt; புள்ளிகள்</item>
-    </plurals>
     <string name="card">அட்டை</string>
     <string name="editBarcode">பார்கோடு திருத்து</string>
     <string name="expiryDate">காலாவதி தேதி</string>
@@ -178,8 +146,7 @@
     <string name="importCatimaMessage">உங்கள் <i> catima.zip </i> இறக்குமதி செய்ய கேடிமாவிலிருந்து ஏற்றுமதி செய்யுங்கள்.\n முதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் மற்றொரு கேடிமா பயன்பாட்டின் இறக்குமதி/ஏற்றுமதி மெனுவிலிருந்து அதை உருவாக்கவும்.</string>
     <string name="importLoyaltyCardKeychain">விசுவாச அட்டை கீச்சினிலிருந்து இறக்குமதி செய்யுங்கள்</string>
     <string name="importFidmeMessage">உங்கள் <i> fidme-export-request-xxxxxx.zip </i> இறக்குமதி செய்ய FIDME இலிருந்து ஏற்றுமதி செய்து, பின்னர் பார்கோடு வகைகளை கைமுறையாகத் தேர்ந்தெடுக்கவும்.\n தரவு பாதுகாப்பைத் தேர்ந்தெடுப்பதன் மூலம் உங்கள் FIDME சுயவிவரத்திலிருந்து அதை உருவாக்கவும், பின்னர் எனது தரவைப் பிரித்தெடுக்கவும் அழுத்தவும்.</string>
-    <string name="importLoyaltyCardKeychainMessage">இறக்குமதி செய்ய உங்கள் &lt;i&gt; விசுவாச அட்டை கீச்சினிலிருந்து ஏற்றுமதி செய்யுங்கள்.\n முதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் விசுவாச அட்டை கீச்சினில் இறக்குமதி/ஏற்றுமதி மெனுவிலிருந்து அதை உருவாக்கவும்.</string>
-    <string name="importStocardMessage">உங்கள் <i> ***. சிப் </i> இறக்குமதி செய்ய ஏற்றுமதி.\n உங்கள் தரவை ஏற்றுமதி செய்யக் கேட்கும் support@stocarapp.com என்ற மின்னஞ்சல் மூலம் அதைப் பெறுங்கள்.</string>
+    <string name="importStocardMessage">உங்கள் <i> ***. சிப் </i> இறக்குமதி செய்ய ஏற்றுமதி.\n உங்கள் தரவை ஏற்றுமதி செய்யக் கேட்கும் support@stocardapp.com என்ற மின்னஞ்சல் மூலம் அதைப் பெறுங்கள்.</string>
     <string name="importVoucherVault">வவுச்சர் பெட்டகத்திலிருந்து இறக்குமதி</string>
     <string name="importStocard">ச்டார்ட் இருந்து இறக்குமதி</string>
     <string name="sameAsCardId">ஐடி அதே</string>
@@ -240,19 +207,12 @@
     <string name="previousCard">முந்தைய</string>
     <string name="failedToOpenUrl">முதலில் ஒரு வலை உலாவியை நிறுவவும்</string>
     <string name="welcome">கேடிமாவுக்கு வருக</string>
-    <plurals name="groupCardCountWithArchived">
-        <item quantity="one">&lt;xliff: g&gt;%1$d &lt;/xliff: g&gt; அட்டை (&lt;xliff: g ஐடி = \"carchedCount\"&gt;%2$d &lt;/xliff: g&gt; காப்பகப்படுத்தப்பட்டது)</item>
-        <item quantity="other">&lt;xliff: g&gt;%1$d &lt;/xliff: g&gt; கார்டுகள் (&lt;xliff: g ஐடி = \"carchedCount\"&gt;%2$d &lt;/xliff: g&gt; காப்பகப்படுத்தப்பட்டது)</item>
-    </plurals>
     <string name="importCards">அட்டைகளை இறக்குமதி செய்யுங்கள்</string>
     <string name="updateBalanceTitle">நீங்கள் எவ்வளவு செலவு செய்தீர்கள் அல்லது பெற்றீர்கள்?</string>
     <string name="updateBalanceHint">தொகையை உள்ளிடவும்</string>
-    <string name="currentBalanceSentence">தற்போதைய இருப்பு: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
-    <string name="newBalanceSentence">புதிய இருப்பு: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
     <string name="validFromDate">இருந்து செல்லுபடியாகும்</string>
     <string name="anyDate">எந்த தேதி</string>
     <string name="chooseValidFromDate">தேதியிலிருந்து செல்லுபடியாகும் என்பதைத் தேர்வுசெய்க</string>
-    <string name="validFromSentence">இதிலிருந்து செல்லுபடியாகும்: &lt;xliff: g&gt;%s &lt;/xliff: g&gt;</string>
     <string name="height">உயரம்:</string>
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
@@ -295,7 +255,6 @@
     <string name="errorReadingFile">கோப்பைப் படிக்க முடியவில்லை</string>
     <string name="failedLaunchingFileManager">உதவி கோப்பு மேலாளரைக் கண்டுபிடிக்க முடியவில்லை</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">கண்டுபிடிக்கப்பட்ட பார்கோடுகளில் எது நீங்கள் பயன்படுத்த விரும்புகிறீர்கள்?</string>
-    <string name="pageWithNumber">பக்கம் &lt;xliff: g&gt;%d &lt;/xliff: g&gt;</string>
     <string name="noCameraFoundGuideText">உங்கள் சாதனத்தில் கேமரா இருப்பதாகத் தெரியவில்லை. அவ்வாறு செய்தால், சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும். இல்லையெனில், பார்கோடு மற்றொரு வழியில் சேர்க்க கீழே உள்ள கூடுதல் விருப்பங்கள் பொத்தானைப் பயன்படுத்தவும்.</string>
     <string name="importCancelled">இறக்குமதி ரத்து செய்யப்பட்டது</string>
     <string name="exportCancelled">ஏற்றுமதி ரத்து செய்யப்பட்டது</string>

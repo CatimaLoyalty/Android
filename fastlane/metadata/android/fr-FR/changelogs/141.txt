@@ -1,2 +1,4 @@
-- Modifier la colonne par défaut sur les écrans larges à 4
+- Modifie la colonne par défaut sur les écrans larges à 4
 - Permet de surcharger le nombre de colonnes pour le portrait et le paysage dans les paramètres
+- Conserve le filtre de recherche de l'écran principal lors de la rotation de l'écran ou de l'ouverture d'une carte
+- Limite la longueur maximale de l'affichage des notes sur l'écran principal

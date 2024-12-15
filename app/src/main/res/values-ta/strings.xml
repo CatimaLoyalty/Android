@@ -3,6 +3,10 @@
     <string name="app_name">கேடிமா</string>
     <string name="action_search">தேடல்</string>
     <string name="action_add">கூட்டு</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> தேர்ந்தெடுக்கப்பட்டது</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> தேர்ந்தெடுக்கப்பட்டன</item>
+    </plurals>
     <string name="noGiftCards">ஒரு அட்டையைச் சேர்க்க + பிளச் பொத்தானைக் சொடுக்கு செய்க அல்லது ⋮ மெனுவிலிருந்து இறக்குமதி செய்யுங்கள்.</string>
     <string name="noGiftCardsGroup">சில அட்டைகளை உருவாக்கி, பின்னர் அவற்றை இங்கே குழுவிற்கு ஒதுக்குங்கள்.</string>
     <string name="storeName">பெயர்</string>

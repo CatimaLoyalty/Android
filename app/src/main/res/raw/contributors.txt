@@ -16,40 +16,42 @@ Altonss
 Michael Moroni
 Eric
 GM
-Petr Novák
 laralem
+Petr Novák
 Joel A
 Taco
 pfaffenrodt
 Aayush Gupta
 Scrambled777
-HudobniVolk
-Giovanni Donisi
-Nyatsuki
-Priit Jõerüüt
 B o d o
-Jiri Grönroos
+Giovanni Donisi
+HudobniVolk
+Priit Jõerüüt
 Максим Горпиніч
+Nyatsuki
+Jiri Grönroos
 Samantaz Fox
-Cliff Heraldo
-Sergio Paredes
-Ankit Tiwari
-Arno-github
-Milo Ivir
 Balázs Meskó
+Milo Ivir
+Arno-github
+Ankit Tiwari
+Sergio Paredes
+Cliff Heraldo
 Jose Delvani
 mdvhimself
 Milan Šalka
 ikanakova
-Skrripy
 huuhaa
-waffshappen
-Marnick L'Eau
-Silvério Santos
-ngocanhtve
-Quentin PAGÈS
-Projjal Moitra
+Skrripy
 Kachelkaiser
+Projjal Moitra
+Quentin PAGÈS
+josé m
+ngocanhtve
+Silvério Santos
+Marnick L'Eau
+waffshappen
+Robin
 Ziad OUALHADJ
 Robin Liu
 Renko
@@ -59,14 +61,14 @@ Alexander Ivanov
 Miha Frangež
 Viet Nguyen Hoang
 stavpup
-josé m
 ehrt74
 Virginie
-MisterCosta96
-arshbeerSingh
-Freddo espresso
-Govind S Nair
-Kim Seohyun
+Vasilis
 Tim Trek
-rudy3
 Michael Gangolf
+rudy3
+Kim Seohyun
+Govind S Nair
+Freddo espresso
+arshbeerSingh
+MisterCosta96

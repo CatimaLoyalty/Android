@@ -311,4 +311,7 @@
     <string name="settings_automatic_column_count">Automatique</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="addFromPkpass">Sélectionner un fichier Cartes / Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Ce fichier n\'est pas supporté</string>
+    <string name="generic_error_please_retry">Désolé, un problème est survenu, veuillez réessayer...</string>
 </resources>

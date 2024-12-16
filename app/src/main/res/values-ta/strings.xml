@@ -265,4 +265,12 @@
     <string name="useBackImage">பின் படத்தைப் பயன்படுத்தவும்</string>
     <string name="addFromPkpass">பாச் புக் கோப்பைத் தேர்ந்தெடுக்கவும் (.pkpass)</string>
     <string name="useFrontImage">முன் படத்தைப் பயன்படுத்தவும்</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> அட்டை நீக்கு</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> அட்டைகளை நீக்கு</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">இந்த <xliff:g>%d</xliff:g> அட்டையை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="other">இந்த <xliff:g>%d</xliff:g> அட்டைகளை நிரந்தரமாக நீக்கவா?</item>
+    </plurals>
 </resources>

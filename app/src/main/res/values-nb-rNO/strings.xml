@@ -305,4 +305,7 @@
     <string name="settings_column_count_2">2</string>
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_7">7</string>
+    <string name="addFromPkpass">Velg en Passbook-fil (.pkpass)</string>
+    <string name="unsupportedFile">Denne filen støttes ikke</string>
+    <string name="generic_error_please_retry">Beklager, men noe gikk galt. Prøv igjen…</string>
 </resources>

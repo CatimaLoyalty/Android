@@ -273,4 +273,33 @@
         <item quantity="one">இந்த <xliff:g>%d</xliff:g> அட்டையை நிரந்தரமாக நீக்கவா?</item>
         <item quantity="other">இந்த <xliff:g>%d</xliff:g> அட்டைகளை நிரந்தரமாக நீக்கவா?</item>
     </plurals>
+    <string name="editGroup">திருத்துதல் குழு: <xliff:g>%s</xliff:g></string>
+    <string name="debug_version_fmt">பதிப்பு: <xliff:g id="version">%s</xliff:g></string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> அட்டை</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> அட்டைகள்</item>
+    </plurals>
+    <string name="expiryStateSentenceExpired">காலாவதியானது: <xliff:g>%s</xliff:g></string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> புள்ளி</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> புள்ளிகள்</item>
+    </plurals>
+    <string name="importLoyaltyCardKeychainMessage">இறக்குமதி செய்ய உங்கள் <i>LoyaltyCardKeychain.csv</i> விசுவாச அட்டை சாவிக்கொத்திலிருந்து ஏற்றுமதி செய். \nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first. முதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் விசுவாச அட்டை சாவிக்கொத்தில் இறக்குமதி/ஏற்றுமதி பட்டியலிலிருந்து அதை உருவாக்கு.</string>
+    <string name="validFromSentence">இதிலிருந்து செல்லுபடியாகும்: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">புதிய இருப்பு: <xliff:g>%s</xliff:g></string>
+    <string name="pageWithNumber">பக்கம் <xliff:g>%d</xliff:g></string>
+    <string name="currentBalanceSentence">தற்போதைய இருப்பு: <xliff:g>%s</xliff:g></string>
+    <string name="app_contributors">வழங்கியவர்: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="about_title_fmt">படம் <xliff:g>%s</xliff:g> பட்டைகுறியீடு</string>
+    <string name="barcodeImageDescriptionWithType">படம் <xliff:g>%s</xliff:g> பட்டை குறியீடு</string>
+    <string name="app_libraries">விடுதலை மூன்றாம் தரப்பு நூலகங்கள்: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="expiryStateSentence">காலாவதியாகிறது: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">இருப்பு: <xliff:g>%s</xliff:g></string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> அட்டை (<xliff:g id="archivedCount">%2$d</xliff:g> காப்பகப்படுத்தப்பட்டது)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> அட்டைகள் (<xliff:g id="archivedCount">%2$d</xliff:g> காப்பகப்படுத்தப்பட்டது)</item>
+    </plurals>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">பதிப்புரிமை © 2019–<xliff:g>%d</xliff:g> சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
+    <string name="app_resources">விடுதலை மூன்றாம் தரப்பு வளங்கள்: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="groupsList">குழுக்கள்: <xliff:g>%s</xliff:g></string>
 </resources>

@@ -1,0 +1,1 @@
+- Sửa lỗi văng khi mở tệp tin pkpass không hợp lệ

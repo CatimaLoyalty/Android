@@ -284,7 +284,7 @@
         <item quantity="one"><xliff:g>%s</xliff:g> புள்ளி</item>
         <item quantity="other"><xliff:g>%s</xliff:g> புள்ளிகள்</item>
     </plurals>
-    <string name="importLoyaltyCardKeychainMessage">இறக்குமதி செய்ய உங்கள் <i>LoyaltyCardKeychain.csv</i> விசுவாச அட்டை சாவிக்கொத்திலிருந்து ஏற்றுமதி செய். \nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first. முதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் விசுவாச அட்டை சாவிக்கொத்தில் இறக்குமதி/ஏற்றுமதி பட்டியலிலிருந்து அதை உருவாக்கு.</string>
+    <string name="importLoyaltyCardKeychainMessage">இறக்குமதி செய்ய உங்கள் <i>LoyaltyCardKeychain.csv</i> விசுவாச அட்டை சாவிக்கொத்திலிருந்து ஏற்றுமதி செய். \nமுதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் விசுவாச அட்டை சாவிக்கொத்தில் இறக்குமதி/ஏற்றுமதி பட்டியலிலிருந்து அதை உருவாக்கு.</string>
     <string name="validFromSentence">இதிலிருந்து செல்லுபடியாகும்: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">புதிய இருப்பு: <xliff:g>%s</xliff:g></string>
     <string name="pageWithNumber">பக்கம் <xliff:g>%d</xliff:g></string>

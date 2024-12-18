@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 ### build.sh
-### Builds Catima the same way F-Droid does for reproducible builds
+### Builds Catima the same way rbtlog/IzzyOnDroid does for reproducible builds
 
 if [ -z "${ANDROID_SDK_ROOT:-}" ]; then
   echo "ANDROID_SDK_ROOT is not set, setting to $HOME/Android/Sdk";
@@ -25,7 +25,11 @@ echo "Starting build"
 ./gradlew clean assembleRelease
 
 echo "Build finished (unsigned)"
-echo "Your build is at app/build/outputs/apk/release/app-release-unsigned.apk"
+flavourDirs=$(find app/build/outputs/apk/ -mindepth 1 -maxdepth 1 -type d)
+for flavourDir in $flavourDirs; do
+  flavourName="$(basename "$flavourDir")"
+  echo "Your $flavourName flavour is at $flavourDir/release/app-$flavourName-release-unsigned.apk"
+done
 
 if [ -z "${KEYSTORE:-}" ]; then
   echo "KEYSTORE not set, skipping signing..."
@@ -36,16 +40,26 @@ else
   fi
 
   apksigner_version="$(ls -1 "$HOME/Android/Sdk/build-tools/" | tail -n 1)"
-  cp app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/app-release.apk
-  "$HOME/Android/Sdk/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" app/build/outputs/apk/release/app-release.apk
 
-  echo "Build finished (signed)"
-  echo "Your build is at app/build/outputs/apk/release/app-release.apk"
+  for flavourDir in $flavourDirs; do
+    flavourName="$(basename "$flavourDir")"
+    echo "Signing $flavourName flavour..."
+    cp "$flavourDir/release/app-$flavourName-release-unsigned.apk" "$flavourDir/release/app-$flavourName-release.apk"
+    "$HOME/Android/Sdk/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" "$flavourDir/release/app-$flavourName-release.apk"
+
+    echo "Build finished (signed)"
+    echo "Your $flavourName flavour is at $flavourDir/release/app-$flavourName-release.apk"
+  done
+
+  shasumPath="$(pwd)/SHA256SUMS"
+  echo "" > "$shasumPath"
+
+  for flavourDir in $flavourDirs; do
+    pushd "$flavourDir/release/"
+    sha256sum -- *.apk >> "$shasumPath"
+    popd
+  done
+
+  echo "SHA256SUMS generated"
+  echo "Your SHA256SUMS are at SHA256SUMS"
 fi
-
-pushd app/build/outputs/apk/release/
-sha256sum -- *.apk > SHA256SUMS
-popd
-
-echo "SHA256SUMS generated"
-echo "Your SHA256SUMS is at app/build/outputs/apk/release/SHA256SUMS"

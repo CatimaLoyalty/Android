@@ -43,10 +43,14 @@ jobs:
         sudo update-alternatives --auto java
     - name: Build
       run: ./gradlew assembleRelease
-    - name: Check lint
-      run: ./gradlew lintRelease
-    - name: Run unit tests
-      run: timeout 5m ./gradlew testReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testReleaseUnitTest; }
+    - name: Check lint (foss flavour)
+      run: ./gradlew lintFossRelease
+    - name: Check lint (gplay flavour)
+      run: ./gradlew lintGplayRelease
+    - name: Run unit tests (foss flavour)
+      run: timeout 5m ./gradlew testFossReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testFossReleaseUnitTest; }
+    - name: Run unit tests (gplay flavour)
+      run: timeout 5m ./gradlew testGplayReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testGplayReleaseUnitTest; }
     - name: Enable KVM
       run: |
         echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -58,8 +62,10 @@ jobs:
         api-level: ${{ matrix.api-level }}
         arch: x86_64
         script: ./gradlew connectedCheck
-    - name: SpotBugs
-      run: ./gradlew spotbugsRelease
+    - name: SpotBugs (foss flavour)
+      run: ./gradlew spotbugsFossRelease
+    - name: SpotBugs (gplay flavour)
+      run: ./gradlew spotbugsGplayRelease
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v4.4.3

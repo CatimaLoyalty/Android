@@ -28,47 +28,153 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Set up Java
+      - name: set up OpenJDK 17
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk-headless
+          sudo update-alternatives --auto java
+      # Build the app
+      - name: Build
+        run: ./gradlew assembleDebug
+      # Stop Gradle daemon
+      - name: Stop gradle daemon
+        run: ./gradlew --stop
+      # Cache
+      - uses: actions/cache/save@v4.2.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+  check-translations:
+    runs-on: ubuntu-latest
+    steps:
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Check translations
+      - name: Fail on bad translations
+        run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
+  instrumented-tests:
+    runs-on: ubuntu-latest
+    needs: build
     strategy:
       matrix:
-        api-level: [ 21, 34 ]
+        api-level: [21, 34]
+        flavor: [Foss, Gplay]
     steps:
-    - uses: actions/checkout@v4.2.2
-    - name: Fail on bad translations
-      run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
-    - uses: gradle/actions/wrapper-validation@v4
-    - name: set up OpenJDK 17
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y openjdk-17-jdk-headless
-        sudo update-alternatives --auto java
-    - name: Build
-      run: ./gradlew assembleRelease
-    - name: Check lint (foss flavour)
-      run: ./gradlew lintFossRelease
-    - name: Check lint (gplay flavour)
-      run: ./gradlew lintGplayRelease
-    - name: Run unit tests (foss flavour)
-      run: timeout 5m ./gradlew testFossReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testFossReleaseUnitTest; }
-    - name: Run unit tests (gplay flavour)
-      run: timeout 5m ./gradlew testGplayReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testGplayReleaseUnitTest; }
-    - name: Enable KVM
-      run: |
-        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-        sudo udevadm control --reload-rules
-        sudo udevadm trigger --name-match=kvm
-    - name: Run instrumented tests
-      uses: ReactiveCircus/android-emulator-runner@v2
-      with:
-        api-level: ${{ matrix.api-level }}
-        arch: x86_64
-        script: ./gradlew connectedCheck
-    - name: SpotBugs (foss flavour)
-      run: ./gradlew spotbugsFossRelease
-    - name: SpotBugs (gplay flavour)
-      run: ./gradlew spotbugsGplayRelease
-    - name: Archive test results
-      if: always()
-      uses: actions/upload-artifact@v4.4.3
-      with:
-        name: test-results-api${{ matrix.api-level }}
-        path: app/build/reports
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Restore cache
+      - uses: actions/cache/restore@v4.2.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      # Set up Java
+      - name: set up OpenJDK 17
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk-headless
+          sudo update-alternatives --auto java
+      # Instrumented tests
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run instrumented tests
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          arch: x86_64
+          script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
+  lint:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        flavor: [Foss, Gplay]
+    steps:
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Restore cache
+      - uses: actions/cache/restore@v4.2.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      # Set up Java
+      - name: set up OpenJDK 17
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk-headless
+          sudo update-alternatives --auto java
+      # Lint
+      - name: Check lint
+        run: ./gradlew lint${{ matrix.flavor }}Debug
+  spotbugs:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        flavor: [Foss, Gplay]
+    steps:
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Restore cache
+      - uses: actions/cache/restore@v4.2.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      # Set up Java
+      - name: set up OpenJDK 17
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk-headless
+          sudo update-alternatives --auto java
+      # Spotbugs
+      - name: SpotBugs
+        run: ./gradlew spotbugs${{ matrix.flavor }}Debug
+  unit-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        flavor: [Foss, Gplay]
+    steps:
+      # Get source code
+      - uses: actions/checkout@v4.2.2
+      # Restore cache
+      - uses: actions/cache/restore@v4.2.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      # Set up Java
+      - name: set up OpenJDK 17
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk-headless
+          sudo update-alternatives --auto java
+      # Unit test
+      - name: Run unit tests
+        run: timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest || { ./gradlew --stop && timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest; }

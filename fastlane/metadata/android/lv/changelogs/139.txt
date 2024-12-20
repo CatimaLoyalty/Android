@@ -1,0 +1,3 @@
+- Iespēja pārslēgties starp kartēm ar skaļuma pogām
+- Salabota Stocard ievietošana
+- Novērsta ziņojuma "Ievietošana atcelta" parādīšanās pēc sekmīgas ievietošanas

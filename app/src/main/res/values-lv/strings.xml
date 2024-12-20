@@ -36,7 +36,7 @@
     <string name="failedParsingImportUriError">Nevarēja apstrādāt ievietošanas URI</string>
     <string name="importExport">Ievietot/izgūt</string>
     <string name="exportName">Izgūt</string>
-    <string name="importExportHelp">Dublējot Jūsu datus, tos var pārnest uz citu ierīci.</string>
+    <string name="importExportHelp">Datu rezerves kopijas izveidošana ļauj tos pārnest uz citu ierīci.</string>
     <string name="importSuccessfulTitle">Ievietots</string>
     <string name="importFailedTitle">Ievietošana neizdevās</string>
     <string name="importFailed">Nevarēja veikt ievietošanu</string>

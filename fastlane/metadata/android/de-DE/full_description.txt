@@ -1,7 +1,7 @@
 Schluss mit der Suche nach Kundenkarten aus Plastik beim Bezahlen im Geschäft oder Webshop.
-<b>Speichere Barcodes mit der Kamera auf dein Gerät und vergesse deine Karten.</b>
+<b>Speichere Barcodes mit der Kamera auf dein Gerät und vergiss deine Karten.</b>
 
-Lass deine Geldbörse daheim, oder schaffe wenigstens viel Platz für die wichtigen Wertsachen.
+Lass deine Geldbörse daheim oder schaffe zumindest Platz für die wichtigen Wertsachen.
 
 Mit diesem unverzichtbaren Programm schaffst du Platz für Bargeld statt für nutzloses Plastik.
 
@@ -11,12 +11,12 @@ Mit diesem unverzichtbaren Programm schaffst du Platz für Bargeld statt für nu
 - Importiere Karten und Codes aus Dateien, von Catima, FidMe, Loyalty Card Keychain, Stocard oder Voucher Vault.
 - Erstelle ein Backup aller deiner Karten und übertrage diese auf ein neues Gerät.
 - Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und sonstige Codes mit allen Apps.
-- Dunkles Design und Barrierefreiheit für sehbehinderte Nutzer.
+- Dunkles Design und Barrierefreiheit für Nutzer mit Sehbehinderung.
 - Von der Freien-Software-Gemeinschaft für alle Menschen gemacht.
 - Lokalisierte, menschliche Übersetzungen für mehr als 40 Sprachen.
 - Kostenlos, unterstützt durch Gemeinschaftsbeiträge.
 - Verwende, prüfe, ändere und teile die App, wie du willst; <i>mit allen</i>.
 - Nicht nur freie und quelloffene Software. Eine freie, <i>Copylefted</i> Software-Kartenverwaltung (GPLv3+).
 
-Vereinfache dein Leben und deine Einkäufe, und verliere nie wieder einen Beleg, eine Gutscheinkarte oder ein Flugticket.
-Habe deine Prämien und Boni immer bei dir, und spare unterwegs.
+Vereinfache dein Leben und deine Einkäufe – verliere nie wieder einen Beleg, eine Gutscheinkarte oder ein Flugticket.
+Nimm deine Prämien und Boni mit und spare unterwegs.

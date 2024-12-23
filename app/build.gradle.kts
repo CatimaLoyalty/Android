@@ -100,7 +100,7 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.12.0")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")

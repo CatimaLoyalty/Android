@@ -298,4 +298,7 @@
     <string name="settings_category_title_cards_overview">卡片概覽</string>
     <string name="settings_column_count_portrait">縱向模式下的列數</string>
     <string name="settings_column_count_landscape">横向模式下的列數</string>
+    <string name="addFromPkpass">選擇 Passbook 檔案 (.pkpass)</string>
+    <string name="unsupportedFile">不支援此檔案</string>
+    <string name="generic_error_please_retry">抱歉，似乎出了點錯誤，請您再試一次...</string>
 </resources>

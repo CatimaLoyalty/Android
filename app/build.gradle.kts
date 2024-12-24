@@ -31,6 +31,9 @@ android {
         resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "et", "fi", "fr", "gl", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sr", "sv", "ta", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("boolean", "showDonate", "true")
+        buildConfigField("boolean", "showRateOnGooglePlay", "false")
     }
 
     buildTypes {
@@ -49,6 +52,21 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding = true
+    }
+
+    flavorDimensions.add("type")
+    productFlavors {
+        create("foss") {
+            dimension = "type"
+            isDefault = true
+        }
+        create("gplay") {
+            dimension = "type"
+
+            // Google doesn't allow donation links
+            buildConfigField("boolean", "showDonate", "false")
+            buildConfigField("boolean", "showRateOnGooglePlay", "true")
+        }
     }
 
     bundle {

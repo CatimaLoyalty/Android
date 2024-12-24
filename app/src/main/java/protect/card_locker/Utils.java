@@ -1032,21 +1032,6 @@ public class Utils {
         return headerColor;
     }
 
-    public static boolean installedFromGooglePlay(Context context) {
-        try {
-            String packageName = context.getPackageName();
-            String installer;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                installer = context.getPackageManager().getInstallSourceInfo(packageName).getInstallingPackageName();
-            } else {
-                installer = context.getPackageManager().getInstallerPackageName(packageName);
-            }
-            return installer.equals("com.android.vending");
-        } catch (Throwable ignored) {
-            return false;
-        }
-    }
-
     public static int getHeaderColor(Context context, LoyaltyCard loyaltyCard) {
         return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
     }

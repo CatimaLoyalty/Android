@@ -45,11 +45,10 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
         binding.donate.setTag("https://catima.app/donate");
 
-        boolean installedFromGooglePlay = Utils.installedFromGooglePlay(this);
         // Hide Google Play rate button if not on Google Play
-        binding.rate.setVisibility(installedFromGooglePlay ? View.VISIBLE : View.GONE);
+        binding.rate.setVisibility(BuildConfig.showRateOnGooglePlay ? View.VISIBLE : View.GONE);
         // Hide donate button on Google Play (Google Play doesn't allow donation links)
-        binding.donate.setVisibility(installedFromGooglePlay ? View.GONE : View.VISIBLE);
+        binding.donate.setVisibility(BuildConfig.showDonate ? View.VISIBLE : View.GONE);
 
         bindClickListeners();
     }

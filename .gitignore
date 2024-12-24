@@ -25,3 +25,6 @@
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
+
+# Catima-specific
+SHA256SUMS

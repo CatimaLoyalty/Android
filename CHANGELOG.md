@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 144
+
+- Improve archive/starred icon display
+
 ## v2.34.1 - 143 (2024-12-12)
 
 - Fix crash when opening invalid pkpass files

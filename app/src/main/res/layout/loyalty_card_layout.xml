@@ -72,29 +72,15 @@
                     android:layout_width="@dimen/cardThumbnailSize"
                     android:layout_height="@dimen/cardThumbnailSize"
                     android:layout_gravity="end"
-                    android:alpha="0.5"
+                    android:alpha="0.8"
                     android:contentDescription="@string/starred"
                     android:elevation="4dp"
+                    android:rotationX="2"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_starred_white"
-                    tools:ignore="ImageContrastCheck" />
-
-                <ImageView
-                    android:importantForAccessibility="no"
-                    android:id="@+id/star_border"
-                    android:layout_width="@dimen/cardThumbnailSize"
-                    android:layout_height="@dimen/cardThumbnailSize"
-                    android:layout_gravity="end"
-                    android:alpha="0.5"
-                    android:contentDescription="@string/starImage"
-                    android:elevation="4dp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_unstarred_black"
-                    tools:ignore="ImageContrastCheck" />
+                    app:srcCompat="@drawable/loyalty_card_icon_starred"
+                    tools:ignore="ImageContrastCheck"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -110,18 +96,18 @@
 
                 <ImageView
                     android:id="@+id/archive_background"
-                    android:layout_width="41dp"
-                    android:layout_height="44dp"
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
                     android:layout_gravity="end"
-                    android:alpha="0.5"
+                    android:alpha="0.8"
                     android:contentDescription="@string/archived"
                     android:elevation="4dp"
                     android:rotationX="2"
                     android:visibility="visible"
-                    app:srcCompat="@drawable/ic_baseline_archive_24"
-                    tools:ignore="ImageContrastCheck,MissingConstraints"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="-1dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/loyalty_card_icon_archived"
+                    tools:ignore="ImageContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

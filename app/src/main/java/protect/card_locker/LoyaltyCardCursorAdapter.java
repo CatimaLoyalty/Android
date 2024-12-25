@@ -124,9 +124,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
-        inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText, new Settings(mContext).getPreferredColumnCount());
+        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText, new Settings(mContext).getPreferredColumnCount());
 
-        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
+        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -212,12 +212,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mCardText, mStoreField, mNoteField, mBalanceField, mValidFromField, mExpiryField;
-        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
+        public ImageView mCardIcon, mTickIcon;
         public MaterialCardView mRow;
         public ConstraintLayout mStar, mArchived;
         public View mDivider;
-
-        private int mIconBackgroundColor;
 
         protected LoyaltyCardListItemViewHolder(LoyaltyCardLayoutBinding loyaltyCardLayoutBinding, CardAdapterListener inputListener) {
             super(loyaltyCardLayoutBinding.getRoot());
@@ -232,10 +230,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mCardIcon = loyaltyCardLayoutBinding.thumbnail;
             mCardText = loyaltyCardLayoutBinding.thumbnailText;
             mStar = loyaltyCardLayoutBinding.star;
-            mStarBackground = loyaltyCardLayoutBinding.starBackground;
-            mStarBorder = loyaltyCardLayoutBinding.starBorder;
             mArchived = loyaltyCardLayoutBinding.archivedIcon;
-            mArchivedBackground = loyaltyCardLayoutBinding.archiveBackground;
             mTickIcon = loyaltyCardLayoutBinding.selectedThumbnail;
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
@@ -297,31 +292,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mNoteField.requestLayout();
         }
 
-        public void toggleCardStateIcon(boolean enableStar, boolean enableArchive, boolean colorByTheme) {
-            /* the below code does not work in android 5! hence the change of drawable instead
-            boolean needDarkForeground = Utils.needsDarkForeground(mIconBackgroundColor);
-            Drawable borderDrawable = mStarBorder.getDrawable().mutate();
-            Drawable backgroundDrawable = mStarBackground.getDrawable().mutate();
-            DrawableCompat.setTint(borderDrawable, needsDarkForeground ? Color.BLACK : Color.WHITE);
-            DrawableCompat.setTint(backgroundDrawable, needsDarkForeground ? Color.BLACK : Color.WHITE);
-            mStarBorder.setImageDrawable(borderDrawable);
-            mStarBackground.setImageDrawable(backgroundDrawable);
-            */
-            boolean dark = Utils.needsDarkForeground(mIconBackgroundColor);
-            if (colorByTheme) {
-                dark = !mDarkModeEnabled;
-            }
-
-            if (dark) {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
-                mStarBackground.setImageResource(R.drawable.ic_starred_black);
-                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
-            } else {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
-                mStarBackground.setImageResource(R.drawable.ic_starred_white);
-                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
-            }
-
+        public void toggleCardStateIcon(boolean enableStar, boolean enableArchive) {
             if (enableStar) {
                 mStar.setVisibility(View.VISIBLE);
             } else{
@@ -333,11 +304,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             } else{
                 mArchived.setVisibility(View.GONE);
             }
-
-            mStarBorder.invalidate();
-            mStarBackground.invalidate();
-            mArchivedBackground.invalidate();
-
         }
     }
 }

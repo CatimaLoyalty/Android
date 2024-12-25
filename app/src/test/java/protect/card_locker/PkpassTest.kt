@@ -106,6 +106,7 @@ class PkpassTest {
         Assert.assertEquals(0, parsedCard.archiveStatus)
         Assert.assertEquals(0, parsedCard.lastUsed)
         Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL, parsedCard.zoomLevel)
+        Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH, parsedCard.zoomLevelWidth)
 
         // Confirm correct image is used
         Assert.assertTrue(imageBitmap.sameAs(parser.image))
@@ -171,6 +172,7 @@ class PkpassTest {
         Assert.assertEquals(0, parsedCard.archiveStatus)
         Assert.assertEquals(0, parsedCard.lastUsed)
         Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL, parsedCard.zoomLevel)
+        Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH, parsedCard.zoomLevelWidth)
 
         // Confirm correct image is used
         Assert.assertTrue(imageBitmap.sameAs(parser.image))
@@ -231,6 +233,7 @@ class PkpassTest {
         Assert.assertEquals(0, parsedCard.archiveStatus)
         Assert.assertEquals(0, parsedCard.lastUsed)
         Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL, parsedCard.zoomLevel)
+        Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH, parsedCard.zoomLevelWidth)
 
         // Confirm correct image is used
         Assert.assertTrue(imageBitmap.sameAs(parser.image))

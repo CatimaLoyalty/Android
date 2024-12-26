@@ -1,0 +1,1 @@
+- Uzlabota arhivēšanas/izlasē ikonas attēlošana

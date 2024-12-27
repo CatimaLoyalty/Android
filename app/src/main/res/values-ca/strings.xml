@@ -308,6 +308,4 @@
   <string name="addFromPkpass">Trieu un fitxer Passbook (.pkpass)</string>
   <string name="unsupportedFile">Aquest fitxer no està suportat</string>
   <string name="generic_error_please_retry">Alguna cosa ha anat malament, proveu-ho una altra vegada...</string>
-  <string name="width">Ample</string>
-  <string name="setBarcodeWidth">Establiu l\'ample del codi de barres</string>
 </resources>

@@ -305,4 +305,7 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_7">7</string>
+    <string name="addFromPkpass">Valitse Passbook-tiedosto (.pkpass)</string>
+    <string name="unsupportedFile">Tämä tiedosto ei ole tuettu</string>
+    <string name="generic_error_please_retry">Pahoittelut, jokin meni pieleen. Yritä uudelleen...</string>
 </resources>

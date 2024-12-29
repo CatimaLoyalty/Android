@@ -1,0 +1,1 @@
+- Améliorer l'affichage des icônes d'archive/étoile

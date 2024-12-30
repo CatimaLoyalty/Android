@@ -226,11 +226,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void setScalerWidthGuideline(int zoomLevelWidth) {
         float scale = zoomLevelWidth / 100f;
 
-        if (format != null && format.isSquare()) {
-            binding.scalerWidthguideline.setGuidelinePercent(0.75f * scale);
-        } else {
-            binding.scalerWidthguideline.setGuidelinePercent(1f * scale);
-        }
+        binding.scalerWidthguideline.setGuidelinePercent(scale);
     }
 
     @Override
@@ -288,66 +284,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
 
-        binding.barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
-                    return;
-                }
-                Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
-                float scale = (float) progress / (float) binding.barcodeScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
-
-                loyaltyCard.zoomLevel = progress;
-                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
-
-                setScalerGuideline(loyaltyCard.zoomLevel);
-
-                drawMainImage(mainImageIndex, true, isFullscreen);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        binding.barcodeWidthscaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
-                    return;
-                }
-                Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
-                float scale = (float) progress / (float) binding.barcodeScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
-
-                loyaltyCard.zoomLevelWidth = progress;
-                DBHelper.updateLoyaltyCardZoomLevelWidth(database, loyaltyCardId, loyaltyCard.zoomLevelWidth);
-
-                setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
-
-                drawMainImage(mainImageIndex, true, isFullscreen);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction(binding.barcodeScaler));
+        binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction(binding.barcodeWidthscaler));
 
         rotationEnabled = true;
 
@@ -407,6 +345,49 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 }
             }
         });
+    }
+
+    private SeekBar.OnSeekBarChangeListener setOnSeekBarChangeListenerUnifiedFunction(SeekBar sbar) {
+        SeekBar.OnSeekBarChangeListener sb;
+        sb = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser) {
+                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                    return;
+                }
+
+                Log.d(TAG, "Progress is " + progress);
+                Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
+                float scale = (float) progress / (float) binding.barcodeScaler.getMax();
+                Log.d(TAG, "Scaling to " + scale);
+
+                if (sbar.getId() == binding.barcodeScaler.getId()) {
+                    loyaltyCard.zoomLevel = progress;
+                    DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
+
+                    setScalerGuideline(loyaltyCard.zoomLevel);
+                }
+                else {
+                    loyaltyCard.zoomLevelWidth = progress;
+                    DBHelper.updateLoyaltyCardZoomLevelWidth(database, loyaltyCardId, loyaltyCard.zoomLevelWidth);
+
+                    setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
+                }
+                drawMainImage(mainImageIndex, true, isFullscreen);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        };
+        return (sb);
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {

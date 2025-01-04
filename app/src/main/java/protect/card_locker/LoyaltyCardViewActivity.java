@@ -217,16 +217,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         float scale = zoomLevel / 100f;
 
         if (format != null && format.isSquare()) {
-            binding.scalerGuideline.setGuidelinePercent(0.75f * scale);
+            binding.scalerGuideline.setGuidelinePercent(0.70f * scale);
         } else {
             binding.scalerGuideline.setGuidelinePercent(0.5f * scale);
         }
     }
 
     private void setScalerWidthGuideline(int zoomLevelWidth) {
-        float scale = zoomLevelWidth / 100f;
+        float halfscale = zoomLevelWidth / 200f;
 
-        binding.scalerWidthguideline.setGuidelinePercent(scale);
+        binding.scalerEndwidthguideline.setGuidelinePercent(0.5f + halfscale);
+        binding.scalerStartwidthguideline.setGuidelinePercent(0.5f - halfscale);
     }
 
     @Override
@@ -348,8 +349,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private SeekBar.OnSeekBarChangeListener setOnSeekBarChangeListenerUnifiedFunction(SeekBar sbar) {
-        SeekBar.OnSeekBarChangeListener sb;
-        sb = new SeekBar.OnSeekBarChangeListener() {
+        return new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (!fromUser) {
@@ -358,9 +358,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 }
 
                 Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
-                float scale = (float) progress / (float) binding.barcodeScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
+                if (sbar.getId() == binding.barcodeScaler.getId()) {
+                    Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
+                    float scale = (float) progress / (float) binding.barcodeScaler.getMax();
+                    Log.d(TAG, "Scaling to " + scale);
+                }
+                else {
+                    Log.d(TAG, "Max is " + binding.barcodeWidthscaler.getMax());
+                    float scale = (float) progress / (float) binding.barcodeWidthscaler.getMax();
+                    Log.d(TAG, "Scaling to " + scale);
+                }
 
                 if (sbar.getId() == binding.barcodeScaler.getId()) {
                     loyaltyCard.zoomLevel = progress;
@@ -387,7 +394,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             }
         };
-        return (sb);
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -728,6 +734,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
         binding.barcodeScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
         binding.barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
+        binding.barcodeWidthscaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
+        binding.barcodeWidthscaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);

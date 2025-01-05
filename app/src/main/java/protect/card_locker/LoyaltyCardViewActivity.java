@@ -369,15 +369,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     Log.d(TAG, "Scaling to " + scale);
                 }
 
+                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel, loyaltyCard.zoomLevelWidth);
                 if (sbar.getId() == binding.barcodeScaler.getId()) {
                     loyaltyCard.zoomLevel = progress;
-                    DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
 
                     setScalerGuideline(loyaltyCard.zoomLevel);
                 }
                 else {
                     loyaltyCard.zoomLevelWidth = progress;
-                    DBHelper.updateLoyaltyCardZoomLevelWidth(database, loyaltyCardId, loyaltyCard.zoomLevelWidth);
 
                     setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
                 }
@@ -1164,7 +1163,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             setScalerGuideline(loyaltyCard.zoomLevel);
 
            binding.barcodeWidthscaler.setProgress(loyaltyCard.zoomLevelWidth);
-            setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
+           setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
 
             // Hide actionbar
             if (actionBar != null) {

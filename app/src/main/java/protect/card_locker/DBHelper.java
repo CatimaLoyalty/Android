@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 17;
 
-    // NB: changing thoose values requires a migration
+    // NB: changing these values requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
     public static final int DEFAULT_ZOOM_LEVEL_WIDTH = 100;
 
@@ -524,25 +524,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
-    public static boolean updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel) {
+    public static boolean updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel, int zoomLevelWidth) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL, zoomLevel);
-        Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level= " + zoomLevel);
-        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
-                whereAttrs(LoyaltyCardDbIds.ID),
-                withArgs(loyaltyCardId));
-        Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
-        return (rowsUpdated == 1);
-    }
-    public static boolean updateLoyaltyCardZoomLevelWidth(SQLiteDatabase database, int loyaltyCardId, int zoomLevelWidth) {
-        ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH, zoomLevelWidth);
+        Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level= " + zoomLevel);
         Log.d("updateLoyaltyCardZoomLW", "Card Id = " + loyaltyCardId + " Zoom level width= " + zoomLevelWidth);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(loyaltyCardId));
+        Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
         Log.d("updateLoyaltyCardZoomLW", "Rows changed = " + rowsUpdated);
-        return (rowsUpdated == 1);
+        return (rowsUpdated == 2);
     }
 
     public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {

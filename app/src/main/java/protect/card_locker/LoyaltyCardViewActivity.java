@@ -1163,6 +1163,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.container.setVisibility(View.GONE);
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
 
+            if (format.isSquare()) {
+                binding.setWidthLayout.setVisibility(View.GONE);
+            }
+            else {
+                binding.setWidthLayout.setVisibility(View.VISIBLE);
+            }
+
             drawMainImage(mainImageIndex, true, isFullscreen);
 
             binding.barcodeScaler.setProgress(loyaltyCard.zoomLevel);

@@ -139,6 +139,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // If the barcode is shown, switch to fullscreen layout
         if (imageType == ImageType.BARCODE) {
             setFullscreen(true);
+            if (format.isSquare()) {
+                binding.setWidthLayout.setVisibility(View.GONE);
+            }
+            else {
+                binding.setWidthLayout.setVisibility(View.VISIBLE);
+            }
             return;
         }
 
@@ -217,7 +223,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         float scale = zoomLevel / 100f;
 
         if (format != null && format.isSquare()) {
-            binding.scalerGuideline.setGuidelinePercent(0.70f * scale);
+            binding.scalerGuideline.setGuidelinePercent(0.75f * scale);
         } else {
             binding.scalerGuideline.setGuidelinePercent(0.5f * scale);
         }

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 145
+
+- Target Android 15
+
 ## v2.34.2 - 144 (2024-12-26)
 
 - Improve archive/starred icon display

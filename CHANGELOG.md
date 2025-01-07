@@ -3,6 +3,7 @@
 ## Unreleased - 145
 
 - Target Android 15
+- Fix keyboard covering save button in edit screen
 
 ## v2.34.2 - 144 (2024-12-26)
 

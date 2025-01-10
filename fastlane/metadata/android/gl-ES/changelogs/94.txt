@@ -1,0 +1,3 @@
+- arranxo da borrosidade nas iconas de letras na pantalla principal
+- arranxo da desaparición puntual de iconas despois da selección
+- arranxo das iconas na barra de estado non visibles en Android 5

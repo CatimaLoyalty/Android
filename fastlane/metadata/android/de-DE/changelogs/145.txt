@@ -1,1 +1,2 @@
 - Ziel Android 15
+- Behebt in der Bearbeitungsanzeige die Abdeckung der Speichertaste durch die Tastatur

@@ -1,0 +1,2 @@
+- versión obxectivo Android 15
+- solución a teclado que tapa o botón gardar na pantalla de edición

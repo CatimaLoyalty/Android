@@ -1,0 +1,2 @@
+- Engadir Catima a Quick Access Device Controls (https://developer.android.com/guide/topics/ui/device-control)
+- Arranxo de algúns grupos que non se mostran correctamente na pantalla de xestión dos grupos

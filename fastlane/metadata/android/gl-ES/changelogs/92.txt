@@ -1,0 +1,2 @@
+- nova disposición da pantalla principal
+- arranxo do tamaño da parte inferior cando se entraba e saía de pantalla completa

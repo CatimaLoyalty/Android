@@ -1,0 +1,4 @@
+- solución a crear múltiples entradas a premer varias veces o botón gardar
+- menor tamaño da cabeceira das tarxetas en ocultar detalles para que se vexan aínda máis tarxetas
+- reorganización da pantalla de edición
+- mellora do contraste da icona da estrela na pantalla principal

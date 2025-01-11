@@ -4,6 +4,7 @@
 
 - Target Android 15
 - Fix keyboard covering save button in edit screen
+- Fix some pkpass files not being detected as pkpass (application/vnd-com.apple.pkpass mime type support)
 
 ## v2.34.2 - 144 (2024-12-26)
 

@@ -68,7 +68,7 @@ jobs:
         run: ./gradlew spotbugs${{ matrix.flavor }}Release
       - name: Archive test results
         if: always()
-        uses: actions/upload-artifact@v4.5.0
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: test-results-flavor${{ matrix.flavor }}
           path: app/build/reports

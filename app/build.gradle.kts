@@ -124,7 +124,7 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
     implementation("com.github.yalantis:ucrop:2.2.10")
     implementation("com.google.zxing:core:3.5.3")
-    implementation("org.apache.commons:commons-csv:1.9.0")
+    implementation("org.apache.commons:commons-csv:1.13.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")
     implementation("net.lingala.zip4j:zip4j:2.11.5")
 

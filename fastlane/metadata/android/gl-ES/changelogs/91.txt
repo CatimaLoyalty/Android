@@ -1,0 +1,4 @@
+- mellora na xestión dos grupos
+- pódense recortar as imaxes
+- solución da perda de datos da imaxe ao gardar despois de rotar na edición
+- pódese poñer unha imaxe persoal como icona da tarxeta

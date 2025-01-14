@@ -1,2 +1,3 @@
 - Ziel Android 15
 - Behebt in der Bearbeitungsanzeige die Abdeckung der Speichertaste durch die Tastatur
+- Behebt, dass einige pkpass-Dateien nicht als pkpass erkannt werden (application/vnd-com.apple.pkpass mime type Unterstützung)

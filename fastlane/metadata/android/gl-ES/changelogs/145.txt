@@ -1,2 +1,3 @@
 - versión obxectivo Android 15
 - solución a teclado que tapa o botón gardar na pantalla de edición
+- solución a que non detectaba algúns ficheiros .pkpass como tales (compatibilidade co tipo mime application/vnd-com.apple.pkpass)

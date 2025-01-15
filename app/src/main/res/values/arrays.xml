@@ -11,7 +11,7 @@
     <string-array name="sort_types_array">
         <item>@string/sort_by_name</item>
         <item>@string/sort_by_most_recently_used</item>
-        <item>@string/sort_by_expiry</item>
         <item>@string/sort_by_valid_from</item>
+        <item>@string/sort_by_expiry</item>
     </string-array>
 </resources>

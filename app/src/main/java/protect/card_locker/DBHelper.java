@@ -70,6 +70,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public enum LoyaltyCardOrder {
         Alpha,
         LastUsed,
+        ValidFrom,
         Expiry
     }
 
@@ -914,6 +915,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (order == LoyaltyCardOrder.LastUsed) {
             return LoyaltyCardDbIds.LAST_USED;
+        }
+
+        if (order == LoyaltyCardOrder.ValidFrom) {
+            return LoyaltyCardDbIds.VALID_FROM;
         }
 
         if (order == LoyaltyCardOrder.Expiry) {

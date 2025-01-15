@@ -256,6 +256,7 @@
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>
+    <string name="sort_by_valid_from">Valid From</string>
     <!-- \"Reversed order\" is also OK. This is an option in the card sorting list -->
     <string name="reverse">…in reversed order</string>
     <string name="sort_by">Sort by</string>

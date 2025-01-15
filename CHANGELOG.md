@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 146
+
+- Ability to sort cards by start of validity
+
 ## v2.34.3 - 145 (2025-01-15)
 
 - Target Android 15

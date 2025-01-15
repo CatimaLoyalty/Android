@@ -1,1 +1,3 @@
 - Android 15 atbalsts
+- Labošanas ekrānā novērsta saglabāšanas pogas aizsegšana ar tastatūru
+- Novērsta atsevišķu pkpass datņu neatpazīšana kā pkpass (application/vnd-com.apple.pkpass MIME veida atbalsts)

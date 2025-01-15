@@ -1,0 +1,3 @@
+- Alusplatvorm on nüüd Android 15
+- Parandasime olukorra, kus klahvistik kattis muutmisvaates salvestusnupu
+- Parandasime olukorra, kus mõned pkpass failid jäid tuvastamata (application/vnd-com.apple.pkpass mime-tüüpi tugi)

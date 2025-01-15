@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 145
+## v2.34.3 - 145 (2025-01-15)
 
 - Target Android 15
 - Fix keyboard covering save button in edit screen

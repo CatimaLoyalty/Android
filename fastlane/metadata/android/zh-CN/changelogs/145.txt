@@ -1,1 +1,3 @@
 - 以 Android 15（API 级别35）为目标平台
+- 修复编辑屏中键盘遮住保存按钮的问题
+- 修复一些 pkpass 文件未被检测未pkpass 的问题 （application/vnd-com.apple.pkpass mime 类型支持）

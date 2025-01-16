@@ -1,4 +1,7 @@
 <resources>
+    <!-- FIXME: Remove this workaround as soon as uCrop no longer needs it: https://github.com/Yalantis/uCrop/issues/913 -->
+    <style name="TempUCropAndroid15WorkaroundTheme" parent="AppTheme.NoActionBar">
+    </style>
 
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>

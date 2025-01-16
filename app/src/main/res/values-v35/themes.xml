@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FIXME: Remove this workaround as soon as uCrop no longer needs it: https://github.com/Yalantis/uCrop/issues/913 -->
+    <style name="TempUCropAndroid15WorkaroundTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+</resources>

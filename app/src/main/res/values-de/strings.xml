@@ -163,7 +163,7 @@
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
     <string name="sort_by">Sortieren nach</string>
-    <string name="sort_by_expiry">Ablauf</string>
+    <string name="sort_by_expiry">Gültig bis</string>
     <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
     <string name="sort_by_name">Name</string>
     <string name="sort">Sortieren</string>
@@ -305,4 +305,5 @@
     <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
     <string name="addFromPkpass">Passbook-Datei (.pkpass) auswählen</string>
+    <string name="sort_by_valid_from">Gültig ab</string>
 </resources>

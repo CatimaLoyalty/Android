@@ -319,4 +319,5 @@
     <string name="unsupportedFile">Цей файл не підтримується</string>
     <string name="generic_error_please_retry">Вибачте, щось пішло не так, спробуйте ще раз...</string>
     <string name="addFromPkpass">Виберіть файл Passbook (.pkpass)</string>
+    <string name="sort_by_valid_from">Діє з</string>
 </resources>

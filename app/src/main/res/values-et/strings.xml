@@ -303,4 +303,5 @@
     <string name="generic_error_please_retry">Vabandust, midagi läks nüüd viltu, palun proovi uuesti...</string>
     <string name="unsupportedFile">See fail pole toetatud</string>
     <string name="addFromPkpass">Vali Passbooki fail (.pkpass)</string>
+    <string name="sort_by_valid_from">Kehtib alates</string>
 </resources>

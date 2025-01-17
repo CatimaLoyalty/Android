@@ -8,8 +8,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -26,8 +25,7 @@
         android:layout_marginBottom="100dp"
         android:orientation="vertical"
         android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:fitsSystemWindows="true">
+        android:layout_marginEnd="0dp">
 
         <LinearLayout
             android:id="@+id/icon_container"
@@ -149,8 +147,7 @@
         android:id="@+id/fullscreen_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:fitsSystemWindows="false">
+        android:orientation="vertical">
 
         <ImageView
             android:importantForAccessibility="no"
@@ -209,13 +206,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?attr/colorPrimary"
-        app:fabAlignmentMode="center"
-        app:fabCradleVerticalOffset="2dp"
-        android:fitsSystemWindows="true">
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+        app:fabAlignmentMode="center">
 
         <LinearLayout
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layoutDirection="ltr">

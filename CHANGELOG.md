@@ -3,6 +3,7 @@
 ## Unreleased - 146
 
 - Ability to sort cards by start of validity
+- Temporarily revert to targeting Android 14 to fix some UI issues
 
 ## v2.34.3 - 145 (2025-01-15)
 

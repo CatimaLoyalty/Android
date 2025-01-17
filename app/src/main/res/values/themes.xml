@@ -31,7 +31,6 @@
         <item name="alertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog.Monet</item>
 
         <item name="windowActionModeOverlay">true</item>
-
     </style>
 
     <style name="ThemeOverlay.App.MaterialAlertDialog.Monet" parent="ThemeOverlay.Material3.MaterialAlertDialog">

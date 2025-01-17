@@ -1,0 +1,1 @@
+- Možnost třídit karty podle začátku platnosti

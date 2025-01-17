@@ -308,4 +308,5 @@
     <string name="addFromPkpass">Kies een Passbook bestand (.pkpass)</string>
     <string name="unsupportedFile">Dit bestand wordt niet ondersteund</string>
     <string name="generic_error_please_retry">Sorry, er ging iets mis. Probeer het opnieuw.</string>
+    <string name="sort_by_valid_from">Op geldig vanaf</string>
 </resources>

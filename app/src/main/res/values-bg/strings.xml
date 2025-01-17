@@ -41,7 +41,7 @@
     <string name="removeImage">Премахване на изображение</string>
     <string name="takePhoto">Снимане</string>
     <string name="intent_import_card_from_url_share_multiple_text">Искам да споделя тези карти с вас</string>
-    <string name="wrongValueForBarcodeType">Стойноста е неприемлива за избрания щрихкод</string>
+    <string name="wrongValueForBarcodeType">Стойността е неприемлива за избрания вид щрихкод</string>
     <string name="setBarcodeId">Задаване на стойност</string>
     <string name="sameAsCardId">Като номера</string>
     <string name="barcodeId">Стойност на щрихкода</string>
@@ -308,4 +308,5 @@
     <string name="generic_error_please_retry">Съжаляваме, нещо се обърка, опитайте отново…</string>
     <string name="addFromPkpass">Изберете файл на Passbook (.pkpass)</string>
     <string name="unsupportedFile">Този вид файлове не се поддържат</string>
+    <string name="sort_by_valid_from">Начало валидност</string>
 </resources>

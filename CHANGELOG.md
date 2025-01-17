@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 146
+## v2.34.4 - 146 (2025-01-17)
 
 - Ability to sort cards by start of validity
 - Temporarily revert to targeting Android 14 to fix some UI issues

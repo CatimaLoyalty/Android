@@ -309,4 +309,5 @@
     <string name="unsupportedFile">Šī datne netiek atbalstīta</string>
     <string name="addFromPkpass">Atlasīt Passbook datni (.pkpass)</string>
     <string name="generic_error_please_retry">Atvainojamies, kaut kas nogāja greizi. Lūgums mēģināt vēlreiz...</string>
+    <string name="sort_by_valid_from">Derīga no</string>
 </resources>

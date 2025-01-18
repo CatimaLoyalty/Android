@@ -301,4 +301,5 @@
     <string name="addFromPkpass">選擇 Passbook 檔案 (.pkpass)</string>
     <string name="unsupportedFile">不支援此檔案</string>
     <string name="generic_error_please_retry">抱歉，似乎出了點錯誤，請您再試一次...</string>
+    <string name="sort_by_valid_from">有效期限開始日</string>
 </resources>

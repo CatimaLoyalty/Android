@@ -1,0 +1,2 @@
+- Iespēja kārtot kartes pēc derīguma sākuma
+- Īslaicīgi atcelta pielāgošana Android 14, lai novērstu dažas saskarnes nepilnības

@@ -1,1 +1,2 @@
 - Ermöglicht Kartensortierung nach „Beginn der Gültigkeit“
+- Vorübergehende Rückkehr zur Anpassung für Android 14, um ein paar Probleme mit der Benutzeroberfläche zu beheben

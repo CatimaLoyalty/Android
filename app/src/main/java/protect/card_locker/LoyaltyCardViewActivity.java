@@ -139,12 +139,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // If the barcode is shown, switch to fullscreen layout
         if (imageType == ImageType.BARCODE) {
             setFullscreen(true);
-            if (format.isSquare()) {
-                binding.setWidthLayout.setVisibility(View.GONE);
-            }
-            else {
-                binding.setWidthLayout.setVisibility(View.VISIBLE);
-            }
+
             return;
         }
 
@@ -291,8 +286,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
 
-        binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction(binding.barcodeScaler));
-        binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction(binding.barcodeWidthscaler));
+        binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
+        binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
 
         rotationEnabled = true;
 
@@ -354,7 +349,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         });
     }
 
-    private SeekBar.OnSeekBarChangeListener setOnSeekBarChangeListenerUnifiedFunction(SeekBar sbar) {
+    private SeekBar.OnSeekBarChangeListener setOnSeekBarChangeListenerUnifiedFunction() {
         return new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -362,9 +357,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
                     return;
                 }
-
                 Log.d(TAG, "Progress is " + progress);
-                if (sbar.getId() == binding.barcodeScaler.getId()) {
+                if (seekBar.getId() == binding.barcodeScaler.getId()) {
                     Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
                     float scale = (float) progress / (float) binding.barcodeScaler.getMax();
                     Log.d(TAG, "Scaling to " + scale);
@@ -374,29 +368,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     float scale = (float) progress / (float) binding.barcodeWidthscaler.getMax();
                     Log.d(TAG, "Scaling to " + scale);
                 }
-
                 DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel, loyaltyCard.zoomLevelWidth);
-                if (sbar.getId() == binding.barcodeScaler.getId()) {
+                if (seekBar.getId() == binding.barcodeScaler.getId()) {
                     loyaltyCard.zoomLevel = progress;
-
                     setScalerGuideline(loyaltyCard.zoomLevel);
                 }
                 else {
                     loyaltyCard.zoomLevelWidth = progress;
-
                     setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
                 }
                 drawMainImage(mainImageIndex, true, isFullscreen);
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         };
     }
@@ -1163,20 +1150,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.container.setVisibility(View.GONE);
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
 
-            if (format.isSquare()) {
-                binding.setWidthLayout.setVisibility(View.GONE);
-            }
-            else {
-                binding.setWidthLayout.setVisibility(View.VISIBLE);
-            }
+            // Only show width slider if the barcode isn't square (square barcodes will resize height and width together)
+            binding.setWidthLayout.setVisibility(format.isSquare() ? View.GONE : View.VISIBLE);
 
             drawMainImage(mainImageIndex, true, isFullscreen);
 
             binding.barcodeScaler.setProgress(loyaltyCard.zoomLevel);
             setScalerGuideline(loyaltyCard.zoomLevel);
 
-           binding.barcodeWidthscaler.setProgress(loyaltyCard.zoomLevelWidth);
-           setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
+            binding.barcodeWidthscaler.setProgress(loyaltyCard.zoomLevelWidth);
+            setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
 
             // Hide actionbar
             if (actionBar != null) {

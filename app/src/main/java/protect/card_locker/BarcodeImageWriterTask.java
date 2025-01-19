@@ -189,33 +189,61 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
             int bitMatrixWidth = bitMatrix.getWidth();
             int bitMatrixHeight = bitMatrix.getHeight();
 
+            int min_x = bitMatrixWidth / 2;
+            int max_x = bitMatrixWidth / 2;
+            int min_y = bitMatrixHeight / 2;
+            int max_y = bitMatrixHeight / 2;
+
             int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
 
             for (int y = 0; y < bitMatrixHeight; y++) {
                 int offset = y * bitMatrixWidth;
                 for (int x = 0; x < bitMatrixWidth; x++) {
+
                     int color = bitMatrix.get(x, y) ? BLACK : WHITE;
                     pixels[offset + x] = color;
+
+                    // Get the real bounds of the barcode
+                    if (color == BLACK){
+                        min_x = Math.min(x, min_x);
+                        max_x = Math.max(x, max_x);
+                        min_y = Math.min(y, min_y);
+                        max_y = Math.max(y, max_y);
+                    }
                 }
             }
-            Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight,
-                    Bitmap.Config.ARGB_8888);
-            bitmap.setPixels(pixels, 0, bitMatrixWidth, 0, 0, bitMatrixWidth, bitMatrixHeight);
 
-            // Determine if the image needs to be scaled.
+            // imagePadding may have been calculated before. Now it is used to be able to only crop extra added white space and not crop legit padding.
+            int imagePadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, this.mContext.getResources().getDisplayMetrics()));
+
+            min_x = Math.max(min_x - imagePadding, 0);
+            min_y = Math.max(min_y - imagePadding, 0);
+            max_x = Math.min(max_x + imagePadding, bitMatrixWidth);
+            max_y = Math.min(max_y + imagePadding, bitMatrixHeight);
+
+            int croppedWidth = max_x - min_x;
+            int croppedHeight = max_y - min_y;
+            int[] croppedpixels = new int[croppedWidth * croppedHeight];
+
+            for (int y = 0; y < croppedHeight; y++) {
+                int offset = y * croppedWidth;
+                for (int x = 0; x < croppedWidth; x++) {
+                    croppedpixels[offset + x] = pixels[(y + min_y) * bitMatrixWidth + x + min_x];
+                }
+            }
+
+            Bitmap bitmap = Bitmap.createBitmap(croppedWidth, croppedHeight,
+                    Bitmap.Config.ARGB_8888);
+            bitmap.setPixels(croppedpixels, 0, croppedWidth, 0, 0, croppedWidth, croppedHeight);
+
+            // Scaling the image.
             // This is necessary because the datamatrix barcode generator
             // ignores the requested size and returns the smallest image necessary
             // to represent the barcode. If we let the ImageView scale the image
             // it will use bi-linear filtering, which results in a blurry barcode.
-            // To avoid this, if scaling is needed do so without filtering.
+            // To avoid this, scale without filtering.
 
-            int heightScale = imageHeight / bitMatrixHeight;
-            int widthScale = imageWidth / bitMatrixHeight;
-            int scalingFactor = Math.min(heightScale, widthScale);
-
-            if (scalingFactor > 1) {
-                bitmap = Bitmap.createScaledBitmap(bitmap, bitMatrixWidth * scalingFactor, bitMatrixHeight * scalingFactor, false);
-            }
+            bitmap = Bitmap.createScaledBitmap(bitmap, imageWidth, imageHeight, false);
 
             return bitmap;
         } catch (WriterException e) {

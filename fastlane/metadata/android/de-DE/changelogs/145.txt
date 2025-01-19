@@ -1,3 +1,3 @@
-- Ziel Android 15
+- Angepasst für Android 15
 - Die Tastatur verdeckt jetzt nicht mehr den "Speichern"-Button im Bearbeitungsbildschirm
 - Einige pkpass-Dateien wurden nicht als pkpass erkannt (Unterstützung des Mime-Typs application/vnd-com.apple.pkpass)

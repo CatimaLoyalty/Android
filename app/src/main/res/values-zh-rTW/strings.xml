@@ -246,7 +246,7 @@
     <string name="setBarcodeHeight">設定條碼高度</string>
     <string name="app_copyright_short">著作權所有© Sylvia van Os與其他貢獻者</string>
     <string name="permissionReadCardsLabel">讀取Catima卡片</string>
-    <string name="app_name">卡提碼</string>
+    <string name="app_name">Catima</string>
     <string name="permissionReadCardsDescription">讀取Catima卡片及卡片資訊，包含註記與圖片</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時避免螢幕鎖定</string>
     <string name="settings_allow_content_provider_read_summary">其他程式仍然需要取得權限</string>

@@ -1,0 +1,3 @@
+- Cambiat el nom per defecte en la exportació. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Corregits els literals en la pàgina d'importació/exportació. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Millores en l'estructura de la pàgina de visualització de targetes. El text hauria de ser més senzill de llegir i es pot seleccionar amb un clic llarg. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

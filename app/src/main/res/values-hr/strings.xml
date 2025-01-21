@@ -51,7 +51,7 @@
     <string name="settings_theme">Tema</string>
     <string name="settings_system_theme">Sustav</string>
     <string name="settings_light_theme">Svijetla</string>
-    <string name="settings_display_barcode_max_brightness">Posvijetli prikaz crtičnog koda</string>
+    <string name="settings_display_barcode_max_brightness">Posvijetli ekran</string>
     <string name="moveDown">Pomakni prema dolje</string>
     <string name="addManually">Upiši crtični kod</string>
     <string name="thumbnailDescription">Sličica</string>
@@ -129,7 +129,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Za snimanje crtičnih kodova Catima treba pristup tvojoj kameri. Dodirni ovdje za mijenjanje postavki dozvola.</string>
     <string name="app_libraries">Slobodne biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Odaberi crtični kod</string>
-    <string name="settings_portrait_orientation">Okomito</string>
+    <string name="settings_portrait_orientation">Uspravno</string>
     <string name="settings_lock_on_opening_orientation">Odredi orijentaciju koja se koristi prilikom otvaranja kartice</string>
     <string name="group_edit">Uredi grupu</string>
     <string name="group_name_already_in_use">Ime grupe se već koristi</string>
@@ -169,7 +169,7 @@
     <string name="storageReadPermissionRequired">Za ovu radnju je potrebna dozvola za čitanje spremljenih podataka …</string>
     <string name="cameraPermissionRequired">Za ovu radnju je potrebna dozvola za pristup kameri …</string>
     <string name="app_license">Copylefted libre softver, GPLv3+ licenca</string>
-    <string name="settings_card_orientation">Orijentacija crtičnog koda</string>
+    <string name="settings_card_orientation">Orijentacija ekrana</string>
     <string name="settings_follow_system_orientation">Slijedi sustav</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="importFidmeMessage">Odaberi tvoju iz FidMe izvezenu <i>idme-export-request-xxxxxx.zip</i> datoteku koju želiš uvesti i ručno odaberi vste crtičnog koda nakon toga. 
@@ -207,7 +207,7 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorska prava © 2019. – <xliff:g>%d.</xliff:g> Sylvia van Os i doprinositelji</string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_resources">Slobodni resursi trećih strana: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_landscape_orientation">Vodoravno</string>
+    <string name="settings_landscape_orientation">Ležeće</string>
     <string name="group_name_is_empty">Ime grupe ne smije biti prazno</string>
     <string name="group_updated">Grupa je aktualizirana</string>
     <string name="all">Sve</string>
@@ -270,7 +270,7 @@
     <string name="action_display_options">Opcije prikaza</string>
     <string name="settings_display_barcode_max_brightness_summary">Potrebno za rad nekih čitača</string>
     <string name="settings_oled_dark_summary">Smanjuje potrošnju baterije OLED ekrana</string>
-    <string name="settings_category_title_cards">Kartice</string>
+    <string name="settings_category_title_cards">Prikaz kartice</string>
     <string name="addWithoutBarcode">Dodaj karticu bez crtičnog koda</string>
     <string name="app_copyright_short">Autorska prava © Sylvia van Os i doprinositelji</string>
     <string name="field_must_not_be_empty">Polje ne smije biti prazno</string>
@@ -298,4 +298,21 @@
     <string name="exportCancelled">Izvoz je prekinut</string>
     <string name="useBackImage">Koristi stražnju sliku</string>
     <string name="useFrontImage">Koristi prednju sliku</string>
+    <string name="settings_column_count_portrait">Stupci u uspravnom modusu</string>
+    <string name="sort_by_valid_from">Vrijedi od</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_category_title_cards_overview">Pregled kartica</string>
+    <string name="settings_column_count_landscape">Stupci u ležećem modusu</string>
+    <string name="settings_automatic_column_count">Automatski</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="generic_error_please_retry">Žao nam je, nešto nije u redu, pokušaj ponovo …</string>
+    <string name="addFromPkpass">Odaberi jednu Passbook datoteku (.pkpass)</string>
+    <string name="unsupportedFile">Ova datoteka nije podržana</string>
+    <string name="settings_use_volume_keys_navigation_summary">Pomoću gumba za glasnoću promijeni koja se kartica prikazuje</string>
+    <string name="settings_use_volume_keys_navigation">Mijenjaj kartice pomoću gumba za glasnoću</string>
 </resources>

@@ -1,0 +1,3 @@
+- Ajustos en el retallador que no s'ajusta al color del tema
+- Ajustos menors en els temes
+- Afegit el tema Negre pur per pantalles de tipus OLED

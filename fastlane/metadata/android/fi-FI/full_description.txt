@@ -13,7 +13,7 @@ Tämän päivittäiseen käyttöön suunnitellun sovelluksen avulla voit korvata
 - Jaa kuponkeja, yksinoikeustarjouksia, tarjouskoodeja tai kortteja ja koodeja millä tahansa sovelluksella.
 - Tumma teema ja saavutettavuusvaihtoehdot näkövammaisille käyttäjille.
 - Libre-ohjelmistoyhteisön kaikille tekemä.
-- Lokalisoidut käsintehdyt käännökset yli 20 kielelle.
+- Lokalisoidut käsintehdyt käännökset yli 40 kielelle.
 - Ilmainen, yhteisön panoksilla tuettu.
 - Käytä, tutki, muuta ja jaa sitä haluamallasi tavalla; <i>kaikkien</i> kanssa.
 - Ei vain vapaat ohjelmistot / avoin lähdekoodi. <i>Copylefted</i> libre-ohjelmisto (GPLv3+) kortinhallinta.

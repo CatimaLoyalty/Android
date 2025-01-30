@@ -314,4 +314,5 @@
     <string name="unsupportedFile">Este arquivo não é suportado</string>
     <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass)</string>
     <string name="generic_error_please_retry">Desculpe, alguma coisa deu errado, por favor tente novamente...</string>
+    <string name="sort_by_valid_from">Válido a partir de</string>
 </resources>

@@ -314,4 +314,5 @@
     <string name="generic_error_please_retry">Lo sentimos, algo salió mal, por favor inténtelo de nuevo...</string>
     <string name="unsupportedFile">Este archivo no es compatible</string>
     <string name="addFromPkpass">Seleccione un archivo Passbook (.pkpass)</string>
+    <string name="sort_by_valid_from">Válido desde</string>
 </resources>

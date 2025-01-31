@@ -308,4 +308,5 @@
     <string name="unsupportedFile">Bu dosya desteklenmiyor</string>
     <string name="generic_error_please_retry">Üzgünüz, bir şeyler ters gitti, lütfen tekrar deneyin...</string>
     <string name="addFromPkpass">Bir Passbook dosyası seçin (.pkpass)</string>
+    <string name="sort_by_valid_from">İtibaren Geçerli</string>
 </resources>

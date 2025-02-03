@@ -1,0 +1,4 @@
+- Parandasime vea, kus salvesta nupu järjest klõpsimisel salvestus mitu kaarti
+- Et oleks enam kaarte näha, siis üksikasjade peitmisel kasutame veel madalamat päisekirjet
+- Korraldasime ümber muutmisvaate
+- Parandasime lemmiku ikooni kontrastust põhivaates

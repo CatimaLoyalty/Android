@@ -15,12 +15,6 @@
     <string name="barcodeType">סוג ברקוד</string>
     <string name="noBarcode">אין ברקוד</string>
     <string name="edit">עריכה</string>
-    <plurals name="selectedCardCount">
-        <item quantity="one">אחד</item>
-        <item quantity="two">שניים</item>
-        <item quantity="many">מעט</item>
-        <item quantity="other">אחר</item>
-    </plurals>
     <string name="exportFailed">לא ניתן לייצא</string>
     <string name="noGiftCardsGroup">צור מספר כרטיסים, ואז שייך אותם לקבוצה פה.</string>
     <string name="failedParsingImportUriError">נתיב לא נמצא</string>
@@ -49,18 +43,6 @@
     <string name="exportOptionExplanation">המידע יכתב למיקום שאת/ה תבחר/י.</string>
     <string name="importOptionFilesystemTitle">יבא ממערכת קבצים</string>
     <string name="importOptionFilesystemExplanation">בחר/י קובץ מסויים ממערכת הקבצים.</string>
-    <plurals name="deleteCardsConfirmation">
-        <item quantity="one">אחד</item>
-        <item quantity="two">שניים</item>
-        <item quantity="many">מעט</item>
-        <item quantity="other">אחר</item>
-    </plurals>
-    <plurals name="deleteCardsTitle">
-        <item quantity="one">אחד</item>
-        <item quantity="two">שניים</item>
-        <item quantity="many">מעט</item>
-        <item quantity="other">אחר</item>
-    </plurals>
     <string name="importCancelled">ייבוא בוטל</string>
     <string name="exportCancelled">ייצוא בוטל</string>
     <string name="addFromPdfFile">בחר קובץ PDF</string>

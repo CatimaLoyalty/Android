@@ -23,10 +23,11 @@ import java.util.Set;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 16;
+    public static final int DATABASE_VERSION = 17;
 
-    // NB: changing this value requires a migration
+    // NB: changing these values requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
+    public static final int DEFAULT_ZOOM_LEVEL_WIDTH = 100;
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
@@ -51,6 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String STAR_STATUS = "starstatus";
         public static final String LAST_USED = "lastused";
         public static final String ZOOM_LEVEL = "zoomlevel";
+        public static final String ZOOM_LEVEL_WIDTH = "zoomlevelwidth";
         public static final String ARCHIVE_STATUS = "archive";
     }
 
@@ -113,6 +115,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
                 LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL + "', " +
+                LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL_WIDTH + "', " +
                 LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
 
         // create associative table for cards in groups
@@ -327,6 +330,11 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.VALID_FROM + " INTEGER");
         }
+
+        if (oldVersion < 17 && newVersion >= 17) {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH + " INTEGER DEFAULT '100' ");
+        }
     }
 
     public static Set<String> imageFiles(Context context, final SQLiteDatabase database) {
@@ -516,15 +524,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
-    public static boolean updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel) {
+    public static boolean updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel, int zoomLevelWidth) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL, zoomLevel);
+        contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH, zoomLevelWidth);
         Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level= " + zoomLevel);
+        Log.d("updateLoyaltyCardZoomLW", "Card Id = " + loyaltyCardId + " Zoom level width= " + zoomLevelWidth);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(loyaltyCardId));
         Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
-        return (rowsUpdated == 1);
+        Log.d("updateLoyaltyCardZoomLW", "Rows changed = " + rowsUpdated);
+        return (rowsUpdated == 2);
     }
 
     public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {

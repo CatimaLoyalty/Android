@@ -164,6 +164,7 @@ public class FidmeImporter implements Importer {
                 starStatus,
                 Utils.getUnixTime(),
                 DBHelper.DEFAULT_ZOOM_LEVEL,
+                DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH,
                 archiveStatus,
                 null,
                 null,

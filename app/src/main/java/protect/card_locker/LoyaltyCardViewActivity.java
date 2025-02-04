@@ -52,6 +52,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.zxing.BarcodeFormat;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -1151,7 +1152,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
 
             // Only show width slider if the barcode isn't square (square barcodes will resize height and width together)
-            binding.setWidthLayout.setVisibility(format.isSquare() ? View.GONE : View.VISIBLE);
+            // or if the internals of the barcode are squares, like DATA_MATRIX
+            binding.setWidthLayout.setVisibility((format.isSquare() || format.format() == BarcodeFormat.DATA_MATRIX) ? View.GONE : View.VISIBLE);
 
             drawMainImage(mainImageIndex, true, isFullscreen);
 

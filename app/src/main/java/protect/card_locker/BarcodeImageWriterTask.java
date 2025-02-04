@@ -86,12 +86,9 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
         if (format.isSquare()) {
             imageHeight = imageWidth = Math.min(imageViewHeight, Math.min(MAX_WIDTH, imageViewWidth));
-        } else if (imageView.getWidth() < MAX_WIDTH) {
-            imageHeight = imageViewHeight;
-            imageWidth = imageViewWidth;
         } else {
             // Scale down the image to reduce the memory needed to produce it
-            imageWidth = MAX_WIDTH;
+            imageWidth = Math.min(MAX_WIDTH, this.mContext.getResources().getDisplayMetrics().widthPixels);
             double ratio = (double) MAX_WIDTH / (double) imageViewWidth;
             imageHeight = (int) (imageViewHeight * ratio);
         }

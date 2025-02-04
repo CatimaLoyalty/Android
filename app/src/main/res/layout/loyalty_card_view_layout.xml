@@ -234,7 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@string/setBarcodeWidth"
-                android:min="10"
+                android:min="20"
                 android:max="100" />
         </LinearLayout>
 

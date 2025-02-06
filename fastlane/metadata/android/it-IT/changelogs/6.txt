@@ -1,3 +1,2 @@
-- Consente di inserire manualmente codici a barre. In questo caso, si visualizza un elenco di immagini di codici validi e supportati. Si può selezionare l'immagine del codice a barre che desidera. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44
-(https://github.com/brarcher/loyalty-card-locker/pull/44)
+- Consente di inserire manualmente codici a barre. In questo caso, si visualizza un elenco di immagini di codici validi e supportati. Si può selezionare l'immagine del codice a barre che desidera. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
 - Risolto il problema per cui alcuni codici a barre erano sfocati. (issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

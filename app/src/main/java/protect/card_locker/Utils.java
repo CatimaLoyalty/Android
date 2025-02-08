@@ -468,7 +468,9 @@ public class Utils {
         currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
         currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
 
-        return currencyFormat.format(value);
+        // adding a space between the currency code and the balance
+        String formattedCurrency = currencyFormat.format(value);
+        return formattedCurrency.replace(currency.getCurrencyCode(), currency.getCurrencyCode() + " ");
     }
 
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {

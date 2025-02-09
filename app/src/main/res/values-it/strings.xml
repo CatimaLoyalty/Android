@@ -314,4 +314,5 @@
     <string name="unsupportedFile">Questo file non è supportato</string>
     <string name="generic_error_please_retry">Siamo spiacenti, qualcosa è andato storto, riprova...</string>
     <string name="addFromPkpass">Seleziona un file Passbook (.pkpass)</string>
+    <string name="sort_by_valid_from">Valido da</string>
 </resources>

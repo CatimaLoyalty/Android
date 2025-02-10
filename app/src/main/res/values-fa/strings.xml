@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">کاتیما</string>
     <string name="action_search">جستجو</string>
     <string name="action_add">افزودن</string>
@@ -72,4 +72,19 @@
     <string name="settings_category_title_privacy">حریم شخصی</string>
     <string name="settings_category_title_general">عمومی</string>
     <string name="settings_category_title_cards">کارت‌ها</string>
+    <string name="barcodeImageDescriptionWithType">تصویر بارکد <xliff:g>%s</xliff:g></string>
+    <string name="importOptionFilesystemButton">از فایل های سیستم</string>
+    <string name="importOptionApplicationTitle">استفاده از یک برنامه دیگر</string>
+    <string name="importOptionApplicationButton">استفاده از یک برنامه دیگر</string>
+    <string name="about">درباره</string>
+    <string name="importOptionApplicationExplanation">از هر برنامه یا مدیر فایل دلخواه خود برای باز کردن یک فایل استفاده کنید.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حق تکثیر © 2019–<xliff:g>%d</xliff:g> سیلویا وَن اُس و مشارکت کنندگان</string>
+    <string name="app_copyright_short">حق تکثیر © سیلویا وَن اُس و مشارکت کنندگان</string>
+    <string name="failedParsingImportUriError">تجزیه URI ورودی ناموفق بود</string>
+    <string name="importOptionFilesystemExplanation">یک فایل مشخص از فایل‌های سیستم انتخاب کنید.</string>
+    <string name="importOptionFilesystemTitle">وادر کردن از فایل های سیستم</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> انتخاب شد</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> انتخاب شد</item>
+    </plurals>
 </resources>

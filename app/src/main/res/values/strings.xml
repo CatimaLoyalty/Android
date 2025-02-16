@@ -364,4 +364,6 @@
     <string name="addFromPkpass">Select a Passbook file (.pkpass)</string>
     <string name="unsupportedFile">This file is not supported</string>
     <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
+    <string name="width">Width</string>
+    <string name="setBarcodeWidth">Set Barcode Width</string>
 </resources>

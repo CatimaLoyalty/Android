@@ -49,7 +49,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
             CatimaBarcode barcodeFormat, TextView textView,
-            boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding
+            boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding, boolean isFullscreen
     ) {
         mContext = context;
 
@@ -86,6 +86,9 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
         if (format.isSquare()) {
             imageHeight = imageWidth = Math.min(imageViewHeight, Math.min(MAX_WIDTH, imageViewWidth));
+        } else if (imageView.getWidth() < MAX_WIDTH && !isFullscreen) {
+            imageHeight = imageViewHeight;
+            imageWidth = imageViewWidth;
         } else {
             // Scale down the image to reduce the memory needed to produce it
             imageWidth = Math.min(MAX_WIDTH, this.mContext.getResources().getDisplayMetrics().widthPixels);

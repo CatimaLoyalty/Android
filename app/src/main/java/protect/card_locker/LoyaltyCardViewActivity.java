@@ -957,7 +957,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     null,
                     false,
                     this,
-                    addPadding);
+                    addPadding,
+                    isFullscreen);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }

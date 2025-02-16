@@ -92,13 +92,13 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
 
                             Log.d(TAG, "Generating barcode for type " + formatType);
 
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, text, true, null, true);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, text, true, null, true, false);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, text, true, null, true);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, text, true, null, true, false);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }

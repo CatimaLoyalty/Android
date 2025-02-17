@@ -308,4 +308,5 @@
     <string name="addFromPkpass">Velg en Passbook-fil (.pkpass)</string>
     <string name="unsupportedFile">Denne filen støttes ikke</string>
     <string name="generic_error_please_retry">Beklager, men noe gikk galt. Prøv igjen…</string>
+    <string name="sort_by_valid_from">Gyldig fra</string>
 </resources>

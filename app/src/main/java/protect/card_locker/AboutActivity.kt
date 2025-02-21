@@ -44,8 +44,9 @@ class AboutActivity : CatimaAppCompatActivity() {
             rate.tag = "https://play.google.com/store/apps/details?id=me.hackerchick.catima"
             donate.tag = "https://catima.app/donate"
 
-            // Visibility controls
+            // Hide Google Play rate button if not on Google Play
             rate.visibility = if (BuildConfig.showRateOnGooglePlay) View.VISIBLE else View.GONE
+            // Hide donate button on Google Play (Google Play doesn't allow donation links)
             donate.visibility = if (BuildConfig.showDonate) View.VISIBLE else View.GONE
         }
 

@@ -302,4 +302,5 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">பதிப்புரிமை © 2019–<xliff:g>%d</xliff:g> சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="app_resources">விடுதலை மூன்றாம் தரப்பு வளங்கள்: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="groupsList">குழுக்கள்: <xliff:g>%s</xliff:g></string>
+    <string name="sort_by_valid_from">இருந்து செல்லுபடியாகும்</string>
 </resources>

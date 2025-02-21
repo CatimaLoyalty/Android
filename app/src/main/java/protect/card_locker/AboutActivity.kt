@@ -1,146 +1,145 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.os.Bundle;
-import android.text.Spanned;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.os.Bundle
+import android.text.Spanned
+import android.view.MenuItem
+import android.view.View
+import android.widget.ScrollView
+import android.widget.TextView
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
+import androidx.annotation.StringRes
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-import protect.card_locker.databinding.AboutActivityBinding;
+import protect.card_locker.databinding.AboutActivityBinding
 
-public class AboutActivity extends CatimaAppCompatActivity {
-
-    private static final String TAG = "Catima";
-
-    private AboutActivityBinding binding;
-    private AboutContent content;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = AboutActivityBinding.inflate(getLayoutInflater());
-        content = new AboutContent(this);
-        setTitle(content.getPageTitle());
-        setContentView(binding.getRoot());
-        setSupportActionBar(binding.toolbar);
-        enableToolbarBackButton();
-
-        TextView copyright = binding.creditsSub;
-        copyright.setText(content.getCopyrightShort());
-        TextView versionHistory = binding.versionHistorySub;
-        versionHistory.setText(content.getVersionHistory());
-
-        binding.versionHistory.setTag("https://catima.app/changelog/");
-        binding.translate.setTag("https://hosted.weblate.org/engage/catima/");
-        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/main/LICENSE");
-        binding.repo.setTag("https://github.com/CatimaLoyalty/Android/");
-        binding.privacy.setTag("https://catima.app/privacy-policy/");
-        binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
-        binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
-        binding.donate.setTag("https://catima.app/donate");
-
-        // Hide Google Play rate button if not on Google Play
-        binding.rate.setVisibility(BuildConfig.showRateOnGooglePlay ? View.VISIBLE : View.GONE);
-        // Hide donate button on Google Play (Google Play doesn't allow donation links)
-        binding.donate.setVisibility(BuildConfig.showDonate ? View.VISIBLE : View.GONE);
-
-        bindClickListeners();
+class AboutActivity : CatimaAppCompatActivity() {
+    private companion object {
+        private const val TAG = "Catima"
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    private var _binding: AboutActivityBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var content: AboutContent
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        content.destroy();
-        clearClickListeners();
-        binding = null;
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = AboutActivityBinding.inflate(layoutInflater)
+        content = AboutContent(this)
+        title = content.pageTitle
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        enableToolbarBackButton()
 
-    private void bindClickListeners() {
-        binding.versionHistory.setOnClickListener(this::showHistory);
-        binding.translate.setOnClickListener(this::openExternalBrowser);
-        binding.license.setOnClickListener(this::showLicense);
-        binding.repo.setOnClickListener(this::openExternalBrowser);
-        binding.privacy.setOnClickListener(this::showPrivacy);
-        binding.reportError.setOnClickListener(this::openExternalBrowser);
-        binding.rate.setOnClickListener(this::openExternalBrowser);
-        binding.donate.setOnClickListener(this::openExternalBrowser);
+        binding.apply {
+            creditsSub.text = content.copyrightShort
+            versionHistorySub.text = content.versionHistory
 
-        binding.credits.setOnClickListener(view -> showCredits());
-    }
+            versionHistory.tag = "https://catima.app/changelog/"
+            translate.tag = "https://hosted.weblate.org/engage/catima/"
+            license.tag = "https://github.com/CatimaLoyalty/Android/blob/main/LICENSE"
+            repo.tag = "https://github.com/CatimaLoyalty/Android/"
+            privacy.tag = "https://catima.app/privacy-policy/"
+            reportError.tag = "https://github.com/CatimaLoyalty/Android/issues"
+            rate.tag = "https://play.google.com/store/apps/details?id=me.hackerchick.catima"
+            donate.tag = "https://catima.app/donate"
 
-    private void clearClickListeners() {
-        binding.versionHistory.setOnClickListener(null);
-        binding.translate.setOnClickListener(null);
-        binding.license.setOnClickListener(null);
-        binding.repo.setOnClickListener(null);
-        binding.privacy.setOnClickListener(null);
-        binding.reportError.setOnClickListener(null);
-        binding.rate.setOnClickListener(null);
-        binding.donate.setOnClickListener(null);
-
-        binding.credits.setOnClickListener(null);
-    }
-
-    private void showCredits() {
-        showHTML(R.string.credits, content.getContributorInfo(), null);
-    }
-
-    private void showHistory(View view) {
-        showHTML(R.string.version_history, content.getHistoryInfo(), view);
-    }
-
-    private void showLicense(View view) {
-        showHTML(R.string.license, content.getLicenseInfo(), view);
-    }
-
-    private void showPrivacy(View view) {
-        showHTML(R.string.privacy_policy, content.getPrivacyInfo(), view);
-    }
-
-    private void showHTML(@StringRes int title, final Spanned text, @Nullable View view) {
-        int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-        TextView textView = new TextView(this);
-        textView.setText(text);
-        Utils.makeTextViewLinksClickable(textView, text);
-        ScrollView scrollView = new ScrollView(this);
-        scrollView.addView(textView);
-        scrollView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
-
-        // Create dialog
-        MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(this);
-        materialAlertDialogBuilder
-                .setTitle(title)
-                .setView(scrollView)
-                .setPositiveButton(R.string.ok, null);
-
-        // Add View online button if an URL is linked to this view
-        if (view != null && view.getTag() != null) {
-            materialAlertDialogBuilder.setNeutralButton(R.string.view_online, (dialog, which) -> openExternalBrowser(view));
+            // Visibility controls
+            rate.visibility = if (BuildConfig.showRateOnGooglePlay) View.VISIBLE else View.GONE
+            donate.visibility = if (BuildConfig.showDonate) View.VISIBLE else View.GONE
         }
 
-        // Show dialog
-        materialAlertDialogBuilder.show();
+        bindClickListeners()
     }
 
-    private void openExternalBrowser(View view) {
-        Object tag = view.getTag();
-        if (tag instanceof String && ((String) tag).startsWith("https://")) {
-            (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        content.destroy()
+        clearClickListeners()
+        _binding = null
+    }
+
+    private fun bindClickListeners() {
+        binding.apply {
+            versionHistory.setOnClickListener { showHistory(it) }
+            translate.setOnClickListener { openExternalBrowser(it) }
+            license.setOnClickListener { showLicense(it) }
+            repo.setOnClickListener { openExternalBrowser(it) }
+            privacy.setOnClickListener { showPrivacy(it) }
+            reportError.setOnClickListener { openExternalBrowser(it) }
+            rate.setOnClickListener { openExternalBrowser(it) }
+            donate.setOnClickListener { openExternalBrowser(it) }
+            credits.setOnClickListener { showCredits() }
+        }
+    }
+
+    private fun clearClickListeners() {
+        binding.apply {
+            versionHistory.setOnClickListener(null)
+            translate.setOnClickListener(null)
+            license.setOnClickListener(null)
+            repo.setOnClickListener(null)
+            privacy.setOnClickListener(null)
+            reportError.setOnClickListener(null)
+            rate.setOnClickListener(null)
+            donate.setOnClickListener(null)
+            credits.setOnClickListener(null)
+        }
+    }
+
+    private fun showCredits() {
+        showHTML(R.string.credits, content.contributorInfo, null)
+    }
+
+    private fun showHistory(view: View) {
+        showHTML(R.string.version_history, content.historyInfo, view)
+    }
+
+    private fun showLicense(view: View) {
+        showHTML(R.string.license, content.licenseInfo, view)
+    }
+
+    private fun showPrivacy(view: View) {
+        showHTML(R.string.privacy_policy, content.privacyInfo, view)
+    }
+
+    private fun showHTML(@StringRes title: Int, text: Spanned, view: View?) {
+        val dialogContentPadding = resources.getDimensionPixelSize(R.dimen.alert_dialog_content_padding)
+        val textView = TextView(this).apply {
+            setText(text)
+            Utils.makeTextViewLinksClickable(this, text)
+        }
+
+        val scrollView = ScrollView(this).apply {
+            addView(textView)
+            setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0)
+        }
+
+        MaterialAlertDialogBuilder(this).apply {
+            setTitle(title)
+            setView(scrollView)
+            setPositiveButton(R.string.ok, null)
+
+            // Add View online button if an URL is linked to this view
+            view?.tag?.let {
+                setNeutralButton(R.string.view_online) { _, _ -> openExternalBrowser(view) }
+            }
+
+            show()
+        }
+    }
+
+    private fun openExternalBrowser(view: View) {
+        val tag = view.tag
+        if (tag is String && tag.startsWith("https://")) {
+            OpenWebLinkHandler().openBrowser(this, tag)
         }
     }
 }

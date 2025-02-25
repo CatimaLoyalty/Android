@@ -199,7 +199,7 @@
     <string name="setFrontImage">Halda esikülje pilti</string>
     <string name="setBackImage">Halda tagakülje pilti</string>
     <string name="removeImage">Eemalda pilt</string>
-    <string name="takePhoto">Tee foto</string>
+    <string name="takePhoto">Pildista</string>
     <string name="updateBarcodeQuestionText">Sa muutsid ID väärtust? Kas sa soovid ka triipkoodiväärtuse vastavalt uuendada?</string>
     <string name="exportPassword">Sinu eksporditavate andmete turvamiseks palun sisesta salasõna (kui soovid seda)</string>
     <string name="exportPasswordHint">Sisesta salasõna</string>

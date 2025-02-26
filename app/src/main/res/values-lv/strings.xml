@@ -58,7 +58,7 @@
     <string name="thumbnailDescription">Sīktēls</string>
     <string name="starImage">Izlases zvaigzne</string>
     <string name="settings">Iestatījumi</string>
-    <string name="settings_theme">Tēma</string>
+    <string name="settings_theme">Izskats</string>
     <string name="settings_system_theme">Sistēmas</string>
     <string name="settings_light_theme">Gaiša</string>
     <string name="settings_dark_theme">Tumša</string>
@@ -161,10 +161,10 @@
     <string name="app_libraries">Brīvas trešo pušu programmatūras bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Brīvi trešo pušu resursi: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_card_orientation">Ekrāna novietojums</string>
-    <string name="settings_follow_system_orientation">Pēc sistēmas</string>
-    <string name="settings_portrait_orientation">Portreta</string>
-    <string name="settings_landscape_orientation">Ainavas</string>
-    <string name="settings_lock_on_opening_orientation">Ievērot to orientāciju, kādā karte atvērta</string>
+    <string name="settings_follow_system_orientation">Izmantot sistēmas</string>
+    <string name="settings_portrait_orientation">Stateniski</string>
+    <string name="settings_landscape_orientation">Līmeniski</string>
+    <string name="settings_lock_on_opening_orientation">Izmantot novietojumu, kāds bija kartes atvēršanas brīdī</string>
     <string name="enter_group_name">Ievadīt kopas nosaukumu</string>
     <string name="groups">Kopas</string>
     <string name="group_edit">Labot kopu</string>
@@ -197,11 +197,11 @@
     <string name="setBackImage">Iestatīt aizmugures attēlu</string>
     <string name="takePhoto">Fotografēt</string>
     <string name="passwordRequired">Lūgums ievadīt paroli</string>
-    <string name="exportPassword">Iestatīt paroli, lai aizsargātu savu izguves datni (izvēles)</string>
+    <string name="exportPassword">Iestatīt paroli, lai aizsargātu savu izguves datni (pēc izvēles)</string>
     <string name="turn_flashlight_on">Ieslēgt zibspuldzi</string>
-    <string name="settings_oled_dark">Tīri melns fons tumšajai tēmai</string>
+    <string name="settings_oled_dark">Tīri melns fons tumšajam izskatam</string>
     <string name="setIcon">Iestatīt sīktēlu</string>
-    <string name="settings_theme_color">Tēmas krāsa</string>
+    <string name="settings_theme_color">Izskata krāsa</string>
     <string name="settings_violet_theme">Violeta</string>
     <string name="settings_blue_theme">Zila</string>
     <string name="sort">Kārtot</string>
@@ -305,7 +305,7 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_7">7</string>
     <string name="settings_column_count_portrait">Kolonnas stateniskā novietojumā</string>
-    <string name="settings_column_count_landscape">Kolonnas guleniskā novietojumā</string>
+    <string name="settings_column_count_landscape">Kolonnas līmeniskā novietojumā</string>
     <string name="unsupportedFile">Šī datne netiek atbalstīta</string>
     <string name="addFromPkpass">Atlasīt Passbook datni (.pkpass)</string>
     <string name="generic_error_please_retry">Atvainojamies, kaut kas nogāja greizi. Lūgums mēģināt vēlreiz...</string>

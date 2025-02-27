@@ -8,6 +8,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 
 import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -18,13 +19,12 @@ class AboutActivity : CatimaAppCompatActivity() {
         private const val TAG = "Catima"
     }
 
-    private var _binding: AboutActivityBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: AboutActivityBinding
     private lateinit var content: AboutContent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = AboutActivityBinding.inflate(layoutInflater)
+        binding = AboutActivityBinding.inflate(layoutInflater)
         content = AboutContent(this)
         title = content.pageTitle
         setContentView(binding.root)
@@ -45,26 +45,29 @@ class AboutActivity : CatimaAppCompatActivity() {
             donate.tag = "https://catima.app/donate"
 
             // Hide Google Play rate button if not on Google Play
-            rate.visibility = if (BuildConfig.showRateOnGooglePlay) View.VISIBLE else View.GONE
+            rate.isVisible = BuildConfig.showRateOnGooglePlay
             // Hide donate button on Google Play (Google Play doesn't allow donation links)
-            donate.visibility = if (BuildConfig.showDonate) View.VISIBLE else View.GONE
+            donate.isVisible = BuildConfig.showDonate
         }
 
         bindClickListeners()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         content.destroy()
         clearClickListeners()
-        _binding = null
     }
 
     private fun bindClickListeners() {

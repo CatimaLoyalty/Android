@@ -41,6 +41,7 @@ class PkpassParser(context: Context, uri: Uri?) {
     private val starStatus = 0
     private val lastUsed: Long = 0
     private val zoomLevel = DBHelper.DEFAULT_ZOOM_LEVEL
+    private val zoomLevelWidth = DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH
     private var archiveStatus = 0
 
     var image: Bitmap? = null
@@ -125,6 +126,7 @@ class PkpassParser(context: Context, uri: Uri?) {
             starStatus,
             lastUsed,
             zoomLevel,
+            zoomLevelWidth,
             archiveStatus,
             image,
             null,

@@ -166,6 +166,7 @@ public class VoucherVaultImporter implements Importer {
                     0,
                     Utils.getUnixTime(),
                     DBHelper.DEFAULT_ZOOM_LEVEL,
+                    DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH,
                     0,
                     null,
                     null,

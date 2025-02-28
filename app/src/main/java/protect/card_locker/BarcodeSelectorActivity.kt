@@ -1,24 +1,19 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import androidx.appcompat.widget.Toolbar;
-
-import com.google.zxing.BarcodeFormat;
-
-import java.util.ArrayList;
-
-import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.view.MenuItem
+import android.view.View
+import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import com.google.zxing.BarcodeFormat
+import java.util.ArrayList
+import protect.card_locker.databinding.BarcodeSelectorActivityBinding
 
 /**
  * This activity is callable and will allow a user to enter
@@ -26,100 +21,100 @@ import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
  * the data. The user may then select any barcode, where its
  * data and type will be returned to the caller.
  */
-public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements BarcodeSelectorAdapter.BarcodeSelectorListener {
-    private BarcodeSelectorActivityBinding binding;
-    private static final String TAG = "Catima";
+class BarcodeSelectorActivity : CatimaAppCompatActivity(), BarcodeSelectorAdapter.BarcodeSelectorListener {
+    private lateinit var binding: BarcodeSelectorActivityBinding
 
-    // Result this activity will return
-    public static final String BARCODE_CONTENTS = "contents";
-    public static final String BARCODE_FORMAT = "format";
+    private companion object {
+        private const val TAG = "Catima"
 
-    private final Handler typingDelayHandler = new Handler(Looper.getMainLooper());
-    public static final Integer INPUT_DELAY = 250;
+        // Result this activity will return
+        const val BARCODE_CONTENTS = "contents"
+        const val BARCODE_FORMAT = "format"
+    }
 
-    private BarcodeSelectorAdapter mAdapter;
+    private val typingDelayHandler = Handler(Looper.getMainLooper())
+    private val INPUT_DELAY = 250
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = BarcodeSelectorActivityBinding.inflate(getLayoutInflater());
-        setTitle(R.string.selectBarcodeTitle);
-        setContentView(binding.getRoot());
-        Toolbar toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
-        enableToolbarBackButton();
+    private lateinit var mAdapter: BarcodeSelectorAdapter
 
-        EditText cardId = binding.cardId;
-        ListView mBarcodeList = binding.barcodes;
-        mAdapter = new BarcodeSelectorAdapter(this, new ArrayList<>(), this);
-        mBarcodeList.setAdapter(mAdapter);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = BarcodeSelectorActivityBinding.inflate(layoutInflater)
+        setTitle(R.string.selectBarcodeTitle)
+        setContentView(binding.root)
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        enableToolbarBackButton()
 
-        cardId.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+        val cardId = binding.cardId
+        val mBarcodeList = binding.barcodes
+        mAdapter = BarcodeSelectorAdapter(this, ArrayList(), this)
+        mBarcodeList.adapter = mAdapter
+
+        cardId.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 // Delay the input processing so we avoid overload
-                typingDelayHandler.removeCallbacksAndMessages(null);
+                typingDelayHandler.removeCallbacksAndMessages(null)
 
-                typingDelayHandler.postDelayed(() -> {
-                    Log.d(TAG, "Entered text: " + s);
+                typingDelayHandler.postDelayed({
+                    Log.d(TAG, "Entered text: $s")
 
-                    runOnUiThread(() -> {
-                        generateBarcodes(s.toString());
-                    });
-                }, INPUT_DELAY);
+                    runOnUiThread {
+                        generateBarcodes(s.toString())
+                    }
+                }, INPUT_DELAY.toLong())
             }
-        });
+        })
 
-        final Bundle b = getIntent().getExtras();
-        final String initialCardId = b != null ? b.getString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID) : null;
+        val b = intent.extras
+        val initialCardId = b?.getString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID)
 
         if (initialCardId != null) {
-            cardId.setText(initialCardId);
+            cardId.setText(initialCardId)
         } else {
-            generateBarcodes("");
+            generateBarcodes("")
         }
     }
 
-    private void generateBarcodes(String value) {
+    private fun generateBarcodes(value: String) {
         // Update barcodes
-        ArrayList<CatimaBarcodeWithValue> barcodes = new ArrayList<>();
-        for (BarcodeFormat barcodeFormat : CatimaBarcode.barcodeFormats) {
-            CatimaBarcode catimaBarcode = CatimaBarcode.fromBarcode(barcodeFormat);
-            barcodes.add(new CatimaBarcodeWithValue(catimaBarcode, value));
+        val barcodes = ArrayList<CatimaBarcodeWithValue>()
+        for (barcodeFormat in CatimaBarcode.barcodeFormats) {
+            val catimaBarcode = CatimaBarcode.fromBarcode(barcodeFormat)
+            barcodes.add(CatimaBarcodeWithValue(catimaBarcode, value))
         }
-        mAdapter.setBarcodes(barcodes);
+        mAdapter.setBarcodes(barcodes)
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            setResult(Activity.RESULT_CANCELED);
-            finish();
-            return true;
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                setResult(Activity.RESULT_CANCELED)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onRowClicked(int inputPosition, View view) {
-        CatimaBarcodeWithValue barcodeWithValue = mAdapter.getItem(inputPosition);
-        CatimaBarcode catimaBarcode = barcodeWithValue.catimaBarcode();
+    override fun onRowClicked(inputPosition: Int, view: View) {
+        val barcodeWithValue = mAdapter.getItem(inputPosition)
+        val catimaBarcode = barcodeWithValue?.catimaBarcode()
 
         if (!mAdapter.isValid(view)) {
-            Toast.makeText(this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-            return;
+            Toast.makeText(this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show()
+            return
         }
 
-        String barcodeFormat = catimaBarcode.format().name();
-        String value = barcodeWithValue.value();
+        val barcodeFormat = catimaBarcode?.format()?.name
+        val value = barcodeWithValue?.value()
 
-        Log.d(TAG, "Selected barcode type " + barcodeFormat);
+        Log.d(TAG, "Selected barcode type $barcodeFormat")
 
-        Intent result = new Intent();
-        result.putExtra(BARCODE_FORMAT, barcodeFormat);
-        result.putExtra(BARCODE_CONTENTS, value);
-        BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-        finish();
+        val result = Intent()
+        result.putExtra(BARCODE_FORMAT, barcodeFormat)
+        result.putExtra(BARCODE_CONTENTS, value)
+        setResult(RESULT_OK, result)
+        finish()
     }
 }

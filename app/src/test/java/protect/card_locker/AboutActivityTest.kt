@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import android.widget.TextView
+import androidx.core.view.isVisible
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -53,13 +54,11 @@ class AboutActivityTest {
 
         // Test Google Play rate button visibility based on BuildConfig
         val rateButton = activity.findViewById<View>(R.id.rate)
-        assertEquals(rateButton.visibility,
-            if (BuildConfig.showRateOnGooglePlay) View.VISIBLE else View.GONE)
+        assertEquals(BuildConfig.showRateOnGooglePlay, rateButton.isVisible)
 
         // Test donate button visibility based on BuildConfig
         val donateButton = activity.findViewById<View>(R.id.donate)
-        assertEquals(donateButton.visibility,
-            if (BuildConfig.showDonate) View.VISIBLE else View.GONE)
+        assertEquals(BuildConfig.showDonate, donateButton.isVisible)
     }
 
     @Test
@@ -152,10 +151,8 @@ class AboutActivityTest {
         val showDonate = BuildConfig.showDonate
 
         // Test that the visibility matches the BuildConfig values
-        assertEquals(if (showRateOnGooglePlay) View.VISIBLE else View.GONE,
-            activity.findViewById<View>(R.id.rate).visibility)
-        assertEquals(if (showDonate) View.VISIBLE else View.GONE,
-            activity.findViewById<View>(R.id.donate).visibility)
+        assertEquals(showRateOnGooglePlay, activity.findViewById<View>(R.id.rate).isVisible)
+        assertEquals(showDonate, activity.findViewById<View>(R.id.donate).isVisible)
     }
 
     @Test

@@ -308,4 +308,5 @@
     <string name="addFromPkpass">Valitse Passbook-tiedosto (.pkpass)</string>
     <string name="unsupportedFile">Tämä tiedosto ei ole tuettu</string>
     <string name="generic_error_please_retry">Pahoittelut, jokin meni pieleen. Yritä uudelleen...</string>
+    <string name="sort_by_valid_from">Voimassa alkaen</string>
 </resources>

@@ -179,7 +179,7 @@
 
         <activity
             android:name=".UCropWrapper"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/TempUCropAndroid15WorkaroundTheme" />
 
         <provider
             android:name=".contentprovider.CardsContentProvider"

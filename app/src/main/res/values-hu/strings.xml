@@ -308,4 +308,5 @@
     <string name="generic_error_please_retry">Sajnálom, valami rosszul ment, próbálkozz újra...</string>
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_7">7</string>
+    <string name="sort_by_valid_from">Érvényesség kezdete</string>
 </resources>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -20,6 +21,8 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.textview.MaterialTextView;
 import com.yalantis.ucrop.UCropActivity;
+
+import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 
 public class UCropWrapper extends UCropActivity {
     public static final String UCROP_TOOLBAR_TYPEFACE_STYLE = "ucop_toolbar_typeface_style";

@@ -297,7 +297,7 @@
     <string name="importCancelled">Import zrušen</string>
     <string name="exportCancelled">Export zrušen</string>
     <string name="useBackImage">Použijte předchozí obrázek</string>
-    <string name="useFrontImage">Použijte přední obrázek</string>
+    <string name="useFrontImage">Použít přední obrázek</string>
     <string name="settings_use_volume_keys_navigation_summary">Pomocí tlačítek hlasitosti můžete změnit, která karta se zobrazí</string>
     <string name="settings_use_volume_keys_navigation">Přepínat karty pomocí tlačítek hlasitosti</string>
     <string name="generic_error_please_retry">Je nám líto, něco se pokazilo, zkuste to prosím znovu...</string>

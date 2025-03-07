@@ -178,7 +178,7 @@
         </activity>
 
         <activity
-            android:name=".UCropWrapper"
+            android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider

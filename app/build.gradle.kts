@@ -21,7 +21,7 @@ android {
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 146
         versionName = "2.34.4"
 
@@ -122,7 +122,7 @@ dependencies {
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
-    implementation("com.github.yalantis:ucrop:2.2.10")
+    implementation("com.github.jens-muenker:uCrop-n-Edit:4.1.0")
     implementation("com.google.zxing:core:3.5.3")
     implementation("org.apache.commons:commons-csv:1.9.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")

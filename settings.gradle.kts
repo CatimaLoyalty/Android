@@ -14,8 +14,7 @@ dependencyResolutionManagement {
             forRepositories(maven("https://jitpack.io"))
             filter {
                 // limit jitpack repository to these groups
-                includeGroup("com.github.yalantis")
-                includeGroup("com.github.invissvenska")
+                includeGroup("com.github.jens-muenker")
             }
         }
     }

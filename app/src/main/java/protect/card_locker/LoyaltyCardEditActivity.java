@@ -297,6 +297,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         super.onCreate(savedInstanceState);
         binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        applyWindowInsets(binding.getRoot());
 
         viewModel = new ViewModelProvider(this).get(LoyaltyCardEditActivityViewModel.class);
 
@@ -1577,16 +1578,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 destUri
         ).withOptions(mCropperOptions)
                 .getIntent(this);
-        ucropIntent.setClass(this, UCropWrapper.class);
-        for (int i = 0; i < toolbar.getChildCount(); i++) {
-            // send toolbar font details to ucrop wrapper
-            View child = toolbar.getChildAt(i);
-            if (child instanceof AppCompatTextView) {
-                AppCompatTextView childTextView = (AppCompatTextView) child;
-                ucropIntent.putExtra(UCropWrapper.UCROP_TOOLBAR_TYPEFACE_STYLE, childTextView.getTypeface().getStyle());
-                break;
-            }
-        }
+        ucropIntent.setClass(this, com.yalantis.ucrop.UCropActivity.class);
         mCropperLauncher.launch(ucropIntent);
     }
 

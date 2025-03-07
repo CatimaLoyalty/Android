@@ -42,6 +42,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         binding = SettingsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.settings);
         setContentView(binding.getRoot());
+        applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         enableToolbarBackButton();

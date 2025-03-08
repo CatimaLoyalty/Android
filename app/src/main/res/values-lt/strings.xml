@@ -42,7 +42,7 @@
     <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
     <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
-    <string name="settings_display_barcode_max_brightness">Šviesinti brūkšninio kodo rodinį</string>
+    <string name="settings_display_barcode_max_brightness">Šviesinti ekraną</string>
     <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
     <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
     <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
@@ -196,7 +196,7 @@
     <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
-    <string name="settings_card_orientation">Brūkšninio kodo orientacija</string>
+    <string name="settings_card_orientation">Ekrano orientacija</string>
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>
     <string name="previousCard">Ankstesnė</string>
     <string name="nextCard">Kita</string>
@@ -264,7 +264,7 @@
     <string name="enter_card_id">Įveskite ID numerį arba tekstą ant jūsų kortelės</string>
     <string name="noCameraFoundGuideText">Atrodo, kad jūsų įrenginys neturi kameros. Jei jis turi kamerą, pabandykite perkrauti įrenginį. Naudokite žemiau esantį „Daugiau galimybių“ mygtuką, kad pridėtumėte brūkšninį kodą kitu būdu.</string>
     <string name="settings_display_barcode_max_brightness_summary">Būtina, kad veiktų kai kurie skeneriai</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Išjungti ekrano užraktą kol peržiūrite kortelę</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Išjungia ekrano užraktą kol peržiūrite kortelę</string>
     <string name="settings_allow_content_provider_read_title">Leisti kitoms programoms išrinkti mano informaciją</string>
     <string name="settings_allow_content_provider_read_summary">Programos vis tiek turės prašyti leidimo, kad gautu informaciją</string>
     <string name="show_name_below_image_thumbnail">Rodyti pavadinimą po piktogramą</string>
@@ -273,7 +273,7 @@
     <string name="continue_">Tęsti</string>
     <string name="add_manually_warning_message">Kai kuriuose parduotuvėse brūkšninio kodo vertė gali skirtis nuo kortelėje nurodyto numerio. Dėlto įvedus brūkšninį kodą rankiniu būdu gali nepavykti. Vietoj to, labai rekomenduojama nuskaityti brūkšninį kodą naudojant kamerą. Ar vis tiek norite tęsti?</string>
     <string name="permissionReadCardsLabel">Skenuoti Catima Korteles</string>
-    <string name="settings_category_title_cards">Kortelės</string>
+    <string name="settings_category_title_cards">Kortelių peržiūra</string>
     <string name="settings_category_title_general">Bendri</string>
     <string name="settings_category_title_privacy">Privatumąi</string>
     <string name="importCancelled">Importas atšauktas</string>
@@ -298,4 +298,7 @@
     <string name="app_copyright_short">Autorių teisės © Sylvia van Os ir Pagalbininkai</string>
     <string name="useFrontImage">Naudoti priekinį vaizdą</string>
     <string name="useBackImage">Naudoti galinį vaizdą</string>
+    <string name="sort_by_valid_from">Teisinga forma</string>
+    <string name="settings_use_volume_keys_navigation">Keisti korteles su garso mygtukais</string>
+    <string name="settings_use_volume_keys_navigation_summary">Naudokite garso mygtukus kortelių pakeitimui</string>
 </resources>

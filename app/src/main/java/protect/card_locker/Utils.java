@@ -27,6 +27,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,7 +39,10 @@ import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.Insets;
 import androidx.core.os.LocaleListCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.exifinterface.media.ExifInterface;
@@ -1092,5 +1096,21 @@ public class Utils {
         } catch (CameraAccessException e) {
             return false;
         }
+    }
+
+    public static void applyWindowInsets(View root) {
+        /* This function basically fakes the activity being edge-to-edge. Useful for those activities that are really hard to get to behave well */
+        ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            layoutParams.leftMargin = insets.left;
+            layoutParams.bottomMargin = insets.bottom;
+            layoutParams.rightMargin = insets.right;
+            layoutParams.topMargin = insets.top;
+            view.setLayoutParams(layoutParams);
+
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 }

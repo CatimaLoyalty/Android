@@ -60,6 +60,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         binding = ImportExportActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.importExport);
         setContentView(binding.getRoot());
+        Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         enableToolbarBackButton();

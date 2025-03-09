@@ -42,6 +42,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         binding = ManageGroupsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.groups);
         setContentView(binding.getRoot());
+        Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         enableToolbarBackButton();

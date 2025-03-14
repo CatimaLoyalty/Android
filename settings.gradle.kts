@@ -15,7 +15,6 @@ dependencyResolutionManagement {
             filter {
                 // limit jitpack repository to these groups
                 includeGroup("com.github.yalantis")
-                includeGroup("com.github.invissvenska")
             }
         }
     }

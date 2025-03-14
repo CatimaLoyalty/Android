@@ -25,6 +25,13 @@ public class UCropWrapper extends UCropActivity {
     public static final String UCROP_TOOLBAR_TYPEFACE_STYLE = "ucop_toolbar_typeface_style";
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Utils.applyWindowInsets(findViewById(android.R.id.content));
+    }
+
+    @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         boolean darkMode = Utils.isDarkModeEnabled(this);

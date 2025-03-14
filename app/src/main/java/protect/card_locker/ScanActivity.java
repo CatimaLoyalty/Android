@@ -100,6 +100,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         customBarcodeScannerBinding = CustomBarcodeScannerBinding.bind(binding.zxingBarcodeScanner);
         setTitle(R.string.scanCardBarcode);
         setContentView(binding.getRoot());
+        Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         enableToolbarBackButton();

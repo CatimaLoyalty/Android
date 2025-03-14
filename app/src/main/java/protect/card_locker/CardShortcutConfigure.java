@@ -36,6 +36,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
         setResult(RESULT_CANCELED);
 
         setContentView(binding.getRoot());
+        Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitle(R.string.shortcutSelectCard);
         setSupportActionBar(toolbar);

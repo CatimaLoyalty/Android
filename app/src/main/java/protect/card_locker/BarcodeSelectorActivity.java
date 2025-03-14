@@ -45,6 +45,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
         binding = BarcodeSelectorActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.selectBarcodeTitle);
         setContentView(binding.getRoot());
+        Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         enableToolbarBackButton();

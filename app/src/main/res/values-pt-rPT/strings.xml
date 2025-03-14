@@ -314,4 +314,5 @@
     <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass)</string>
     <string name="unsupportedFile">Este ficheiro não é suportado</string>
     <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
+    <string name="sort_by_valid_from">Válido a partir de</string>
 </resources>

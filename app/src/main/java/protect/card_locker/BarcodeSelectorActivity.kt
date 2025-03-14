@@ -1,6 +1,5 @@
 package protect.card_locker
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -8,10 +7,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.ListView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import com.google.zxing.BarcodeFormat
 import java.util.ArrayList
 import protect.card_locker.databinding.BarcodeSelectorActivityBinding
 
@@ -89,7 +85,7 @@ class BarcodeSelectorActivity : CatimaAppCompatActivity(), BarcodeSelectorAdapte
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                setResult(Activity.RESULT_CANCELED)
+                setResult(RESULT_CANCELED)
                 finish()
                 true
             }

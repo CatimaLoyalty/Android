@@ -198,12 +198,25 @@ public class Utils {
 
         List<String> locales = pkpassParser.listLocales();
         if (locales.isEmpty()) {
-            return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
+            try {
+                return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
+            } catch (Exception e) {
+                Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
+                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                return new ArrayList<>();
+            }
         }
 
         List<ParseResult> parseResultList = new ArrayList<>();
         for (String locale : locales) {
-            ParseResult parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
+            ParseResult parseResult;
+            try {
+                 parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
+            } catch (Exception e) {
+                Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
+                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                return new ArrayList<>();
+            }
             parseResult.setNote(locale);
             parseResultList.add(parseResult);
         }

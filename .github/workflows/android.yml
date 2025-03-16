@@ -58,10 +58,10 @@ jobs:
           api-level: 21
           arch: x86_64
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
-      - name: Run instrumented tests (API 34)
+      - name: Run instrumented tests (API 35)
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 34
+          api-level: 35
           arch: x86_64
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
       - name: SpotBugs

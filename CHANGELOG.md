@@ -4,6 +4,7 @@
 
 - Target Android 15
 - Fix crash reading unsupported pkpass files
+- Import pkpass support
 
 ## v2.34.4 - 146 (2025-01-17)
 

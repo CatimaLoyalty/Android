@@ -177,6 +177,69 @@ class PkpassTest {
     }
 
     @Test
+    fun testFakeEmptyEurowingsPassForGitHubIssue2317() {
+        // Prepare
+        val context: Context = ApplicationProvider.getApplicationContext()
+        val pkpass = "pkpass/Eurowings_fake_empty_for_gh_issue_2317/Eurowings.pkpass"
+        val image = "pkpass/Eurowings_fake_empty_for_gh_issue_2317/logo@2x.png"
+
+        val pkpassUri = Uri.parse(pkpass)
+        val imageUri = Uri.parse(image)
+        ShadowContentResolver().registerInputStream(pkpassUri, javaClass.getResourceAsStream(pkpass))
+        ShadowContentResolver().registerInputStream(imageUri, javaClass.getResourceAsStream(image))
+
+        val parser = PkpassParser(context, pkpassUri)
+        val imageBitmap = BitmapFactory.decodeStream(context.contentResolver.openInputStream(imageUri))
+
+        // Confirm this does not have languages
+        Assert.assertEquals(listOf("de", "en"), parser.listLocales())
+
+        // Confirm correct parsing (en)
+        var parsedCard = parser.toLoyaltyCard("de")
+
+        Assert.assertEquals(-1, parsedCard.id)
+        Assert.assertEquals("EUROWINGS", parsedCard.store)
+        Assert.assertEquals("Eurowings Boarding Pass", parsedCard.note)
+        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(null, parsedCard.expiry)
+        Assert.assertEquals(BigDecimal(0), parsedCard.balance)
+        Assert.assertEquals(null, parsedCard.balanceType)
+        Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
+        Assert.assertEquals(null, parsedCard.barcodeId)
+        Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
+        Assert.assertEquals(0, parsedCard.starStatus)
+        Assert.assertEquals(0, parsedCard.archiveStatus)
+        Assert.assertEquals(0, parsedCard.lastUsed)
+        Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL, parsedCard.zoomLevel)
+
+        // Confirm correct image is used
+        Assert.assertTrue(imageBitmap.sameAs(parser.image))
+
+        // Confirm correct parsing (en)
+        parsedCard = parser.toLoyaltyCard("en")
+
+        Assert.assertEquals(-1, parsedCard.id)
+        Assert.assertEquals("EUROWINGS", parsedCard.store)
+        Assert.assertEquals("Eurowings Boarding Pass", parsedCard.note)
+        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(null, parsedCard.expiry)
+        Assert.assertEquals(BigDecimal(0), parsedCard.balance)
+        Assert.assertEquals(null, parsedCard.balanceType)
+        Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
+        Assert.assertEquals(null, parsedCard.barcodeId)
+        Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
+        Assert.assertEquals(0, parsedCard.starStatus)
+        Assert.assertEquals(0, parsedCard.archiveStatus)
+        Assert.assertEquals(0, parsedCard.lastUsed)
+        Assert.assertEquals(DBHelper.DEFAULT_ZOOM_LEVEL, parsedCard.zoomLevel)
+
+        // Confirm correct image is used
+        Assert.assertTrue(imageBitmap.sameAs(parser.image))
+    }
+
+    @Test
     fun testDCBPkPass() {
         // Prepare
         val context: Context = ApplicationProvider.getApplicationContext()

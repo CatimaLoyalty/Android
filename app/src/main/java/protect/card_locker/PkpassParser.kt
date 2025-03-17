@@ -296,28 +296,20 @@ class PkpassParser(context: Context, uri: Uri?) {
         }
 
         // Append type-specific info to the pass
-        noteText.append("\n\n")
 
         // Find the relevant pass type and parse it
-        var hasPassData = false
         for (passType in listOf("boardingPass", "coupon", "eventTicket", "generic")) {
             try {
-                noteText.append(
-                    parsePassJSONPassFields(
-                        jsonObject.getJSONObject(passType),
-                        locale
-                    )
+                var extraText = parsePassJSONPassFields(
+                    jsonObject.getJSONObject(passType),
+                    locale
                 )
 
-                hasPassData = true
+                noteText.append("\n\n")
+                noteText.append(extraText)
 
                 break
             } catch (ignored: JSONException) {}
-        }
-
-        // Failed to parse anything, error out
-        if (!hasPassData) {
-            throw FormatException(mContext.getString(R.string.errorReadingFile))
         }
 
         note = noteText.toString()

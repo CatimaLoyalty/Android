@@ -1,2 +1,3 @@
 - Target Android 15
 - Fix crash reading unsupported pkpass files
+- Import pkpass support

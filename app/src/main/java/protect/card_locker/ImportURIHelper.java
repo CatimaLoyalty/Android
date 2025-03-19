@@ -140,6 +140,7 @@ public class ImportURIHelper {
                     0,
                     Utils.getUnixTime(),
                     100,
+                    100,
                     0,
                     null,
                     null,

@@ -1,0 +1,3 @@
+- Android 15 atbalsts
+- Novērsts avārija neatbalstītu pkpass datņu lasīšanas laikā
+- Pkpass ievietošanas atbalsts

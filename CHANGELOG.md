@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 147
+## v2.34.5 - 147 (2025-03-22)
 
 - Target Android 15
 - Fix crash reading unsupported pkpass files

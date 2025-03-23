@@ -1,0 +1,4 @@
+- Objetivo Android 14
+- Ícone de cartão aberto na galeria ao toque
+- Melhorar o design do separador Fotografias na vista de edição
+- Atualizar o ecrã de despesas para suportar também a receção

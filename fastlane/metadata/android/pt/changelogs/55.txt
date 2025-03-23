@@ -1,0 +1,2 @@
+- Interface de edição separada em guias para que pareça mais espaçosa
+- Adiciona suporte a campo de data de expiração

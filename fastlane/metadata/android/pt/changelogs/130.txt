@@ -1,0 +1,4 @@
+- Pequenas correções na interface do utilizador
+- Correção das datas de validade e expiração que são redefinidas ao girar o ecrã de edição do cartão
+- Correção de falha ao girar o ecrã enquanto o seletor de cores é exibido
+- Correções na importação de cartões

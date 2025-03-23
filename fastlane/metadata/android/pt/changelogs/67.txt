@@ -1,0 +1,6 @@
+- Adiciona a opção de definir um valor de código de barras diferente do ID do cartão
+- Simplifica configuração de tamanho de fontes
+- Várias pequenas correções na interface
+- Use ícones de letra para atalhos também
+- Sempre mostrar todos os tipos de código de barra na entrada manual
+- Remove a política de privacidade do diálogo de primeira inicialização

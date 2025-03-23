@@ -1,0 +1,2 @@
+- Clique longo num cartão faz com que apareça uma opção para copiar o ID do cartão para a área de transferência. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- O botão de voltar agora funciona no ecrã de importar/exportar, levando ao ecrã principal

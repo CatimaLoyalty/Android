@@ -1,0 +1,1 @@
+- Conserta validação de saldo para países que usam espaço como separador

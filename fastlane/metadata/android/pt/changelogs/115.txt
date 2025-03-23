@@ -1,0 +1,4 @@
+- Ao fazer um toque-longo abre a imagem na aplicação da galeria
+- Aplicado o estilo Material a diálogos
+- Suporte a criação de cartão ao partilhar uma imagem com o Catima
+- Adicionado botão de gasto rápido

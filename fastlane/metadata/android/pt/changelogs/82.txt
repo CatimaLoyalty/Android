@@ -1,0 +1,4 @@
+- Melhor apoio de leitores de ecrã
+- Corrige falha ao tentar abrir um vídeo da galeria
+- Suporte ao gesto de swipe no ecrã de visualização de cartão
+- Não resetar grupo ao pressionar botão voltar

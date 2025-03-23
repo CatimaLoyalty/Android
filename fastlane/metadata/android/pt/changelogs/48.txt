@@ -1,0 +1,3 @@
+- Move o ecrã Sobre para sua própria atividade
+- Pede ao utilizador se ele quer usar a câmara ou digitar o ID manualmente ao adicionar/editar cartão
+- Faz com que ordenação de grupos seja manual ao invés de ordem alfabética forçada

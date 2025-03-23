@@ -1,0 +1,3 @@
+- Focar no Android 15
+- Corrigir travar de falhas de leitura de ficheiros de pkpass não suportados
+- Melhorar o apoio de pkpass

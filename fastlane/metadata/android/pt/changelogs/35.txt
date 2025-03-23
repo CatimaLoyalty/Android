@@ -1,0 +1,2 @@
+- Ativa cópia de segurança da aplicação
+- Atualiza traduções em Francês e Esloveno

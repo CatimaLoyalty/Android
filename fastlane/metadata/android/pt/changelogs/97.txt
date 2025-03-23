@@ -1,0 +1,4 @@
+- Conserta o botão de gravar criando várias entradas ao ser pressionado várias vezes
+- Diminui o tamanho do cabeçalho do cartão quando escondendo os pormenores, para que caibam ainda mais cartões
+- Reestruturação do ecrã de edição
+- Melhora o contraste do ícone de estrela no ecrã principal

@@ -1,0 +1,3 @@
+- Redesenho completo dos ecrãs principais e de visualização do cartão de fidelidade
+- Utilização de "Material You" no ecrã de configurações
+- Correção de falha ao usar "Tirar uma foto" com a aplicação da câmara desativado

@@ -1,0 +1,2 @@
+- Suporte a configuração da data de início de validade
+- Correção na importação Stocard (o formato de exportação Stocard foi alterado)

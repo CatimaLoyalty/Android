@@ -1,0 +1,3 @@
+- Adiciona ID do código de barras que faltava à exportação
+- Não mostra diálogo de atualização de código de barras se o valor for igual ao ID
+- Adiciona tradução para Finlandês

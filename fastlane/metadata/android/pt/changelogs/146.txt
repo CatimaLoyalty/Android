@@ -1,0 +1,2 @@
+- Capacidade de classificar cartões pelo início da validade
+- Reverter temporariamente a focar no Android 14 para corrigir problemas de IU

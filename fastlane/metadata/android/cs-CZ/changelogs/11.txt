@@ -1,5 +1,5 @@
-- Předvyplnění stávajícího ID do začátku úprava ID karty. (pull #94)
-- Omezení šířky generovaných čárových kódů, aby byla snížena spotřeba paměti a chyby nedostatku paměti. (pull #103)
-- Při editaci karty změněno tlačítko „Zadat kartu“ na „Upravit kartu“, pokud ID karty již existuje. (pull #104)
-- Změněno barevné schéma tak, aby bylo jemnější a kompatibilní s ikonou aplikace, a změněno rozložení při prohlížení karty, aby bylo přehlednější. (pull #107)
-- Přidán úvodní průvodce, který se spustí při prvním spuštění aplikace. (pull #108)
+- Předvyplnění stávajícího ID do začátku úprava ID karty.
+- Omezení šířky generovaných čárových kódů, aby byla snížena spotřeba paměti a chyby nedostatku paměti.
+- Při editaci karty změněno tlačítko „Zadat kartu“ na „Upravit kartu“, pokud ID karty již existuje.
+- Změněno barevné schéma tak, aby bylo jemnější a kompatibilní s ikonou aplikace, a změněno rozložení při prohlížení karty, aby bylo přehlednější.
+- Přidán úvodní průvodce, který se spustí při prvním spuštění aplikace.

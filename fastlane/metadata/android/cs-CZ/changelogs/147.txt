@@ -1,0 +1,3 @@
+- Cíl Android 15
+- Opraven pád při čtení nepodporovaných souborů pkpass
+- Vylepšení podpory pkpass

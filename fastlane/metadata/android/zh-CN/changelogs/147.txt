@@ -1,0 +1,3 @@
+- 适配 Android 15
+- 修复读取不支持的 pkpass 文件造成的崩溃
+- 改进 pkpass 支持

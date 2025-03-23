@@ -1,0 +1,2 @@
+- Corrige bloco cinzento aparecendo em dado inválido para código de barras
+- Correções na importação de Stocard

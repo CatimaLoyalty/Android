@@ -1,0 +1,1 @@
+- Corrige falha ao trocar para a guia de código de barras no ecrã de edição quando não há código de barras

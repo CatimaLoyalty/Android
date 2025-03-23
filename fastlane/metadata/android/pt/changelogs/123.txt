@@ -1,0 +1,2 @@
+- Pequenas melhorias na interface do utilizador
+- Corrige o novo design que não pode ser usado em dispositivos com ecrãs quadrados

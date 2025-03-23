@@ -1,0 +1,3 @@
+- Opção para navegar entre cartões usando os botões de volume
+- Corrigir importação de Stocard
+- Corrigir a mensagem "Importe cancelado" de aparecer após importações bem sucedidas

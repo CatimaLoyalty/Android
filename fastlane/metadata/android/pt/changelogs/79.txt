@@ -1,0 +1,2 @@
+- Conserta o widget criando atalhos diferentes dos atalhos de app
+- Substitui o ecrã escuro do android por um ecrã de abertura

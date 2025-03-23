@@ -1,0 +1,1 @@
+- Corrige gesto de swipe no ecrã inicial causando também um swipe vertical

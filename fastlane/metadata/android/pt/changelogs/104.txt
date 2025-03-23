@@ -1,0 +1,2 @@
+- Grava o estado de expansão dos pormenores dos cartões
+- Pequenas correções na IU

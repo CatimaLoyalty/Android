@@ -1,0 +1,4 @@
+- Permitir que nomes longos de lojas na pré-visualização sejam divididos em várias linhas
+- Opção para utilizar a imagem de frente ou de verso no menu de miniaturas
+- Pequenas correções de importação/exportação
+- Pequenas correções na interface do utilizador

@@ -1,0 +1,3 @@
+- Mova o "Modo de arquivar" para o menu "Opções de exibição" (anteriormente "Mostrar pormenores")
+- Suporte a idiomas por aplicações no Android 13
+- Incorporar política de privacidade, changelog e licença na aplicação

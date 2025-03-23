@@ -1,0 +1,2 @@
+- Usuárias podem digitar o código de barras manualmente. Se a usuária digitar o código, uma lista de todos os códigos de barra válidos e suportados é exibida. Ela pode então escolher a imagem de código de barras corresponde. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- Resolve problema onde alguns códigos de barra ficavam borrados. (issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

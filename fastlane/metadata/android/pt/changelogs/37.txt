@@ -1,0 +1,1 @@
+- Corrige problema no compartilhamento de carões que não tem uma cor de fundo (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

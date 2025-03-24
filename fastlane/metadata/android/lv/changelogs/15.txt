@@ -1,0 +1,2 @@
+- Pievienots lietotnes īsinājumikonu atbalsts (Android 7.1+), kas nodrošina, ka visnesenāk izmantotās kartes parādīsies kā īsinājumikonas. (izmaiņu pieprasījums #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Pievienots logrīks, kas darbojas kā piesprausta lietotnes īsinājumikona, lai atbalstītu ierīces, kurās darbojas Android vecāks par 7.1. (izmaiņu pieprasījums #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

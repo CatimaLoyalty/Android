@@ -298,7 +298,7 @@
     <string name="enter_card_id">أدخل رقم الهوية أو النص الموجود على بطاقتك</string>
     <string name="addWithoutBarcode">إضافة بدون باركود</string>
     <string name="field_must_not_be_empty">يجب ألا يكون الحقل فارغا</string>
-    <string name="app_name">Catima</string>
+    <string name="app_name">كاتيما</string>
     <string name="settings_follow_sensor_orientation">التدوير دائمًا ( تجاهل إعدادات النظام)</string>
     <string name="add_manually_warning_title">الفحص موصى به</string>
     <string name="continue_">استمر</string>

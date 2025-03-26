@@ -41,7 +41,7 @@
     <string name="importFailed">نمیتوان ایمپورت کرد</string>
     <string name="exportSuccessfulTitle">خروجی گرفته شده</string>
     <string name="exportFailedTitle">خروجی گرفتن ناموفق بود</string>
-    <string name="storageReadPermissionRequired">دسترسی به خواندن محل ذخیره برای این کار نیاز است…</string>
+    <string name="storageReadPermissionRequired">برای این اقدام دسترسی به حافظه مورد نیاز است…</string>
     <string name="exportOptionExplanation">داده در محلی که شما انتخاب میکنید نوشته خواهد شد.</string>
     <string name="receive">دریافت</string>
     <string name="continue_">ادامه</string>
@@ -79,10 +79,10 @@
     <string name="about">درباره</string>
     <string name="importOptionApplicationExplanation">از هر برنامه یا مدیر فایل دلخواه خود برای باز کردن یک فایل استفاده کنید.</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حق تکثیر © 2019–<xliff:g>%d</xliff:g> سیلویا وَن اُس و مشارکت کنندگان</string>
-    <string name="app_copyright_short">حق تکثیر © سیلویا وَن اُس و مشارکت کنندگان</string>
+    <string name="app_copyright_short">حق نشر © سیلویا وَن اُس و مشارکت کنندگان</string>
     <string name="failedParsingImportUriError">تجزیه URI ورودی ناموفق بود</string>
     <string name="importOptionFilesystemExplanation">یک فایل مشخص از فایل‌های سیستم انتخاب کنید.</string>
-    <string name="importOptionFilesystemTitle">وادر کردن از فایل های سیستم</string>
+    <string name="importOptionFilesystemTitle">ورود از فایل سیستم</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> انتخاب شد</item>
         <item quantity="other"><xliff:g>%d</xliff:g> انتخاب شد</item>
@@ -112,4 +112,6 @@
     <string name="intent_import_card_from_url_share_text">میخواهم یک کارت را با تو به اشتراک بگذارم</string>
     <string name="settings_use_volume_keys_navigation">جابجایی میان کارت ها با استفاده از کلید های صدا</string>
     <string name="settings_use_volume_keys_navigation_summary">از کلید های صدا برای تغیر کارت نمایشی استفاده کنید</string>
+    <string name="about_title_fmt">درباره <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">نسخه <xliff:g id="version">%s</xliff:g></string>
 </resources>

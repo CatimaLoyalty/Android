@@ -54,7 +54,7 @@
     <string name="settings_portrait_orientation">الوضع الرأسي</string>
     <string name="settings_landscape_orientation">الوضع الأفقي</string>
     <string name="settings_theme">مظهر</string>
-    <string name="settings_display_barcode_max_brightness">عرض مشرق علي الشاشة</string>
+    <string name="settings_display_barcode_max_brightness">شاشة ساطعة</string>
     <string name="importSuccessful">تم استيراد البيانات</string>
     <string name="exportSuccessful">تم تصدير البيانات</string>
     <string name="enter_group_name">أدخل اسم المجموعة</string>
@@ -332,4 +332,5 @@
     <string name="settings_column_count_5">٥</string>
     <string name="settings_column_count_6">٦</string>
     <string name="settings_column_count_7">٧</string>
+    <string name="sort_by_valid_from">صالح من</string>
 </resources>

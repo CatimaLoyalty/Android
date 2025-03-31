@@ -27,7 +27,9 @@ and json_extract(content,'$.input_provider_reference.identifier') is not null" >
 The file sync_db is from /data/data/de.stocard.stocard/databases/sync_db in andrid-x86.9.0 running in qemu
 
 While analyziing this file I found that each use in Stocard was logged including the location !
+```sql
 SELECT json_extract(content,'$.time.value'),  cast('point('||json_extract(content,'$.gps_location.lng')||' '||json_extract(content,'$.gps_location.lat')||')' as varchar(500)), *
 FROM synced_resources where content_type like 'application/%json' AND ( (collection LIKE '%user%'))
 and json_extract(content,'$.gps_location.lat') is not null order by json_extract(content,'$.time.value')
+```
 

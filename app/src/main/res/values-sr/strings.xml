@@ -149,7 +149,7 @@
     <string name="updateBalance">Ažuriraj stanje</string>
     <string name="failedToRetrieveImageFile">Preuzimanje fotografije nije uspelo</string>
     <string name="sort_by_name">Ime</string>
-    <string name="sort_by_most_recently_used">Nedevno korišćeno</string>
+    <string name="sort_by_most_recently_used">Nedavno korišćeno</string>
     <string name="sort_by_expiry">Ističe</string>
     <string name="reverse">…u obrnutom redosledu</string>
     <string name="sort_by">Sortiraj po</string>
@@ -298,4 +298,5 @@
     <string name="useBackImage">Koristi zadnju fotografiju</string>
     <string name="pageWithNumber">Strana <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Čini se da tvoj uređaj nema kameru. Ako je ima, pokušaj da ponovo pokreneš uređaj. U suprotnom, koristi dugme Više opcija, koje se nalazi ispod, da bi dodao bar-kod na drugi način.</string>
+    <string name="sort_by_valid_from">Važi od</string>
 </resources>

@@ -114,4 +114,5 @@
     <string name="settings_use_volume_keys_navigation_summary">از کلید های صدا برای تغیر کارت نمایشی استفاده کنید</string>
     <string name="about_title_fmt">درباره <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">نسخه <xliff:g id="version">%s</xliff:g></string>
+    <string name="chooseExpiryDate">انتخاب تاریخ انقضاء</string>
 </resources>

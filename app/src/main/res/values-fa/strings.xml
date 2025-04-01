@@ -117,4 +117,5 @@
     <string name="chooseExpiryDate">انتخاب تاریخ انقضاء</string>
     <string name="app_libraries">کتابخانه های شخص ثالث: &lt;xliff:g id=”app_libraries_list\"&gt;</string>
     <string name="app_copyright_old">بر اساس کارت وفاداری Keychain\nکپی رایت © 2016-2020 سازنده : Branden</string>
+    <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
 </resources>

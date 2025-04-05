@@ -100,9 +100,6 @@
     <string name="importOptionFilesystemTitle">Uvoz iz file sistema</string>
     <string name="importOptionFilesystemExplanation">Izaberite specifični file iz file sistema.</string>
     <string name="importOptionFilesystemButton">Iz file sistema</string>
-    <string name="importOptionApplicationTitle">Koristi drugu aplikaciju</string>
-    <string name="importOptionApplicationExplanation">Koristi bilo koju aplikaciju ili Vašu omiljenu aplikaciju da bi otvorili file.</string>
-    <string name="importOptionApplicationButton">Koristi drugu aplikaciju</string>
     <string name="about">O</string>
     <string name="noBarcode">Nema barkoda</string>
     <string name="deleteTitle">Obriši karticu</string>

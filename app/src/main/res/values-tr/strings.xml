@@ -107,9 +107,6 @@
 \nTelif Hakkı © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os ve katkıda bulunanlar</string>
     <string name="about">Hakkında</string>
-    <string name="importOptionApplicationButton">Başka bir uygulama kullan</string>
-    <string name="importOptionApplicationExplanation">Bir dosyayı açmak için herhangi bir uygulamayı veya en sevdiğiniz dosya yöneticisini kullanın.</string>
-    <string name="importOptionApplicationTitle">Başka bir uygulama kullan</string>
     <string name="importOptionFilesystemButton">Dosya sisteminden</string>
     <string name="importOptionFilesystemExplanation">Dosya sisteminden belirli bir dosya seçin.</string>
     <string name="importOptionFilesystemTitle">Dosya sisteminden içe aktar</string>

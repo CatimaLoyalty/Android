@@ -50,7 +50,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
     private ActivityResultLauncher<Intent> fileCreateLauncher;
     private ActivityResultLauncher<String> fileOpenLauncher;
-    private ActivityResultLauncher<Intent> filePickerLauncher;
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -67,7 +66,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
-            chooseImportType(false, fileIntent.getData());
+            chooseImportType(fileIntent.getData());
         }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
@@ -104,19 +103,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 return;
             }
             openFileForImport(result, null);
-        });
-        filePickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            Intent intent = result.getData();
-            if (intent == null) {
-                Log.e(TAG, "Activity returned NULL data");
-                return;
-            }
-            Uri uri = intent.getData();
-            if (uri == null) {
-                Log.e(TAG, "Activity returned NULL uri");
-                return;
-            }
-            openFileForImport(intent.getData(), null);
         });
 
         // Check that there is a file manager available
@@ -160,11 +146,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         // Check that there is a file manager available
         Button importFilesystem = binding.importOptionFilesystemButton;
-        importFilesystem.setOnClickListener(v -> chooseImportType(false, null));
-
-        // Check that there is an app that data can be imported from
-        Button importApplication = binding.importOptionApplicationButton;
-        importApplication.setOnClickListener(v -> chooseImportType(true, null));
+        importFilesystem.setOnClickListener(v -> chooseImportType(null));
 
         // FIXME: The importer/exporter is currently quite broken
         // To prevent the screen from turning off during import/export and some devices killing Catima as it's no longer foregrounded, force the screen to stay on here
@@ -189,8 +171,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }.start();
     }
 
-    private void chooseImportType(boolean choosePicker,
-                                  @Nullable Uri fileData) {
+    private void chooseImportType(@Nullable Uri fileData) {
 
         List<CharSequence> betaImportOptions = new ArrayList<>();
         betaImportOptions.add("Fidme");
@@ -251,20 +232,12 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                     new MaterialAlertDialogBuilder(this)
                             .setTitle(importAlertTitle)
                             .setMessage(importAlertMessage)
-                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    try {
-                                        if (choosePicker) {
-                                            final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-                                            filePickerLauncher.launch(intentPickAction);
-                                        } else {
-                                            fileOpenLauncher.launch("*/*");
-                                        }
-                                    } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-                                        Log.e(TAG, "No activity found to handle intent", e);
-                                    }
+                            .setPositiveButton(R.string.ok, (dialog1, which1) -> {
+                                try {
+                                    fileOpenLauncher.launch("*/*");
+                                } catch (ActivityNotFoundException e) {
+                                    Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                                    Log.e(TAG, "No activity found to handle intent", e);
                                 }
                             })
                             .setNegativeButton(R.string.cancel, null)

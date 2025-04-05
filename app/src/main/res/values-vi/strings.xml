@@ -146,7 +146,6 @@
     <string name="sendLabel">Gửi…</string>
     <string name="importOptionFilesystemButton">Lấy từ hệ thống</string>
     <string name="settings_magenta_theme">Màu sắc tố tím và đỏ</string>
-    <string name="importOptionApplicationButton">Dùng ứng dụng khác</string>
     <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
     <string name="selectColor">Chọn màu</string>
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
@@ -163,7 +162,6 @@
     <string name="updateBalance">Cập nhật số dư</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Bản quyền © 2019–<xliff:g>%d</xliff:g> Sylvia van Os và các cộng sự</string>
     <string name="sort_by_most_recently_used">Sửa dụng gần đây nhất</string>
-    <string name="importOptionApplicationExplanation">Dùng bất kỳ ứng dụng nào hoặc trình quản lý ưa thích để mở tập tin.</string>
     <string name="noGiftCards">Bấm nút dấu cộng + để thêm thẻ, hoặc nhập dữ liệu từ menu ⋮.</string>
     <string name="settings_theme_color">Chủ đề màu</string>
     <string name="importVoucherVault">Nhập dữ liệu từ Voucher Vault</string>
@@ -228,7 +226,6 @@
     <string name="app_resources">Tài nguyên mở từ bên thứ 3: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="shortcutSelectCard">Chọn một thẻ</string>
     <string name="accept">Đồng ý</string>
-    <string name="importOptionApplicationTitle">Dùng ứng dụng khác</string>
     <string name="noCardsMessage">Thêm danh sách thẻ</string>
     <string name="settings_category_title_privacy">Riêng tư</string>
     <string name="show_balance">Hiện số dư</string>

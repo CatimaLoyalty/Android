@@ -39,7 +39,6 @@
     <string name="currency">Mynt</string>
     <string name="moveBarcodeToTopOfScreen">Færa strikamerkið að efst á skjánum</string>
     <string name="errorReadingImage">Gat ekki lesið ímynd</string>
-    <string name="importOptionApplicationButton">Notaðu annan app</string>
     <string name="about">Um</string>
     <string name="settings">Stillingar</string>
     <string name="settings_keep_screen_on">Halda á skjánum</string>
@@ -50,8 +49,6 @@
     <string name="chooseImportType">Flytja gögn úr\?</string>
     <string name="balance">Jafnvægi</string>
     <string name="points">Stig</string>
-    <string name="importOptionApplicationTitle">Notaðu annan app</string>
-    <string name="importOptionApplicationExplanation">Nota allir app eða uppáhalds skráasafn að opna skrá.</string>
     <string name="selectBarcodeTitle">Veldu Strikamerkið</string>
     <string name="thumbnailDescription">Þumalinn fyrir kort</string>
     <string name="settings_theme">Þema</string>

@@ -25,8 +25,6 @@
     <string name="importOptionFilesystemTitle">Import aus dem Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wielt eng bestëmmte Datei aus dem Dateisystem.</string>
     <string name="importOptionFilesystemButton">Aus dem Dateisystem</string>
-    <string name="importOptionApplicationTitle">Benotzt eng aner app</string>
-    <string name="importOptionApplicationButton">Benotzt eng aner app</string>
     <string name="app_license">Ënner Copyleft stehende fräi software, lizenséiert GPLv3+</string>
     <string name="groups">Gruppen</string>
     <string name="importCatima">Import aus Catima</string>
@@ -59,7 +57,6 @@
     <string name="importFailed">Kaarten konnten net anere sproochen ginn</string>
     <string name="exporting">Ausführende…</string>
     <string name="exportOptionExplanation">D \' Donnéeë ginn op eng Plaz vun Hirer Wal geschriwwen.</string>
-    <string name="importOptionApplicationExplanation">Benotzen Se eng beliebige App oder Hire bevorzugten Dateimanager, fir eng Datei ze opmaachen.</string>
     <string name="accept">Averstane</string>
     <string name="settings_display_barcode_max_brightness">Erhellen barcode-Usiicht</string>
     <string name="importStocard">Importéieren vun Stocard</string>

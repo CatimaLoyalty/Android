@@ -70,14 +70,11 @@
     <string name="importOptionFilesystemExplanation">सिस्टममधून आयात करण्यासाठी बॅकअप फाइल निवडा.</string>
     <string name="about">विषयक</string>
     <string name="importOptionFilesystemButton">फाइल सिस्टम मधुन निवडा</string>
-    <string name="importOptionApplicationButton">अन्य अँप निवडा</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os and contributors</string>
-    <string name="importOptionApplicationExplanation">फाईल उगाढण्यासाठी कोणतेही दुसरे अँप किव्वा फाईल मॅनेजर सिलेक्ट करा .</string>
     <string name="app_license">कॉपीलिफ्ट libre software, licensed GPLv3+</string>
     <string name="selectBarcodeTitle">बारकोड निवडा</string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="importOptionApplicationTitle">फाईल निवडण्यासाठी दुसरी अँप वापरा</string>
     <string name="settings_portrait_orientation">पोट्रेट</string>
     <string name="settings_dark_theme">गडद</string>
     <string name="settings_system_theme">प्रणाली</string>

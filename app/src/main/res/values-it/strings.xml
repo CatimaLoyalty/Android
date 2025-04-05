@@ -36,9 +36,6 @@
     <string name="importOptionFilesystemTitle">Importa dall\'archivio</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dall\'archivio.</string>
     <string name="importOptionFilesystemButton">Dall\'archivio</string>
-    <string name="importOptionApplicationTitle">Usa un\'altra app</string>
-    <string name="importOptionApplicationExplanation">Usa qualsiasi app o il tuo gestore di file preferito per aprire un file.</string>
-    <string name="importOptionApplicationButton">Usa un\'altra app</string>
     <string name="about">Informazioni</string>
     <string name="app_license">Software libero con copyleft, licenza GPLv3+</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>

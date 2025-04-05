@@ -1,0 +1,5 @@
+- هنگام ویرایش شناسه کارت، شناسه موجود را از قبل پر کنید تا شروع شود. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- محدودیت عرض بارکدهای تولید شده را برای کاهش مصرف و خطا حافظه. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- هنگام ویرایش کارت، تغییر دکمه "تایید کارت" در صورتی که شناسه کارت از قبل وجود دارد. "Edit Card". (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- تغییر رنگ بندی به نرمی و سازگاری با نماد برنامه و تمیزتر کردن طرح هنگام مشاهده کارت. (pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- اضافه کردن یک جادوگر معرفی که در اولین اجرا برنامه راه اندازی می شود. (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

@@ -99,10 +99,7 @@
     <string name="importOptionFilesystemButton">கோப்பு முறைமையிலிருந்து</string>
     <string name="cameraPermissionDeniedTitle">கேமராவை அணுக முடியவில்லை</string>
     <string name="noCameraPermissionDirectToSystemSetting">பார்கோடுகளை ச்கேன் செய்ய, கேடிமாவுக்கு உங்கள் கேமராவுக்கு அணுகல் தேவைப்படும். உங்கள் இசைவு அமைப்புகளை மாற்ற இங்கே தட்டவும்.</string>
-    <string name="importOptionApplicationTitle">மற்றொரு பயன்பாட்டைப் பயன்படுத்தவும்</string>
-    <string name="importOptionApplicationExplanation">கோப்பைத் திறக்க எந்த பயன்பாடு அல்லது உங்களுக்கு பிடித்த கோப்பு மேலாளரைப் பயன்படுத்தவும்.</string>
     <string name="about">பற்றி</string>
-    <string name="importOptionApplicationButton">மற்றொரு பயன்பாட்டைப் பயன்படுத்தவும்</string>
     <string name="app_copyright_short">பதிப்புரிமை © சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="app_copyright_old">விசுவாச அட்டை கீச்சின் அடிப்படையில்\n பதிப்புரிமை © 2016–2020 பிராண்டன் ஆர்ச்சர்</string>
     <string name="app_license">நகலெடுக்கப்பட்ட லிப்ரே மென்பொருள், உரிமம் பெற்ற GPLV3+</string>

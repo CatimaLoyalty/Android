@@ -71,9 +71,6 @@
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use another app</string>
-    <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
-    <string name="importOptionApplicationButton">Use another app</string>
     <string name="about">About</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os and contributors</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os and contributors</string>

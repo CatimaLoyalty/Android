@@ -53,9 +53,6 @@
     <string name="app_copyright_old">Baseret på Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer.</string>
     <string name="about">Om</string>
-    <string name="importOptionApplicationButton">Brug en anden app</string>
-    <string name="importOptionApplicationExplanation">Brug en hvilken som helst app eller din foretrukne filhåndtering til at åbne en fil.</string>
-    <string name="importOptionApplicationTitle">Brug en anden app</string>
     <string name="noCardsMessage">Tilføj først et kort</string>
     <string name="cardShortcut">Kort genvej</string>
     <string name="importOptionFilesystemButton">Fra filsystemet</string>

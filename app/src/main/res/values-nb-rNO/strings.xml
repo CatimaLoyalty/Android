@@ -34,9 +34,6 @@
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
-    <string name="importOptionApplicationTitle">Bruk en annen app</string>
-    <string name="importOptionApplicationExplanation">Bruk en hvilken som helst app, eller din favoritt-filutforsker for å åpne en fil.</string>
-    <string name="importOptionApplicationButton">Bruk en annen app</string>
     <string name="about">Om</string>
     <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>

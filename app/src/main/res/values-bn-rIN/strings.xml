@@ -85,14 +85,12 @@
     <string name="ok">ঠিক আছে</string>
     <string name="about">সম্পর্কিত</string>
     <string name="debug_version_fmt">সংস্করণ: <xliff:g id="version">%s</xliff:g></string>
-    <string name="importOptionApplicationButton">অন্য অ্যাপ ব্যাবহার করুন</string>
     <string name="moveUp">উপরে উঠান</string>
     <string name="moveDown">নিচে নামান</string>
     <string name="expiryDate">মেয়াদোত্তীর্ণ তারিখ</string>
     <string name="noBarcodeFound">কোনো বারকোড পাওয়া যায়নি</string>
     <string name="cameraPermissionRequired">এই কাজটির জন্য ক্যামেরা ব্যবহার করার অনুমতি লাগবে…</string>
     <string name="noCameraPermissionDirectToSystemSetting">বারকোড স্ক্যান করার জন্য, Catima কে ক্যামেরাটি ব্যবহার করার অনুমতি দিতে হবে। এইখানে টাচ করে আপনার অনুমতি সেটিংস পালটে নিন।</string>
-    <string name="importOptionApplicationExplanation">একটি ফাইল খোলার জন্য যেকোনো অ্যাপ বা আপনার প্রিয় ফাইল ম্যানেজারটি ব্যবহার করুন।</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">মেধাস্বত্ব © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_license">কপিলেফট দ্বারা রক্ষা করা মুক্ত সফটওয়্যার, লাইসেন্স করা GPLv3+ এর অধীনে</string>
     <plurals name="deleteCardsConfirmation">
@@ -136,7 +134,6 @@
     <string name="exportOptionExplanation">ডেটাটি আপনার পছন্দের জায়গায় রাখা হবে।</string>
     <string name="importOptionFilesystemTitle">স্টোরেজ থেকে আমদানি করুন</string>
     <string name="importOptionFilesystemButton">স্টোরেজ থেকে</string>
-    <string name="importOptionApplicationTitle">অন্য অ্যাপ ব্যবহার করুন</string>
     <string name="app_copyright_old">Loyalty Card Keychain এর উপর ভিত্তি করে
 \nমেধাস্বত্ব © 2016–2020 Branden Archer</string>
     <string name="selectBarcodeTitle">বারকোড নির্বাচন করুন</string>

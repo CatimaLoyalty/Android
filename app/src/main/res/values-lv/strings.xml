@@ -49,9 +49,6 @@
     <string name="importOptionFilesystemTitle">Ievietot no datņu sistēmas</string>
     <string name="importOptionFilesystemExplanation">Izvēlēties noteiktu datni datņu sistēmā.</string>
     <string name="importOptionFilesystemButton">No datņu sistēmas</string>
-    <string name="importOptionApplicationTitle">Izmantot citu lietotni</string>
-    <string name="importOptionApplicationExplanation">Izmantot jebkuru lietotni vai savu iecienītāko datņu pārvaldnieku, lai atvērtu datni.</string>
-    <string name="importOptionApplicationButton">Izmantot citu lietotni</string>
     <string name="about">Par</string>
     <string name="app_license">Copyleft brīva un atvērta programmatūra, licencēta GPLv3+</string>
     <string name="selectBarcodeTitle">Atlasīt svītrkodu</string>

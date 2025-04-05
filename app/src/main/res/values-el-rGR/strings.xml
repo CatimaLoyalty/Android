@@ -32,9 +32,6 @@
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
     <string name="importOptionFilesystemButton">Από το σύστημα αρχείων</string>
-    <string name="importOptionApplicationTitle">Χρήση άλλης εφαρμογής</string>
-    <string name="importOptionApplicationExplanation">Χρησιμοποιήστε οποιαδήποτε εφαρμογή ή τον αγαπημένο περιηγητή αρχείων σας, για να ανοίξετε ένα αρχείο.</string>
-    <string name="importOptionApplicationButton">Χρήσης άλλης εφαρμογής</string>
     <string name="about">Σχετικά</string>
     <string name="app_license">Άδεια χρήσης υπό GPLv3+</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>

@@ -29,9 +29,6 @@
     <string name="importOptionFilesystemTitle">Import z úložiště</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Z úložiště</string>
-    <string name="importOptionApplicationTitle">Přes jinou aplikaci</string>
-    <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
-    <string name="importOptionApplicationButton">Použít jinou aplikaci</string>
     <string name="about">O aplikaci</string>
     <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>

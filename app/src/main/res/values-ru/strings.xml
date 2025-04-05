@@ -38,9 +38,6 @@
     <string name="importOptionFilesystemTitle">Импорт из файла</string>
     <string name="importOptionFilesystemExplanation">Выберете файл в файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
-    <string name="importOptionApplicationTitle">Использование другого приложения</string>
-    <string name="importOptionApplicationExplanation">Используйте любое приложение или ваш любимый файловый менеджер, чтобы открыть файл.</string>
-    <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О приложении</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+</string>
     <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>

@@ -74,10 +74,7 @@
     <string name="settings_category_title_cards">کارت‌ها</string>
     <string name="barcodeImageDescriptionWithType">تصویر بارکد <xliff:g>%s</xliff:g></string>
     <string name="importOptionFilesystemButton">از فایل های سیستم</string>
-    <string name="importOptionApplicationTitle">استفاده از یک برنامه دیگر</string>
-    <string name="importOptionApplicationButton">استفاده از یک برنامه دیگر</string>
     <string name="about">درباره</string>
-    <string name="importOptionApplicationExplanation">از هر برنامه یا مدیر فایل دلخواه خود برای باز کردن یک فایل استفاده کنید.</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حق تکثیر © 2019–<xliff:g>%d</xliff:g> سیلویا وَن اُس و مشارکت کنندگان</string>
     <string name="app_copyright_short">حق نشر © سیلویا وَن اُس و مشارکت کنندگان</string>
     <string name="failedParsingImportUriError">تجزیه URI ورودی ناموفق بود</string>

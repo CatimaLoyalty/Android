@@ -32,9 +32,6 @@
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
-    <string name="importOptionApplicationTitle">Utilizar otra aplicación</string>
-    <string name="importOptionApplicationExplanation">Usa cualquier aplicación o tu administrador de archivos favorito para abrir un archivo.</string>
-    <string name="importOptionApplicationButton">Utilizar otra aplicación</string>
     <string name="about">Información</string>
     <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>

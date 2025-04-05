@@ -37,7 +37,6 @@
     <string name="exporting">Exportul…</string>
     <string name="exportOptionExplanation">Datele vor fi scrise într-o locație aleasă de dumneavoastră.</string>
     <string name="importOptionFilesystemTitle">Import din sistemul de fișiere</string>
-    <string name="importOptionApplicationTitle">Utilizați o altă aplicație</string>
     <string name="starImage">Stea de preferintă</string>
     <string name="settings">Setări</string>
     <string name="intent_import_card_from_url_share_text">Vreau să împărtășesc o carte cu tine</string>
@@ -45,7 +44,6 @@
     <string name="editCardTitle">Editare card</string>
     <string name="addCardTitle">Adaugă card</string>
     <string name="importOptionFilesystemButton">Din sistemul de fișiere</string>
-    <string name="importOptionApplicationExplanation">Utilizați orice aplicație sau managerul de fișiere preferat pentru a deschide un fișier.</string>
     <string name="about">Despre</string>
     <string name="app_license">Software liber cu copyleft, licențiat GPLv3+</string>
     <string name="settings_system_theme">Sistemul</string>
@@ -82,7 +80,6 @@
     <string name="exportSuccessfulTitle">Exportat</string>
     <string name="exportFailedTitle">Export eșuat</string>
     <string name="importOptionFilesystemExplanation">Alegeți un anumit fișier din sistemul de fișiere.</string>
-    <string name="importOptionApplicationButton">Utilizați o altă aplicație</string>
     <string name="thumbnailDescription">Miniatură</string>
     <string name="enter_group_name">Introduceți numele grupului</string>
     <string name="yes">Da</string>

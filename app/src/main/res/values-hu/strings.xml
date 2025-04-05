@@ -76,8 +76,6 @@
     <string name="exportOptionExplanation">Az adatok a kiválasztott helyre lesznek mentve.</string>
     <string name="importOptionFilesystemTitle">Importálás fájlrendszerből</string>
     <string name="importOptionFilesystemButton">A fájlrendszerből</string>
-    <string name="importOptionApplicationTitle">Másik alkalmazás használata</string>
-    <string name="importOptionApplicationExplanation">A fájl megnyitásához használjon egy tetszőleges alkalmazást, vagy a kedvenc fájlkezelőjét.</string>
     <string name="app_license">Copyleft licencű szabad szoftver, GPLv3+ alatt közzétéve</string>
     <string name="about_title_fmt">A <xliff:g id="app_name">%s</xliff:g> névjegye</string>
     <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
@@ -182,7 +180,6 @@
     <string name="chooseImportType">Adatok importálása innen</string>
     <string name="thumbnailDescription">Előkép</string>
     <string name="importOptionFilesystemExplanation">Válassza ki a kívánt fájlt a fájlrendszerből.</string>
-    <string name="importOptionApplicationButton">Másik alkalmazás használata</string>
     <string name="about">Névjegy</string>
     <string name="app_copyright_old">Készült a Loyalty Card Keychain alapján
 \nCopyright © 2016–2020 Branden Archer</string>

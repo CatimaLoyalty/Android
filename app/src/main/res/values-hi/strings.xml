@@ -48,8 +48,6 @@
     <string name="exporting">निर्यात चल रहा है…</string>
     <string name="importOptionFilesystemTitle">फाईल सिस्टम से आयात करें</string>
     <string name="importOptionFilesystemButton">फाईल सिस्टम से</string>
-    <string name="importOptionApplicationTitle">दूसरा एप्प इस्तमाल करें</string>
-    <string name="importOptionApplicationButton">दूसरा एप्प इस्तमाल करें</string>
     <string name="about">बारे में</string>
     <string name="starImage">पसंदीदा स्टार</string>
     <string name="settings_light_theme">उजालित</string>
@@ -64,7 +62,6 @@
     <string name="settings_keep_screen_on">स्क्रीन को चालू रखें</string>
     <string name="cameraPermissionDeniedTitle">कैमरे तक पहुंच नहीं सके</string>
     <string name="noCameraPermissionDirectToSystemSetting">बारकोड स्कैन करने के लिए,को आपके कैमरा का इस्तेमाल करना होगा। इजाज़त कि व्यवस्था (सेटिंग) बदलने के लिए यहाँ दबायें।</string>
-    <string name="importOptionApplicationExplanation">फाइल खोलने के लिए कोई भी ऐप या अपना पसंदिता फाइल मैनेजर का इस्तेमाल करे।</string>
     <string name="settings_theme">विषय</string>
     <string name="barcodeType">बारकोड का प्रकार</string>
     <string name="noBarcode">बारकोड नहीं है</string>

@@ -36,9 +36,6 @@
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
     <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
-    <string name="importOptionApplicationTitle">Użyj innej aplikacji</string>
-    <string name="importOptionApplicationExplanation">Użyj dowolnej aplikacji lub ulubionego menedżera plików, aby otworzyć plik.</string>
-    <string name="importOptionApplicationButton">Użyj innej aplikacji</string>
     <string name="about">O aplikacji</string>
     <string name="app_license">Wolne oprogramowanie typu copyleft, na licencji GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>

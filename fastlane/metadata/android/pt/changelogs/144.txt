@@ -1,0 +1,1 @@
+- Melhorar a exibição de ícones de ficheiro/estrelado

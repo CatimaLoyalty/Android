@@ -1,0 +1,3 @@
+- تغییر نام پیش‌فرض فایل‌های وارد/صادر شده. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- تصحیح متن در صفحه وارد/صادر کردن. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- بهبود طرح‌بندی صفحه نمایش کارت. متن خواناتر شده و با یک کلیک طولانی قابل انتخاب است. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

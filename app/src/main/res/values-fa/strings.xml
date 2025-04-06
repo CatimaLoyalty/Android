@@ -131,7 +131,7 @@
     </plurals>
     <string name="importFidmeMessage">فایل خروجی <i>fidme-export-request-xxxxxx.zip</i> خود را از FidMe برای وارد کردن انتخاب کنید، و سپس نوع بارکدها را به صورت دستی مشخص کنید.\nآن را از پروفایل FidMe خود با انتخاب گزینه حفاظت از داده و سپس فشار دادن گزینه استخراج داده من ابتدا ایجاد کنید.</string>
     <string name="leaveWithoutSaveTitle">خروج</string>
-    <string name="balanceSentence">«موجودی: xliff:g%s&lt;/xliff:g&gt;</string>
+    <string name="balanceSentence">موجودی: <xliff:g>%s</xliff:g></string>
     <string name="sameAsCardId">همانند شناسه</string>
     <string name="setBarcodeId">تنظیم مقدار بارکد</string>
     <string name="exportSuccessful">داده‌ها صادر شدند</string>
@@ -156,7 +156,7 @@
     <string name="addManually">بارکد را دستی وارد کنید</string>
     <string name="addFromImage">یک تصویر از گالری انتخاب کنید</string>
     <string name="groupsList">گروه‌ها: <xliff:g>%s</xliff:g></string>
-    <string name="expiryStateSentence">تاریخ انقضاء: xliff:g%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentence">تاریخ انقضاء: <xliff:g>%s</xliff:g></string>
     <string name="card">کارت</string>
     <string name="editBarcode">ویرایش بارکد</string>
     <string name="expiryDate">تاریخ انقضا</string>
@@ -179,5 +179,5 @@
     <string name="importVoucherVaultMessage">فایل خروجی <i>vouchervault.json</i> خود را از صندوق کوپن برای وارد کردن انتخاب کنید.\nآن را ابتدا با فشردن دکمه صادرکردن در صندوق کوپن ایجاد کنید.</string>
     <string name="barcodeId">مقدار بارکد</string>
     <string name="group_edit">ویرایش گروه‌</string>
-    <string name="expiryStateSentenceExpired">منقضی شده: xliff:g%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentenceExpired">منقضی شده: <xliff:g>%s</xliff:g></string>
 </resources>

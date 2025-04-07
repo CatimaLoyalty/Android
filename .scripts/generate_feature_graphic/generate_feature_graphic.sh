@@ -37,6 +37,7 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
     # We specifically need the Serif version because of the 200 weight
     case "$(basename "$lang")" in
       bg|el-GR|ru-RU|uk) sed -i "s/Lexend Deca/Noto Serif/" featureGraphic.svg ;;
+      fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Yesteryear/Noto Sans Arabic/" -e "s/Lexend Deca/Noto Sans Arabic/" featureGraphic.svg ;;
       hi-IN) sed -i -e "s/Yesteryear/Noto Sans Devanagari/" -e "s/Lexend Deca/Noto Serif Devanagari/" featureGraphic.svg ;;
       ja-JP) sed -i "s/Lexend Deca/Noto Serif CJK JP/" featureGraphic.svg ;;
       kn-IN) sed -i -e 's/font-size="150"/font-size="100"/' -e "s/Yesteryear/Noto Serif Kannada/" featureGraphic.svg ;;
@@ -48,13 +49,13 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
   fi
   # Ensure images directory exists
   mkdir -p images
-  # Generate .png
-  convert featureGraphic.svg images/featureGraphic.png
+  # Generate .png (we use Inkscape because ImageMagick ignores RTL)
+  xvfb-run inkscape --export-filename=images/featureGraphic.png featureGraphic.svg
   # Optimize .png
   optipng images/featureGraphic.png
   # Remove metadata (timestamps) from .png
   mat2 --inplace images/featureGraphic.png
   # Remove temporary .svg
-  rm featureGraphic.svg
+  #rm featureGraphic.svg
   popd
 done

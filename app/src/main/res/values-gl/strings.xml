@@ -48,8 +48,6 @@
     <string name="noCameraPermissionDirectToSystemSetting">Catima precisa acceso á cámara para escanear códigos de barras. Toca aquí para cambiar os axustes do permiso.</string>
     <string name="exportOptionExplanation">Os datos vanse escribir na localización que elixas.</string>
     <string name="importOptionFilesystemTitle">Importar desde o sistema de ficheiros</string>
-    <string name="importOptionApplicationExplanation">Usa outra app ou o xestor de ficheiros favorito para abrir un ficheiro.</string>
-    <string name="importOptionApplicationButton">Usar outra app</string>
     <string name="about">Sobre</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os e colaboradoras</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os e colaboradoras</string>
@@ -266,7 +264,6 @@
     <string name="settings_light_theme">Claro</string>
     <string name="importOptionFilesystemButton">Desde sistema de ficheiros</string>
     <string name="importOptionFilesystemExplanation">Elixe un ficheiro concreto no sistema de ficheiros.</string>
-    <string name="importOptionApplicationTitle">Usar outra app</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Estrela de favorita</string>
     <string name="settings_system_theme">Sistema</string>

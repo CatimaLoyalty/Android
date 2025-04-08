@@ -24,7 +24,6 @@
     <string name="on_google_play">al Google Play</string>
     <string name="settings_locale">Idioma</string>
     <string name="field_must_not_be_empty">El camp no pot estar buit</string>
-    <string name="importOptionApplicationTitle">Utilitzar una altra app</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i contribuïdors</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os i contribuïdors</string>
     <string name="app_license">Software lliure Copyleft, licència GPLv3+</string>

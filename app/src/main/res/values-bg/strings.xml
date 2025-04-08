@@ -31,7 +31,6 @@
     <string name="setBackImage">Снимка на задната страна</string>
     <string name="setFrontImage">Снимка на предната страна</string>
     <string name="photos">Снимки</string>
-    <string name="importOptionApplicationExplanation">Изберете файл на друго приложение.</string>
     <string name="noCardExistsError">Картата не е намерена</string>
     <string name="updateBarcodeQuestionText">Номерът е променен. Желаете ли същата стойност да бъде приложена и към щрихкода\?</string>
     <string name="updateBarcodeQuestionTitle">Обновяване на щрихкода\?</string>
@@ -86,7 +85,6 @@
     <string name="starImage">Звезда за любимо</string>
     <string name="thumbnailDescription">Миниатюра</string>
     <string name="selectBarcodeTitle">Избиране на щрихкод</string>
-    <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>
     <string name="exporting">Изнасяне…</string>
     <string name="exportFailed">Данните не могат да бъдат изнесени</string>
@@ -107,7 +105,6 @@
     <string name="chooseImportType">Внасяне на данни на</string>
     <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
-    <string name="importOptionApplicationTitle">Чрез друго приложение</string>
     <string name="importOptionFilesystemButton">Избиране от файлова система</string>
     <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
     <string name="app_resources">Свободни ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>

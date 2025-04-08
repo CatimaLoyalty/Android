@@ -32,9 +32,6 @@
     <string name="importOptionFilesystemTitle">Import zo súborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
     <string name="importOptionFilesystemButton">Zo súborového systému</string>
-    <string name="importOptionApplicationTitle">Použite inú aplikáciu</string>
-    <string name="importOptionApplicationExplanation">Na otvorenie súboru použite ľubovoľnú aplikáciu alebo obľúbeného správcu súborov.</string>
-    <string name="importOptionApplicationButton">Použiť inú aplikáciu</string>
     <string name="about">O aplikácii</string>
     <string name="app_license">Copyleftovaný slobodný softvér s licenciou GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>

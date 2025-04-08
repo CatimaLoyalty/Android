@@ -54,9 +54,6 @@
     <string name="thumbnailDescription">Bildeto</string>
     <string name="app_copyright_old">Bazita sur Lojaleco Karto Keychain
 \nkopirajto © 2016-2020 Branden Archer</string>
-    <string name="importOptionApplicationButton">Uzi alian apon</string>
-    <string name="importOptionApplicationExplanation">Uzi ajnan apon aŭ vian preferatan dosiermastrumilon por malfermi dosieron.</string>
-    <string name="importOptionApplicationTitle">Uzi alian app</string>
     <string name="importOptionFilesystemExplanation">Elektu specifa dosiero de la dosiersistemo.</string>
     <string name="exportOptionExplanation">La datumoj estos skribita al loko de via elekto.</string>
     <string name="exportFailed">Ne povis fari eksportadon</string>

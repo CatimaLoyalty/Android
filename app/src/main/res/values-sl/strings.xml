@@ -32,9 +32,6 @@
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema.</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>
-    <string name="importOptionApplicationTitle">Uporabi drugo aplikacijo</string>
-    <string name="importOptionApplicationExplanation">Uporabi zunanjo aplikacijo, kot npr. Dropbox, Google Drive ali ostale upravljalnike datotek, za odpiranje datoteke.</string>
-    <string name="importOptionApplicationButton">Uporabi drugo aplikacijo</string>
     <string name="about">Več o aplikaciji</string>
     <string name="app_license">Odprtokodna programska oprema, licencirana skladno s GPL3+</string>
     <string name="about_title_fmt">Več o <xliff:g id="app_name">%s</xliff:g></string>

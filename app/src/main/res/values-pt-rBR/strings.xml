@@ -105,9 +105,6 @@
     <string name="exportPassword">Defina uma senha para proteger o arquivo exportado (opcional)</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="add_manually_warning_message">Em algumas lojas, o valor do código de barras é diferente do número escrito no cartão. Por esse motivo, inserir um código de barras manualmente pode nem sempre funcionar. É altamente recomendável digitalizar o código de barras com a câmera. Você ainda deseja continuar?</string>
-    <string name="importOptionApplicationTitle">Usar outro aplicativo</string>
-    <string name="importOptionApplicationExplanation">Use qualquer aplicativo ou o seu gerenciador de arquivos favorito para abrir um arquivo.</string>
-    <string name="importOptionApplicationButton">Usar outro aplicativo</string>
     <string name="about">Sobre</string>
     <string name="about_title_fmt">Sobre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>

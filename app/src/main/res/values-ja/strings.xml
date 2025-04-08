@@ -66,9 +66,6 @@
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">このアプリについて</string>
-    <string name="importOptionApplicationButton">外部のアプリを使う</string>
-    <string name="importOptionApplicationExplanation">任意のアプリやお気に入りのファイルマネージャーからファイルを開く。</string>
-    <string name="importOptionApplicationTitle">外部アプリを使う</string>
     <string name="importOptionFilesystemButton">ファイルを選択</string>
     <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください。</string>
     <string name="importOptionFilesystemTitle">ストレージからインポート</string>

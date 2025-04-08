@@ -15,9 +15,6 @@
     <string name="noBarcode">Sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
-    <string name="importOptionApplicationTitle">Usar outra aplicação</string>
-    <string name="importOptionApplicationExplanation">Utilize qualquer aplicação ou o seu gestor de ficheiros favorito para abrir um ficheiro.</string>
-    <string name="importOptionApplicationButton">Utilizar outra aplicação</string>
     <string name="about">Sobre</string>
     <string name="app_license">Software livre de partilha sob a mesma licença e segundo a licença GPLv3+</string>
     <string name="addCardTitle">Adicionar cartão</string>

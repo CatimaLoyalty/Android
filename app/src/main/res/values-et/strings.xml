@@ -78,9 +78,6 @@
     <string name="importOptionFilesystemTitle">Impordi failisüsteemist</string>
     <string name="importOptionFilesystemExplanation">Vali vajalik impordifail failisüsteemist.</string>
     <string name="importOptionFilesystemButton">Vali failisüsteemist</string>
-    <string name="importOptionApplicationTitle">Kasuta muust rakendusest eksporditud andmeid</string>
-    <string name="importOptionApplicationExplanation">Kasuta faili avamiseks mõnda muud rakendust või sinu lemmikfailihaldurit.</string>
-    <string name="importOptionApplicationButton">Vali muu rakenduse ekspordifail</string>
     <string name="about">Rakenduse teave</string>
     <string name="app_copyright_short">Autoriõigused © Sylvia van Os ja kaasautorid</string>
     <string name="about_title_fmt">Teave <xliff:g id="app_name">%s</xliff:g> kohta</string>

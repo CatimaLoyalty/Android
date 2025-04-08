@@ -10,7 +10,6 @@
     <string name="card">卡片</string>
     <string name="addManually">手动输入卡号</string>
     <string name="settings_system_theme">系统设置</string>
-    <string name="importOptionApplicationButton">使用其他应用</string>
     <string name="importOptionFilesystemButton">使用文件系统</string>
     <string name="unstar">从收藏中移除</string>
     <string name="intent_import_card_from_url_share_multiple_text">我想和你分享一些卡片</string>
@@ -76,8 +75,6 @@
     <string name="app_copyright_old">基于 Loyalty Card Keychain
 \nCopyright © 2016–2020 Branden Archer</string>
     <string name="about">关于</string>
-    <string name="importOptionApplicationExplanation">使用任何应用程序或您喜欢的文件管理器打开文件。</string>
-    <string name="importOptionApplicationTitle">使用其他应用</string>
     <string name="importOptionFilesystemExplanation">请从文件系统选择文件。</string>
     <string name="importOptionFilesystemTitle">从文件系统导入</string>
     <string name="exportOptionExplanation">导出的数据将储存至你选择的位置。</string>

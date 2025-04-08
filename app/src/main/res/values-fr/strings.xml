@@ -32,9 +32,6 @@
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
-    <string name="importOptionApplicationTitle">Utiliser une autre application</string>
-    <string name="importOptionApplicationExplanation">Utilisez le gestionnaire de fichiers de votre choix pour importer un fichier.</string>
-    <string name="importOptionApplicationButton">Utiliser une autre application</string>
     <string name="about">À propos</string>
     <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>

@@ -62,10 +62,6 @@ public class ImportExportActivityTest {
 
         Activity activity = Robolectric.setupActivity(ImportExportActivity.class);
 
-        checkVisibility(activity, View.VISIBLE, R.id.dividerImportApplication,
-                R.id.importOptionApplicationTitle, R.id.importOptionApplicationExplanation,
-                R.id.importOptionApplicationButton);
-
         checkVisibility(activity, View.VISIBLE, R.id.dividerImportFilesystem,
                 R.id.importOptionFilesystemTitle, R.id.importOptionFilesystemExplanation,
                 R.id.importOptionFilesystemButton);

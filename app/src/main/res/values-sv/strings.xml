@@ -4,8 +4,6 @@
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
     <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
 \nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
-    <string name="importOptionApplicationExplanation">Använd vilken app som helst eller den filhanterare du föredrar för att öppna en fil.</string>
-    <string name="importOptionApplicationButton">Använd en annan app</string>
     <string name="intent_import_card_from_url_share_text">Jag vill dela ett kort med dig</string>
     <string name="noGroups">Klicka på plus(+)-knappen för att lägga till kategorigrupper.</string>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
@@ -82,7 +80,6 @@
     <string name="app_copyright_old">Baserad på Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="about">Om</string>
-    <string name="importOptionApplicationTitle">Använd en annan app</string>
     <string name="importOptionFilesystemButton">Från filsystemet</string>
     <string name="importOptionFilesystemExplanation">Välj en specifik fil från filsystemet.</string>
     <string name="importOptionFilesystemTitle">Importera från filsystem</string>

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 148
+
+- Remove confusing import from app function
+
 ## v2.34.5 - 147 (2025-03-22)
 
 - Target Android 15

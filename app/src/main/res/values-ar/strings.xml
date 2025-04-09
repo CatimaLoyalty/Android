@@ -2,14 +2,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
     <string name="action_add">أضف</string>
-    <string name="noGiftCards">اضغط على + زر الإضافة لاضافة بطاقة، او استورد من ⋮ القائمة.</string>
+    <string name="noGiftCards">اضغط على زر الإضافة+ لإضافة بطاقة، أو استورد من ⋮ القائمة.</string>
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
     <string name="cardId">معرّف البطاقة</string>
     <string name="barcodeType">نوع الباركود</string>
     <string name="noBarcode">لا يوجد باركود</string>
-    <string name="star">أضف الي المفضلة</string>
+    <string name="star">أضف الى المفضلة</string>
     <string name="unstar">حذف من المفضلة</string>
     <string name="cancel">إلغاء</string>
     <string name="save">حفظ</string>
@@ -25,7 +25,7 @@
     <string name="scanCardBarcode">مسح باركود</string>
     <string name="cardShortcut">اختصار البطاقة</string>
     <string name="noCardsMessage">اضف بطاقة أولا</string>
-    <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> باركود</string>
+    <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> الباركود</string>
     <string name="noCardExistsError">لا يمكن العثور على هذه البطاقة</string>
     <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
@@ -138,7 +138,7 @@
     <string name="archived">تمت أرشفة البطاقة</string>
     <string name="unarchived">البطاقة غير مؤرشفة</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
-    <string name="noGiftCardsGroup">انشئ بعضا من البطاقات, ثم عيينهم لهذه المجموعة.</string>
+    <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة.</string>
     <string name="deleteTitle">مسح بطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
@@ -295,7 +295,7 @@
     <string name="enter_card_id">أدخل رقم الهوية أو النص الموجود على بطاقتك</string>
     <string name="addWithoutBarcode">إضافة بدون باركود</string>
     <string name="field_must_not_be_empty">يجب ألا يكون الحقل فارغا</string>
-    <string name="app_name">كاتيما</string>
+    <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">التدوير دائمًا ( تجاهل إعدادات النظام)</string>
     <string name="add_manually_warning_title">الفحص موصى به</string>
     <string name="continue_">استمر</string>

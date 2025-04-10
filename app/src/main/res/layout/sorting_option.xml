@@ -12,10 +12,10 @@
             android:id="@+id/checkBox_reverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:paddingStart="20dp"
+            android:layout_marginStart="16dp"
+            android:paddingStart="16dp"
             android:text="@string/reverse"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="?attr/colorOnSurfaceVariant"/>
 
     </LinearLayout>

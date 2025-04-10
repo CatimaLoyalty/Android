@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Hanap</string>
     <string name="app_name">Catima</string>
+    <string name="action_add">Magdagdag</string>
+    <string name="noGiftCards">I-click ang + button para magdagdag ng card, o mag-import mula sa ⋮ menu.</string>
+    <string name="noGiftCardsGroup">Gumawa ng ilang card, at pagkatapos ay i-assign ang mga ito sa grupo dito.</string>
+    <string name="noMatchingGiftCards">Walang nahanap na resulta. Subukang baguhin ang iyong hinanap.</string>
+    <string name="storeName">Pangalan</string>
+    <string name="note">Tala</string>
+    <string name="cardId">ID ng Card</string>
+    <string name="barcodeType">Uri ng Barcode</string>
+    <string name="noBarcode">Walang barcode</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> napili</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> ang napili</item>
+    </plurals>
 </resources>

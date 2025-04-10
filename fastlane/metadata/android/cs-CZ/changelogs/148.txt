@@ -1,0 +1,1 @@
+- Odstraněna matoucí funkce importu z aplikace

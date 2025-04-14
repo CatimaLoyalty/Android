@@ -1,0 +1,2 @@
+- Possibilité de trier le carrés par début de validité
+- Retour temporaire sur une cible Android 14 pour corriger des soucis d'interface utilisateur

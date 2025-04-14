@@ -1,0 +1,3 @@
+- Cible Android 15
+- Correction du clavier qui masquait le bouton de sauvegarde dans l'écran de modification
+- Correction de certains fichiers pkpasd non détectés en tant que tel (support du type MIME application/vnd-com.apple.pkpass)

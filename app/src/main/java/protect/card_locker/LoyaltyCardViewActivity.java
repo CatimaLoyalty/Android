@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -144,6 +145,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // If this is an image, open it in the gallery.
         openImageInGallery(imageType);
+    }
+
+    private boolean onMainImageLongClick(){
+        if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
+            String barcodeString = barcodeIdString != null ? barcodeIdString : cardIdString;
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            if (clipboard != null) {
+                android.content.ClipData clip = android.content.ClipData.newPlainText("Barcode", barcodeString);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, R.string.copy_success, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, R.string.copy_failed, Toast.LENGTH_SHORT).show();
+            }
+        }
+        return true;
     }
 
     private void openImageInGallery(ImageType imageType) {
@@ -350,12 +366,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         });
 
         binding.mainImage.setOnClickListener(view -> onMainImageTap());
-        // This long-press was originally only intended for when Talkback was used but sadly limiting
-        // this doesn't seem to work well
-        binding.mainImage.setOnLongClickListener(view -> {
-            setMainImage(true, true);
-            return true;
-        });
+
+
+        binding.mainImage.setOnLongClickListener(view -> onMainImageLongClick());
+        binding.mainImageDescription.setOnLongClickListener(view -> onMainImageLongClick());
         binding.fullscreenImage.setOnClickListener(view -> onMainImageTap());
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {

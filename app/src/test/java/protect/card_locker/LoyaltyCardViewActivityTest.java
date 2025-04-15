@@ -12,6 +12,8 @@ import static org.robolectric.Shadows.shadowOf;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -1388,5 +1390,43 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), "Aztec", null, null);
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
+    }
+
+
+    @Test
+    public void longPressOnBarcodeShouldCopyTheBarcodeValue() {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = TestHelpers.getEmptyDb(context).getWritableDatabase();
+
+        long cardId = DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null, 0);
+
+        ActivityController activityController = createActivityWithLoyaltyCard(false, (int) cardId);
+        Activity activity = (Activity) activityController.get();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // Long press on the barcode image should copy the barcode value
+        ImageView barcodeMainImage = activity.findViewById(R.id.main_image);
+        barcodeMainImage.performLongClick();
+        shadowOf(getMainLooper()).idle();
+        // Check if the barcode value is copied to the clipboard
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clipData = clipboard.getPrimaryClip();
+        assertNotNull(clipData);
+        assertEquals(BARCODE_DATA, clipData.getItemAt(0).getText().toString());
+
+        //clear the clipboard
+        clipboard.setPrimaryClip(ClipData.newPlainText("", ""));
+
+        // Long press on the barcode description should copy the barcode value
+        TextView barcodeTextView = activity.findViewById(R.id.main_image_description);
+        barcodeTextView.performLongClick();
+        shadowOf(getMainLooper()).idle();
+        // Check if the barcode value is copied to the clipboard
+        clipData = clipboard.getPrimaryClip();
+        assertNotNull(clipData);
+        assertEquals(BARCODE_DATA, clipData.getItemAt(0).getText().toString());
     }
 }

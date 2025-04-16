@@ -9,6 +9,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -65,6 +66,15 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
 
         View finalConvertView = convertView;
         convertView.setOnClickListener(view -> mListener.onRowClicked(position, finalConvertView));
+
+        // Add long click listener for copying to clipboard
+        viewHolder.text.setOnLongClickListener(v -> {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("barcodeValue", value);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(getContext(), "Barcode copied to clipboard", Toast.LENGTH_SHORT).show();
+            return true;
+        });
 
         return convertView;
     }

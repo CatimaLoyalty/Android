@@ -1407,10 +1407,17 @@ public class LoyaltyCardViewActivityTest {
         activityController.visible();
         activityController.resume();
 
-        // Long press on the barcode image should copy the barcode value
-        ImageView barcodeMainImage = activity.findViewById(R.id.main_image);
-        barcodeMainImage.performLongClick();
+        // Short press on description to open the modal
+        TextView barcodeTextView = activity.findViewById(R.id.main_image_description);
+        barcodeTextView.performClick();
         shadowOf(getMainLooper()).idle();
+
+        // click on the copy neutral button
+        AlertDialog barcodeDialog = (AlertDialog) (ShadowDialog.getLatestDialog());
+        assertNotNull(barcodeDialog);
+        barcodeDialog.getButton(AlertDialog.BUTTON_NEUTRAL).performClick();
+        shadowOf(getMainLooper()).idle();
+
         // Check if the barcode value is copied to the clipboard
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clipData = clipboard.getPrimaryClip();
@@ -1420,8 +1427,10 @@ public class LoyaltyCardViewActivityTest {
         //clear the clipboard
         clipboard.setPrimaryClip(ClipData.newPlainText("", ""));
 
+        //quit the dialog
+        barcodeDialog.dismiss();
+
         // Long press on the barcode description should copy the barcode value
-        TextView barcodeTextView = activity.findViewById(R.id.main_image_description);
         barcodeTextView.performLongClick();
         shadowOf(getMainLooper()).idle();
         // Check if the barcode value is copied to the clipboard

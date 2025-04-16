@@ -147,7 +147,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         openImageInGallery(imageType);
     }
 
-    private boolean onMainImageLongClick(){
+    private boolean copyBarcodeToClipBoard(){
         if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
             String barcodeString = barcodeIdString != null ? barcodeIdString : cardIdString;
             ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -367,9 +367,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         binding.mainImage.setOnClickListener(view -> onMainImageTap());
 
+        // This long-press was originally only intended for when Talkback was used but sadly limiting
+        // this doesn't seem to work well
+        binding.mainImage.setOnLongClickListener(view -> {
+            setMainImage(true, true);
+            return true;
+        });
 
-        binding.mainImage.setOnLongClickListener(view -> onMainImageLongClick());
-        binding.mainImageDescription.setOnLongClickListener(view -> onMainImageLongClick());
+        binding.mainImageDescription.setOnLongClickListener(view -> copyBarcodeToClipBoard());
+
         binding.fullscreenImage.setOnClickListener(view -> onMainImageTap());
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -712,6 +718,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             builder.setTitle(R.string.cardId);
             builder.setView(cardIdView);
             builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+            builder.setNeutralButton(R.string.copy, (dialogInterface, i) -> copyBarcodeToClipBoard());
             AlertDialog dialog = builder.create();
             dialog.show();
         });

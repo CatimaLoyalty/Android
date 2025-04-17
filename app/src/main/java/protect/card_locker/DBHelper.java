@@ -533,9 +533,8 @@ public class DBHelper extends SQLiteOpenHelper {
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(loyaltyCardId));
-        Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
-        Log.d("updateLoyaltyCardZoomLW", "Rows changed = " + rowsUpdated);
-        return (rowsUpdated == 2);
+        Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level = " + zoomLevel + " Zoom level width = " + zoomLevelWidth);
+        return (rowsUpdated >= 1);
     }
 
     public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {

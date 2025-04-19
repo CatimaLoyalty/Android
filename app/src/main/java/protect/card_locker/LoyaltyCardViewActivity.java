@@ -369,7 +369,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     float scale = (float) progress / (float) binding.barcodeWidthscaler.getMax();
                     Log.d(TAG, "Scaling to " + scale);
                 }
-                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel, loyaltyCard.zoomLevelWidth);
                 if (seekBar.getId() == binding.barcodeScaler.getId()) {
                     loyaltyCard.zoomLevel = progress;
                     setScalerGuideline(loyaltyCard.zoomLevel);
@@ -378,6 +377,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     loyaltyCard.zoomLevelWidth = progress;
                     setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
                 }
+
+                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel, loyaltyCard.zoomLevelWidth);
                 drawMainImage(mainImageIndex, true, isFullscreen);
             }
             @Override

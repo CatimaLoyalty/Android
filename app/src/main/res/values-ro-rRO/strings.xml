@@ -122,7 +122,7 @@
     <string name="settings_lock_on_opening_orientation">Blocați orientația folosită când deschideți cardul</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_on">Porniți lanterna</string>
-    <string name="height">Înălțime:</string>
+    <string name="height">Înălțime</string>
     <string name="expiryStateSentence">Expiră: <xliff:g>%s</xliff:g></string>
     <string name="setIcon">Setați miniatura</string>
     <string name="barcodeLongPressMessage">Doar imagini pot fi deschise în aplicația galerie</string>

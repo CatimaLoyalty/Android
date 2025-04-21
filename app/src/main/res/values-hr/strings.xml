@@ -136,7 +136,7 @@
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="importCatimaMessage">Odaberi tvoju iz Catima izvezenu <i>catima.zip</i> datoteku koju želiš uvesti.
 \nStvori je putem izbornika „Uvoz/Izvoz” jedne druge Catima aplikacije pritiskom na „Izvoz”.</string>
-    <string name="height">Visina:</string>
+    <string name="height">Visina</string>
     <string name="switchToFrontImage">Prebaci na prednju sliku</string>
     <string name="switchToBackImage">Prebaci na stražnju sliku</string>
     <string name="switchToBarcode">Prebaci na crtični kod</string>

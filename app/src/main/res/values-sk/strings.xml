@@ -256,7 +256,7 @@
     <string name="permissionReadCardsLabel">Načítať Catima karty</string>
     <string name="permissionReadCardsDescription">čítať svoje Catima karty a všetky jeho podrobnosti, vrátane poznámky a obrázkov</string>
     <string name="switchToBackImage">Prepnutie na zadný obrázok</string>
-    <string name="height">Výška:</string>
+    <string name="height">Výška</string>
     <string name="switchToFrontImage">Prepnutie na predný obrázok</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakázanie uzamknutia obrazovky počas prezerania karty</string>
     <string name="settings_allow_content_provider_read_title">Povolenie prístupu k mojim údajom iným aplikáciám</string>

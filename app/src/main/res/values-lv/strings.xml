@@ -230,7 +230,7 @@
     <string name="settings_oled_dark_summary">Samazina akumulatora lietojumu OLED ekrāniem</string>
     <string name="icon_header_click_text">Ilgi piespiest, lai labotu sīktēlu</string>
     <string name="anyDate">Jebkurš datums</string>
-    <string name="height">Augstums:</string>
+    <string name="height">Augstums</string>
     <string name="openBackImageInGalleryApp">Atvērt aizmugures attēlu galerijas lietotnē</string>
     <string name="donate">Ziedot</string>
     <string name="field_must_not_be_empty">Lauks nedrīkst būt tukšs</string>

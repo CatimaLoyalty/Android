@@ -39,7 +39,7 @@
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_on">Mở đèn pin</string>
     <string name="importOptionFilesystemTitle">Nhập dữ liệu từ hệ thống</string>
-    <string name="height">Chiều cao:</string>
+    <string name="height">Chiều cao</string>
     <string name="no">Không</string>
     <string name="leaveWithoutSaveTitle">Thoát</string>
     <string name="expiryStateSentence">Hết hạn: <xliff:g>%s</xliff:g></string>

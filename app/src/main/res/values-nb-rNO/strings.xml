@@ -235,7 +235,7 @@
     <string name="storageReadPermissionRequired">Lagringslesetilgang kreves for denne handlingen …</string>
     <string name="validFromSentence">Gyldig fra: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">Kameratilgang kreves for denne handlingen …</string>
-    <string name="height">Høyde:</string>
+    <string name="height">Høyde</string>
     <string name="switchToFrontImage">Bytt til frontbilde</string>
     <string name="switchToBackImage">Bytt til baksidebildet</string>
     <string name="switchToBarcode">Bytt til strekkode</string>

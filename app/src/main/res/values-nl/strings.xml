@@ -236,7 +236,7 @@
     <string name="validFromSentence">Geldig vanaf: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Kies een geldige vanaf-datum</string>
     <string name="setBarcodeHeight">Barcodehoogte instellen</string>
-    <string name="height">Hoogte:</string>
+    <string name="height">Hoogte</string>
     <string name="switchToFrontImage">Voorzijde tonen</string>
     <string name="switchToBackImage">Achterzijde tonen</string>
     <string name="switchToBarcode">Barcode tonen</string>

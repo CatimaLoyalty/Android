@@ -240,7 +240,7 @@
     <string name="validFromSentence">Valide à partir de : <xliff:g>%s</xliff:g></string>
     <string name="anyDate">N’importe quelle date</string>
     <string name="chooseValidFromDate">Choisissez la date de début de validité</string>
-    <string name="height">Hauteur :</string>
+    <string name="height">Hauteur</string>
     <string name="switchToFrontImage">Passer à l\'image avant</string>
     <string name="switchToBackImage">Passer à l\'image arrière</string>
     <string name="switchToBarcode">Passer au code barre</string>

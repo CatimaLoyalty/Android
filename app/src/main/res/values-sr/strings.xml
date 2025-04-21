@@ -181,7 +181,7 @@
     <string name="anyDate">bilo kog datuma</string>
     <string name="chooseValidFromDate">Odaberi datum važenja</string>
     <string name="validFromSentence">Važi od: <xliff:g>%s</xliff:g></string>
-    <string name="height">Visina:</string>
+    <string name="height">Visina</string>
     <string name="switchToFrontImage">Prebaci na prednju fotografiju</string>
     <string name="switchToBarcode">Prebaci na bar-kod</string>
     <string name="openFrontImageInGalleryApp">Otvori prednju fotografiju u galerija aplikaciji</string>

@@ -159,7 +159,7 @@
     <string name="failedToOpenUrl">Instale um navegador primeiro</string>
     <string name="welcome">Bem-vindo(a) ao Catima</string>
     <string name="importCards">Importar cartões</string>
-    <string name="height">Altura:</string>
+    <string name="height">Altura</string>
     <string name="switchToBarcode">Mudar para código de barras</string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
     <string name="switchToBackImage">Mudar para imagem traseira</string>

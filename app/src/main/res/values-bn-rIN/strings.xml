@@ -238,7 +238,7 @@
     <string name="show_name_below_image_thumbnail">ছবির থাম্বনেইল এর নিচে নামটি দেখান</string>
     <string name="show_note">নোট দেখান</string>
     <string name="show_validity">বৈধতা দেখান</string>
-    <string name="height">উচ্চতা:</string>
+    <string name="height">উচ্চতা</string>
     <string name="switchToBackImage">পিছনের ছবিটিতে সুইচ করুন</string>
     <string name="switchToFrontImage">সামনের ছবিটিতে সুইচ করুন</string>
     <string name="switchToBarcode">বারকোডে সুইচ করুন</string>

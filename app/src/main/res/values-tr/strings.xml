@@ -235,7 +235,7 @@
     <string name="anyDate">Herhangi bir tarih</string>
     <string name="validFromDate">Geçerlilik başlangıcı</string>
     <string name="validFromSentence"><xliff:g>%s</xliff:g> tarihinden itibaren geçerlidir</string>
-    <string name="height">Yükseklik:</string>
+    <string name="height">Yükseklik</string>
     <string name="switchToBackImage">Arka resme geç</string>
     <string name="switchToBarcode">Barkoda geç</string>
     <string name="donate">Bağış yap</string>

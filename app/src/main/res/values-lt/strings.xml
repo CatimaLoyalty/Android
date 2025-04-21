@@ -245,7 +245,7 @@
     <string name="validFromSentence">Galioja nuo: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Perjungti į galinį vaizdą</string>
     <string name="switchToBarcode">Perjungti į brūkšninį kodą</string>
-    <string name="height">Aukštis:</string>
+    <string name="height">Aukštis</string>
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
     <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>
     <string name="donate">Aukoti</string>

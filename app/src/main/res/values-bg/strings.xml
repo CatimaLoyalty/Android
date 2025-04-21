@@ -235,7 +235,7 @@
     <string name="anyDate">Без значение от датата</string>
     <string name="validFromSentence">Валидност от: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Определена дата</string>
-    <string name="height">Височина:</string>
+    <string name="height">Височина</string>
     <string name="switchToFrontImage">Показване на предната страна</string>
     <string name="switchToBackImage">Показване на задната страна</string>
     <string name="switchToBarcode">Показване на щрихкода</string>

@@ -242,7 +242,7 @@
     <string name="chooseValidFromDate">Escolha uma data desde válida</string>
     <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
-    <string name="height">Altura:</string>
+    <string name="height">Altura</string>
     <string name="switchToBackImage">Mudar para a imagem de trás</string>
     <string name="switchToBarcode">Mudar para o código de barras</string>
     <string name="openFrontImageInGalleryApp">Abrir a imagem frontal na aplicação da galeria</string>

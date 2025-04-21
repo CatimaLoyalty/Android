@@ -253,7 +253,7 @@
     <string name="previousCard">पिछला</string>
     <string name="failedLaunchingPhotoPicker">कोई समर्थित गैलरी ऐप नहीं मिल सका</string>
     <string name="reverse">...उल्टे क्रम में</string>
-    <string name="height">ऊंचाई:</string>
+    <string name="height">ऊंचाई</string>
     <string name="importVoucherVaultMessage">आयात करने के लिए वाउचर वॉल्ट से अपना <i>vouchervault.json</i> निर्यात चुनें।
 \nसबसे पहले वाउचर वॉल्ट में एक्सपोर्ट दबाकर इसे बनाएं।</string>
     <string name="turn_flashlight_on">टॉर्च चालू करें</string>

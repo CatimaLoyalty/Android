@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -142,20 +143,30 @@
                 android:background="@android:color/transparent"/>
         </LinearLayout>
     </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fullscreen_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Top white background that stays white even when scaling the fullscreen image-->
+        <ImageView
+            android:importantForAccessibility="no"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:background="#FFFFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/scaler_guideline" />
+
         <ImageView
             android:importantForAccessibility="no"
             android:id="@+id/fullscreen_image"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/scaler_guideline"/>
+            app:layout_constraintBottom_toTopOf="@+id/scaler_guideline"
+            app:layout_constraintStart_toStartOf="@+id/scaler_startwidthguideline"
+            app:layout_constraintEnd_toEndOf="@+id/scaler_endwidthguideline"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/scaler_guideline"
@@ -164,10 +175,24 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5"/>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/scaler_startwidthguideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/scaler_endwidthguideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/fullscreen_button_minimize"
+            app:layout_constraintBottom_toTopOf="@+id/set_width_layout"
             android:layout_marginBottom="25dp"
             android:layout_marginStart="15.0dip"
             android:layout_marginEnd="15.0dip">
@@ -185,6 +210,31 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@string/setBarcodeHeight"
+                android:max="100" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/set_width_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15.0dip"
+            android:layout_marginEnd="15.0dip"
+            app:layout_constraintBottom_toTopOf="@+id/fullscreen_button_minimize">
+
+            <TextView
+                android:importantForAccessibility="no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/width"/>
+
+            <SeekBar
+                android:id="@+id/barcode_widthscaler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/setBarcodeWidth"
+                android:min="20"
                 android:max="100" />
         </LinearLayout>
 

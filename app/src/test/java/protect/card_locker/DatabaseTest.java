@@ -494,6 +494,7 @@ public class DatabaseTest {
         assertEquals(0, card.starStatus);
         assertEquals(0, card.lastUsed);
         assertEquals(100, card.zoomLevel);
+        assertEquals(100, card.zoomLevelWidth);
 
         // Determine that the entries are queryable and the fields are correct
         LoyaltyCard card2 = DBHelper.getLoyaltyCard(mActivity.getApplicationContext(), database, newCardId2);
@@ -510,6 +511,7 @@ public class DatabaseTest {
         assertEquals(0, card2.starStatus);
         assertEquals(0, card2.lastUsed);
         assertEquals(100, card2.zoomLevel);
+        assertEquals(100, card2.zoomLevelWidth);
     }
 
     @Test

@@ -369,6 +369,7 @@ public class StocardImporter implements Importer {
                     0,
                     lastUsed,
                     DBHelper.DEFAULT_ZOOM_LEVEL,
+                    DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH,
                     0,
                     null,
                     null,

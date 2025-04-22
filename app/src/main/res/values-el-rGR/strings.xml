@@ -305,4 +305,6 @@
     <string name="unsupportedFile">Το αρχείο δεν υποστηρίζεται</string>
     <string name="addFromPkpass">Επιλογή αρχείου Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Έναρξη ισχύος</string>
+    <string name="setBarcodeWidth">Ορισμός πλάτους γραμμωτού κώδικα</string>
+    <string name="width">Πλάτος</string>
 </resources>

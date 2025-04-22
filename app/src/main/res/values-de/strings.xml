@@ -303,4 +303,6 @@
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
     <string name="addFromPkpass">Passbook-Datei (.pkpass) auswählen</string>
     <string name="sort_by_valid_from">Gültig ab</string>
+    <string name="width">Breite</string>
+    <string name="setBarcodeWidth">Barcodebreite einstellen</string>
 </resources>

@@ -243,7 +243,7 @@
     <string name="anyDate">Ükspuha, mis kuupäev</string>
     <string name="chooseValidFromDate">Vali korrektne kehtivuse alguse kuupäev</string>
     <string name="validFromSentence">Kehtib alates: <xliff:g>%s</xliff:g></string>
-    <string name="height">Kõrgus</string>
+    <string name="height">Kõrgus:</string>
     <string name="switchToFrontImage">Vaata esikülje pilti</string>
     <string name="switchToBackImage">Vaata tagakülje pilti</string>
     <string name="switchToBarcode">Vaata triipkoodi</string>
@@ -301,4 +301,6 @@
     <string name="unsupportedFile">See fail pole toetatud</string>
     <string name="addFromPkpass">Vali Passbooki fail (.pkpass)</string>
     <string name="sort_by_valid_from">Kehtib alates</string>
+    <string name="setBarcodeWidth">Määratle triipkoodi laius</string>
+    <string name="width">Laius</string>
 </resources>

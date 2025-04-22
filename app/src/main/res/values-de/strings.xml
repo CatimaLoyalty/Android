@@ -235,7 +235,7 @@
     <string name="switchToBarcode">Zum Barcode wechseln</string>
     <string name="openFrontImageInGalleryApp">Vorderseite in Galerie öffnen</string>
     <string name="openBackImageInGalleryApp">Rückseite in Galerie öffnen</string>
-    <string name="height">Höhe</string>
+    <string name="height">Höhe:</string>
     <string name="switchToFrontImage">Zur Vorderseite wechseln</string>
     <string name="switchToBackImage">Zur Rückseite wechseln</string>
     <string name="setBarcodeHeight">Barcode-Höhe einstellen</string>

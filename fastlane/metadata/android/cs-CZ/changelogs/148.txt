@@ -1,1 +1,2 @@
+- Přidána možnost výběru šířky čárového kódu v celoobrazovkovém zobrazení
 - Odstraněna matoucí funkce importu z aplikace

@@ -318,4 +318,6 @@
     <string name="addFromPkpass">Выбрать файл Passbook (.pkpass)</string>
     <string name="generic_error_please_retry">Извините, что-то пошло не так, попробуйте ещё раз…</string>
     <string name="sort_by_valid_from">Начало действия</string>
+    <string name="width">Ширина</string>
+    <string name="setBarcodeWidth">Указать ширину штрих-кода</string>
 </resources>

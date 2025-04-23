@@ -1,1 +1,2 @@
+- Pievienota iespēja izvēlēties svītrkoda platumu pilnekrāna skatā
 - Noņemta mulsinoša ievietošana no lietotnes funkcijas

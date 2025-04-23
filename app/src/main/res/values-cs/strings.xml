@@ -240,7 +240,7 @@
     <string name="anyDate">Jakékoliv datum</string>
     <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
     <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
-    <string name="height">Výška</string>
+    <string name="height">Výška:</string>
     <string name="switchToFrontImage">Přepnout na přední obrázek</string>
     <string name="switchToBackImage">Přepnout na zadní obrázek</string>
     <string name="switchToBarcode">Přepnout na čárový kód</string>
@@ -312,4 +312,6 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="sort_by_valid_from">Platnost od</string>
+    <string name="setBarcodeWidth">Nastavit šířku čárového kódu</string>
+    <string name="width">Šířka</string>
 </resources>

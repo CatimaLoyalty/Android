@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">கேடிமா</string>
+    <string name="app_name">பூனையம்மா</string>
     <string name="action_search">தேடல்</string>
     <string name="action_add">கூட்டு</string>
     <plurals name="selectedCardCount">
@@ -91,14 +91,14 @@
     <string name="noCardsMessage">முதலில் ஒரு அட்டையைச் சேர்க்கவும்</string>
     <string name="importExportHelp">உங்கள் தரவை காப்புப் பிரதி எடுப்பது அதை மற்றொரு சாதனத்திற்கு நகர்த்த அனுமதிக்கிறது.</string>
     <string name="importSuccessfulTitle">இறக்குமதி செய்யப்பட்டது</string>
-    <string name="permissionReadCardsLabel">கேடிமா அட்டைகளைப் படியுங்கள்</string>
-    <string name="permissionReadCardsDescription">உங்கள் கேடிமா அட்டைகள் மற்றும் குறிப்புகள் மற்றும் படங்கள் உட்பட அதன் அனைத்து விவரங்களையும் படியுங்கள்</string>
+    <string name="permissionReadCardsLabel">பூனையம்மா அட்டைகளைப் படி</string>
+    <string name="permissionReadCardsDescription">உங்கள் பூனையம்மா அட்டைகள் மற்றும் குறிப்புகள் மற்றும் படங்கள் உட்பட அதன் அனைத்து விவரங்களையும் படி</string>
     <string name="exportOptionExplanation">தரவு உங்கள் விருப்பப்படி இடத்திற்கு எழுதப்படும்.</string>
     <string name="importOptionFilesystemTitle">கோப்பு முறைமையிலிருந்து இறக்குமதி</string>
     <string name="importOptionFilesystemExplanation">கோப்பு முறைமையிலிருந்து ஒரு குறிப்பிட்ட கோப்பைத் தேர்வுசெய்க.</string>
     <string name="importOptionFilesystemButton">கோப்பு முறைமையிலிருந்து</string>
     <string name="cameraPermissionDeniedTitle">கேமராவை அணுக முடியவில்லை</string>
-    <string name="noCameraPermissionDirectToSystemSetting">பார்கோடுகளை ச்கேன் செய்ய, கேடிமாவுக்கு உங்கள் கேமராவுக்கு அணுகல் தேவைப்படும். உங்கள் இசைவு அமைப்புகளை மாற்ற இங்கே தட்டவும்.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">பார்கோடுகளை ச்கேன் செய்ய, பூனையம்மாவுக்கு உங்கள் கேமராவுக்கு அணுகல் தேவைப்படும். உங்கள் இசைவு அமைப்புகளை மாற்ற இங்கே தட்டவும்.</string>
     <string name="about">பற்றி</string>
     <string name="app_copyright_short">பதிப்புரிமை © சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="app_copyright_old">விசுவாச அட்டை கீச்சின் அடிப்படையில்\n பதிப்புரிமை © 2016–2020 பிராண்டன் ஆர்ச்சர்</string>
@@ -143,8 +143,8 @@
     <string name="app_loyalty_card_keychain">விசுவாச அட்டை கீச்சின்</string>
     <string name="privacy_policy">தனியுரிமைக் கொள்கை</string>
     <string name="accept">ஏற்றுக்கொள்</string>
-    <string name="importCatima">கேடிமாவிலிருந்து இறக்குமதி</string>
-    <string name="importCatimaMessage">உங்கள் <i> catima.zip </i> இறக்குமதி செய்ய கேடிமாவிலிருந்து ஏற்றுமதி செய்யுங்கள்.\n முதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் மற்றொரு கேடிமா பயன்பாட்டின் இறக்குமதி/ஏற்றுமதி மெனுவிலிருந்து அதை உருவாக்கவும்.</string>
+    <string name="importCatima">பூனையம்மாவிலிருந்து இறக்குமதி</string>
+    <string name="importCatimaMessage">உங்கள் <i> catima.zip </i> இறக்குமதி செய்யப் பூனையம்மாவிலிருந்து ஏற்றுமதி செய்யுங்கள்.\nமுதலில் அங்கு ஏற்றுமதியை அழுத்துவதன் மூலம் மற்றொரு கேடிமா பயன்பாட்டின் இறக்குமதி/ஏற்றுமதி மெனுவிலிருந்து அதை உருவாக்கு.</string>
     <string name="importLoyaltyCardKeychain">விசுவாச அட்டை கீச்சினிலிருந்து இறக்குமதி செய்யுங்கள்</string>
     <string name="importFidmeMessage">உங்கள் <i> fidme-export-request-xxxxxx.zip </i> இறக்குமதி செய்ய FIDME இலிருந்து ஏற்றுமதி செய்து, பின்னர் பார்கோடு வகைகளை கைமுறையாகத் தேர்ந்தெடுக்கவும்.\n தரவு பாதுகாப்பைத் தேர்ந்தெடுப்பதன் மூலம் உங்கள் FIDME சுயவிவரத்திலிருந்து அதை உருவாக்கவும், பின்னர் எனது தரவைப் பிரித்தெடுக்கவும் அழுத்தவும்.</string>
     <string name="importStocardMessage">உங்கள் <i> ***. சிப் </i> இறக்குமதி செய்ய ஏற்றுமதி.\n உங்கள் தரவை ஏற்றுமதி செய்யக் கேட்கும் support@stocardapp.com என்ற மின்னஞ்சல் மூலம் அதைப் பெறுங்கள்.</string>
@@ -170,7 +170,7 @@
     <string name="settings_locale">மொழி</string>
     <string name="settings_oled_dark">இருண்ட கருப்பொருளுக்கு தூய கருப்பு பின்னணி</string>
     <string name="settings_theme_color">கருப்பொருள் நிறம்</string>
-    <string name="settings_catima_theme">கேடிமா</string>
+    <string name="settings_catima_theme">பூனையம்மா</string>
     <string name="settings_pink_theme">இளஞ்சிவப்பு</string>
     <string name="settings_magenta_theme">மெசந்தா</string>
     <string name="settings_violet_theme">கத்தரி</string>
@@ -207,14 +207,14 @@
     <string name="failedLaunchingPhotoPicker">உதவி கேலரி பயன்பாட்டைக் கண்டுபிடிக்க முடியவில்லை</string>
     <string name="previousCard">முந்தைய</string>
     <string name="failedToOpenUrl">முதலில் ஒரு வலை உலாவியை நிறுவவும்</string>
-    <string name="welcome">கேடிமாவுக்கு வருக</string>
+    <string name="welcome">பூனையம்மாவுக்கு வருக</string>
     <string name="importCards">அட்டைகளை இறக்குமதி செய்யுங்கள்</string>
     <string name="updateBalanceTitle">நீங்கள் எவ்வளவு செலவு செய்தீர்கள் அல்லது பெற்றீர்கள்?</string>
     <string name="updateBalanceHint">தொகையை உள்ளிடவும்</string>
     <string name="validFromDate">இருந்து செல்லுபடியாகும்</string>
     <string name="anyDate">எந்த தேதி</string>
     <string name="chooseValidFromDate">தேதியிலிருந்து செல்லுபடியாகும் என்பதைத் தேர்வுசெய்க</string>
-    <string name="height">உயரம்</string>
+    <string name="height">உயரம்:</string>
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
     <string name="switchToBarcode">பார்கோடு மாறவும்</string>
@@ -300,4 +300,6 @@
     <string name="app_resources">விடுதலை மூன்றாம் தரப்பு வளங்கள்: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="groupsList">குழுக்கள்: <xliff:g>%s</xliff:g></string>
     <string name="sort_by_valid_from">இருந்து செல்லுபடியாகும்</string>
+    <string name="setBarcodeWidth">பட்டைகுறி அகலம் அமை</string>
+    <string name="width">அகலம்</string>
 </resources>

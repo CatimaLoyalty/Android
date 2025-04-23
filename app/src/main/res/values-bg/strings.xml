@@ -306,4 +306,6 @@
     <string name="addFromPkpass">Изберете файл на Passbook (.pkpass)</string>
     <string name="unsupportedFile">Този вид файлове не се поддържат</string>
     <string name="sort_by_valid_from">Начало валидност</string>
+    <string name="width">Ширина</string>
+    <string name="setBarcodeWidth">Задаване ширина на щрих кода</string>
 </resources>

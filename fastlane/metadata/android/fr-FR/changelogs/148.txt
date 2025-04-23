@@ -1,1 +1,2 @@
+- Ajout de la gestion de la largeur du code-barres en plein écran
 - Suppression de la fonctionnalité d'import depuis l'application, qui portait à confusion

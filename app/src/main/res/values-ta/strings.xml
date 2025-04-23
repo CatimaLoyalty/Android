@@ -214,7 +214,7 @@
     <string name="validFromDate">இருந்து செல்லுபடியாகும்</string>
     <string name="anyDate">எந்த தேதி</string>
     <string name="chooseValidFromDate">தேதியிலிருந்து செல்லுபடியாகும் என்பதைத் தேர்வுசெய்க</string>
-    <string name="height">உயரம்:</string>
+    <string name="height">உயரம்</string>
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
     <string name="switchToBarcode">பார்கோடு மாறவும்</string>

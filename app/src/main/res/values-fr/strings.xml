@@ -312,4 +312,6 @@
     <string name="unsupportedFile">Ce fichier n\'est pas supporté</string>
     <string name="generic_error_please_retry">Désolé, un problème est survenu, veuillez réessayer...</string>
     <string name="sort_by_valid_from">Valide à partir du</string>
+    <string name="width">Largeur</string>
+    <string name="setBarcodeWidth">Définir la largeur du code-barres</string>
 </resources>

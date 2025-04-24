@@ -240,7 +240,7 @@
     <string name="anyDate">Jakékoliv datum</string>
     <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
     <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
-    <string name="height">Výška:</string>
+    <string name="height">Výška</string>
     <string name="switchToFrontImage">Přepnout na přední obrázek</string>
     <string name="switchToBackImage">Přepnout na zadní obrázek</string>
     <string name="switchToBarcode">Přepnout na čárový kód</string>

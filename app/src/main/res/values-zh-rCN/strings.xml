@@ -300,4 +300,6 @@
     <string name="unsupportedFile">此文件不受支持</string>
     <string name="generic_error_please_retry">抱歉，某个东西出错了，请再试…</string>
     <string name="sort_by_valid_from">有效期开始日</string>
+    <string name="width">宽度</string>
+    <string name="setBarcodeWidth">设置条码宽度</string>
 </resources>

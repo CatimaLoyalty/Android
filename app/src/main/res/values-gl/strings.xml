@@ -205,7 +205,7 @@
     <string name="anyDate">Calquera data</string>
     <string name="chooseValidFromDate">Elixe data de inicio válida</string>
     <string name="validFromSentence">Válida desde: <xliff:g>%s</xliff:g></string>
-    <string name="height">Altura:</string>
+    <string name="height">Altura</string>
     <string name="switchToFrontImage">Cambiar á imaxe frontal</string>
     <string name="switchToBackImage">Cambiar á imaxe posterior</string>
     <string name="openFrontImageInGalleryApp">Abrir imaxe frontal na app de galería</string>

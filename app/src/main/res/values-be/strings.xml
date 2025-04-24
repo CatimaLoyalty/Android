@@ -1,2 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="noMatchingGiftCards">Няма вынікаў. Паспрабуйце змяніць параметры пошуку.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> выбран</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> выбрана</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> выбрана</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> выбрана</item>
+    </plurals>
+    <string name="action_add">Дадаць</string>
+    <string name="app_name">Catima</string>
+    <string name="action_search">Пошук</string>
+    <string name="noGiftCards">Націсніце кнопку + плюс, каб дадаць картку, або імпартуйце праз меню ⋮.</string>
+    <string name="storeName">Назва</string>
+    <string name="star">Дадаць у абраныя</string>
+    <string name="unstar">Выдаліць з абраных</string>
+    <string name="cancel">Скасаваць</string>
+    <string name="save">Захаваць</string>
+    <string name="edit">Рэдагаваць</string>
+    <string name="delete">Выдаліць</string>
+    <string name="confirm">Пацвердзіць</string>
+    <string name="deleteConfirmation">Выдаліць карту назаўсёды?</string>
+    <string name="ok">OK</string>
+    <string name="share">Абагуліць</string>
+    <string name="sendLabel">Адправіць…</string>
+    <string name="addCardTitle">Дадаць карту</string>
+    <string name="cardShortcut">Ярлык карты</string>
+    <string name="barcodeImageDescriptionWithType">Відарыс штрыхкоду <xliff:g>%s</xliff:g></string>
+    <string name="scanCardBarcode">Сканаваць штрыхкод</string>
+    <string name="noCardExistsError">Не ўдалося знайсці карту</string>
+    <string name="exportName">Экспарт</string>
+    <string name="importSuccessfulTitle">Імпартавана</string>
+    <string name="importFailedTitle">Не ўдалося імпартаваць</string>
+    <string name="importFailed">Немагчыма выканаць імпарт</string>
+    <string name="exportSuccessfulTitle">Экспартавана</string>
+    <string name="importing">Імпартаванне…</string>
+    <string name="storageReadPermissionRequired">Для гэтага дзеяння патрабуецца дазвол на чытанне сховішча…</string>
+    <string name="cameraPermissionRequired">Для гэтага дзеяння патрабуецца дазвол на доступ да камеры…</string>
+    <string name="permissionReadCardsLabel">Чытаць карты Catima</string>
+    <string name="exportOptionExplanation">Даныя будуць запісаны ў выбранае вамі месца.</string>
+    <string name="importOptionFilesystemExplanation">Выберыце пэўны файл з файлавай сістэмы.</string>
+    <string name="importOptionFilesystemButton">З файлавай сістэмы</string>
+    <string name="about">Аб праграме</string>
+    <string name="app_copyright_short">Аўтарскае права © Sylvia van Os і суаўтары</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Выдаліць <xliff:g>%d</xliff:g> карту назаўсёды?</item>
+        <item quantity="few">Выдаліць <xliff:g>%d</xliff:g> карты назаўсёды?</item>
+        <item quantity="many">Выдаліць <xliff:g>%d</xliff:g> карт назаўсёды?</item>
+        <item quantity="other">Выдаліць <xliff:g>%d</xliff:g> карт назаўсёды?</item>
+    </plurals>
+    <string name="barcodeType">Тып штрыхкода</string>
+    <string name="deleteTitle">Выдаліць карту</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Выдаліць <xliff:g>%d</xliff:g> карту</item>
+        <item quantity="few">Выдаліць <xliff:g>%d</xliff:g> карты</item>
+        <item quantity="many">Выдаліць <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="other">Выдаліць <xliff:g>%d</xliff:g> карт</item>
+    </plurals>
+    <string name="noGiftCardsGroup">Стварыце некалькі карт, а затым прызначце іх у групу тут.</string>
+    <string name="noBarcode">Няма штрыхкода</string>
+    <string name="note">Нататка</string>
+    <string name="editCardTitle">Рэдагаваць карту</string>
+    <string name="cardId">ID карты</string>
+    <string name="noCardsMessage">Спачатку дадайце карту</string>
+    <string name="importExport">Імпарт/Экспарт</string>
+    <string name="importOptionFilesystemTitle">Імпарт з файлавай сістэмы</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Аўтарскае права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os і суаўтары</string>
+    <string name="importExportHelp">Рэзервовае капіяванне даных дазваляе перанесці іх на іншую прыладу.</string>
+    <string name="failedParsingImportUriError">Не атрымалася разабраць URI імпарту</string>
+    <string name="exportFailedTitle">Не ўдалося экспартаваць</string>
+    <string name="exportFailed">Немагчыма выканаць экспарт</string>
+    <string name="permissionReadCardsDescription">чытаць вашы карты Catima і ўсе іх дэталі, уключаючы нататкі і выявы</string>
+    <string name="exporting">Экспартаванне…</string>
+    <string name="cameraPermissionDeniedTitle">Не атрымалася атрымаць доступ да камеры</string>
+    <string name="app_copyright_old">Заснавана на Loyalty Card Keychain\nаўтарскае права © 2016–2020 Branden Archer</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Каб сканаваць штрыхкоды, Catima спатрэбіцца доступ да вашай камеры. Націсніце тут, каб змяніць параметры дазволу.</string>
+</resources>

@@ -19,9 +19,11 @@ import android.text.method.DigitsKeyListener;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -106,6 +108,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     Runnable barcodeImageGenerationFinishedCallback;
 
     private long initTime = System.currentTimeMillis();
+
+    private GestureDetector gestureDetector;
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -248,6 +253,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         super.onCreate(savedInstanceState);
         binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        // Initialize GestureDetector
+        gestureDetector = new GestureDetector(this, new GestureListener());
+
+        // Set touch listener to detect swipe gestures
+        binding.getRoot().setOnTouchListener((v, event) -> {
+            Log.d(TAG, "Touch event detected: " + event.getAction());  // Log every touch action
+            return gestureDetector.onTouchEvent(event);  // Let GestureDetector handle the event
+        });
+
         Utils.applyWindowInsets(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
@@ -1220,4 +1234,48 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            // Log when a touch down event is detected
+            Log.d(TAG, "onDown: " + e.toString());
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            // Log every swipe gesture
+            Log.d(TAG, "onFling detected: e1=" + e1.toString() + ", e2=" + e2.toString());
+
+            float diffX = e1.getX() - e2.getX();
+            Log.d(TAG, "diffX = " + diffX);  // Log the horizontal swipe distance
+
+            if (Math.abs(diffX) > 100) {  // Adjust the threshold for a swipe
+                if (diffX > 0) {
+                    // Left swipe
+                    Log.d(TAG, "Left swipe detected");
+                    if (initTime < (System.currentTimeMillis() - 1000)) {
+                        prevNextCard(true);  // Move to next card
+                    }
+                } else {
+                    // Right swipe
+                    Log.d(TAG, "Right swipe detected");
+                    if (initTime < (System.currentTimeMillis() - 1000)) {
+                        prevNextCard(false);  // Move to previous card
+                    }
+                }
+                return true;  // Indicate the gesture was handled
+            }
+            return false;  // Gesture not recognized
+        }
+    }
 }
+
+

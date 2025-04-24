@@ -20,6 +20,9 @@ import java.util.ArrayList;
 
 import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
 
+import android.content.ClipboardManager;
+import android.content.ClipData;
+
 /**
  * This activity is callable and will allow a user to enter
  * barcode data and generate all barcodes possible for

@@ -1,0 +1,3 @@
+- Alvo Android 15
+- Corrigir teclado cobrindo o botão gravar no ecrã de edição
+- Corrigir alguns ficheiros pkpass que não são detetados como pkpass (apoio do tipo mime application/vnd-com.apple.pkpass)

@@ -318,4 +318,6 @@
     <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>
     <string name="generic_error_please_retry">Coś poszło nie tak, spróbuj ponownie później...</string>
     <string name="sort_by_valid_from">Poprawna forma</string>
+    <string name="setBarcodeWidth">Ustaw szerokość kodu kreskowego</string>
+    <string name="width">Szerokość</string>
 </resources>

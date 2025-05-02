@@ -241,7 +241,7 @@
     <string name="validFromDate">Válido desde</string>
     <string name="chooseValidFromDate">Elija una fecha válida desde</string>
     <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
-    <string name="height">Altura</string>
+    <string name="height">Alto</string>
     <string name="switchToFrontImage">Cambiar a imagen frontal</string>
     <string name="openFrontImageInGalleryApp">Abrir imagen frontal en la aplicación de la galería</string>
     <string name="openBackImageInGalleryApp">Abrir imagen trasera en la aplicación de la galería</string>
@@ -312,4 +312,6 @@
     <string name="unsupportedFile">Este archivo no es compatible</string>
     <string name="addFromPkpass">Seleccione un archivo Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Válido desde</string>
+    <string name="setBarcodeWidth">Establecer el ancho del código de barras</string>
+    <string name="width">Ancho</string>
 </resources>

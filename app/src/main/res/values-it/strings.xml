@@ -312,4 +312,6 @@
     <string name="generic_error_please_retry">Siamo spiacenti, qualcosa è andato storto, riprova...</string>
     <string name="addFromPkpass">Seleziona un file Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Valido da</string>
+    <string name="setBarcodeWidth">Imposta la larghezza del codice a barre</string>
+    <string name="width">Larghezza</string>
 </resources>

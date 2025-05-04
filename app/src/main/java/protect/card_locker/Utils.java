@@ -1018,6 +1018,9 @@ public class Utils {
             // Use header colour to decide if this image will need a white or black background
             backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
+            // Ensure correct cropping style
+            backgroundOrIcon.setScaleType(Utils.getRecommendedScaleTypeForThumbnailImage(icon));
+
             textWhenNoImage.setVisibility(View.GONE);
         } else {
             // Use header colour as background colour
@@ -1125,5 +1128,20 @@ public class Utils {
 
             return WindowInsetsCompat.CONSUMED;
         });
+    }
+
+    public static ImageView.ScaleType getRecommendedScaleTypeForThumbnailImage(@Nullable Bitmap image) {
+        // Return something sensible if no image
+        if (image == null) {
+            return ImageView.ScaleType.FIT_CENTER;
+        }
+
+        // If the image is relatively close to 85.6:53.98 (width = 1.58577250834 * height), allow cropping it to fit it
+        double ratio = (double) image.getWidth() / image.getHeight();
+        if (ratio >= 1.55 && ratio <= 1.60) {
+            return ImageView.ScaleType.CENTER_CROP;
+        }
+
+        return ImageView.ScaleType.FIT_CENTER;
     }
 }

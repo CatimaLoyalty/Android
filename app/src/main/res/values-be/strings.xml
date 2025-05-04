@@ -116,10 +116,10 @@
     <string name="expiryStateSentenceExpired">Тэрмін дзеяння скончыўся: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">
-        <item quantity="one"><xliff:g>%s</xliff:g> ачко</item>
-        <item quantity="few"><xliff:g>%s</xliff:g> ачкі</item>
-        <item quantity="many"><xliff:g>%s</xliff:g> ачкоў</item>
-        <item quantity="other"><xliff:g>%s</xliff:g> ачкоў</item>
+        <item quantity="one"><xliff:g>%s</xliff:g> бал</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> балы</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> балаў</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> балаў</item>
     </plurals>
     <string name="card">Карта</string>
     <string name="expiryDate">Тэрмін прыдатнасці</string>
@@ -130,7 +130,7 @@
     <string name="errorReadingImage">Не атрымалася прачытаць малюнак</string>
     <string name="balance">Баланс</string>
     <string name="currency">Валюта</string>
-    <string name="points">Ачкі</string>
+    <string name="points">Балы</string>
     <string name="balanceParsingFailed">Няправільны баланс</string>
     <string name="chooseImportType">Імпартаваць даныя з</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>

@@ -1,18 +1,17 @@
 package protect.card_locker;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class OpenWebLinkHandler {
 
     private static final String TAG = "Catima";
 
-    public void openBrowser(AppCompatActivity activity, String url) {
+    public void openBrowser(Activity activity, String url) {
         if (url == null) {
             return;
         }

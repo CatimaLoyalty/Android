@@ -3,10 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.text.Spanned;
 import android.util.Log;
-
-import androidx.core.text.HtmlCompat;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,7 +52,7 @@ public class AboutContent {
         return context.getString(R.string.app_copyright_short);
     }
 
-    public String getContributors() {
+    public String getContributorsHtml() {
         String contributors;
         try {
             contributors = "<br/>" + Utils.readTextFile(context, R.raw.contributors);
@@ -65,7 +62,7 @@ public class AboutContent {
         return contributors.replace("\n", "<br />");
     }
 
-    public String getHistory() {
+    public String getHistoryHtml() {
         String versionHistory;
         try {
             versionHistory = Utils.readTextFile(context, R.raw.changelog)
@@ -77,7 +74,7 @@ public class AboutContent {
                 .replace("\n", "<br />");
     }
 
-    public String getLicense() {
+    public String getLicenseHtml() {
         try {
             return Utils.readTextFile(context, R.raw.license);
         }  catch (IOException ignored) {
@@ -85,7 +82,7 @@ public class AboutContent {
         }
     }
 
-    public String getPrivacy() {
+    public String getPrivacyHtml() {
         String privacyPolicy;
         try {
             privacyPolicy = Utils.readTextFile(context, R.raw.privacy)
@@ -97,7 +94,7 @@ public class AboutContent {
                 .replace("\n", "<br />");
     }
 
-    public String getThirdPartyLibraries() {
+    public String getThirdPartyLibrariesHtml() {
         final List<ThirdPartyInfo> usedLibraries = new ArrayList<>();
         usedLibraries.add(new ThirdPartyInfo("ACRA", "https://github.com/ACRA/acra", "Apache 2.0"));
         usedLibraries.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
@@ -116,7 +113,7 @@ public class AboutContent {
         return result.toString();
     }
 
-    public String getUsedThirdPartyAssets() {
+    public String getUsedThirdPartyAssetsHtml() {
         final List<ThirdPartyInfo> usedAssets = new ArrayList<>();
         usedAssets.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
 
@@ -129,31 +126,19 @@ public class AboutContent {
         return result.toString();
     }
 
-    public Spanned getContributorInfo() {
+    public String getContributorInfoHtml() {
         StringBuilder contributorInfo = new StringBuilder();
         contributorInfo.append(getCopyright());
         contributorInfo.append("<br/><br/>");
         contributorInfo.append(context.getString(R.string.app_copyright_old));
         contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_contributors), getContributors()));
+        contributorInfo.append(String.format(context.getString(R.string.app_contributors), getContributorsHtml()));
         contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_libraries), getThirdPartyLibraries()));
+        contributorInfo.append(String.format(context.getString(R.string.app_libraries), getThirdPartyLibrariesHtml()));
         contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssets()));
+        contributorInfo.append(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssetsHtml()));
 
-        return HtmlCompat.fromHtml(contributorInfo.toString(), HtmlCompat.FROM_HTML_MODE_COMPACT);
-    }
-
-    public Spanned getHistoryInfo() {
-        return HtmlCompat.fromHtml(getHistory(), HtmlCompat.FROM_HTML_MODE_COMPACT);
-    }
-
-    public Spanned getLicenseInfo() {
-        return HtmlCompat.fromHtml(getLicense(), HtmlCompat.FROM_HTML_MODE_LEGACY);
-    }
-
-    public Spanned getPrivacyInfo() {
-        return HtmlCompat.fromHtml(getPrivacy(), HtmlCompat.FROM_HTML_MODE_COMPACT);
+        return contributorInfo.toString();
     }
 
     public String getVersionHistory() {

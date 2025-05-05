@@ -1,0 +1,1 @@
+- Vylepšené zobrazenie ikon archívu/označených hviezdičkou

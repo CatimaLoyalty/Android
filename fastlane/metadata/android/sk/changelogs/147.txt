@@ -1,0 +1,3 @@
+- Cieľový Android 15
+- Oprava zlyhania pri čítaní nepodporovaných súborov pkpass
+- Vylepšenie podpory pkpass

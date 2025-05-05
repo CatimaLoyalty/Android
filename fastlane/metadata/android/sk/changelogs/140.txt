@@ -1,0 +1,1 @@
+- Opravené zalamovanie textu v dialógovom okne pridania

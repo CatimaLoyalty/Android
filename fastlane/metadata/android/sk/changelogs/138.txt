@@ -1,0 +1,1 @@
+- Opravené gesto späť na hlavnej obrazovke pri zatváraní klávesnice a vyhľadávania v systéme Android 13+

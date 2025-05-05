@@ -1,0 +1,3 @@
+- Pridaná podpora pre Passbook (.pkpass)
+- Opravený import priehľadných súborov PDF
+- Vylepšené zobrazenie priehľadných miniatúr

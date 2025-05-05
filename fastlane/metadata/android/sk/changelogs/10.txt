@@ -1,3 +1,3 @@
-- Zmena predvoleného importu / exportného súboru. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
-- Správny reťazec na stránke import/export. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87)
-- Zlepšite rozloženie stránky zobrazenia karty. Text by mal byť jednoduchšie čítať, a je výber s dlhým kliknutím. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91)
+- Zmenený predvolený názov súboru pre import/export. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Opravený reťazec na stránke import/export. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Vylepšené rozloženie stránky so zobrazením karty. Text by mal byť ľahšie čitateľný a mal by byť voliteľný dlhým kliknutím. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

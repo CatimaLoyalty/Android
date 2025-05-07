@@ -53,10 +53,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.common.GlobalHistogramBinarizer;
 import com.google.zxing.multi.GenericMultipleBarcodeReader;
 import com.google.zxing.multi.MultipleBarcodeReader;
 
@@ -82,6 +83,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -381,14 +383,17 @@ public class Utils {
 
         // ...and then turned into a binary bitmap from its luminance
         LuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
-        BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
+        BinaryBitmap binaryBitmap = new BinaryBitmap(new GlobalHistogramBinarizer(source));
 
         List<ParseResult> parseResultList = new ArrayList<>();
         try {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             MultipleBarcodeReader multipleBarcodeReader = new GenericMultipleBarcodeReader(multiFormatReader);
 
-            Result[] barcodeResults = multipleBarcodeReader.decodeMultiple(binaryBitmap);
+            Map<DecodeHintType, Object> hints = new EnumMap<>(DecodeHintType.class);
+            hints.put(DecodeHintType.ALSO_INVERTED, Boolean.TRUE);
+
+            Result[] barcodeResults = multipleBarcodeReader.decodeMultiple(binaryBitmap,hints);
 
             for (Result barcodeResult : barcodeResults) {
                 Log.i(TAG, "Read barcode id: " + barcodeResult.getText());

@@ -4,6 +4,7 @@
 
 - Add ability to choose barcode width in fullscreen view
 - Remove confusing import from app function
+- Various scanning fixes
 
 ## v2.34.5 - 147 (2025-03-22)
 

@@ -46,7 +46,7 @@
     <string name="settings_display_barcode_max_brightness">Displayhelligkeit erhöhen</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>
-    <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>
+    <string name="intent_import_card_from_url_share_text">Ich würde gerne eine Karte mit dir teilen</string>
     <string name="settings_dark_theme">Dunkel</string>
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
@@ -101,8 +101,7 @@
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
     <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Barcodetypen manuell aus. \nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Wähle deinen <i>catima.zip</i>-Export aus Catima zum Importieren aus.
-\nErstelle ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort zuerst Export drückst.</string>
+    <string name="importCatimaMessage">Wähle deinen <i>catima.zip</i>-Export aus Catima zum Importieren aus.\nErstelle ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort zuerst Export drückst.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Barcodewert festlegen</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
@@ -243,7 +242,7 @@
     <string name="show_note">Notiz anzeigen</string>
     <string name="show_balance">Betrag anzeigen</string>
     <string name="show_validity">Gültigkeitsdauer anzeigen</string>
-    <string name="show_name_below_image_thumbnail">Namen unter Vorschaubild anzeigen</string>
+    <string name="show_name_below_image_thumbnail">Namen unter dem Vorschaubild anzeigen</string>
     <string name="settings_allow_content_provider_read_title">Anderen Apps den Zugriff auf meine Daten gestatten</string>
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
     <string name="permissionReadCardsDescription">Lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>

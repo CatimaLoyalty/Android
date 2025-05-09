@@ -306,4 +306,6 @@
     <string name="generic_error_please_retry">Üzgünüz, bir şeyler ters gitti, lütfen tekrar deneyin...</string>
     <string name="addFromPkpass">Bir Passbook dosyası seçin (.pkpass)</string>
     <string name="sort_by_valid_from">İtibaren Geçerli</string>
+    <string name="width">Genişlik</string>
+    <string name="setBarcodeWidth">Barkod Genişliğini Ayarla</string>
 </resources>

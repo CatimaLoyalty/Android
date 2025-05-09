@@ -251,4 +251,5 @@
     <string name="app_copyright_short">Copyright © Sylvia van Os in drugi sodelujoči</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os in drugi sodelujoči</string>
     <string name="permissionReadCardsLabel">Preberite kartice Catima</string>
+    <string name="app_name">Catima</string>
 </resources>

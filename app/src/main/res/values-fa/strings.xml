@@ -177,4 +177,15 @@
     <string name="barcodeId">مقدار بارکد</string>
     <string name="group_edit">ویرایش گروه‌</string>
     <string name="expiryStateSentenceExpired">منقضی شده: <xliff:g>%s</xliff:g></string>
+    <string name="errorReadingFile">اشکال در خواندن فایل</string>
+    <string name="duplicateCard">تکثیر کارت</string>
+    <string name="exportPassword">خروجی گرفته شده را بوسیله پسورد حفاظت کنید (غیر اجباری)</string>
+    <string name="exportPasswordHint">پسورد فایل خروجی</string>
+    <string name="importCancelled">واردات کنسل شد</string>
+    <string name="failedToRetrieveImageFile">بازیابی فایل تصویر ناموفق بود</string>
+    <string name="help_translate_this_app">به ترجمه این برنامه کمک کنید</string>
+    <string name="importCards">واردات کارت ها</string>
+    <string name="height">ارتفاع</string>
+    <string name="add_manually_warning_message">برای برخی از فروشگاه‌ها، مقدار بارکد با عدد نوشته شده روی کارت متفاوت است. به همین دلیل، وارد کردن دستی بارکد ممکن است همیشه کار نکند. اکیداً توصیه می‌شود که به جای آن، بارکد را با دوربین خود اسکن کنید. آیا هنوز می‌خواهید ادامه دهید؟</string>
+    <string name="generic_error_please_retry">ببخشید، مشکلی پیش آمده، لطفا دوباره امتحان کنید...</string>
 </resources>

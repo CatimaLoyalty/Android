@@ -1,3 +1,4 @@
 - Add ability to choose barcode width in fullscreen view
 - Remove confusing import from app function
 - Various scanning fixes
+- Fix crash when loading a pkpass file without barcode

@@ -1,0 +1,2 @@
+* إضافة دعم للاختصارات في التطبيق (Android 7.1+)، حيث ستظهر أكثر البطاقات استخدامًا كاختصارات. (pull #145 ([https://github.com/brarcher/loyalty-card-locker/pull/145](https://github.com/brarcher/loyalty-card-locker/pull/145)))
+* إضافة عنصر واجهة مستخدم يعمل مثل اختصار التطبيق المثبت، لدعم الأجهزة التي تعمل بنظام Android أقل من 7.1. (pull #142 ([https://github.com/brarcher/loyalty-card-locker/pull/142](https://github.com/brarcher/loyalty-card-locker/pull/142)))

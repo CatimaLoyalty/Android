@@ -1,0 +1,3 @@
+* إضافة مساحة هادئة في بداية ونهاية الرموز الشريطية (الباركود). (طلب السحب رقم 200: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/200))
+* إضافة خيارات لتخصيص ألوان خط و خلفية اسم المتجر. (طلب السحب رقم 203: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/203))
+* إضافة خيارات لتعديل حجم الخط في صفحة قائمة البطاقات وصفحة البطاقة المفردة. (طلب السحب رقم 204: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/204))

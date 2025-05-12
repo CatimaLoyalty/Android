@@ -1,0 +1,2 @@
+* إضافة دعم لإضافة اختصارات بطاقات الولاء من المشغّل / الشاشة الرئيسية. (pull #161 ([https://github.com/brarcher/loyalty-card-locker/pull/161](https://github.com/brarcher/loyalty-card-locker/pull/161)))
+* إزالة الدعم لإضافة اختصارات بطاقات الولاء من التطبيق نفسه. هذا يزيل الحاجة إلى إذن الاختصار. (pull #163 ([https://github.com/brarcher/loyalty-card-locker/pull/163](https://github.com/brarcher/loyalty-card-locker/pull/163)))

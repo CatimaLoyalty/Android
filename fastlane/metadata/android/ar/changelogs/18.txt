@@ -1,0 +1,2 @@
+* إصلاح مشكلة في Android SDK 24+ حيث كان استخدام خيار استيراد مُختار الملفات يتسبب في تعطل التطبيق. (pull #170 ([https://github.com/brarcher/loyalty-card-locker/pull/170](https://github.com/brarcher/loyalty-card-locker/pull/170)))
+* أيقونة جديدة ونظام ألوان جديد. (pull #171 ([https://github.com/brarcher/loyalty-card-locker/pull/171](https://github.com/brarcher/loyalty-card-locker/pull/171)))

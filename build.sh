@@ -11,13 +11,13 @@ if [ -z "${ANDROID_SDK_ROOT:-}" ]; then
 fi
 
 if [ -z "${JAVA_HOME:-}" ]; then
-  echo "JAVA_HOME is not set, setting to Java 17"
+  echo "JAVA_HOME is not set, setting to Java 21"
   if [ -f "/etc/debian_version" ]; then
-    echo "Debian-based distro, Java 17 is /usr/lib/jvm/java-17-openjdk-amd64"
-    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    echo "Debian-based distro, Java 21 is /usr/lib/jvm/java-21-openjdk-amd64"
+    export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
   else
-    echo "Not Debian-based, assuming Fedora and setting Java 17 as /usr/lib/jvm/java-17-openjdk"
-    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+    echo "Not Debian-based, assuming Fedora and setting Java 21 as /usr/lib/jvm/java-21-openjdk"
+    export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
   fi
 fi
 

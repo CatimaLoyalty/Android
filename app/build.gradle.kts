@@ -14,6 +14,10 @@ spotbugs {
     reportsDir.set(layout.buildDirectory.file("reports/spotbugs/").get().asFile)
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 android {
     namespace = "protect.card_locker"
     compileSdk = 35
@@ -104,7 +108,11 @@ android {
         lintConfig = file("lint.xml")
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 

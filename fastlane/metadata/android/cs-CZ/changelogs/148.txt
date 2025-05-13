@@ -1,3 +1,4 @@
 - Přidána možnost výběru šířky čárového kódu v celoobrazovkovém zobrazení
 - Odstraněna matoucí funkce importu z aplikace
 - Různé opravy skenování
+- Opraven pád při načtení souboru pkpass bez čárového kódu

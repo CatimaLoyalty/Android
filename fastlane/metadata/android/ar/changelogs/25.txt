@@ -1,0 +1,2 @@
+* تقليل المساحة في الرأس (Header) عند عرض بطاقة. (طلب السحب رقم 213: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/213))
+* تعطيل الصوت (الصفير) عند مسح رمز شريطي (باركود). (طلب السحب رقم 216: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/216))

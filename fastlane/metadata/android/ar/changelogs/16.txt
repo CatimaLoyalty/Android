@@ -1,0 +1,5 @@
+* إضافة دعم لإضافة اختصارات إلى الشاشة الرئيسية عند إضافة أو تعديل بطاقة. (pull #155 ([https://github.com/brarcher/loyalty-card-locker/pull/155](https://github.com/brarcher/loyalty-card-locker/pull/155)))
+* إزالة عنصر واجهة المستخدم، لأنه كان بديلاً غير مناسب للاختصارات. (pull #155 ([https://github.com/brarcher/loyalty-card-locker/pull/155](https://github.com/brarcher/loyalty-card-locker/pull/155)))
+* إصلاح مشكلة تصدير النسخ الاحتياطية على Android 7+. (pull #153 ([https://github.com/brarcher/loyalty-card-locker/pull/153](https://github.com/brarcher/loyalty-card-locker/pull/153)))
+* الإبلاغ عن نوع MIME أكثر دقة عند تصدير بيانات النسخة الاحتياطية. (pull #156 ([https://github.com/brarcher/loyalty-card-locker/pull/156](https://github.com/brarcher/loyalty-card-locker/pull/156)))
+* إصلاح الخطأ الذي كان يمنع تعديل بطاقة. (pull #155 ([https://github.com/brarcher/loyalty-card-locker/pull/155](https://github.com/brarcher/loyalty-card-locker/pull/155)))

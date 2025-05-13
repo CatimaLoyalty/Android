@@ -252,7 +252,7 @@
     <string name="openFrontImageInGalleryApp">Відкрити зображення лицьової сторони у застосунку галереї</string>
     <string name="openBackImageInGalleryApp">Відкрити зображення тильної сторони у застосунку галереї</string>
     <string name="setBarcodeHeight">Встановити висоту штрих-коду</string>
-    <string name="height">Висота:</string>
+    <string name="height">Висота</string>
     <string name="donate">Пожертвувати</string>
     <string name="icon_header_click_text">Тривале натискання для редагування мініатюри</string>
     <string name="show_name_below_image_thumbnail">Показати назву під мініатюрою зображення</string>
@@ -317,4 +317,6 @@
     <string name="generic_error_please_retry">Вибачте, щось пішло не так, спробуйте ще раз...</string>
     <string name="addFromPkpass">Виберіть файл Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Діє з</string>
+    <string name="width">Ширина</string>
+    <string name="setBarcodeWidth">Встановити ширину штрих-коду</string>
 </resources>

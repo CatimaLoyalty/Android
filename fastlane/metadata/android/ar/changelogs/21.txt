@@ -1,0 +1,2 @@
+* تحسين تنسيق عرض قائمة البطاقات. (طلب السحب رقم 188: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/188))
+* تحسين تنسيق عرض البطاقة عند فتحها. (طلب السحب رقم 190: [الرابط](https://github.com/brarcher/loyalty-card-locker/pull/190))

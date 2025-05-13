@@ -229,7 +229,7 @@
     <string name="validFromSentence">Valid dari: <xliff:g>%s</xliff:g></string>
     <string name="anyDate">Kapan pun</string>
     <string name="chooseValidFromDate">Pilih valid dari tanggal</string>
-    <string name="height">Tinggi:</string>
+    <string name="height">Tinggi</string>
     <string name="switchToFrontImage">Ubah ke depan gambar</string>
     <string name="switchToBackImage">Ubah ke belakang gambar</string>
     <string name="switchToBarcode">Ubah ke kode batang</string>

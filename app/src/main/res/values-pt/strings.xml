@@ -4,7 +4,7 @@
     <string name="action_add">Adicionar</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> selecionado</item>
-        <item quantity="many"><xliff:g>%d</xliff:g> selecionado</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> selecionados</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selecionados</item>
     </plurals>
     <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮.</string>
@@ -45,13 +45,13 @@
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noBarcode">Sem código de barras</string>
     <string name="star">Adicionar aos favoritos</string>
-    <string name="unstar">Retirar dos favoritos</string>
+    <string name="unstar">Remover dos favoritos</string>
     <string name="cancel">Cancelar</string>
-    <string name="save">Guardar</string>
+    <string name="save">Salvar</string>
     <string name="edit">Editar</string>
-    <string name="delete">Eliminar</string>
+    <string name="delete">Excluir</string>
     <string name="confirm">Confirmar</string>
-    <string name="deleteTitle">Eliminar cartão</string>
+    <string name="deleteTitle">Excluir cartão</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eliminar <xliff:g>%d</xliff:g> cartão</item>
         <item quantity="many">Eliminar <xliff:g>%d</xliff:g> cartões</item>
@@ -64,7 +64,7 @@
         <item quantity="other">Eliminar os cartões <xliff:g>%d</xliff:g> permanentemente?</item>
     </plurals>
     <string name="ok">OK</string>
-    <string name="share">Partilhar</string>
+    <string name="share">Compartilhar</string>
     <string name="sendLabel">Enviar…</string>
     <string name="editCardTitle">Editar cartão</string>
     <string name="scanCardBarcode">Digitalizar código de barras</string>
@@ -257,7 +257,7 @@
     <string name="anyDate">Qualquer data</string>
     <string name="chooseValidFromDate">Escolha uma data desde válida</string>
     <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
-    <string name="height">Altura:</string>
+    <string name="height">Altura</string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
     <string name="switchToBackImage">Mudar para a imagem de trás</string>
     <string name="switchToBarcode">Mudar para o código de barras</string>
@@ -306,4 +306,6 @@
     <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass)</string>
     <string name="unsupportedFile">Este ficheiro não é suportado</string>
     <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
+    <string name="setBarcodeWidth">Definir Largura do Código de Barra</string>
+    <string name="width">Largura</string>
 </resources>

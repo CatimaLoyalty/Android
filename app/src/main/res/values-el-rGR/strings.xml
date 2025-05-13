@@ -233,7 +233,7 @@
     <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
     <string name="settings_allow_content_provider_read_title">Να επιτρέπεται σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
     <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
-    <string name="height">Ύψος:</string>
+    <string name="height">Ύψος</string>
     <string name="switchToFrontImage">Μετάβαση στην εμπρόσθια εικόνα</string>
     <string name="switchToBackImage">Μετάβαση στην οπίσθια εικόνα</string>
     <string name="switchToBarcode">Μετάβαση σε γραμμωτό κώδικα</string>
@@ -305,4 +305,6 @@
     <string name="unsupportedFile">Το αρχείο δεν υποστηρίζεται</string>
     <string name="addFromPkpass">Επιλογή αρχείου Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Έναρξη ισχύος</string>
+    <string name="setBarcodeWidth">Ορισμός πλάτους γραμμωτού κώδικα</string>
+    <string name="width">Πλάτος</string>
 </resources>

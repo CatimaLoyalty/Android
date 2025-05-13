@@ -34,13 +34,17 @@ class PkpassParser(context: Context, uri: Uri?) {
     private var expiry: Date? = null
     private val balance: BigDecimal = BigDecimal(0)
     private val balanceType: Currency? = null
-    private var cardId: String? = null
+    // FIXME: Some cards may not have any barcodes, but Catima doesn't accept null card ID
+    // An empty string card ID would prevent a crash, but would be blocked in the edit activity
+    // Setting the default to the "No barcode" text at least prevents a crash, but it is definitely a hack
+    private var cardId: String = context.getString(R.string.noBarcode)
     private var barcodeId: String? = null
     private var barcodeType: CatimaBarcode? = null
     private var headerColor: Int? = null
     private val starStatus = 0
     private val lastUsed: Long = 0
     private val zoomLevel = DBHelper.DEFAULT_ZOOM_LEVEL
+    private val zoomLevelWidth = DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH
     private var archiveStatus = 0
 
     var image: Bitmap? = null
@@ -125,6 +129,7 @@ class PkpassParser(context: Context, uri: Uri?) {
             starStatus,
             lastUsed,
             zoomLevel,
+            zoomLevelWidth,
             archiveStatus,
             image,
             null,

@@ -245,7 +245,7 @@
     <string name="validFromSentence">Galioja nuo: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Perjungti į galinį vaizdą</string>
     <string name="switchToBarcode">Perjungti į brūkšninį kodą</string>
-    <string name="height">Aukštis:</string>
+    <string name="height">Aukštis</string>
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
     <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>
     <string name="donate">Aukoti</string>
@@ -265,7 +265,7 @@
     <string name="settings_allow_content_provider_read_title">Leisti kitoms programoms išrinkti mano informaciją</string>
     <string name="settings_allow_content_provider_read_summary">Programos vis tiek turės prašyti leidimo, kad gautu informaciją</string>
     <string name="show_name_below_image_thumbnail">Rodyti pavadinimą po piktogramą</string>
-    <string name="icon_header_click_text">Ilgai paspauskite, kad pakeisti piktogramą</string>
+    <string name="icon_header_click_text">Laikykite paspaudę miniatiūros redagavimui</string>
     <string name="add_manually_warning_title">Rekomenduojama skenuoti</string>
     <string name="continue_">Tęsti</string>
     <string name="add_manually_warning_message">Kai kuriuose parduotuvėse brūkšninio kodo vertė gali skirtis nuo kortelėje nurodyto numerio. Dėlto įvedus brūkšninį kodą rankiniu būdu gali nepavykti. Vietoj to, labai rekomenduojama nuskaityti brūkšninį kodą naudojant kamerą. Ar vis tiek norite tęsti?</string>
@@ -292,7 +292,7 @@
     <string name="add_a_card_in_a_different_way">Pridėti kortelę kitu būdu</string>
     <string name="field_must_not_be_empty">Laukelis negali būti tuščias</string>
     <string name="app_name">Catima</string>
-    <string name="app_copyright_short">Autorių teisės © Sylvia van Os ir Pagalbininkai</string>
+    <string name="app_copyright_short">Autorių teisės © Sylvia van Os ir pagalbininkai</string>
     <string name="useFrontImage">Naudoti priekinį vaizdą</string>
     <string name="useBackImage">Naudoti galinį vaizdą</string>
     <string name="sort_by_valid_from">Teisinga forma</string>

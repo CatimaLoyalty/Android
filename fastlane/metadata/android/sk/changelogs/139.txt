@@ -1,0 +1,3 @@
+- Možnosť navigácie v kartách pomocou tlačidiel hlasitosti
+- Oprava importu Stocard
+- Oprava správy „Import zrušený“ zobrazujúcej sa po úspešnom importe

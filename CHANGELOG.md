@@ -2,7 +2,10 @@
 
 ## Unreleased - 148
 
+- Add ability to choose barcode width in fullscreen view
 - Remove confusing import from app function
+- Various scanning fixes
+- Fix crash when loading a pkpass file without barcode
 
 ## v2.34.5 - 147 (2025-03-22)
 

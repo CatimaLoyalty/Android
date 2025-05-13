@@ -1,0 +1,3 @@
+- Cieľový Android 15
+- Opravené tlačidlo uloženia na obrazovke úprav, ktoré zakrýva klávesnica
+- Opravené niektoré súbory pkpass, ktoré neboli detekované ako pkpass (podpora typu MIME pre application/vnd-com.apple.pkpass)

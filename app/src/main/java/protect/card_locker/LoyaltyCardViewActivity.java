@@ -54,6 +54,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.zxing.BarcodeFormat;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -144,6 +145,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // If the barcode is shown, switch to fullscreen layout
         if (imageType == ImageType.BARCODE) {
             setFullscreen(true);
+
             return;
         }
 
@@ -226,7 +228,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else {
             binding.scalerGuideline.setGuidelinePercent(0.5f * scale);
         }
+    }
 
+    private void setScalerWidthGuideline(int zoomLevelWidth) {
+        float halfscale = zoomLevelWidth / 200f;
+
+        binding.scalerEndwidthguideline.setGuidelinePercent(0.5f + halfscale);
+        binding.scalerStartwidthguideline.setGuidelinePercent(0.5f - halfscale);
     }
 
     @Override
@@ -293,36 +301,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
 
-        binding.barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
-                    return;
-                }
-                Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
-                float scale = (float) progress / (float) binding.barcodeScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
-
-                loyaltyCard.zoomLevel = progress;
-                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
-
-                setScalerGuideline(loyaltyCard.zoomLevel);
-
-                drawMainImage(mainImageIndex, true, isFullscreen);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
+        binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
 
         rotationEnabled = true;
 
@@ -382,6 +362,46 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 }
             }
         });
+    }
+
+    private SeekBar.OnSeekBarChangeListener setOnSeekBarChangeListenerUnifiedFunction() {
+        return new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser) {
+                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                    return;
+                }
+                Log.d(TAG, "Progress is " + progress);
+                if (seekBar.getId() == binding.barcodeScaler.getId()) {
+                    Log.d(TAG, "Max is " + binding.barcodeScaler.getMax());
+                    float scale = (float) progress / (float) binding.barcodeScaler.getMax();
+                    Log.d(TAG, "Scaling to " + scale);
+                }
+                else {
+                    Log.d(TAG, "Max is " + binding.barcodeWidthscaler.getMax());
+                    float scale = (float) progress / (float) binding.barcodeWidthscaler.getMax();
+                    Log.d(TAG, "Scaling to " + scale);
+                }
+                if (seekBar.getId() == binding.barcodeScaler.getId()) {
+                    loyaltyCard.zoomLevel = progress;
+                    setScalerGuideline(loyaltyCard.zoomLevel);
+                }
+                else {
+                    loyaltyCard.zoomLevelWidth = progress;
+                    setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
+                }
+
+                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel, loyaltyCard.zoomLevelWidth);
+                drawMainImage(mainImageIndex, true, isFullscreen);
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        };
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -722,6 +742,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
         binding.barcodeScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
         binding.barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
+        binding.barcodeWidthscaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
+        binding.barcodeWidthscaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
@@ -950,7 +972,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     null,
                     false,
                     this,
-                    addPadding);
+                    addPadding,
+                    isFullscreen);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }
@@ -1144,10 +1167,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.container.setVisibility(View.GONE);
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
 
+            // Only show width slider if the barcode isn't square (square barcodes will resize height and width together)
+            // or if the internals of the barcode are squares, like DATA_MATRIX
+            binding.setWidthLayout.setVisibility((format.isSquare() || format.format() == BarcodeFormat.DATA_MATRIX) ? View.GONE : View.VISIBLE);
+
             drawMainImage(mainImageIndex, true, isFullscreen);
 
             binding.barcodeScaler.setProgress(loyaltyCard.zoomLevel);
             setScalerGuideline(loyaltyCard.zoomLevel);
+
+            binding.barcodeWidthscaler.setProgress(loyaltyCard.zoomLevelWidth);
+            setScalerWidthGuideline(loyaltyCard.zoomLevelWidth);
 
             // Hide actionbar
             if (actionBar != null) {

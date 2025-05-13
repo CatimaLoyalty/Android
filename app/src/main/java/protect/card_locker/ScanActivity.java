@@ -37,6 +37,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
 import com.journeyapps.barcodescanner.BarcodeCallback;
@@ -176,7 +177,13 @@ public class ScanActivity extends CatimaAppCompatActivity {
             builder.show();
         });
 
+        // Configure barcodeScanner
         barcodeScannerView = binding.zxingBarcodeScanner;
+        Intent barcodeScannerIntent = new Intent();
+        Bundle barcodeScannerIntentBundle = new Bundle();
+        barcodeScannerIntentBundle.putBoolean(DecodeHintType.ALSO_INVERTED.name(), Boolean.TRUE);
+        barcodeScannerIntent.putExtras(barcodeScannerIntentBundle);
+        barcodeScannerView.initializeFromIntent(barcodeScannerIntent);
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar

@@ -297,7 +297,7 @@
     <string name="anyDate">Any date</string>
     <string name="chooseValidFromDate">Choose valid from date</string>
     <string name="validFromSentence">Valid from: <xliff:g>%s</xliff:g></string>
-    <string name="height">Height:</string>
+    <string name="height">Height</string>
     <string name="switchToFrontImage">Switch to front image</string>
     <string name="switchToBackImage">Switch to back image</string>
     <string name="switchToBarcode">Switch to barcode</string>
@@ -362,5 +362,6 @@
     <string name="unsupportedFile">This file is not supported</string>
     <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
     <string name="barcodeCopied">Barcode copied to clipboard</string>
-
+    <string name="width">Width</string>
+    <string name="setBarcodeWidth">Set Barcode Width</string>
 </resources>

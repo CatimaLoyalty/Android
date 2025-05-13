@@ -238,7 +238,7 @@
     <string name="show_name_below_image_thumbnail">Visa namnet nedanför bildens miniatyr</string>
     <string name="show_validity">Visa giltighet</string>
     <string name="view_online">Visa på internet</string>
-    <string name="height">Höjd:</string>
+    <string name="height">Höjd</string>
     <string name="settings_category_title_general">Generellt</string>
     <string name="switchToBarcode">Byt till streckkod</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset medans kort visas</string>

@@ -236,7 +236,7 @@
     <string name="validFromSentence">Geldig vanaf: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Kies een geldige vanaf-datum</string>
     <string name="setBarcodeHeight">Barcodehoogte instellen</string>
-    <string name="height">Hoogte:</string>
+    <string name="height">Hoogte</string>
     <string name="switchToFrontImage">Voorzijde tonen</string>
     <string name="switchToBackImage">Achterzijde tonen</string>
     <string name="switchToBarcode">Barcode tonen</string>
@@ -306,4 +306,6 @@
     <string name="unsupportedFile">Dit bestand wordt niet ondersteund</string>
     <string name="generic_error_please_retry">Sorry, er ging iets mis. Probeer het opnieuw.</string>
     <string name="sort_by_valid_from">Op geldig vanaf</string>
+    <string name="width">Breedte</string>
+    <string name="setBarcodeWidth">Stel Barcodebreedte in</string>
 </resources>

@@ -90,7 +90,7 @@
     <string name="frontImageDescription">Imágen frontal</string>
     <string name="settings_system_theme">Sistema</string>
     <string name="setBackImage">Establecer imágen dorsal</string>
-    <string name="settings_display_barcode_max_brightness">Iluminar la vista del código de barras</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar la pantalla de visualización del código de barras</string>
     <string name="chooseExpiryDate">Elija la fecha de vencimiento</string>
     <string name="permissionReadCardsDescription">Lea sus tarjetas Catima y todo sus detalles, incluyendo notas e imágenes</string>
     <string name="unsupportedBarcodeType">Este tipo de código de barras aún no puede ser visualizado. Es posible que sea soportado en una versión futura de la aplicación.</string>
@@ -183,7 +183,7 @@
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_pink_theme">Rosa</string>
-    <string name="exportPassword">Agregar una contraseña para protejer tu exportación (opcional)</string>
+    <string name="exportPassword">Configura una contraseña para proteger tu exportación (opcional)</string>
     <string name="settings_sky_blue_theme">Celeste</string>
     <string name="settings_green_theme">Verde</string>
     <string name="exportPasswordHint">Ingresar contraseña</string>
@@ -210,4 +210,11 @@
     <string name="passwordRequired">Por favor ingresa la contraseña</string>
     <string name="failedGeneratingShareURL">No se pudo generar URL compartible. Por favor reporte esto.</string>
     <string name="sort_by_name">Nombre</string>
+    <string name="sort_by">Ordenar por</string>
+    <string name="reverse">en orden inverso</string>
+    <string name="sort_by_most_recently_used">Más Recientemente Usado</string>
+    <string name="settings_use_volume_keys_navigation">Cambiar tarjetas usando los botones de volumen</string>
+    <string name="sort_by_valid_from">Válido Desde</string>
+    <string name="sort_by_expiry">Vencimiento</string>
+    <string name="settings_use_volume_keys_navigation_summary">Usá los botones de volumen para cambiar la tarjeta que se muestra</string>
 </resources>

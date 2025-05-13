@@ -248,7 +248,7 @@
     <string name="chooseValidFromDate">Выбор даты действия</string>
     <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
     <string name="setBarcodeHeight">Указать высоту штрих-кода</string>
-    <string name="height">Высота:</string>
+    <string name="height">Высота</string>
     <string name="switchToBarcode">Переключить на штрих-код</string>
     <string name="switchToFrontImage">Переключить на лицевую сторону</string>
     <string name="switchToBackImage">Переключить на заднюю сторону</string>
@@ -318,4 +318,6 @@
     <string name="addFromPkpass">Выбрать файл Passbook (.pkpass)</string>
     <string name="generic_error_please_retry">Извините, что-то пошло не так, попробуйте ещё раз…</string>
     <string name="sort_by_valid_from">Начало действия</string>
+    <string name="width">Ширина</string>
+    <string name="setBarcodeWidth">Указать ширину штрих-кода</string>
 </resources>

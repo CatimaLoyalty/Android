@@ -62,10 +62,10 @@
     <string name="settings_portrait_orientation">Uspravno</string>
     <string name="settings_landscape_orientation">Položeno</string>
     <string name="settings_lock_on_opening_orientation">Zaključavanje orijentacije koja se koristi prilikom otvaranja kartice</string>
-    <string name="settings_display_barcode_max_brightness">Posvetli bar-kod pogled</string>
+    <string name="settings_display_barcode_max_brightness">Osvetli ekran</string>
     <string name="settings_display_barcode_max_brightness_summary">Neophodno za rad nekih čitača</string>
     <string name="selectBarcodeTitle">Odaberi bar-kod</string>
-    <string name="settings_card_orientation">Orijentacija bar-koda</string>
+    <string name="settings_card_orientation">Orijentacija ekrana</string>
     <string name="thumbnailDescription">Naslovna fotografija</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spreči zaključavanje ekrana</string>
     <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama da pristupe mojim podacima</string>
@@ -181,7 +181,7 @@
     <string name="anyDate">bilo kog datuma</string>
     <string name="chooseValidFromDate">Odaberi datum važenja</string>
     <string name="validFromSentence">Važi od: <xliff:g>%s</xliff:g></string>
-    <string name="height">Visina:</string>
+    <string name="height">Visina</string>
     <string name="switchToFrontImage">Prebaci na prednju fotografiju</string>
     <string name="switchToBarcode">Prebaci na bar-kod</string>
     <string name="openFrontImageInGalleryApp">Otvori prednju fotografiju u galerija aplikaciji</string>
@@ -272,7 +272,7 @@
     <string name="newBalanceSentence">Novo stanje: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Prebaci na zadnju fotografiju</string>
     <string name="openBackImageInGalleryApp">Otvori zadnju fotografiju u galerija aplikaciji</string>
-    <string name="settings_category_title_cards">Kartice</string>
+    <string name="settings_category_title_cards">Pregled kartica</string>
     <string name="addWithoutBarcode">Dodaj karticu bez bar-koda</string>
     <string name="enter_card_id">Unesite broj ili tekst sa kartice</string>
     <string name="card_id_must_not_be_empty">Unesi broj kartice</string>
@@ -296,4 +296,22 @@
     <string name="pageWithNumber">Strana <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Čini se da tvoj uređaj nema kameru. Ako je ima, pokušaj da ponovo pokreneš uređaj. U suprotnom, koristi dugme Više opcija, koje se nalazi ispod, da bi dodao bar-kod na drugi način.</string>
     <string name="sort_by_valid_from">Važi od</string>
+    <string name="generic_error_please_retry">Izvinite, nešto je pošlo naopako, molimo Vas pokušajte ponovo...</string>
+    <string name="width">Širina</string>
+    <string name="setBarcodeWidth">Postavi širinu barkoda</string>
+    <string name="settings_use_volume_keys_navigation">Promeni kartice koristeći dugmad za zvuk</string>
+    <string name="settings_use_volume_keys_navigation_summary">Koristi dugmad za zvuk da bi promenio karticu koja se prikazuje</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="unsupportedFile">Ovaj dokument nije podržan</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_category_title_cards_overview">Pregled kartica</string>
+    <string name="settings_column_count_portrait">Kolone u uspravnom režimu</string>
+    <string name="settings_column_count_landscape">Kolone u pejzažnom režimu</string>
+    <string name="settings_automatic_column_count">Automatski</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="addFromPkpass">Izaberi \"Passbook\" dokument (.pkpass)</string>
 </resources>

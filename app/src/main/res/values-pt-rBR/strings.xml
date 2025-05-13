@@ -159,7 +159,7 @@
     <string name="failedToOpenUrl">Instale um navegador primeiro</string>
     <string name="welcome">Bem-vindo(a) ao Catima</string>
     <string name="importCards">Importar cartões</string>
-    <string name="height">Altura:</string>
+    <string name="height">Altura</string>
     <string name="switchToBarcode">Mudar para código de barras</string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
     <string name="switchToBackImage">Mudar para imagem traseira</string>
@@ -312,4 +312,6 @@
     <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass)</string>
     <string name="generic_error_please_retry">Desculpe, alguma coisa deu errado, por favor tente novamente...</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
+    <string name="width">Largura</string>
+    <string name="setBarcodeWidth">Definir largura do código de barras</string>
 </resources>

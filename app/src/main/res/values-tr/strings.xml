@@ -235,7 +235,7 @@
     <string name="anyDate">Herhangi bir tarih</string>
     <string name="validFromDate">Geçerlilik başlangıcı</string>
     <string name="validFromSentence"><xliff:g>%s</xliff:g> tarihinden itibaren geçerlidir</string>
-    <string name="height">Yükseklik:</string>
+    <string name="height">Yükseklik</string>
     <string name="switchToBackImage">Arka resme geç</string>
     <string name="switchToBarcode">Barkoda geç</string>
     <string name="donate">Bağış yap</string>
@@ -306,4 +306,6 @@
     <string name="generic_error_please_retry">Üzgünüz, bir şeyler ters gitti, lütfen tekrar deneyin...</string>
     <string name="addFromPkpass">Bir Passbook dosyası seçin (.pkpass)</string>
     <string name="sort_by_valid_from">İtibaren Geçerli</string>
+    <string name="width">Genişlik</string>
+    <string name="setBarcodeWidth">Barkod Genişliğini Ayarla</string>
 </resources>

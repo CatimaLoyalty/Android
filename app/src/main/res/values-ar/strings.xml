@@ -2,14 +2,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
     <string name="action_add">أضف</string>
-    <string name="noGiftCards">اضغط على + زر الإضافة لاضافة بطاقة، او استورد من ⋮ القائمة.</string>
+    <string name="noGiftCards">اضغط على زر الإضافة+ لإضافة بطاقة، أو استورد من ⋮ القائمة.</string>
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
     <string name="cardId">معرّف البطاقة</string>
     <string name="barcodeType">نوع الباركود</string>
     <string name="noBarcode">لا يوجد باركود</string>
-    <string name="star">أضف الي المفضلة</string>
+    <string name="star">أضف الى المفضلة</string>
     <string name="unstar">حذف من المفضلة</string>
     <string name="cancel">إلغاء</string>
     <string name="save">حفظ</string>
@@ -25,7 +25,7 @@
     <string name="scanCardBarcode">مسح باركود</string>
     <string name="cardShortcut">اختصار البطاقة</string>
     <string name="noCardsMessage">اضف بطاقة أولا</string>
-    <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> باركود</string>
+    <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> الباركود</string>
     <string name="noCardExistsError">لا يمكن العثور على هذه البطاقة</string>
     <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
@@ -138,7 +138,7 @@
     <string name="archived">تمت أرشفة البطاقة</string>
     <string name="unarchived">البطاقة غير مؤرشفة</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
-    <string name="noGiftCardsGroup">انشئ بعضا من البطاقات, ثم عيينهم لهذه المجموعة.</string>
+    <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة.</string>
     <string name="deleteTitle">مسح بطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
@@ -258,7 +258,7 @@
     <string name="anyDate">أي تاريخ</string>
     <string name="chooseValidFromDate">اختر صالح من التاريخ</string>
     <string name="validFromSentence">صالح من:<xliff:g>%s</xliff:g></string>
-    <string name="height">الطول:</string>
+    <string name="height">الطول</string>
     <string name="permissionReadCardsDescription">اقرأ بطاقتك مع جميع التفاصيل، بما فيه الملاحضات والصور</string>
     <string name="settings_display_barcode_max_brightness_summary">ظروري لعمل بعض الماسحات الضوئية</string>
     <string name="permissionReadCardsLabel">اقرأ بطاقات كاتيما</string>
@@ -330,4 +330,6 @@
     <string name="settings_column_count_6">٦</string>
     <string name="settings_column_count_7">٧</string>
     <string name="sort_by_valid_from">صالح من</string>
+    <string name="width">العرض</string>
+    <string name="setBarcodeWidth">تعيين عرض الرمز الشريطي \"باركود\"</string>
 </resources>

@@ -235,7 +235,7 @@
     <string name="show_validity">顯示有效性</string>
     <string name="switchToFrontImage">選擇正面圖片</string>
     <string name="switchToBackImage">選擇背面圖片</string>
-    <string name="height">高度：</string>
+    <string name="height">高度</string>
     <string name="donate">捐款</string>
     <string name="icon_header_click_text">長按以編輯縮圖</string>
     <string name="openBackImageInGalleryApp">以圖庫軟體開啟背面圖片</string>

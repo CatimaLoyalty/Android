@@ -505,6 +505,7 @@ public class CatimaImporter implements Importer {
                 starStatus,
                 lastUsed,
                 DBHelper.DEFAULT_ZOOM_LEVEL,
+                DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH,
                 archiveStatus,
                 null,
                 null,

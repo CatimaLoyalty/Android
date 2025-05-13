@@ -247,7 +247,7 @@
     <string name="chooseValidFromDate">Wybierz datę rozpoczęcia ważności</string>
     <string name="anyDate">Dowolna data</string>
     <string name="validFromSentence">Ważny od: <xliff:g>%s</xliff:g></string>
-    <string name="height">Wysokość:</string>
+    <string name="height">Wysokość</string>
     <string name="switchToFrontImage">Przełącz na obraz z przodu</string>
     <string name="switchToBackImage">Przełącz na obraz z tyłu</string>
     <string name="switchToBarcode">Przełącz na kod kreskowy</string>
@@ -318,4 +318,6 @@
     <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>
     <string name="generic_error_please_retry">Coś poszło nie tak, spróbuj ponownie później...</string>
     <string name="sort_by_valid_from">Poprawna forma</string>
+    <string name="setBarcodeWidth">Ustaw szerokość kodu kreskowego</string>
+    <string name="width">Szerokość</string>
 </resources>

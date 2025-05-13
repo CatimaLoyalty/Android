@@ -157,7 +157,7 @@
     <string name="sort_by_name">Nom</string>
     <string name="archive">Arxivar</string>
     <string name="currentBalanceSentence">Balanç actual: <xliff:g>%s</xliff:g></string>
-    <string name="height">Alçada:</string>
+    <string name="height">Alçada</string>
     <string name="switchToBackImage">Canviar a la imatge posterior</string>
     <string name="switchToBarcode">Canviar al codi de barres</string>
     <string name="show_name_below_image_thumbnail">Mostrar el nom sota de la imatge en miniatura</string>

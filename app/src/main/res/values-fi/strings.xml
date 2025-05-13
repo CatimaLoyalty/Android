@@ -240,7 +240,7 @@
     <string name="permissionReadCardsDescription">lue korttisi ja kaikki niiden tiedot, mukaan lukien huomautukset ja kuvat</string>
     <string name="settings_allow_content_provider_read_summary">Sovellusten tulee silti pyytää lupaa saadakseen pääsyn</string>
     <string name="settings_category_title_privacy">Yksityisyys</string>
-    <string name="height">Korkeus:</string>
+    <string name="height">Korkeus</string>
     <string name="switchToFrontImage">Vaihda etukuvaan</string>
     <string name="switchToBarcode">Vaihda viivakoodiin</string>
     <string name="openFrontImageInGalleryApp">Avaa etukuva galleriasovelluksessa</string>

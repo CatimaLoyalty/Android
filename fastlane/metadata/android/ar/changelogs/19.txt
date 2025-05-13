@@ -1,0 +1,3 @@
+* إصلاح تعطل التطبيق عند استيراد بعض أنواع ملفات CSV التالفة. (pull #177 ([https://github.com/brarcher/loyalty-card-locker/pull/177](https://github.com/brarcher/loyalty-card-locker/pull/177)))
+* إصلاح استيراد النسخ الاحتياطية مباشرة من نظام الملفات. (pull #180 ([https://github.com/brarcher/loyalty-card-locker/pull/180](https://github.com/brarcher/loyalty-card-locker/pull/180)))
+* إصلاح استيراد النسخ الاحتياطية من بعض أنواع مقدمي المحتوى. (pull #179 ([https://github.com/brarcher/loyalty-card-locker/pull/179](https://github.com/brarcher/loyalty-card-locker/pull/179)))

@@ -240,7 +240,7 @@
     <string name="chooseValidFromDate">Scegli la data di validità</string>
     <string name="validFromSentence">Valido da: <xliff:g>%s</xliff:g></string>
     <string name="anyDate">Qualsiasi data</string>
-    <string name="height">Altezza:</string>
+    <string name="height">Altezza</string>
     <string name="switchToFrontImage">Passa all\'immagine frontale</string>
     <string name="switchToBackImage">Passa all\'immagine dietro</string>
     <string name="switchToBarcode">Passa al codice a barre</string>
@@ -312,4 +312,6 @@
     <string name="generic_error_please_retry">Siamo spiacenti, qualcosa è andato storto, riprova...</string>
     <string name="addFromPkpass">Seleziona un file Passbook (.pkpass)</string>
     <string name="sort_by_valid_from">Valido da</string>
+    <string name="setBarcodeWidth">Imposta la larghezza del codice a barre</string>
+    <string name="width">Larghezza</string>
 </resources>

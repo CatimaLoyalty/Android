@@ -1,0 +1,4 @@
+- Zmeniť predvolený stĺpec na širokouhlých obrazovkách na 4
+- Povoliť prepísanie počtu stĺpcov pre zobrazenie na výšku a na šírku v nastaveniach
+- Zachovať filter vyhľadávania na hlavnej obrazovke pri otáčaní obrazovky alebo otváraní karty
+- Obmedziť maximálnu dĺžku zobrazenia poznámky na hlavnej obrazovke

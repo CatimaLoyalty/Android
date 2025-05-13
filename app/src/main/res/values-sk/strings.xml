@@ -39,7 +39,7 @@
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="thumbnailDescription">Miniatúra</string>
     <string name="settings">Nastavenia</string>
-    <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu</string>
+    <string name="settings_display_barcode_max_brightness">Zvýrazniť obrazovku zobrazenia čiarových kódov</string>
     <string name="deleteTitle">Odstrániť kartu</string>
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
     <string name="star">Pridať k obľúbeným</string>
@@ -184,7 +184,7 @@
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>
-    <string name="settings_card_orientation">Orientácia čiarového kódu</string>
+    <string name="settings_card_orientation">Orientácia obrazovky čiarového kódu</string>
     <string name="settings_lock_on_opening_orientation">Zamknúť na orientáciu použitú pri otváraní karty</string>
     <string name="app_loyalty_card_keychain">Kľúčenka vernostných kariet</string>
     <string name="settings_oled_dark">Čisto čierne pozadie pre tmavú tému</string>
@@ -256,13 +256,13 @@
     <string name="permissionReadCardsLabel">Načítať Catima karty</string>
     <string name="permissionReadCardsDescription">čítať svoje Catima karty a všetky jeho podrobnosti, vrátane poznámky a obrázkov</string>
     <string name="switchToBackImage">Prepnutie na zadný obrázok</string>
-    <string name="height">Výška:</string>
+    <string name="height">Výška</string>
     <string name="switchToFrontImage">Prepnutie na predný obrázok</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakázanie uzamknutia obrazovky počas prezerania karty</string>
     <string name="settings_allow_content_provider_read_title">Povolenie prístupu k mojim údajom iným aplikáciám</string>
     <string name="settings_oled_dark_summary">Znižuje spotrebu batérie na displejoch OLED</string>
     <string name="switchToBarcode">Prepnutie na čiarový kód</string>
-    <string name="settings_category_title_cards">Karty</string>
+    <string name="settings_category_title_cards">Zobrazenie karty</string>
     <string name="donate">Darujte</string>
     <string name="card_id_must_not_be_empty">ID karty nesmie byť prázdne</string>
     <string name="balanceParsingFailed">Neplatná rovnováha</string>
@@ -277,7 +277,7 @@
     <string name="field_must_not_be_empty">Pole nesmie byť prázdne</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievateľov</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
-    <string name="app_name">Catima</string>
+    <string name="app_name">Katima</string>
     <string name="settings_follow_sensor_orientation">Vždy otáčať (ignoruje nastavenie systému)</string>
     <string name="continue_">Pokračovať</string>
     <string name="spend">Utratené</string>
@@ -295,4 +295,23 @@
     <string name="exportCancelled">Export zrušený</string>
     <string name="useFrontImage">Použiť obrázok prednej strany</string>
     <string name="useBackImage">Použiť obrázok zadnej strany</string>
+    <string name="generic_error_please_retry">Prepáčte, niečo sa pokazilo, skúste to znova...</string>
+    <string name="settings_category_title_cards_overview">Prehľad kariet</string>
+    <string name="width">Šírka</string>
+    <string name="setBarcodeWidth">Nastaviť šírku čiarového kódu</string>
+    <string name="unsupportedFile">Tento súbor nie je podporovaný</string>
+    <string name="sort_by_valid_from">Platné od</string>
+    <string name="settings_column_count_portrait">Stĺpce v režime na výšku</string>
+    <string name="settings_column_count_landscape">Stĺpce v režime na šírku</string>
+    <string name="settings_automatic_column_count">Automatické</string>
+    <string name="settings_column_count_1">1</string>
+    <string name="settings_column_count_2">2</string>
+    <string name="settings_column_count_3">3</string>
+    <string name="settings_column_count_4">4</string>
+    <string name="settings_column_count_5">5</string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass)</string>
+    <string name="settings_use_volume_keys_navigation">Prepínanie kariet pomocou tlačidiel hlasitosti</string>
+    <string name="settings_use_volume_keys_navigation_summary">Zobrazovanú kartu môžete zmeniť pomocou tlačidiel hlasitosti</string>
 </resources>

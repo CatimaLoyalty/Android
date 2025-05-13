@@ -1,3 +1,4 @@
 - Die Barcodebreite kann in der Vollbildansicht eingestellt werden
 - Verwirrende Importfunktion „Andere App verwenden“ entfernt
 - Verschiedene Korrekturen bzgl. „Barcode scannen“
+- Verhindert Absturz beim Laden einer pkpass-Datei ohne Barcode

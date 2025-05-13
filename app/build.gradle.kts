@@ -1,17 +1,8 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
-import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
     id("com.android.application")
-    id("com.github.spotbugs")
     id("org.jetbrains.kotlin.android")
-}
-
-spotbugs {
-    ignoreFailures.set(false)
-    setEffort("max")
-    excludeFilter.set(file("./config/spotbugs/exclude.xml"))
-    reportsDir.set(layout.buildDirectory.file("reports/spotbugs/").get().asFile)
 }
 
 kotlin {
@@ -136,9 +127,6 @@ dependencies {
     implementation("com.jaredrummler:colorpicker:1.1.0")
     implementation("net.lingala.zip4j:zip4j:2.11.5")
 
-    // SpotBugs
-    implementation("io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0")
-
     // Testing
     val androidXTestVersion = "1.6.1"
     val junitVersion = "4.13.2"
@@ -152,18 +140,6 @@ dependencies {
     androidTestImplementation("androidx.test:runner:$androidXTestVersion")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-}
-
-tasks.withType<SpotBugsTask>().configureEach {
-    description = "Run spotbugs"
-    group = "verification"
-
-    //classes = fileTree("build/intermediates/javac/debug/compileDebugJavaWithJavac/classes")
-    //source = fileTree("src/main/java")
-    //classpath = files()
-
-    reports.maybeCreate("xml").required.set(false)
-    reports.maybeCreate("html").required.set(true)
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

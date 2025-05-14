@@ -1,3 +1,4 @@
 - Pievienota iespēja izvēlēties svītrkoda platumu pilnekrāna skatā
 - Noņemta mulsinoša ievietošana no lietotnes funkcijas
 - Dažādi nolasīšanas labojumi
+- Novērsta avārija, kad tiek ielādēta .pkpass datne bez svītrkoda

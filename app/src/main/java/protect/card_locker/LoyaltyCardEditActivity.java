@@ -576,7 +576,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         binding.tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
             public void onTabSelected(TabLayout.Tab tab) {
                 viewModel.setTabIndex(tab.getPosition());
                 showPart(tab.getText().toString());
@@ -588,7 +587,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             }
 
             @Override
-            @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
             public void onTabReselected(TabLayout.Tab tab) {
                 viewModel.setTabIndex(tab.getPosition());
                 showPart(tab.getText().toString());

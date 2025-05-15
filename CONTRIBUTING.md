@@ -36,10 +36,6 @@ These are the Android lint checker, run using:
 
     # ./gradlew lintRelease
 
-and SpotBugs, run using:
-
-    # ./gradlew spotbugsRelease
-
 The final check is by testing the application on a live device and verifying
 the basic functionality works as expected.
 

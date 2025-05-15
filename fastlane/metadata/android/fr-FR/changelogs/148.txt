@@ -1,3 +1,4 @@
 - Ajout de la gestion de la largeur du code-barres en plein écran
 - Suppression de la fonctionnalité d'import depuis l'application, qui portait à confusion
 - Différentes erreurs de numérisation
+- Correction d'un crash lors d'un chargement d'un fichier pkpass sans code-barres

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 148
+## v2.35.0 - 148 (2025-05-17)
 
 - Add ability to choose barcode width in fullscreen view
 - Remove confusing import from app function

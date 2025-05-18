@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="action_search">חיפוש</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> נבחר</item>
+        <item quantity="two"><xliff:g>%d</xliff:g> נבחרו</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> נבחרו</item>
+    </plurals>
+    <string name="action_add">הוסף</string>
+    <string name="noGiftCards">לחץ על כפתור הפלוס (+) כדי להוסיף כרטיס, או ייבא מתפריט ⋮.</string>
+</resources>

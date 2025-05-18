@@ -11,6 +11,7 @@ MIN_PERCENT = 90
 NOT_LANGS = ("night", "w600dp")
 REPLACE_CODES = {
     "el": "el-rGR",
+    "he": "iw",
     "id": "in-rID",
     "ro": "ro-rRO",
     "zh_Hans": "zh-rCN",

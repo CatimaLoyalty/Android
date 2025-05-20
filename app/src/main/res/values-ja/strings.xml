@@ -51,7 +51,7 @@
     <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
     <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中に画面をロックしない</string>
     <string name="settings_keep_screen_on">バーコード表示中に画面を点けたままにする</string>
-    <string name="settings_display_barcode_max_brightness">バーコード表示画面を明るくする</string>
+    <string name="settings_display_barcode_max_brightness">画面を明るくする</string>
     <string name="settings_dark_theme">ダーク</string>
     <string name="settings_light_theme">ライト</string>
     <string name="settings_system_theme">システムに従う</string>
@@ -189,7 +189,7 @@
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
     <string name="app_name">Catima</string>
-    <string name="settings_card_orientation">バーコードの向き</string>
+    <string name="settings_card_orientation">画面の向き</string>
     <string name="settings_display_barcode_max_brightness_summary">仕事をするためにいくつかのスキャナーが必要</string>
     <string name="settings_follow_system_orientation">システムに従う</string>
     <string name="storageReadPermissionRequired">このアクションのためにストレージの読み取り権限を許可…</string>
@@ -239,4 +239,7 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_category_title_privacy">プライバシー</string>
     <string name="exportCancelled">輸出がキャンセルされた</string>
+    <string name="settings_allow_content_provider_read_title">他のアプリが自分のデータにアクセスすることを許可する</string>
+    <string name="permissionReadCardsDescription">Catimaカードと、ノートや画像を含むすべての詳細を読み取る</string>
+    <string name="settings_use_volume_keys_navigation_summary">ボリュームボタンを使ってどのカードを表示するかを変更する</string>
 </resources>

@@ -175,7 +175,7 @@
     <string name="points">Punkte</string>
     <string name="balanceParsingFailed">Vigane maksejääk</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy">Privaatsuspoliitika</string>
+    <string name="privacy_policy">Andmekaitsepõhimõtted</string>
     <string name="accept">Nõustu</string>
     <string name="importCatima">Impordi Catima varukoopiast</string>
     <string name="importCatimaMessage">Importimiseks vali varem tehtud <i>catima.zip</i> Catima ekspordifail. \nSellise faili saad luua mõnes teises seadmes olevast Catima rakendusest Import/Eksport menüüst valikust Eksport.</string>

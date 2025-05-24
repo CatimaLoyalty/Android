@@ -277,7 +277,7 @@
     <string name="field_must_not_be_empty">Pole nesmie byť prázdne</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievateľov</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
-    <string name="app_name">Katima</string>
+    <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Vždy otáčať (ignoruje nastavenie systému)</string>
     <string name="continue_">Pokračovať</string>
     <string name="spend">Utratené</string>

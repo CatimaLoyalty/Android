@@ -32,11 +32,11 @@ ikanakova
 Silvério Santos
 Giovanni Donisi
 HudobniVolk
-Jiri Grönroos
 Nyatsuki
-josé m
-Milo Ivir
+Jiri Grönroos
 Balázs Meskó
+Milo Ivir
+josé m
 Samantaz Fox
 Arno-github
 Ankit Tiwari
@@ -53,8 +53,8 @@ Projjal Moitra
 Quentin PAGÈS
 Vasilis
 ngocanhtve
-Marnick L'Eau
 waffshappen
+Marnick L'Eau
 Fjuro
 Robin
 JungHee Lee
@@ -65,16 +65,16 @@ Renko
 Denis Shilin
 しいたけ
 Alexander Ivanov
-Miha Frangež
 Viet Nguyen Hoang
+Miha Frangež
 stavpup
 ehrt74
 Virginie
 Tim Trek
 GitSpoon
-Aliaksandr Trush
-MisterCosta96
 arshbeerSingh
+MisterCosta96
+Aliaksandr Trush
 Augustin LAVILLE
 Freddo espresso
 Govind S Nair

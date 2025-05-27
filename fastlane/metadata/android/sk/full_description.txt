@@ -1,22 +1,22 @@
-Zastaviť vyhľadávanie plastových odmenných kariet počas obchodu alebo kontroly webshopu.
-<b>Scan čiarové kódy do vášho zariadenia pomocou fotoaparátu, zabudnite na karty.</b>
+Zastavte hľadanie plastových vernostných kariet počas pokladne v obchode alebo internetovom obchode.
+<b>Naskenujte čiarové kódy do zariadenia pomocou fotoaparátu, zabudnite na karty.</b>
 
-Zabudnite na svoju peňaženku, alebo ju nechajte ultraľahčiť pre cenné.
+Zabudnite na peňaženku alebo si ju uschovajte ako ultraľahkú na cennosti.
 
-S týmto základným každodenným nosením (EDC) nástroj môžete nahradiť zbytočné plast s hotovosťou.
+S týmto základným nástrojom na každodenné nosenie (EDC) môžete nahradiť nepotrebné plastové karty hotovosťou.
 
-- Vyhnite sa špehovaniu s veľmi málo povolenia. Žiadny prístup k internetu a žiadne reklamy.
-- Pridať karty alebo kódy s menami a prispôsobiteľnými farbami.
-- Manuálny kód vstup, ak nie je čiarový kód na uloženie, alebo nemožno použiť.
-- Import karty a kódy z súborov, Catima, FidMe, Vernostná karta Keychain, Stocard a voucher Vault.
-- Urobte zálohu všetkých vašich kariet a preneste ich na nové zariadenie, ak chcete.
-- Zdieľať kupóny, exkluzívne ponuky, promo kódy, alebo karty a kódy pomocou akejkoľvek aplikácie.
-- Tmavo téma a možnosti prístupnosti pre videnie postihnutých užívateľov.
-- Vyrobený pre každého prostredníctvom renomovanej softvérovej komunity.
-- Miestne preklady ručne vyrobené pre 40+ jazykov.
-- Gratis, podporované komunitnými príspevokmi.
-- Použitie, štúdium, zmena a zdieľanie ako si prajete; <i> so všetkými</i>.
-- Nielen Voľný softvér / Open Source. <i>Copylefted</i> libre softvér (GPLv3+) Správa kariet.
+- Vyhnite sa špehovaniu s veľmi malým počtom povolení. Bez prístupu na internet a bez reklám.
+- Pridajte karty alebo kódy s menami a prispôsobiteľnými farbami.
+- Manuálne zadanie kódu, ak nie je k dispozícii čiarový kód na uloženie alebo sa nedá použiť.
+- Importujte karty a kódy zo súborov, Catima, FidMe, kľúčenky k vernostným kartám, Stocard a trezoru poukážok.
+- Vytvorte si zálohu všetkých svojich kariet a v prípade potreby ich preneste do nového zariadenia.
+- Zdieľajte kupóny, exkluzívne ponuky, promo kódy alebo karty a kódy pomocou ľubovoľnej aplikácie.
+- Tmavá téma a možnosti prístupnosti pre zrakovo postihnutých používateľov.
+- Vytvorené pre všetkých komunitou softvéru libre.
+- Lokalizované ručne vytvorené preklady pre viac ako 40 jazykov.
+- Bezplatné, podporované príspevkami komunity.
+- Používajte, študujte, upravujte a zdieľajte podľa vlastného uváženia; *so všetkým*.
+- Nielen slobodný softvér / otvorený zdrojový kód. *správa kariet s *copyleftom* (GPLv3+).
 
-Zjednodušte svoj život a nakupujte, a nikdy nestrácajte papierový príjem, in-store platobnej karty alebo letenku znova.
-Vezmite všetky svoje odmeny a bonusy s vami a ušetrite, ako idete.
+Zjednodušte si život a nakupovanie a už nikdy nestratíte papierový doklad, darčekovú kartu platobnú v obchode ani letenku.
+Vezmite si všetky svoje odmeny a bonusy so sebou a ušetrite na cestách.

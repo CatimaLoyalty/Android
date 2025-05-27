@@ -1,5 +1,5 @@
-- Pri editácii ID karty, pre-populate existujúce ID začať.
-- Obmedzte šírku generovaných čiarových kódov na zníženie použitia pamäti a z chýb pamäte.
-- Pri editácii karty, zmeniť tlačidlo "Enter Card" povedať "Edit Card", ak už existuje ID karty.
-- Zmeniť farebnú schému byť mäkší a kompatibilný s ikonou aplikácie, a zmeniť rozloženie pri prezeraní karty byť čistejšie.
-- Pridajte intro sprievodca, ktorý začne na prvom spustení aplikácie.
+- Pri úprave ID karty najskôr vyplňte existujúce ID. (ťah #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Obmedzte šírku vygenerovaných čiarových kódov, aby ste znížili využitie pamäte a chyby spôsobené nedostatkom pamäte. (ťah #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Pri úprave karty zmeňte tlačidlo „Zadať kartu“ na „Upraviť kartu“, ak už ID karty existuje. (ťah #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Zmeňte farebnú schému na jemnejšiu a kompatibilnú s ikonou aplikácie a zmeňte rozloženie pri zobrazení karty, aby bolo prehľadnejšie. (ťah #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Pridať úvodného sprievodcu, ktorý sa spustí pri prvom spustení aplikácie. (ťah #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

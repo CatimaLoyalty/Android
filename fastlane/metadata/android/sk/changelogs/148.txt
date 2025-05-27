@@ -1,2 +1,4 @@
 - Pridaná možnosť výberu šírky čiarového kódu v zobrazení na celú obrazovku
 - Odstránenie mätúceho importu z funkcie aplikácie
+- Rôzne opravy skenovania
+- Oprava zlyhania pri načítaní súboru pkpass bez čiarového kódu

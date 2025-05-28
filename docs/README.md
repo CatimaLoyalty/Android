@@ -59,7 +59,7 @@ For FidMe you need to select the barcode type for each entry afterwards.
 
 # Building
 
-Building can either be done through Android Studio (not reproducible!) or the build.sh script in this repository (reproducible with OpenJDK 17). This script can also sign the build.
+Building can either be done through Android Studio (not reproducible!) or the build.sh script in this repository (reproducible with OpenJDK 21). This script can also sign the build.
 
 Build without signing:
 ```

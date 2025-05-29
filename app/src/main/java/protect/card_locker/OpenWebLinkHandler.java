@@ -6,13 +6,14 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.activity.ComponentActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OpenWebLinkHandler {
 
     private static final String TAG = "Catima";
 
-    public void openBrowser(AppCompatActivity activity, String url) {
+    public void openBrowser(ComponentActivity activity, String url) {
         if (url == null) {
             return;
         }

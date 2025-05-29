@@ -2,119 +2,151 @@ package protect.card_locker
 
 import android.os.Bundle
 import android.text.Spanned
-import android.view.MenuItem
-import android.view.View
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 
-import androidx.annotation.StringRes
-import androidx.core.view.isVisible
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import protect.card_locker.compose.CatimaAboutSection
+import protect.card_locker.compose.CatimaTopAppBar
+import protect.card_locker.compose.theme.CatimaTheme
 
-import protect.card_locker.databinding.AboutActivityBinding
 
-class AboutActivity : CatimaAppCompatActivity() {
+class AboutActivity : ComponentActivity() {
     private companion object {
         private const val TAG = "Catima"
     }
 
-    private lateinit var binding: AboutActivityBinding
     private lateinit var content: AboutContent
 
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = AboutActivityBinding.inflate(layoutInflater)
         content = AboutContent(this)
         title = content.pageTitle
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-        enableToolbarBackButton()
 
-        binding.apply {
-            creditsSub.text = content.copyrightShort
-            versionHistorySub.text = content.versionHistory
-
-            versionHistory.tag = "https://catima.app/changelog/"
-            translate.tag = "https://hosted.weblate.org/engage/catima/"
-            license.tag = "https://github.com/CatimaLoyalty/Android/blob/main/LICENSE"
-            repo.tag = "https://github.com/CatimaLoyalty/Android/"
-            privacy.tag = "https://catima.app/privacy-policy/"
-            reportError.tag = "https://github.com/CatimaLoyalty/Android/issues"
-            rate.tag = "https://play.google.com/store/apps/details?id=me.hackerchick.catima"
-            donate.tag = "https://catima.app/donate"
-
-            // Hide Google Play rate button if not on Google Play
-            rate.isVisible = BuildConfig.showRateOnGooglePlay
-            // Hide donate button on Google Play (Google Play doesn't allow donation links)
-            donate.isVisible = BuildConfig.showDonate
-        }
-
-        bindClickListeners()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
+        setContent {
+            CatimaTheme {
+                Scaffold(
+                    topBar = { CatimaTopAppBar(title.toString(), onBackPressedDispatcher) }
+                ) { innerPadding ->
+                    Column(modifier = Modifier.padding(innerPadding).verticalScroll(rememberScrollState())) {
+                        CatimaAboutSection(
+                            stringResource(R.string.version_history),
+                            content.versionHistory,
+                            {
+                                showHTML(
+                                    stringResource(R.string.version_history),
+                                    content.historyInfo,
+                                    this as ComponentActivity,
+                                    "https://catima.app/changelog/"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.credits),
+                            content.copyrightShort,
+                            {
+                                showHTML(
+                                    stringResource(R.string.credits),
+                                    content.contributorInfo,
+                                    this as ComponentActivity,
+                                    null
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.help_translate_this_app),
+                            stringResource(R.string.translate_platform),
+                            {
+                                OpenWebLinkHandler().openBrowser(
+                                    this as ComponentActivity?,
+                                    "https://hosted.weblate.org/engage/catima/"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.license),
+                            stringResource(R.string.app_license),
+                            {
+                                showHTML(
+                                    stringResource(R.string.license),
+                                    content.licenseInfo,
+                                    this as ComponentActivity,
+                                    "https://github.com/CatimaLoyalty/Android/blob/main/LICENSE"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.source_repository),
+                            stringResource(R.string.on_github),
+                            {
+                                OpenWebLinkHandler().openBrowser(
+                                    this as ComponentActivity?,
+                                    "https://github.com/CatimaLoyalty/Android/"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.privacy_policy),
+                            stringResource(R.string.and_data_usage),
+                            {
+                                showHTML(
+                                    stringResource(R.string.privacy_policy),
+                                    content.privacyInfo,
+                                    this as ComponentActivity,
+                                    "https://catima.app/privacy-policy/"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.donate),
+                            "",
+                            {
+                                OpenWebLinkHandler().openBrowser(
+                                    this as ComponentActivity?,
+                                    "https://catima.app/donate"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.rate_this_app),
+                            stringResource(R.string.on_google_play),
+                            {
+                                OpenWebLinkHandler().openBrowser(
+                                    this as ComponentActivity?,
+                                    "https://play.google.com/store/apps/details?id=me.hackerchick.catima"
+                                )
+                            }
+                        )
+                        CatimaAboutSection(
+                            stringResource(R.string.report_error),
+                            stringResource(R.string.on_github),
+                            {
+                                OpenWebLinkHandler().openBrowser(
+                                    this as ComponentActivity?,
+                                    "https://github.com/CatimaLoyalty/Android/issues"
+                                )
+                            }
+                        )
+                    }
+                }
             }
-
-            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        content.destroy()
-        clearClickListeners()
-    }
-
-    private fun bindClickListeners() {
-        binding.apply {
-            versionHistory.setOnClickListener { showHistory(it) }
-            translate.setOnClickListener { openExternalBrowser(it) }
-            license.setOnClickListener { showLicense(it) }
-            repo.setOnClickListener { openExternalBrowser(it) }
-            privacy.setOnClickListener { showPrivacy(it) }
-            reportError.setOnClickListener { openExternalBrowser(it) }
-            rate.setOnClickListener { openExternalBrowser(it) }
-            donate.setOnClickListener { openExternalBrowser(it) }
-            credits.setOnClickListener { showCredits() }
-        }
-    }
-
-    private fun clearClickListeners() {
-        binding.apply {
-            versionHistory.setOnClickListener(null)
-            translate.setOnClickListener(null)
-            license.setOnClickListener(null)
-            repo.setOnClickListener(null)
-            privacy.setOnClickListener(null)
-            reportError.setOnClickListener(null)
-            rate.setOnClickListener(null)
-            donate.setOnClickListener(null)
-            credits.setOnClickListener(null)
-        }
-    }
-
-    private fun showCredits() {
-        showHTML(R.string.credits, content.contributorInfo, null)
-    }
-
-    private fun showHistory(view: View) {
-        showHTML(R.string.version_history, content.historyInfo, view)
-    }
-
-    private fun showLicense(view: View) {
-        showHTML(R.string.license, content.licenseInfo, view)
-    }
-
-    private fun showPrivacy(view: View) {
-        showHTML(R.string.privacy_policy, content.privacyInfo, view)
-    }
-
-    private fun showHTML(@StringRes title: Int, text: Spanned, view: View?) {
+    private fun showHTML(title: String, text: Spanned, activity: ComponentActivity, url: String?) {
         val dialogContentPadding = resources.getDimensionPixelSize(R.dimen.alert_dialog_content_padding)
         val textView = TextView(this).apply {
             setText(text)
@@ -131,19 +163,12 @@ class AboutActivity : CatimaAppCompatActivity() {
             setView(scrollView)
             setPositiveButton(R.string.ok, null)
 
-            // Add View online button if an URL is linked to this view
-            view?.tag?.let {
-                setNeutralButton(R.string.view_online) { _, _ -> openExternalBrowser(view) }
+            // Add View online button if an URL is given
+            url?.let {
+                setNeutralButton(R.string.view_online) { _, _ -> OpenWebLinkHandler().openBrowser(activity, url) }
             }
 
             show()
-        }
-    }
-
-    private fun openExternalBrowser(view: View) {
-        val tag = view.tag
-        if (tag is String && tag.startsWith("https://")) {
-            OpenWebLinkHandler().openBrowser(this, tag)
         }
     }
 }

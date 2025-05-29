@@ -363,4 +363,5 @@
     <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
     <string name="width">Width</string>
     <string name="setBarcodeWidth">Set Barcode Width</string>
+    <string name="back">Back</string>
 </resources>

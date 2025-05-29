@@ -23,7 +23,7 @@ import java.util.Set;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 17;
+    public static final int DATABASE_VERSION = 18;
 
     // NB: changing these values requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
@@ -42,6 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String VALID_FROM = "validfrom";
         public static final String EXPIRY = "expiry";
         public static final String BALANCE = "balance";
+        public static final String DEFAULT_BALANCE_CHANGE = "defaultbalancechange";
         public static final String BALANCE_TYPE = "balancetype";
         public static final String NOTE = "note";
         public static final String HEADER_COLOR = "headercolor";
@@ -107,6 +108,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.VALID_FROM + " INTEGER," +
                 LoyaltyCardDbIds.EXPIRY + " INTEGER," +
                 LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0'," +
+                LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE + " TEXT," +
                 LoyaltyCardDbIds.BALANCE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
@@ -335,6 +337,11 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH + " INTEGER DEFAULT '100' ");
         }
+
+        if (oldVersion < 18 && newVersion >= 18) {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE + " TEXT ");
+        }
     }
 
     public static Set<String> imageFiles(Context context, final SQLiteDatabase database) {
@@ -395,7 +402,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final String store, final String note, final Date validFrom,
-            final Date expiry, final BigDecimal balance, final Currency balanceType, final String cardId,
+            final Date expiry, final BigDecimal balance, final BigDecimal defaultBalanceChange, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
             final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
@@ -407,6 +414,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE, defaultBalanceChange != null ? defaultBalanceChange.toString() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
@@ -428,7 +436,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final int id, final String store, final String note,
-            final Date validFrom, final Date expiry, final BigDecimal balance,
+            final Date validFrom, final Date expiry, final BigDecimal balance, final BigDecimal defaultBalanceChange,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
             final Long lastUsed, final int archiveStatus) {
@@ -442,6 +450,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE, defaultBalanceChange != null ? defaultBalanceChange.toString() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
@@ -463,7 +472,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static boolean updateLoyaltyCard(
             SQLiteDatabase database, final int id, final String store, final String note,
-            final Date validFrom, final Date expiry, final BigDecimal balance,
+            final Date validFrom, final Date expiry, final BigDecimal balance, final BigDecimal defaultBalanceChange,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
             final Long lastUsed, final int archiveStatus) {
@@ -476,6 +485,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE, defaultBalanceChange != null ? defaultBalanceChange.toString() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);

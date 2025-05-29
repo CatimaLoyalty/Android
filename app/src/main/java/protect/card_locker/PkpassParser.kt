@@ -33,6 +33,7 @@ class PkpassParser(context: Context, uri: Uri?) {
     private var validFrom: Date? = null
     private var expiry: Date? = null
     private val balance: BigDecimal = BigDecimal(0)
+    private val defaultBalanceChange: BigDecimal? = null
     private val balanceType: Currency? = null
     // FIXME: Some cards may not have any barcodes, but Catima doesn't accept null card ID
     // An empty string card ID would prevent a crash, but would be blocked in the edit activity
@@ -121,6 +122,7 @@ class PkpassParser(context: Context, uri: Uri?) {
             validFrom,
             expiry,
             balance,
+            defaultBalanceChange,
             balanceType,
             cardId,
             barcodeId,

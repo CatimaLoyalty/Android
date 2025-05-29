@@ -362,6 +362,7 @@ public class StocardImporter implements Importer {
                     null,
                     BigDecimal.valueOf(0),
                     null,
+                    null,
                     record.cardId,
                     null,
                     barcodeType,
@@ -404,7 +405,7 @@ public class StocardImporter implements Importer {
         // Proper deduplication for all formats will be implemented later
         for (LoyaltyCard card : data.cards) {
             // card.id is temporary and only used to index the images Map
-            long id = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+            long id = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.defaultBalanceChange, card.balanceType,
                     card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
             for (Map.Entry<ImageLocationType, Bitmap> entry : data.images.get(card.id).entrySet()) {
                 Utils.saveCardImage(context, entry.getValue(), (int) id, entry.getKey());

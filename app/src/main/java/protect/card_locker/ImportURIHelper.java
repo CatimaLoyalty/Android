@@ -21,6 +21,7 @@ public class ImportURIHelper {
     private static final String VALID_FROM = DBHelper.LoyaltyCardDbIds.VALID_FROM;
     private static final String EXPIRY = DBHelper.LoyaltyCardDbIds.EXPIRY;
     private static final String BALANCE = DBHelper.LoyaltyCardDbIds.BALANCE;
+    private static final String DEFAULT_BALANCE_CHANGE = DBHelper.LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE;
     private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BALANCE_TYPE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_ID = DBHelper.LoyaltyCardDbIds.BARCODE_ID;
@@ -69,6 +70,9 @@ public class ImportURIHelper {
             Date validFrom = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
+
+            BigDecimal defaultBalanceChange = null;
+
             Currency balanceType = null;
             Integer headerColor = null;
 
@@ -107,6 +111,10 @@ public class ImportURIHelper {
             if (unparsedBalance != null && !unparsedBalance.equals("")) {
                 balance = new BigDecimal(unparsedBalance);
             }
+            String unparsedDefaultBalanceChange = kv.get(DEFAULT_BALANCE_CHANGE);
+            if (unparsedDefaultBalanceChange != null && !unparsedDefaultBalanceChange.equals("")) {
+                defaultBalanceChange = new BigDecimal(unparsedDefaultBalanceChange);
+            }
             String unparsedBalanceType = kv.get(BALANCE_TYPE);
             if (unparsedBalanceType != null && !unparsedBalanceType.equals("")) {
                 balanceType = Currency.getInstance(unparsedBalanceType);
@@ -132,6 +140,7 @@ public class ImportURIHelper {
                     validFrom,
                     expiry,
                     balance,
+                    defaultBalanceChange,
                     balanceType,
                     cardId,
                     barcodeId,
@@ -178,6 +187,9 @@ public class ImportURIHelper {
         fragment = appendFragment(fragment, STORE, loyaltyCard.store);
         fragment = appendFragment(fragment, NOTE, loyaltyCard.note);
         fragment = appendFragment(fragment, BALANCE, loyaltyCard.balance.toString());
+        if (loyaltyCard.defaultBalanceChange != null) {
+            fragment = appendFragment(fragment, DEFAULT_BALANCE_CHANGE, loyaltyCard.defaultBalanceChange.toString());
+        }
         if (loyaltyCard.balanceType != null) {
             fragment = appendFragment(fragment, BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
         }

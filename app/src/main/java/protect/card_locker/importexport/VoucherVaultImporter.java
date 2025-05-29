@@ -92,6 +92,8 @@ public class VoucherVaultImporter implements Importer {
                 balance = new BigDecimal(String.valueOf(jsonCard.getDouble("balance")));
             }
 
+            BigDecimal defaultBalanceChange = null;
+
             Currency balanceType = Currency.getInstance("USD");
 
             String cardId = jsonCard.getString("code");
@@ -158,6 +160,7 @@ public class VoucherVaultImporter implements Importer {
                     null,
                     expiry,
                     balance,
+                    defaultBalanceChange,
                     balanceType,
                     cardId,
                     null,
@@ -185,7 +188,7 @@ public class VoucherVaultImporter implements Importer {
         // Proper deduplication for all formats will be implemented later
         for (LoyaltyCard card : data.cards) {
             // Do not use card.id which is set to -1
-            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.defaultBalanceChange, card.balanceType,
                     card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
         }
     }

@@ -157,6 +157,7 @@ public class FidmeImporter implements Importer {
                 null,
                 BigDecimal.valueOf(0),
                 null,
+                null,
                 cardId,
                 null,
                 barcodeType,
@@ -180,7 +181,7 @@ public class FidmeImporter implements Importer {
         // Proper deduplication for all formats will be implemented later
         for (LoyaltyCard card : data.cards) {
             // Do not use card.id which is set to -1
-            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.defaultBalanceChange, card.balanceType,
                     card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
         }
     }

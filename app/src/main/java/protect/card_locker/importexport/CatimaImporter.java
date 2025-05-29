@@ -126,10 +126,10 @@ public class CatimaImporter implements Importer {
         for (LoyaltyCard card : data.cards) {
             LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
             if (existing == null) {
-                DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.defaultBalanceChange, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
             } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
-                long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.defaultBalanceChange, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
             }
@@ -436,6 +436,15 @@ public class CatimaImporter implements Importer {
             }
         }
 
+        BigDecimal defaultBalanceChange = null;
+        String unparsedDefaultBalanceChange = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE, record, null);
+        if (unparsedDefaultBalanceChange != null) {
+            try {
+                defaultBalanceChange = new BigDecimal(unparsedDefaultBalanceChange);
+            } catch (NumberFormatException ignored) {
+            }
+        }
+
         Currency balanceType = null;
         String unparsedBalanceType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE, record, "");
         if (!unparsedBalanceType.isEmpty()) {
@@ -497,6 +506,7 @@ public class CatimaImporter implements Importer {
                 validFrom,
                 expiry,
                 balance,
+                defaultBalanceChange,
                 balanceType,
                 cardId,
                 barcodeId,

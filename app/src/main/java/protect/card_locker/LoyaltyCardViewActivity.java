@@ -492,6 +492,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
         input.setHint(R.string.updateBalanceHint);
+        final String defaultText = "";
+        input.setText(defaultText);
 
         layout.addView(input);
         layout.setLayoutParams(params);
@@ -565,8 +567,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         dialog.show();
 
         // Disable buttons (must be done **after** dialog is shown to prevent crash
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+        if (defaultText.isEmpty()) {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+        }
 
         // Set focus on input field
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);

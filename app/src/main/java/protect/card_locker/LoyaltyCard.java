@@ -24,6 +24,8 @@ public class LoyaltyCard {
     public Date expiry;
     public BigDecimal balance;
     @Nullable
+    public BigDecimal defaultBalanceChange;
+    @Nullable
     public Currency balanceType;
     public String cardId;
     @Nullable
@@ -58,6 +60,7 @@ public class LoyaltyCard {
     public static final String BUNDLE_LOYALTY_CARD_VALID_FROM = "loyaltyCardValidFrom";
     public static final String BUNDLE_LOYALTY_CARD_EXPIRY = "loyaltyCardExpiry";
     public static final String BUNDLE_LOYALTY_CARD_BALANCE = "loyaltyCardBalance";
+    public static final String BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE = "loyaltyCardDefaultBalanceChange";
     public static final String BUNDLE_LOYALTY_CARD_BALANCE_TYPE = "loyaltyCardBalanceType";
     public static final String BUNDLE_LOYALTY_CARD_CARD_ID = "loyaltyCardCardId";
     public static final String BUNDLE_LOYALTY_CARD_BARCODE_ID = "loyaltyCardBarcodeId";
@@ -86,6 +89,7 @@ public class LoyaltyCard {
         setValidFrom(null);
         setExpiry(null);
         setBalance(new BigDecimal("0"));
+        setDefaultBalanceChange(null);
         setBalanceType(null);
         setCardId("");
         setBarcodeId(null);
@@ -110,6 +114,7 @@ public class LoyaltyCard {
      * @param validFrom
      * @param expiry
      * @param balance
+     * @param defaultBalanceChange
      * @param balanceType
      * @param cardId
      * @param barcodeId
@@ -122,7 +127,7 @@ public class LoyaltyCard {
      * @param archiveStatus
      */
     public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
-                       @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
+                       @Nullable final Date expiry, final BigDecimal balance,@Nullable final BigDecimal defaultBalanceChange, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int zoomLevelWidth, final int archiveStatus,
@@ -135,6 +140,7 @@ public class LoyaltyCard {
         setValidFrom(validFrom);
         setExpiry(expiry);
         setBalance(balance);
+        setDefaultBalanceChange(defaultBalanceChange);
         setBalanceType(balanceType);
         setCardId(cardId);
         setBarcodeId(barcodeId);
@@ -226,6 +232,10 @@ public class LoyaltyCard {
 
     public void setBalance(@NonNull BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public void setDefaultBalanceChange(@Nullable BigDecimal defaultBalanceChange) {
+        this.defaultBalanceChange = defaultBalanceChange;
     }
 
     public void setBalanceType(@Nullable Currency balanceType) {
@@ -357,6 +367,11 @@ public class LoyaltyCard {
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BALANCE);
         }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE)) {
+            setDefaultBalanceChange(new BigDecimal(bundle.getString(BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE)));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE);
+        }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
             String tmpBalanceType = bundle.getString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE);
             setBalanceType(tmpBalanceType != null ? Currency.getInstance(tmpBalanceType) : null);
@@ -450,6 +465,9 @@ public class LoyaltyCard {
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BALANCE)) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
         }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_DEFAULT_BALANCE_CHANGE, defaultBalanceChange.toString());
+        }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BALANCE_TYPE)) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE_TYPE, balanceType != null ? balanceType.toString() : null);
         }
@@ -528,6 +546,9 @@ public class LoyaltyCard {
         Date expiry = expiryLong > 0 ? new Date(expiryLong) : null;
         // balance
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
+        // defaultBalanceChange
+        int defaultBalanceChangeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE);
+        BigDecimal defaultBalanceChange = !cursor.isNull(defaultBalanceChangeColumn) ? new BigDecimal(cursor.getString(defaultBalanceChangeColumn)) : null;
         // balanceType
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
         Currency balanceType = !cursor.isNull(balanceTypeColumn) ? Currency.getInstance(cursor.getString(balanceTypeColumn)) : null;
@@ -560,6 +581,7 @@ public class LoyaltyCard {
                 validFrom,
                 expiry,
                 balance,
+                defaultBalanceChange,
                 balanceType,
                 cardId,
                 barcodeId,
@@ -588,6 +610,7 @@ public class LoyaltyCard {
                 Utils.equals(a.validFrom, b.validFrom) && // nullable Date
                 Utils.equals(a.expiry, b.expiry) && // nullable Date
                 a.balance.equals(b.balance) && // non-nullable BigDecimal
+                Utils.equals(a.defaultBalanceChange, b.defaultBalanceChange) && // nullable BigDecimal
                 Utils.equals(a.balanceType, b.balanceType) && // nullable Currency
                 a.cardId.equals(b.cardId) && // non-nullable String
                 Utils.equals(a.barcodeId, b.barcodeId) && // nullable String
@@ -619,7 +642,7 @@ public class LoyaltyCard {
     public String toString() {
         return String.format(
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
-                        + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
+                        + "  balance=%s,%n  defaultBalanceChange=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
                         + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  zoomLevelWidth=%s,%n  archiveStatus=%s%n"
                         + "  imageThumbnail=%s,%n  imageThumbnailPath=%s,%n  imageFront=%s,%n  imageFrontPath=%s,%n  imageBack=%s,%n  imageBackPath=%s,%n}",
                 this.id,
@@ -628,6 +651,7 @@ public class LoyaltyCard {
                 this.validFrom,
                 this.expiry,
                 this.balance,
+                this.defaultBalanceChange,
                 this.balanceType,
                 this.cardId,
                 this.barcodeId,

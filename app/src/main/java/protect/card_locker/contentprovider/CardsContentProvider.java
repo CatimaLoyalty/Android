@@ -46,6 +46,7 @@ public class CardsContentProvider extends ContentProvider {
             LoyaltyCardDbIds.VALID_FROM,
             LoyaltyCardDbIds.EXPIRY,
             LoyaltyCardDbIds.BALANCE,
+            LoyaltyCardDbIds.DEFAULT_BALANCE_CHANGE,
             LoyaltyCardDbIds.BALANCE_TYPE,
             LoyaltyCardDbIds.NOTE,
             LoyaltyCardDbIds.HEADER_COLOR,

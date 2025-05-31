@@ -314,6 +314,34 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
+                <!-- Default Balance Change -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingBottom="@dimen/inputPadding"
+                    android:orientation="horizontal">
+
+                    <!-- Default Balance Change -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/defaultBalanceChangeView"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:hint="@string/defaultBalanceChange"
+                        android:labelFor="@+id/defaultBalanceChangeField">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/defaultBalanceChangeField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:digits="0123456789,." />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
                 <!-- Valid from -->
                 <LinearLayout
                     android:layout_width="match_parent"

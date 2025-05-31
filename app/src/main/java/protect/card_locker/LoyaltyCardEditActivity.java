@@ -122,6 +122,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     AutoCompleteTextView expiryField;
     EditText balanceField;
     AutoCompleteTextView balanceCurrencyField;
+    EditText defaultBalanceChangeField;
     TextView cardIdFieldView;
     AutoCompleteTextView barcodeIdField;
     AutoCompleteTextView barcodeTypeField;
@@ -198,6 +199,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     protected void setLoyaltyCardBalanceType(@Nullable Currency balanceType) {
         viewModel.getLoyaltyCard().setBalanceType(balanceType);
+
+        viewModel.setHasChanged(true);
+    }
+
+    protected void setLoyaltyCardDefaultBalanceChange(@Nullable BigDecimal defaultBalanceChange) {
+        viewModel.getLoyaltyCard().setDefaultBalanceChange(defaultBalanceChange);
 
         viewModel.setHasChanged(true);
     }
@@ -328,6 +335,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         expiryField = binding.expiryField;
         balanceField = binding.balanceField;
         balanceCurrencyField = binding.balanceCurrencyField;
+        defaultBalanceChangeField = binding.defaultBalanceChangeField;
         cardIdFieldView = binding.cardIdView;
         barcodeIdField = binding.barcodeIdField;
         barcodeTypeField = binding.barcodeTypeField;
@@ -446,6 +454,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 currencyList.add(0, getString(R.string.points));
                 ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
                 balanceCurrencyField.setAdapter(currencyAdapter);
+            }
+        });
+
+        defaultBalanceChangeField.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (onResuming || onRestoring) return;
+                try {
+                    BigDecimal defaultBalanceChange = Utils.parseBalance(s.toString(), viewModel.getLoyaltyCard().balanceType);
+                    setLoyaltyCardDefaultBalanceChange(defaultBalanceChange);
+                    defaultBalanceChangeField.setError(null);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    defaultBalanceChangeField.setError(getString(R.string.balanceParsingFailed));
+                }
             }
         });
 
@@ -780,6 +803,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
         validBalance = true;
         Log.d(TAG, "Setting balance to " + balance);
+
+        BigDecimal defaultBalanceChange = viewModel.getLoyaltyCard().defaultBalanceChange == null ? null : viewModel.getLoyaltyCard().defaultBalanceChange;
+        setLoyaltyCardDefaultBalanceChange(defaultBalanceChange);
+        defaultBalanceChangeField.setText(viewModel.getLoyaltyCard().defaultBalanceChange == null ? "" : Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().defaultBalanceChange, viewModel.getLoyaltyCard().balanceType));
+        Log.d(TAG, "Setting default balance change to " + (defaultBalanceChange == null ? "null" : defaultBalanceChange));
 
         if (groupsChips.getChildCount() == 0) {
             List<Group> existingGroups = DBHelper.getGroups(mDatabase);

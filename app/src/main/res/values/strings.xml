@@ -175,6 +175,7 @@
     <string name="errorReadingImage">Could not read the image</string>
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
+    <string name="defaultBalanceChange">Default Balance Change</string>
     <string name="points">Points</string>
     <string name="balanceParsingFailed">Invalid balance</string>
     <string name="chooseImportType">Import data from</string>

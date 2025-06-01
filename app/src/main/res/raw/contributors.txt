@@ -32,11 +32,11 @@ ikanakova
 Silvério Santos
 Giovanni Donisi
 HudobniVolk
-Nyatsuki
 Jiri Grönroos
-Balázs Meskó
-Milo Ivir
+Nyatsuki
 josé m
+Milo Ivir
+Balázs Meskó
 Samantaz Fox
 Arno-github
 Ankit Tiwari
@@ -60,21 +60,22 @@ Robin
 JungHee Lee
 hajertabbane
 Ziad OUALHADJ
+Denis Shilin
 Robin Liu
 Renko
-Denis Shilin
 しいたけ
 Alexander Ivanov
-Viet Nguyen Hoang
 Miha Frangež
+Viet Nguyen Hoang
 stavpup
 ehrt74
+Warder
 Virginie
 Tim Trek
 GitSpoon
-arshbeerSingh
-MisterCosta96
 Aliaksandr Trush
+MisterCosta96
+arshbeerSingh
 Augustin LAVILLE
 Freddo espresso
 Govind S Nair

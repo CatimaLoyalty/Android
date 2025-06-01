@@ -492,8 +492,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
         input.setHint(R.string.updateBalanceHint);
-        final String defaultText = "";
-        input.setText(defaultText);
+        final String defaultBalanceChangeText = loyaltyCard.defaultBalanceChange == null ? "" : loyaltyCard.defaultBalanceChange.toString();
+        input.setText(defaultBalanceChangeText);
 
         layout.addView(input);
         layout.setLayoutParams(params);
@@ -567,7 +567,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         dialog.show();
 
         // Disable buttons (must be done **after** dialog is shown to prevent crash
-        if (defaultText.isEmpty()) {
+        if (defaultBalanceChangeText.isEmpty()) {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
         }

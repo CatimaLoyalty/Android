@@ -90,6 +90,7 @@ public class CardsContentProviderTest {
         final Date validFrom = Date.from(Instant.ofEpochMilli(1687112209000L));
         final Date expiry = Date.from(Instant.ofEpochMilli(1687112277000L));
         final BigDecimal balance = new BigDecimal("123.20");
+        final BigDecimal defaultBalanceChange = new BigDecimal("1.23");
         final Currency balanceType = Currency.getInstance("EUR");
         final String cardId = "a-card-id";
         final String barcodeId = "barcode-id";
@@ -99,7 +100,7 @@ public class CardsContentProviderTest {
         final long lastUsed = 1687112282000L;
         final int archiveStatus = 1;
         long id = DBHelper.insertLoyaltyCard(
-                mDatabase, store, note, validFrom, expiry, balance, balanceType,
+                mDatabase, store, note, validFrom, expiry, balance, defaultBalanceChange, balanceType,
                 cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed,
                 archiveStatus
         );
@@ -109,7 +110,7 @@ public class CardsContentProviderTest {
             assertEquals("number of cards", 1, cursor.getCount());
 
             final String[] expectedColumns = new String[]{
-                    "_id", "store", "validfrom", "expiry", "balance", "balancetype",
+                    "_id", "store", "validfrom", "expiry", "balance", "defaultbalancechange", "balancetype",
                     "note", "headercolor", "cardid", "barcodeid",
                     "barcodetype", "starstatus", "lastused", "archive"
             };

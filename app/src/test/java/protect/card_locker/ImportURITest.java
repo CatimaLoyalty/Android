@@ -41,7 +41,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -71,7 +71,7 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), null, Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -88,6 +88,7 @@ public class ImportURITest {
         assertEquals(card.validFrom, parsedCard.validFrom);
         assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.balance, parsedCard.balance);
+        assertEquals(card.defaultBalanceChange, parsedCard.defaultBalanceChange);
         assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
@@ -101,7 +102,7 @@ public class ImportURITest {
     @Test
     public void parseWithTrailingSlash() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), null, Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -119,6 +120,7 @@ public class ImportURITest {
         assertEquals(card.validFrom, parsedCard.validFrom);
         assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.balance, parsedCard.balance);
+        assertEquals(card.defaultBalanceChange, parsedCard.defaultBalanceChange);
         assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
@@ -179,6 +181,7 @@ public class ImportURITest {
             assertEquals(null, parsedCard.validFrom);
             assertEquals(null, parsedCard.expiry);
             assertEquals(new BigDecimal("0"), parsedCard.balance);
+            assertEquals(null, parsedCard.defaultBalanceChange);
             assertEquals(null, parsedCard.balanceType);
             assertEquals("12345", parsedCard.cardId);
             assertEquals(null, parsedCard.barcodeId);

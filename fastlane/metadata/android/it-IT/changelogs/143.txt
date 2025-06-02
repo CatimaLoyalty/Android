@@ -1,0 +1,1 @@
+- Fix del crash quando si aprono file pkpass non validi

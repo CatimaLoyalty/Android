@@ -67,8 +67,17 @@ class PkpassParser(context: Context, uri: Uri?) {
         try {
             mContext.contentResolver.openInputStream(uri).use { inputStream ->
                 ZipInputStream(inputStream).use { zipInputStream ->
-                    var localFileHeader: LocalFileHeader
-                    while ((zipInputStream.nextEntry.also { localFileHeader = it }) != null) {
+                    var localFileHeader: LocalFileHeader?
+
+                    while (true) {
+                        // Retrieve the next file
+                        localFileHeader = zipInputStream.nextEntry
+
+                        // If no next file, exit loop
+                        if (localFileHeader == null) {
+                            break
+                        }
+
                         // Ignore directories
                         if (localFileHeader.isDirectory) continue
 

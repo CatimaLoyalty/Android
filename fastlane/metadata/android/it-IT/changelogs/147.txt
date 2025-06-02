@@ -1,0 +1,3 @@
+- Target Android 15
+- Risolto problemi di crash nella lettura di file pkpass non supportati
+- Miglioramento il supporto per pkpass

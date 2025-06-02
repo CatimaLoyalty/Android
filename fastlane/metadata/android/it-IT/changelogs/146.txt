@@ -1,0 +1,2 @@
+- Ordina le carte per data di inizio validità
+- Ripristino temporaneo del targeting per Android 14 per risolvere alcuni problemi dell'interfaccia utente

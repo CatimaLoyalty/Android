@@ -1,9 +1,9 @@
-Basta con la ricerca di carte premio di plastica quando esci dal negozio.
-<b>Scannerizza i codici a barre sul tuo dispositivo usando la tua fotocamera, dimentica le carte.</b>
+Dici basta alla ricerca di carte premio di plastica quando devi pagare.
+<b>Scansiona i codici a barre sul tuo dispositivo usando la sua fotocamera e dimentica le carte.</b>
 
 Dimentica il tuo portafoglio o tienilo ultra-leggero per gli oggetti di valore.
 
-Con questo strumento essenziale per il trasporto quotidiano puoi sostiuire la plastica inutile con i contanti.
+Con questo strumento essenziale per la quotidianità permettendo di sostiuire la plastica inutile con i contanti.
 
 - Evita di essere spiati con pochissimi permessi. Nessun accesso a Internet richiesto e nessuna pubblicità.
 - Aggiungi carte o codici con nomi e colori personalizzabili.
@@ -13,10 +13,10 @@ Con questo strumento essenziale per il trasporto quotidiano puoi sostiuire la pl
 - Condividi coupon, offerte esclusive, codici promozionali o carte e codici utilizzando qualsiasi app.
 - Tema scuro e opzioni di accessibilità per gli utenti con problemi di vista.
 - Fatto per tutti dalla comunità del software libero.
-- Traduzioni localizzate a mano per 20+ lingue.
+- Traduzioni localizzate a mano per 40+ lingue.
 - Gratis, supportato dai contributi della comunità.
 - Usala, studiala, cambiala e condividila come vuoi; <i>con tutti</i>.
-- Non solo un software libero. <i>Copylefted</i> software libero (GPLv3+).
+- Non solo un software libero ed open source. <i>Copylefted</i> software libero (GPLv3+).
 
-Semplifica la tua vita e gli acquisti e non perdere mai più una ricevuta cartacea, una carta regalo o un biglietto aere
+Semplifica la tua vita e gli acquisti e non perdere mai più una ricevuta cartacea, una carta regalo o un biglietto aereo
 Porta con te tutti i tuoi premi e bonus e risparmia mentre vai.

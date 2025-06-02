@@ -1,0 +1,4 @@
+- Aggiunta la possibilità di scegliere la lunghezza del codice a barre nella modalità a scermo pieno
+- Rimozione dell'import confusionario da funzioni dell'app
+- Varie fix sulla scansione
+- Fix del crash quando si carica un file pkpass senza codice a barre

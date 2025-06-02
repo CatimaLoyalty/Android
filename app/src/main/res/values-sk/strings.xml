@@ -75,9 +75,9 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Zabrániť uzamknutiu obrazovky</string>
     <string name="settings_keep_screen_on">Nechajte obrazovku zapnutú</string>
     <string name="unstar">Odstrániť z obľúbených</string>
-    <string name="settings_dark_theme">Tmavé</string>
-    <string name="settings_light_theme">Svetlo</string>
-    <string name="settings_system_theme">Systém</string>
+    <string name="settings_dark_theme">Tmavá</string>
+    <string name="settings_light_theme">Svetlá</string>
+    <string name="settings_system_theme">Podľa nastavení systému</string>
     <string name="settings_theme">Téma</string>
     <string name="starImage">Obľúbená hviezda</string>
     <string name="exportOptionExplanation">Údaje sa zapíšu na vami zvolené miesto.</string>
@@ -153,7 +153,7 @@
     <string name="credits">Poďakovanie</string>
     <string name="card">Karta</string>
     <string name="rate_this_app">Ohodnoťte túto aplikáciu</string>
-    <string name="exportPassword">Nastavenie hesla na ochranu exportu (voliteľné)</string>
+    <string name="exportPassword">Nastavte heslo na ochranu exportu (voliteľné)</string>
     <string name="exportPasswordHint">Zadajte heslo</string>
     <string name="failedGeneratingShareURL">Nepodarilo sa vygenerovať zdieľateľnú adresu URL. Nahláste to, prosím.</string>
     <string name="turn_flashlight_off">Vypnúť svetlo</string>

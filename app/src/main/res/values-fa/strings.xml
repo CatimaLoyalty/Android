@@ -252,10 +252,6 @@
     <string name="settings_column_count_4">۴</string>
     <string name="settings_column_count_5">۵</string>
     <string name="settings_column_count_6">۶</string>
-    <plurals name="groupCardCountWithArchived">
-        <item quantity="one"></item>
-        <item quantity="other"></item>
-    </plurals>
     <string name="failedLaunchingPhotoPicker">نتوانستم یک برنامه‌ی گالری پشتیبانی‌شده بیابم</string>
     <string name="show_balance">موجودی را نشان دهید</string>
     <string name="settings_column_count_landscape">ستون‌ها در حالت لنداسکیپ</string>

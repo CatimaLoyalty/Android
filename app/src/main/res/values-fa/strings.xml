@@ -71,7 +71,7 @@
     <string name="importExport">ایمپورت/خروجی گرفتن</string>
     <string name="settings_category_title_privacy">حریم شخصی</string>
     <string name="settings_category_title_general">عمومی</string>
-    <string name="settings_category_title_cards">کارت‌ها</string>
+    <string name="settings_category_title_cards">نمایش کارت</string>
     <string name="barcodeImageDescriptionWithType">تصویر بارکد <xliff:g>%s</xliff:g></string>
     <string name="importOptionFilesystemButton">از فایل های سیستم</string>
     <string name="about">درباره</string>
@@ -112,7 +112,7 @@
     <string name="about_title_fmt">درباره <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">نسخه <xliff:g id="version">%s</xliff:g></string>
     <string name="chooseExpiryDate">انتخاب تاریخ انقضاء</string>
-    <string name="app_libraries">کتابخانه های شخص ثالث: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">کتابخانه های آزاد شخص ثالث: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">بر اساس کارت وفاداری Keychain\nکپی رایت © 2016-2020 سازنده : Branden</string>
     <string name="app_license">نرم‌افزار آزاد با حقوق کپی‌لفت، تحت مجوز GPLv3+</string>
     <string name="groups">گروه‌ها</string>
@@ -188,4 +188,106 @@
     <string name="height">ارتفاع</string>
     <string name="add_manually_warning_message">برای برخی از فروشگاه‌ها، مقدار بارکد با عدد نوشته شده روی کارت متفاوت است. به همین دلیل، وارد کردن دستی بارکد ممکن است همیشه کار نکند. اکیداً توصیه می‌شود که به جای آن، بارکد را با دوربین خود اسکن کنید. آیا هنوز می‌خواهید ادامه دهید؟</string>
     <string name="generic_error_please_retry">ببخشید، مشکلی پیش آمده، لطفا دوباره امتحان کنید...</string>
+    <string name="settings_magenta_theme">سرخابی</string>
+    <string name="welcome">یه کتیما خوش آمدید</string>
+    <string name="chooseValidFromDate">مقداری درست از تاریخ برگزینید</string>
+    <string name="intent_import_card_from_url_share_multiple_text">می‌خواهم چند کارت به شما بدهم</string>
+    <string name="frontImageDescription">عکس نمایه</string>
+    <string name="backImageDescription">عکس پشتِ‌سر</string>
+    <string name="photos">عکس‌ها</string>
+    <string name="setFrontImage">عکس روبه‌رو را بگذارید</string>
+    <string name="yes">بله</string>
+    <string name="no">نه</string>
+    <string name="updateBarcodeQuestionTitle">مقدار بارکد را به‌روز می‌کنید؟</string>
+    <string name="updateBarcodeQuestionText">شما شناسه را تغییر دادید. می‌خواهید بارکد را هم به‌روز کنید تا همین مقدار را به‌کار ببرید؟</string>
+    <string name="failedGeneratingShareURL">نتوانستم آدرس هم‌رسانی‌پذیر بسازم. لطفن این را گزارش کنید.</string>
+    <string name="turn_flashlight_on">چراغ‌قوه را روشن کنید</string>
+    <string name="settings_locale">زبان</string>
+    <string name="settings_oled_dark">پس‌زمینه‌ی یک‌دست سیاه برای حالت تاریک</string>
+    <string name="settings_oled_dark_summary">استفاده‌ی باتری را برای نمایشگرهای OLED کاهش می‌دهد</string>
+    <string name="setIcon">قالب پیش‌نمایه را بگمارید</string>
+    <string name="settings_theme_color">رنگ زمینه</string>
+    <string name="settings_catima_theme">کتیما</string>
+    <string name="settings_system_locale">سیستم</string>
+    <string name="selectColor">رنگ را برگزینید</string>
+    <string name="settings_violet_theme">بنفش</string>
+    <string name="settings_blue_theme">آبی</string>
+    <string name="settings_sky_blue_theme">آبی آسمانی</string>
+    <string name="settings_green_theme">سبز</string>
+    <string name="settings_brown_theme">قهوه‌ای</string>
+    <string name="app_contributors">با کمک او ممکن شد: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">مرتب‌کردن</string>
+    <string name="showMoreInfo">نمایش اطلاعات</string>
+    <string name="credits">اعتبارها</string>
+    <string name="archived">کارت بایگانی شد</string>
+    <string name="unarchived">کارت از بایگانی برچیده شد</string>
+    <string name="show_validity">درستی را نشان دهید</string>
+    <string name="wrongValueForBarcodeType">مقدار برای نوع بارکد برگزیده درست نیست</string>
+    <string name="setBackImage">عکس پشتِ‌سر را بگذارید</string>
+    <string name="removeImage">عکس را برچینید</string>
+    <string name="passwordRequired">لطفن گذرواژه را وارد کنید.</string>
+    <string name="previousCard">پیشین</string>
+    <string name="turn_flashlight_off">چراغ‌قوه را خاموش کنید</string>
+    <string name="settings_pink_theme">صورتی</string>
+    <string name="updateBalance">به‌روزرسانی موجودی</string>
+    <string name="barcodeLongPressMessage">تنها عکس می‌تواند در گالری برنامه باز شود</string>
+    <string name="sort_by_name">نام</string>
+    <string name="sort_by_most_recently_used">به‌تازگی استفاده‌شده</string>
+    <string name="sort_by_expiry">انقضا</string>
+    <string name="sort_by">مرتب کن با</string>
+    <string name="include_if_asking_support">اگر می‌خواهید پشتیبانی درخواست کنید، اطلاعات زیر را پر کنید:</string>
+    <string name="unarchive">برچیدن بایگانی</string>
+    <string name="switchToBackImage">به عکس پشتِ‌سر جابه‌جا کنید</string>
+    <string name="openBackImageInGalleryApp">عکس پشتِ‌سر را در برنامه‌ی گالری باز کنید</string>
+    <string name="setBarcodeHeight">ارتفاع بارگد را بگمارید</string>
+    <string name="donate">کمک مالی کنید</string>
+    <string name="icon_header_click_text">برای ویرایش قاب پیش‌نمایه فشار داده و نگه‌دارید</string>
+    <string name="show_name_below_image_thumbnail">زیر عکس پیش‌نمایه نام را نشان دهید</string>
+    <string name="show_note">یادداشت را نشان دهید</string>
+    <string name="settings_category_title_cards_overview">نگاهی به کارت‌ها</string>
+    <string name="settings_column_count_portrait">ستون‌ها در حالت پرتره</string>
+    <string name="settings_automatic_column_count">خودکار</string>
+    <string name="settings_column_count_2">۲</string>
+    <string name="settings_column_count_3">۳</string>
+    <string name="settings_column_count_4">۴</string>
+    <string name="settings_column_count_5">۵</string>
+    <string name="settings_column_count_6">۶</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one">تکی <xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="other">چندتایی <xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+    </plurals>
+    <string name="failedLaunchingPhotoPicker">نتوانستم یک برنامه‌ی گالری پشتیبانی‌شده بیابم</string>
+    <string name="show_balance">موجودی را نشان دهید</string>
+    <string name="settings_column_count_landscape">ستون‌ها در حالت لنداسکیپ</string>
+    <string name="settings_column_count_1">۱</string>
+    <string name="sort_by_valid_from">درست از</string>
+    <string name="reverse">به‌ترتیب برعکس</string>
+    <string name="version_history">تاریخچه‌ی نسخه</string>
+    <string name="license">مجوز</string>
+    <string name="source_repository">مخزن منبع</string>
+    <string name="report_error">خطا را گزارش کنید</string>
+    <string name="translate_platform">در وب‌لیت</string>
+    <string name="shortcutSelectCard">یک کارت برگزینید</string>
+    <string name="options">گزینه‌ها</string>
+    <string name="starred">نشان‌شده</string>
+    <string name="on_github">روی گیتهاب</string>
+    <string name="and_data_usage">و مصرف داده</string>
+    <string name="rate_this_app">به این برنامه رتبه بدهید</string>
+    <string name="on_google_play">در گوگل‌پلی</string>
+    <string name="archive">بایگانی</string>
+    <string name="updateBalanceHint">مقدار را وارد کنید</string>
+    <string name="currentBalanceSentence">موجودی کنونی: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">موجودی تازه: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">درست از</string>
+    <string name="anyDate">هر تاریخی</string>
+    <string name="validFromSentence">درست از: <xliff:g>%s</xliff:g></string>
+    <string name="switchToFrontImage">به عکس روبه‌رو جابه‌جا کنید</string>
+    <string name="nextCard">پسین</string>
+    <string name="failedToOpenUrl">نخست یک مرورگر وب نصب کنید</string>
+    <string name="updateBalanceTitle">چقدر خرج یا دریافت کردید؟</string>
+    <string name="switchToBarcode">به بارکد جابه‌جا کنید</string>
+    <string name="openFrontImageInGalleryApp">عکس روبه‌رو را در برنامه‌ی گالری باز کنید</string>
+    <string name="add_a_card_in_a_different_way">یک کارت به روشی متفاوت بیافزایید</string>
+    <string name="takePhoto">عکس بگیرید</string>
+    <string name="settings_column_count_7">۷</string>
 </resources>

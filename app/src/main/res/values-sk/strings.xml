@@ -21,10 +21,10 @@
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohovanie vašich údajov umožňuje ich presun na iné zariadenie.</string>
-    <string name="importSuccessfulTitle">Importované</string>
+    <string name="importSuccessfulTitle">Úspešne importované</string>
     <string name="importFailedTitle">Import zlyhal</string>
     <string name="importFailed">Nemožno vykonať import</string>
-    <string name="exportSuccessfulTitle">Exportované</string>
+    <string name="exportSuccessfulTitle">Úspešne exportované</string>
     <string name="exportFailedTitle">Export zlyhal</string>
     <string name="exportFailed">Nemožno vykonať export</string>
     <string name="importing">Importujem…</string>
@@ -33,13 +33,13 @@
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
     <string name="importOptionFilesystemButton">Zo súborového systému</string>
     <string name="about">O aplikácii</string>
-    <string name="app_license">Copyleftovaný slobodný softvér s licenciou GPLv3+</string>
+    <string name="app_license">Slobodný softvér s copyleft licenciou GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="thumbnailDescription">Miniatúra</string>
     <string name="settings">Nastavenia</string>
-    <string name="settings_display_barcode_max_brightness">Zvýrazniť obrazovku zobrazenia čiarových kódov</string>
+    <string name="settings_display_barcode_max_brightness">Zvýšiť jas obrazovky pri zobrazení čiarového kódu</string>
     <string name="deleteTitle">Odstrániť kartu</string>
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
     <string name="star">Pridať k obľúbeným</string>
@@ -50,7 +50,7 @@
     <string name="chooseImportType">Importovať údaje z</string>
     <string name="points">Body</string>
     <string name="currency">Mena</string>
-    <string name="balance">Vyváženie</string>
+    <string name="balance">Zostatok</string>
     <string name="errorReadingImage">Obrázok sa nepodarilo prečítať</string>
     <string name="noBarcodeFound">Nenašiel sa žiadny čiarový kód</string>
     <string name="moveBarcodeToTopOfScreen">Presun čiarového kódu do hornej časti obrazovky</string>
@@ -59,7 +59,7 @@
     <string name="addFromImage">Vyberte obrázok z galérie</string>
     <string name="addManually">Zadajte čiarový kód ručne</string>
     <string name="leaveWithoutSaveConfirmation">Odísť bez uloženia\?</string>
-    <string name="leaveWithoutSaveTitle">Výstup</string>
+    <string name="leaveWithoutSaveTitle">Ukončiť</string>
     <string name="moveDown">Pohyb smerom nadol</string>
     <string name="moveUp">Pohyb smerom nahor</string>
     <string name="failedOpeningFileManager">Najprv nainštalujte správcu súborov.</string>
@@ -71,9 +71,9 @@
     <string name="enter_group_name">Zadajte názov skupiny</string>
     <string name="exportSuccessful">Údaje exportované</string>
     <string name="importSuccessful">Údaje importované</string>
-    <string name="intent_import_card_from_url_share_text">Chcem sa s vami podeliť o pohľadnicu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Zabrániť uzamknutiu obrazovky</string>
-    <string name="settings_keep_screen_on">Nechajte obrazovku zapnutú</string>
+    <string name="intent_import_card_from_url_share_text">Zdieľam kartu</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Nezamykať obrazovku</string>
+    <string name="settings_keep_screen_on">Nevypínať obrazovku</string>
     <string name="unstar">Odstrániť z obľúbených</string>
     <string name="settings_dark_theme">Tmavá</string>
     <string name="settings_light_theme">Svetlá</string>
@@ -107,7 +107,7 @@
     </plurals>
     <string name="group_edit">Upraviť skupinu</string>
     <string name="group_name_already_in_use">Tento názov skupiny sa už používa</string>
-    <string name="group_name_is_empty">Názov skupiny nesmie byť prázdne</string>
+    <string name="group_name_is_empty">Názov skupiny nesmie byť prázdny</string>
     <string name="group_updated">Skupina bola aktualizovaná</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
@@ -168,7 +168,7 @@
     <string name="barcodeId">Hodnota čiarového kódu</string>
     <string name="sameAsCardId">Rovnaké ako ID</string>
     <string name="setBarcodeId">Nastavenie hodnoty čiarového kódu</string>
-    <string name="unsupportedBarcodeType">Tento typ čiarového kódu zatiaľ nie je možné zobraziť. Možno bude podporovaný v neskoršej verzii aplikácie.</string>
+    <string name="unsupportedBarcodeType">Tento typ čiarového kódu zatiaľ nie je možné zobraziť. Možno bude podporovaný v novšej verzii aplikácie.</string>
     <string name="wrongValueForBarcodeType">Hodnota nie je platná pre vybraný typ čiarového kódu</string>
     <string name="frontImageDescription">Obrázok prednej strany</string>
     <string name="backImageDescription">Obrázok zadnej strany</string>
@@ -184,7 +184,7 @@
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>
-    <string name="settings_card_orientation">Orientácia obrazovky čiarového kódu</string>
+    <string name="settings_card_orientation">Orientácia obrazovky</string>
     <string name="settings_lock_on_opening_orientation">Zamknúť na orientáciu použitú pri otváraní karty</string>
     <string name="app_loyalty_card_keychain">Kľúčenka vernostných kariet</string>
     <string name="settings_oled_dark">Čisto čierne pozadie pre tmavú tému</string>
@@ -195,7 +195,7 @@
     <string name="starred">S hviezdičkou</string>
     <string name="duplicateCard">Duplikovať</string>
     <string name="archive">Archivovať</string>
-    <string name="unarchive">Vrátiť z archivu</string>
+    <string name="unarchive">Vrátiť z archívu</string>
     <string name="archived">Karta archivovaná</string>
     <string name="unarchived">Karta vrátená z archívu</string>
     <string name="previousCard">Predošlá</string>
@@ -244,13 +244,13 @@
     <string name="icon_header_click_text">Dlhým stlačením upravíte miniatúru</string>
     <string name="settings_category_title_general">Všeobecné</string>
     <string name="settings_category_title_privacy">Súkromie</string>
-    <string name="settings_keep_screen_on_summary">Zakázanie časového limitu obrazovky počas prezerania karty</string>
-    <string name="settings_display_barcode_max_brightness_summary">Potrebné pre fungovanie niektorých skenerov</string>
+    <string name="settings_keep_screen_on_summary">Ponechať obrazovku aktívnu počas prezerania karty</string>
+    <string name="settings_display_barcode_max_brightness_summary">Pre zaistenie čitateľnosti pre niektoré skenery</string>
     <string name="settings_allow_content_provider_read_summary">Aplikácie budú musieť stále žiadať o povolenie, aby im bol udelený prístup</string>
-    <string name="openBackImageInGalleryApp">Otvorenie spätného obrázka v aplikácii galéria</string>
+    <string name="openBackImageInGalleryApp">Otvorenie zadného obrázka v aplikácii galéria</string>
     <string name="openFrontImageInGalleryApp">Otvorenie predného obrázka v aplikácii galéria</string>
     <string name="setBarcodeHeight">Nastavenie výšky čiarového kódu</string>
-    <string name="show_balance">Ukážte rovnováhu</string>
+    <string name="show_balance">Ukážte zostatok</string>
     <string name="show_name_below_image_thumbnail">Zobraziť názov pod miniatúrou obrázka</string>
     <string name="show_validity">Zobraziť platnosť</string>
     <string name="permissionReadCardsLabel">Načítať Catima karty</string>
@@ -258,14 +258,14 @@
     <string name="switchToBackImage">Prepnutie na zadný obrázok</string>
     <string name="height">Výška</string>
     <string name="switchToFrontImage">Prepnutie na predný obrázok</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakázanie uzamknutia obrazovky počas prezerania karty</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakázanie zamknutia obrazovky počas prezerania karty</string>
     <string name="settings_allow_content_provider_read_title">Povolenie prístupu k mojim údajom iným aplikáciám</string>
-    <string name="settings_oled_dark_summary">Znižuje spotrebu batérie na displejoch OLED</string>
+    <string name="settings_oled_dark_summary">Znižuje spotrebu batérie na obrazovkách typu OLED</string>
     <string name="switchToBarcode">Prepnutie na čiarový kód</string>
     <string name="settings_category_title_cards">Zobrazenie karty</string>
     <string name="donate">Darujte</string>
     <string name="card_id_must_not_be_empty">ID karty nesmie byť prázdne</string>
-    <string name="balanceParsingFailed">Neplatná rovnováha</string>
+    <string name="balanceParsingFailed">Neplatný zostatok</string>
     <string name="add_a_card_in_a_different_way">Pridať kartu iným spôsobom</string>
     <string name="view_online">Zobraziť online</string>
     <string name="manually_enter_barcode_instructions">Zadajte číslo ID alebo text na karte a stlačte čiarový kód, ktorý vyzerá ako ten na vašej karte.</string>
@@ -273,18 +273,18 @@
     <string name="enter_card_id">Zadajte číslo ID alebo text na karte</string>
     <string name="action_display_options">Možnosti zobrazenia</string>
     <string name="addWithoutBarcode">Pridať kartu bez čiarového kódu</string>
-    <string name="app_copyright_short">Copyright © Sylvia van Os a prispievateľov</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os a prispievatelia</string>
     <string name="field_must_not_be_empty">Pole nesmie byť prázdne</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievateľov</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievatelia</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Vždy otáčať (ignoruje nastavenie systému)</string>
+    <string name="settings_follow_sensor_orientation">Vždy otočiť (ignoruje nastavenie systému)</string>
     <string name="continue_">Pokračovať</string>
     <string name="spend">Utratené</string>
     <string name="receive">Prijaté</string>
     <string name="amountParsingFailed">Neplatná hodnota</string>
     <string name="add_manually_warning_title">Skenovanie je odporúčané</string>
-    <string name="add_manually_warning_message">V niektorých obchodoch nie je číslo na cenovke totožné s čiarovým kódom, preto je lepšie zoskenovať čiarový kód. Chcete napriek tomu pokračovať?</string>
+    <string name="add_manually_warning_message">V niektorých obchodoch sa hodnota čiarového kódu líši od čísla uvedeného na karte. Z tohto dôvodu nemusí manuálne zadanie čiarového kódu vždy fungovať. Dôrazne odporúčame naskenovať čiarový kód pomocou fotoaparátu. Chcete napriek tomu pokračovať?</string>
     <string name="addFromPdfFile">Vyberte súbor PDF</string>
     <string name="errorReadingFile">Súbor sa nepodarilo prečítať</string>
     <string name="failedLaunchingFileManager">Nepodarilo sa nájsť podporovaného správcu súborov</string>
@@ -312,6 +312,6 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
     <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass)</string>
-    <string name="settings_use_volume_keys_navigation">Prepínanie kariet pomocou tlačidiel hlasitosti</string>
-    <string name="settings_use_volume_keys_navigation_summary">Zobrazovanú kartu môžete zmeniť pomocou tlačidiel hlasitosti</string>
+    <string name="settings_use_volume_keys_navigation">Zmena kariet pomocou tlačidiel hlasitosti</string>
+    <string name="settings_use_volume_keys_navigation_summary">Pre posúvanie medzi kartami používať tlačidlá hlasitosti</string>
 </resources>

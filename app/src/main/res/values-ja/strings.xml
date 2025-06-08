@@ -242,4 +242,5 @@
     <string name="settings_allow_content_provider_read_title">他のアプリが自分のデータにアクセスすることを許可する</string>
     <string name="permissionReadCardsDescription">Catimaカードと、ノートや画像を含むすべての詳細を読み取る</string>
     <string name="settings_use_volume_keys_navigation_summary">ボリュームボタンを使ってどのカードを表示するかを変更する</string>
+    <string name="unsupportedFile">このファイルはサポートされていません</string>
 </resources>

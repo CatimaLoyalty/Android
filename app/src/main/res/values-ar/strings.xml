@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
     <string name="action_add">أضف</string>
-    <string name="noGiftCards">اضغط على زر الإضافة+ لإضافة بطاقة، أو استورد من ⋮ القائمة.</string>
+    <string name="noGiftCards">اضغط على زر الإضافة + لإضافة بطاقة، أو استورد من ⋮ القائمة.</string>
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
@@ -44,13 +44,13 @@
     <string name="selectBarcodeTitle">اختار الباركود</string>
     <string name="thumbnailDescription">صورة مصغرة</string>
     <string name="starImage">نجم مفضل</string>
-    <string name="settings">اعدادات</string>
-    <string name="settings_light_theme">فاتح</string>
-    <string name="settings_dark_theme">داكن</string>
+    <string name="settings">الإعدادات</string>
+    <string name="settings_light_theme">فاتحة</string>
+    <string name="settings_dark_theme">داكنة</string>
     <string name="settings_card_orientation">اتجاه الشاشة</string>
     <string name="settings_portrait_orientation">الوضع الرأسي</string>
     <string name="settings_landscape_orientation">الوضع الأفقي</string>
-    <string name="settings_theme">مظهر</string>
+    <string name="settings_theme">السمة</string>
     <string name="settings_display_barcode_max_brightness">شاشة ساطعة</string>
     <string name="importSuccessful">تم استيراد البيانات</string>
     <string name="exportSuccessful">تم تصدير البيانات</string>
@@ -63,7 +63,7 @@
     <string name="group_updated">تم تحديث المجموعة</string>
     <string name="all">الكل</string>
     <string name="deleteConfirmationGroup">هل تريد حذف المجموعة؟</string>
-    <string name="failedOpeningFileManager">قم بتثبيت مدير الملفات أولاً.</string>
+    <string name="failedOpeningFileManager">ثبِّت مدير الملفات أولاً.</string>
     <string name="moveUp">تحرك لأعلى</string>
     <string name="addFromImage">حدد صورة من المعرض</string>
     <string name="balance">الرصيد</string>
@@ -74,19 +74,16 @@
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="accept">قبول</string>
     <string name="importCatima">الاستيراد من Catima</string>
-    <string name="importCatimaMessage">حدد ملفك <i>catima.zip</i> تصدير من Catima للاستيراد.
-\nقم بإنشائه من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير هناك أولاً.</string>
+    <string name="importCatimaMessage">حدّد ملفك <i>catima.zip</i> تصدير من Catima للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير هناك أولاً.</string>
     <string name="importFidme">الاستيراد من FidMe</string>
-    <string name="importFidmeMessage">حدد ملفك <i>fidme-export-request-xxxxxx.zip</i> تصدير من FidMe للاستيراد ، ثم حدد أنواع الباركود يدويًا بعد ذلك.
-\nقم بإنشائه من ملف تعريف FidMe الخاص بك عن طريق اختيار حماية البيانات ثم الضغط على استخراج بياناتي أولاً.</string>
+    <string name="importFidmeMessage">حدّد ملفك <i>fidme-export-request-xxxxxx.zip</i> تصدير من FidMe للاستيراد، ثم حدد أنواع الباركود يدويًا بعد ذلك. \nإنشئها من ملف تعريف FidMe الخاص بك عن طريق اختيار حماية البيانات ثم الضغط على استخراج بياناتي أولاً.</string>
     <string name="importStocardMessage">حدد ملفك <i>***.zip</i> تصدير من Stocard للاستيراد.
 \nاحصل عليه عن طريق إرسال بريد إلكتروني إلى support@stocardapp.com لطلب تصدير بياناتك.</string>
     <string name="importVoucherVault">الاستيراد من Voucher Vault</string>
-    <string name="importVoucherVaultMessage">حدد ملفك <i>vouchervault.json</i> تصدير من Voucher Vault للاستيراد.
-\nقم بإنشائه بالضغط على تصدير في Voucher Vault أولاً.</string>
+    <string name="importVoucherVaultMessage">حدّد ملفك <i>vouchervault.json</i> تصدير من Voucher Vault للاستيراد. \nإنشئها بالضغط على تصدير في Voucher Vault أولاً.</string>
     <string name="barcodeId">قيمة الباركود</string>
     <string name="sameAsCardId">نفس بطاقة الهوية</string>
-    <string name="setBarcodeId">قم بتعيين قيمة الباركود</string>
+    <string name="setBarcodeId">عيّن قيمة الباركود</string>
     <string name="unsupportedBarcodeType">لا يمكن عرض نوع الباركود هذا. قد يكون مدعومًا في إصدار أحدث من التطبيق.</string>
     <string name="wrongValueForBarcodeType">القيمة غير صالحة لنوع الباركود المحدد</string>
     <string name="intent_import_card_from_url_share_multiple_text">أريد مشاركة بعض البطاقات معك</string>
@@ -102,9 +99,9 @@
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="passwordRequired">الرجاء إدخال كلمة المرور</string>
-    <string name="exportPassword">قم بتعيين كلمة مرور لحماية التصدير (اختياري)</string>
+    <string name="exportPassword">عيّن كلمة مرور لحماية التصدير (اختياري)</string>
     <string name="exportPasswordHint">أدخل كلمة المرور</string>
-    <string name="turn_flashlight_on">قم بتشغيل المصباح</string>
+    <string name="turn_flashlight_on">شغّل المصباح</string>
     <string name="turn_flashlight_off">أطفئ المصباح</string>
     <string name="settings_locale">لغة</string>
     <string name="settings_system_locale">النظام</string>
@@ -131,7 +128,7 @@
     <string name="shortcutSelectCard">اختر بطاقة</string>
     <string name="options">خيارات</string>
     <string name="starred">مميز بنجمة</string>
-    <string name="include_if_asking_support">إذا كنت ترغب في طلب الدعم ، فقم بتضمين المعلومات التالية:</string>
+    <string name="include_if_asking_support">إذا كنت ترغب في طلب الدعم، ضمّن المعلومات التالية:</string>
     <string name="duplicateCard">كرر</string>
     <string name="archive">ضع الي الأرشيف</string>
     <string name="unarchive">أخرج من الأرشيف</string>
@@ -185,7 +182,7 @@
     <string name="importOptionFilesystemExplanation">اختر ملفًا محددًا من نظام الملفات.</string>
     <string name="about_title_fmt">حول <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">نسخة: <xliff:g id="version">%s</xliff:g></string>
-    <string name="settings_system_theme">نظام</string>
+    <string name="settings_system_theme">النظام</string>
     <string name="settings_lock_on_opening_orientation">قفل على الاتجاه عند فتح البطاقة</string>
     <string name="app_resources">موارد الطرف الثالث الحرة: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_follow_system_orientation">نظام المتابعة</string>
@@ -231,8 +228,7 @@
     <string name="report_error">الإبلاغ عن خطأ</string>
     <string name="sort_by_expiry">انقضاء</string>
     <string name="importLoyaltyCardKeychain">الاستيراد من Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">حدد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد.
-\nقم بإنشائه من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
+    <string name="importLoyaltyCardKeychainMessage">حدّد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
     <string name="importStocard">الاستيراد من Stocard</string>
     <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة. الرجاء الإبلاغ عن هذا.</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
@@ -243,7 +239,7 @@
     <string name="failedToRetrieveImageFile">فشل في استخراج ملف الصورة</string>
     <string name="barcodeLongPressMessage">يمكن فتح صور فقط في تطبيق معرض الصور</string>
     <string name="failedToOpenUrl">ثبت متصفح ويب أولاً</string>
-    <string name="welcome">مرحبا بك في كاتيما</string>
+    <string name="welcome">مرحبًا بك في كاتيما</string>
     <string name="updateBalanceTitle">كم أنفقت أو استلمت؟</string>
     <string name="currentBalanceSentence">الرصيد الحالي: <xliff:g> %s </xliff:g></string>
     <string name="importCards">استيراد البطاقات</string>
@@ -282,7 +278,7 @@
     <string name="setBarcodeHeight">ضبط ارتفاع الباركود</string>
     <string name="openBackImageInGalleryApp">فتح الصورة الخلفية في تطبيق المعرض</string>
     <string name="settings_allow_content_provider_read_title">السماح للتطبيقات الأخرى بالوصول إلى بياناتي</string>
-    <string name="donate">يتبرع</string>
+    <string name="donate">تبرّع</string>
     <string name="show_archived_cards">عرض البطاقات المؤرشفة</string>
     <string name="settings_category_title_privacy">خصوصية</string>
     <string name="show_balance">إظهار التوازن</string>
@@ -313,11 +309,11 @@
     <string name="exportCancelled">تم الغاء الاستخراج</string>
     <string name="useFrontImage">استخدام صورة أمامية</string>
     <string name="useBackImage">استخدم صورة خلفية</string>
-    <string name="addFromPkpass">اختر ملف الدفتر(.pkpass)</string>
+    <string name="addFromPkpass">اختر ملف الدفتر (.pkpass)</string>
     <string name="unsupportedFile">هذا الملف غير مدعوم</string>
     <string name="generic_error_please_retry">نعتذر، حدث خطأ ما، حاول مرة أخرى...</string>
-    <string name="settings_use_volume_keys_navigation">تبديل البطاقات باستخدام أزرار الصوت</string>
-    <string name="settings_use_volume_keys_navigation_summary">تبديل البطاقات الظاهرة باستخدام أزرار الصوت</string>
+    <string name="settings_use_volume_keys_navigation">بدّل البطاقات باستخدام أزرار الصوت</string>
+    <string name="settings_use_volume_keys_navigation_summary">بدّل البطاقات الظاهرة باستخدام أزرار الصوت</string>
     <string name="settings_category_title_cards_overview">نظرة عامة على البطاقات</string>
     <string name="settings_column_count_portrait">الأعمدة في الوضع الرأسي</string>
     <string name="settings_column_count_landscape">الأعمدة في الوضع الأفقي</string>

@@ -143,7 +143,7 @@
     <string name="settings_disable_lockscreen_while_viewing_card">화면 잠금 방지</string>
     <string name="group_updated">그룹 업데이트됨</string>
     <string name="moveBarcodeToTopOfScreen">바코드를 화면 상단으로 이동</string>
-    <string name="height">키</string>
+    <string name="height">키:</string>
     <string name="openFrontImageInGalleryApp">갤러리 앱에서 전면 이미지 열기</string>
     <string name="openBackImageInGalleryApp">갤러리 앱에서 다시 이미지 열기</string>
     <string name="setBarcodeHeight">바코드 높이 설정</string>
@@ -300,4 +300,6 @@
     <string name="settings_automatic_column_count">자동</string>
     <string name="settings_column_count_1">1</string>
     <string name="sort_by_valid_from">유효 기간</string>
+    <string name="width">너비</string>
+    <string name="setBarcodeWidth">바코드 너비를 설정하세요</string>
 </resources>

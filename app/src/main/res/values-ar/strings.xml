@@ -50,7 +50,7 @@
     <string name="settings_card_orientation">اتجاه الشاشة</string>
     <string name="settings_portrait_orientation">الوضع الرأسي</string>
     <string name="settings_landscape_orientation">الوضع الأفقي</string>
-    <string name="settings_theme">السمة</string>
+    <string name="settings_theme">مظهر</string>
     <string name="settings_display_barcode_max_brightness">شاشة ساطعة</string>
     <string name="importSuccessful">تم استيراد البيانات</string>
     <string name="exportSuccessful">تم تصدير البيانات</string>

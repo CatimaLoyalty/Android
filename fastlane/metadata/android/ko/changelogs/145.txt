@@ -1,0 +1,3 @@
+- 안드로이드 15 버전 타켓
+- 편집 화면에서 키보드가 저장 버튼을 가리는 문제 수정
+- 일부 pkpass 파일이 인식되지 않는 문제 수정 (application/vnd-com.apple.pkpass mime 타입 지원 추가)

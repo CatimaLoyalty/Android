@@ -300,4 +300,6 @@
     <string name="settings_automatic_column_count">자동</string>
     <string name="settings_column_count_1">1</string>
     <string name="sort_by_valid_from">유효 기간</string>
+    <string name="width">너비</string>
+    <string name="setBarcodeWidth">바코드 너비를 설정하세요</string>
 </resources>

@@ -7,6 +7,8 @@ Copylefted libre software (GPLv3+) card management app.
 [![F-Droid Version](https://img.shields.io/f-droid/v/me.hackerchick.catima.svg?logo=f-droid&label=F-Droid)](https://f-droid.org/packages/me.hackerchick.catima/)
 [![Google Play Store Version](https://img.shields.io/endpoint?color=blue&logo=google-play&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dme.hackerchick.catima%26l%3DGoogle%2520Play%26m%3D%24version)](https://play.google.com/store/apps/details?id=me.hackerchick.catima)
 
+[![Reproducibility status](https://shields.rbtlog.dev/simple/me.hackerchick.catima)](https://shields.rbtlog.dev/me.hackerchick.catima)
+
 [![Android CI](https://github.com/CatimaLoyalty/Android/actions/workflows/android.yml/badge.svg)](https://github.com/CatimaLoyalty/Android/actions/workflows/android.yml)
 [![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)
 

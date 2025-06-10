@@ -306,4 +306,6 @@
     <string name="unsupportedFile">Tämä tiedosto ei ole tuettu</string>
     <string name="generic_error_please_retry">Pahoittelut, jokin meni pieleen. Yritä uudelleen...</string>
     <string name="sort_by_valid_from">Voimassa alkaen</string>
+    <string name="width">Leveys</string>
+    <string name="setBarcodeWidth">Aseta viivakoodin leveys</string>
 </resources>

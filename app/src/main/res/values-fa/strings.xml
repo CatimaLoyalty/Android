@@ -274,7 +274,7 @@
     <string name="updateBalanceHint">مقدار را وارد کنید</string>
     <string name="currentBalanceSentence">موجودی کنونی: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">موجودی تازه: <xliff:g>%s</xliff:g></string>
-    <string name="validFromDate">درست از</string>
+    <string name="validFromDate">معتبر از</string>
     <string name="anyDate">هر تاریخی</string>
     <string name="validFromSentence">درست از: <xliff:g>%s</xliff:g></string>
     <string name="switchToFrontImage">به عکس روبه‌رو جابه‌جا کنید</string>
@@ -286,4 +286,5 @@
     <string name="add_a_card_in_a_different_way">یک کارت به روشی متفاوت بیافزایید</string>
     <string name="takePhoto">عکس بگیرید</string>
     <string name="settings_column_count_7">۷</string>
+    <string name="manually_enter_barcode_instructions">شماره شناسایی یا متنی که روی کارت شماست را وارد کنید و بارکدی را که شبیه بارکد روی کارت شماست فشار دهید.</string>
 </resources>

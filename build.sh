@@ -39,13 +39,13 @@ else
     KEYSTORE_ALIAS=catima
   fi
 
-  apksigner_version="$(ls -1 "$HOME/Android/Sdk/build-tools/" | tail -n 1)"
+  apksigner_version="$(ls -1 "$ANDROID_SDK_ROOT/build-tools/" | tail -n 1)"
 
   for flavourDir in $flavourDirs; do
     flavourName="$(basename "$flavourDir")"
     echo "Signing $flavourName flavour..."
     cp "$flavourDir/release/app-$flavourName-release-unsigned.apk" "$flavourDir/release/app-$flavourName-release.apk"
-    "$HOME/Android/Sdk/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" "$flavourDir/release/app-$flavourName-release.apk"
+    "$ANDROID_SDK_ROOT/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" "$flavourDir/release/app-$flavourName-release.apk"
 
     echo "Build finished (signed)"
     echo "Your $flavourName flavour is at $flavourDir/release/app-$flavourName-release.apk"

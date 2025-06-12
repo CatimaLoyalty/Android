@@ -5,9 +5,9 @@ IFS=$'\n\t'
 ### build.sh
 ### Builds Catima the same way rbtlog/IzzyOnDroid does for reproducible builds
 
-if [ -z "${ANDROID_SDK_ROOT:-}" ]; then
-  echo "ANDROID_SDK_ROOT is not set, setting to $HOME/Android/Sdk";
-  export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+if [ -z "${ANDROID_HOME:-}" ]; then
+  echo "ANDROID_HOME is not set, setting to $HOME/Android/Sdk";
+  export ANDROID_HOME=$HOME/Android/Sdk
 fi
 
 if [ -z "${JAVA_HOME:-}" ]; then
@@ -39,13 +39,13 @@ else
     KEYSTORE_ALIAS=catima
   fi
 
-  apksigner_version="$(ls -1 "$ANDROID_SDK_ROOT/build-tools/" | tail -n 1)"
+  apksigner_version="$(ls -1 "$ANDROID_HOME/build-tools/" | tail -n 1)"
 
   for flavourDir in $flavourDirs; do
     flavourName="$(basename "$flavourDir")"
     echo "Signing $flavourName flavour..."
     cp "$flavourDir/release/app-$flavourName-release-unsigned.apk" "$flavourDir/release/app-$flavourName-release.apk"
-    "$ANDROID_SDK_ROOT/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" "$flavourDir/release/app-$flavourName-release.apk"
+    "$ANDROID_HOME/build-tools/$apksigner_version/apksigner" sign -v --ks "$KEYSTORE" --ks-key-alias "$KEYSTORE_ALIAS" "$flavourDir/release/app-$flavourName-release.apk"
 
     echo "Build finished (signed)"
     echo "Your $flavourName flavour is at $flavourDir/release/app-$flavourName-release.apk"

@@ -225,7 +225,7 @@
     <string name="wrongValueForBarcodeType">مقدار برای نوع بارکد برگزیده درست نیست</string>
     <string name="setBackImage">عکس پشتِ‌سر را بگذارید</string>
     <string name="removeImage">عکس را برچینید</string>
-    <string name="passwordRequired">لطفن گذرواژه را وارد کنید.</string>
+    <string name="passwordRequired">لطفا گذرواژه را وارد کنید</string>
     <string name="previousCard">پیشین</string>
     <string name="turn_flashlight_off">چراغ‌قوه را خاموش کنید</string>
     <string name="settings_pink_theme">صورتی</string>
@@ -287,4 +287,19 @@
     <string name="takePhoto">عکس بگیرید</string>
     <string name="settings_column_count_7">۷</string>
     <string name="manually_enter_barcode_instructions">شماره شناسایی یا متنی که روی کارت شماست را وارد کنید و بارکدی را که شبیه بارکد روی کارت شماست فشار دهید.</string>
+    <string name="failedLaunchingFileManager">نتوانستم یک مدیر فایل پشتیبانی‌شده پیدا کنم</string>
+    <string name="useFrontImage">از تصویر جلو استفاده کنید</string>
+    <string name="useBackImage">از تصویر پشت استفاده کنید</string>
+    <string name="pageWithNumber">صفحه <xliff:g>%d</xliff:g></string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">از کدام یک از بارکدهای پیدا شده می‌خواهید استفاده کنید؟</string>
+    <string name="width">عرض</string>
+    <string name="setBarcodeWidth">تنظیم عرض بارکد</string>
+    <string name="unsupportedFile">این فایل پشتیبانی نمی‌شود</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> کارت (<xliff:g id="archivedCount">%2$d</xliff:g> بایگانی شده)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> کارت‌ (<xliff:g id="archivedCount">%2$d</xliff:g> بایگانی شده‌)</item>
+    </plurals>
+    <string name="spend">خرج کردن</string>
+    <string name="addFromPkpass">یک فایل دفترچه حساب (.pkpass) انتخاب کنید</string>
+    <string name="noCameraFoundGuideText">به نظر نمی‌رسد دستگاه شما دوربین داشته باشد. اگر دارد، دستگاه را مجدداً راه‌اندازی کنید. در غیر این صورت، از دکمه گزینه‌های بیشتر در زیر برای افزودن بارکد به روش دیگری استفاده کنید.</string>
 </resources>

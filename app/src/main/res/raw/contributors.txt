@@ -32,12 +32,12 @@ Silvério Santos
 ikanakova
 Giovanni Donisi
 HudobniVolk
-Nyatsuki
 Jiri Grönroos
-Balázs Meskó
-Milo Ivir
-josé m
+Nyatsuki
 Samantaz Fox
+josé m
+Milo Ivir
+Balázs Meskó
 Arno-github
 Ankit Tiwari
 Cliff Heraldo
@@ -60,27 +60,27 @@ Robin
 JungHee Lee
 hajertabbane
 Ziad OUALHADJ
+Denis Shilin
 Robin Liu
 Renko
-Denis Shilin
 しいたけ
 Alexander Ivanov
-Viet Nguyen Hoang
 Miha Frangež
+Viet Nguyen Hoang
 stavpup
 ehrt74
 Warder
 Virginie
 Tim Trek
 GitSpoon
-MisterCosta96
-arshbeerSingh
-Aliaksandr Trush
-Augustin LAVILLE
-Freddo espresso
-Govind S Nair
-Kim Seohyun
 Ricky Tigg
-rudy3
-Michael Gangolf
 Peter Dave Hello
+Michael Gangolf
+rudy3
+Kim Seohyun
+Govind S Nair
+Freddo espresso
+Augustin LAVILLE
+arshbeerSingh
+MisterCosta96
+Aliaksandr Trush

@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.35.1 - 149 (2025-06-17)
+
+- Dependency and translation updates
+
 ## v2.35.0 - 148 (2025-05-17)
 
 - Add ability to choose barcode width in fullscreen view

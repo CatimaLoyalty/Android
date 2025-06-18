@@ -10,4 +10,4 @@
 7. Upload `app/build/outputs/apk/gplay/release/app-gplay-release.apk` to Google Play Open Testing
 8. Push the version update commit: `git push`
 9. Create a new release on GitHub and attach the `app/build/outputs/apk/foss/release/app-foss-release.apk` and `SHA256SUMS` files
-10. After the release has been approved on Google Play Production, update the metadata there: `bundle exec fastlane supply --version_code <VERSION_CODE>`
+10. When pushing the release to Google Play Production, update the metadata there: `bundle exec fastlane supply --version_code <VERSION_CODE>`

@@ -1,0 +1,4 @@
+- Adicionar capacidade de escolher a largura de código de barras na visualização em ecrã cheio
+- Remover a confusão da função importar da app
+- Várias correções de digitalização
+- Corrigir travar ao carregar um ficheiro de pkpass sem código de barras

@@ -1,0 +1,4 @@
+- Alterar a coluna padrão em ecrãs largas para 4
+- Permitir substituir a contagem de colunas para retrato e paisagem em configurações
+- Manter o filtro de pesquisa do ecrã principal ao girar o ecrã ou abrir um cartão
+- Limitar o comprimento máximo de exibição de nota no ecrã principal

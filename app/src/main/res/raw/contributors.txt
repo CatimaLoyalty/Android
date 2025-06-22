@@ -25,19 +25,19 @@ Priit Jõerüüt
 Taco
 Edgars Andersons
 nadiafekihahmed
+Silvério Santos
 pfaffenrodt
 Aayush Gupta
 Scrambled777
-Silvério Santos
 ikanakova
 Giovanni Donisi
 HudobniVolk
-Jiri Grönroos
 Nyatsuki
+Jiri Grönroos
 Samantaz Fox
-josé m
-Milo Ivir
 Balázs Meskó
+Milo Ivir
+josé m
 Arno-github
 Ankit Tiwari
 Cliff Heraldo
@@ -49,30 +49,30 @@ Milan Šalka
 huuhaa
 Skrripy
 Kachelkaiser
+Fjuro
 Projjal Moitra
 Quentin PAGÈS
 Vasilis
 ngocanhtve
 waffshappen
 Marnick L'Eau
-Fjuro
 Robin
 JungHee Lee
 hajertabbane
 Ziad OUALHADJ
-Denis Shilin
+GitSpoon
 Robin Liu
 Renko
+Denis Shilin
 しいたけ
 Alexander Ivanov
-Miha Frangež
 Viet Nguyen Hoang
+Miha Frangež
 stavpup
 ehrt74
 Warder
 Virginie
 Tim Trek
-GitSpoon
 Ricky Tigg
 Peter Dave Hello
 Michael Gangolf
@@ -81,6 +81,6 @@ Kim Seohyun
 Govind S Nair
 Freddo espresso
 Augustin LAVILLE
+Aliaksandr Trush
 arshbeerSingh
 MisterCosta96
-Aliaksandr Trush

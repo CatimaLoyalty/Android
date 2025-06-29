@@ -593,8 +593,11 @@ public class Utils {
 
         double width = bitmap.getWidth();
         double height = bitmap.getHeight();
-        // early exit
-        if (Math.max(width, height) <= maxSize) return bitmap;
+
+        // Early exit
+        if (Math.max(width, height) <= maxSize) {
+            return bitmap;
+        }
 
         if (height > width) {
             double scale = height / maxSize;

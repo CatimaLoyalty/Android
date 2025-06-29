@@ -2,32 +2,35 @@ name: Update Gradle Wrapper
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Every Sunday midnight
-  workflow_dispatch:
+    - cron: '0 0 * * 0' # sunday midnight
+  workflow_dispatch: 
 
 jobs:
   update-gradle:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Update Gradle Wrapper
-        uses: gradle/actions/wrapper-validation-action@v1
-
-      - name: Run Gradle Wrapper Upgrade
-        run: ./gradlew wrapper --gradle-version latest
-
-      - name: Commit changes
+      - name: Set up OpenJDK 21
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add gradle/wrapper/gradle-wrapper.properties
-          git commit -m "chore: update Gradle wrapper to latest version" || echo "No changes"
-          git push origin HEAD
+          sudo apt-get update
+          sudo apt-get install -y openjdk-21-jdk-headless
+          sudo update-alternatives --auto java
+          java -version
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Upgrade Gradle wrapper
+        run: |
+          version=$(./gradlew -q wrapper --version | grep 'Gradle' | awk '{print $2}')
+          ./gradlew wrapper --gradle-version=latest --distribution-type=all
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update Gradle wrapper to latest version'
+          branch: ${{ github.ref }}
+          file_pattern: '**/gradle/wrapper/* gradle/wrapper.properties'

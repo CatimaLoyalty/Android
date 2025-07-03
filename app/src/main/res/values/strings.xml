@@ -364,5 +364,6 @@
     <string name="width">Width</string>
     <string name="widget_description">Card list</string>
     <string name="setBarcodeWidth">Set Barcode Width</string>
+    <string name="no_loyalty_cards">No loyalty cards</string>
 
 </resources>

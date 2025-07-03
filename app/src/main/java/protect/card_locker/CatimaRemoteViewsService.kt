@@ -8,11 +8,14 @@ import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.os.Build
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.annotation.RequiresApi
 import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
+import kotlin.math.max
+
 
 
 class CatimaWidgetRemoteViewsFactory(private var context: Context) :
@@ -67,7 +70,7 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
     override fun onDestroy() {}
 
     override fun getCount(): Int {
-        return mCards.count()
+        return max(1, mCards.count())
     }
 
     @RequiresApi(23)
@@ -105,6 +108,22 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun getViewAt(position: Int): RemoteViews {
+        if (mCards.isEmpty()) {
+            return RemoteViews(context.packageName, R.layout.catima_widget_item).apply {
+                setImageViewBitmap(R.id.item_image, null)
+                setTextViewText(R.id.item_text, context.getString(R.string.no_loyalty_cards))
+                setTextViewTextSize(R.id.item_text, TypedValue.COMPLEX_UNIT_DIP, 25F);
+                setViewVisibility(R.id.item_text, View.VISIBLE)
+                setViewVisibility(R.id.item_image, View.INVISIBLE)
+                setInt(R.id.item_container, "setBackgroundColor",  Color.WHITE)
+                setTextColor(
+                    R.id.item_text,
+                    Color.BLACK
+                )
+
+            }
+        }
+
         val item = mCards[position]
         return createRemoteView(item)
     }

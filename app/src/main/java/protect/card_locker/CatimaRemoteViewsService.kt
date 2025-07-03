@@ -52,7 +52,7 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
             null,
             mOrder,
             mOrderDirection,
-            LoyaltyCardArchiveFilter.All
+            LoyaltyCardArchiveFilter.Unarchived
         )
 
         mCards.clear()
@@ -77,15 +77,9 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
         ).apply {
             val backColor = Utils.getHeaderColor(context, item)
             setInt(R.id.item_container, "setBackgroundColor", backColor)
-
             val icon = item.getImageThumbnail(context)
             if (icon != null) {
-                Log.e(
-                    "RV",
-                    String.format("Icon %s size: %dx%d %d", item.store, icon.width, icon.height, icon.byteCount)
-                )
-                //setImageViewBitmap(R.id.item_image, icon)   //not working?? image not changing after reorder cards!!
-                setImageViewIcon(R.id.item_image, Icon.createWithBitmap(icon))   //working?? image is changing every time ok !!
+                setImageViewIcon(R.id.item_image, Icon.createWithBitmap(icon))
                 setViewVisibility(R.id.item_text, View.INVISIBLE)
                 setViewVisibility(R.id.item_image, View.VISIBLE)
             } else {
@@ -100,7 +94,7 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
             }
 
             val fillInIntent = Intent().apply {
-                putExtra("item_id", item.id)
+                putExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID, item.id)
             }
 
             setOnClickFillInIntent(R.id.item_container, fillInIntent)
@@ -112,7 +106,6 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
     @RequiresApi(Build.VERSION_CODES.M)
     override fun getViewAt(position: Int): RemoteViews {
         val item = mCards[position]
-        Log.d("RV", "Item "+item.store+" id "+item.id.toString()+" at pos "+position.toString())
         return createRemoteView(item)
     }
 

@@ -1026,8 +1026,7 @@ public class Utils {
 
         if (icon != null) {
             // Use header colour to decide if this image will need a white or black background
-            //backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            backgroundOrIcon.setBackgroundColor(headerColor);
+            backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
             // Ensure correct cropping style
             backgroundOrIcon.setScaleType(Utils.getRecommendedScaleTypeForThumbnailImage(icon));

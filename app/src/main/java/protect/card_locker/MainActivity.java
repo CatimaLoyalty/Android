@@ -556,8 +556,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
     private void onOpenItemExtra(Intent intent)
     {
-        if (intent != null && (intent.hasExtra("item_id"))) {
-            int itemId = intent.getIntExtra("item_id", -1);
+        if (intent != null && (intent.hasExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID))) {
+            int itemId = intent.getIntExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID, -1);
             if (itemId >=0) {
                openLoyalityCardFromWidget(itemId);
             }

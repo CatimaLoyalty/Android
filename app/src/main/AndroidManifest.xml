@@ -30,7 +30,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:localeConfig="@xml/locales_config">
-        <activity
+        
+         <receiver
+            android:name="CatimaWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/catima_widget_info" />
+        </receiver>
+
+           <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
@@ -203,5 +216,9 @@
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
+
+        <service
+            android:name=".CatimaRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 </manifest>

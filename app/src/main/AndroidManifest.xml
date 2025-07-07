@@ -31,8 +31,9 @@
         android:theme="@style/AppTheme"
         android:localeConfig="@xml/locales_config">
         
-         <receiver
+        <receiver
             android:name="CatimaWidget"
+            android:label="@string/card_list_widget_name"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -41,9 +42,9 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/catima_widget_info" />
-        </receiver>
+         </receiver>
 
-           <activity
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">

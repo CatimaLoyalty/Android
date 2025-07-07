@@ -97,7 +97,7 @@ class CatimaWidgetRemoteViewsFactory(private var context: Context) :
             }
 
             val fillInIntent = Intent().apply {
-                putExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID, item.id)
+                putExtra(LoyaltyCardViewActivity.BUNDLE_ID, item.id)
             }
 
             setOnClickFillInIntent(R.id.item_container, fillInIntent)

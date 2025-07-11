@@ -308,8 +308,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         });
-
-        onOpenItemExtra(getIntent());
     }
 
     @Override
@@ -334,22 +332,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
 
         // Restore sort preferences from Shared Preferences
-        // If one of the sorting prefererences has never been set or is set to an invalid value,
-        // stick to the defaults.
-        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_sort),
-                Context.MODE_PRIVATE);
-
-        String orderString = sortPref.getString(getString(R.string.sharedpreference_sort_order), null);
-        String orderDirectionString = sortPref.getString(getString(R.string.sharedpreference_sort_direction), null);
-
-        if (orderString != null && orderDirectionString != null) {
-            try {
-                mOrder = DBHelper.LoyaltyCardOrder.valueOf(orderString);
-                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(orderDirectionString);
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
+        mOrder = Utils.getLoyaltyCardOrder(this);
+        mOrderDirection = Utils.getLoyaltyCardOrderDirection(this);
 
         mGroup = null;
 
@@ -449,11 +433,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         updateWidget(mAdapter.mContext);
     }
+
     private void updateWidget(Context context) {
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
         int[] ids = manager.getAppWidgetIds(new ComponentName(context, CatimaWidget.class));
         manager.notifyAppWidgetViewDataChanged(ids, R.id.grid_view);
     }
+
     private void processParseResultList(List<ParseResult> parseResultList, String group, boolean closeAppOnNoBarcode) {
         if (parseResultList.isEmpty()) {
             throw new IllegalArgumentException("parseResultList may not be empty");
@@ -537,32 +523,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         onSharedIntent(intent);
     }
 
-    private void openLoyalityCardFromWidget(int itemId)
-    {
-        DBHelper.updateLoyaltyCardLastUsed(mDatabase, itemId);
-        Intent clickIntent = new Intent(this, LoyaltyCardViewActivity.class);
-        clickIntent.setAction("");
-        final Bundle b = new Bundle();
-        b.putInt(LoyaltyCardViewActivity.BUNDLE_ID, itemId);
-
-        ArrayList<Integer> cardList = new ArrayList<>();
-        for (int i = 0; i < mAdapter.getItemCount(); i++) {
-            cardList.add(mAdapter.getCard(i).id);
-        }
-
-        b.putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList);
-        clickIntent.putExtras(b);
-        startActivity(clickIntent);
-    }
-    private void onOpenItemExtra(Intent intent)
-    {
-        if (intent != null && (intent.hasExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID))) {
-            int itemId = intent.getIntExtra(LoyaltyCard.BUNDLE_LOYALTY_CARD_ID, -1);
-            if (itemId >=0) {
-               openLoyalityCardFromWidget(itemId);
-            }
-        }
-    }
     public void updateTabGroups(TabLayout groupsTabLayout) {
         List<Group> newGroups = DBHelper.getGroups(mDatabase);
 
@@ -599,13 +559,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (mSearchView != null) {
             outState.putString(STATE_SEARCH_QUERY, finalQuery);
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        onOpenItemExtra(intent);
-
     }
 
     @Override

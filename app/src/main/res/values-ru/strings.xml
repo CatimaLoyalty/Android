@@ -320,5 +320,4 @@
     <string name="sort_by_valid_from">Начало действия</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Указать ширину штрих-кода</string>
-    <string name="no_loyalty_cards">Нет карт</string>
 </resources>

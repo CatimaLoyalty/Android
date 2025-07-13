@@ -218,9 +218,5 @@
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
-
-        <service
-            android:name=".CatimaRemoteViewsService"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 </manifest>

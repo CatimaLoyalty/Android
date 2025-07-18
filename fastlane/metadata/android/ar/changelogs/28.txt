@@ -1,0 +1,5 @@
+- أُضيفت ترجمات
+  - اللغة البولندية (طلب سحب رقم 232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - اللغة الإسبانية (طلب سحب رقم 232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - اللغة السلوفاكية (طلب سحب رقم 232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- حدثت الترجمات (طلب سحب رقم 239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

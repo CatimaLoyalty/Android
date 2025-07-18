@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -680,7 +681,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                askBeforeQuitIfChanged();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                View view = getCurrentFocus();
+                if (view != null && imm.isAcceptingText()) {
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    view.clearFocus();
+                }
+                else {
+                    askBeforeQuitIfChanged();
+                }
             }
         });
     }
@@ -1514,7 +1523,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            askBeforeQuitIfChanged();
+            getOnBackPressedDispatcher().onBackPressed();
             return true;
         }
 

@@ -120,6 +120,7 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.test.ext:junit-ktx:1.2.1")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     // Compose
@@ -130,6 +131,9 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview-android")
+    androidTestImplementation ("androidx.compose.ui:ui-test-junit4")
+    debugImplementation ("androidx.compose.ui:ui-test-manifest")
+    testImplementation ("androidx.compose.ui:ui-test-junit4:1.5.0")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
@@ -152,6 +156,8 @@ dependencies {
     androidTestImplementation("androidx.test:runner:$androidXTestVersion")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    testImplementation ("org.mockito:mockito-core:5.12.0")
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:5.3.1")
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

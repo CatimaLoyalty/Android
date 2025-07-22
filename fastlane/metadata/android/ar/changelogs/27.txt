@@ -1,0 +1,2 @@
+- تقليل الحد الأدنى لإصدار مجموعة أدوات مطوري البرامج من 17 إلى 15. (طلب سحب رقم 226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- إزالة إستخدام مكتبة apache الموروثة, أستخدمت فقط في مرحلة أختبار الوحدة ولم تعد مطلوبة.(طلب سحب رقم 225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

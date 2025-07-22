@@ -23,8 +23,8 @@ Petr Novák
 laralem
 Priit Jõerüüt
 Silvério Santos
-Edgars Andersons
 Taco
+Edgars Andersons
 nadiafekihahmed
 pfaffenrodt
 Aayush Gupta
@@ -54,8 +54,8 @@ Projjal Moitra
 Quentin PAGÈS
 Vasilis
 ngocanhtve
-Marnick L'Eau
 waffshappen
+Marnick L'Eau
 Robin
 JungHee Lee
 hajertabbane
@@ -67,8 +67,8 @@ Renko
 Denis Shilin
 しいたけ
 Alexander Ivanov
-Miha Frangež
 Viet Nguyen Hoang
+Miha Frangež
 stavpup
 ehrt74
 Virginie
@@ -81,6 +81,6 @@ Kim Seohyun
 Govind S Nair
 Freddo espresso
 Augustin LAVILLE
+Aliaksandr Trush
 arshbeerSingh
 MisterCosta96
-Aliaksandr Trush

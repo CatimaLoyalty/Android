@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -45,6 +44,9 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -298,7 +300,27 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         super.onCreate(savedInstanceState);
         binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Utils.applyWindowInsets(binding.getRoot());
+        
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            layoutParams.leftMargin = insets.left;
+            layoutParams.bottomMargin = insets.bottom;
+            layoutParams.rightMargin = insets.right;
+            layoutParams.topMargin = insets.top;
+            view.setLayoutParams(layoutParams);
+            
+            // Keyboard (IME)
+            // This is required to move the save FAB above the keyboard when keyboard is open
+            Insets imeInsets = windowInsets.getInsets(WindowInsetsCompat.Type.ime());
+            boolean isKeyboardVisible = windowInsets.isVisible(WindowInsetsCompat.Type.ime());
+            binding.fabSave.setTranslationY(isKeyboardVisible ? (- imeInsets.bottom) : 0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                getWindow().setDecorFitsSystemWindows(!isKeyboardVisible);
+            }
+            
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         viewModel = new ViewModelProvider(this).get(LoyaltyCardEditActivityViewModel.class);
 
@@ -681,15 +703,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                View view = getCurrentFocus();
-                if (view != null && imm.isAcceptingText()) {
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                    view.clearFocus();
-                }
-                else {
-                    askBeforeQuitIfChanged();
-                }
+                askBeforeQuitIfChanged();
             }
         });
     }
@@ -1523,7 +1537,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            getOnBackPressedDispatcher().onBackPressed();
+            askBeforeQuitIfChanged();
             return true;
         }
 

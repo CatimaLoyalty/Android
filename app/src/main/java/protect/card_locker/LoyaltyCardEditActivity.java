@@ -300,27 +300,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         super.onCreate(savedInstanceState);
         binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
-        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            layoutParams.leftMargin = insets.left;
-            layoutParams.bottomMargin = insets.bottom;
-            layoutParams.rightMargin = insets.right;
-            layoutParams.topMargin = insets.top;
-            view.setLayoutParams(layoutParams);
-            
-            // Keyboard (IME)
-            // This is required to move the save FAB above the keyboard when keyboard is open
-            Insets imeInsets = windowInsets.getInsets(WindowInsetsCompat.Type.ime());
-            boolean isKeyboardVisible = windowInsets.isVisible(WindowInsetsCompat.Type.ime());
-            binding.fabSave.setTranslationY(isKeyboardVisible ? (- imeInsets.bottom) : 0);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                getWindow().setDecorFitsSystemWindows(!isKeyboardVisible);
-            }
-            
-            return WindowInsetsCompat.CONSUMED;
-        });
+        Utils.applyWindowInsetsAndFabOffset(getWindow(), binding.getRoot(), binding.fabSave);
 
         viewModel = new ViewModelProvider(this).get(LoyaltyCardEditActivityViewModel.class);
 

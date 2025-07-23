@@ -50,6 +50,7 @@ import androidx.palette.graphics.Palette;
 
 import com.google.android.material.color.DynamicColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -1136,6 +1137,30 @@ public class Utils {
             layoutParams.topMargin = insets.top;
             view.setLayoutParams(layoutParams);
 
+            return WindowInsetsCompat.CONSUMED;
+        });
+    }
+    
+    public static void applyWindowInsetsAndFabOffset(Window window, View root, FloatingActionButton fab) {
+        /* This function basically fakes the activity being edge-to-edge. Useful for those activities that are really hard to get to behave well */
+        ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            layoutParams.leftMargin = insets.left;
+            layoutParams.bottomMargin = insets.bottom;
+            layoutParams.rightMargin = insets.right;
+            layoutParams.topMargin = insets.top;
+            view.setLayoutParams(layoutParams);
+            
+            // This is required to move the FAB above the keyboard when keyboard is open
+            Insets imeInsets = windowInsets.getInsets(WindowInsetsCompat.Type.ime());
+            boolean isKeyboardVisible = windowInsets.isVisible(WindowInsetsCompat.Type.ime());
+            fab.setTranslationY(isKeyboardVisible ? (- imeInsets.bottom) : 0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.setDecorFitsSystemWindows(!isKeyboardVisible);
+            }
+            
             return WindowInsetsCompat.CONSUMED;
         });
     }

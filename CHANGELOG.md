@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 150
+
+- Made it harder to accidentally close edit view
+
 ## v2.35.1 - 149 (2025-06-17)
 
 - Dependency and translation updates

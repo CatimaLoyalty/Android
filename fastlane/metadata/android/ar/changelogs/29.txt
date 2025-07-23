@@ -1,0 +1,2 @@
+- إصلاح الترجمة الإسبانية (طلب سحب رقم 224 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+- تحديث الترجمات (طلب سحب رقم 224 (https://github.com/brarcher/loyalty-card-locker/pull/244))

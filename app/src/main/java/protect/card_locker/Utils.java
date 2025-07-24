@@ -1157,9 +1157,6 @@ public class Utils {
             Insets imeInsets = windowInsets.getInsets(WindowInsetsCompat.Type.ime());
             boolean isKeyboardVisible = windowInsets.isVisible(WindowInsetsCompat.Type.ime());
             fab.setTranslationY(isKeyboardVisible ? (- imeInsets.bottom) : 0);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                window.setDecorFitsSystemWindows(!isKeyboardVisible);
-            }
             
             return WindowInsetsCompat.CONSUMED;
         });

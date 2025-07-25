@@ -1141,8 +1141,8 @@ public class Utils {
         });
     }
     
-    public static void applyWindowInsetsAndFabOffset(Window window, View root, FloatingActionButton fab) {
-        /* This function basically fakes the activity being edge-to-edge. Useful for those activities that are really hard to get to behave well */
+    public static void applyWindowInsetsAndFabOffset(View root, FloatingActionButton fab) {
+        /* This function is a copy of applyWindowInsets, with the added behaviour that it ensures the FAB will be displayed vertically above the keyboard at all times */
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
             

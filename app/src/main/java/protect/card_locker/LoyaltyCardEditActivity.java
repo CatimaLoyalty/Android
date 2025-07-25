@@ -300,7 +300,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         super.onCreate(savedInstanceState);
         binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Utils.applyWindowInsetsAndFabOffset(getWindow(), binding.getRoot(), binding.fabSave);
+        Utils.applyWindowInsetsAndFabOffset(binding.getRoot(), binding.fabSave);
 
         viewModel = new ViewModelProvider(this).get(LoyaltyCardEditActivityViewModel.class);
 

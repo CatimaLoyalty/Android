@@ -75,7 +75,8 @@
         <activity
             android:name=".ManageGroupActivity"
             android:label="@string/group_edit"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:exported="true"
@@ -83,7 +84,8 @@
         <activity
             android:name=".LoyaltyCardEditActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter
                 android:autoVerify="true"
                 android:label="@string/app_name">

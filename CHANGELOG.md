@@ -2,7 +2,7 @@
 
 ## Unreleased - 150
 
-- Made it harder to accidentally close edit view
+- Prevent the keyboard from overlapping the save button in edit and group screens
 
 ## v2.35.1 - 149 (2025-06-17)
 

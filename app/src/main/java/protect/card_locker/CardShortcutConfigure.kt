@@ -1,111 +1,96 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.database.sqlite.SQLiteDatabase
+import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.view.MenuProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import protect.card_locker.LoyaltyCardCursorAdapter.CardAdapterListener
+import protect.card_locker.databinding.CardShortcutConfigureActivityBinding
+import protect.card_locker.preferences.Settings
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.pm.ShortcutInfoCompat;
-import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-
-import protect.card_locker.databinding.CardShortcutConfigureActivityBinding;
-import protect.card_locker.preferences.Settings;
-
-/**
- * The configuration screen for creating a shortcut.
- */
-public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
-    private CardShortcutConfigureActivityBinding binding;
-    static final String TAG = "Catima";
-    private SQLiteDatabase mDatabase;
-    private LoyaltyCardCursorAdapter mAdapter;
-
-    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        binding = CardShortcutConfigureActivityBinding.inflate(getLayoutInflater());
-        mDatabase = new DBHelper(this).getReadableDatabase();
-
-        // Set the result to CANCELED.  This will cause nothing to happen if the
-        // aback button is pressed.
-        setResult(RESULT_CANCELED);
-
-        setContentView(binding.getRoot());
-        Utils.applyWindowInsets(binding.getRoot());
-        Toolbar toolbar = binding.toolbar;
-        toolbar.setTitle(R.string.shortcutSelectCard);
-        setSupportActionBar(toolbar);
-
+class CardShortcutConfigure : CatimaAppCompatActivity(), CardAdapterListener, MenuProvider {
+    
+    private lateinit var binding: CardShortcutConfigureActivityBinding
+    private lateinit var mDatabase: SQLiteDatabase
+    private lateinit var mAdapter: LoyaltyCardCursorAdapter
+    
+    companion object {
+        const val TAG: String = "Catima"
+    }
+    
+    public override fun onCreate(savedInstanceBundle: Bundle?) {
+        super.onCreate(savedInstanceBundle)
+        addMenuProvider(this)
+        binding = CardShortcutConfigureActivityBinding.inflate(layoutInflater)
+        mDatabase = DBHelper(this).readableDatabase
+        
+        // Set the result to CANCELED.
+        // This will cause nothing to happen if the back button is pressed.
+        setResult(RESULT_CANCELED)
+        
+        setContentView(binding.getRoot())
+        Utils.applyWindowInsets(binding.getRoot())
+        
+        binding.toolbar.apply {
+            setTitle(R.string.shortcutSelectCard)
+            setSupportActionBar(this)
+        }
+        
         // If there are no cards, bail
-        int cardCount = DBHelper.getLoyaltyCardCount(mDatabase);
-        if (cardCount == 0) {
-            Toast.makeText(this, R.string.noCardsMessage, Toast.LENGTH_LONG).show();
-            finish();
+        if (DBHelper.getLoyaltyCardCount(mDatabase) == 0) {
+            Toast.makeText(this, R.string.noCardsMessage, Toast.LENGTH_LONG).show()
+            finish()
         }
-
-        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this, null);
-        binding.list.setAdapter(mAdapter);
+        
+        val cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All)
+        mAdapter = LoyaltyCardCursorAdapter(this, cardCursor, this, null)
+        binding.list.setAdapter(mAdapter)
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        var layoutManager = (GridLayoutManager) binding.list.getLayoutManager();
-        if (layoutManager != null) {
-            var settings = new Settings(this);
-            layoutManager.setSpanCount(settings.getPreferredColumnCount());
+    
+    override fun onResume() {
+        super.onResume()
+        
+        val layoutManager = binding.list.layoutManager as GridLayoutManager?
+        layoutManager?.setSpanCount(Settings(this).getPreferredColumnCount())
+    }
+    
+    private fun onClickAction(position: Int) {
+        val selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All)
+        selected.moveToPosition(position)
+        val loyaltyCard = LoyaltyCard.fromCursor(this@CardShortcutConfigure, selected)
+        
+        Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id)
+        
+        val shortcut = ShortcutHelper.createShortcutBuilder(this@CardShortcutConfigure, loyaltyCard).build()
+        
+        setResult(RESULT_OK,
+                  ShortcutManagerCompat.createShortcutResultIntent(this@CardShortcutConfigure, shortcut))
+        
+        finish()
+    }
+    
+    override fun onCreateMenu(inputMenu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.card_details_menu, inputMenu)
+    }
+    
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.itemId == R.id.action_display_options) {
+            mAdapter.showDisplayOptionsDialog()
         }
+        return true
     }
-
-    private void onClickAction(int position) {
-        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
-        selected.moveToPosition(position);
-        LoyaltyCard loyaltyCard = LoyaltyCard.fromCursor(CardShortcutConfigure.this, selected);
-
-        Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
-
-        ShortcutInfoCompat shortcut = ShortcutHelper.createShortcutBuilder(CardShortcutConfigure.this, loyaltyCard).build();
-
-        setResult(RESULT_OK, ShortcutManagerCompat.createShortcutResultIntent(CardShortcutConfigure.this, shortcut));
-
-        finish();
+    
+    override fun onRowClicked(inputPosition: Int) {
+        onClickAction(inputPosition)
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu inputMenu) {
-        getMenuInflater().inflate(R.menu.card_details_menu, inputMenu);
-
-        return super.onCreateOptionsMenu(inputMenu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem inputItem) {
-        int id = inputItem.getItemId();
-
-        if (id == R.id.action_display_options) {
-            mAdapter.showDisplayOptionsDialog();
-            invalidateOptionsMenu();
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(inputItem);
-    }
-
-    @Override
-    public void onRowClicked(int inputPosition) {
-        onClickAction(inputPosition);
-    }
-
-    @Override
-    public void onRowLongClicked(int inputPosition) {
+    
+    override fun onRowLongClicked(inputPosition: Int) {
         // do nothing
     }
 }

@@ -75,7 +75,8 @@
         <activity
             android:name=".ManageGroupActivity"
             android:label="@string/group_edit"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:exported="true"

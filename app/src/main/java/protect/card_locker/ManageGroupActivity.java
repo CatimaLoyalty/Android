@@ -48,7 +48,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         super.onCreate(inputSavedInstanceState);
         binding = ActivityManageGroupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Utils.applyWindowInsets(binding.getRoot());
+        Utils.applyWindowInsetsAndFabOffset(binding.getRoot(), binding.fabSave);
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
 

@@ -296,4 +296,10 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
+    <string name="sort_by_valid_from">Có hiệu lực từ</string>
+    <string name="addFromPkpass">Chọn tệp Passbook (.pkpass)</string>
+    <string name="unsupportedFile">Tập tin này không được hỗ trợ</string>
+    <string name="generic_error_please_retry">Xin lỗi, có gì đó không ổn, vui lòng thử lại...</string>
+    <string name="width">Chiều rộng</string>
+    <string name="setBarcodeWidth">Đặt chiều rộng mã vạch</string>
 </resources>

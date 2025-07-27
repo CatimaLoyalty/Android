@@ -1,0 +1,1 @@
+- Empêche le clavier de passer au-dessus du bouton de sauvegarde dans les écrans de modifications et de regroupements

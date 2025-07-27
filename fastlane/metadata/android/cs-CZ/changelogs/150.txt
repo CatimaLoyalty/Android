@@ -1,0 +1,1 @@
+- Zabránění překrytí tlačítka uložení klávesnicí na stránkách úpravy a skupin

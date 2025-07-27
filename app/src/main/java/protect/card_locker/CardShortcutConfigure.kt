@@ -20,8 +20,8 @@ class CardShortcutConfigure : CatimaAppCompatActivity(), CardAdapterListener, Me
     private lateinit var mDatabase: SQLiteDatabase
     private lateinit var mAdapter: LoyaltyCardCursorAdapter
     
-    companion object {
-        const val TAG: String = "Catima"
+    private companion object {
+        private const val TAG: String = "Catima"
     }
     
     public override fun onCreate(savedInstanceBundle: Bundle?) {
@@ -63,14 +63,14 @@ class CardShortcutConfigure : CatimaAppCompatActivity(), CardAdapterListener, Me
     private fun onClickAction(position: Int) {
         val selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All)
         selected.moveToPosition(position)
-        val loyaltyCard = LoyaltyCard.fromCursor(this@CardShortcutConfigure, selected)
+        val loyaltyCard = LoyaltyCard.fromCursor(this, selected)
         
-        Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id)
+        Log.d(TAG, "Creating shortcut for card ${loyaltyCard.store}, ${loyaltyCard.id}")
         
-        val shortcut = ShortcutHelper.createShortcutBuilder(this@CardShortcutConfigure, loyaltyCard).build()
+        val shortcut = ShortcutHelper.createShortcutBuilder(this, loyaltyCard).build()
         
         setResult(RESULT_OK,
-                  ShortcutManagerCompat.createShortcutResultIntent(this@CardShortcutConfigure, shortcut))
+                  ShortcutManagerCompat.createShortcutResultIntent(this, shortcut))
         
         finish()
     }

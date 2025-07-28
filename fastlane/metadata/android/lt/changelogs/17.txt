@@ -1,0 +1,2 @@
+- Pridėta galimybė pridėti kortelių sparčiąsias nuorodas tiesiai iš paleidiklio arba pagrindinio ekrano. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Pašalinta lojalumo kortelių sparčiųjų nuorodų kūrimo galimybė tiesiogiai programoje. Dėl to nebereikia leidimo sparčiųjų nuorodų kūrimui. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

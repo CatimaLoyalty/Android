@@ -1,0 +1,5 @@
+- Pridėta galimybė pridėti sparčiuosius klavišus į pagrindinį ekraną kuriant arba redaguojant kortelę. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Valdiklis pašalintas, nes buvo prastas sparčiųjų klavišų pakaitalas. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Ištaisyta atsarginių kopijų eksportavimo klaida (Android 7+). pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Eksportuojant atsargines kopijas pateikiamas tikslesnis MIME tipas. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- Pataisyta klaida, dėl kurios nebuvo galima redaguoti kortelės. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

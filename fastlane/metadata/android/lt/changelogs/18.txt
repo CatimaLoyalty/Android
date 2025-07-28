@@ -1,0 +1,2 @@
+- Ištaisyta klaida „Android SDK 24+“ versijose, dėl kurios naudojant failų pasirinkimo importavimo funkciją programėlė sugestų. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Naujas piktograma ir spalvų schema. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

@@ -1,0 +1,3 @@
+- Pataisytas gedimas importuojant kai kuriuos sugadintus CSV failus. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Pataisytas atsarginių kopijų importavimas iš failų sistemos. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Pataisyta problema importuojant atsargines kopijas iš kai kurių turinio tiekėjų. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

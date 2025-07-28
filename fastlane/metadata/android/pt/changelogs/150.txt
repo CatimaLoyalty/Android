@@ -1,0 +1,1 @@
+- Impedir que o teclado sobreponha o botão gravar em ecrãs de edição e grupo

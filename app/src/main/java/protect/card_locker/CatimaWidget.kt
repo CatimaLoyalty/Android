@@ -82,11 +82,11 @@ class CatimaWidget : AppWidgetProvider() {
         val remoteViews = RemoteViews(context.packageName, R.layout.catima_widget_item).apply {
             val headerColor = Utils.getHeaderColor(context, loyaltyCard)
             val foreground = if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE
-            setInt(R.id.item_container, "setBackgroundColor", headerColor)
+            setInt(R.id.item_container_foreground, "setBackgroundColor", headerColor)
             val icon = loyaltyCard.getImageThumbnail(context)
             // setImageViewIcon is not supported on Android 5, so force Android 5 down the text path
             if (icon != null && Build.VERSION.SDK_INT >= 23) {
-                setInt(R.id.item_container, "setBackgroundColor", foreground)
+                setInt(R.id.item_container_foreground, "setBackgroundColor", foreground)
                 setImageViewIcon(R.id.item_image, Icon.createWithBitmap(icon))
                 setViewVisibility(R.id.item_text, View.INVISIBLE)
                 setViewVisibility(R.id.item_image, View.VISIBLE)

@@ -14,10 +14,10 @@ import android.widget.RemoteViews
 import androidx.core.widget.RemoteViewsCompat
 import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
 
-class CatimaWidget : AppWidgetProvider() {
+class ListWidget : AppWidgetProvider() {
     fun updateAll(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
-        val componentName = ComponentName(context, CatimaWidget::class.java)
+        val componentName = ComponentName(context, ListWidget::class.java)
         onUpdate(
             context,
             appWidgetManager,
@@ -31,45 +31,59 @@ class CatimaWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            // Prepare generic widget
-            val views = RemoteViews(context.packageName, R.layout.catima_widget)
-            val templateIntent =  Intent(context, LoyaltyCardViewActivity::class.java)
-            val pendingIntent = PendingIntent.getActivity(
-                context,
-                0,
-                templateIntent,
-                PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-            views.setPendingIntentTemplate(R.id.grid_view, pendingIntent)
-
-            // Get cards
-            val order = Utils.getLoyaltyCardOrder(context);
-            val orderDirection = Utils.getLoyaltyCardOrderDirection(context);
             val database = DBHelper(context).readableDatabase
 
-            val loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
-                database,
-                "",
-                null,
-                order,
-                orderDirection,
-                LoyaltyCardArchiveFilter.Unarchived
-            )
+            // Default to empty widget
+            var views = RemoteViews(context.packageName, R.layout.list_widget_empty)
 
-            // Bind every card to cell in the grid
-            val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
-            if (loyaltyCardCursor.moveToFirst()) {
-                do {
-                    val loyaltyCard = LoyaltyCard.fromCursor(context, loyaltyCardCursor)
-                    remoteCollectionItemsBuilder.addItem(
-                        loyaltyCard.id.toLong(),
-                        createRemoteViews(
-                            context, loyaltyCard
+            // If we have cards, replace with non-empty widget
+            if (DBHelper.getLoyaltyCardCount(database) > 0) {
+                // Prepare generic widget
+                views = RemoteViews(context.packageName, R.layout.list_widget)
+                val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java)
+                val pendingIntent = PendingIntent.getActivity(
+                    context,
+                    0,
+                    templateIntent,
+                    PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                )
+                views.setPendingIntentTemplate(R.id.grid_view, pendingIntent)
+
+                // Get cards
+                val order = Utils.getLoyaltyCardOrder(context);
+                val orderDirection = Utils.getLoyaltyCardOrderDirection(context);
+
+                val loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
+                    database,
+                    "",
+                    null,
+                    order,
+                    orderDirection,
+                    LoyaltyCardArchiveFilter.Unarchived
+                )
+
+                // Bind every card to cell in the grid
+                val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
+                if (loyaltyCardCursor.moveToFirst()) {
+                    do {
+                        val loyaltyCard = LoyaltyCard.fromCursor(context, loyaltyCardCursor)
+                        remoteCollectionItemsBuilder.addItem(
+                            loyaltyCard.id.toLong(),
+                            createRemoteViews(
+                                context, loyaltyCard
+                            )
                         )
-                    )
-                } while (loyaltyCardCursor.moveToNext())
+                    } while (loyaltyCardCursor.moveToNext())
+                }
+
+                RemoteViewsCompat.setRemoteAdapter(
+                    context,
+                    views,
+                    appWidgetId,
+                    R.id.grid_view,
+                    remoteCollectionItemsBuilder.build()
+                )
             }
-            RemoteViewsCompat.setRemoteAdapter(context, views, appWidgetId, R.id.grid_view, remoteCollectionItemsBuilder.build())
 
             // Let Android know the widget is ready for display
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -79,7 +93,7 @@ class CatimaWidget : AppWidgetProvider() {
     private fun createRemoteViews(context: Context, loyaltyCard: LoyaltyCard): RemoteViews {
         // Create a single cell for the grid view, bind it to open in the LoyaltyCardViewActivity
         // Note: Android 5 will not use bitmaps
-        val remoteViews = RemoteViews(context.packageName, R.layout.catima_widget_item).apply {
+        val remoteViews = RemoteViews(context.packageName, R.layout.list_widget_item).apply {
             val headerColor = Utils.getHeaderColor(context, loyaltyCard)
             val foreground = if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE
             setInt(R.id.item_container_foreground, "setBackgroundColor", headerColor)

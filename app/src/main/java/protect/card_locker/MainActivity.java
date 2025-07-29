@@ -431,7 +431,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mCurrentActionMode.finish();
         }
 
-        new CatimaWidget().updateAll(mAdapter.mContext);
+        new ListWidget().updateAll(mAdapter.mContext);
     }
 
     private void processParseResultList(List<ParseResult> parseResultList, String group, boolean closeAppOnNoBarcode) {

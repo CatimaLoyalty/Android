@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- android:columnWidth must be kept in sync with catima_widget_item.xml -->
+    <!-- android:columnWidth must be kept in sync with list_widget_item.xml -->
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="wrap_content"

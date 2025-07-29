@@ -32,7 +32,7 @@
         android:localeConfig="@xml/locales_config">
         
         <receiver
-            android:name="CatimaWidget"
+            android:name=".ListWidget"
             android:label="@string/card_list_widget_name"
             android:exported="false">
             <intent-filter>
@@ -41,7 +41,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/catima_widget_info" />
+                android:resource="@xml/list_widget_info" />
          </receiver>
 
         <activity

@@ -699,6 +699,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                         showReversed.isChecked() ? DBHelper.LoyaltyCardOrderDirection.Descending : DBHelper.LoyaltyCardOrderDirection.Ascending
                 );
 
+                new ListWidget().updateAll(this);
+
                 dialog.dismiss();
             });
 

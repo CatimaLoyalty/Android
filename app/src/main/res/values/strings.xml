@@ -364,5 +364,5 @@
     <string name="width">Width</string>
     <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set Barcode Width</string>
-    <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here.</string>
+    <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
 </resources>

@@ -33,12 +33,41 @@ class ListWidget : AppWidgetProvider() {
         for (appWidgetId in appWidgetIds) {
             val database = DBHelper(context).readableDatabase
 
-            // Default to empty widget
+            // Get cards
+            val order = Utils.getLoyaltyCardOrder(context);
+            val orderDirection = Utils.getLoyaltyCardOrderDirection(context);
+
+            val loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
+                database,
+                "",
+                null,
+                order,
+                orderDirection,
+                LoyaltyCardArchiveFilter.Unarchived
+            )
+
+            // Bind every card to cell in the grid
+            var hasCards = false
+            val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
+            if (loyaltyCardCursor.moveToFirst()) {
+                do {
+                    val loyaltyCard = LoyaltyCard.fromCursor(context, loyaltyCardCursor)
+                    remoteCollectionItemsBuilder.addItem(
+                        loyaltyCard.id.toLong(),
+                        createRemoteViews(
+                            context, loyaltyCard
+                        )
+                    )
+                    hasCards = true
+                } while (loyaltyCardCursor.moveToNext())
+            }
+            loyaltyCardCursor.close()
+
+            // Create the base empty view
             var views = RemoteViews(context.packageName, R.layout.list_widget_empty)
 
-            // If we have cards, replace with non-empty widget
-            if (DBHelper.getLoyaltyCardCount(database) > 0) {
-                // Prepare generic widget
+            if (hasCards) {
+                // If we have cards, create the list
                 views = RemoteViews(context.packageName, R.layout.list_widget)
                 val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java)
                 val pendingIntent = PendingIntent.getActivity(
@@ -48,33 +77,6 @@ class ListWidget : AppWidgetProvider() {
                     PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
                 )
                 views.setPendingIntentTemplate(R.id.grid_view, pendingIntent)
-
-                // Get cards
-                val order = Utils.getLoyaltyCardOrder(context);
-                val orderDirection = Utils.getLoyaltyCardOrderDirection(context);
-
-                val loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
-                    database,
-                    "",
-                    null,
-                    order,
-                    orderDirection,
-                    LoyaltyCardArchiveFilter.Unarchived
-                )
-
-                // Bind every card to cell in the grid
-                val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
-                if (loyaltyCardCursor.moveToFirst()) {
-                    do {
-                        val loyaltyCard = LoyaltyCard.fromCursor(context, loyaltyCardCursor)
-                        remoteCollectionItemsBuilder.addItem(
-                            loyaltyCard.id.toLong(),
-                            createRemoteViews(
-                                context, loyaltyCard
-                            )
-                        )
-                    } while (loyaltyCardCursor.moveToNext())
-                }
 
                 RemoteViewsCompat.setRemoteAdapter(
                     context,

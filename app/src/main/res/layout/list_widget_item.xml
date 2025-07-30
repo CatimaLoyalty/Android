@@ -16,8 +16,7 @@ Both multiplied by 1.25 to fit better
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/item_container_foreground"
-        android:padding="4dp">
+        android:id="@+id/item_container_foreground">
 
         <ImageView
             android:id="@+id/item_image"

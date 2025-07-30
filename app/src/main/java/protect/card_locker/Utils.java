@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -1175,5 +1176,41 @@ public class Utils {
         }
 
         return ImageView.ScaleType.FIT_CENTER;
+    }
+
+    public static DBHelper.LoyaltyCardOrder getLoyaltyCardOrder(Context context) {
+        SharedPreferences sortPref = context.getSharedPreferences(
+                "sharedpreference_sort",
+                Context.MODE_PRIVATE
+        );
+
+        String orderString = sortPref.getString("sharedpreference_sort_order", null);
+
+        if (orderString != null) {
+            try {
+                return DBHelper.LoyaltyCardOrder.valueOf(orderString);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+
+        return DBHelper.LoyaltyCardOrder.Alpha;
+    }
+
+    public static DBHelper.LoyaltyCardOrderDirection getLoyaltyCardOrderDirection(Context context) {
+        SharedPreferences sortPref = context.getSharedPreferences(
+                "sharedpreference_sort",
+                Context.MODE_PRIVATE
+        );
+
+        String orderDirectionString = sortPref.getString("sharedpreference_sort_direction", null);
+
+        if (orderDirectionString != null) {
+            try {
+                return DBHelper.LoyaltyCardOrderDirection.valueOf(orderDirectionString);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+
+        return DBHelper.LoyaltyCardOrderDirection.Ascending;
     }
 }

@@ -362,5 +362,7 @@
     <string name="unsupportedFile">This file is not supported</string>
     <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
     <string name="width">Width</string>
+    <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set Barcode Width</string>
+    <string name="no_loyalty_cards">No loyalty cards</string>
 </resources>

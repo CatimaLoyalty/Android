@@ -2,6 +2,8 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.SearchManager;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -330,22 +332,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
 
         // Restore sort preferences from Shared Preferences
-        // If one of the sorting prefererences has never been set or is set to an invalid value,
-        // stick to the defaults.
-        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_sort),
-                Context.MODE_PRIVATE);
-
-        String orderString = sortPref.getString(getString(R.string.sharedpreference_sort_order), null);
-        String orderDirectionString = sortPref.getString(getString(R.string.sharedpreference_sort_direction), null);
-
-        if (orderString != null && orderDirectionString != null) {
-            try {
-                mOrder = DBHelper.LoyaltyCardOrder.valueOf(orderString);
-                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(orderDirectionString);
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
+        mOrder = Utils.getLoyaltyCardOrder(this);
+        mOrderDirection = Utils.getLoyaltyCardOrderDirection(this);
 
         mGroup = null;
 
@@ -442,6 +430,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (mCurrentActionMode != null) {
             mCurrentActionMode.finish();
         }
+
+        updateWidget(mAdapter.mContext);
+    }
+
+    private void updateWidget(Context context) {
+        AppWidgetManager manager = AppWidgetManager.getInstance(context);
+        int[] ids = manager.getAppWidgetIds(new ComponentName(context, CatimaWidget.class));
+        manager.notifyAppWidgetViewDataChanged(ids, R.id.grid_view);
     }
 
     private void processParseResultList(List<ParseResult> parseResultList, String group, boolean closeAppOnNoBarcode) {

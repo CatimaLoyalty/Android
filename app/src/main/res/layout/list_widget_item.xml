@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+85.6dp : 53.98dp
+Both multiplied by 1.25 to fit better
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="107dp"
+    android:layout_height="67.475dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/item_container"
+    android:background="@drawable/round_outline"
+    android:clipToOutline="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/item_container_foreground">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|center" />
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:autoSizeMinTextSize="6sp"
+            app:autoSizeTextType="uniform"
+            android:layout_gravity="center|center"
+            android:gravity="center" />
+    </FrameLayout>
+</FrameLayout>

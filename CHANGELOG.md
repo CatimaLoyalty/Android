@@ -2,6 +2,7 @@
 
 ## Unreleased - 150
 
+- Add a widget showing all non-archived cards
 - Prevent the keyboard from overlapping the save button in edit and group screens
 
 ## v2.35.1 - 149 (2025-06-17)

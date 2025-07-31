@@ -128,7 +128,7 @@ dependencies {
     implementation("net.lingala.zip4j:zip4j:2.11.5")
 
     // Testing
-    val androidXTestVersion = "1.6.1"
+    val androidXTestVersion = "1.7.0"
     val junitVersion = "4.13.2"
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")

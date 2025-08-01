@@ -1,0 +1,1 @@
+- Zabráňte prekrývaniu tlačidla Uložiť z klávesnice na obrazovkách úprav a zoskupovania

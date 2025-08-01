@@ -319,4 +319,6 @@
     <string name="sort_by_valid_from">Діє з</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Встановити ширину штрих-коду</string>
+    <string name="card_list_widget_name">Список карток</string>
+    <string name="card_list_widget_empty">Після того, як ви додасте кілька карток лояльності в Catima, вони з’являться тут. Якщо у вас є картки, переконайтеся, що вони не всі заархівовані.</string>
 </resources>

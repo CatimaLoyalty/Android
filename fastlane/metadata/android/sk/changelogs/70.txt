@@ -1,11 +1,11 @@
-- AKTUÁLNA ZMENA: Zmenený formát zálohy, https://github.com/TheLastProject/Catima/wiki/Export-format
-- AKTUÁLNA ZMENA: Zmenený formát zdieľania URL, https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Umožnite zapnut alebo vypnut baterku pri skenovani
+- AKTUÁLNA ZMENA: Zmenil sa formát zálohy, - https://github.com/TheLastProject/Catima/wiki/Export-format
+- AKTUÁLNA ZMENA: Zmenil sa formát zdieľania URL, - https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Umožniť zapnutie alebo vypnutie baterky počas skenovania
 - Pridaná podpora UPC-E
-- Podpora pridania prednej a zadnej fotografie na každú kartu
+- Podpora pridania fotografie prednej a zadnej strany u každej karty
 - Podpora importu súborov zip chránených heslom
-- Podpora importu zo Stocard (Beta)
-- Oprava zbytočných medzier v poznámkach z importu Fidme
+- Podpora importu Stocard (Beta)
+- Oprava medzier v poznámkach z importu Fidme
 - Podpora nového formátu exportu Voucher Vault
-- Oprava plávajúcich akčných tlačidiel za inými prvkami UI v systéme Android 4
-- Oprava horného okraja panela vernostných kariet
+- Oprava plávajúcich akčných tlačidiel v Android 4
+- Oprava horného okraja panela aplikácií prehliadača vernostných kariet

@@ -307,4 +307,6 @@
     <string name="sort_by_valid_from">Έναρξη ισχύος</string>
     <string name="setBarcodeWidth">Ορισμός πλάτους γραμμωτού κώδικα</string>
     <string name="width">Πλάτος</string>
+    <string name="card_list_widget_empty">Αφού προσθέσετε μερικές κάρτες επιβράβευσης στο Catima, θα εμφανιστούν εδώ. Εάν έχετε κάρτες, βεβαιωθείτε ότι δεν είναι όλες αρχειοθετημένες.</string>
+    <string name="card_list_widget_name">Λίστα καρτών</string>
 </resources>

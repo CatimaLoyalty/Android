@@ -1,1 +1,2 @@
+- Adicionar um widget que mostra todos os cartões não arquivados
 - Impedir que o teclado sobreponha o botão gravar em ecrãs de edição e grupo

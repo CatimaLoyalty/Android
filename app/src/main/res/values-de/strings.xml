@@ -304,4 +304,6 @@
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>
+    <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass sie nicht alle archiviert sind.</string>
+    <string name="card_list_widget_name">Kartenliste</string>
 </resources>

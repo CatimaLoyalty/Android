@@ -303,4 +303,6 @@
     <string name="sort_by_valid_from">Kehtib alates</string>
     <string name="setBarcodeWidth">Määratle triipkoodi laius</string>
     <string name="width">Laius</string>
+    <string name="card_list_widget_name">Kaartide loend</string>
+    <string name="card_list_widget_empty">Kui lisad Catimasse kliendikaarte, siis saavad nad olema nähtavad siin. Kui sul on kaardid lisatud, siis palun kontrolli, et nad kõik poleks arhiveeritud.</string>
 </resources>

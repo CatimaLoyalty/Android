@@ -320,4 +320,6 @@
     <string name="sort_by_valid_from">Начало действия</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Указать ширину штрих-кода</string>
+    <string name="card_list_widget_name">Список карт</string>
+    <string name="card_list_widget_empty">После добавления карт лояльности в Catima, они появятся здесь. Если у вас есть карты, убедитесь, что они не архивированы.</string>
 </resources>

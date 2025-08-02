@@ -308,4 +308,6 @@
     <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
     <string name="setBarcodeWidth">Definir Largura do Código de Barra</string>
     <string name="width">Largura</string>
+    <string name="card_list_widget_name">Lista de cartões</string>
+    <string name="card_list_widget_empty">Após adicionar cartões de fidelidade em Catima, eles aparecerão aqui. Se tem cartões, certifique-se de que não estão todos arquivados.</string>
 </resources>

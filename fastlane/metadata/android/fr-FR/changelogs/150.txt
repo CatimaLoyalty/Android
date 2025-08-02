@@ -1,1 +1,2 @@
+- Ajout d'un widget affichant toutes les cartes non archivées
 - Empêche le clavier de passer au-dessus du bouton de sauvegarde dans les écrans de modifications et de regroupements

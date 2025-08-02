@@ -1,1 +1,2 @@
-- Zabráňte prekrývaniu tlačidla Uložiť z klávesnice na obrazovkách úprav a zoskupovania
+- Pridať widget zobrazujúci všetky nearchivované karty
+- Zabrániť prekrývaniu tlačidla uloženia na obrazovkách úprav a zoskupenia z klávesnice

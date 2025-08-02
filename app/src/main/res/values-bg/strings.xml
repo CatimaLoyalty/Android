@@ -308,4 +308,6 @@
     <string name="sort_by_valid_from">Начало валидност</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Задаване ширина на щрих кода</string>
+    <string name="card_list_widget_name">Списък с карти</string>
+    <string name="card_list_widget_empty">Когато добавите карти в Catima те ще се покажат тук. Ако имате карти уверете се, че са извън архива.</string>
 </resources>

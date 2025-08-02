@@ -302,4 +302,6 @@
     <string name="sort_by_valid_from">Válido desde</string>
     <string name="width">Anchura</string>
     <string name="setBarcodeWidth">Establecer anchura do código de barras</string>
+    <string name="card_list_widget_name">Lista de tarxetas</string>
+    <string name="card_list_widget_empty">Aquí aparecerán as tarxetas fidelidade cando as engadas a Catima. Se tes tarxetas mira que non estean arquivadas.</string>
 </resources>

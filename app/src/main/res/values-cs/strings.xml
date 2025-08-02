@@ -314,4 +314,6 @@
     <string name="sort_by_valid_from">Platnost od</string>
     <string name="setBarcodeWidth">Nastavit šířku čárového kódu</string>
     <string name="width">Šířka</string>
+    <string name="card_list_widget_name">Seznam karet</string>
+    <string name="card_list_widget_empty">Karty přidané do aplikace Catima se zobrazí zde. Pokud máte karty, ujistěte se, že nejsou všechny archivovány.</string>
 </resources>

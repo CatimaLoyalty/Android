@@ -1,0 +1,2 @@
+- Vidin, mis näitab kõiki mittearhiveeritud kaarte
+- Klahvistik enam ei varja muutmis- ja grupivaadetes salvestusnuppu

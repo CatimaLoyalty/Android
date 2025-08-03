@@ -16,15 +16,15 @@ Altonss
 B o d o
 Michael Moroni
 Eric
+Silvério Santos
 Максим Горпиніч
 GM
-Joel A
-Petr Novák
-laralem
 Priit Jõerüüt
-Silvério Santos
-Taco
+laralem
+Petr Novák
+Joel A
 Edgars Andersons
+Taco
 nadiafekihahmed
 pfaffenrodt
 Aayush Gupta
@@ -32,48 +32,49 @@ Scrambled777
 ikanakova
 Giovanni Donisi
 HudobniVolk
-Nyatsuki
 Jiri Grönroos
+Nyatsuki
+josé m
 Samantaz Fox
 Balázs Meskó
 Milo Ivir
-josé m
-Arno-github
-Ankit Tiwari
+Fjuro
 Cliff Heraldo
 Sergio Paredes
-Jose Delvani
-mdvhimself
-Milan Šalka
-தமிழ் நேரம்
-huuhaa
-Skrripy
+Ankit Tiwari
+Arno-github
 Kachelkaiser
-Fjuro
-Projjal Moitra
-Quentin PAGÈS
+Jose Delvani
+Warder
+GitSpoon
+Milan Šalka
+mdvhimself
+Skrripy
 Vasilis
-ngocanhtve
+huuhaa
+தமிழ் நேரம்
 waffshappen
 Marnick L'Eau
+ngocanhtve
+StellarSand
+Quentin PAGÈS
+Projjal Moitra
 Robin
 JungHee Lee
 hajertabbane
 Ziad OUALHADJ
-Warder
-GitSpoon
 Robin Liu
+Ricky Tigg
 Renko
 Denis Shilin
 しいたけ
 Alexander Ivanov
-Viet Nguyen Hoang
 Miha Frangež
+Viet Nguyen Hoang
 stavpup
 ehrt74
 Virginie
 Tim Trek
-Ricky Tigg
 Peter Dave Hello
 Michael Gangolf
 rudy3
@@ -81,6 +82,6 @@ Kim Seohyun
 Govind S Nair
 Freddo espresso
 Augustin LAVILLE
-Aliaksandr Trush
 arshbeerSingh
 MisterCosta96
+Aliaksandr Trush

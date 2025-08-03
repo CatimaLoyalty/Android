@@ -308,4 +308,6 @@
     <string name="sort_by_valid_from">İtibaren Geçerli</string>
     <string name="width">Genişlik</string>
     <string name="setBarcodeWidth">Barkod Genişliğini Ayarla</string>
+    <string name="card_list_widget_name">Kart listesi</string>
+    <string name="card_list_widget_empty">Catima\'ya sadakat kartları eklediğinizde, burada gözükecekler. Eğer kartlarınız varsa, arşivlemediğinizden emin olun.</string>
 </resources>

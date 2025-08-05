@@ -1,0 +1,3 @@
+- Optie om tussen kaarten te wisselen met de volumeknoppen toegevoegd
+- Fix voor importeren van Stocard export
+- Fix: De tekst "Importeren geannuleerd" verschijnt niet meer na succesvolle import

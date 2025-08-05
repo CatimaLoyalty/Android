@@ -1,0 +1,2 @@
+- Voeg een widget toe welke all niet-gearchiveerde kaarten toont
+- Voorkom dat het toetsenbord de opslaknop verbergd in het bewerk en groep scherm

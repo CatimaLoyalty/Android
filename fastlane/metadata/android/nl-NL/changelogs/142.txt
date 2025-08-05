@@ -1,0 +1,3 @@
+- Ondersteuning voor Passbook (.pkpass bestanden) toegevoegd
+- Fix voor issues met importeren van PDF bestanden met een transparante achtergrond
+- Verbeter de display van kaarten met een transparante achtergrond

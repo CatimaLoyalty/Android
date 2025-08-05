@@ -1,0 +1,3 @@
+- Zet doelversie naar Android 15
+- Fix crash bij het lezen van een niet ondersteund pkpass bestand
+- Verbeter pkpass ondersteuning

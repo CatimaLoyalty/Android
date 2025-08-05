@@ -1,0 +1,4 @@
+- De breedte van een barcode kan nu beheerd worden in volledig scherm modus
+- Verwijder verwarrende opties in het import menu
+- Verschillende fixes voor het scannen van kaarten
+- Fix een crash bij het laden van een pkpass bestand zonder barcode

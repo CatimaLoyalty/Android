@@ -1,0 +1,1 @@
+- Zorg dat tekst correct past in het "Kaart toevoegen" dialoogvenster

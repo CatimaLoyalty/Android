@@ -309,4 +309,6 @@
     <string name="sort_by_valid_from">Derīga no</string>
     <string name="setBarcodeWidth">Iestatīt svītrkoda platumu</string>
     <string name="width">Platums</string>
+    <string name="card_list_widget_name">Karšu saraksts</string>
+    <string name="card_list_widget_empty">Pēc klienta karšu pievienošanas Catima tās parādīsies šeit. Ja Tev ir kartes, jāpārliecinās, ka tās visas nav arhivētas.</string>
 </resources>

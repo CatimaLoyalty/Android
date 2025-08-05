@@ -17,8 +17,8 @@ android {
         applicationId = "me.hackerchick.catima"
         minSdk = 21
         targetSdk = 35
-        versionCode = 149
-        versionName = "2.35.1"
+        versionCode = 150
+        versionName = "2.36.0"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true

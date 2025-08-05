@@ -1,0 +1,3 @@
+- Fix voor een fout met het centreren van de barcode bij het verlaten van volledig scherm modus
+- Voeg optie toe om te kiezen waar een backup wordt opgeslagen
+- Vernieuw vertalingen

@@ -1,4 +1,5 @@
-- Home screen shortcuts added for card management. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
-- Widget removed. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
-- Fixed backup export and mime type issues on Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153), pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
-- Bug fix for card editing. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Voeg ondersteuning toe om een snelkoppeling op het thuisscherm te zetten.
+- Verwijder snelkoppelingswidget (de snelkoppeling werkte beter)
+- Fix voor het exporteren van backups op Android 7 en nieuwer.
+- Betere mime type rapportage bij backup export.
+- Log een bug op waarbij een kaart niet bewerkt kan worden

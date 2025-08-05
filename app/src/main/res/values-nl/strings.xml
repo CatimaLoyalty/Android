@@ -308,4 +308,6 @@
     <string name="sort_by_valid_from">Op geldig vanaf</string>
     <string name="width">Breedte</string>
     <string name="setBarcodeWidth">Stel Barcodebreedte in</string>
+    <string name="card_list_widget_name">Kaartenlijst</string>
+    <string name="card_list_widget_empty">Zodra er kaarten in Catima toegevoegd zijn worden deze hier getoond. Heb je al kaarten? Controleer dan of deze niet gearchiveerd zijn.</string>
 </resources>

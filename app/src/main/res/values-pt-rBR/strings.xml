@@ -314,4 +314,6 @@
     <string name="sort_by_valid_from">Válido a partir de</string>
     <string name="width">Largura</string>
     <string name="setBarcodeWidth">Definir largura do código de barras</string>
+    <string name="card_list_widget_name">Lista de cartões</string>
+    <string name="card_list_widget_empty">Depois que você adicionar alguns cartões de fidelidade no Catima, eles aparecerão aqui. Se você tiver cartões, verifique se eles não estão todos arquivados.</string>
 </resources>

@@ -1,4 +1,5 @@
-- Pools (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
-- Spaans (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
-- Slowaaks (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
-- Bijgewerkte vertalingen (pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))
+- Vertalingen toegevoegd:
+  - Pools (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - Spaans (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - Slowaaks (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - Bijgewerkte vertalingen (pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

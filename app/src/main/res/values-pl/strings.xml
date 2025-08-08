@@ -320,4 +320,5 @@
     <string name="sort_by_valid_from">Poprawna forma</string>
     <string name="setBarcodeWidth">Ustaw szerokość kodu kreskowego</string>
     <string name="width">Szerokość</string>
+    <string name="card_list_widget_empty">Karty lojalnościowe dodane w aplikacji Catima pokażą się tutaj. Jeżeli masz jakieś karty, upewnij się że nie są one zarchiwizowane.</string>
 </resources>

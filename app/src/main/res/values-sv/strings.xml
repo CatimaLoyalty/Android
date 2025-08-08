@@ -300,4 +300,6 @@
     <string name="useFrontImage">Använd bilden på framsidan</string>
     <string name="useBackImage">Använd bilden på baksidan</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Vilka av de hittade streckkoderna vill du använda?</string>
+    <string name="card_list_widget_name">Kortlista</string>
+    <string name="width">Bredd</string>
 </resources>

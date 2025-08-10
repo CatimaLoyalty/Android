@@ -302,4 +302,6 @@
     <string name="settings_column_count_landscape">क्षैतिज मोड में कॉलम</string>
     <string name="settings_column_count_1">1</string>
     <string name="settings_column_count_7">7</string>
+    <string name="card_list_widget_name">कार्ड सूची</string>
+    <string name="card_list_widget_empty">कैटिमा में कुछ लॉयल्टी कार्ड जोड़ने के बाद, वे यहाँ दिखाई देंगे। अगर आपके पास कार्ड हैं, तो सुनिश्चित करें कि वे सभी संग्रहित न हों।</string>
 </resources>

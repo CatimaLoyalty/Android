@@ -18,11 +18,11 @@ Michael Moroni
 Eric
 Silvério Santos
 Максим Горпиніч
+Joel A
 GM
 Priit Jõerüüt
 laralem
 Petr Novák
-Joel A
 Edgars Andersons
 Taco
 nadiafekihahmed
@@ -42,10 +42,10 @@ Fjuro
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
+Warder
 Arno-github
 Kachelkaiser
 Jose Delvani
-Warder
 GitSpoon
 Milan Šalka
 mdvhimself
@@ -70,7 +70,6 @@ Denis Shilin
 しいたけ
 Alexander Ivanov
 Miha Frangež
-Viet Nguyen Hoang
 stavpup
 ehrt74
 Virginie

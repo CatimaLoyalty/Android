@@ -42,4 +42,14 @@
     </plurals>
     <string name="action_add">ചേർക്കുക</string>
     <string name="deleteTitle">കാർഡ് ഇല്ലാതാക്കുക</string>
+    <string name="app_name">കേറ്റിമ</string>
+    <string name="note">നോട്ട്</string>
+    <string name="cardShortcut">കാർഡ് ഷോർട്ക്കറ്</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> ബാർകോഡ്</string>
+    <string name="failedParsingImportUriError">നൽകിയ URL വ്യാകരിക്കാൻ കഴിഞ്ഞില്ല</string>
+    <string name="storageReadPermissionRequired">ഈ പ്രവർത്തനത്തിന് ആവശ്യമായ സ്റ്റോറേജ് വായിക്കാനുള്ള അനുമതി വേണം…</string>
+    <string name="cameraPermissionRequired">ഈ പ്രവർത്തനത്തിന് ക്യാമറ ആക്സസ് ചെയ്യുന്നതിന് അനുമതി വേണം.…</string>
+    <string name="permissionReadCardsLabel">കേറ്റിമ കാർഡ് വായിക്കുക</string>
+    <string name="cameraPermissionDeniedTitle">ക്യാമറയ്ക്കായി അനുമതി നേടാനായില്ല</string>
+    <string name="exportOptionExplanation">നിങ്ങൾ ഇഷ്ടപ്പെടുന്ന സ്ഥലത്ത് ഡാറ്റ എഴുതപ്പെടും.</string>
 </resources>

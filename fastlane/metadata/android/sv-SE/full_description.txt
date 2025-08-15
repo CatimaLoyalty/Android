@@ -13,7 +13,7 @@ Med detta essentiella verktyg kan du ersätta värdelös plast med kontanter.
 - Dela kuponger, exklusiva erbjudanden, kampanjkoder, eller kort och koder genom valfri app.
 - Mörkt tema och tillgänglighetsfunktioner för användare med nedsatt synförmåga.
 - Skapad för alla av gemenskapen för fri programvara.
-- Lokalt anpassad med handgjorda översättningar till mer än 20 språk.
+- Lokalt anpassad med handgjorda översättningar till mer än 40 språk.
 - Gratis, med stöd av gemenskapens bidrag.
 - Använd, studera, ändra och dela den som du önskar; <i>med alla</i>.
 - Inte bara öppen källkod. <i>Copyleftad</i> fri programvara (GPLv3+) för korthantering.

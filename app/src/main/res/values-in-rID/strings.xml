@@ -301,4 +301,7 @@
     <string name="generic_error_please_retry">Maaf, terjadi kesalahan, silakan coba lagi...</string>
     <string name="sort_by_valid_from">Berlaku dari</string>
     <string name="width">Lebar</string>
+    <string name="card_list_widget_name">Daftar kartu</string>
+    <string name="setBarcodeWidth">Atur Lebar Barcode</string>
+    <string name="card_list_widget_empty">Setelah Anda menambahkan beberapa kartu loyalitas di Catima, kartu tersebut akan muncul di sini. Jika Anda memiliki kartu sebelumnya, pastikan tidak semuanya diarsipkan.</string>
 </resources>

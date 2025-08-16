@@ -34,8 +34,8 @@
     <string name="moveDown">Flytta nedåt</string>
     <string name="leaveWithoutSaveTitle">Avsluta</string>
     <string name="leaveWithoutSaveConfirmation">Avsluta utan att spara\?</string>
-    <string name="addManually">Ange ID manuellt</string>
-    <string name="addFromImage">Välj bild från galleriet</string>
+    <string name="addManually">Ange streckkoden manuellt</string>
+    <string name="addFromImage">Välj en bild från galleriet</string>
     <string name="card">Kort</string>
     <string name="editBarcode">Redigera streckkod</string>
     <string name="never">Aldrig</string>
@@ -247,7 +247,7 @@
     <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
     <string name="settings_oled_dark_summary">Reducerar batterianvändning på OLED-skärmar</string>
     <string name="icon_header_click_text">Tryck länge för att redigera miniatyr</string>
-    <string name="settings_category_title_cards">Kort</string>
+    <string name="settings_category_title_cards">Kortvy</string>
     <string name="show_note">Visa anteckning</string>
     <string name="switchToBackImage">Byt till bilden på baksidan</string>
     <string name="app_copyright_short">Kopieringsskydd © Sylvia van Os och medverkande</string>
@@ -302,4 +302,5 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">Vilka av de hittade streckkoderna vill du använda?</string>
     <string name="card_list_widget_name">Kortlista</string>
     <string name="width">Bredd</string>
+    <string name="sort_by_valid_from">Giltigt från</string>
 </resources>

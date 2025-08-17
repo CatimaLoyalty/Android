@@ -16,9 +16,9 @@ Altonss
 B o d o
 Michael Moroni
 Eric
+Joel A
 Silvério Santos
 Максим Горпиніч
-Joel A
 GM
 Priit Jõerüüt
 laralem
@@ -42,13 +42,13 @@ Fjuro
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
-Warder
 Arno-github
+Warder
 Kachelkaiser
 Jose Delvani
-GitSpoon
-Milan Šalka
 mdvhimself
+Milan Šalka
+GitSpoon
 Skrripy
 Vasilis
 huuhaa

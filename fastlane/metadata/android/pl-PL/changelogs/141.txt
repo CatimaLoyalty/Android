@@ -1,0 +1,4 @@
+- Zmieniono domyślną liczbę kolumn na szerokich ekranach na 4
+- Opcja w ustawieniach aby nadpisać liczby kolumn dla pionowego i poziomego wyświetlania
+- Filtry na głównym ekranie zostają na miejscu po obracaniu ekranu lub otwieraniu karty
+- Dodano limit na ilość znaków na ekranie notatki na głównym ekranie

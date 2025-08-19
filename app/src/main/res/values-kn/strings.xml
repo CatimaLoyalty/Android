@@ -49,8 +49,8 @@
     <string name="accept">ಸ್ವೀಕರಿಸಿ</string>
     <string name="confirm">ದೃಢೀಕರಿಸಿ</string>
     <string name="app_name">ಕ್ಯಾಟಿಮಾ</string>
-    <string name="star">ಕಾರ್ಡ್ ವೀಕ್ಷಣೆಮಾಡುವಾಗ, ನಕ್ಷತ್ರ ಐಕಾನ್ ಅನ್ನು ದೀರ್ಘಕಾಲ ಒತ್ತಿದಾಗ ಮಾತ್ರ ಪಠ್ಯವನ್ನು ಪ್ರದರ್ಶಿತವಾಗುತ್ತದೆ.</string>
-    <string name="unstar">ಕಾರ್ಡ್ ವೀಕ್ಷಣೆಯಲ್ಲಿ, ನಕ್ಷತ್ರ ಐಕಾನ್ ಅನ್ನು ದೀರ್ಘಕಾಲ ಒತ್ತಿದಾಗ ಮಾತ್ರ ಪಠ್ಯವನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ</string>
+    <string name="star"></string>
+    <string name="unstar"></string>
     <string name="save">ಉಳಿಸಿ</string>
     <string name="edit">ಸಂಪಾದಿಸಿ</string>
     <string name="deleteTitle">ಕಾರ್ಡನ್ನು ಅಳಿಸಿ</string>

@@ -1,5 +1,5 @@
-- ZMIANA POWAŻNA: Zmieniono format kopii zapasowej, patrz https://github.com/TheLastProject/Catima/wiki/Export-format
-- ZMIANA POWAŻNA: Zmieniono format udostępniania adresów URL, patrz https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- POWAŻNA ZMIANA: Zmieniono format kopii zapasowej, patrz https://github.com/TheLastProject/Catima/wiki/Export-format
+- POWAŻNA ZMIANA: Zmieniono format udostępniania adresów URL, patrz https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
 - Umożliwiono włączanie i wyłączanie latarki podczas skanowania
 - Dodano obsługę UPC-E
 - Obsługa dodawania zdjęcia z przodu i z tyłu do każdej karty

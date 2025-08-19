@@ -48,4 +48,31 @@
     <string name="amountParsingFailed">ಅಮಾನ್ಯ ಮೊತ್ತ</string>
     <string name="accept">ಸ್ವೀಕರಿಸಿ</string>
     <string name="confirm">ದೃಢೀಕರಿಸಿ</string>
+    <string name="app_name">ಕ್ಯಾಟಿಮಾ</string>
+    <string name="star">ಕಾರ್ಡ್ ವೀಕ್ಷಣೆಮಾಡುವಾಗ, ನಕ್ಷತ್ರ ಐಕಾನ್ ಅನ್ನು ದೀರ್ಘಕಾಲ ಒತ್ತಿದಾಗ ಮಾತ್ರ ಪಠ್ಯವನ್ನು ಪ್ರದರ್ಶಿತವಾಗುತ್ತದೆ.</string>
+    <string name="unstar">ಕಾರ್ಡ್ ವೀಕ್ಷಣೆಯಲ್ಲಿ, ನಕ್ಷತ್ರ ಐಕಾನ್ ಅನ್ನು ದೀರ್ಘಕಾಲ ಒತ್ತಿದಾಗ ಮಾತ್ರ ಪಠ್ಯವನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ</string>
+    <string name="save">ಉಳಿಸಿ</string>
+    <string name="edit">ಸಂಪಾದಿಸಿ</string>
+    <string name="deleteTitle">ಕಾರ್ಡನ್ನು ಅಳಿಸಿ</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> \u0020ಕಾರ್ಡನ್ನು ಅಳಿಸಿ</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> \u0020ಕಾರ್ಡುಗಳನ್ನು ಅಳಿಸಿ</item>
+    </plurals>
+    <string name="deleteConfirmation">ಈ ಕಾರ್ಡ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುವುದೇ?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one"><xliff:g>%d</xliff:g> ಈ ಕಾರ್ಡ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುವುದೇ?</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> ಈ ಕಾರ್ಡ್ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುವುದೇ?</item>
+    </plurals>
+    <string name="ok">ಸರಿ</string>
+    <string name="editCardTitle">ಕಾರ್ಡನ್ನು ಸಂಪಾದಿಸಿ</string>
+    <string name="scanCardBarcode">ಬಾರ್ ಕೋಡನ್ನು ಸ್ಕಾನ್ ಮಾಡಿ</string>
+    <string name="noCardsMessage">ಮೊದಲು ಒಂದು ಕಾರ್ಡನ್ನು ಸೇರಿಸಿ</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> ಬಾರ್ಕೋಡ್ ನ ಚಿತ್ರವಾಗಿದೆ</string>
+    <string name="noCardExistsError">ಆ ಕಾರ್ಡನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ</string>
+    <string name="failedParsingImportUriError">ಆಮದು ಆದ URI ಅನ್ನು ವಿಶ್ಲೇಷಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
+    <string name="importExport">ಬೇರೆಡೆಯಿಂದ ತೆಗೆದುಕೊ / ಬೇರೆಡೆಗೆ ವರ್ಗಾಯಿಸು</string>
+    <string name="exportName">ಬೇರೆಡೆಗೆ ಸಾಗಿಸು</string>
+    <string name="importExportHelp">ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡುವುದರಿಂದ ಅದನ್ನು ಮತ್ತೊಂದು ಸಾಧನಕ್ಕೆ ಸಾಗಿಸಲು ಅನುಮತಿಸುತ್ತದೆ.</string>
+    <string name="importSuccessfulTitle">ಬೇರೆಡೆಯಿಂದ ತಂದಿರುವ</string>
+    <string name="importFailedTitle">ತೆಗೆದುಕೊಂಡು ಬರಲು ವಿಫಲ</string>
 </resources>

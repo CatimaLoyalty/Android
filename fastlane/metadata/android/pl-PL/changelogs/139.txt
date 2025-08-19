@@ -1,0 +1,3 @@
+- Opcja do nawigacji kartami używając przycisków głośności
+- Naprawiono import Stocard
+- Naprawiono komunikat "Importowanie anulowane" po prawidłowym imporcie

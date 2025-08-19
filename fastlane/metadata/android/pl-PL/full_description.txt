@@ -13,7 +13,7 @@ Dzięki temu niezbędnemu narzędziu codziennego noszenia (CDN) możesz zastąpi
 - Udostępniaj kupony, ekskluzywne oferty, kody promocyjne lub karty i kody za pomocą dowolnej aplikacji.
 - Ciemny motyw i opcje dostępności dla użytkowników z upośledzeniem wzroku.
 - Stworzony dla wszystkich przez „libre software community”.
-- Ręcznie wykonane lokalne tłumaczenia dla ponad 20 języków.
+- Ręcznie wykonane lokalne tłumaczenia dla ponad 40 języków.
 - Gratis, wspierany przez wkłady społeczności.
 - Używajcie, studiujcie, zmieniajcie i dzielcie się tym, jak chcecie; <i>ze wszystkimi</i>.
 - Nie tylko „Free Software” / „Open Source”. <i>Copylefted</i> libre software (GPLv3+) system zarządzający kartami.

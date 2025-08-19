@@ -1,0 +1,3 @@
+- Dodano Android 15 jako cel kompilacji
+- Naprawa awarii przy czytaniu niewspieranych plików pkpass
+- Ulepszenie wsparcia dla plików pkpass

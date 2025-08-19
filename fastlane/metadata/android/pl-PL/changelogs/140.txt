@@ -1,0 +1,1 @@
+- Naprawiono zawijanie tekstu na dialogu dodawania

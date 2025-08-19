@@ -1,0 +1,2 @@
+- Dodano możliwość sortowania kart na podstawie daty początku poprawności
+- Tymczasowo cel kompilacji ustawiony na Android 14,aby naprawić niektóre problemy interfejsu

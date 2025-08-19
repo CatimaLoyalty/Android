@@ -1,0 +1,3 @@
+- Dodano Android 15 jako cel kompilacji
+- Naprawiono zasłonięcie przycisku zapisu przez klawiaturę w ekranie edycji
+- Naprawiono błędne niewykrywanie niektórych plików pkpass (typu: application/vnd-com.apple.pkpass)

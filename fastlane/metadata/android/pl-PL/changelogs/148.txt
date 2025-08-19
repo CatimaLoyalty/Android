@@ -1,0 +1,4 @@
+- Dodano możliwość wybrania szerokości kodu w widoku pełnoekranowym
+- Usunięto nieklarowny import z funkcji aplikacji
+- Różne poprawki dotyczące skanowania
+- Naprawiono awarię podczas ładowania pliku pkpass bez kodu

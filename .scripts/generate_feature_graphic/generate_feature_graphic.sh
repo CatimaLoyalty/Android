@@ -33,17 +33,16 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
     perl -pi -e 's/Catima/$ENV{appname}/' featureGraphic.svg
     perl -pi -e 's/Loyalty Card Wallet/$ENV{subtext}/' featureGraphic.svg
     # Set correct font or font size for language if needed
-    # (Lexend Deca has limited support and some characters are big)
-    # We specifically need the Serif version because of the 200 weight
+    # (Lobster and Lexend have limited language support)
     case "$(basename "$lang")" in
-      bg|el-GR|ru-RU|uk) sed -i "s/Lexend Deca/Noto Serif/" featureGraphic.svg ;;
-      fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Yesteryear/Noto Sans Arabic/" -e "s/Lexend Deca/Noto Sans Arabic/" featureGraphic.svg ;;
-      hi-IN) sed -i -e "s/Yesteryear/Noto Sans Devanagari/" -e "s/Lexend Deca/Noto Serif Devanagari/" featureGraphic.svg ;;
-      ja-JP) sed -i "s/Lexend Deca/Noto Serif CJK JP/" featureGraphic.svg ;;
-      kn-IN) sed -i -e 's/font-size="150"/font-size="100"/' -e "s/Yesteryear/Noto Serif Kannada/" featureGraphic.svg ;;
-      ko) sed -i "s/Lexend Deca/Noto Serif CJK KR/" featureGraphic.svg ;;
-      zh-CN) sed -i "s/Lexend Deca/Noto Serif CJK SC/" featureGraphic.svg ;;
-      zh-TW) sed -i -e "s/Yesteryear/Noto Sans CJK TC/" -e "s/Lexend Deca/Noto Serif CJK TC/" featureGraphic.svg ;;
+      bg|el-GR|ru-RU|uk) sed -i "s/Lexend/Noto Sans/" featureGraphic.svg ;;
+      fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Lobster/Noto Sans Arabic/" -e "s/Lexend/Noto Sans Arabic/" featureGraphic.svg ;;
+      hi-IN) sed -i -e "s/Lobster/Noto Sans Devanagari/" -e "s/Lexend/Noto Sans Devanagari/" featureGraphic.svg ;;
+      ja-JP) sed -i "s/Lexend/Noto Sans CJK JP/" featureGraphic.svg ;;
+      kn-IN) sed -i -e 's/font-size="150"/font-size="125"/' -e "s/Lobster/Noto Sans Kannada/" featureGraphic.svg ;;
+      ko) sed -i "s/Lexend/Noto Sans CJK KR/" featureGraphic.svg ;;
+      zh-CN) sed -i "s/Lexend/Noto Sans CJK SC/" featureGraphic.svg ;;
+      zh-TW) sed -i -e "s/Lobster/Noto Sans CJK TC/" -e "s/Lexend/Noto Sans CJK TC/" featureGraphic.svg ;;
       *) ;;
     esac
   fi

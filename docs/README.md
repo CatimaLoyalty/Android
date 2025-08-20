@@ -23,8 +23,6 @@ Copylefted libre software (GPLv3+) card management app.
 
 [![Feature graphic](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/featureGraphic.png)](https://catima.app/)
 
-*Logo by [Rose (TangentFoxy)](https://github.com/TangentFoxy), feature graphic by [Ziad OUALHADJ](https://github.com/ziadOUA)*
-
 Stores your store loyalty and membership cards on your device, instead of having to carry them around.
 
 Supported barcodes:
@@ -79,6 +77,8 @@ KEYSTORE=/path/to/keystore KEYSTORE_ALIAS=catima ./build.sh
 
 Help translate the app to your language from [our Hosted Weblate page](https://hosted.weblate.org/projects/catima/).
 
-# Developer Note
+# Special thanks
 
 This app is based on the great (but no longer developed) [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher).
+
+Logo and feature graphic contributed by [il-Luca](https://github.com/il-Luca), based on the original logo by [Rose (TangentFoxy)](https://github.com/TangentFoxy) and original feature graphic by [Ziad OUALHADJ](https://github.com/ziadOUA).

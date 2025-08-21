@@ -303,4 +303,6 @@
     <string name="card_list_widget_name">Kortlista</string>
     <string name="width">Bredd</string>
     <string name="sort_by_valid_from">Giltigt från</string>
+    <string name="unsupportedFile">Den här filen stöds inte</string>
+    <string name="addFromPkpass">Välj en Passbook-fil (.pkpass)</string>
 </resources>

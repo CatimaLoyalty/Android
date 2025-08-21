@@ -39,7 +39,7 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
       fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Lobster/Noto Sans Arabic/" -e "s/Lexend/Noto Sans Arabic/" featureGraphic.svg ;;
       hi-IN) sed -i -e "s/Lobster/Noto Sans Devanagari/" -e "s/Lexend/Noto Sans Devanagari/" featureGraphic.svg ;;
       ja-JP) sed -i "s/Lexend/Noto Sans CJK JP/" featureGraphic.svg ;;
-      kn-IN) sed -i -e 's/font-size="150"/font-size="100"/' -e "s/Lobster/Noto Sans Kannada/" featureGraphic.svg ;;
+      kn-IN) sed -i -e 's/font-size="150"/font-size="125"/' -e "s/Lobster/Noto Sans Kannada/" featureGraphic.svg ;;
       ko) sed -i "s/Lexend/Noto Sans CJK KR/" featureGraphic.svg ;;
       zh-CN) sed -i "s/Lexend/Noto Sans CJK SC/" featureGraphic.svg ;;
       zh-TW) sed -i -e "s/Lobster/Noto Sans CJK TC/" -e "s/Lexend/Noto Sans CJK TC/" featureGraphic.svg ;;

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 151
+
+- New redesign of the Catima logo
+- Translation updates
+
 ## v2.36.0 - 150 (2025-08-05)
 
 - Add a widget showing all non-archived cards

@@ -81,4 +81,4 @@ Help translate the app to your language from [our Hosted Weblate page](https://h
 
 This app is based on the great (but no longer developed) [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher).
 
-Logo and feature graphic contributed by [il-Luca](https://github.com/il-Luca), based on the original logo by [Rose (TangentFoxy)](https://github.com/TangentFoxy) and original feature graphic by [Ziad OUALHADJ](https://github.com/ziadOUA).
+Logo and feature graphic contributed by [il-Luca](https://github.com/il-Luca) and [Aeven-Dev](https://github.com/aeven-dev), based on the original logo by [Rose (TangentFoxy)](https://github.com/TangentFoxy) and original feature graphic by [Ziad OUALHADJ](https://github.com/ziadOUA).

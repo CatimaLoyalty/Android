@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 151
+## v2.37.0 - 151 (2025-08-22)
 
 - New redesign of the Catima logo
 - Translation updates

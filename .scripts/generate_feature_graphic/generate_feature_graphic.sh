@@ -36,16 +36,18 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
     # (Lobster and Lexend have limited language support)
     case "$(basename "$lang")" in
       bg|el-GR|ru-RU|uk) sed -i "s/Lexend/Noto Sans/" featureGraphic.svg ;;
-      fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Lobster/Noto Sans Arabic/" -e "s/Lexend/Noto Sans Arabic/" featureGraphic.svg ;;
+      ar|fa-IR) sed -i -e 's/svg direction="ltr"/svg direction="rtl"/' -e "s/Lobster/Noto Sans Arabic/" -e "s/Lexend/Noto Sans Arabic/" featureGraphic.svg ;;
+      he-IL) sed -i -e "s/Lobster/Noto Sans Hebrew/" -e "s/Lexend/Noto Sans Hebrew/" featureGraphic.svg ;;
       hi-IN) sed -i -e "s/Lobster/Noto Sans Devanagari/" -e "s/Lexend/Noto Sans Devanagari/" featureGraphic.svg ;;
       ja-JP) sed -i "s/Lexend/Noto Sans CJK JP/" featureGraphic.svg ;;
-      kn-IN) sed -i -e 's/font-size="150"/font-size="125"/' -e "s/Lobster/Noto Sans Kannada/" featureGraphic.svg ;;
+      kn-IN) sed -i -e 's/font-size="150"/font-size="125"/' -e 's/\(<tspan x="469" \)y="270"/\1y="240"/' -e "s/Lobster/Noto Sans Kannada/" -e "s/Lexend/Noto Sans Kannada/" featureGraphic.svg ;;
       ko) sed -i "s/Lexend/Noto Sans CJK KR/" featureGraphic.svg ;;
       zh-CN) sed -i "s/Lexend/Noto Sans CJK SC/" featureGraphic.svg ;;
       zh-TW) sed -i -e "s/Lobster/Noto Sans CJK TC/" -e "s/Lexend/Noto Sans CJK TC/" featureGraphic.svg ;;
       *) ;;
     esac
   fi
+
   # Ensure images directory exists
   mkdir -p images
   # Generate .png (we use Inkscape because ImageMagick ignores RTL)

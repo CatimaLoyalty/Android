@@ -7,9 +7,9 @@
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
-    <string name="noGiftCards">Click the + plus button to add a card, or import from the ⋮ menu.</string>
-    <string name="noGiftCardsGroup">Create some cards, and then assign them to the group here.</string>
-    <string name="noMatchingGiftCards">No results. Try changing your search.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import from the ⋮ menu</string>
+    <string name="noGiftCardsGroup">Create some cards, and then assign them to the group here</string>
+    <string name="noMatchingGiftCards">No results. Try changing your search</string>
     <string name="storeName">Name</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
@@ -41,18 +41,18 @@
     <string name="ok">OK</string>
     <string name="share">Share</string>
     <string name="sendLabel">Send…</string>
-    <string name="editCardTitle">Edit Card</string>
-    <string name="addCardTitle">Add Card</string>
-    <string name="scanCardBarcode">Scan Barcode</string>
-    <string name="cardShortcut">Card Shortcut</string>
+    <string name="editCardTitle">Edit card</string>
+    <string name="addCardTitle">Add card</string>
+    <string name="scanCardBarcode">Scan barcode</string>
+    <string name="cardShortcut">Card shortcut</string>
     <string name="noCardsMessage">Add a card first</string>
     <!-- %s is a type of barcode here -->
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> barcode</string>
-    <string name="noCardExistsError">Could not find that card</string>
-    <string name="failedParsingImportUriError">Could not parse the import URI</string>
-    <string name="importExport">Import/Export</string>
+    <string name="noCardExistsError">Couldn\'t find that card</string>
+    <string name="failedParsingImportUriError">Couldn\'t parse the import URI</string>
+    <string name="importExport">Import/export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Backing up your data allows moving it to another device.</string>
+    <string name="importExportHelp">Backing up your data allows moving it to another device</string>
     <string name="importSuccessfulTitle">Imported</string>
     <string name="importFailedTitle">Import failed</string>
     <string name="importFailed">Could not perform import</string>
@@ -63,13 +63,13 @@
     <string name="exporting">Exporting…</string>
     <string name="storageReadPermissionRequired">Permission to read storage needed for this action…</string>
     <string name="cameraPermissionRequired">Permission to access camera needed for this action…</string>
-    <string name="permissionReadCardsLabel">Read Catima Cards</string>
-    <string name="permissionReadCardsDescription">read your Catima cards and all its details, including notes and images</string>
-    <string name="cameraPermissionDeniedTitle">Could not access the camera</string>
+    <string name="permissionReadCardsLabel">Read Catima cards</string>
+    <string name="permissionReadCardsDescription">Read your Catima cards and all its details, including notes and images</string>
+    <string name="cameraPermissionDeniedTitle">Couldn\'t access the camera</string>
     <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
-    <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
+    <string name="exportOptionExplanation">The data will be written to a location of your choice</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
-    <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
+    <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
     <string name="about">About</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os and contributors</string>
@@ -78,9 +78,9 @@
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="selectBarcodeTitle">Select Barcode</string>
+    <string name="app_libraries">Third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Select barcode</string>
     <string name="thumbnailDescription">Thumbnail</string>
     <string name="starImage">Favorite star</string>
     <string name="settings">Settings</string>
@@ -96,7 +96,7 @@
     <string name="settings_key_card_orientation" translatable="false">pref_card_orientation</string>
     <string name="settings_follow_system_orientation">Follow system</string>
     <string name="settings_key_follow_system_orientation" translatable="false">follow_system</string>
-    <string name="settings_follow_sensor_orientation">Always rotate (ignores system settings)</string>
+    <string name="settings_follow_sensor_orientation">Always rotate</string>
     <string name="settings_key_follow_sensor_orientation" translatable="false">follow_sensor</string>
     <string name="settings_portrait_orientation">Portrait</string>
     <string name="settings_key_portrait_orientation" translatable="false">portrait</string>
@@ -126,7 +126,7 @@
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
     <string name="sharedpreference_card_details" translatable="false">sharedpreference_card_details</string>
-    <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
+    <string name="intent_import_card_from_url_share_text">Card sharing request</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
     <string name="intent_import_card_from_url_path_prefix_catima_app" translatable="false">/share</string>
     <string name="intent_import_card_from_url_host_thelastproject" translatable="false">thelastproject.github.io</string>
@@ -138,7 +138,7 @@
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
     <string name="group_edit">Edit Group</string>
-    <string name="noGroups">Click the + plus button to add groups for categorization.</string>
+    <string name="noGroups">Click the + plus button to add groups for categorization</string>
     <string name="noGroupCards">This group is empty</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
@@ -149,7 +149,7 @@
     <string name="group_updated">Group updated</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
-    <string name="failedOpeningFileManager">Install a file manager first.</string>
+    <string name="failedOpeningFileManager">Failed to open file manager</string>
     <string name="moveUp">Move upwards</string>
     <string name="moveDown">Move downwards</string>
     <string name="leaveWithoutSaveTitle">Exit</string>
@@ -157,7 +157,7 @@
     <string name="addManually">Enter the barcode manually</string>
     <string name="addFromImage">Select an image from gallery</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
-    <string name="editGroup">Editing Group: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Editing group: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
@@ -172,33 +172,33 @@
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
     <string name="noBarcodeFound">No barcode was found</string>
-    <string name="errorReadingImage">Could not read the image</string>
+    <string name="errorReadingImage">Couldn\'t read the image</string>
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
     <string name="points">Points</string>
     <string name="balanceParsingFailed">Invalid balance</string>
     <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy">Privacy policy</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
-    <string name="importCatimaMessage">Select your <i>catima.zip</i> export from Catima to import.
-\nCreate it from the Import/Export menu of another Catima app by pressing Export there first.</string>
+    <string name="importCatimaMessage">Select your export from Catima to import.
+\nCreate it from the "Import/export" menu of another Catima app by pressing "Export".</string>
     <string name="importFidme">Import from FidMe</string>
-    <string name="importFidmeMessage">Select your <i>fidme-export-request-xxxxxx.zip</i> export from FidMe to import, and select the barcode types manually afterwards.
-\nCreate it from your FidMe profile by choosing Data Protection and then pressing Extract my data first.</string>
+    <string name="importFidmeMessage">Select your export from FidMe to import, and select the barcode types manually afterwards.
+\nCreate it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data".</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Select your <i>LoyaltyCardKeychain.csv</i> export from Loyalty Card Keychain to import.
-\nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first.</string>
+    <string name="importLoyaltyCardKeychainMessage">Select your export from Loyalty Card Keychain to import.
+\nCreate it from the "Import/Export" menu in Loyalty Card Keychain by pressing "Export".</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Select your <i>vouchervault.json</i> export from Voucher Vault to import.
-\nCreate it by pressing Export in Voucher Vault first.</string>
+    <string name="importVoucherVaultMessage">Select your export from Voucher Vault to import.
+\nCreate it by pressing "Export" in Voucher Vault.</string>
     <string name="barcodeId">Barcode value</string>
     <string name="sameAsCardId">Same as ID</string>
     <string name="setBarcodeId">Set barcode value</string>
     <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a later version of the app.</string>
-    <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
-    <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
+    <string name="wrongValueForBarcodeType">The value isn\'t valid for the selected barcode type</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Cards sharing request</string>
     <string name="frontImageDescription">Front image</string>
     <string name="backImageDescription">Back image</string>
     <string name="photos">Photos</string>
@@ -210,10 +210,10 @@
     <string name="updateBarcodeQuestionText">You changed the ID. Do you want to also update the barcode to use the same value?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="passwordRequired">Please enter the password</string>
+    <string name="passwordRequired">Enter the password</string>
     <string name="exportPassword">Set a password to protect your export (optional)</string>
     <string name="exportPasswordHint">Enter password</string>
-    <string name="failedGeneratingShareURL">Could not generate sharable URL. Please report this.</string>
+    <string name="failedGeneratingShareURL">Couldn\'t generate sharable URL</string>
     <string name="turn_flashlight_on">Turn flashlight on</string>
     <string name="turn_flashlight_off">Turn flashlight off</string>
     <string name="settings_locale">Language</string>
@@ -246,25 +246,25 @@
     <string name="showMoreInfo">Show info</string>
     <string name="updateBalance">Update balance</string>
     <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
-    <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
+    <string name="barcodeLongPressMessage">Select an app that supports viewing images</string>
     <string name="sort_by_name">Name</string>
-    <string name="sort_by_most_recently_used">Most Recently Used</string>
-    <string name="sort_by_valid_from">Valid From</string>
+    <string name="sort_by_most_recently_used">Most recently used</string>
+    <string name="sort_by_valid_from">Valid from</string>
     <string name="sort_by_expiry">Expiry</string>
     <!-- \"Reversed order\" is also OK. This is an option in the card sorting list -->
     <string name="reverse">…in reversed order</string>
     <string name="sort_by">Sort by</string>
-    <string name="version_history">Version History</string>
+    <string name="version_history">Version history</string>
     <string name="arrow" translatable="false"><![CDATA[>]]></string>
     <string name="credits">Credits</string>
     <string name="help_translate_this_app">Help translate this app</string>
     <string name="license">License</string>
-    <string name="source_repository">Source Repository</string>
+    <string name="source_repository">Source repository</string>
     <string name="on_github">on GitHub</string>
     <string name="and_data_usage">and data usage</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>
-    <string name="report_error">Report Error</string>
+    <string name="report_error">Report error</string>
     <string name="translate_platform">on Weblate</string>
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
@@ -276,7 +276,7 @@
     <string name="archived">Card archived</string>
     <string name="unarchived">Card unarchived</string>
     <string name="overflowMenu" translatable="false">Overflow menu</string>
-    <string name="failedLaunchingPhotoPicker">Could not find a supported gallery app</string>
+    <string name="failedLaunchingPhotoPicker">Couldn\'t find a supported image picker</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
@@ -298,8 +298,8 @@
     <string name="switchToFrontImage">Switch to front image</string>
     <string name="switchToBackImage">Switch to back image</string>
     <string name="switchToBarcode">Switch to barcode</string>
-    <string name="openFrontImageInGalleryApp">Open front image in gallery app</string>
-    <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
+    <string name="openFrontImageInGalleryApp">Open front image in image viewer app</string>
+    <string name="openBackImageInGalleryApp">Open back image in image viewer app</string>
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
     <string name="icon_header_click_text">Long press to edit thumbnail</string>
@@ -340,14 +340,14 @@
     <string name="field_must_not_be_empty">Field must not be empty</string>
     <string name="manually_enter_barcode_instructions">Enter the ID number or text on your card and press the barcode that looks like the one on your card.</string>
     <string name="add_manually_warning_title">Scanning is recommended</string>
-    <string name="add_manually_warning_message">For some stores, the barcode value differs from the number written on the card. Because of this, entering a barcode manually may not always work. It is strongly recommended to scan the barcode with your camera instead. Do you still want to continue?</string>
+    <string name="add_manually_warning_message">For some cards, the barcode value differs from the number written on the card. Because of this, entering a barcode manually may not always work. It is recommended to scan the barcode with your camera instead. Do you still want to continue?</string>
     <string name="continue_">Continue</string>
     <string name="spend">Spend</string>
     <string name="receive">Receive</string>
     <string name="amountParsingFailed">Invalid amount</string>
     <string name="addFromPdfFile">Select a PDF file</string>
-    <string name="errorReadingFile">Could not read the file</string>
-    <string name="failedLaunchingFileManager">Could not find a supported file manager</string>
+    <string name="errorReadingFile">Couldn\'t read the file</string>
+    <string name="failedLaunchingFileManager">Couldn\'t find a supported file manager</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Which of the found barcodes do you want to use?</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Your device does not seem to have a camera. If it does, try rebooting the device. Otherwise, use the "More options" button below to add a barcode another way.</string>
@@ -357,10 +357,10 @@
     <string name="useBackImage">Use back image</string>
     <string name="addFromPkpass">Select a Passbook file (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">This file is not supported</string>
-    <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
+    <string name="generic_error_please_retry">An error occurred</string>
     <string name="width">Width</string>
     <string name="card_list_widget_name">Card list</string>
-    <string name="setBarcodeWidth">Set Barcode Width</string>
+    <string name="setBarcodeWidth">Set barcode width</string>
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (%s)</string>

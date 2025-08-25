@@ -77,7 +77,7 @@
     <string name="noCardExistsError">無法找到此卡片</string>
     <string name="noCardsMessage">請先新增卡片</string>
     <string name="sort">排列</string>
-    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_catima_theme">卡提碼</string>
     <string name="settings_pink_theme">粉紅</string>
     <string name="settings_magenta_theme">品紅</string>
     <string name="settings_violet_theme">紫色</string>
@@ -160,9 +160,8 @@
     <string name="importFidme">自 FidMe 匯入</string>
     <string name="importFidmeMessage">選取您自 FidMe 匯出的<i>fidme-export-request-xxxxxx.zip</i> 檔案以進行匯入，並手動選擇條碼種類。
 \n請您先透過您的 FidMe 個人檔案選取『Data Protection』，並選擇『Extract my data』。</string>
-    <string name="importCatima">自 Catima 匯入</string>
-    <string name="importCatimaMessage">選取您自 Catima 匯出的 <i>catima.zip</i> 檔案以進行匯入。
-\n您可透過其他裝置的 Catima 程式中的匯入／匯出選單進行匯出。</string>
+    <string name="importCatima">自卡提碼匯入</string>
+    <string name="importCatimaMessage">選取您自卡提碼匯出的 <i>catima.zip</i> 檔案以進行匯入。 \n您可透過其他裝置的卡提碼程式中的匯入／匯出選單進行匯出。</string>
     <string name="points">點</string>
     <string name="app_libraries">第三方自由函式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -212,10 +211,10 @@
     <string name="failedLaunchingPhotoPicker">無法找到支援的圖庫應用程式</string>
     <string name="previousCard">上一張</string>
     <string name="nextCard">下一張</string>
-    <string name="welcome">歡迎使用 Catima</string>
+    <string name="welcome">歡迎使用卡提碼</string>
     <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
     <string name="importCards">導入卡片</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Catima 需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>
+    <string name="noCameraPermissionDirectToSystemSetting">卡提碼需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>
     <string name="validFromDate">生效</string>
     <string name="anyDate">任何日期</string>
     <string name="chooseValidFromDate">選擇生效日期</string>
@@ -235,16 +234,16 @@
     <string name="show_validity">顯示有效性</string>
     <string name="switchToFrontImage">選擇正面圖片</string>
     <string name="switchToBackImage">選擇背面圖片</string>
-    <string name="height">高度</string>
+    <string name="height">高</string>
     <string name="donate">捐款</string>
     <string name="icon_header_click_text">長按以編輯縮圖</string>
     <string name="openBackImageInGalleryApp">以圖庫軟體開啟背面圖片</string>
     <string name="show_name_below_image_thumbnail">在縮圖下方顯示名稱</string>
     <string name="setBarcodeHeight">設定條碼高度</string>
     <string name="app_copyright_short">著作權所有© Sylvia van Os與其他貢獻者</string>
-    <string name="permissionReadCardsLabel">讀取Catima卡片</string>
-    <string name="app_name">Catima</string>
-    <string name="permissionReadCardsDescription">讀取Catima卡片及卡片資訊，包含註記與圖片</string>
+    <string name="permissionReadCardsLabel">讀取卡提碼卡片</string>
+    <string name="app_name">卡提碼</string>
+    <string name="permissionReadCardsDescription">讀取卡提碼卡片及卡片資訊，包含註記與圖片</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時避免螢幕鎖定</string>
     <string name="settings_allow_content_provider_read_summary">其他程式仍然需要取得權限</string>
     <string name="settings_allow_content_provider_read_title">允許其他程式使用我的資料</string>
@@ -299,4 +298,8 @@
     <string name="unsupportedFile">不支援此檔案</string>
     <string name="generic_error_please_retry">抱歉，似乎出了點錯誤，請您再試一次...</string>
     <string name="sort_by_valid_from">有效期限開始日</string>
+    <string name="card_list_widget_empty">加入卡提碼的卡片會在這顯示。若您已加入卡片，請確認卡片是否被歸檔。</string>
+    <string name="width">寬</string>
+    <string name="card_list_widget_name">卡片清單</string>
+    <string name="setBarcodeWidth">設定條碼寬度</string>
 </resources>

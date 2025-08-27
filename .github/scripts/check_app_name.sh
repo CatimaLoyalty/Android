@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-TITLE_FILE="fastlane/metadata/android/en-US/title.txt"
-CANONICAL_TITLE=$(cat "$TITLE_FILE" | tr -d '\r\n')
+CANONICAL_TITLE="Catima"
 
 # Languages allowed to have a different app_name
 ALLOWLIST=("ja" "zh-rCN" "zh-rTW")

@@ -314,4 +314,6 @@
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_4">4</string>
     <string name="addFromPkpass">Izaberi \"Passbook\" dokument (.pkpass)</string>
+    <string name="card_list_widget_name">Lista kartica</string>
+    <string name="card_list_widget_empty">Nakon što dodate neke kartice lojalnosti u Catima, one će se pojaviti ovde. Ako imate kartice, uverite se da nisu sve arhivirane.</string>
 </resources>

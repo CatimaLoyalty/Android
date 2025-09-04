@@ -498,6 +498,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
                 // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
                 parseResultList = Utils.retrieveBarcodesFromPkPass(this, data);
+            } else if (receivedType.equals("application/vnd.apple.pkpasses")) {
+                parseResultList = Utils.retrieveBarcodesFromPkPasses(this, data);
             } else {
                 Log.e(TAG, "Wrong mime-type");
                 return;

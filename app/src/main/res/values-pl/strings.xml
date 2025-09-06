@@ -314,7 +314,7 @@
     <string name="settings_column_count_landscape">Kolumny w trybie pejzażu</string>
     <string name="settings_automatic_column_count">Automatycznie</string>
     <string name="settings_column_count_1">1</string>
-    <string name="addFromPkpass">Wybierz plik Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Wybierz plik Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>
     <string name="generic_error_please_retry">Coś poszło nie tak, spróbuj ponownie później...</string>
     <string name="sort_by_valid_from">Poprawna forma</string>
@@ -322,4 +322,6 @@
     <string name="width">Szerokość</string>
     <string name="card_list_widget_empty">Karty lojalnościowe dodane w aplikacji Catima pokażą się tutaj. Jeżeli masz jakieś karty, upewnij się że nie są one zarchiwizowane.</string>
     <string name="card_list_widget_name">Lista kart</string>
+    <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

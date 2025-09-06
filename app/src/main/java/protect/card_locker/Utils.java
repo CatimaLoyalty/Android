@@ -87,10 +87,10 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -228,6 +228,58 @@ public class Utils {
         return parseResultList;
     }
 
+    static public List<ParseResult> retrieveBarcodesFromPkPasses(Context context, Uri uri) {
+        Log.i(TAG, "Received Pkpasses file with possible barcode");
+        if (uri == null) {
+            Log.e(TAG, "Pkpasses did not contain any data");
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return new ArrayList<>();
+        }
+
+        PkpassesParser pkpassesParser;
+        try {
+            pkpassesParser = new PkpassesParser(context, uri);
+        } catch (Exception e) {
+            Log.e(TAG, "Error reading pkpasses file", e);
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return new ArrayList<>();
+        }
+
+        List<ParseResult> parseResultList = new ArrayList<>();
+        int i = 0;
+        for (PkpassParser pkpassParser : pkpassesParser.getPkpassParsers()) {
+            ParseResult parseResult;
+            List<String> locales = pkpassParser.listLocales();
+            if (locales.isEmpty()) {
+                try {
+                    parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null));
+                } catch (Exception e) {
+                    Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
+                    Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                    return new ArrayList<>();
+                }
+                parseResult.setNote(String.format(context.getString(R.string.cardWithNumber), i+1));
+                parseResultList.add(parseResult);
+            } else {
+                for (String locale : locales) {
+                    try {
+                        parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
+                        Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                        return new ArrayList<>();
+                    }
+                    parseResult.setNote(String.format(context.getString(R.string.cardWithNumberAndLocale), i+1, locale));
+                    parseResultList.add(parseResult);
+                }
+            }
+
+            i++;
+        }
+
+        return parseResultList;
+    }
+
     static public List<ParseResult> retrieveBarcodesFromPdf(Context context, Uri uri) {
         Log.i(TAG, "Received PDF file with possible barcode");
         if (uri == null) {
@@ -319,7 +371,19 @@ public class Utils {
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
-            return retrieveBarcodesFromPkPass(context, intent.getData());
+            Uri intentData = intent.getData();
+
+            if (intentData == null) {
+                Log.e(TAG, "Uri did not contain any data");
+                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                return new ArrayList<>();
+            }
+
+            if (Objects.equals(context.getContentResolver().getType(intentData), "application/vnd.apple.pkpasses")) {
+                return retrieveBarcodesFromPkPasses(context, intentData);
+            }
+
+            return retrieveBarcodesFromPkPass(context, intentData);
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {
@@ -850,7 +914,7 @@ public class Utils {
 
     public static File copyToTempFile(Context context, InputStream input, String name) throws IOException {
         File file = createTempFile(context, name);
-        try (input; FileOutputStream out = new FileOutputStream(file)) {
+        try (FileOutputStream out = new FileOutputStream(file)) {
             byte[] buf = new byte[4096];
             int len;
             while ((len = input.read(buf)) != -1) {

@@ -358,11 +358,13 @@
     <string name="exportCancelled">Export cancelled</string>
     <string name="useFrontImage">Use front image</string>
     <string name="useBackImage">Use back image</string>
-    <string name="addFromPkpass">Select a Passbook file (.pkpass)</string>
+    <string name="addFromPkpass">Select a Passbook file (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">This file is not supported</string>
     <string name="generic_error_please_retry">Sorry, something went wrong, please try again...</string>
     <string name="width">Width</string>
     <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set Barcode Width</string>
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
+    <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

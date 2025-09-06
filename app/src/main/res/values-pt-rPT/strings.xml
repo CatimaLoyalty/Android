@@ -308,7 +308,7 @@
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
-    <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Este ficheiro não é suportado</string>
     <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
@@ -316,4 +316,6 @@
     <string name="setBarcodeWidth">Definir a largura do código de barras</string>
     <string name="card_list_widget_name">Lista de cartões</string>
     <string name="card_list_widget_empty">Após adicionar cartões de fidelidade em Catima, eles aparecerão aqui. Se tem cartões, certifique-se de que não estão todos arquivados.</string>
+    <string name="cardWithNumber">Cartão <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Cartão <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

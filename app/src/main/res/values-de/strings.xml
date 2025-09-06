@@ -300,10 +300,12 @@
     <string name="settings_column_count_6">6</string>
     <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
-    <string name="addFromPkpass">Passbook-Datei (.pkpass) auswählen</string>
+    <string name="addFromPkpass">Wähle eine Passbook-Datei (.pkpass / .pkpasses)</string>
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>
     <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass sie nicht alle archiviert sind.</string>
     <string name="card_list_widget_name">Kartenliste</string>
+    <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
 </resources>

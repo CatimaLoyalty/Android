@@ -300,7 +300,7 @@
     <string name="generic_error_please_retry">Je nám líto, něco se pokazilo, zkuste to prosím znovu...</string>
     <string name="settings_column_count_portrait">Sloupce v režimu na výšku</string>
     <string name="settings_automatic_column_count">Automatický</string>
-    <string name="addFromPkpass">Vyberte soubor Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Vyberte soubor Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Tento soubor není podporován</string>
     <string name="settings_category_title_cards_overview">Přehled karet</string>
     <string name="settings_column_count_landscape">Sloupce v režimu na šířku</string>
@@ -316,4 +316,6 @@
     <string name="width">Šířka</string>
     <string name="card_list_widget_name">Seznam karet</string>
     <string name="card_list_widget_empty">Karty přidané do aplikace Catima se zobrazí zde. Pokud máte karty, ujistěte se, že nejsou všechny archivovány.</string>
+    <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

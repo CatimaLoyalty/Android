@@ -311,9 +311,11 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
-    <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass / .pkpasses)</string>
     <string name="settings_use_volume_keys_navigation">Zmena kariet pomocou tlačidiel hlasitosti</string>
     <string name="settings_use_volume_keys_navigation_summary">Pre posúvanie medzi kartami používať tlačidlá hlasitosti</string>
     <string name="card_list_widget_name">Zoznam kariet</string>
     <string name="card_list_widget_empty">Po pridaní vernostných kariet do Catima sa zobrazia tu. Ak máte karty, uistite sa, že nie sú všetky archivované.</string>
+    <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

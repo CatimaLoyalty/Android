@@ -315,11 +315,13 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="unsupportedFile">Данный файл не поддерживается</string>
-    <string name="addFromPkpass">Выбрать файл Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Выбрать файл Passbook (.pkpass / .pkpasses)</string>
     <string name="generic_error_please_retry">Извините, что-то пошло не так, попробуйте ещё раз…</string>
     <string name="sort_by_valid_from">Начало действия</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Указать ширину штрих-кода</string>
     <string name="card_list_widget_name">Список карт</string>
     <string name="card_list_widget_empty">После добавления карт лояльности в Catima, они появятся здесь. Если у вас есть карты, убедитесь, что они не архивированы.</string>
+    <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

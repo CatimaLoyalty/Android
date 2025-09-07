@@ -296,7 +296,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_landscape">横屏模式下的列数</string>
-    <string name="addFromPkpass">选择 Passbook 文件（.pkpass）</string>
+    <string name="addFromPkpass">选择 Passbook 文件（.pkpass/.pkpasses）</string>
     <string name="unsupportedFile">此文件不受支持</string>
     <string name="generic_error_please_retry">抱歉，某个东西出错了，请再试…</string>
     <string name="sort_by_valid_from">有效期开始日</string>
@@ -304,4 +304,6 @@
     <string name="setBarcodeWidth">设置条码宽度</string>
     <string name="card_list_widget_name">卡片列表</string>
     <string name="card_list_widget_empty">在 Catima 中添加了一些会员卡后，它们会出现在这里。如果你有卡片，确保不是所有都已归档。</string>
+    <string name="cardWithNumber">卡<xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">卡 <xliff:g>%d</xliff:g> （%s）</string>
 </resources>

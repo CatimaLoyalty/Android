@@ -102,9 +102,6 @@
     <string name="importVoucherVaultMessage">Wybierz swój <i>vouchervault.json</i> z Voucher Vault, aby zaimportować.
 \nUtwórz go wpierw klikając Eksportuj w Voucher Vault.</string>
     <string name="importVoucherVault">Importuj z Voucher Vault</string>
-    <string name="importStocardMessage">Wybierz swój <i>***.zip</i> z Stocard, aby zaimportować.
-\nUzyskaj go, wysyłając email na adres support@stocardapp.com, z prośbą o eksport Twoich danych.</string>
-    <string name="importStocard">Importuj z Stocard</string>
     <string name="importLoyaltyCardKeychainMessage">Wybierz swój <i>LoyaltyCardKeychain.csv</i> z Loyalty Card Keychain, aby zaimportować.
 \nUtwórz go z menu Importuj/Eksportuj w Loyalty Card Keychain, wpierw klikając tam Eksportuj.</string>
     <string name="importLoyaltyCardKeychain">Importuj z Loyalty Card Keychain</string>

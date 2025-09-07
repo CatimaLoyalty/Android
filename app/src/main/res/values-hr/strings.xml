@@ -75,8 +75,6 @@
         <item quantity="few"><xliff:g>%d</xliff:g> kartice</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kartica</item>
     </plurals>
-    <string name="importStocardMessage">Odaberi tvoju iz Stocard izvezenu <i>***.zip</i> datoteku koju želiš uvesti.
-\nPošalji e-mail na support@stocardapp.com s molbom za izvoz tvojih podataka.</string>
     <string name="translate_platform">na platformi Weblate</string>
     <string name="editGroup">Uređivanje grupe: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Uredi crtični kod</string>
@@ -85,8 +83,7 @@
     <string name="accept">Prihvati</string>
     <string name="importCatima">Uvezi iz Catima</string>
     <string name="importFidme">Uvezi iz FidMe</string>
-    <string name="importStocard">Uvezi iz Stocard</string>
-    <string name="importLoyaltyCardKeychainMessage">Odaberi tvoju iz LoyaltyCardKeychain izvezenu <i>LoyaltyCardKeychain.csv</i> datoteku koju želiš uvesti. 
+    <string name="importLoyaltyCardKeychainMessage">Odaberi tvoju iz LoyaltyCardKeychain izvezenu <i>LoyaltyCardKeychain.csv</i> datoteku koju želiš uvesti.
 \nStvori je putem izbornika „Uvoz/Izvoz” u aplikaciji Loyalty Card Keychain i tamo pritisni „Izvoz”.</string>
     <string name="updateBarcodeQuestionText">Promijenio/la si ID. Želiš li također aktualizirati crtični kod da koristi istu vrijednost\?</string>
     <string name="importCards">Uvezi kartice</string>

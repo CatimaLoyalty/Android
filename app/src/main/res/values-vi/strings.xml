@@ -25,7 +25,6 @@
     <string name="cameraPermissionDeniedTitle">Không sử dụng được camera</string>
     <string name="wrongValueForBarcodeType">Giá trị cho loại mã vạch này không hợp lệ</string>
     <string name="expiryDate">Ngày hết hạn</string>
-    <string name="importStocard">Nhập dữ liệu từ Stocard</string>
     <string name="currency">Tiền tệ</string>
     <string name="welcome">Chào mừng tới Catima</string>
     <string name="failedParsingImportUriError">Không thể phân tích URI được cung cấp</string>
@@ -152,8 +151,6 @@
     <string name="settings_landscape_orientation">Ngang</string>
     <string name="privacy_policy">Chính Sách Quyền Riêng Tư</string>
     <string name="enter_group_name">Nhập tên nhóm</string>
-    <string name="importStocardMessage">Chọn <i>***.zip</i> được xuất từ Stocard để nhập liệu.
-\nLấy tập tin này bằng cách gửi thư yêu cầu xuất dữ liệu đến support@stocardapp.com.</string>
     <string name="addCardTitle">Thêm Thẻ</string>
     <string name="exportFailed">Không thể xuất dữ liệu</string>
     <string name="exportName">Xuất dữ liệu</string>

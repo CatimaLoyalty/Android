@@ -175,7 +175,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         List<CharSequence> betaImportOptions = new ArrayList<>();
         betaImportOptions.add("Fidme");
-        betaImportOptions.add("Stocard");
         List<CharSequence> importOptions = new ArrayList<>();
 
         for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
@@ -208,14 +207,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
                             importDataFormat = DataFormat.Catima;
                             break;
-                        // Stocard
-                        case 3:
-                            importAlertTitle = getString(R.string.importStocard);
-                            importAlertMessage = getString(R.string.importStocardMessage);
-                            importDataFormat = DataFormat.Stocard;
-                            break;
                         // Voucher Vault
-                        case 4:
+                        case 3:
                             importAlertTitle = getString(R.string.importVoucherVault);
                             importAlertMessage = getString(R.string.importVoucherVaultMessage);
                             importDataFormat = DataFormat.VoucherVault;

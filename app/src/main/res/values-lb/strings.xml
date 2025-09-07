@@ -59,7 +59,6 @@
     <string name="exportOptionExplanation">D \' Donnéeë ginn op eng Plaz vun Hirer Wal geschriwwen.</string>
     <string name="accept">Averstane</string>
     <string name="settings_display_barcode_max_brightness">Erhellen barcode-Usiicht</string>
-    <string name="importStocard">Importéieren vun Stocard</string>
     <string name="importLoyaltyCardKeychain">Import vun Loyalty Card Keychain</string>
     <string name="setBarcodeId">Leeë Si barcode-Wäert</string>
     <string name="wrongValueForBarcodeType">De Wäert ass fir de ausgewielt Barcode-Typ net gëllt</string>

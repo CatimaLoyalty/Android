@@ -90,7 +90,6 @@
     <string name="photos">Imagini</string>
     <string name="noGiftCardsGroup">Adăugați câteva carduri, iar apoi atribuiți-le grupului aici.</string>
     <string name="importCatima">Importați din Catima</string>
-    <string name="importStocard">Importați din Stocard</string>
     <string name="intent_import_card_from_url_share_multiple_text">Aș dori să partajez niște carduri cu tine</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Drepturi de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os și contribuitorii</string>
     <string name="translate_platform">pe Weblate</string>
@@ -203,7 +202,6 @@
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
     <string name="settings_landscape_orientation">Orizontal</string>
     <string name="privacy_policy">Politica de Confidențialitate</string>
-    <string name="importStocardMessage">Selectați exportul dvs. <i>***.zip</i> din Stocard pentru a-l importa.\nGenerați întâi fișierul solicitând prin e-mail către support@stocardapp.com un export al datelor dumneavoastră.</string>
     <string name="openBackImageInGalleryApp">Deschideți imaginea din spate în aplicația galerie</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="updateBalance">Actualizați balanța</string>

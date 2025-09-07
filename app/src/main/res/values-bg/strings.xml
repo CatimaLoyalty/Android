@@ -129,12 +129,9 @@
     <string name="addManually">Ръчно въвеждане</string>
     <string name="leaveWithoutSaveConfirmation">Оставяте промените незапазени\?</string>
     <string name="unsupportedBarcodeType">Щрихкод от този вид не може да бъде показан. Може да бъде поддържан в следващо издание.</string>
-    <string name="importStocard">Внасяне от Stocard</string>
     <string name="importVoucherVault">Внасяне от Voucher Vault</string>
     <string name="importVoucherVaultMessage">Изберете файла <i>vouchervault.json</i>, предварително изнесен от Voucher Vault.
 \nСъздайте такъв файл от меню „Export“ във Voucher Vault.</string>
-    <string name="importStocardMessage">Изберете файла <i>***.zip</i>, предварително изнесен от Stocard.
-\nПолучете го като изпратите писмо на support@stocardapp.com с искане за изнасяне вашите данни.</string>
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>

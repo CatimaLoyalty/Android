@@ -233,8 +233,6 @@
     <string name="settings_pink_theme">Rozkolora</string>
     <string name="field_must_not_be_empty">Kampo devas ne esti malplena</string>
     <string name="manually_enter_barcode_instructions">Entajpu la identigilon aŭ tekston sur via karto kaj premu la strikodon kiu aspektas kiel tiu sur via karto.</string>
-    <string name="importStocardMessage">Elektu la <i>***.zip</i> eksoporton de Stocard kiun vi volas importi.
-\nAkiru ĝin sendante retpoŝton al support@stocardapp.com petante eksporton de viaj datumoj.</string>
     <string name="turn_flashlight_off">Malŝalti poŝlampon</string>
     <string name="add_manually_warning_title">Skani estas rekomendata</string>
     <string name="continue_">Daŭrigi</string>
@@ -272,7 +270,6 @@
     <string name="updateBarcodeQuestionText">Vi ŝanĝis la identigon. Ĉu vi volas ankaŭ ĝisdatigi la strikodon por uzi la saman valoron?</string>
     <string name="importLoyaltyCardKeychainMessage">Elektu la <i>LoyaltyCardKeychain.csv</i> eksporton de Loyalty Card Keychain kiun vi volas importi.
 \nKreu ĝin unue de la \"Importi/eksporti\" menuo en Loyalty Card Keychain elektante \"eksporti\" tie.</string>
-    <string name="importStocard">Importi de Stocard</string>
     <string name="importVoucherVault">Importi el Voucher Vault</string>
     <string name="turn_flashlight_on">Enŝalti poŝlampon</string>
     <string name="settings_locale">Lingvo</string>

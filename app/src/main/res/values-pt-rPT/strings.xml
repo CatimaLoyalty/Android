@@ -86,8 +86,6 @@
     <string name="sameAsCardId">Igual ao identificador</string>
     <string name="importFidmeMessage">Selecione a exportação <i>fidme-export-request-xxxxxx.zip</i> do FidMe para importar e depois selecione os tipos de código de barras manualmente.
 \nPrimeiro crie a exportação no seu perfil do FidMe escolhendo a opção \"Proteção de dados\" e em seguida pressionando \"Extrair os meus dados\".</string>
-    <string name="importStocardMessage">Selecione a exportação <i>***.zip</i> do Stocard para importar.
-\nObtenha-o através do e-mail support@stocardapp.com solicitando uma exportação dos seus dados.</string>
     <string name="barcodeId">Valor do código de barras</string>
     <string name="wrongValueForBarcodeType">O valor não é válido para o tipo de código de barras selecionado</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quero partilhar alguns cartões</string>
@@ -138,7 +136,6 @@
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Selecione a exportação <i>LoyaltyCardKeychain.csv</i> do Loyalty Card Keychain para importar.
 \nPrimeiro crie a exportação no menu \"Importar / exportar\" no Loyalty Card Keychain pressionando \"Exportar\".</string>
-    <string name="importStocard">Importar do Stocard</string>
     <string name="importVoucherVault">Importar do Voucher Vault</string>
     <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar.
 \nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>

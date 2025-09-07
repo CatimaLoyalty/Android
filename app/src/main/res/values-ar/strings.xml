@@ -77,8 +77,6 @@
     <string name="importCatimaMessage">حدّد ملفك <i>catima.zip</i> تصدير من Catima للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير هناك أولاً.</string>
     <string name="importFidme">الاستيراد من FidMe</string>
     <string name="importFidmeMessage">حدّد ملفك <i>fidme-export-request-xxxxxx.zip</i> تصدير من FidMe للاستيراد، ثم حدد أنواع الباركود يدويًا بعد ذلك. \nإنشئها من ملف تعريف FidMe الخاص بك عن طريق اختيار حماية البيانات ثم الضغط على استخراج بياناتي أولاً.</string>
-    <string name="importStocardMessage">حدد ملفك <i>***.zip</i> تصدير من Stocard للاستيراد.
-\nاحصل عليه عن طريق إرسال بريد إلكتروني إلى support@stocardapp.com لطلب تصدير بياناتك.</string>
     <string name="importVoucherVault">الاستيراد من Voucher Vault</string>
     <string name="importVoucherVaultMessage">حدّد ملفك <i>vouchervault.json</i> تصدير من Voucher Vault للاستيراد. \nإنشئها بالضغط على تصدير في Voucher Vault أولاً.</string>
     <string name="barcodeId">قيمة الباركود</string>
@@ -229,7 +227,6 @@
     <string name="sort_by_expiry">انقضاء</string>
     <string name="importLoyaltyCardKeychain">الاستيراد من Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">حدّد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
-    <string name="importStocard">الاستيراد من Stocard</string>
     <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة. الرجاء الإبلاغ عن هذا.</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
     <string name="on_google_play">على Google Play</string>

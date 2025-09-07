@@ -130,10 +130,7 @@
     <string name="backImageDescription">Задняя сторона</string>
     <string name="frontImageDescription">Лицевая сторона</string>
     <string name="photos">Фото</string>
-    <string name="importStocardMessage">Выберите для импортирования файл <i>***.zip</i>.
-\nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
-    <string name="importStocard">Импорт из Stocard</string>
     <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об этом.</string>
     <string name="turn_flashlight_off">Отключить вспышку</string>
     <string name="turn_flashlight_on">Включить вспышку</string>

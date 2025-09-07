@@ -129,9 +129,6 @@
     <string name="backImageDescription">Achterzijde van kaart</string>
     <string name="frontImageDescription">Voorzijde van kaart</string>
     <string name="passwordRequired">Voer het wachtwoord in</string>
-    <string name="importStocardMessage">Kies het te importeren Stocard-exportbestand genaamd <i>***.zip</i>.
-\nStuur een e-mail naar support@stocardapp.com waarin je vraagt om een exportbestand.</string>
-    <string name="importStocard">Importeren uit Stocard</string>
     <string name="failedGeneratingShareURL">De te delen link kan niet worden gegenereerd. Meld deze fout.</string>
     <string name="turn_flashlight_off">Zaklamp uitzetten</string>
     <string name="turn_flashlight_on">Zaklamp aanzetten</string>

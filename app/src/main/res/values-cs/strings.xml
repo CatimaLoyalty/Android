@@ -118,9 +118,6 @@
     <string name="importVoucherVaultMessage">Vyberte k importu svůj <i>vouchervault.json</i> exportovaný z Voucher Vault.
 \nVytvoříte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
     <string name="importVoucherVault">Import z Voucher Vault</string>
-    <string name="importStocardMessage">Vyberte k importu svůj <i>***.zip</i> exportovaný z aplikace Stocard.
-\nZískejte ji zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
-    <string name="importStocard">Import ze Stocard</string>
     <string name="importLoyaltyCardKeychainMessage">Vyberte k importu <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain.
 \nVytvoříte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
     <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>

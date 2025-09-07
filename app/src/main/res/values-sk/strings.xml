@@ -136,7 +136,6 @@
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobraziť podrobnosti</string>
     <string name="yes">Áno</string>
-    <string name="importStocard">Import z aplikácie Stocard</string>
     <string name="selectColor">Vybrať farbu</string>
     <string name="setIcon">Nastavenie miniatúry</string>
     <string name="settings_catima_theme">Catima</string>
@@ -233,8 +232,6 @@
     <string name="settings_landscape_orientation">Na šírku</string>
     <string name="importFidmeMessage">Vyberte svoj <i>fidme-export-request-xxxxxx.zip</i> export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne.
 \nVytvorte ho z profilu FidMe tak, že najprv vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
-    <string name="importStocardMessage">Vyberte svoj <i>***.zip</i> export zo Stocard pre import.
-\nZískate ho zaslaním e-mailu na adresu support@stocardapp.com, v ktorom požiadate o export svojich údajov.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
     <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>

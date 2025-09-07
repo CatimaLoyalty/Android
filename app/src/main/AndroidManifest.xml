@@ -65,6 +65,7 @@
                 <data android:mimeType="application/vnd.apple.pkpass" />
                 <data android:mimeType="application/vnd-com.apple.pkpass" />
                 <data android:mimeType="application/vnd.espass-espass" />
+                <data android:mimeType="application/vnd.apple.pkpasses" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -76,6 +77,7 @@
                 <data android:mimeType="application/vnd.apple.pkpass" />
                 <data android:mimeType="application/vnd-com.apple.pkpass" />
                 <data android:mimeType="application/vnd.espass-espass" />
+                <data android:mimeType="application/vnd.apple.pkpasses" />
             </intent-filter>
         </activity>
         <activity

@@ -117,7 +117,7 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.4.1")
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material:1.13.0")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     // Third-party
@@ -133,7 +133,7 @@ dependencies {
     val junitVersion = "4.13.2"
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")
-    testImplementation("org.robolectric:robolectric:4.15.1")
+    testImplementation("org.robolectric:robolectric:4.16")
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")

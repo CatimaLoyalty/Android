@@ -1,0 +1,2 @@
+- Dodaj gradnik, ki prikazuje vse nearhivirane kartice
+- Preprečeno, da bi tipkovnica prekrivala gumb za shranjevanje na zaslonih za urejanje in za skupine

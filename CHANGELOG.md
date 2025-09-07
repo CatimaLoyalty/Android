@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 152
+
+- Add support for .pkpasses files
+
 ## v2.37.0 - 151 (2025-08-22)
 
 - New redesign of the Catima logo

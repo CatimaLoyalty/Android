@@ -1,0 +1,4 @@
+- Dodana možnost izbire širine črtne kode v polnozaslonskem pogledu
+- Odstranjena zmedena funkcija uvoza iz aplikacije
+- Različni popravki skeniranja
+- Popravek sesutja pri nalaganju datoteke pkpass brez črtne kode

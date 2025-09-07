@@ -1,0 +1,2 @@
+- Možnost razvrščanja kartic po začetku veljavnosti
+- Začasna vrnitev k ciljanju Android 14 za odpravljanje nekaterih težav z uporabniškim vmesnikom

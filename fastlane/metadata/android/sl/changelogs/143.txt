@@ -1,0 +1,1 @@
+- Popravek napake pri odpiranju neveljavnih datotek pkpass

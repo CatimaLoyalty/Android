@@ -299,10 +299,12 @@
     <string name="settings_column_count_7">7</string>
     <string name="generic_error_please_retry">Vabandust, midagi läks nüüd viltu, palun proovi uuesti...</string>
     <string name="unsupportedFile">See fail pole toetatud</string>
-    <string name="addFromPkpass">Vali Passbooki fail (.pkpass)</string>
+    <string name="addFromPkpass">Vali Passbooki fail (.pkpass / .pkpasses)</string>
     <string name="sort_by_valid_from">Kehtib alates</string>
     <string name="setBarcodeWidth">Määratle triipkoodi laius</string>
     <string name="width">Laius</string>
     <string name="card_list_widget_name">Kaartide loend</string>
     <string name="card_list_widget_empty">Kui lisad Catimasse kliendikaarte, siis saavad nad olema nähtavad siin. Kui sul on kaardid lisatud, siis palun kontrolli, et nad kõik poleks arhiveeritud.</string>
+    <string name="cardWithNumber">Kaart: <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kaart: <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

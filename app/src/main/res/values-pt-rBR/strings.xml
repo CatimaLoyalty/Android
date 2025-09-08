@@ -309,11 +309,13 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
     <string name="unsupportedFile">Este arquivo não é suportado</string>
-    <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass)</string>
+    <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass / .pkpasses)</string>
     <string name="generic_error_please_retry">Desculpe, alguma coisa deu errado, por favor tente novamente...</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
     <string name="width">Largura</string>
     <string name="setBarcodeWidth">Definir largura do código de barras</string>
     <string name="card_list_widget_name">Lista de cartões</string>
     <string name="card_list_widget_empty">Depois que você adicionar alguns cartões de fidelidade no Catima, eles aparecerão aqui. Se você tiver cartões, verifique se eles não estão todos arquivados.</string>
+    <string name="cardWithNumber">Cartão <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Cartão <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

@@ -1,0 +1,1 @@
+- Přidána podpora pro soubory .pkpasses

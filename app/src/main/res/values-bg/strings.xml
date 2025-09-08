@@ -303,11 +303,13 @@
     <string name="settings_column_count_portrait">Колони в портретен изглед</string>
     <string name="settings_category_title_cards_overview">Списък с карти</string>
     <string name="generic_error_please_retry">Съжаляваме, нещо се обърка, опитайте отново…</string>
-    <string name="addFromPkpass">Изберете файл на Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Изберете файл на Passbook (.pkpass / pkpasses)</string>
     <string name="unsupportedFile">Този вид файлове не се поддържат</string>
     <string name="sort_by_valid_from">Начало валидност</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Задаване ширина на щрих кода</string>
     <string name="card_list_widget_name">Списък с карти</string>
     <string name="card_list_widget_empty">Когато добавите карти в Catima те ще се покажат тук. Ако имате карти уверете се, че са извън архива.</string>
+    <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

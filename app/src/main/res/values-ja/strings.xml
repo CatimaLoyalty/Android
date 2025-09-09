@@ -128,9 +128,6 @@
     <string name="photos">画像</string>
     <string name="backImageDescription">裏</string>
     <string name="frontImageDescription">表</string>
-    <string name="importStocardMessage">Stocardでエクスポートした<i>***.zip</i>ファイルを選択してください。
-\nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
-    <string name="importStocard">Stocardからインポート</string>
     <plurals name="selectedCardCount">
         <item quantity="other">選択済み: <xliff:g>%d</xliff:g> 枚</item>
     </plurals>

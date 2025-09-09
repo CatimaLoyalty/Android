@@ -114,7 +114,6 @@
     <string name="never">Aldrig</string>
     <string name="chooseExpiryDate">Vælg udløbsdato</string>
     <string name="balance">Balance</string>
-    <string name="importStocard">Importer fra Stocard</string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
     <string name="group_name_is_empty">Gruppenavn må ikke være tom</string>
     <string name="group_updated">Gruppe opdateret</string>

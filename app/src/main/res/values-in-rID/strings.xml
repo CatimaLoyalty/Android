@@ -139,9 +139,6 @@
     <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor.
 \nBuat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
-    <string name="importStocard">Impor dari Stocard</string>
-    <string name="importStocardMessage">Pilih ekspor <i>***.zip</i> Anda dari Stocard untuk diimpor.
-\nDapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
     <string name="importVoucherVault">Impor dari Voucher Vault</string>
     <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Voucher Vault untuk diimpor.
 \nBuat dengan menekan Ekspor di Voucher Vault terlebih dahulu.</string>

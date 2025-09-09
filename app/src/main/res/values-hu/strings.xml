@@ -50,8 +50,6 @@
     <string name="deleteTitle">Kártya törlése</string>
     <string name="barcodeImageDescriptionWithType">A(z) <xliff:g>%s</xliff:g> vonalkód képe</string>
     <string name="noCardExistsError">A kártya nem található</string>
-    <string name="importStocardMessage">Válassza ki az importálandó <i>***.zip</i> Stocard export fájlt.
-\nAz adatainak exportálását a support@stocardapp.com címre írt levélben kérheti.</string>
     <string name="importVoucherVault">Importálás a Voucher Vaultból</string>
     <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a kiválasztott vonalkódtípushoz</string>
     <string name="settings_green_theme">Zöld</string>
@@ -125,7 +123,6 @@
     <string name="importLoyaltyCardKeychain">Importálás a Loyalty Card Keychainből</string>
     <string name="importLoyaltyCardKeychainMessage">Válassza ki a Loyalty Card Keychainből importálandó <i>LoyaltyCardKeychain.csv</i> export fájlt.
 \nEzt hozza létre a Loyalty Card Keychainben az Importálás/exportálás menüben, az Exportálás megnyomásával.</string>
-    <string name="importStocard">Importálás a Stocardból</string>
     <string name="importVoucherVaultMessage">Válassza ki az importálandó <i>vouchervault.json</i> Voucher Vault export fájlt.
 \nEzt hozza létre a Voucher Vaultban az Exportálás megnyomásával.</string>
     <string name="barcodeId">Vonalkód értéke</string>

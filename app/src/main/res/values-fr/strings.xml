@@ -129,9 +129,6 @@
     <string name="backImageDescription">Image du verso</string>
     <string name="frontImageDescription">Image du recto</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
-    <string name="importStocardMessage">Sélectionnez votre exportation <i>***.zip</i> de Stocard pour l’importer.
-\nVous pouvez l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
-    <string name="importStocard">Importer depuis Stocard</string>
     <string name="turn_flashlight_off">Éteindre la lampe de poche</string>
     <string name="turn_flashlight_on">Allumer la lampe de poche</string>
     <string name="failedGeneratingShareURL">Impossible de générer une URL partageable. Veuillez signaler ceci.</string>

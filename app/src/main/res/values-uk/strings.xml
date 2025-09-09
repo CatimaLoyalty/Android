@@ -134,8 +134,6 @@
     <string name="photos">Світлини</string>
     <string name="backImageDescription">Тильна сторона</string>
     <string name="frontImageDescription">Лицьова сторона</string>
-    <string name="importStocardMessage">Виберіть експорт <i> ***.zip </i> з Stocard для імпорту.\nОтримайте його, надіславши електронного листа support@stocardapp.com з проханням експортувати ваші дані.</string>
-    <string name="importStocard">Імпорт з Stocard</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Обрано: <xliff:g>%d</xliff:g></item>
         <item quantity="few">Обрані: <xliff:g>%d</xliff:g></item>

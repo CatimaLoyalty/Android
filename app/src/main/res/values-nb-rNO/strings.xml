@@ -126,10 +126,7 @@
     <string name="photos">Bilder</string>
     <string name="backImageDescription">Baksidebilde</string>
     <string name="frontImageDescription">Forsidebilde</string>
-    <string name="importStocardMessage">Velg din <i>***.zip</i>-eksport fra Stocard å importere.
-\nSkaff den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
-    <string name="importStocard">Importer fra Stocard</string>
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valgt</item>

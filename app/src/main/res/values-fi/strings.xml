@@ -142,9 +142,6 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valittu</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valitut</item>
     </plurals>
-    <string name="importStocard">Tuo Stocardista</string>
-    <string name="importStocardMessage">Valitse tuotava <i>***.zip</i>-vienti Stocardista.
-\nHanki se lähettämällä sähköpostia osoitteeseen support@stocardapp.com ja pyytämällä tietojesi vientiä.</string>
     <string name="passwordRequired">Ole hyvä ja syötä salasana</string>
     <string name="failedGeneratingShareURL">Jaettavaa URL-osoitetta ei voitu luoda. Ilmoita tästä.</string>
     <string name="turn_flashlight_on">Käytä taskulamppua</string>

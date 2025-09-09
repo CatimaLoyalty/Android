@@ -36,9 +36,6 @@
     <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin.
 \nÖnce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importVoucherVault">Voucher Vault\'tan içe aktar</string>
-    <string name="importStocardMessage">İçe aktarmak için Stocard\'dan dışa aktardığınız <i>***.zip</i> dosyasını seçin.
-\nsupport@stocardapp.com adresine e-posta göndererek verilerinizin dışa aktarılmasını isteyerek edinin.</string>
-    <string name="importStocard">Stocard\'dan içe aktar</string>
     <string name="importLoyaltyCardKeychainMessage">İçe aktarmak için Loyalty Card Keychain\'den dışa aktardığınız <i>LoyaltyCardKeychain.csv</i> dosyasını seçin.
 \nLoyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychain\'den içe aktar</string>

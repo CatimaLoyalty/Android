@@ -129,9 +129,6 @@
     <string name="backImageDescription">Immagine posteriore</string>
     <string name="frontImageDescription">Immagine frontale</string>
     <string name="passwordRequired">Si prega di inserire la password</string>
-    <string name="importStocardMessage">Seleziona il tuo file di esportazione <i>***.zip</i> da Stocard per importarlo.
-\nOttienilo inviando un\'e-mail a support@stocardapp.com chiedendo un\'esportazione dei tuoi dati.</string>
-    <string name="importStocard">Importa da Stocard</string>
     <string name="turn_flashlight_off">Spegni la torcia</string>
     <string name="turn_flashlight_on">Accendi la torcia</string>
     <string name="failedGeneratingShareURL">Impossibile generare un URL condivisibile. Si prega di segnalarlo.</string>

@@ -136,7 +136,6 @@
     <string name="balanceParsingFailed">अमान्य शेष राशि</string>
     <string name="takePhoto">एक फोटो खींचें</string>
     <string name="wrongValueForBarcodeType">चयनित बारकोड प्रकार के लिए मान्य नहीं है</string>
-    <string name="importStocard">स्टोकार्ड (Stocard) से आयात करें</string>
     <string name="app_loyalty_card_keychain">लॉयल्टी कार्ड कीचेन</string>
     <string name="no">नहीं</string>
     <string name="importFidme">Fidme से आयात करें</string>
@@ -155,7 +154,6 @@
     <string name="balanceSentence">शेष राशि: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">कार्ड देखते समय स्क्रीन का लॉक हो जाना बंद करें</string>
     <string name="expiryStateSentenceExpired">समय अवधि समाप्त: <xliff:g>%s</xliff:g></string>
-    <string name="importStocardMessage">आयात करने के लिए स्टोकार्ड (स्टोकार्ड) से अपना <i>***.zip</i> निर्यात चुनें।\nअपने डेटा के निर्यात के लिए support@stocardapp.com पर ई-मेल करके इसे प्राप्त करें।</string>
     <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">लिब्रे तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट बंद करें</string>

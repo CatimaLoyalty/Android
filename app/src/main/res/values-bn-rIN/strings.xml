@@ -26,7 +26,6 @@
     <string name="starImage">তারা ছবি</string>
     <string name="importCatima">ক্যাতিনা আগম</string>
     <string name="importLoyaltyCardKeychain">আমদানি লয়্যালটি কার্ড কীচেন</string>
-    <string name="importStocard">স্টো কার্ড আমদানি করুন</string>
     <string name="importVoucherVault">আমদানি ভাউচার ভল্ট</string>
     <string name="barcodeId">বারকোড আইডি</string>
     <string name="sameAsCardId">আইডি আর এটা এক</string>
@@ -203,8 +202,6 @@
 \nআপনার FidMe প্রোফাইল থেকে ডেটা সুরক্ষা নির্বাচন করে এবং তারপর প্রথমে আমার ডেটা বের করুন টিপে এটি তৈরি করুন।</string>
     <string name="importCatimaMessage">ক্যাটিমা থেকে আমদানি করতে আপনার <i>catima.zip</i> রপ্তানি নির্বাচন করুন।
 \nঅন্য Catima অ্যাপের আমদানি/রপ্তানি মেনু থেকে প্রথমে সেখানে রপ্তানি টিপে এটি তৈরি করুন।</string>
-    <string name="importStocardMessage">আমদানি করতে Stocard থেকে আপনার <i>***.zip</i> এক্সপোর্ট নির্বাচন করুন।
-\nআপনার ডেটা রপ্তানির জন্য জিজ্ঞাসা করে support@stocardapp.com ই-মেইল করে এটি পান।</string>
     <string name="importVoucherVaultMessage">আমদানি করতে ভাউচার ভল্ট থেকে আপনার <i>vouchervault.json</i> এক্সপোর্ট নির্বাচন করুন।
 \nপ্রথমে ভাউচার ভল্টে এক্সপোর্ট টিপে এটি তৈরি করুন।</string>
     <string name="settings_oled_dark">অন্ধকার থিমের জন্য খাঁটি কালো পটভূমি</string>

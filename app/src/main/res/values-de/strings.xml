@@ -298,7 +298,7 @@
     <string name="settings_column_count_6">6</string>
     <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
-    <string name="addFromPkpass">Wähle eine Passbook-Datei (.pkpass / .pkpasses)</string>
+    <string name="addFromPkpass">Eine Passbook-Datei (.pkpass / .pkpasses) auswählen</string>
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>

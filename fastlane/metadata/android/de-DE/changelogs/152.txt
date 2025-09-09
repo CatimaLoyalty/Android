@@ -1,1 +1,2 @@
 - Unterstützung für .pkpasses Dateien hinzugefügt
+- Stocard Import entfernt (Stocard gibts nicht mehr)

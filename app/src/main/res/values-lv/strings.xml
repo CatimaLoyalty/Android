@@ -304,11 +304,13 @@
     <string name="settings_column_count_portrait">Kolonnas stateniskā novietojumā</string>
     <string name="settings_column_count_landscape">Kolonnas līmeniskā novietojumā</string>
     <string name="unsupportedFile">Šī datne netiek atbalstīta</string>
-    <string name="addFromPkpass">Atlasīt Passbook datni (.pkpass)</string>
+    <string name="addFromPkpass">Atlasīt Passbook datni (.pkpass/.pkpasses)</string>
     <string name="generic_error_please_retry">Atvainojamies, kaut kas nogāja greizi. Lūgums mēģināt vēlreiz...</string>
     <string name="sort_by_valid_from">Derīga no</string>
     <string name="setBarcodeWidth">Iestatīt svītrkoda platumu</string>
     <string name="width">Platums</string>
     <string name="card_list_widget_name">Karšu saraksts</string>
     <string name="card_list_widget_empty">Pēc klienta karšu pievienošanas Catima tās parādīsies šeit. Ja Tev ir kartes, jāpārliecinās, ka tās visas nav arhivētas.</string>
+    <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

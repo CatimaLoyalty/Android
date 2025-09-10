@@ -139,7 +139,6 @@
     <string name="importCatima">Імпарт з Catima</string>
     <string name="importFidme">Імпарт з FidMe</string>
     <string name="importLoyaltyCardKeychain">Імпарт з Loyalty Card Keychain</string>
-    <string name="importStocard">Імпарт з Stocard</string>
     <string name="importVoucherVault">Імпарт з Voucher Vault</string>
     <string name="barcodeId">Значэнне штрыхкода</string>
     <string name="importVoucherVaultMessage">Каб імпартаваць, выберыце файл <i>vouchervault.json</i> з Voucher Vault. \nСтварыце яго, націснуўшы Экспарт у Voucher Vault .</string>
@@ -277,7 +276,6 @@
     <string name="editBarcode">Рэдагаваць штрыхкод</string>
     <string name="leaveWithoutSaveConfirmation">Выйсці без захавання?</string>
     <string name="importLoyaltyCardKeychainMessage">Каб імпартаваць, выберыце файл <i>LoyaltyCardKeychain.csv</i> з Loyalty Card Keychain. \nСтварыце яго з меню «Імпарт/Экспарт» у Loyalty Card Keychain, спачатку націснуўшы там «Экспарт».</string>
-    <string name="importStocardMessage">Каб імпартаваць, выберыце файл <i>***.zip</i> з Stocard. \nАтрымайце яго па электроннай пошце support@stocardapp.com з запытам на экспарт вашых даных.</string>
     <string name="frontImageDescription">Пярэдні відарыс</string>
     <string name="groupsList">Групы: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Пераключыцца на задні відарыс</string>

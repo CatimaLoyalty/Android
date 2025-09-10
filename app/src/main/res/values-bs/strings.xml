@@ -26,7 +26,6 @@
     <string name="starImage">Omiljena zvijezda</string>
     <string name="importCatima">Uvezi iz Catima</string>
     <string name="importLoyaltyCardKeychain">Uvezi iz Loyalty Card Keychain</string>
-    <string name="importStocard">Uvezi iz Stokarda</string>
     <string name="importVoucherVault">Uvezi iz trezora vaučer</string>
     <string name="barcodeId">Barcode vrijednost</string>
     <string name="sameAsCardId">Isto kao i kartica</string>

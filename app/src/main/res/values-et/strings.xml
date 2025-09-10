@@ -182,8 +182,6 @@
     <string name="importFidme">Impordi FidMe varukoopiast</string>
     <string name="importFidmeMessage">Importimiseks vali oma <i>fidme-export-request-xxxxxx.zip</i>, mille oled FidMe rakendusest eksportinud. Peale importi määra triipkoodi tüübid käsistsi. \nSellise faili loomiseks vali oma FidMe profiilist eelistuse Andmekaitse-Paki lahti.</string>
     <string name="importLoyaltyCardKeychain">Impordi rakendusest Loyalty Card Keychain</string>
-    <string name="importStocard">Impordi Stocardist</string>
-    <string name="importStocardMessage">Importimiseks vali oma <i>***.zip</i> Stocardi ekspordifail. \nSellise faili saad saates kirja aadressile support@stocardapp.com ning küsides oma andmeid.</string>
     <string name="chooseImportType">Importimise valikud</string>
     <string name="importVoucherVault">Impordi rakendusest Voucher Vault</string>
     <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.json</i> Voucher Vaulti ekspordifail. \nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>

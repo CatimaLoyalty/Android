@@ -177,8 +177,6 @@
     <string name="importFidme">Ievietot no FidMe</string>
     <string name="importFidmeMessage">Jāatlasa sava <i>fidme-export-request-xxxxxx.zip</i> izguves datne no FidMe, lai ievietotu, un pēc tam pašrocīgi jāatlasa svītrkodu veidi. \nTo var izveidot savā FidMe profila sadaļā \"Data Protection\" spiežot \"Extract my data\".</string>
     <string name="importLoyaltyCardKeychain">Ievietot no Loyalty Card Keychain</string>
-    <string name="importStocard">Ievietot no Stocard</string>
-    <string name="importStocardMessage">Jāatlasa sava <i>***.zip</i> izguves datne no Stocard, lai ievietotu. \nTo var iegūt, ja nosūta lūgumu izgūt savus datus uz e-pasta adresi support@stocardapp.com.</string>
     <string name="importVoucherVault">Ievietot no Voucher Vault</string>
     <string name="importVoucherVaultMessage">Jāatlasa sava <i>vouchervaldt.json</i> izguves datne no Voucher Vault, lai ievietotu. \nTo var izveidot spiežot \"Export\" Voucher Vault.</string>
     <string name="barcodeId">Svītrkoda vērtība</string>

@@ -63,7 +63,6 @@
     <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
     <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
     <string name="expiryDate">Fecha de vencimiento</string>
-    <string name="importStocard">Importar desde Stocard</string>
     <string name="currency">Moneda</string>
     <string name="group_edit">Editar grupo</string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
@@ -119,8 +118,6 @@
     <string name="settings_landscape_orientation">Horizontal</string>
     <string name="privacy_policy">Política de Privacidad</string>
     <string name="enter_group_name">Ingrese el nombre del grupo</string>
-    <string name="importStocardMessage">Seleccione su <i>***.zip</i> exportado desde Stocard para importarlo.
-\nObténgalo mandando un correo electrónico a support@stocardapp.com preguntando por una copia de tus datos.</string>
     <string name="addManually">Ingresar el código de barras manualmente</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os y colaboradores</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>

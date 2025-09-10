@@ -65,9 +65,6 @@
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
     <string name="sameAsCardId">Tokia pat kaip ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>
-    <string name="importStocardMessage">Pasirinkite <i>***.zip</i> eksportą iš Stocard, kad galėtumėte importuoti.
-\nGaukite susisiekę el. paštu support@stocardapp.com, prašydami eksportuoti jūsų duomenis.</string>
-    <string name="importStocard">Importuoti iš Stocard</string>
     <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
 \nSukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
     <string name="importFidme">Importuoti iš FidMe</string>

@@ -107,7 +107,6 @@
     <string name="importLoyaltyCardKeychain">Uvezi iz aplikacije Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Odaberi svoj <i>LoyaltyCardKeychain.csv</i> izvoz iz aplikacije Loyalty Card Keychain za uvoz.
 \nKreiraj ga iz menija \"Import/Export\" u aplikaciji Loyalty Card Keychain klikom na \"Export\".</string>
-    <string name="importStocard">Uvoz iz Stocard</string>
     <string name="importVoucherVault">Uvoz iz Voucher Vault</string>
     <string name="importVoucherVaultMessage">Odaberi svoj <i>vouchervault.json</i> izvoz iz Voucher Vault za uvoz.
 \nKreiraj ga pritiskom na \"Export\" u Voucher Vault aplikaciji.</string>
@@ -250,8 +249,6 @@
 \nMožeš da ga kreiraš u Catima aplikaciji koju prenosiš iz menija Uvoz/Izvoz aplikacije pritiskom na izvoz.</string>
     <string name="importFidmeMessage">Odaberi svoj <i>fidme-export-request-xxxxxx.zip</i> izvoz iz FidMe za uvoz, a zatim ručno izaberite tipove bar-kodova.
 \nKreirajte ga iz svog FidMe profila tako što ćeš izabrati \"Data Protection\", a zatim pritisnuti \"Extract my data first\".</string>
-    <string name="importStocardMessage">Odaberi svoj <i>***.zip</i> izvoz iz Stocard za uvoz.
-\nNabavi ga putem e-mail adrese support@stocardapp.com tražeći izvoz vaših podataka.</string>
     <string name="backImageDescription">Zadnja fotografija kartice</string>
     <string name="setBackImage">Postavi zadnju fotografiju</string>
     <string name="passwordRequired">Unesi lozinku</string>

@@ -126,8 +126,6 @@
     <string name="frontImageDescription">Vorderseite</string>
     <string name="backImageDescription">Rückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
-    <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus. \nDu erhälst ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bittest.</string>
-    <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Blitzlicht ausschalten</string>
     <string name="turn_flashlight_on">Blitzlicht einschalten</string>
     <string name="failedGeneratingShareURL">URL konnte nicht erstellt werden. Bitte melde das an uns.</string>
@@ -300,7 +298,7 @@
     <string name="settings_column_count_6">6</string>
     <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
-    <string name="addFromPkpass">Wähle eine Passbook-Datei (.pkpass / .pkpasses)</string>
+    <string name="addFromPkpass">Eine Passbook-Datei (.pkpass / .pkpasses) auswählen</string>
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>

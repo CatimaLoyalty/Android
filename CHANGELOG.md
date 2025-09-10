@@ -3,6 +3,7 @@
 ## Unreleased - 152
 
 - Add support for .pkpasses files
+- Remove Stocard importer (Stocard no longer exists)
 
 ## v2.37.0 - 151 (2025-08-22)
 

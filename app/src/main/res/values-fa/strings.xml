@@ -120,7 +120,6 @@
     <string name="noGroups">روی دکمه + اضافه کلیک کنید تا گروه‌هایی برای دسته‌بندی اضافه کنید.</string>
     <string name="editGroup">ویرایش گروه: <xliff:g>%s</xliff:g></string>
     <string name="importCatimaMessage">فایل <i>catima.zip</i> خروجی خود را از Catima برای وارد کردن انتخاب کنید.\nآن را از منوی وارد/صادر کردن در یک اپلیکیشن دیگر Catima با فشردن دکمه صادرکردن ابتدا ایجاد کنید.</string>
-    <string name="importStocard">واردات از Stocard</string>
     <string name="unsupportedBarcodeType">این نوع بارکد هنوز نمی‌تواند نمایش داده شود. ممکن است در نسخه آینده برنامه پشتیبانی شود.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> امتیاز</item>
@@ -171,7 +170,6 @@
     <string name="accept">قبول</string>
     <string name="importCatima">واردات از کاتیما</string>
     <string name="importFidme">واردات از FidMe</string>
-    <string name="importStocardMessage">فایل خروجی <i>***.zip</i> خود را از Stocard برای وارد کردن انتخاب کنید.\nاین فایل را با ارسال ایمیل به آدرس support@stocardapp.com و درخواست خروجی داده‌های خود دریافت کنید.</string>
     <string name="importVoucherVault">واردات از صندوق کوپن</string>
     <string name="importVoucherVaultMessage">فایل خروجی <i>vouchervault.json</i> خود را از صندوق کوپن برای وارد کردن انتخاب کنید.\nآن را ابتدا با فشردن دکمه صادرکردن در صندوق کوپن ایجاد کنید.</string>
     <string name="barcodeId">مقدار بارکد</string>

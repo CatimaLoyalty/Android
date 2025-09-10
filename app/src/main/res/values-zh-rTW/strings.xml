@@ -151,9 +151,6 @@
     <string name="importVoucherVault">自 Voucher Vault 中匯入</string>
     <string name="importVoucherVaultMessage">選取您自 Voucher Vault 匯出的 <i>vouchervault.json</i> 檔案以進行匯入。
 \n請您先透過 Voucher Vault 進行匯出。</string>
-    <string name="importStocard">自 Stocard 中匯入</string>
-    <string name="importStocardMessage">&gt;選取您自 Stocard 匯出的  <i>***.zip</i> 檔案以進行匯入。
-\n請您寫封 Email 至 support@stocardapp.com 索取您的資料。</string>
     <string name="importLoyaltyCardKeychain">自 Loyalty Card Keychain 中匯入</string>
     <string name="importLoyaltyCardKeychainMessage">選取您自 Loyalty Card Keychain <i>LoyaltyCardKeychain.csv</i> 檔案以進行匯入。
 \n請您先透過 Loyalty Card Keychain 的匯入/匯出選單進行匯出。</string>

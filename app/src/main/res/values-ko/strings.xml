@@ -229,9 +229,6 @@
     <string name="importLoyaltyCardKeychainMessage">가져올 포인트 카드 키체인에서 <i>LoyaltyCardKeychain.csv</i> 내보내기를 선택합니다.
 \n먼저 내보내기를 눌러 로열티 카드 키체인의 가져오기/내보내기 메뉴에서 만드십시오.</string>
     <string name="setBarcodeId">바코드 값 설정</string>
-    <string name="importStocard">Stocard에서 가져오기</string>
-    <string name="importStocardMessage">가져올 Stocard에서 <i>***.zip</i> 내보내기를 선택합니다.
-\nsupport@stocardapp.com으로 이메일을 보내 데이터 내보내기를 요청하면 받을 수 있습니다.</string>
     <string name="importVoucherVault">Voucher Vault에서 가져오기</string>
     <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다.
 \n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>

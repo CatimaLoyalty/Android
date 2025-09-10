@@ -123,8 +123,6 @@
     <string name="importFidmeMessage">Elixe o ficheiro exportado <i>fidme-export-request-xxxxxx.zip</i> desde FidMe, e despois elixe manualmente o tipo de código de barras.\nCréao no teu perfil FidMe en Protección de Datos e despois premendo en Extraer os meus datos.</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Elixe o ficheiro de exportación <i>LoyaltyCardKeychain.csv</i> desde Loyalty Card Keychain \nCréao no menú Importar/Exportar en Loyalty Card Keychain premendo en Exportar.</string>
-    <string name="importStocard">Importar desde Stocard</string>
-    <string name="importStocardMessage">Elixe o ficheiro <i>***.zip</i> desde Stocard. \nPodes obtelo escribindo un correo a support@stocardapp.com e pedindo a exportación dos datos.</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>
     <string name="importVoucherVaultMessage">Selecciona o ficheiro de exportación <i>vouchervault.json</i> desde Voucher Vault. \nCréao premendo en Exportar en Voucher Vault.</string>
     <string name="barcodeId">Valor do código de barras</string>
@@ -297,11 +295,13 @@
     <string name="addFromPdfFile">Elixe un ficheiro PDF</string>
     <string name="errorReadingFile">Non se puido ler o ficheiro</string>
     <string name="unsupportedFile">Este ficheiro non é compatible</string>
-    <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass / .pkpasses)</string>
     <string name="generic_error_please_retry">Sentímolo, pero algo fallou, inténtao outra vez…</string>
     <string name="sort_by_valid_from">Válido desde</string>
     <string name="width">Anchura</string>
     <string name="setBarcodeWidth">Establecer anchura do código de barras</string>
     <string name="card_list_widget_name">Lista de tarxetas</string>
     <string name="card_list_widget_empty">Aquí aparecerán as tarxetas fidelidade cando as engadas a Catima. Se tes tarxetas mira que non estean arquivadas.</string>
+    <string name="cardWithNumber">Tarxeta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Tarxeta <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

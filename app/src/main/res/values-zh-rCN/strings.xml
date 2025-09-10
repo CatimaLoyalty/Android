@@ -119,8 +119,6 @@
     <string name="deleteConfirmation">确定要永久删除此卡？</string>
     <string name="deleteTitle">移除卡片</string>
     <string name="starImage">收藏夹星星</string>
-    <string name="importStocardMessage">选择 Stocard 导出文件 <i>****.zip</i>来导入。
-\n发电子邮件给 support@stocardapp.com 请求获得数据导出文件。</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="other">确定要永久删除 <xliff:g>%d</xliff:g> 这些卡片？</item>
     </plurals>
@@ -145,7 +143,6 @@
     <string name="photos">照片</string>
     <string name="backImageDescription">背面图像</string>
     <string name="frontImageDescription">正面图像</string>
-    <string name="importStocard">从Stocard导入</string>
     <string name="noGiftCardsGroup">创建一些卡片并分配到这个卡组中。</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g>型条码图像</string>
     <string name="group_edit">编辑组</string>

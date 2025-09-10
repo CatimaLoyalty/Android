@@ -147,9 +147,7 @@
     <string name="importCatimaMessage">நீங்கள் கேட்டிமாவில் இருந்து ஏற்றுமதி செய்த <i> catima.zip </i> தேர்ந்துஎடுத்து இறக்குமதி செய்யுங்கள்.\nமுதலில் மற்றொரு கேட்டிமா செயலியில் இறக்குமதி/ஏற்றுமதி மெனுவிலிருந்து ஏற்றுமதியை தேர்ந்துஎடுத்து இக்கோப்பை உருவாக்கவும்.</string>
     <string name="importLoyaltyCardKeychain">விசுவாச அட்டை கீச்சினிலிருந்து இறக்குமதி செய்யுங்கள்</string>
     <string name="importFidmeMessage">உங்கள் <i> fidme-export-request-xxxxxx.zip </i> இறக்குமதி செய்ய FIDME இலிருந்து ஏற்றுமதி செய்து, பின்னர் பார்கோடு வகைகளை கைமுறையாகத் தேர்ந்தெடுக்கவும்.\n தரவு பாதுகாப்பைத் தேர்ந்தெடுப்பதன் மூலம் உங்கள் FIDME சுயவிவரத்திலிருந்து அதை உருவாக்கவும், பின்னர் எனது தரவைப் பிரித்தெடுக்கவும் அழுத்தவும்.</string>
-    <string name="importStocardMessage">உங்கள் <i> ***. சிப் </i> இறக்குமதி செய்ய ஏற்றுமதி.\n உங்கள் தரவை ஏற்றுமதி செய்யக் கேட்கும் support@stocardapp.com என்ற மின்னஞ்சல் மூலம் அதைப் பெறுங்கள்.</string>
     <string name="importVoucherVault">வவுச்சர் பெட்டகத்திலிருந்து இறக்குமதி</string>
-    <string name="importStocard">ச்டார்ட் இருந்து இறக்குமதி</string>
     <string name="sameAsCardId">ஐடி அதே</string>
     <string name="setBarcodeId">பார்கோடு மதிப்பை அமைக்கவும்</string>
     <string name="unsupportedBarcodeType">இந்த பார்கோடு வகையை இன்னும் காட்ட முடியாது. பயன்பாட்டின் பின்னர் பதிப்பில் இது ஆதரிக்கப்படலாம்.</string>

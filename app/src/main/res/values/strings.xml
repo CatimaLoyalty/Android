@@ -190,9 +190,6 @@
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Select your <i>LoyaltyCardKeychain.csv</i> export from Loyalty Card Keychain to import.
 \nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first.</string>
-    <string name="importStocard">Import from Stocard</string>
-    <string name="importStocardMessage">Select your <i>***.zip</i> export from Stocard to import.
-\nGet it by e-mailing support@stocardapp.com asking for an export of your data.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Select your <i>vouchervault.json</i> export from Voucher Vault to import.
 \nCreate it by pressing Export in Voucher Vault first.</string>

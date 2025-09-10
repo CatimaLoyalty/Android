@@ -94,8 +94,6 @@
 \nCréalo primero desde tu perfil de FidMe eligiendo Protección de datos y pulsa Extraer mis datos.</string>
     <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
 \nCréalo primero desde el menú Importar/Exportar en Loyalty Card Keychain pulsando Exportar desde allí.</string>
-    <string name="importStocardMessage">Seleccione su exportación <i>*.zip</i> de Stocard para importarla.
-\nConsígalo enviando un correo electrónico a support@stocardapp.com solicitando una exportación de sus datos.</string>
     <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
 \nCréalo pulsando primero Exportar en Voucher Vault.</string>
     <string name="failedGeneratingShareURL">No se ha podido generar una URL compartible. Por favor, informe de ello.</string>
@@ -120,7 +118,6 @@
     <string name="sameAsCardId">Igual que el código</string>
     <string name="barcodeId">Valor de código de barra</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>
-    <string name="importStocard">Importar desde Stocard</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
     <string name="importFidme">Importar desde FidMe</string>
     <string name="importCatima">Importar desde Catima</string>

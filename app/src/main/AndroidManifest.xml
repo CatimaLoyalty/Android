@@ -4,7 +4,7 @@
 
     <permission
         android:description="@string/permissionReadCardsDescription"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_launcher_monochrome"
         android:label="@string/permissionReadCardsLabel"
         android:name="${applicationId}.READ_CARDS"
         android:protectionLevel="dangerous" />

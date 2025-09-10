@@ -8,7 +8,7 @@
 - 要求权限极少，避免隐私泄露。无需互联网接入，没有广告。
 - 添加卡片或号码，并为其设置名称和颜色。
 - 如果没有条码可存储，或条码无法使用，可手动输入号码。
-- 可以从本地文件、Catima、FidMe、Loyalty Card Keychain、Stocard和Voucher Vault导入卡片和号码。
+- 可以从本地文件、Catima、FidMe、Loyalty Card Keychain、Voucher Vault导入卡片和号码。
 - 对所有的卡进行备份。可以把备份转移到新设备上。
 - 把优惠券、促销码、卡片和号码等等分享到任何应用程序。
 - 为视力受损的用户提供暗色主题和无障碍选项。

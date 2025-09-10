@@ -1,1 +1,3 @@
 - Ajout du support des fichiers .pkpasses
+
+- Suppression de l'import depuis Stocard (Stocard n'existe plus).

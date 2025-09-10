@@ -307,4 +307,6 @@
     <string name="setBarcodeWidth">Barkod Genişliğini Ayarla</string>
     <string name="card_list_widget_name">Kart listesi</string>
     <string name="card_list_widget_empty">Catima\'ya sadakat kartları eklediğinizde, burada gözükecekler. Eğer kartlarınız varsa, arşivlemediğinizden emin olun.</string>
+    <string name="cardWithNumber">Kart <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kart <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

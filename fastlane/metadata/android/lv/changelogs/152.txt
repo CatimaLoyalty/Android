@@ -1,1 +1,2 @@
 - Pievienots .pkpasses datņu atbalsts
+- Noņemts Stocard ievietotājs (Stocard vairs nepastāv)

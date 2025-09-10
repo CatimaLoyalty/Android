@@ -5,11 +5,11 @@ Zapomeňte na peněženku nebo ji mějte ultralehkou na cennosti.
 
 S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradit zbytečné plasty hotovostí.
 
-- Vyhněte se špehování s velmi malým počtem oprávnění. Žádný přístup k internetu a žádné reklamy.
+- Vyhněte se špehování s velmi malým počtem oprávnění. Žádný přístup k internetu a žádné reklamy.
 - Přidejte karty nebo kódy se jmény a přizpůsobitelnými barvami.
 - Ruční zadání kódu, pokud není žádný čárový kód k uložení nebo jej nelze použít.
-- Import karet a kódů ze souborů, Catima, FidMe, klíčenky věrnostních karet, Stocard a trezoru voucherů.
-- Vytvořte si zálohu všech karet a v případě potřeby je přeneste do nového zařízení.
+- Import karet a kódů ze souborů a aplikací Catima, FidMe, Loyalty Card Keychain a Voucher Vault.
+- Vytvořte si zálohu všech karet a v případě potřeby je přeneste do nového zařízení.
 - Sdílejte kupony, exkluzivní nabídky, propagační kódy nebo karty a kódy pomocí libovolné aplikace.
 - Tmavý motiv a možnosti zpřístupnění pro uživatele se zrakovým postižením.
 - Vytvořeno pro všechny komunitou svobodného softwaru.

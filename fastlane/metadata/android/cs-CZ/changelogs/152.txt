@@ -1,1 +1,2 @@
 - Přidána podpora pro soubory .pkpasses
+- Odstraněn importér Stocard (aplikace již neexistuje)

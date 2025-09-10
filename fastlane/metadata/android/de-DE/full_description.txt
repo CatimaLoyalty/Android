@@ -8,7 +8,7 @@ Mit diesem unverzichtbaren Programm schaffst du Platz für Bargeld statt für nu
 - Du wirst nicht ausspioniert, dank sehr weniger Berechtigungen. Kein Internetzugang und keine Werbung.
 - Füge Karten oder Codes mit Namen und anpassbaren Farben hinzu.
 - Manuelle Code-Eingabe, wenn kein Barcode vorhanden ist oder er nicht funktioniert.
-- Importiere Karten und Codes aus Dateien, von Catima, FidMe, Loyalty Card Keychain, Stocard oder Voucher Vault.
+- Importiere Karten und Codes aus Dateien, von Catima, FidMe, Loyalty Card Keychain und Voucher Vault.
 - Erstelle ein Backup aller deiner Karten und übertrage diese auf ein neues Gerät.
 - Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und sonstige Codes mit allen Apps.
 - Dunkles Design und Barrierefreiheit für Nutzer mit Sehbehinderung.

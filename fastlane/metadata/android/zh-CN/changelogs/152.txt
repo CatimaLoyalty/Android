@@ -1,1 +1,2 @@
 - 新增支持 .pkpasses 文件
+- 删除了 Stocard 导入器（Stocard 已不存在）

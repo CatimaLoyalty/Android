@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="action_search">Suchen</string>
+    <string name="action_search">Suche</string>
     <string name="action_add">Hinzufügen</string>
     <string name="noGiftCards">Füge eine Karte mit + hinzu oder importiere welche über das ⋮ Menü.</string>
     <string name="noMatchingGiftCards">Keine Ergebnisse. Versuche, deine Suche zu ändern.</string>
@@ -302,7 +302,7 @@
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>
-    <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass sie nicht alle archiviert sind.</string>
+    <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass diese nicht alle archiviert sind.</string>
     <string name="card_list_widget_name">Kartenliste</string>
     <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (%s)</string>
     <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>

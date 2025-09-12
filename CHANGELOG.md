@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 152
+## v2.38.0 - 152 (2025-09-12)
 
 - Add support for .pkpasses files
 - Remove Stocard importer (Stocard no longer exists)

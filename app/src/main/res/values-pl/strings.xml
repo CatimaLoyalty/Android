@@ -90,17 +90,13 @@
     <string name="setBarcodeId">Ustaw wartość kodu kreskowego</string>
     <string name="sameAsCardId">Taki sam jak ID</string>
     <string name="barcodeId">Wartość kodu kreskowego</string>
-    <string name="importVoucherVaultMessage">Wybierz swój <i>vouchervault.json</i> z Voucher Vault, aby zaimportować.
-\nUtwórz go wpierw klikając Eksportuj w Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Wybierz swój <i>vouchervault.json</i> z Voucher Vault, aby zaimportować. \nUtwórz go wpierw klikając Eksportuj w Voucher Vault.</string>
     <string name="importVoucherVault">Importuj z Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Wybierz swój <i>LoyaltyCardKeychain.csv</i> z Loyalty Card Keychain, aby zaimportować.
-\nUtwórz go z menu Importuj/Eksportuj w Loyalty Card Keychain, wpierw klikając tam Eksportuj.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wybierz swój <i>LoyaltyCardKeychain.csv</i> z Loyalty Card Keychain, aby zaimportować. \nUtwórz go z menu Importuj/Eksportuj w Loyalty Card Keychain, wpierw klikając tam Eksportuj.</string>
     <string name="importLoyaltyCardKeychain">Importuj z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Wybierz swój <i>fidme-export-request-xxxxxx.zip</i> z FidMe, aby zaimportować, po czym wybierz typy kodów kreskowych.
-\nStwórz go ze swojego profilu FidMe, wybierając wpierw Ochrona Danych, a następnie naciskając Wyodrębnij moje dane.</string>
+    <string name="importFidmeMessage">Wybierz swój <i>fidme-export-request-xxxxxx.zip</i> z FidMe, aby zaimportować, po czym wybierz typy kodów kreskowych. \nStwórz go ze swojego profilu FidMe, wybierając wpierw Ochrona Danych, a następnie naciskając Wyodrębnij moje dane.</string>
     <string name="importFidme">Importuj z FidMe</string>
-    <string name="importCatimaMessage">Wybierz swój <i>catima.zip</i> z Catima, aby zaimportować.
-\nUtwórz go z menu Importuj/Eksportuj innej aplikacji Catima, wpierw klikając tam Eksportuj.</string>
+    <string name="importCatimaMessage">Wybierz swój <i>catima.zip</i> z Catima, aby zaimportować. \nUtwórz go z menu Importuj/Eksportuj innej aplikacji Catima, wpierw klikając tam Eksportuj.</string>
     <string name="importCatima">Importuj z Catima</string>
     <string name="accept">Zaakceptuj</string>
     <string name="privacy_policy">Polityka prywatności</string>

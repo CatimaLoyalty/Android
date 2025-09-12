@@ -93,16 +93,12 @@
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
     <string name="privacy_policy">Privacybeleid</string>
     <string name="accept">Accepteren</string>
-    <string name="importVoucherVaultMessage">Kies het te importeren <i>vouchervault.json</i>-exportbestand.
-\nGa naar het exportmenu van Voucher Vault om een exportbestand samen te stellen.</string>
+    <string name="importVoucherVaultMessage">Kies het te importeren <i>vouchervault.json</i>-exportbestand. \nGa naar het exportmenu van Voucher Vault om een exportbestand samen te stellen.</string>
     <string name="importVoucherVault">Importeren uit Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Kies het te importeren genaamd <i>LoyaltyCardKeychain.csv</i>-exportbestand.
-\nGa naar het import-/exportmenu van Klantenkaartkluis om een exportbestand samen te stellen.</string>
+    <string name="importLoyaltyCardKeychainMessage">Kies het te importeren genaamd <i>LoyaltyCardKeychain.csv</i>-exportbestand. \nGa naar het import-/exportmenu van Klantenkaartkluis om een exportbestand samen te stellen.</string>
     <string name="importLoyaltyCardKeychain">Importeren uit Klantenkaartkluis</string>
-    <string name="importFidmeMessage">Kies het te importeren <i>fidme-export-request-xxxxxx.zip</i>-exportbestand en kies nadien de juiste barcodes.
-\nGa naar je FidMe-profiel en druk op ‘Gegevensbescherming’ om een exportbestand samen te stellen.</string>
-    <string name="importCatimaMessage">Kies het te importeren <i>Catima.zip</i>-exportbestand.
-\nGa naar het import-/exportmenu van Catima op een ander apparaat om een exportbestand samen te stellen.</string>
+    <string name="importFidmeMessage">Kies het te importeren <i>fidme-export-request-xxxxxx.zip</i>-exportbestand en kies nadien de juiste barcodes. \nGa naar je FidMe-profiel en druk op ‘Gegevensbescherming’ om een exportbestand samen te stellen.</string>
+    <string name="importCatimaMessage">Kies het te importeren <i>Catima.zip</i>-exportbestand. \nGa naar het import-/exportmenu van Catima op een ander apparaat om een exportbestand samen te stellen.</string>
     <string name="importFidme">Importeren uit FidMe</string>
     <string name="importCatima">Importeren uit Catima</string>
     <string name="errorReadingImage">De afbeelding kan niet worden uitgelezen</string>

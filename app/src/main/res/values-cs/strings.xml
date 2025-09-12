@@ -27,7 +27,7 @@
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
     <string name="importOptionFilesystemTitle">Import z úložiště</string>
-    <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
+    <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Z úložiště</string>
     <string name="about">O aplikaci</string>
     <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
@@ -115,17 +115,13 @@
     <string name="barcodeId">Hodnota čárového kódu</string>
     <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
     <string name="sameAsCardId">Stejné jako ID</string>
-    <string name="importVoucherVaultMessage">Vyberte k importu svůj <i>vouchervault.json</i> exportovaný z Voucher Vault.
-\nVytvoříte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Vyberte k importu svůj <i>vouchervault.json</i> exportovaný z Voucher Vault. \nVytvoříte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
     <string name="importVoucherVault">Import z Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Vyberte k importu <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain.
-\nVytvoříte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importLoyaltyCardKeychainMessage">Vyberte k importu <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain. \nVytvoříte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
     <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Vyberte k importu svůj <i>fidme-export-request-xxxxxx.zip</i> exportovaný z FidMe a poté vyberte typy čárových kódů ručně.
-\nVytvoříte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extrahovat moje data.</string>
+    <string name="importFidmeMessage">Vyberte k importu svůj <i>fidme-export-request-xxxxxx.zip</i> exportovaný z FidMe a poté vyberte typy čárových kódů ručně. \nVytvoříte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extrahovat moje data.</string>
     <string name="importFidme">Import z FidMe</string>
-    <string name="importCatimaMessage">Vyberte <i>catima.zip</i> exportovaný z aplikace Catima, který chcete importovat.
-\nVytvoříte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importCatimaMessage">Vyberte <i>catima.zip</i> exportovaný z aplikace Catima, který chcete importovat. \nVytvoříte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
     <string name="importCatima">Import z Catima</string>
     <string name="accept">Přijmout</string>
     <string name="privacy_policy">Zásady soukromí</string>
@@ -223,7 +219,7 @@
     <string name="welcome">Vítejte v Catima</string>
     <string name="barcodeLongPressMessage">V aplikaci pro galerii mohou být otevírány pouze obrázky</string>
     <string name="failedToRetrieveImageFile">Nepodařilo se získat soubor obrázku</string>
-    <string name="cameraPermissionDeniedTitle">Nelze získat přístup k fotoaparátu</string>
+    <string name="cameraPermissionDeniedTitle">Nelze získat přístup k fotoaparátu</string>
     <string name="importCards">Importovat karty</string>
     <string name="updateBalance">Aktualizovat zůstatek</string>
     <string name="currentBalanceSentence">Současný zůstatek: <xliff:g>%s</xliff:g></string>
@@ -241,8 +237,8 @@
     <string name="switchToFrontImage">Přepnout na přední obrázek</string>
     <string name="switchToBackImage">Přepnout na zadní obrázek</string>
     <string name="switchToBarcode">Přepnout na čárový kód</string>
-    <string name="openFrontImageInGalleryApp">Otevřít přední obrázek v galerii</string>
-    <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
+    <string name="openFrontImageInGalleryApp">Otevřít přední obrázek v galerii</string>
+    <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
     <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
     <string name="donate">Přispět</string>
     <string name="icon_header_click_text">Dlouhým stisknutím miniaturu upravíte</string>

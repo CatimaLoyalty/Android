@@ -211,10 +211,8 @@
     <string name="chooseValidFromDate">Zvoliť dátum platné od</string>
     <string name="validFromSentence">Platnosť od: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">Pre túto akciu je potrebné oprávnenie na prístup k fotoaparátu…</string>
-    <string name="importLoyaltyCardKeychainMessage">Vyberte svoj export <i>LoyaltyCardKeychain.csv</i> z Kľúčenky vernostných kariet, ktorý chcete importovať.
-\nVytvorte ho z ponuky Import/Export v aplikácii Loyalty Card Keychain tak, že tam najprv stlačíte tlačidlo Exportovať.</string>
-    <string name="importVoucherVaultMessage">Vyberte svoj <i>vouchervault.json</i> export z Trezoru poukážok pre import.
-\nNajprv ho vytvorte stlačením tlačidla Export v aplikácii Voucher Vault.</string>
+    <string name="importLoyaltyCardKeychainMessage">Vyberte svoj export <i>LoyaltyCardKeychain.csv</i> z Kľúčenky vernostných kariet, ktorý chcete importovať. \nVytvorte ho z ponuky Import/Export v aplikácii Loyalty Card Keychain tak, že tam najprv stlačíte tlačidlo Exportovať.</string>
+    <string name="importVoucherVaultMessage">Vyberte svoj <i>vouchervault.json</i> export z Trezoru poukážok pre import. \nNajprv ho vytvorte stlačením tlačidla Export v aplikácii Voucher Vault.</string>
     <string name="shortcutSelectCard">Vybrať kartu</string>
     <string name="include_if_asking_support">Ak chcete požiadať o podporu, uveďte nasledujúce informácie:</string>
     <plurals name="groupCardCountWithArchived">
@@ -225,8 +223,7 @@
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>
     <string name="storageReadPermissionRequired">Pre túto akciu je potrebné oprávnenie na čítanie úložiska…</string>
-    <string name="importFidmeMessage">Vyberte svoj <i>fidme-export-request-xxxxxx.zip</i> export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne.
-\nVytvorte ho z profilu FidMe tak, že najprv vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
+    <string name="importFidmeMessage">Vyberte svoj <i>fidme-export-request-xxxxxx.zip</i> export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne. \nVytvorte ho z profilu FidMe tak, že najprv vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
     <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>

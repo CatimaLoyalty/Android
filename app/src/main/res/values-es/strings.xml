@@ -88,14 +88,10 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> Sylvia van Os y colaboradores</string>
     <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
-\nCréalo primero desde el menú Importar/Exportar de otra app de Catima al presionar Exportar desde allí.</string>
-    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado desde FidMe para importar, y luego escoja los tipos de códigos de barras manualmente.
-\nCréalo primero desde tu perfil de FidMe eligiendo Protección de datos y pulsa Extraer mis datos.</string>
-    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
-\nCréalo primero desde el menú Importar/Exportar en Loyalty Card Keychain pulsando Exportar desde allí.</string>
-    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
-\nCréalo pulsando primero Exportar en Voucher Vault.</string>
+    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo. \nCréalo primero desde el menú Importar/Exportar de otra app de Catima al presionar Exportar desde allí.</string>
+    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado desde FidMe para importar, y luego escoja los tipos de códigos de barras manualmente. \nCréalo primero desde tu perfil de FidMe eligiendo Protección de datos y pulsa Extraer mis datos.</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo. \nCréalo primero desde el menú Importar/Exportar en Loyalty Card Keychain pulsando Exportar desde allí.</string>
+    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo. \nCréalo pulsando primero Exportar en Voucher Vault.</string>
     <string name="failedGeneratingShareURL">No se ha podido generar una URL compartible. Por favor, informe de ello.</string>
     <string name="passwordRequired">Por favor, introduzca la contraseña</string>
     <string name="updateBarcodeQuestionText">Ha cambiado el código. ¿Desea actualizar también el código de barras para usar el mismo valor\?</string>

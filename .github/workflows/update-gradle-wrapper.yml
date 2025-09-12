@@ -1,0 +1,30 @@
+name: Update Gradle Wrapper
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  actions: none
+  checks: none
+  contents: write
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  update-gradle-wrapper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update Gradle Wrapper
+        uses: gradle-update/update-gradle-wrapper-action@v2

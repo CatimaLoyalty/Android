@@ -2,8 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="settings_display_barcode_max_brightness">Gör skärmen ljusare</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
-    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
-\nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
+    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt. \nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
     <string name="intent_import_card_from_url_share_text">Jag vill dela ett kort med dig</string>
     <string name="noGroups">Klicka på plus(+)-knappen för att lägga till kategorigrupper.</string>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
@@ -15,10 +14,8 @@
         <item quantity="other"><xliff:g>%d</xliff:g> valda</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Nyckelring för bonuskort</string>
-    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera.
-\nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
-    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera.
-\nSkapa den först genom att trycka på Exportera i Voucher Vault.</string>
+    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera. \nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
+    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera. \nSkapa den först genom att trycka på Exportera i Voucher Vault.</string>
     <string name="enter_group_name">Ange gruppnamn</string>
     <string name="groups">Grupper</string>
     <plurals name="groupCardCount">
@@ -138,8 +135,7 @@
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
-    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera.
-\nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
+    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera. \nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
     <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Data exporterad</string>
     <string name="importSuccessful">Data importerad</string>

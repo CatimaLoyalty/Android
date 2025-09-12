@@ -21,16 +21,12 @@
     <string name="setBarcodeId">Встановіть значення штрих-коду</string>
     <string name="sameAsCardId">Таке ж як ID</string>
     <string name="barcodeId">Значення штрих-коду</string>
-    <string name="importVoucherVaultMessage">Оберіть Voucher Vault експорт-файл названий <i>vouchervault.json</i> для імпортування.
-\nСтворіть його натиснувши \"Експорт\" у Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Оберіть Voucher Vault експорт-файл названий <i>vouchervault.json</i> для імпортування. \nСтворіть його натиснувши \"Експорт\" у Voucher Vault.</string>
     <string name="importVoucherVault">Імпорт з Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Знайдіть файл названий <i>LoyaltyCardKeychain.csv</i> для імпортування.
-\nСтворіть його у меню імпорту/експорту Loyalty Card Keychain натиснувши \"Експорт\".</string>
-    <string name="importCatimaMessage">Оберіть експорт-файл названий <i>catima.zip</i> для імпортування.
-\nСтворіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Знайдіть файл названий <i>LoyaltyCardKeychain.csv</i> для імпортування. \nСтворіть його у меню імпорту/експорту Loyalty Card Keychain натиснувши \"Експорт\".</string>
+    <string name="importCatimaMessage">Оберіть експорт-файл названий <i>catima.zip</i> для імпортування. \nСтворіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
     <string name="importLoyaltyCardKeychain">Імпорт з Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів.
-\nСтворіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
+    <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів. \nСтворіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
     <string name="importFidme">Імпорт з FidMe</string>
     <string name="importCatima">Імпорт з Catima</string>
     <string name="accept">Прийняти</string>

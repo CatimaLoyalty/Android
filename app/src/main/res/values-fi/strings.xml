@@ -10,14 +10,12 @@
     <string name="setBarcodeId">Aseta viivakoodin arvo</string>
     <string name="sameAsCardId">Sama kuin ID-tunnus</string>
     <string name="barcodeId">Viivakoodin arvo</string>
-    <string name="importVoucherVaultMessage">Valitse tuotava <i>vouchervault.json</i>-vienti Voucher Vaultista.
-\nLuo se painamalla ensin Vie Voucher Vaultissa.</string>
+    <string name="importVoucherVaultMessage">Valitse tuotava <i>vouchervault.json</i>-vienti Voucher Vaultista. \nLuo se painamalla ensin Vie Voucher Vaultissa.</string>
     <string name="importVoucherVault">Tuo Voucher Vault -varmuuskopiotiedostosta</string>
     <string name="importLoyaltyCardKeychainMessage">Valitse tuotava <i>LoyaltyCardKeychain.csv</i>-vientitiedostosi Loyalty Card Keychainista.
 \nTai luo se Loyalty Card Keychainin Import/Export-valikosta painamalla ensin Export (Vie).</string>
     <string name="importLoyaltyCardKeychain">Tuo Loyalty Card Keychain varmuuskopiotiedostosta</string>
-    <string name="importFidmeMessage">Valitse tuotava <i>fidme-export-request-xxxxxxxx.zip</i>-vientitiedostosi FidMe:stä ja valitse viivakoodityypit manuaalisesti sen jälkeen.
-\nLuo se FidMe-profiilistasi valitsemalla Tietosuoja ja painamalla ensin Extract my data.</string>
+    <string name="importFidmeMessage">Valitse tuotava <i>fidme-export-request-xxxxxxxx.zip</i>-vientitiedostosi FidMe:stä ja valitse viivakoodityypit manuaalisesti sen jälkeen. \nLuo se FidMe-profiilistasi valitsemalla Tietosuoja ja painamalla ensin Extract my data.</string>
     <string name="importFidme">Tuo FidMe-varmuuskopiotiedostosta</string>
     <string name="importCatimaMessage">Valitse tuotava vientitiedosto Catimasta. \nLuo se Catima-sovelluksen Tuo/vie-valikosta painamalla siellä ensin Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>

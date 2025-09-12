@@ -3,8 +3,7 @@
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>
-    <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。
-\nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
+    <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。 \nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychainからインポート</string>
     <string name="importFidmeMessage">FidMeからエクスポートしたデータを選択してインポートしたうえで、手動でバーコードの種類を選択してください。\nFidMeプロフィールから作成するには データ保護 を選択して データを抽出 を押してください。</string>
     <string name="importFidme">FidMeからインポート</string>
@@ -75,8 +74,7 @@
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カード番号に合わせる</string>
     <string name="barcodeId">バーコード番号</string>
-    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。
-\nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
+    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。 \nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
     <string name="importVoucherVault">Voucher Vaultからインポート</string>
     <string name="importFailed">カードをインポートできません</string>
     <string name="importFailedTitle">インポートに失敗しました</string>

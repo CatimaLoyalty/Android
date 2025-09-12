@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Přidat</string>
-    <string name="noGiftCards">Klepněte na tlačítko plus (+) pro přidání karty nebo naimportujete karty z nabídky (⋮).</string>
+    <string name="noGiftCards">Klepněte na tlačítko plus (+) pro přidání karty nebo naimportujete karty z nabídky (⋮).</string>
     <string name="storeName">Název</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>

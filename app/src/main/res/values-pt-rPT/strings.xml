@@ -132,11 +132,9 @@
     <string name="importCatimaMessage">Selecione a exportação <i>catima.zip</i> do Catima a importar. \nPrimeiro crie a exportação no menu \"Importar / exportar\" de outra aplicação Catima pressionando \"Exportar\" nesse menu.</string>
     <string name="importFidme">Importar do FidMe</string>
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Selecione a exportação <i>LoyaltyCardKeychain.csv</i> do Loyalty Card Keychain para importar.
-\nPrimeiro crie a exportação no menu \"Importar / exportar\" no Loyalty Card Keychain pressionando \"Exportar\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Selecione a exportação <i>LoyaltyCardKeychain.csv</i> do Loyalty Card Keychain para importar. \nPrimeiro crie a exportação no menu \"Importar / exportar\" no Loyalty Card Keychain pressionando \"Exportar\".</string>
     <string name="importVoucherVault">Importar do Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar.
-\nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar. \nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>
     <string name="unsupportedBarcodeType">Este tipo de código de barras ainda não pode ser mostrado. Pode vir a ser suportado numa versão posterior da aplicação.</string>
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem de trás</string>

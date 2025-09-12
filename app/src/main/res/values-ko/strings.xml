@@ -210,17 +210,13 @@
     <string name="app_loyalty_card_keychain">로열티 카드 키체인</string>
     <string name="privacy_policy">개인 정보 정책</string>
     <string name="importCatima">Catima에서 가져오기</string>
-    <string name="importCatimaMessage">가져올 Catima에서 <i>catima.zip</i> 내보내기를 선택합니다.
-\n먼저 내보내기를 눌러 다른 Catima 앱의 가져오기/내보내기 메뉴에서 생성합니다.</string>
+    <string name="importCatimaMessage">가져올 Catima에서 <i>catima.zip</i> 내보내기를 선택합니다. \n먼저 내보내기를 눌러 다른 Catima 앱의 가져오기/내보내기 메뉴에서 생성합니다.</string>
     <string name="importFidme">FidMe에서 가져오기</string>
-    <string name="importFidmeMessage">가져올 FidMe에서 <i>fidme-export-request-xxxxxx.zip</i> 내보내기를 선택하고 나중에 바코드 유형을 수동으로 선택합니다.
-\n데이터 보호를 선택한 다음 먼저 내 데이터 추출을 눌러 FidMe 프로필에서 생성합니다.</string>
-    <string name="importLoyaltyCardKeychainMessage">가져올 포인트 카드 키체인에서 <i>LoyaltyCardKeychain.csv</i> 내보내기를 선택합니다.
-\n먼저 내보내기를 눌러 로열티 카드 키체인의 가져오기/내보내기 메뉴에서 만드십시오.</string>
+    <string name="importFidmeMessage">가져올 FidMe에서 <i>fidme-export-request-xxxxxx.zip</i> 내보내기를 선택하고 나중에 바코드 유형을 수동으로 선택합니다. \n데이터 보호를 선택한 다음 먼저 내 데이터 추출을 눌러 FidMe 프로필에서 생성합니다.</string>
+    <string name="importLoyaltyCardKeychainMessage">가져올 포인트 카드 키체인에서 <i>LoyaltyCardKeychain.csv</i> 내보내기를 선택합니다. \n먼저 내보내기를 눌러 로열티 카드 키체인의 가져오기/내보내기 메뉴에서 만드십시오.</string>
     <string name="setBarcodeId">바코드 값 설정</string>
     <string name="importVoucherVault">Voucher Vault에서 가져오기</string>
-    <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다.
-\n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>
+    <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다. \n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>
     <string name="sameAsCardId">아이디와 동일</string>
     <string name="previousCard">이전의</string>
     <string name="nextCard">다음</string>

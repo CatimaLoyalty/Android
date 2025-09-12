@@ -94,14 +94,11 @@
     <string name="expiryStateSentence">Expire le : <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
-    <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer.
-\nCréez-la en appuyant d’abord sur Exporter dans Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer. \nCréez-la en appuyant d’abord sur Exporter dans Voucher Vault.</string>
     <string name="importVoucherVault">Importer depuis Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Sélectionnez votre exportation <i>LoyaltyCardKeychain.csv</i> à partir de Loyalty Card Keychain pour l’importer.
-\nCréez-la à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
+    <string name="importLoyaltyCardKeychainMessage">Sélectionnez votre exportation <i>LoyaltyCardKeychain.csv</i> à partir de Loyalty Card Keychain pour l’importer. \nCréez-la à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
     <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Sélectionnez votre exportation <i>fidme-export-request-xxxxxx.zip</i> de FidMe pour l’importer, puis sélectionnez manuellement les types de codes-barres.
-\nCréez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
+    <string name="importFidmeMessage">Sélectionnez votre exportation <i>fidme-export-request-xxxxxx.zip</i> de FidMe pour l’importer, puis sélectionnez manuellement les types de codes-barres. \nCréez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
     <string name="importFidme">Importer depuis FidMe</string>
     <string name="importCatimaMessage">Sélectionnez votre exportation <i>catima.zip</i> depuis Catima à importer.\nCréez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>

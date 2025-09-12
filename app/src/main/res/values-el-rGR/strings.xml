@@ -115,8 +115,7 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> κάρτα ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκε)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> κάρτες ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκαν)</item>
     </plurals>
-    <string name="importCatimaMessage">Επιλέξτε την <i>catima.zip</i> εξαγωγή από το Catima για εισαγωγή
-\nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής μιας άλλης εφαρμογής Catima κάνοντας εξαγωγή εκεί πρώτα.</string>
+    <string name="importCatimaMessage">Επιλέξτε την <i>catima.zip</i> εξαγωγή από το Catima για εισαγωγή \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής μιας άλλης εφαρμογής Catima κάνοντας εξαγωγή εκεί πρώτα.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
     <string name="editGroup">Επεξεργασία Ομάδας: <xliff:g>%s</xliff:g></string>
     <string name="setFrontImage">Επιλογή εμπρόσθιας εικόνας</string>

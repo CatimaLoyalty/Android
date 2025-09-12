@@ -117,8 +117,7 @@
     <string name="settings_theme_color">Farba témy</string>
     <string name="app_libraries">Slobodné knižnice tretích strán: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Slobodné zdroje tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="importCatimaMessage">Vyberte svoj <i>catima.zip</i> export z aplikácie Catima, ktorý chcete importovať.
-\nVytvorte ho z ponuky Import/Export inej aplikácie Catima tak, že stlačíte tlačidlo Exportovať.</string>
+    <string name="importCatimaMessage">Vyberte svoj <i>catima.zip</i> export z aplikácie Catima, ktorý chcete importovať. \nVytvorte ho z ponuky Import/Export inej aplikácie Catima tak, že stlačíte tlačidlo Exportovať.</string>
     <string name="accept">Prijať</string>
     <string name="importLoyaltyCardKeychain">Import z aplikácie Loyalty Card Keychain</string>
     <string name="importFidme">Import z aplikácie FidMe</string>

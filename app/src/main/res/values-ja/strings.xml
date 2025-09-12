@@ -9,8 +9,7 @@
     <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i>ファイルを選択してください。そのあと手動でバーコード形式を選択してください。
 \nファイルがない場合、FidMeでファイルを作成してください。</string>
     <string name="importFidme">FidMeからインポート</string>
-    <string name="importCatimaMessage">インポートするにはCatimaでエクスポートした<i>Catima.zip</i>ファイルを選択してください。
-\nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
+    <string name="importCatimaMessage">インポートするにはCatimaでエクスポートした<i>Catima.zip</i>ファイルを選択してください。 \nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
     <string name="importCatima">Catimaからインポート</string>
     <string name="accept">承認</string>
     <string name="privacy_policy">プライバシーポリシー</string>

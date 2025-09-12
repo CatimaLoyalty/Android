@@ -44,12 +44,12 @@
     <plurals name="deleteCardsTitle">
         <item quantity="one">Borrar <xliff:g>%d</xliff:g> tajeta</item>
         <item quantity="many">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">¿Borrar esta<xliff:g>%d</xliff:g> tarjeta de forma permanente\?</item>
         <item quantity="many">Borrar estas <xliff:g>%d</xliff:g> tarjetas de forma permanente\?</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="failedOpeningFileManager">Primero instale un administrador de archivos.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quiero compartirte algunas tarjetas</string>
@@ -155,19 +155,19 @@
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> tarjeta</item>
         <item quantity="many"><xliff:g>%d</xliff:g> tarjetas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionado</item>
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionados</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
 \nPrimero créelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> puntos</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras.
 \nPrimero créelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>

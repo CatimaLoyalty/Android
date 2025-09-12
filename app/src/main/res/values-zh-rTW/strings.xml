@@ -149,14 +149,11 @@
     <string name="importOptionFilesystemButton">自檔案系統</string>
     <string name="app_copyright_fmt">著作權所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os 與其他貢獻者</string>
     <string name="importVoucherVault">自 Voucher Vault 中匯入</string>
-    <string name="importVoucherVaultMessage">選取您自 Voucher Vault 匯出的 <i>vouchervault.json</i> 檔案以進行匯入。
-\n請您先透過 Voucher Vault 進行匯出。</string>
+    <string name="importVoucherVaultMessage">選取您自 Voucher Vault 匯出的 <i>vouchervault.json</i> 檔案以進行匯入。 \n請您先透過 Voucher Vault 進行匯出。</string>
     <string name="importLoyaltyCardKeychain">自 Loyalty Card Keychain 中匯入</string>
-    <string name="importLoyaltyCardKeychainMessage">選取您自 Loyalty Card Keychain <i>LoyaltyCardKeychain.csv</i> 檔案以進行匯入。
-\n請您先透過 Loyalty Card Keychain 的匯入/匯出選單進行匯出。</string>
+    <string name="importLoyaltyCardKeychainMessage">選取您自 Loyalty Card Keychain <i>LoyaltyCardKeychain.csv</i> 檔案以進行匯入。 \n請您先透過 Loyalty Card Keychain 的匯入/匯出選單進行匯出。</string>
     <string name="importFidme">自 FidMe 匯入</string>
-    <string name="importFidmeMessage">選取您自 FidMe 匯出的<i>fidme-export-request-xxxxxx.zip</i> 檔案以進行匯入，並手動選擇條碼種類。
-\n請您先透過您的 FidMe 個人檔案選取『Data Protection』，並選擇『Extract my data』。</string>
+    <string name="importFidmeMessage">選取您自 FidMe 匯出的<i>fidme-export-request-xxxxxx.zip</i> 檔案以進行匯入，並手動選擇條碼種類。 \n請您先透過您的 FidMe 個人檔案選取『Data Protection』，並選擇『Extract my data』。</string>
     <string name="importCatima">自卡提碼匯入</string>
     <string name="importCatimaMessage">選取您自卡提碼匯出的 <i>catima.zip</i> 檔案以進行匯入。 \n您可透過其他裝置的卡提碼程式中的匯入／匯出選單進行匯出。</string>
     <string name="points">點</string>

@@ -33,17 +33,13 @@
     <string name="setBarcodeId">Barkod değerini ayarla</string>
     <string name="sameAsCardId">Numarayla aynı</string>
     <string name="barcodeId">Barkod değeri</string>
-    <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin.
-\nÖnce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin. \nÖnce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importVoucherVault">Voucher Vault\'tan içe aktar</string>
-    <string name="importLoyaltyCardKeychainMessage">İçe aktarmak için Loyalty Card Keychain\'den dışa aktardığınız <i>LoyaltyCardKeychain.csv</i> dosyasını seçin.
-\nLoyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importLoyaltyCardKeychainMessage">İçe aktarmak için Loyalty Card Keychain\'den dışa aktardığınız <i>LoyaltyCardKeychain.csv</i> dosyasını seçin. \nLoyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychain\'den içe aktar</string>
-    <string name="importFidmeMessage">FidMe\'den içe aktarmak için dışa aktardığınız <i>fidme-export-request-xxxxxx.zip</i> dosyasını seçin ve ardından barkod türlerini elle seçin.
-\nFidMe profilinizden Veri Koruma seçeneğini seçip ardından \"Verilerimi çıkar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importFidmeMessage">FidMe\'den içe aktarmak için dışa aktardığınız <i>fidme-export-request-xxxxxx.zip</i> dosyasını seçin ve ardından barkod türlerini elle seçin. \nFidMe profilinizden Veri Koruma seçeneğini seçip ardından \"Verilerimi çıkar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importFidme">FidMe\'den içe aktar</string>
-    <string name="importCatimaMessage">İçe aktarmak için Catima\'dan dışa aktardığınız <i>catima.zip</i> dosyasını seçin.
-\nBaşka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importCatimaMessage">İçe aktarmak için Catima\'dan dışa aktardığınız <i>catima.zip</i> dosyasını seçin. \nBaşka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importCatima">Catima\'dan içe aktar</string>
     <string name="accept">Kabul et</string>
     <string name="privacy_policy">Gizlilik Politikası</string>

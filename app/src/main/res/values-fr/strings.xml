@@ -114,8 +114,8 @@
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
     <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
-    <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
     <string name="updateBarcodeQuestionText">Vous avez changé l’identifiant. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
     <string name="no">Non</string>
@@ -181,7 +181,7 @@
     <string name="version_history">Historique des versions</string>
     <string name="exportPassword">Définissez un mot de passe pour protéger vos exportations (facultatif)</string>
     <string name="exportPasswordHint">Entrez le mot de passe</string>
-    <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
+    <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
     <string name="noGiftCardsGroup">Créez des cartes, puis affectez-les au groupe ici.</string>
     <string name="group_edit">Modifier le groupe</string>
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>

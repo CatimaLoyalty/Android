@@ -132,8 +132,7 @@
     <string name="points">Poin</string>
     <string name="app_loyalty_card_keychain">Gantungan kunci kartu kesetiaan</string>
     <string name="privacy_policy">Kebijakan Privasi</string>
-    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor.
-\nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
+    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor. \nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
     <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya.
 \nBuat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
     <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>

@@ -18,17 +18,13 @@
     <string name="setBarcodeId">设置条形码值</string>
     <string name="sameAsCardId">与卡号相同</string>
     <string name="barcodeId">条形码值</string>
-    <string name="importVoucherVaultMessage">选择 Voucher Vault 导出文件 <i>vouchervault.json</i> 进行导入。
-\n先在 Voucher Vault 中按下“导出”来创建此文件。</string>
+    <string name="importVoucherVaultMessage">选择 Voucher Vault 导出文件 <i>vouchervault.json</i> 进行导入。 \n先在 Voucher Vault 中按下“导出”来创建此文件。</string>
     <string name="importVoucherVault">从 Voucher Vault 导入</string>
-    <string name="importLoyaltyCardKeychainMessage">选择 Loyalty Card Keychain 导出文件 <i>LoyaltyCardKeychain.csv</i>来导入。
-\n先在 Loyalty Card Keychain 的 “导入/导出” 菜单中按“导出”。</string>
+    <string name="importLoyaltyCardKeychainMessage">选择 Loyalty Card Keychain 导出文件 <i>LoyaltyCardKeychain.csv</i>来导入。 \n先在 Loyalty Card Keychain 的 “导入/导出” 菜单中按“导出”。</string>
     <string name="importLoyaltyCardKeychain">从 Loyalty Card Keychain 导入</string>
-    <string name="importFidmeMessage">选择 Fidme 导出文件 <i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。
-\n创建 Fidme 配置的导出文件，方法是选择“数据保护”，然后按“提取我的数据”。</string>
+    <string name="importFidmeMessage">选择 Fidme 导出文件 <i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。 \n创建 Fidme 配置的导出文件，方法是选择“数据保护”，然后按“提取我的数据”。</string>
     <string name="importFidme">从 FidMe 导入</string>
-    <string name="importCatimaMessage">选择 Catima 导出文件 <i>Catima.zip</i>来导入。
-\n先按另一个 Catima 应用程序导入/导出菜单中“导出”创建文件。</string>
+    <string name="importCatimaMessage">选择 Catima 导出文件 <i>Catima.zip</i>来导入。 \n先按另一个 Catima 应用程序导入/导出菜单中“导出”创建文件。</string>
     <string name="importCatima">从 Catima 导入</string>
     <string name="accept">接受</string>
     <string name="privacy_policy">隐私政策</string>

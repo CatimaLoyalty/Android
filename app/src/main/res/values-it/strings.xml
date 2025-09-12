@@ -94,17 +94,13 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>
     <string name="privacy_policy">Informativa sulla riservatezza</string>
-    <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione <i>vouchervault.json</i> da Voucher Vault per importarlo.
-\nCrealo premendo prima Esporta in Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione <i>vouchervault.json</i> da Voucher Vault per importarlo. \nCrealo premendo prima Esporta in Voucher Vault.</string>
     <string name="importVoucherVault">Importa da Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Seleziona il tuo file di esportazione <i>LoyaltyCardKeychain.csv</i> da Loyalty Card Keychain per importarlo.
-\nCrealo dal menù Importa/Esporta in Loyalty Card Keychain premendo prima su Esporta.</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleziona il tuo file di esportazione <i>LoyaltyCardKeychain.csv</i> da Loyalty Card Keychain per importarlo. \nCrealo dal menù Importa/Esporta in Loyalty Card Keychain premendo prima su Esporta.</string>
     <string name="importLoyaltyCardKeychain">Importa da Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Seleziona il tuo file di esportazione <i>fidme-export-request-xxxxxx.zip</i> da FidMe per importare e seleziona successivamente i tipi di codice a barre manualmente.
-\nCrealo dal tuo profilo FidMe scegliendo Protezione Dati e poi premendo Estrai i miei dati prima.</string>
+    <string name="importFidmeMessage">Seleziona il tuo file di esportazione <i>fidme-export-request-xxxxxx.zip</i> da FidMe per importare e seleziona successivamente i tipi di codice a barre manualmente. \nCrealo dal tuo profilo FidMe scegliendo Protezione Dati e poi premendo Estrai i miei dati prima.</string>
     <string name="importFidme">Importa da FidMe</string>
-    <string name="importCatimaMessage">Seleziona il file di esportazione <i>catima.zip</i> per importarlo.
-\nCrealo dal menù Importa/Esporta di un\'altra applicazione Catima premendo prima Esporta.</string>
+    <string name="importCatimaMessage">Seleziona il file di esportazione <i>catima.zip</i> per importarlo. \nCrealo dal menù Importa/Esporta di un\'altra applicazione Catima premendo prima Esporta.</string>
     <string name="importCatima">Importa da Catima</string>
     <string name="setBarcodeId">Imposta il valore del codice a barre</string>
     <string name="sameAsCardId">Uguale al codice</string>

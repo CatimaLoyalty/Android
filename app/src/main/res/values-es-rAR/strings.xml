@@ -83,8 +83,7 @@
     <string name="exportOptionExplanation">Los datos serán escritos a una ubicación de tu elección.</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
-    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
-\nPrimero créelo presionando la opción Exportar en Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo. \nPrimero créelo presionando la opción Exportar en Voucher Vault.</string>
     <string name="chooseImportType">Importar datos desde</string>
     <string name="frontImageDescription">Imágen frontal</string>
     <string name="settings_system_theme">Sistema</string>
@@ -128,8 +127,7 @@
     <string name="balance">Balance</string>
     <string name="cameraPermissionRequired">Se necesita permiso para acceder a la cámara para realizar esta acción…</string>
     <string name="settings_allow_content_provider_read_title">Permitir que otras aplicaciones accedan a mis datos</string>
-    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
-\nPrimero créelo desde el menu Importar/Exportar de Loyalty Card Keychain al presionar la opción Exportar.</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo. \nPrimero créelo desde el menu Importar/Exportar de Loyalty Card Keychain al presionar la opción Exportar.</string>
     <string name="settings_light_theme">Claro</string>
     <string name="moveDown">Mover hacia abajo</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
@@ -162,15 +160,13 @@
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionados</item>
         <item quantity="other"/>
     </plurals>
-    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
-\nPrimero créelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
+    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo. \nPrimero créelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> puntos</item>
         <item quantity="other"/>
     </plurals>
-    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras.
-\nPrimero créelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>
+    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras. \nPrimero créelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>
     <string name="updateBarcodeQuestionTitle">¿Actualizar el valor del código de barras\?</string>
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>
     <string name="thumbnailDescription">Miniatura</string>

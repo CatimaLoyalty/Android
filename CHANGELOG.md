@@ -4,6 +4,7 @@
 
 - Add support for .pkpasses files
 - Remove Stocard importer (Stocard no longer exists)
+- Temporarily disable widget images below Android 12L (workaround for a crash issue)
 
 ## v2.37.0 - 151 (2025-08-22)
 

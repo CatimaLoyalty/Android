@@ -101,7 +101,8 @@ class ListWidget : AppWidgetProvider() {
             setInt(R.id.item_container_foreground, "setBackgroundColor", headerColor)
             val icon = loyaltyCard.getImageThumbnail(context)
             // setImageViewIcon is not supported on Android 5, so force Android 5 down the text path
-            if (icon != null && Build.VERSION.SDK_INT >= 23) {
+            // FIXME: The icon flow causes a crash up to Android 12L, so SDK_INT is forced up from 23 to 33
+            if (icon != null && Build.VERSION.SDK_INT >= 32) {
                 setInt(R.id.item_container_foreground, "setBackgroundColor", foreground)
                 setImageViewIcon(R.id.item_image, Icon.createWithBitmap(icon))
                 setViewVisibility(R.id.item_text, View.INVISIBLE)

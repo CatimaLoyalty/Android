@@ -85,8 +85,7 @@
     <string name="starred">Αγαπημένα</string>
     <string name="translate_platform">στο Weblate</string>
     <string name="importLoyaltyCardKeychain">Εισαγωγή από Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
-\nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
+    <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή. \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
     <string name="importFidme">Εισαγωγή από FidMe</string>
     <string name="importFidmeMessage">Επιλέξτε την εξαγωγή σας από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα.\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων.</string>
     <string name="setBarcodeId">Επιλέξτε τιμή γραμμωτού κώδικα</string>
@@ -119,8 +118,7 @@
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
     <string name="editGroup">Επεξεργασία ομάδας: <xliff:g>%s</xliff:g></string>
     <string name="setFrontImage">Επιλογή εμπρόσθιας εικόνας</string>
-    <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
-\nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή. \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
     <string name="unsupportedBarcodeType">Ο τύπος γραμμωτού κώδικα δεν μπορεί να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
     <string name="frontImageDescription">Εμπρόσθια</string>
     <string name="photos">Φωτογραφίες</string>

@@ -179,7 +179,7 @@
     <string name="group_updated">Gruppe aktualisiert</string>
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
-    <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
+    <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu</string>
     <string name="setIcon">Vorschaubild festlegen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="translate_platform">auf Weblate</string>

@@ -103,7 +103,7 @@
     <string name="importFidmeMessage">Sélectionnez votre exportation <i>fidme-export-request-xxxxxx.zip</i> de FidMe pour l’importer, puis sélectionnez manuellement les types de codes-barres.
 \nCréez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
     <string name="importFidme">Importer depuis FidMe</string>
-    <string name="importCatimaMessage">Sélectionnez votre exportation <i>catima.zip</i> depuis Catima à importer. \nCréez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
+    <string name="importCatimaMessage">Sélectionnez votre exportation <i>catima.zip</i> depuis Catima à importer.\nCréez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
     <string name="errorReadingImage">Impossible de lire l’image</string>

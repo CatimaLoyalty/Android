@@ -24,7 +24,7 @@
     <string name="noCardExistsError">Konnte die Karte nicht finden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen.</string>
+    <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen</string>
     <string name="importSuccessfulTitle">Importiert</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
     <string name="importFailed">Import konnte nicht durchgeführt werden</string>
@@ -34,7 +34,7 @@
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="importOptionFilesystemTitle">Aus Dateisystem importieren</string>
-    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus.</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus</string>
     <string name="importOptionFilesystemButton">vom Dateisystem</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
@@ -53,20 +53,20 @@
     <string name="settings_theme">Farbschema</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
 \nCopyright © 2016-2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
+    <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben</string>
     <string name="failedParsingImportUriError">Die Import-URI konnte nicht verarbeitet werden</string>
     <string name="share">Teilen</string>
     <string name="barcodeType">Barcodetyp</string>
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Gruppe löschen?</string>
     <string name="all">Alle</string>
-    <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen.</string>
+    <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen</string>
     <string name="noGroupCards">Diese Gruppe ist leer</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Gruppennamen eingeben</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
     <string name="leaveWithoutSaveTitle">Beenden</string>
-    <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
+    <string name="failedOpeningFileManager">Dateimanager konnte nicht geöffnet werden</string>
     <string name="noBarcode">Kein Barcode</string>
     <string name="addManually">Barcode manuell eingeben</string>
     <string name="moveDown">Nach unten verschieben</string>
@@ -94,13 +94,13 @@
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus. \nErstelle ihn, indem du zuerst auf Export in Voucher Vault drückst.</string>
+    <string name="importVoucherVaultMessage">Wähle deinen Export aus „Voucher Vault“ zum Importieren aus.\nErstelle ihn, indem du Export in Voucher Vault drückst.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
-    <string name="importLoyaltyCardKeychainMessage">Wählen du deinen <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus. \nErstelle ihn über das Menü Import/Export in Loyalty Card Keychain, indem du dort zuerst auf Export drückst.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wähle deinen Export vom „Loyalty Card Keychain“ zum Importieren aus.\nErstelle ihn über das Import/Export Menü in Loyalty Card Keychain, indem du dort auf Export drückst.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Barcodetypen manuell aus. \nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
+    <string name="importFidmeMessage">Wähle deinen „FidMe-Export“ zum Importieren und anschließend manuell die Barcodetypen aus.\nErstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Wähle deinen „<i>catima.zip</i>-Export“ von Catima zum Importieren aus.\nErstelle ihn zuerst aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort Export drückst.</string>
+    <string name="importCatimaMessage">Wähle deinen „Catima-Export“ zum Importieren aus.\nErstelle diesen durch das Drücken auf Export im Import/Export-Menü in einer anderen Catima-Anwendung.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Barcodewert festlegen</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
@@ -109,9 +109,9 @@
     <string name="noBarcodeFound">Keinen Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
     <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
-    <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
-    <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="wrongValueForBarcodeType">Der Wert ist ungültig für den gewählten Barcodetyp</string>
+    <string name="app_resources">Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
     <string name="no">Nein</string>
     <string name="yes">Ja</string>
@@ -124,10 +124,10 @@
     <string name="photos">Fotos</string>
     <string name="frontImageDescription">Vorderseite</string>
     <string name="backImageDescription">Rückseite</string>
-    <string name="passwordRequired">Bitte gib das Passwort ein</string>
+    <string name="passwordRequired">Gib das Passwort ein</string>
     <string name="turn_flashlight_off">Blitzlicht ausschalten</string>
     <string name="turn_flashlight_on">Blitzlicht einschalten</string>
-    <string name="failedGeneratingShareURL">URL konnte nicht erstellt werden. Bitte melde das an uns.</string>
+    <string name="failedGeneratingShareURL">Teilbare URL konnte nicht erstellt werden</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> ausgewählt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> ausgewählt</item>
@@ -176,7 +176,7 @@
     <string name="group_name_already_in_use">Der Gruppenname wird bereits verwendet</string>
     <string name="group_name_is_empty">Gruppenname darf nicht leer sein</string>
     <string name="group_updated">Gruppe aktualisiert</string>
-    <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Gruppe bearbeiten: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
     <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu</string>
     <string name="setIcon">Vorschaubild festlegen</string>
@@ -206,7 +206,7 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-App gefunden werden</string>
+    <string name="failedLaunchingPhotoPicker">Keine unterstützte App zur Bildauswahl gefunden</string>
     <string name="previousCard">Vorherige</string>
     <string name="nextCard">Nächste</string>
     <string name="failedToOpenUrl">Bitte installiere zuerst einen Webbrowser</string>

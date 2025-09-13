@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Ajouter</string>
-    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez les depuis le menu ⋮.</string>
+    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez les depuis le menu ⋮</string>
     <string name="storeName">Nom</string>
     <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
@@ -18,9 +18,9 @@
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d’abord une carte</string>
     <string name="noCardExistsError">Impossible de trouver cette carte</string>
-    <string name="importExport">Importer/Exporter</string>
+    <string name="importExport">Importer/exporter</string>
     <string name="exportName">Exporter</string>
-    <string name="importExportHelp">La sauvegarde de vos données permet de les déplacer sur un autre appareil.</string>
+    <string name="importExportHelp">La sauvegarde de vos données permet de les déplacer sur un autre appareil</string>
     <string name="importSuccessfulTitle">Importé</string>
     <string name="importFailedTitle">Échec de l’import</string>
     <string name="importFailed">Impossible d’effectuer l’importation</string>
@@ -30,7 +30,7 @@
     <string name="importing">Import …</string>
     <string name="exporting">Export …</string>
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
-    <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
+    <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
     <string name="about">À propos</string>
     <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+</string>
@@ -49,7 +49,7 @@
     <string name="settings_theme">Thème</string>
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Les données seront exportées vers l’emplacement de votre choix.</string>
+    <string name="exportOptionExplanation">Les données seront exportées vers l’emplacement de votre choix</string>
     <string name="failedParsingImportUriError">Impossible d’analyser l’URI d’importation</string>
     <string name="share">Partager</string>
     <string name="barcodeType">Type de code-barres</string>
@@ -60,13 +60,13 @@
     <string name="starImage">Étoile favorite</string>
     <string name="deleteConfirmationGroup">Supprimer le groupe \?</string>
     <string name="all">Tous</string>
-    <string name="noGroups">Cliquez sur le bouton + pour ajouter des groupes à catégoriser.</string>
+    <string name="noGroups">Cliquez sur le bouton + pour ajouter des groupes à catégoriser</string>
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
     <string name="noBarcode">Aucun code-barres</string>
     <string name="leaveWithoutSaveConfirmation">Quitter sans enregistrer \?</string>
     <string name="leaveWithoutSaveTitle">Quitter</string>
-    <string name="failedOpeningFileManager">Installez d’abord un gestionnaire de fichiers.</string>
+    <string name="failedOpeningFileManager">Échec de l\'ouverture du gestionnaire de fichiers</string>
     <string name="addManually">Entrez le code-barres manuellement</string>
     <string name="moveDown">Descendre</string>
     <string name="moveUp">Monter</string>
@@ -114,8 +114,8 @@
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
     <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
-    <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Ressources tierces : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliothèques tierces : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
     <string name="updateBarcodeQuestionText">Vous avez changé l’identifiant. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
     <string name="no">Non</string>
@@ -181,8 +181,8 @@
     <string name="version_history">Historique des versions</string>
     <string name="exportPassword">Définissez un mot de passe pour protéger vos exportations (facultatif)</string>
     <string name="exportPasswordHint">Entrez le mot de passe</string>
-    <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
-    <string name="noGiftCardsGroup">Créez des cartes, puis affectez-les au groupe ici.</string>
+    <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
+    <string name="noGiftCardsGroup">Créez des cartes, puis affectez-les au groupe ici</string>
     <string name="group_edit">Modifier le groupe</string>
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
     <string name="group_updated">Groupe mis à jour</string>

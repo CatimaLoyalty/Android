@@ -70,7 +70,7 @@
     <string name="removeImage">Hapus gambar</string>
     <string name="setBackImage">Atur gambar bagian belakang</string>
     <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan Anda</string>
-    <string name="noGiftCards">Tap tanda tombol plus ( + ) untuk menambahkan kartu, atau mengimpor nya melalui menu ( ⋮ ).</string>
+    <string name="noGiftCards">Tap tanda tombol plus ( + ) untuk menambahkan kartu, atau mengimpor nya melalui menu ( ⋮ )</string>
     <string name="noMatchingGiftCards">Tidak menemukan apapun. Cobalah untuk mengubah pencarian anda.</string>
     <string name="noBarcode">Bukan barcode</string>
     <string name="confirm">Konfirmasi</string>
@@ -176,7 +176,7 @@
     </plurals>
     <string name="editGroup">Menyunting Grup: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Pilih warna</string>
-    <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini.</string>
+    <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini</string>
     <string name="group_name_already_in_use">Nama grup telah dipakai</string>
     <string name="setIcon">Atur thumbnail</string>
     <string name="settings_oled_dark">Latar belakang gelap gulita untuk tema gelap</string>

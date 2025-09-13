@@ -230,7 +230,7 @@
     <string name="icon_header_click_text">Zum Bearbeiten des Vorschaubildes lang drücken</string>
     <string name="switchToBarcode">Zum Barcode wechseln</string>
     <string name="openFrontImageInGalleryApp">Vorderseite in Bildbetrachter öffnen</string>
-    <string name="openBackImageInGalleryApp">Rückseite in Galerie öffnen</string>
+    <string name="openBackImageInGalleryApp">Rückseite in Bildbetrachter öffnen</string>
     <string name="height">Höhe</string>
     <string name="switchToFrontImage">Zur Vorderseite wechseln</string>
     <string name="switchToBackImage">Zur Rückseite wechseln</string>

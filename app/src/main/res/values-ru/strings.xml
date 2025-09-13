@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Поиск</string>
     <string name="action_add">Добавить</string>
-    <string name="noGiftCards">Нажмите кнопку \"+\" для добавления карты или используйте меню \"⋮\" для импортирования.</string>
+    <string name="noGiftCards">Нажмите кнопку \"+\" для добавления карты или используйте меню \"⋮\" для импортирования</string>
     <string name="noMatchingGiftCards">Ничего не найдено. Попробуйте изменить поисковый запрос.</string>
     <string name="storeName">Название</string>
     <string name="note">Примечание</string>
@@ -23,9 +23,9 @@
     <string name="noCardsMessage">Сначала добавьте карту</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Невозможно разобрать импортируемый URI</string>
-    <string name="importExport">Импорт/Экспорт</string>
+    <string name="importExport">Импорт/экспорт</string>
     <string name="exportName">Экспорт</string>
-    <string name="importExportHelp">Резервное копирование данных позволяет перенести их на другое устройство.</string>
+    <string name="importExportHelp">Резервное копирование данных позволяет перенести их на другое устройство</string>
     <string name="importSuccessfulTitle">Импортировано</string>
     <string name="importFailedTitle">Импорт не выполнен</string>
     <string name="importFailed">Невозможно выполнить импорт</string>
@@ -34,9 +34,9 @@
     <string name="exportFailed">Невозможно выполнить экспорт</string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
-    <string name="exportOptionExplanation">Данные будут сохранены в выбранное место.</string>
+    <string name="exportOptionExplanation">Данные будут сохранены в выбранное место</string>
     <string name="importOptionFilesystemTitle">Импорт из файла</string>
-    <string name="importOptionFilesystemExplanation">Выберете файл в файловой системе.</string>
+    <string name="importOptionFilesystemExplanation">Выберете файл в файловой системе</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
     <string name="about">О приложении</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+</string>
@@ -53,7 +53,7 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться с вами картой</string>
     <string name="exportSuccessful">Данные успешно экспортированы</string>
     <string name="all">Все</string>
-    <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для распределения записей.</string>
+    <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для распределения записей</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
     <string name="importSuccessful">Данные успешно импортированы</string>
@@ -66,7 +66,7 @@
     <string name="deleteConfirmationGroup">Удалить группу\?</string>
     <string name="leaveWithoutSaveConfirmation">Выйти без сохранения\?</string>
     <string name="leaveWithoutSaveTitle">Выход</string>
-    <string name="failedOpeningFileManager">Требуется файловый менеджер.</string>
+    <string name="failedOpeningFileManager">Требуется файловый менеджер</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Срок действия истёк: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
@@ -95,16 +95,12 @@
         <item quantity="other"><xliff:g>%d</xliff:g> карт</item>
     </plurals>
     <string name="accept">Принять</string>
-    <string name="importVoucherVaultMessage">Выберите для импортирования файл <i>vouchervault.json</i>.
-\nФайл можно создать в приложении Voucher Vault, нажав кнопку \"Экспорт\".</string>
+    <string name="importVoucherVaultMessage">Выберите для импортирования файл, экспортированный из Voucher Vault. \nФайл можно создать в приложении Voucher Vault, нажав кнопку \"Экспорт\".</string>
     <string name="importVoucherVault">Импорт из Voucher Vault</string>
-    <string name="importFidmeMessage">Выберите для импортирования файл <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную укажите типы штрих-кодов.
-\nФайл можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".</string>
-    <string name="importLoyaltyCardKeychainMessage">Выберите для импортирования файл <i>LoyaltyCardKeychain.csv</i>.
-\nФайл можно создать в приложении Loyalty Card Keychain, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importFidmeMessage">Выберите для импортирования файл, экспортированный из FidMe, а затем вручную укажите типы штрих-кодов. \nФайл можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Выберите для импортирования файл, экспортированный из Loyalty Card Keychain. \nФайл можно создать в приложении Loyalty Card Keychain, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importLoyaltyCardKeychain">Импорт из Loyalty Card Keychain</string>
-    <string name="importCatimaMessage">Выберите для импортирования файл <i>Catima.zip</i>.
-\nФайл можно создать в другой копии Catima, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importCatimaMessage">Выберите для импортирования файл, экспортированный из Catima. \nФайл можно создать в другой копии Catima, перейдя в меню \"Импорт/экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importFidme">Импорт из FidMe</string>
     <string name="importCatima">Импорт из Catima</string>
     <string name="errorReadingImage">Невозможно считать изображение</string>
@@ -115,8 +111,8 @@
     <string name="barcodeId">Значение штрих-кода</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
-    <string name="app_resources">Свободные сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os и помощники</string>
     <string name="intent_import_card_from_url_share_multiple_text">Поделиться картами</string>
     <string name="updateBarcodeQuestionText">Вы изменили номер. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
@@ -131,7 +127,7 @@
     <string name="frontImageDescription">Лицевая сторона</string>
     <string name="photos">Фото</string>
     <string name="passwordRequired">Введите пароль</string>
-    <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об этом.</string>
+    <string name="failedGeneratingShareURL">Невозможно создать URL для обмена</string>
     <string name="turn_flashlight_off">Отключить вспышку</string>
     <string name="turn_flashlight_on">Включить вспышку</string>
     <plurals name="selectedCardCount">
@@ -191,7 +187,7 @@
     <string name="editGroup">Редактирование группы: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Изменить группу</string>
     <string name="group_name_already_in_use">Такое название группы уже существует</string>
-    <string name="noGiftCardsGroup">Создайте несколько карт, а затем распределите их по группам здесь.</string>
+    <string name="noGiftCardsGroup">Создайте несколько карт, а затем распределите их по группам здесь</string>
     <string name="setIcon">Выбор миниатюры</string>
     <string name="selectColor">Выбрать цвет</string>
     <string name="translate_platform">на Weblate</string>
@@ -217,7 +213,7 @@
     <string name="settings_card_orientation">Ориентация экрана</string>
     <string name="archived">Карта архивирована</string>
     <string name="unarchived">Карта разархивирована</string>
-    <string name="failedLaunchingPhotoPicker">Не найдено поддерживаемое приложение галереи</string>
+    <string name="failedLaunchingPhotoPicker">Не найдено приложение для выбора изображений</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирована)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> карты (<xliff:g id="archivedCount">%2$d</xliff:g> архивированы)</item>
@@ -249,8 +245,8 @@
     <string name="switchToBarcode">Переключить на штрих-код</string>
     <string name="switchToFrontImage">Переключить на лицевую сторону</string>
     <string name="switchToBackImage">Переключить на заднюю сторону</string>
-    <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении галереи</string>
-    <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении галереи</string>
+    <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении просмотра изображений</string>
+    <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении просмотра изображений</string>
     <string name="donate">Пожертвовать</string>
     <string name="icon_header_click_text">Долгое нажатие для редактирования</string>
     <string name="show_note">Показывать примечание</string>
@@ -284,7 +280,7 @@
     <string name="settings_follow_sensor_orientation">Всегда поворачивать (игнорировать системные настройки)</string>
     <string name="add_manually_warning_title">Рекомендуется сканирование</string>
     <string name="continue_">Продолжить</string>
-    <string name="add_manually_warning_message">В некоторых магазинах значение штрих-кода отличается от написанного на карте номера, из-за чего введение штрих-кода вручную не всегда работает. Вместо этого настоятельно рекомендуется отсканировать штрих-код камерой. Продолжить?</string>
+    <string name="add_manually_warning_message">В некоторых картах значение штрих-кода отличается от написанного на карте номера, из-за чего введение штрих-кода вручную не всегда работает. Вместо этого рекомендуется отсканировать штрих-код камерой. Продолжить?</string>
     <string name="spend">Потрачено</string>
     <string name="receive">Получено</string>
     <string name="amountParsingFailed">Недопустимая сумма</string>
@@ -313,7 +309,7 @@
     <string name="settings_column_count_6">6</string>
     <string name="unsupportedFile">Данный файл не поддерживается</string>
     <string name="addFromPkpass">Выбрать файл Passbook (.pkpass / .pkpasses)</string>
-    <string name="generic_error_please_retry">Извините, что-то пошло не так, попробуйте ещё раз…</string>
+    <string name="generic_error_please_retry">Произошла ошибка</string>
     <string name="sort_by_valid_from">Начало действия</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Указать ширину штрих-кода</string>

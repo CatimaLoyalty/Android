@@ -3,8 +3,8 @@
     <string name="app_name">Catima</string>
     <string name="action_search">Pesquisar</string>
     <string name="action_add">Adicionar</string>
-    <string name="noGiftCards">Clique no botão \"+\" para adicionar um cartão ou importar a partir do menu \"⋮\".</string>
-    <string name="noGiftCardsGroup">Crie alguns cartões e, em seguida, atribua-os ao grupo aqui.</string>
+    <string name="noGiftCards">Clique no botão \"+\" para adicionar um cartão ou importar a partir do menu \"⋮\"</string>
+    <string name="noGiftCardsGroup">Crie alguns cartões e, em seguida, atribua-os ao grupo aqui</string>
     <string name="noMatchingGiftCards">Nenhum resultado. Tente alterar sua pesquisa.</string>
     <string name="storeName">Nome</string>
     <string name="note">Nota</string>
@@ -53,7 +53,7 @@
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">Fazer backup de seus dados permite movê-los para outro dispositivo.</string>
+    <string name="importExportHelp">Fazer backup de seus dados permite movê-los para outro dispositivo</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falha na importação</string>
     <string name="importFailed">Não foi possível importar</string>
@@ -64,8 +64,8 @@
     <string name="permissionReadCardsLabel">Ler cartões Catima</string>
     <string name="permissionReadCardsDescription">ler seus cartões Catima e todos os seus detalhes, incluindo notas e imagens</string>
     <string name="cameraPermissionDeniedTitle">Não foi possível acessar a câmera</string>
-    <string name="exportOptionExplanation">Os dados serão gravados em um local de sua escolha.</string>
-    <string name="importOptionFilesystemExplanation">Escolha um arquivo específico nos seus arquivos.</string>
+    <string name="exportOptionExplanation">Os dados serão gravados em um local de sua escolha</string>
+    <string name="importOptionFilesystemExplanation">Escolha um arquivo específico nos seus arquivos</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> ponto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> pontos</item>
@@ -79,9 +79,9 @@
     <string name="noCameraFoundGuideText">Seu dispositivo parece não ter uma câmera. Se tiver, tente reiniciar o dispositivo. Caso contrário, tente usar o botão \"Mais opções\" abaixo para adicionar um código de barras manualmente.</string>
     <string name="settings_follow_system_orientation">Padrão do sistema</string>
     <string name="settings_lock_on_opening_orientation">Bloquear para orientação usada ao abrir o cartão</string>
-    <string name="importCatimaMessage">Selecionar arquivo <i>catima.zip</i>, exportado do Catima, para importação. \nPrimeiro, crie-o pelo menu Importar/Exportar em outro aplicativo Catima clicando em Exportar.</string>
+    <string name="importCatimaMessage">Selecione o arquivo exportado do Catima para importação. \nFaça isso a partir do menu \"Importar/Exportar\" em outro aplicativo Catima tocando em Exportar.</string>
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Selecionar arquivo <i>LoyaltyCardKeychain.csv</i>, exportado do Loyalty Card Keychain, para importação. \nPrimeiro, crie-o pelo menu Importar/Exportar no Loyalty Card Keychain clicando em Exportar.</string>
+    <string name="importLoyaltyCardKeychainMessage">Selecione o arquivo exportado do Loyalty Card Keychain, para importação. \nFaça isso a partir do menu \"Importar/Exportar\" no Loyalty Card Keychain tocando em Exportar.</string>
     <string name="setBarcodeId">Definir valor do código de barras</string>
     <string name="importVoucherVault">Importar de Cofre de Vouchers</string>
     <string name="barcodeId">Valor no código de barras</string>
@@ -98,10 +98,10 @@
     <string name="takePhoto">Tirar uma foto</string>
     <string name="updateBarcodeQuestionTitle">Atualizar valor do código de barras?</string>
     <string name="exportPasswordHint">Insira sua senha</string>
-    <string name="passwordRequired">Por favor, insira a senha</string>
+    <string name="passwordRequired">Insira a senha</string>
     <string name="exportPassword">Defina uma senha para proteger o arquivo exportado (opcional)</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="add_manually_warning_message">Em algumas lojas, o valor do código de barras é diferente do número escrito no cartão. Por esse motivo, inserir um código de barras manualmente pode nem sempre funcionar. É altamente recomendável digitalizar o código de barras com a câmera. Você ainda deseja continuar?</string>
+    <string name="add_manually_warning_message">Em alguns cartões, o valor do código de barras difere do número escrito no cartão. Por isso, inserir o código de barras manualmente pode não funcionar. Recomenda-se escanear o código de barras com a câmera. Deseja continuar?</string>
     <string name="about">Sobre</string>
     <string name="about_title_fmt">Sobre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>
@@ -114,12 +114,12 @@
     <string name="importOptionFilesystemButton">A partir do Sistema de Arquivos</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Item favorito</string>
-    <string name="app_libraries">Bibliotecas open source de terceiros : <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Recursos open source de terceiros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotecas de terceiros : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Recursos de terceiros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBarcodeQuestionText">Você mudou o ID. Também quer atualizar o código de barras para usar o mesmo valor?</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
-    <string name="failedGeneratingShareURL">Não foi possível gerar uma URL compartilhável. Por favor, reporte isto.</string>
+    <string name="failedGeneratingShareURL">Não foi possível gerar uma URL compartilhável</string>
     <string name="turn_flashlight_on">Ligar lanterna</string>
     <string name="turn_flashlight_off">Desligar lanterna</string>
     <string name="settings_locale">Idioma</string>
@@ -152,7 +152,7 @@
     <string name="duplicateCard">Duplicar</string>
     <string name="archived">Cartão arquivado</string>
     <string name="unarchived">Cartão desarquivado</string>
-    <string name="failedLaunchingPhotoPicker">Não foi possível encontrar um aplicativo de galeria compatível</string>
+    <string name="failedLaunchingPhotoPicker">Não foi possível encontrar um seletor de imagens compatível</string>
     <string name="failedToOpenUrl">Instale um navegador primeiro</string>
     <string name="welcome">Bem-vindo(a) ao Catima</string>
     <string name="importCards">Importar cartões</string>
@@ -160,8 +160,8 @@
     <string name="switchToBarcode">Mudar para código de barras</string>
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
     <string name="switchToBackImage">Mudar para imagem traseira</string>
-    <string name="openFrontImageInGalleryApp">Abrir imagem frontal no aplicativo da galeria</string>
-    <string name="openBackImageInGalleryApp">Abrir imagem traseira no aplicativo da galeria</string>
+    <string name="openFrontImageInGalleryApp">Abrir imagem frontal no visualizador de imagens</string>
+    <string name="openBackImageInGalleryApp">Abrir imagem traseira no visualizador de imagens</string>
     <string name="setBarcodeHeight">Definir altura do código de barras</string>
     <string name="donate">Doar</string>
     <string name="icon_header_click_text">Pressione e segure para editar a miniatura</string>
@@ -186,7 +186,7 @@
     <string name="sort_by_expiry">Expiração</string>
     <string name="credits">Créditos</string>
     <string name="license">Licença</string>
-    <string name="source_repository">Repositório de Origem</string>
+    <string name="source_repository">Repositório de origem</string>
     <string name="on_github">no GitHub</string>
     <string name="translate_platform">no Weblate</string>
     <string name="help_translate_this_app">Ajude a traduzir este aplicativo</string>
@@ -240,10 +240,10 @@
     <string name="settings_allow_content_provider_read_summary">Aplicativos ainda precisarão pedir permissão para ter acesso concedido</string>
     <string name="group_edit">Editar grupo</string>
     <string name="exportSuccessful">Dados exportados</string>
-    <string name="noGroups">Clique no botão \"+\" para adicionar grupos a serem categorizados.</string>
+    <string name="noGroups">Clique no botão \"+\" para adicionar grupos a serem categorizados</string>
     <string name="group_name_already_in_use">Nome do grupo já em uso</string>
     <string name="deleteConfirmationGroup">Excluir grupo?</string>
-    <string name="failedOpeningFileManager">Instale um gerenciador de arquivos primeiro.</string>
+    <string name="failedOpeningFileManager">Falha ao abrir o gerenciador de arquivos</string>
     <string name="enter_group_name">Inserir nome do grupo</string>
     <string name="groups">Grupos</string>
     <string name="noGroupCards">Este grupo está vazio</string>
@@ -275,8 +275,8 @@
     <string name="balanceParsingFailed">Saldo inválido</string>
     <string name="accept">Aceitar</string>
     <string name="importFidme">Importar de FidMe</string>
-    <string name="importFidmeMessage">Selecione o arquivo <i>fidme-export-request-xxxxxx.zip</i>, exportado de FidMe, para importação e em seguida selecione o tipo de código de barras manualmente. \nCrie-o pelo seu perfil no FidMe escolhendo \'Proteção de Dados\' (Data Protection) e então clicando em \"Extrair meus dados\".</string>
-    <string name="importVoucherVaultMessage">Selecionar arquivo<i>vouchervault.json</i>, exportado de Voucher Vault, para importação. \nPrimeiro, crie-o pressionando em Exportar no Voucher Vault.</string>
+    <string name="importFidmeMessage">Selecione o arquivo exportado do FidMe para importação e em seguida selecione o tipo de código de barras manualmente. \nCrie-o pelo seu perfil no FidMe escolhendo \"Proteção de Dados\" (Data Protection) e então tocando em \"Extrair meus dados\".</string>
+    <string name="importVoucherVaultMessage">Selecione o arquivo exportado de Voucher Vault, para importação. \nFaça isso tocando em Exportar no Voucher Vault.</string>
     <string name="enter_card_id">Insira o ID ou texto escrito no seu cartão</string>
     <string name="manually_enter_barcode_instructions">Insira o ID ou texto escrito no seu cartão e clique no código de barras que se parece com o do seu cartão.</string>
     <string name="app_license">Software livre com copyleft, licenciado sob a licença GPLv3+</string>
@@ -303,7 +303,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="unsupportedFile">Este arquivo não é suportado</string>
     <string name="addFromPkpass">Selecionar um arquivo do gerenciador de senhas (.pkpass / .pkpasses)</string>
-    <string name="generic_error_please_retry">Desculpe, alguma coisa deu errado, por favor tente novamente...</string>
+    <string name="generic_error_please_retry">Algo deu errado</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
     <string name="width">Largura</string>
     <string name="setBarcodeWidth">Definir largura do código de barras</string>

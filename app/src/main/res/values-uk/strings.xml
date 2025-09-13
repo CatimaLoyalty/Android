@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="noGiftCards">Натисніть кнопку +, щоб додати картку, або ⋮ для імпорту з меню.</string>
+    <string name="noGiftCards">Натисніть кнопку + плюс, щоб додати картку, або імпортуйте її з меню ⋮</string>
     <string name="settings_display_barcode_max_brightness">Збільшити яскравість екрана</string>
-    <string name="selectBarcodeTitle">Оберіть штрих-код</string>
-    <string name="scanCardBarcode">Відсканувати штрих-код</string>
+    <string name="selectBarcodeTitle">Виберіть штрих-код</string>
+    <string name="scanCardBarcode">Скануйте штрих-код</string>
     <string name="noBarcode">Без штрих-коду</string>
     <string name="barcodeType">Тип штрих-коду</string>
     <plurals name="groupCardCount">
@@ -16,17 +16,17 @@
     <string name="yes">Так</string>
     <string name="updateBarcodeQuestionText">Ви змінили ID. Чи ви бажаєте оновити штрих-код для використання цього ж значення\?</string>
     <string name="updateBarcodeQuestionTitle">Оновити значення штрих-коду\?</string>
-    <string name="wrongValueForBarcodeType">Значення не дійсне для обраного типу штрих-коду</string>
+    <string name="wrongValueForBarcodeType">Значення недійсне для вибраного типу штрих-коду</string>
     <string name="unsupportedBarcodeType">Цей тип штрих-коду поки що не відображається. Підтримку може бути додано в подальших версіях застосунку.</string>
     <string name="setBarcodeId">Встановіть значення штрих-коду</string>
     <string name="sameAsCardId">Таке ж як ID</string>
     <string name="barcodeId">Значення штрих-коду</string>
-    <string name="importVoucherVaultMessage">Оберіть Voucher Vault експорт-файл названий <i>vouchervault.json</i> для імпортування. \nСтворіть його натиснувши \"Експорт\" у Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Виберіть експорт зі Сховища ваучерів для імпорту.\nСтворіть його, натиснувши «Експорт» у Сховищі ваучерів.</string>
     <string name="importVoucherVault">Імпорт з Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Знайдіть файл названий <i>LoyaltyCardKeychain.csv</i> для імпортування. \nСтворіть його у меню імпорту/експорту Loyalty Card Keychain натиснувши \"Експорт\".</string>
-    <string name="importCatimaMessage">Оберіть експорт-файл названий <i>catima.zip</i> для імпортування. \nСтворіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Виберіть експорт із брелока картки лояльності для імпорту.\nСтворіть його з меню «Імпорт/Експорт» у брелоку картки лояльності, натиснувши «Експорт».</string>
+    <string name="importCatimaMessage">Виберіть експорт із Catima для імпорту.\nСтворіть його з меню Імпорт/експорт іншого застосунку Catima, натиснувши «Експорт».</string>
     <string name="importLoyaltyCardKeychain">Імпорт з Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів. \nСтворіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
+    <string name="importFidmeMessage">Виберіть експорт із FidMe для імпорту та після цього вручну виберіть типи штрих-кодів.\nСтворіть його зі свого профілю FidMe, вибравши «Захист даних» та натиснувши «Витягти мої дані».</string>
     <string name="importFidme">Імпорт з FidMe</string>
     <string name="importCatima">Імпорт з Catima</string>
     <string name="accept">Прийняти</string>
@@ -36,7 +36,7 @@
     <string name="points">Бали</string>
     <string name="currency">Валюта</string>
     <string name="balance">Баланс</string>
-    <string name="errorReadingImage">Неможливо прочитати зображення</string>
+    <string name="errorReadingImage">Не вдалося прочитати зображення</string>
     <string name="noBarcodeFound">Жодного штрих-коду не знайдено</string>
     <string name="moveBarcodeToTopOfScreen">Посунути штрих-код наверх екрану</string>
     <string name="chooseExpiryDate">Оберіть дату</string>
@@ -54,10 +54,10 @@
     <string name="leaveWithoutSaveTitle">Вихід</string>
     <string name="moveDown">Посунути донизу</string>
     <string name="moveUp">Посунути вгору</string>
-    <string name="failedOpeningFileManager">Спочатку встановіть файловий менеджер.</string>
+    <string name="failedOpeningFileManager">Не вдалося відкрити файловий менеджер</string>
     <string name="deleteConfirmationGroup">Видалити групу\?</string>
     <string name="all">Усі</string>
-    <string name="noGroups">Натисніть +, щоб додати групи для категоризації.</string>
+    <string name="noGroups">Натисніть кнопку «+» з плюсом, щоб додати групи для категоризації</string>
     <string name="groups">Групи</string>
     <string name="enter_group_name">Введіть ім\'я групи</string>
     <string name="exportSuccessful">Дані експортовано</string>
@@ -73,8 +73,8 @@
     <string name="starImage">Улюблена зірка</string>
     <string name="thumbnailDescription">Ескіз</string>
     <string name="intent_import_card_from_url_share_multiple_text">Я хочу поділитися з тобою деякими картками</string>
-    <string name="app_resources">Вільні ресурси третіх сторін: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Вільні бібліотеки третіх сторін: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Сторонні ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Бібліотеки сторонніх розробників: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Версія: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Про <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_license">Вільне копілефт програмне забезпечення, ліцензоване GPLv3+</string>
@@ -83,9 +83,9 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os та співавтори</string>
     <string name="about">Про застосунок</string>
     <string name="importOptionFilesystemButton">Обрати файл</string>
-    <string name="importOptionFilesystemExplanation">Оберіть потрібний файл у провіднику.</string>
+    <string name="importOptionFilesystemExplanation">Оберіть потрібний файл у провіднику</string>
     <string name="importOptionFilesystemTitle">Імпорт з файлу</string>
-    <string name="exportOptionExplanation">Дані будуть записані у вибране вами місце.</string>
+    <string name="exportOptionExplanation">Дані будуть записані у вибране вами місце</string>
     <string name="exporting">Експорт…</string>
     <string name="importing">Імпорт…</string>
     <string name="exportFailed">Не вдалося здійснити експорт</string>
@@ -94,13 +94,13 @@
     <string name="importFailed">Не вдалося здійснити імпорт</string>
     <string name="importFailedTitle">Помилка імпорту</string>
     <string name="importSuccessfulTitle">Імпортовано</string>
-    <string name="importExportHelp">Резервне копіювання даних дозволяє перенести їх на інший пристрій.</string>
+    <string name="importExportHelp">Резервне копіювання даних дозволяє перенести їх на інший пристрій</string>
     <string name="exportName">Експорт</string>
-    <string name="importExport">Імпорт/Експорт</string>
-    <string name="failedParsingImportUriError">Не вдалося розібрати URI імпорту</string>
+    <string name="importExport">Імпорт/експорт</string>
+    <string name="failedParsingImportUriError">Не вдалося проаналізувати URI імпорту</string>
     <string name="noCardExistsError">Не вдалося знайти цю картку</string>
     <string name="noCardsMessage">Спочатку додайте картку</string>
-    <string name="cardShortcut">Ярлик картки</string>
+    <string name="cardShortcut">Скорочення картки</string>
     <string name="addCardTitle">Додати картку</string>
     <string name="editCardTitle">Редагувати картку</string>
     <string name="sendLabel">Відправити…</string>
@@ -121,8 +121,8 @@
     <string name="action_search">Пошук</string>
     <string name="turn_flashlight_off">Вимкнути спалах</string>
     <string name="turn_flashlight_on">Увімкнути спалах</string>
-    <string name="failedGeneratingShareURL">Збій створення URL обміну. Будь ласка повідомте про це.</string>
-    <string name="passwordRequired">Будь ласка введіть пароль</string>
+    <string name="failedGeneratingShareURL">Не вдалося створити URL-адресу для спільного використання</string>
+    <string name="passwordRequired">Введіть пароль</string>
     <string name="takePhoto">Зробити світлину</string>
     <string name="removeImage">Видалити зображення</string>
     <string name="setBackImage">Встановити зображення тильної сторони</string>
@@ -167,13 +167,13 @@
     <string name="sort_by">Сортувати за</string>
     <string name="reverse">… у зворотному порядку</string>
     <string name="sort_by_expiry">Термін дії</string>
-    <string name="sort_by_most_recently_used">Часто використовувані</string>
+    <string name="sort_by_most_recently_used">Останній використаний</string>
     <string name="sort_by_name">Назва</string>
     <string name="sort">Сортувати</string>
     <string name="version_history">Історія версій</string>
     <string name="help_translate_this_app">Допомогти з перекладом застосунку</string>
     <string name="license">Ліцензія</string>
-    <string name="source_repository">Початковий код</string>
+    <string name="source_repository">Репозиторій вихідного коду</string>
     <string name="on_github">на GitHub</string>
     <string name="and_data_usage">та використання даних</string>
     <string name="credits">Подяки</string>
@@ -184,10 +184,10 @@
     <string name="exportPasswordHint">Введіть пароль</string>
     <string name="group_name_is_empty">Назва групи не повинна бути порожньою</string>
     <string name="group_updated">Групу оновлено</string>
-    <string name="editGroup">Редагування групи: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Група редагування: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Змінити групу</string>
     <string name="group_name_already_in_use">Група з такою назвою вже існує</string>
-    <string name="noGiftCardsGroup">Створіть кілька карток та призначте їх до групи тут.</string>
+    <string name="noGiftCardsGroup">Створіть кілька карток, а потім розподіліть їх між групами тут</string>
     <string name="selectColor">Вибір кольору</string>
     <string name="setIcon">Вибір мініатюри</string>
     <string name="translate_platform">на Weblate</string>
@@ -219,7 +219,7 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> карток (<xliff:g id="archivedCount">%2$d</xliff:g> архівовано)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карток (<xliff:g id="archivedCount">%2$d</xliff:g> архівовано)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Підтримуваний застосунок галереї не знайдено</string>
+    <string name="failedLaunchingPhotoPicker">Не вдалося знайти підтримуваний засіб вибору зображень</string>
     <string name="previousCard">Попередня</string>
     <string name="nextCard">Наступна</string>
     <string name="failedToOpenUrl">Спочатку встановіть браузер</string>
@@ -243,8 +243,8 @@
     <string name="switchToFrontImage">Перемкнутися на лицьову сторону</string>
     <string name="switchToBackImage">Перемкнутися на зворотню сторону</string>
     <string name="switchToBarcode">Перемкнутися на штрих-код</string>
-    <string name="openFrontImageInGalleryApp">Відкрити зображення лицьової сторони у застосунку галереї</string>
-    <string name="openBackImageInGalleryApp">Відкрити зображення тильної сторони у застосунку галереї</string>
+    <string name="openFrontImageInGalleryApp">Відкрити зображення спереду в програмі для перегляду зображень</string>
+    <string name="openBackImageInGalleryApp">Відкрити зображення ззаду у програмі для перегляду зображень</string>
     <string name="setBarcodeHeight">Встановити висоту штрих-коду</string>
     <string name="height">Висота</string>
     <string name="donate">Пожертвувати</string>
@@ -253,7 +253,7 @@
     <string name="show_note">Показати примітку</string>
     <string name="show_validity">Показати термін дії</string>
     <string name="show_balance">Показати баланс</string>
-    <string name="permissionReadCardsLabel">Читати картки Catima</string>
+    <string name="permissionReadCardsLabel">Читайте картки Catima</string>
     <string name="settings_allow_content_provider_read_summary">Застосунки все ще муситимуть запитувати дозвіл на отримання доступу</string>
     <string name="permissionReadCardsDescription">читайте ваші картки Catima та всю інформацію на них, включно з примітками та зображеннями</string>
     <string name="settings_display_barcode_max_brightness_summary">Необхідно для роботи деяких сканерів</string>
@@ -278,7 +278,7 @@
     <string name="field_must_not_be_empty">Поле вводу не повинно бути порожнім</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Завжди обертати (ігнорувати системні налаштування)</string>
-    <string name="add_manually_warning_message">У деяких магазинах значення штрихкоду відрізняється від номера, записаного на картці. Через це введення штрихкоду вручну може не завжди спрацювати. Наполегливо рекомендуємо відсканувати штрихкод за допомогою камери. Ви все ще хочете продовжити?</string>
+    <string name="add_manually_warning_message">Для деяких карток значення штрих-коду відрізняється від номера, вказаного на картці. Через це введення штрих-коду вручну не завжди може працювати. Рекомендується замість цього відсканувати штрих-код за допомогою камери. Ви все одно хочете продовжити?</string>
     <string name="continue_">Продовжити</string>
     <string name="add_manually_warning_title">Рекомендується відсканувати</string>
     <string name="failedLaunchingFileManager">Не вдалося знайти підтримуваний файловий менеджер</string>
@@ -308,9 +308,9 @@
     <string name="settings_column_count_landscape">Стовпці в ландшафтному режимі</string>
     <string name="settings_column_count_1">1</string>
     <string name="unsupportedFile">Цей файл не підтримується</string>
-    <string name="generic_error_please_retry">Вибачте, щось пішло не так, спробуйте ще раз...</string>
+    <string name="generic_error_please_retry">Сталася помилка</string>
     <string name="addFromPkpass">Виберіть файл Passbook (.pkpass / .pkpasses)</string>
-    <string name="sort_by_valid_from">Діє з</string>
+    <string name="sort_by_valid_from">Дійсний з</string>
     <string name="width">Ширина</string>
     <string name="setBarcodeWidth">Встановити ширину штрих-коду</string>
     <string name="card_list_widget_name">Список карток</string>

@@ -89,7 +89,7 @@
     <string name="importOptionFilesystemExplanation">Escolha um arquivo específico nos seus arquivos</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os e contribuidores</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os e contribuidores</string>
-    <string name="app_copyright_old">Baseado no Loyalty Card Keychain \ncopyright © 2016–2020 Branden Archert</string>
+    <string name="app_copyright_old">Baseado no Loyalty Card Keychain \ncopyright © 2016–2020 Branden Archer</string>
     <string name="app_license">Software livre com copyleft, licenciado sob a licença GPLv3+</string>
     <string name="about_title_fmt">Sobre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>

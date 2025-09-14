@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Προσθήκη</string>
-    <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή προσθέστε από το ⋮ μενού.</string>
+    <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή προσθέστε από το ⋮ μενού</string>
     <string name="storeName">Όνομα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός κάρτας</string>
@@ -12,15 +12,15 @@
     <string name="confirm">Επιβεβαίωση</string>
     <string name="ok">Εντάξει</string>
     <string name="sendLabel">Αποστολή…</string>
-    <string name="editCardTitle">Επεξεργασία Κάρτας</string>
-    <string name="addCardTitle">Προσθήκη Κάρτας</string>
-    <string name="scanCardBarcode">Σαρώστε τον γραμμωτό κώδικα</string>
-    <string name="cardShortcut">Συντόμευση Κάρτας</string>
+    <string name="editCardTitle">Επεξεργασία κάρτας</string>
+    <string name="addCardTitle">Προσθήκη κάρτας</string>
+    <string name="scanCardBarcode">Σάρωση γραμμωτού κώδικα</string>
+    <string name="cardShortcut">Συντόμευση κάρτας</string>
     <string name="noCardsMessage">Προσθέστε μία κάρτα πρώτα</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί η κάρτα</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
-    <string name="importExportHelp">Τα αντίγραφα ασφαλείας σας επιτρέπουν να τα εισάγετε σε άλλη συσκευή.</string>
+    <string name="importExportHelp">Τα αντίγραφα ασφαλείας σας επιτρέπουν να τα εισάγετε σε άλλη συσκευή</string>
     <string name="importSuccessfulTitle">Εισήχθησαν</string>
     <string name="importFailedTitle">Εισαγωγή ανεπιτυχής</string>
     <string name="importFailed">Δεν ήταν δυνατή η εισαγωγή</string>
@@ -30,7 +30,7 @@
     <string name="importing">Γίνεται εισαγωγή του…</string>
     <string name="exporting">Γίνεται εξαγωγή του…</string>
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
-    <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
+    <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemButton">Από το σύστημα αρχείων</string>
     <string name="about">Σχετικά</string>
     <string name="app_license">Άδεια χρήσης υπό GPLv3+</string>
@@ -50,7 +50,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> επιλέγχθηκε</item>
         <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
     </plurals>
-    <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
+    <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα</string>
     <string name="addManually">Εισαγωγή γραμμωτού κώδικα με μη αυτόματο τρόπο</string>
     <string name="never">Ποτέ</string>
     <string name="share">Κοινοποίηση</string>
@@ -58,7 +58,7 @@
         <item quantity="one"><xliff:g>%s</xliff:g> πόντος</item>
         <item quantity="other"><xliff:g>%s</xliff:g> πόντοι</item>
     </plurals>
-    <string name="exportOptionExplanation">Τα δεδομένα θα μεταφερθούν σε τοποθεσία της επιλογής σας.</string>
+    <string name="exportOptionExplanation">Τα δεδομένα θα μεταφερθούν σε τοποθεσία της επιλογής σας</string>
     <string name="settings_theme">Θέμα</string>
     <string name="groupsList">Ομάδες: <xliff:g>%s</xliff:g></string>
     <string name="barcodeId">Τιμή γραμμωτού κώδικα</string>
@@ -88,7 +88,7 @@
     <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
 \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
     <string name="importFidme">Εισαγωγή από FidMe</string>
-    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα μετέπειτα.\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων πρώτα.</string>
+    <string name="importFidmeMessage">Επιλέξτε την εξαγωγή σας από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα.\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων.</string>
     <string name="setBarcodeId">Επιλέξτε τιμή γραμμωτού κώδικα</string>
     <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για τον επιλεγμένο γραμμωτό κώδικα</string>
     <string name="setBackImage">Επιλογή οπίσθιας εικόνας</string>
@@ -106,7 +106,7 @@
         <item quantity="one">Διαγραφή <xliff:g>%d</xliff:g> κάρτας</item>
         <item quantity="other">Διαγραφή <xliff:g>%d</xliff:g> καρτών</item>
     </plurals>
-    <string name="errorReadingImage">Δεν ήταν δυνατό να διαβαστεί η εικόνα</string>
+    <string name="errorReadingImage">Δεν ήταν δυνατή η ανάγνωση της εικόνας</string>
     <string name="currency">Νόμισμα</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>
@@ -115,9 +115,9 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> κάρτα ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκε)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> κάρτες ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκαν)</item>
     </plurals>
-    <string name="importCatimaMessage">Επιλέξτε την <i>catima.zip</i> εξαγωγή από το Catima για εισαγωγή \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής μιας άλλης εφαρμογής Catima κάνοντας εξαγωγή εκεί πρώτα.</string>
+    <string name="importCatimaMessage">Επιλέξτε την εξαγωγή σας από το Catima για εισαγωγή.\nΔημιουργήστε την από το μενού Εισαγωγή/Εξαγωγή μιας άλλης εφαρμογής Catima πατώντας Εξαγωγή.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
-    <string name="editGroup">Επεξεργασία Ομάδας: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Επεξεργασία ομάδας: <xliff:g>%s</xliff:g></string>
     <string name="setFrontImage">Επιλογή εμπρόσθιας εικόνας</string>
     <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
 \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
@@ -130,13 +130,13 @@
     <string name="sort_by_most_recently_used">Χρήση</string>
     <string name="shortcutSelectCard">Επιλέξτε μία κάρτα</string>
     <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμωτού κώδικα</string>
-    <string name="app_libraries">Ελεύθερες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="license">Άδεια</string>
     <string name="include_if_asking_support">Αν θέλετε να ζητήσετε υποστήριξη, συμπεριλάβετε τις ακόλουθες πληροφορίες:</string>
     <string name="importSuccessful">Δεδομένα εισήχθησαν</string>
     <string name="moveUp">Προχώρα πάνω</string>
     <string name="barcodeType">Τύπος γραμμωτού κώδικα</string>
-    <string name="app_resources">Ελεύθερες πηγές τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Πηγές τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectColor">Επιλογή χρώματος</string>
     <string name="setIcon">Ορισμός εικονιδίου</string>
     <string name="settings_sky_blue_theme">Γαλάζιο</string>
@@ -170,11 +170,11 @@
     <string name="intent_import_card_from_url_share_text">Θέλω να μοιραστώ μία κάρτα μαζί σου</string>
     <string name="enter_group_name">Εισάγετε όνομα ομάδας</string>
     <string name="groups">Ομάδες</string>
-    <string name="noGroups">Κάντε κλικ στο + κουμπί ώστε να προσθέσετε ομάδες για κατηγοριοποίηση.</string>
+    <string name="noGroups">Κάντε κλικ στο + κουμπί ώστε να προσθέσετε ομάδες για κατηγοριοποίηση</string>
     <string name="group_name_already_in_use">Αυτό το όνομα υπάρχει ήδη</string>
     <string name="group_updated">Η ομάδα ενημερώθηκε</string>
     <string name="all">Όλες</string>
-    <string name="failedOpeningFileManager">Εγκαταστήστε έναν διαχειριστή αρχείων πρώτα.</string>
+    <string name="failedOpeningFileManager">Αποτυχία εκκίνησης διαχειριστή αρχείων</string>
     <string name="leaveWithoutSaveConfirmation">Έξοδος χωρίς αποθήκευση;</string>
     <string name="expiryStateSentenceExpired">Έληξε: <xliff:g>%s</xliff:g></string>
     <string name="card">Κάρτα</string>

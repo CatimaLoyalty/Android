@@ -1,2 +1,3 @@
 - Unterstützung für .pkpasses Dateien hinzugefügt
-- Stocard Import entfernt (Stocard gibts nicht mehr)
+- Stocard Import entfernt (Stocard gibt's nicht mehr)
+- Vorübergehende Entfernung der Bilder im Widget für Android kleiner 12L (Umgehung eines Absturzproblems)

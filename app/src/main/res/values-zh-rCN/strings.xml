@@ -4,7 +4,7 @@
     <plurals name="groupCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> 卡片</item>
     </plurals>
-    <string name="app_libraries">第三方自由程序库：<xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">第三方程序库：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">版本：<xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">关于 <xliff:g id="app_name">%s</xliff:g></string>
     <string name="card">卡片</string>
@@ -18,17 +18,13 @@
     <string name="setBarcodeId">设置条形码值</string>
     <string name="sameAsCardId">与卡号相同</string>
     <string name="barcodeId">条形码值</string>
-    <string name="importVoucherVaultMessage">选择 Voucher Vault 导出文件 <i>vouchervault.json</i> 进行导入。
-\n先在 Voucher Vault 中按下“导出”来创建此文件。</string>
+    <string name="importVoucherVaultMessage">选择 Voucher Vault 导出文件进行导入。 \n先在 Voucher Vault 中按下“导出”来创建此文件。</string>
     <string name="importVoucherVault">从 Voucher Vault 导入</string>
-    <string name="importLoyaltyCardKeychainMessage">选择 Loyalty Card Keychain 导出文件 <i>LoyaltyCardKeychain.csv</i>来导入。
-\n先在 Loyalty Card Keychain 的 “导入/导出” 菜单中按“导出”。</string>
+    <string name="importLoyaltyCardKeychainMessage">选择 Loyalty Card Keychain 导出文件来导入。 \n先在 Loyalty Card Keychain 的 “导入/导出” 菜单中按“导出”。</string>
     <string name="importLoyaltyCardKeychain">从 Loyalty Card Keychain 导入</string>
-    <string name="importFidmeMessage">选择 Fidme 导出文件 <i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。
-\n创建 Fidme 配置的导出文件，方法是选择“数据保护”，然后按“提取我的数据”。</string>
+    <string name="importFidmeMessage">选择 Fidme 导出文件进行导入，之后再手动选择条码类型。 \n创建 Fidme 配置的导出文件，方法是选择“数据保护”，然后按“提取我的数据”。</string>
     <string name="importFidme">从 FidMe 导入</string>
-    <string name="importCatimaMessage">选择 Catima 导出文件 <i>Catima.zip</i>来导入。
-\n先按另一个 Catima 应用程序导入/导出菜单中“导出”创建文件。</string>
+    <string name="importCatimaMessage">选择 Catima 导出文件来导入。 \n先按另一个 Catima 应用的导入/导出菜单中“导出”来创建文件。</string>
     <string name="importCatima">从 Catima 导入</string>
     <string name="accept">接受</string>
     <string name="privacy_policy">隐私政策</string>
@@ -52,10 +48,10 @@
     <string name="leaveWithoutSaveTitle">退出</string>
     <string name="moveDown">向下移</string>
     <string name="moveUp">向上移</string>
-    <string name="failedOpeningFileManager">请先安装文件管理器。</string>
+    <string name="failedOpeningFileManager">打开文件管理器失败了</string>
     <string name="deleteConfirmationGroup">删除群组？</string>
     <string name="all">全部</string>
-    <string name="noGroups">单击 “+ ” 按钮添加分组进行分类。</string>
+    <string name="noGroups">单击 “+ ” 按钮添加分组进行分类</string>
     <string name="enter_group_name">输入组名</string>
     <string name="groups">组</string>
     <string name="exportSuccessful">已导出数据</string>
@@ -70,14 +66,14 @@
     <string name="settings">设置</string>
     <string name="thumbnailDescription">缩略图</string>
     <string name="selectBarcodeTitle">选择条码</string>
-    <string name="app_resources">第三方自由资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">第三方资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可证</string>
     <string name="app_copyright_old">基于 Loyalty Card Keychain
 \nCopyright © 2016–2020 Branden Archer</string>
     <string name="about">关于</string>
-    <string name="importOptionFilesystemExplanation">请从文件系统选择文件。</string>
+    <string name="importOptionFilesystemExplanation">请从文件系统选择文件</string>
     <string name="importOptionFilesystemTitle">从文件系统导入</string>
-    <string name="exportOptionExplanation">导出的数据将储存至你选择的位置。</string>
+    <string name="exportOptionExplanation">导出的数据将储存至你选择的位置</string>
     <string name="cameraPermissionDeniedTitle">无法访问相机</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima 需要访问您的相机来扫描条形码，轻触这里以更改您的权限设置。</string>
     <string name="exporting">导出中……</string>
@@ -88,7 +84,7 @@
     <string name="importFailed">无法导入卡片</string>
     <string name="importFailedTitle">导入失败</string>
     <string name="importSuccessfulTitle">导入成功</string>
-    <string name="importExportHelp">备份你的数据以允许将其移动到另一个设备上。</string>
+    <string name="importExportHelp">备份你的数据以允许将其移动到另一个设备上</string>
     <string name="exportName">导出</string>
     <string name="importExport">导入/导出</string>
     <string name="failedParsingImportUriError">无法解析导入 URI</string>
@@ -113,7 +109,7 @@
     <string name="note">备注</string>
     <string name="storeName">名称</string>
     <string name="noMatchingGiftCards">没有结果。试试其他关键字。</string>
-    <string name="noGiftCards">点击“+”加号按钮来添加卡片，或者从 ⋮ 菜单导入。</string>
+    <string name="noGiftCards">点击“+”加号按钮来添加卡片，或者从 ⋮ 菜单导入</string>
     <string name="action_add">添加</string>
     <string name="action_search">搜索</string>
     <string name="deleteConfirmation">确定要永久删除此卡？</string>
@@ -130,7 +126,7 @@
     </plurals>
     <string name="turn_flashlight_off">关上手电筒</string>
     <string name="turn_flashlight_on">开启手电筒</string>
-    <string name="failedGeneratingShareURL">无法生成可分享的URL。请向开发者报告。</string>
+    <string name="failedGeneratingShareURL">无法生成可分享的URL</string>
     <string name="passwordRequired">请输入密码</string>
     <string name="no">否</string>
     <string name="yes">是</string>
@@ -143,7 +139,7 @@
     <string name="photos">照片</string>
     <string name="backImageDescription">背面图像</string>
     <string name="frontImageDescription">正面图像</string>
-    <string name="noGiftCardsGroup">创建一些卡片并分配到这个卡组中。</string>
+    <string name="noGiftCardsGroup">创建一些卡片并分配到这个卡组中</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g>型条码图像</string>
     <string name="group_edit">编辑组</string>
     <plurals name="balancePoints">
@@ -190,7 +186,7 @@
     <string name="settings_violet_theme">紫色</string>
     <string name="app_contributors">因他们而存在: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="and_data_usage">和数据使用方法</string>
-    <string name="failedLaunchingPhotoPicker">找不到支持的图库应用</string>
+    <string name="failedLaunchingPhotoPicker">找不到支持的图片选择应用</string>
     <string name="previousCard">前一张</string>
     <string name="nextCard">下一张</string>
     <string name="settings_card_orientation">屏幕</string>
@@ -229,8 +225,8 @@
     <string name="switchToFrontImage">选择正面图像</string>
     <string name="switchToBackImage">选择背面图像</string>
     <string name="switchToBarcode">选择条形码</string>
-    <string name="openFrontImageInGalleryApp">使用图库软件打开正面图像</string>
-    <string name="openBackImageInGalleryApp">使用图库软件打开背面图像</string>
+    <string name="openFrontImageInGalleryApp">使用图片查看软件打开正面图像</string>
+    <string name="openBackImageInGalleryApp">使用图片查看软件打开背面图像</string>
     <string name="setBarcodeHeight">设置条形码高度</string>
     <string name="donate">捐赠</string>
     <string name="icon_header_click_text">长按可编辑缩略图</string>
@@ -266,7 +262,7 @@
     <string name="settings_follow_sensor_orientation">始终旋转（忽略系统设置）</string>
     <string name="add_manually_warning_title">建议扫描</string>
     <string name="continue_">继续</string>
-    <string name="add_manually_warning_message">某些商店卡片的二维码值和刻在卡上的数字并不一样。由于这个原因，手动输入二维码可能并不总是有用。这种情况下，强烈建议你用相机扫描二维码。你仍要继续吗？</string>
+    <string name="add_manually_warning_message">某些卡片的二维码值和刻在卡上的数字并不一样。由于这个原因，手动输入二维码可能并不总是有用。这种情况下，建议你用相机扫描二维码。你仍要继续吗？</string>
     <string name="receive">接收</string>
     <string name="amountParsingFailed">无效金额</string>
     <string name="spend">支出</string>
@@ -295,7 +291,7 @@
     <string name="settings_column_count_landscape">横屏模式下的列数</string>
     <string name="addFromPkpass">选择 Passbook 文件（.pkpass/.pkpasses）</string>
     <string name="unsupportedFile">此文件不受支持</string>
-    <string name="generic_error_please_retry">抱歉，某个东西出错了，请再试…</string>
+    <string name="generic_error_please_retry">出错了</string>
     <string name="sort_by_valid_from">有效期开始日</string>
     <string name="width">宽度</string>
     <string name="setBarcodeWidth">设置条码宽度</string>

@@ -1,0 +1,4 @@
+- Nederlandse vertalingen
+- Maak naamveld bewerkbaar na het toevoegen van een kaart
+- Voeg een optioneel notitieveld toe
+- Los alle problemen op die gevonden waren door FindBugs, en zorg ervoor dat alle FindBugs-problemen worden opgelost voordat een pull request wordt geaccepteerd

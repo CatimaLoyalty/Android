@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridať</string>
-    <string name="noGiftCards">Ak chcete pridať kartu, kliknite na tlačidlo + plus alebo ju importujte z ⋮ ponuky.</string>
+    <string name="noGiftCards">Ak chcete pridať kartu, kliknite na tlačidlo + plus alebo ju importujte z ⋮ ponuky</string>
     <string name="storeName">Názov</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
@@ -15,7 +15,7 @@
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
     <string name="scanCardBarcode">Skenovať čiarový kód</string>
-    <string name="cardShortcut">Skratka</string>
+    <string name="cardShortcut">Skratka karty</string>
     <string name="noCardsMessage">Najprv pridajte kartu</string>
     <string name="noCardExistsError">Nepodarilo sa nájsť túto kartu</string>
     <string name="importExport">Import/Export</string>
@@ -180,7 +180,7 @@
     <string name="updateBarcodeQuestionText">Zmenili ste ID. Chcete aktualizovať aj čiarový kód, aby používal rovnakú hodnotu\?</string>
     <string name="no">Nie</string>
     <string name="passwordRequired">Zadajte prosím heslo</string>
-    <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
+    <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>
     <string name="settings_card_orientation">Orientácia obrazovky</string>

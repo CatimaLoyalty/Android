@@ -8,7 +8,7 @@ Met deze essentiële app kun je die waardeloze plastic kaarten weggooien.
 - Weinig rechten vereist, geen spionage/tracking, geen internettoegang en geen reclame;
 - Voorzie kaarten of codes van namen en zelfgekozen kleuren;
 - Voer codes handmatig in als er geen barcode is;
-- Importeer kaarten en codes uit bestanden, Catima, FidMe, Klantenkaartkluis, Stocard en Voucher Vault;
+- Importeer kaarten en codes uit bestanden, Catima, FidMe, Klantenkaartkluis en Voucher Vault;
 - Maak een back-up van al je kaarten en importeer deze op een ander apparaat;
 - Deel coupons, exclusieve aanbiedingen, promocodes of kaarten en codes met andere apps;
 - Donker thema en toegankelijkheidsopties voor blinden en slechtzienden;

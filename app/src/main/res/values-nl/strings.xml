@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
-    <string name="noGiftCards">Druk op de plusknop (‘+’) om een kaart toe te voegen of importeer kaarten via het ⋮-menu.</string>
+    <string name="noGiftCards">Druk op de plusknop (‘+’) om een kaart toe te voegen of importeer kaarten via het ⋮-menu</string>
     <string name="noMatchingGiftCards">Geen zoekresultaten - probeer een andere zoekopdracht.</string>
     <string name="storeName">Naam</string>
     <string name="note">Aantekening</string>
@@ -23,9 +23,9 @@
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
-    <string name="importExport">Importeren/Exporteren</string>
+    <string name="importExport">Importeren/exporteren</string>
     <string name="exportName">Exporteren</string>
-    <string name="importExportHelp">Met een reservekopie van je gegevens kun je ze overzetten naar een ander apparaat.</string>
+    <string name="importExportHelp">Met een reservekopie van je gegevens kun je ze overzetten naar een ander apparaat</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
     <string name="importFailed">Het importeren is mislukt</string>
@@ -34,9 +34,9 @@
     <string name="exportFailed">Het exporteren is mislukt</string>
     <string name="importing">Bezig met importeren…</string>
     <string name="exporting">Bezig met exporteren…</string>
-    <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
+    <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
-    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het bestandssysteem.</string>
+    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het bestandssysteem</string>
     <string name="importOptionFilesystemButton">Van bestandssysteem</string>
     <string name="about">Over</string>
     <string name="app_license">Vrije software, uitgebracht onder de GPLv3+-licentie</string>
@@ -54,7 +54,7 @@
     <string name="all">Alles</string>
     <string name="importSuccessful">De gegevens zijn geïmporteerd</string>
     <string name="deleteConfirmationGroup">Groep verwijderen\?</string>
-    <string name="noGroups">Druk op de plusknop (‘+’) om een groep toe te voegen.</string>
+    <string name="noGroups">Druk op de plusknop (‘+’) om een groep toe te voegen</string>
     <string name="exportSuccessful">De gegevens zijn geëxporteerd</string>
     <string name="groups">Groepen</string>
     <string name="enter_group_name">Voer een groepsnaam in</string>
@@ -68,7 +68,7 @@
     <string name="leaveWithoutSaveTitle">Afsluiten</string>
     <string name="moveDown">Omlaag verplaatsen</string>
     <string name="moveUp">Omhoog verplaatsen</string>
-    <string name="failedOpeningFileManager">Installeer een bestandsbeheerder.</string>
+    <string name="failedOpeningFileManager">Kon geen bestandsbeheerder openen</string>
     <string name="noBarcode">Geen barcode</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kaart</item>
@@ -93,12 +93,12 @@
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
     <string name="privacy_policy">Privacybeleid</string>
     <string name="accept">Accepteren</string>
-    <string name="importVoucherVaultMessage">Kies het te importeren <i>vouchervault.json</i>-exportbestand. \nGa naar het exportmenu van Voucher Vault om een exportbestand samen te stellen.</string>
+    <string name="importVoucherVaultMessage">Kies het te importeren exportbestand. \nGa naar het exportmenu van Voucher Vault om een exportbestand samen te stellen.</string>
     <string name="importVoucherVault">Importeren uit Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Kies het te importeren genaamd <i>LoyaltyCardKeychain.csv</i>-exportbestand. \nGa naar het import-/exportmenu van Klantenkaartkluis om een exportbestand samen te stellen.</string>
+    <string name="importLoyaltyCardKeychainMessage">Kies het te importeren exportbestand. \nGa naar het import-/exportmenu van Klantenkaartkluis om een exportbestand samen te stellen.</string>
     <string name="importLoyaltyCardKeychain">Importeren uit Klantenkaartkluis</string>
-    <string name="importFidmeMessage">Kies het te importeren <i>fidme-export-request-xxxxxx.zip</i>-exportbestand en kies nadien de juiste barcodes. \nGa naar je FidMe-profiel en druk op ‘Gegevensbescherming’ om een exportbestand samen te stellen.</string>
-    <string name="importCatimaMessage">Kies het te importeren <i>Catima.zip</i>-exportbestand. \nGa naar het import-/exportmenu van Catima op een ander apparaat om een exportbestand samen te stellen.</string>
+    <string name="importFidmeMessage">Kies het te importeren exportbestand en kies nadien de juiste barcodes. \nGa naar je FidMe-profiel en druk op ‘Gegevensbescherming’ om een exportbestand samen te stellen.</string>
+    <string name="importCatimaMessage">Kies het te importeren exportbestand. \nGa naar het import-/exportmenu van Catima op een ander apparaat om een exportbestand samen te stellen.</string>
     <string name="importFidme">Importeren uit FidMe</string>
     <string name="importCatima">Importeren uit Catima</string>
     <string name="errorReadingImage">De afbeelding kan niet worden uitgelezen</string>
@@ -109,8 +109,8 @@
     <string name="barcodeId">Barcodewaarde</string>
     <string name="unsupportedBarcodeType">Dit type barcode kan nog niet worden getoond - we hopen hiervoor in een nieuwere versie ondersteuning toe te voegen.</string>
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
-    <string name="app_resources">Vrije externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Vrije externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os en bijdragers</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ik wil kaarten met je delen</string>
     <string name="no">Nee</string>
@@ -125,7 +125,7 @@
     <string name="backImageDescription">Achterzijde van kaart</string>
     <string name="frontImageDescription">Voorzijde van kaart</string>
     <string name="passwordRequired">Voer het wachtwoord in</string>
-    <string name="failedGeneratingShareURL">De te delen link kan niet worden gegenereerd. Meld deze fout.</string>
+    <string name="failedGeneratingShareURL">De te delen link kan niet worden gegenereerd</string>
     <string name="turn_flashlight_off">Zaklamp uitzetten</string>
     <string name="turn_flashlight_on">Zaklamp aanzetten</string>
     <plurals name="selectedCardCount">
@@ -178,7 +178,7 @@
     <string name="group_updated">De groep is bijgewerkt</string>
     <string name="group_name_is_empty">Voer een groepsnaam in</string>
     <string name="editGroup">Groep bewerken: <xliff:g>%s</xliff:g></string>
-    <string name="noGiftCardsGroup">Voeg kaarten toe om ze hier te kunnen groeperen.</string>
+    <string name="noGiftCardsGroup">Voeg kaarten toe om ze hier te kunnen groeperen</string>
     <string name="group_edit">Groep bewerken</string>
     <string name="setIcon">Miniatuur instellen</string>
     <string name="selectColor">Kies een kleur</string>
@@ -203,7 +203,7 @@
     <string name="archived">De kaart is gearchiveerd</string>
     <string name="unarchived">De kaart is gedearchiveerd</string>
     <string name="settings_landscape_orientation">Horizontaal</string>
-    <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde galerij-app aangetroffen</string>
+    <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde afbeeldingkiezer aangetroffen</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kaart (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kaarten (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
@@ -267,7 +267,7 @@
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Altijd draaien (negeert systeeminstellingen)</string>
     <string name="add_manually_warning_title">Scannen wordt aangeraden</string>
-    <string name="add_manually_warning_message">Bij sommige winkels wijkt de barcodewaarde af van het nummer op de kaart. Hierdoor werkt het handmatig invoeren van een barcode niet altijd. Het wordt sterk aangeraden om in plaats daarvan de barcode met je camera te scannen. Wilt u nog steeds doorgaan?</string>
+    <string name="add_manually_warning_message">Bij sommige kaarten wijkt de barcodewaarde af van het nummer op de kaart. Hierdoor werkt het handmatig invoeren van een barcode niet altijd. Het wordt aangeraden om in plaats daarvan de barcode met je camera te scannen. Wilt u nog steeds doorgaan?</string>
     <string name="continue_">Ga door</string>
     <string name="spend">Geef uit</string>
     <string name="receive">Ontvang</string>
@@ -295,12 +295,14 @@
     <string name="settings_column_count_1">1</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
-    <string name="addFromPkpass">Kies een Passbook bestand (.pkpass)</string>
+    <string name="addFromPkpass">Kies een Passbook bestand (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Dit bestand wordt niet ondersteund</string>
-    <string name="generic_error_please_retry">Sorry, er ging iets mis. Probeer het opnieuw.</string>
+    <string name="generic_error_please_retry">Er is een fout opgetreden</string>
     <string name="sort_by_valid_from">Op geldig vanaf</string>
     <string name="width">Breedte</string>
-    <string name="setBarcodeWidth">Stel Barcodebreedte in</string>
+    <string name="setBarcodeWidth">Stel barcodebreedte in</string>
     <string name="card_list_widget_name">Kaartenlijst</string>
     <string name="card_list_widget_empty">Zodra er kaarten in Catima toegevoegd zijn worden deze hier getoond. Heb je al kaarten? Controleer dan of deze niet gearchiveerd zijn.</string>
+    <string name="cardWithNumber">Kaart <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kaart <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

@@ -81,11 +81,11 @@
     <string name="source_repository">Αποθήκη κώδικα</string>
     <string name="on_github">στο GitHub</string>
     <string name="on_google_play">στο Google Play</string>
-    <string name="report_error">Αναφορά Σφάλματος</string>
+    <string name="report_error">Αναφορά σφάλματος</string>
     <string name="starred">Αγαπημένα</string>
     <string name="translate_platform">στο Weblate</string>
     <string name="importLoyaltyCardKeychain">Εισαγωγή από Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή. \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
+    <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την εξαγωγή σας από το Loyalty Card Keychain για εισαγωγή. \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
     <string name="importFidme">Εισαγωγή από FidMe</string>
     <string name="importFidmeMessage">Επιλέξτε την εξαγωγή σας από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα.\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και πατώντας Εξαγωγή δεδομένων.</string>
     <string name="setBarcodeId">Επιλέξτε τιμή γραμμωτού κώδικα</string>
@@ -118,14 +118,14 @@
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
     <string name="editGroup">Επεξεργασία ομάδας: <xliff:g>%s</xliff:g></string>
     <string name="setFrontImage">Επιλογή εμπρόσθιας εικόνας</string>
-    <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή. \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Επιλέξτε την εξαγωγή σας από το Voucher Vault για εισαγωγή. \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
     <string name="unsupportedBarcodeType">Ο τύπος γραμμωτού κώδικα δεν μπορεί να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
     <string name="frontImageDescription">Εμπρόσθια</string>
     <string name="photos">Φωτογραφίες</string>
     <string name="backImageDescription">Οπίσθια</string>
     <string name="updateBarcodeQuestionTitle">Ενημέρωση τιμής γραμμωτού κώδικα;</string>
-    <string name="passwordRequired">Παρακαλώ εισάγετε τον κωδικό</string>
-    <string name="sort_by_most_recently_used">Χρήση</string>
+    <string name="passwordRequired">Εισάγετε τον κωδικό</string>
+    <string name="sort_by_most_recently_used">Πρόσφατα χρησιμοποιημένα</string>
     <string name="shortcutSelectCard">Επιλέξτε μία κάρτα</string>
     <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμωτού κώδικα</string>
     <string name="app_libraries">Βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -148,7 +148,7 @@
     <string name="points">Πόντοι</string>
     <string name="exportSuccessful">Δεδομένα εξήχθησαν</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Αποτροπή κλειδώματος οθόνης</string>
-    <string name="failedLaunchingPhotoPicker">Δεν βρέθηκε υποστηριζόμενη εφαρμογή συλλογής</string>
+    <string name="failedLaunchingPhotoPicker">Δεν βρέθηκε υποστηριζόμενος επιλογέας εικόνων</string>
     <string name="noBarcode">Χωρίς γραμμωτό κώδικα</string>
     <string name="starImage">Αγαπημένο αστέρι</string>
     <string name="balanceSentence">Υπόλοιπο: <xliff:g>%s</xliff:g></string>
@@ -186,7 +186,7 @@
     <string name="sameAsCardId">Όπως ο κωδικός</string>
     <string name="exportPassword">Προσθέστε έναν κωδικό για προστασία της εξαγωγής (προαιρετικά)</string>
     <string name="exportPasswordHint">Εισαγωγή κωδικού</string>
-    <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL. Παρακαλώ αναφέρετε το.</string>
+    <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL.</string>
     <string name="turn_flashlight_on">Ενεργοποίηση φακού</string>
     <string name="turn_flashlight_off">Απενεργοποίηση φακού</string>
     <string name="settings_locale">Γλώσσα</string>
@@ -250,7 +250,7 @@
     <string name="continue_">Συνέχεια</string>
     <string name="settings_category_title_privacy">Απόρρητο</string>
     <string name="addFromPdfFile">Επιλογή αρχείου PDF</string>
-    <string name="add_manually_warning_message">Για ορισμένα καταστήματα, ο γραμμωτός κώδικας διαφέρει από τον αριθμό που αναγράφεται πάνω στην κάρτα. Εξαιτίας αυτού, η εισαγωγή γραμμωτού κώδικα χειροκίνητα ενδέχεται να μην λειτουργεί πάντα. Προτείνεται να σκανάρετε τον γραμμωτό κώδικα με χρήση της κάμερας. Επιθυμείτε να συνεχίσετε ;</string>
+    <string name="add_manually_warning_message">Για ορισμένες κάρτες, ο γραμμωτός κώδικας διαφέρει από τον αριθμό που αναγράφεται πάνω στην κάρτα. Εξαιτίας αυτού, η εισαγωγή γραμμωτού κώδικα χειροκίνητα ενδέχεται να μην λειτουργεί πάντα. Προτείνεται να σαρώσετε τον γραμμωτό κώδικα με χρήση της κάμερας. Επιθυμείτε να συνεχίσετε;</string>
     <string name="amountParsingFailed">Μη έγκυρο ποσό</string>
     <string name="show_balance">Προβολή υπολοίπου</string>
     <string name="action_display_options">Επιλογές εμφάνισης</string>
@@ -295,10 +295,10 @@
     <string name="settings_column_count_2">2</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
-    <string name="generic_error_please_retry">Λυπούμαστε, κάτι πήγε στραβά, δοκιμάστε ξανά...</string>
+    <string name="generic_error_please_retry">Συνέβη ένα σφάλμα</string>
     <string name="unsupportedFile">Το αρχείο δεν υποστηρίζεται</string>
     <string name="addFromPkpass">Επιλέξτε αρχείο Passbook (.pkpass / .pkpasses)</string>
-    <string name="sort_by_valid_from">Έναρξη ισχύος</string>
+    <string name="sort_by_valid_from">Έγκυρα από</string>
     <string name="setBarcodeWidth">Ορισμός πλάτους γραμμωτού κώδικα</string>
     <string name="width">Πλάτος</string>
     <string name="card_list_widget_empty">Αφού προσθέσετε μερικές κάρτες επιβράβευσης στο Catima, θα εμφανιστούν εδώ. Εάν έχετε κάρτες, βεβαιωθείτε ότι δεν είναι όλες αρχειοθετημένες.</string>

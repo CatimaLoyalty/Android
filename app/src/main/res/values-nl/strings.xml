@@ -233,8 +233,8 @@
     <string name="switchToFrontImage">Voorzijde tonen</string>
     <string name="switchToBackImage">Achterzijde tonen</string>
     <string name="switchToBarcode">Barcode tonen</string>
-    <string name="openFrontImageInGalleryApp">Voorzijde openen in galerij-app</string>
-    <string name="openBackImageInGalleryApp">Achterzijde openen in galerij-app</string>
+    <string name="openFrontImageInGalleryApp">Voorzijde openen in afbeeldingsweergave-app</string>
+    <string name="openBackImageInGalleryApp">Achterzijde openen in afbeeldingsweergave-app</string>
     <string name="donate">Doneren</string>
     <string name="icon_header_click_text">Houd lang ingedrukt om miniatuur te bewerken</string>
     <string name="show_balance">Saldo tonen</string>

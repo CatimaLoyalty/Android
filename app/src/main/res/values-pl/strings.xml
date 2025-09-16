@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Szukaj</string>
     <string name="action_add">Dodaj</string>
-    <string name="noGiftCards">Kliknij przycisk + plus, aby dodać kartę lub zaimportuj z ⋮ menu.</string>
+    <string name="noGiftCards">Kliknij przycisk + plus, aby dodać kartę lub zaimportuj z ⋮ menu</string>
     <string name="noMatchingGiftCards">Brak wyników. Spróbuj zmienić treść zapytania.</string>
     <string name="storeName">Nazwa</string>
     <string name="note">Notatka</string>
@@ -184,7 +184,7 @@
     <string name="rate_this_app">Oceń tę aplikację</string>
     <string name="license">Licencja</string>
     <string name="on_google_play">w Google Play</string>
-    <string name="noGiftCardsGroup">Utwórz karty i przypisz je do grup w tym miejscu.</string>
+    <string name="noGiftCardsGroup">Utwórz karty i przypisz je do grup w tym miejscu</string>
     <string name="reverse">...w odwrotnej kolejności</string>
     <string name="translate_platform">na Weblate</string>
     <string name="sort">Sortuj</string>

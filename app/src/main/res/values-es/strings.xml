@@ -67,7 +67,7 @@
     <string name="leaveWithoutSaveTitle">Salir</string>
     <string name="moveDown">Bajar</string>
     <string name="moveUp">Subir</string>
-    <string name="failedOpeningFileManager">Instale un gestor de archivos primero.</string>
+    <string name="failedOpeningFileManager">No se puedo abrir un gestor de archivos</string>
     <string name="deleteConfirmationGroup">¿Quiere eliminar el grupo\?</string>
     <string name="all">Todo</string>
     <string name="star">Añadir a favoritos</string>
@@ -211,7 +211,7 @@
     <string name="archived">Tarjeta archivada</string>
     <string name="unarchived">Tarjeta desarchivada</string>
     <string name="exportPassword">Establezca una contraseña para proteger su exportación (opcional)</string>
-    <string name="failedLaunchingPhotoPicker">No se ha encontró una aplicación de galería compatible</string>
+    <string name="failedLaunchingPhotoPicker">No se encontró una aplicación de galería compatible</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> tarjeta (archivada)<xliff:g id="archivedCount">%2$d</xliff:g></item>
         <item quantity="many"><xliff:g>%1$d</xliff:g> tarjetas (archivadas)<xliff:g id="archivedCount">%2$d</xliff:g></item>

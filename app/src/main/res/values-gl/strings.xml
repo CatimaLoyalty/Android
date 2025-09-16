@@ -120,11 +120,11 @@
     <string name="importCatima">Importar desde Catima</string>
     <string name="importCatimaMessage">Selecciona o ficheiro de exportación para importalo.\nCréao no menú Importar/Exportar noutra app Catima premendo en Exportar.</string>
     <string name="importFidme">Importar desde FidMe</string>
-    <string name="importFidmeMessage">Elixe o ficheiro exportado desde FidMe, e despois elixe manualmente o tipo de código de barras.\nCréao no teu perfil FidMe en Protección de Datos e despois premendo en Extraer os meus datos</string>
+    <string name="importFidmeMessage">Elixe o ficheiro exportado desde FidMe, e despois elixe manualmente o tipo de código de barras.\nCréao no teu perfil FidMe en Protección de Datos e despois premendo en Extraer os meus datos.</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Elixe o ficheiro de exportación desde Loyalty Card Keychain \nCréao no menú Importar/Exportar en Loyalty Card Keychain premendo en Exportar</string>
+    <string name="importLoyaltyCardKeychainMessage">Elixe o ficheiro de exportación desde Loyalty Card Keychain \nCréao no menú Importar/Exportar en Loyalty Card Keychain premendo en Exportar.</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Selecciona o ficheiro de exportación desde Voucher Vault.\nCréao premendo en Exportar en Voucher Vault</string>
+    <string name="importVoucherVaultMessage">Selecciona o ficheiro de exportación desde Voucher Vault.\nCréao premendo en Exportar en Voucher Vault.</string>
     <string name="barcodeId">Valor do código de barras</string>
     <string name="sameAsCardId">Igual que o ID</string>
     <string name="setBarcodeId">Establecer valor do código de barras</string>
@@ -206,8 +206,8 @@
     <string name="height">Altura</string>
     <string name="switchToFrontImage">Cambiar á imaxe frontal</string>
     <string name="switchToBackImage">Cambiar á imaxe posterior</string>
-    <string name="openFrontImageInGalleryApp">Abrir imaxe frontal na app de galería</string>
-    <string name="openBackImageInGalleryApp">Abrir imaxe posterior na app de galería</string>
+    <string name="openFrontImageInGalleryApp">Abrir imaxe frontal no visor de imaxes</string>
+    <string name="openBackImageInGalleryApp">Abrir imaxe posterior no visor de imaxes</string>
     <string name="setBarcodeHeight">Establecer altura do código de barras</string>
     <string name="icon_header_click_text">Pulsación longa para editar a miniatura</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome debaixo da miniatura</string>
@@ -232,7 +232,7 @@
     <string name="field_must_not_be_empty">O campo non pode quedar baleiro</string>
     <string name="manually_enter_barcode_instructions">Escribe o número ID ou texto na túa tarxeta e preme no código de barras que se pareza ao da túa tarxeta.</string>
     <string name="add_manually_warning_title">Recomendamos escanear</string>
-    <string name="add_manually_warning_message">Nalgunhas tendas o código de barras é diferente ao número escrito na tarxeta. Debido a isto escribir o código de barras manualmente non sempre funciona. Recomendamos que escanees o código de barras coa cámara. Queres continuar igualmente?</string>
+    <string name="add_manually_warning_message">Nalgunhas tarxetas o código de barras é diferente ao número escrito na tarxeta. Debido a isto escribir o código de barras manualmente non sempre funciona. Recomendamos que escanees o código de barras coa cámara. Queres continuar igualmente?</string>
     <string name="continue_">Continuar</string>
     <string name="spend">Gastar</string>
     <string name="receive">Recibir</string>
@@ -280,7 +280,7 @@
     <string name="exportPassword">Establece un contrasinal para protexer a exportación (optativo)</string>
     <string name="exportPasswordHint">Escribe o contrasinal</string>
     <string name="setIcon">Establecer miniatura</string>
-    <string name="failedLaunchingPhotoPicker">Non se atopa unha app de galería compatible</string>
+    <string name="failedLaunchingPhotoPicker">Non se atopa un selector de imaxes compatible</string>
     <string name="importCards">Importar tarxetas</string>
     <string name="validFromDate">Válida desde</string>
     <string name="switchToBarcode">Cambiar ao código de barras</string>
@@ -296,7 +296,7 @@
     <string name="errorReadingFile">Non se puido ler o ficheiro</string>
     <string name="unsupportedFile">Este ficheiro non é compatible</string>
     <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass / .pkpasses)</string>
-    <string name="generic_error_please_retry">Sentímolo, pero algo fallou, inténtao outra vez…</string>
+    <string name="generic_error_please_retry">Houbo un fallo</string>
     <string name="sort_by_valid_from">Válido desde</string>
     <string name="width">Anchura</string>
     <string name="setBarcodeWidth">Establecer anchura do código de barras</string>

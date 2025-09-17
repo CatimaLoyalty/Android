@@ -206,13 +206,8 @@
     </plurals>
     <string name="include_if_asking_support">Jeśli chcesz poprosić o pomoc, podaj następujące informacje:</string>
     <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
-    <string name="settings_card_orientation">Orientacja ekranu</string>
-    <string name="settings_follow_system_orientation">Śledź orientację systemową</string>
     <string name="duplicateCard">Duplikuj</string>
     <string name="starred">Oznaczone gwiazdką</string>
-    <string name="settings_landscape_orientation">Poziomowy</string>
-    <string name="settings_lock_on_opening_orientation">Blokuj do ustawionej orientacji przy otwieraniu karty</string>
-    <string name="settings_portrait_orientation">Portretowy</string>
     <string name="archive">Archiwum</string>
     <string name="unarchive">Cofnij archiwizację</string>
     <string name="archived">Karta zarchiwizowana</string>
@@ -281,7 +276,6 @@
     <string name="addWithoutBarcode">Dodaj kartę bez kodu kreskowego</string>
     <string name="field_must_not_be_empty">Pole nie może być puste</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Zawsze obracaj (ignoruje ustawienia systemowe)</string>
     <string name="continue_">Kontynuuj</string>
     <string name="addFromPdfFile">Wybierz plik PDF</string>
     <string name="errorReadingFile">Nie można odczytać pliku</string>

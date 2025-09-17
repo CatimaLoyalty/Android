@@ -197,14 +197,9 @@
     </plurals>
     <string name="settings_oled_dark">Čistě černé pozadí pro tmavý motiv</string>
     <string name="include_if_asking_support">Pokud chcete požádat o podporu, uveďte následující informace:</string>
-    <string name="settings_follow_system_orientation">Podle orientace systému</string>
-    <string name="settings_portrait_orientation">Na výšku</string>
-    <string name="settings_lock_on_opening_orientation">Ponechat orientaci jako při otevření karty</string>
     <string name="archive">Archivovat</string>
     <string name="unarchive">Vrátit z archivu</string>
     <string name="unarchived">Karta vrácena z archivu</string>
-    <string name="settings_card_orientation">Orientace obrazovky</string>
-    <string name="settings_landscape_orientation">Na šířku</string>
     <string name="duplicateCard">Duplikovat</string>
     <string name="archived">Karta archivována</string>
     <string name="failedLaunchingPhotoPicker">Nepodařilo se najít podporovaný nástroj pro výběr obrázků</string>
@@ -271,7 +266,6 @@
     <string name="addWithoutBarcode">Přidat kartu bez čárového kódu</string>
     <string name="field_must_not_be_empty">Položka nesmí být prázdná</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Vždy otáčet (ignoruje nastavení systému)</string>
     <string name="continue_">Pokračovat</string>
     <string name="add_manually_warning_title">Doporučuje se skenování</string>
     <string name="add_manually_warning_message">U některých karet se hodnota čárového kódu liší od čísla napsaného na kartě. Z tohoto důvodu nemusí ruční zadání čárového kódu vždy fungovat. Doporučujeme místo toho naskenovat čárový kód pomocí fotoaparátu. Chcete přesto pokračovat?</string>

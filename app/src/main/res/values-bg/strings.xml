@@ -193,11 +193,6 @@
     </plurals>
     <string name="settings_oled_dark">Черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
-    <string name="settings_card_orientation">Завъртане на екрана</string>
-    <string name="settings_follow_system_orientation">Според системата</string>
-    <string name="settings_portrait_orientation">Портрет</string>
-    <string name="settings_landscape_orientation">Пейзаж</string>
-    <string name="settings_lock_on_opening_orientation">Като при отваряне на картата</string>
     <string name="duplicateCard">Дублиране</string>
     <string name="archive">Архивиране</string>
     <string name="unarchive">Изваждане от архива</string>
@@ -265,7 +260,6 @@
     <string name="addWithoutBarcode">Добавяне на карта без щрихкод</string>
     <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Винаги да се завърта (пренебрегва системната настройка)</string>
     <string name="continue_">Продължаване</string>
     <string name="add_manually_warning_title">Препоръчително е да сканирате</string>
     <string name="add_manually_warning_message">Стойностите от щрихкода и отбелязаните на картата числа в някои случаи се различават. По тази причина при ръчно въвеждане картата може да не работи. Препоръчително е да сканирате щрихкода с камерата. Желаете ли да продължите въпреки това?</string>

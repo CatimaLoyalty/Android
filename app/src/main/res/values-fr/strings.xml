@@ -197,11 +197,6 @@
     </plurals>
     <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
     <string name="include_if_asking_support">Si vous voulez demander de l\'aide, incluez les informations suivantes :</string>
-    <string name="settings_card_orientation">Orientation de l\'écran</string>
-    <string name="settings_follow_system_orientation">Suivre le système</string>
-    <string name="settings_portrait_orientation">Portrait</string>
-    <string name="settings_landscape_orientation">Paysage</string>
-    <string name="settings_lock_on_opening_orientation">Garder l\'orientation utilisée pour ouvrir la carte</string>
     <string name="duplicateCard">Dupliquer</string>
     <string name="archive">Archiver</string>
     <string name="unarchive">Désarchiver</string>
@@ -271,7 +266,6 @@
     <string name="addWithoutBarcode">Ajouter une carte sans code-barres</string>
     <string name="field_must_not_be_empty">Le champ ne peut pas être vide</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Toujours pivoter (ignore les paramètres du système)</string>
     <string name="add_manually_warning_title">Scan recommandé</string>
     <string name="continue_">Continuer</string>
     <string name="add_manually_warning_message">Pour certaines cartes, la valeur du code-barres diffère du numéro inscrit sur la carte. Pour cette raison, la saisie manuelle d’un code-barres peut ne pas toujours fonctionner. Il est recommandé de scanner le code-barres avec votre appareil photo. Voulez-vous toujours continuer ?</string>

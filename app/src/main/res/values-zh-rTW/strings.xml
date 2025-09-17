@@ -190,7 +190,6 @@
     <string name="translate_platform">於 Weblate</string>
     <string name="options">選項</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
-    <string name="settings_card_orientation">螢幕方向</string>
     <string name="failedToRetrieveImageFile">無法擷取圖片檔案</string>
     <string name="barcodeLongPressMessage">圖庫應用程式僅可開啟圖片</string>
     <string name="duplicateCard">重複</string>
@@ -201,15 +200,11 @@
     <plurals name="groupCardCountWithArchived">
         <item quantity="other"><xliff:g>%1$d</xliff:g> 張卡片 (<xliff:g id="archivedCount">%2$d</xliff:g> 張已封存)</item>
     </plurals>
-    <string name="settings_portrait_orientation">直向</string>
-    <string name="settings_follow_system_orientation">跟隨系統</string>
-    <string name="settings_landscape_orientation">橫向</string>
     <string name="failedToOpenUrl">先安裝網頁瀏覽器</string>
     <string name="failedLaunchingPhotoPicker">無法找到支援的圖庫應用程式</string>
     <string name="previousCard">上一張</string>
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用卡提碼</string>
-    <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
     <string name="importCards">導入卡片</string>
     <string name="noCameraPermissionDirectToSystemSetting">卡提碼需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>
     <string name="validFromDate">生效</string>
@@ -261,7 +256,6 @@
     <string name="enter_card_id">輸入卡片上的 ID 或文字</string>
     <string name="settings_display_barcode_max_brightness_summary">一些條碼掃描器需要此設定方能運作</string>
     <string name="field_must_not_be_empty">欄位不能為空</string>
-    <string name="settings_follow_sensor_orientation">始終旋轉（忽略系統設定）</string>
     <string name="add_manually_warning_title">建議掃描</string>
     <string name="failedLaunchingFileManager">找不到支援的檔案管理器</string>
     <string name="addFromPdfFile">選擇一個 PDF 檔案</string>

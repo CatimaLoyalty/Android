@@ -58,7 +58,6 @@
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="editBarcode">Editar código de barras</string>
     <string name="removeImage">Remover imágen</string>
-    <string name="settings_portrait_orientation">Vertical</string>
     <string name="takePhoto">Tomar una foto</string>
     <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
     <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
@@ -68,7 +67,6 @@
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="backImageDescription">Imágen dorsal</string>
     <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barra, Catima necesitará acceso a la cámara. Presione aquí para cambiar la configuración de sus permisos.</string>
-    <string name="settings_lock_on_opening_orientation">Bloquear a la orientación utilizada al abrir la tarjeta</string>
     <string name="app_loyalty_card_keychain">Cartera para Tarjetas de Fidelización</string>
     <string name="importOptionFilesystemTitle">Importar desde su sistema de archivos</string>
     <string name="leaveWithoutSaveTitle">Salir</string>
@@ -101,7 +99,6 @@
     <string name="settings_keep_screen_on">Mantener la pantalla encendida</string>
     <string name="setBarcodeId">Establecer valor del código de barras</string>
     <string name="importCatima">Importar desde Catima</string>
-    <string name="settings_follow_system_orientation">Seguir el sistema</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
     <string name="addFromImage">Seleccione una imágen desde la galería</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os y colaboradores</string>
@@ -114,7 +111,6 @@
     <string name="about">Acerca de</string>
     <string name="sameAsCardId">Igual que el código</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
-    <string name="settings_landscape_orientation">Horizontal</string>
     <string name="privacy_policy">Política de Privacidad</string>
     <string name="enter_group_name">Ingrese el nombre del grupo</string>
     <string name="addManually">Ingresar el código de barras manualmente</string>
@@ -145,7 +141,6 @@
     <string name="settings">Configuración</string>
     <string name="selectBarcodeTitle">Seleccione el código de barras</string>
     <string name="importSuccessful">Datos importados</string>
-    <string name="settings_card_orientation">Orientación del código de barras</string>
     <string name="app_libraries">Librerías externas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Recursos externos: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
@@ -197,7 +192,6 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeLongPressMessage">Solo se puede abrir imágenes en la aplicación de galería</string>
-    <string name="settings_follow_sensor_orientation">Siempre rotar (ignora configuración del sistema)</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="passwordRequired">Ingresa la contraseña</string>

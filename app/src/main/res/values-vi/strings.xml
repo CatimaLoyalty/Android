@@ -18,7 +18,6 @@
     <string name="help_translate_this_app">Giúp dịch ứng dụng này</string>
     <string name="sort_by_expiry">Ngày hết hạn</string>
     <string name="add_a_card_in_a_different_way">Thêm thẻ theo cách khác</string>
-    <string name="settings_portrait_orientation">Dọc</string>
     <string name="takePhoto">Chụp ảnh</string>
     <string name="storeName">Tên</string>
     <string name="validFromDate">Có hiệu lực từ</string>
@@ -34,7 +33,6 @@
     <string name="backImageDescription">Ảnh mặt sau</string>
     <string name="view_online">Xem online</string>
     <string name="noCameraPermissionDirectToSystemSetting">Để quét mã vạch, Catima sẽ cần truy cập vào camera của bạn. Nhấn vào đây để thay đổi cài đặt việc cấp quyền.</string>
-    <string name="settings_lock_on_opening_orientation">Cố định hướng hiện thị màng hình khi đang mở thẻ</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_on">Mở đèn pin</string>
     <string name="importOptionFilesystemTitle">Nhập dữ liệu từ hệ thống</string>
@@ -112,7 +110,6 @@
     <string name="show_note">Hiện ghi chú</string>
     <string name="report_error">Báo Lỗi</string>
     <string name="passwordRequired">Xin mời nhập mật khẩu</string>
-    <string name="settings_follow_system_orientation">Hệ thống theo dõi</string>
     <string name="intent_import_card_from_url_share_text">Tôi muốn chia sẻ thẻ với bạn</string>
     <string name="star">Đánh dấu ưa thích</string>
     <string name="addFromImage">Chọn ảnh từ thư viện ảnh</string>
@@ -148,7 +145,6 @@
     <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
     <string name="selectColor">Chọn màu</string>
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
-    <string name="settings_landscape_orientation">Ngang</string>
     <string name="privacy_policy">Chính Sách Quyền Riêng Tư</string>
     <string name="enter_group_name">Nhập tên nhóm</string>
     <string name="addCardTitle">Thêm Thẻ</string>
@@ -214,7 +210,6 @@
     <string name="show_archived_cards">Hiện thẻ lưu trữ</string>
     <string name="selectBarcodeTitle">Chọn Mã Vạch</string>
     <string name="importSuccessful">Nhập dữ liệu xong</string>
-    <string name="settings_card_orientation">Hướng màn hình</string>
     <string name="app_libraries">Thư viện mở từ bên thứ 3: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Bạn đã chi tiêu hoặc nhận được bao nhiêu?</string>
     <string name="editCardTitle">Sửa Thẻ</string>
@@ -263,7 +258,6 @@
     <string name="failedToRetrieveImageFile">Không thể truy xuất tệp hình ảnh</string>
     <string name="app_contributors">Được thực hiện bởi: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="app_license">Phần mềm miễn phí có bản quyền theo giấy phép GPLv3+</string>
-    <string name="settings_follow_sensor_orientation">Luôn xoay (bỏ qua thiết đặt hệ thống)</string>
     <string name="continue_">Tiếp tục</string>
     <string name="add_manually_warning_title">Nên quét</string>
     <string name="spend">Tiêu</string>

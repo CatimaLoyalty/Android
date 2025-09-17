@@ -204,11 +204,6 @@
     <string name="include_if_asking_support">Se quiser pedir ajuda, inclua as seguintes informações:</string>
     <string name="duplicateCard">Duplicar</string>
     <string name="archive">Arquivar</string>
-    <string name="settings_card_orientation">Orientação do ecrã</string>
-    <string name="settings_follow_system_orientation">Definido no sistema</string>
-    <string name="settings_portrait_orientation">Retrato</string>
-    <string name="settings_landscape_orientation">Paisagem</string>
-    <string name="settings_lock_on_opening_orientation">Bloqueio da orientação usada ao abrir o cartão</string>
     <string name="unarchive">Desarquivar</string>
     <string name="archived">Cartão arquivado</string>
     <string name="unarchived">Cartão desarquivado</string>
@@ -281,7 +276,6 @@
     <string name="spend">Gastar</string>
     <string name="receive">Receber</string>
     <string name="amountParsingFailed">Montante inválido</string>
-    <string name="settings_follow_sensor_orientation">Rodar sempre (ignora as definições do sistema)</string>
     <string name="addFromPdfFile">Selecionar um ficheiro PDF</string>
     <string name="errorReadingFile">Não foi possível ler o ficheiro</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Qual dos códigos de barras encontrados pretende utilizar?</string>

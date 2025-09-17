@@ -193,16 +193,11 @@
     </plurals>
     <string name="settings_oled_dark">Zwarte achtergrond gebruiken bij donker thema</string>
     <string name="include_if_asking_support">Als je ondersteuning wilt, voorzie je verzoek dan van de volgende informatie:</string>
-    <string name="settings_card_orientation">Barcode-oriëntatie</string>
-    <string name="settings_follow_system_orientation">Systeeminstellingen volgen</string>
-    <string name="settings_portrait_orientation">Verticaal</string>
-    <string name="settings_lock_on_opening_orientation">Oriëntatie vergrendelen na openen van kaart</string>
     <string name="duplicateCard">Klonen</string>
     <string name="archive">Archiveren</string>
     <string name="unarchive">Dearchiveren</string>
     <string name="archived">De kaart is gearchiveerd</string>
     <string name="unarchived">De kaart is gedearchiveerd</string>
-    <string name="settings_landscape_orientation">Horizontaal</string>
     <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde afbeeldingkiezer aangetroffen</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kaart (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
@@ -265,7 +260,6 @@
     <string name="addWithoutBarcode">Kaart zonder barcode toevoegen</string>
     <string name="field_must_not_be_empty">Dit veld is vereist</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Altijd draaien (negeert systeeminstellingen)</string>
     <string name="add_manually_warning_title">Scannen wordt aangeraden</string>
     <string name="add_manually_warning_message">Bij sommige kaarten wijkt de barcodewaarde af van het nummer op de kaart. Hierdoor werkt het handmatig invoeren van een barcode niet altijd. Het wordt aangeraden om in plaats daarvan de barcode met je camera te scannen. Wilt u nog steeds doorgaan?</string>
     <string name="continue_">Ga door</string>

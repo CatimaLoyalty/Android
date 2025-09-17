@@ -73,6 +73,5 @@
     <string name="permissionReadCardsLabel">কাটিমা কার্ডস পড়ুন</string>
     <string name="storageReadPermissionRequired">এই কাজটির জন্য ফোনের স্টোরেজ দেখার অনুমতি লাগবে…</string>
     <string name="exportFailedTitle">রপ্তানি ব্যর্থ</string>
-    <string name="settings_card_orientation">বারকোড অভিমুখ (ওরিয়েন্টেশন)</string>
     <string name="app_name">ক্যাটিমা</string>
 </resources>

@@ -304,5 +304,5 @@
     <string name="card_list_widget_name">Kaartenlijst</string>
     <string name="card_list_widget_empty">Zodra er kaarten in Catima toegevoegd zijn worden deze hier getoond. Heb je al kaarten? Controleer dan of deze niet gearchiveerd zijn.</string>
     <string name="cardWithNumber">Kaart <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Kaart <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Kaart <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

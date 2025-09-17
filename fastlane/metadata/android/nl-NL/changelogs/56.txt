@@ -1,0 +1,1 @@
+- Crash bij het overschakelen naar het tabblad ‘Barcode’ in de bewerkingsweergave verholpen als er geen barcode is

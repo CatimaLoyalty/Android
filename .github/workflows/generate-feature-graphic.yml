@@ -1,4 +1,5 @@
 name: Generate feature graphic
+
 on:
   workflow_dispatch:
   push:
@@ -7,20 +8,11 @@ on:
     paths:
       - 'fastlane/**/title.txt'
       - '.scripts/generate_feature_graphic/**'
+
 permissions:
-  actions: none
-  checks: none
   contents: write
-  deployments: none
-  discussions: none
-  id-token: none
-  issues: none
-  packages: none
-  pages: none
   pull-requests: write
-  repository-projects: none
-  security-events: none
-  statuses: none
+
 jobs:
   generate-feature-graphic:
     runs-on: ubuntu-latest

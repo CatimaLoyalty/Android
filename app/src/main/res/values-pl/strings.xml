@@ -217,7 +217,7 @@
     <string name="unarchive">Cofnij archiwizację</string>
     <string name="archived">Karta zarchiwizowana</string>
     <string name="unarchived">Karta niezarchiwizowana</string>
-    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć aplikacji galeria</string>
+    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć obsługiwanej galerii.</string>
     <string name="previousCard">Poprzedni</string>
     <string name="nextCard">Następny</string>
     <plurals name="groupCardCountWithArchived">

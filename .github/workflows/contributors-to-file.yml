@@ -1,4 +1,5 @@
 name: Write contributors to file
+
 on:
   workflow_dispatch:
   schedule:

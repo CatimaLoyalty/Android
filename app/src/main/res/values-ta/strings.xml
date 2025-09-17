@@ -111,14 +111,8 @@
     <string name="settings_system_theme">மண்டலம்</string>
     <string name="settings_light_theme">ஒளி</string>
     <string name="settings_dark_theme">இருண்ட</string>
-    <string name="settings_card_orientation">திரை நோக்குநிலை</string>
-    <string name="settings_follow_system_orientation">அமைப்பைப் பின்தொடரவும்</string>
     <string name="settings_keep_screen_on">திரையை தொடர்ந்து வைத்திருங்கள்</string>
-    <string name="settings_follow_sensor_orientation">எப்போதும் சுழற்றுங்கள் (கணினி அமைப்புகளை புறக்கணிக்கிறது)</string>
     <string name="settings_keep_screen_on_summary">ஒரு அட்டையைப் பார்க்கும்போது திரை நேரத்தை முடக்குகிறது</string>
-    <string name="settings_portrait_orientation">உருவப்படம்</string>
-    <string name="settings_landscape_orientation">நிலப்பரப்பு</string>
-    <string name="settings_lock_on_opening_orientation">அட்டையைத் திறக்கும்போது பயன்படுத்தப்படும் நோக்குநிலைக்கு பூட்டு</string>
     <string name="settings_display_barcode_max_brightness">திரை ஒளி</string>
     <string name="settings_display_barcode_max_brightness_summary">சில ச்கேனர்கள் வேலை செய்ய தேவை</string>
     <string name="settings_disable_lockscreen_while_viewing_card">திரை பூட்டைத் தடுக்கவும்</string>

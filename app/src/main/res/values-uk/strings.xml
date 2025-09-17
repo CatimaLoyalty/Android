@@ -204,13 +204,8 @@
     </plurals>
     <string name="include_if_asking_support">Якщо ви хочете отримати техпідтримку, додайте цю інформацію:</string>
     <string name="unarchive">Розархівувати</string>
-    <string name="settings_card_orientation">Орієнтація екрана</string>
-    <string name="settings_follow_system_orientation">Як у системі</string>
     <string name="duplicateCard">Дублювати</string>
     <string name="archive">Архівувати</string>
-    <string name="settings_portrait_orientation">Вертикальна</string>
-    <string name="settings_landscape_orientation">Горизонтальна</string>
-    <string name="settings_lock_on_opening_orientation">Фіксація орієнтації під час відкриття картки</string>
     <string name="archived">Картка архівована</string>
     <string name="unarchived">Картка розархівована</string>
     <plurals name="groupCardCountWithArchived">
@@ -277,7 +272,6 @@
     <string name="addWithoutBarcode">Додати картку без штрих-коду</string>
     <string name="field_must_not_be_empty">Поле вводу не повинно бути порожнім</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Завжди обертати (ігнорувати системні налаштування)</string>
     <string name="add_manually_warning_message">Для деяких карток значення штрих-коду відрізняється від номера, вказаного на картці. Через це введення штрих-коду вручну не завжди може працювати. Рекомендується замість цього відсканувати штрих-код за допомогою камери. Ви все одно хочете продовжити?</string>
     <string name="continue_">Продовжити</string>
     <string name="add_manually_warning_title">Рекомендується відсканувати</string>

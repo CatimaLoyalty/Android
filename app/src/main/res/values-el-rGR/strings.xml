@@ -159,12 +159,7 @@
     </plurals>
     <string name="app_copyright_old">Βασισμένο στο Loyalty Card Keychain
 \nπνευματικά δικαιώματα © 2016-2020 Branden Archer</string>
-    <string name="settings_follow_system_orientation">Ακολούθηση συστήματος</string>
-    <string name="settings_card_orientation">Προσανατολισμός οθόνης</string>
-    <string name="settings_portrait_orientation">Πορτραίτο</string>
-    <string name="settings_landscape_orientation">Οριζόντια</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Πνευματικά δικαιώματα © 2019-<xliff:g>%d</xliff:g> Sylvia van Os</string>
-    <string name="settings_lock_on_opening_orientation">Κλείδωμα τρέχοντος προσανατολισμού όταν ανοίγει μία κάρτα</string>
     <string name="intent_import_card_from_url_share_text">Θέλω να μοιραστώ μία κάρτα μαζί σου</string>
     <string name="enter_group_name">Εισάγετε όνομα ομάδας</string>
     <string name="groups">Ομάδες</string>
@@ -239,7 +234,6 @@
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
     <string name="openFrontImageInGalleryApp">Ανοίξτε την εμπρόσθια εικόνα στη συλλογή εικόνων</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
-    <string name="settings_follow_sensor_orientation">Πάντα σε περιστροφή (αγνοεί τις ρυθμίσεις του συστήματος)</string>
     <string name="validFromDate">Ισχύει από</string>
     <string name="anyDate">Οποιαδήποτε ημερομηνία</string>
     <string name="chooseValidFromDate">Επιλέξτε έγκυρη ημερομηνία από</string>

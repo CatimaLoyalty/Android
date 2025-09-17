@@ -192,16 +192,11 @@
     </plurals>
     <string name="settings_oled_dark">Komplett schwarzer Hintergrund im dunklen Design</string>
     <string name="include_if_asking_support">Wenn Du Unterstützung haben möchtest, gib bitte folgende Informationen an:</string>
-    <string name="settings_follow_system_orientation">System folgen</string>
-    <string name="settings_landscape_orientation">Querformat</string>
-    <string name="settings_portrait_orientation">Hochformat</string>
     <string name="duplicateCard">Duplizieren</string>
     <string name="unarchive">Aus dem Archiv wiederherstellen</string>
-    <string name="settings_card_orientation">Bildschirm-Ausrichtung</string>
     <string name="unarchived">Karte aus dem Archiv wiederhergestellt</string>
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
-    <string name="settings_lock_on_opening_orientation">Kartenausrichtung nach dem Öffnen beibehalten</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
@@ -265,7 +260,6 @@
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
     <string name="manually_enter_barcode_instructions">Trage die Kartenummer oder Text deiner Karte ein und drücke auf den Barcode, der wie der auf deiner Karte aussieht.</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Immer drehen (ignoriert Systemeinstellungen)</string>
     <string name="continue_">Fortfahren</string>
     <string name="add_manually_warning_title">Scannen empfohlen</string>
     <string name="add_manually_warning_message">In einigen Geschäften weicht der Wert des Barcodes von dem auf der Karte angegebenen Wert ab. Aus diesem Grund funktioniert die manuelle Eingabe des Barcodes in einigen Fällen nicht. Es wird empfohlen, stattdessen den Barcode mit deiner Kamera zu scannen. Möchtest du dennoch fortfahren?</string>

@@ -100,10 +100,6 @@
     <string name="group_name_already_in_use">Gruppenavn allerede i brug</string>
     <string name="editGroup">Redigerer Gruppe: <xliff:g>%s</xliff:g></string>
     <string name="importFidme">Importer fra FidMe</string>
-    <string name="settings_card_orientation">Skærm orientation</string>
-    <string name="settings_follow_system_orientation">Følg system</string>
-    <string name="settings_portrait_orientation">Portræt</string>
-    <string name="settings_landscape_orientation">Landskab</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiver låseskærm når et kort er åbent</string>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Udløber: <xliff:g>%s</xliff:g></string>
@@ -133,10 +129,8 @@
     <string name="setBarcodeId">Vælg stregkode værdi</string>
     <string name="sameAsCardId">Samme som ID</string>
     <string name="settings_system_theme">System</string>
-    <string name="settings_lock_on_opening_orientation">Lås til orientation når kort åbnes</string>
     <string name="settings_keep_screen_on_summary">Deaktiver skærm tids slukning når et kort er åbent</string>
     <string name="group_edit">Rediger gruppe</string>
-    <string name="settings_follow_sensor_orientation">Altid roter (ignorer system indstillinger)</string>
     <string name="chooseImportType">Importer data fra</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
     <string name="settings_use_volume_keys_navigation">Skift kort ved brug af lydstyrke knapperne</string>

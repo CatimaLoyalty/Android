@@ -190,7 +190,6 @@
     <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
-    <string name="settings_card_orientation">Ekrano orientacija</string>
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>
     <string name="previousCard">Ankstesnė</string>
     <string name="nextCard">Kita</string>
@@ -220,10 +219,6 @@
     <string name="welcome">Sveiki užėję į Catima</string>
     <string name="showMoreInfo">Rodyti informaciją</string>
     <string name="settings_oled_dark">Visiškai juodas fonas tamsiajai temai</string>
-    <string name="settings_follow_system_orientation">Sekti sistemą</string>
-    <string name="settings_portrait_orientation">Portretas</string>
-    <string name="settings_landscape_orientation">Gulsčias</string>
-    <string name="settings_lock_on_opening_orientation">Užfiksuoti padėtį, kuri naudojama atidarant kortelę</string>
     <string name="cameraPermissionDeniedTitle">Nepavyko pasiekti kameros</string>
     <string name="noCameraPermissionDirectToSystemSetting">Skanuoti brūkšniniams kodams Catima reikės gauti leidimo naudotis jūsų kamera. Spustelkite čia norėdami pakeisti leidimų nustatymus.</string>
     <plurals name="balancePoints">
@@ -246,7 +241,6 @@
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
     <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>
     <string name="donate">Aukoti</string>
-    <string name="settings_follow_sensor_orientation">Visada sukti (nekreipiant dėmesio į sistemos nustatymus)</string>
     <string name="settings_keep_screen_on_summary">Išjungti ekrano užmigdymą kol peržiūrite kortelę</string>
     <string name="manually_enter_barcode_instructions">Įveskite ID numerį arba tekstą ant jūsų kortelės ir paspauskite brūkšninį kodą, kuris atrodo kaip ant jūsų kortelės.</string>
     <string name="addWithoutBarcode">Pridėti kortelę be brūkšninio kodo</string>

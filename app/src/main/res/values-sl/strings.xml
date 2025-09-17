@@ -159,11 +159,6 @@
         <item quantity="few"><xliff:g>%d</xliff:g> izbrane</item>
         <item quantity="other"><xliff:g>%d</xliff:g> izbranih</item>
     </plurals>
-    <string name="settings_card_orientation">Orientacija zaslona</string>
-    <string name="settings_follow_system_orientation">Sledi sistemu</string>
-    <string name="settings_portrait_orientation">Pokončno</string>
-    <string name="settings_landscape_orientation">Ležeče</string>
-    <string name="settings_lock_on_opening_orientation">Ohrani usmerjenost uporabljeno pri odpiranju kartice</string>
     <string name="setIcon">Nastavi sličico</string>
     <string name="showMoreInfo">Prikaži informacije</string>
     <string name="updateBalance">Posodobi stanje</string>
@@ -244,7 +239,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Avtorske pravice © 2019–<xliff:g>%d</xliff:g> Sylvia van Os in drugi sodelujoči</string>
     <string name="permissionReadCardsLabel">Preberi kartice Catima</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Vedno obrni (prezri sistemske nastavitve)</string>
     <string name="settings_keep_screen_on_summary">Med ogledom kartice ohrani vključen zaslon</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Med ogledom kartice onemogoči zaklepanje zaslona</string>
     <string name="settings_allow_content_provider_read_title">Dovoli drugim aplikacijam dostop do mojih podatkov</string>

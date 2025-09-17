@@ -46,9 +46,6 @@
     <string name="settings_dark_theme">Tume kujundus</string>
     <string name="thumbnailDescription">Pisipilt</string>
     <string name="settings_theme">Kujundus</string>
-    <string name="settings_card_orientation">Ekraanipaigutuse suund</string>
-    <string name="settings_follow_sensor_orientation">Alati pööra (eira süsteemset paigutust)</string>
-    <string name="settings_landscape_orientation">Rõhtvaade</string>
     <string name="settings_display_barcode_max_brightness">Tee ekraan eredamaks</string>
     <string name="app_license">Copyleft-tüüpi autoriõiguste alusel loodud avatud lähtekoodiga tarkvara, mis on avaldatud GPLv3+ all</string>
     <string name="settings_keep_screen_on">Hoia ekraan sisselülitatuna</string>
@@ -87,9 +84,6 @@
     <string name="starImage">Lemmikut märkiv täht</string>
     <string name="settings">Seadistused</string>
     <string name="settings_system_theme">Süsteemi kujundus</string>
-    <string name="settings_follow_system_orientation">Järgi süsteemset paigutust</string>
-    <string name="settings_portrait_orientation">Püstvaade</string>
-    <string name="settings_lock_on_opening_orientation">Kaardivaate avamisel lukusta paigutus</string>
     <string name="settings_display_barcode_max_brightness_summary">See on vajalik mõnede skännerite toimimiseks</string>
     <string name="expiryStateSentenceExpired">Aegus: <xliff:g>%s</xliff:g></string>
     <string name="settings_allow_content_provider_read_summary">Selle valiku sisselülitamisel peavad muud rakendused lisaks küsima õigust vaadata kaartide andmeid</string>

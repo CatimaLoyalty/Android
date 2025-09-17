@@ -153,7 +153,7 @@
     <string name="note">Not</string>
     <string name="storeName">Ad</string>
     <string name="noMatchingGiftCards">Sonuç yok. Aramanızı değiştirmeyi deneyin.</string>
-    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya ⋮ menüsünden içe aktarın.</string>
+    <string name="noGiftCards">Kart eklemek için + artı düğmesine tıklayın veya ⋮ menüsünden içe aktarın</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seçildi</item>
         <item quantity="other"><xliff:g>%d</xliff:g> seçildi</item>
@@ -178,7 +178,7 @@
     <string name="version_history">Sürüm Geçmişi</string>
     <string name="exportPassword">Dışa aktarmanızı korumak için bir parola belirleyin (isteğe bağlı)</string>
     <string name="exportPasswordHint">Parola girin</string>
-    <string name="noGiftCardsGroup">Birkaç kart oluşturun ve ardından onları burada gruba atayın.</string>
+    <string name="noGiftCardsGroup">Bazı kartlar oluşturun ve ardından bunları buradaki gruba atayın</string>
     <string name="group_name_already_in_use">Grup adı zaten kullanılıyor</string>
     <string name="editGroup">Grup Düzenleniyor: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Grubu Düzenle</string>

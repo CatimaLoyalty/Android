@@ -352,4 +352,5 @@
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
 </resources>

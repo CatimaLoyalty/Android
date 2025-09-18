@@ -316,5 +316,5 @@
     <string name="card_list_widget_name">Список карт</string>
     <string name="card_list_widget_empty">После добавления карт лояльности в Catima, они появятся здесь. Если у вас есть карты, убедитесь, что они не архивированы.</string>
     <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

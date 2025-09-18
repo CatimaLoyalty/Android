@@ -303,5 +303,5 @@
     <string name="card_list_widget_name">Lista de tarxetas</string>
     <string name="card_list_widget_empty">Aquí aparecerán as tarxetas fidelidade cando as engadas a Catima. Se tes tarxetas mira que non estean arquivadas.</string>
     <string name="cardWithNumber">Tarxeta <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Tarxeta <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Tarxeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

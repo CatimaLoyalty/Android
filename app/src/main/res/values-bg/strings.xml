@@ -304,5 +304,5 @@
     <string name="card_list_widget_name">Списък с карти</string>
     <string name="card_list_widget_empty">Когато добавите карти в Catima те ще се покажат тук. Ако имате карти уверете се, че са извън архива.</string>
     <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

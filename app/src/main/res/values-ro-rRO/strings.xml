@@ -307,4 +307,5 @@
     <string name="generic_error_please_retry">Scuze, ceva nu a funționat. Încearcă din nou ...</string>
     <string name="width">Lățime</string>
     <string name="setBarcodeWidth">Setează Lățimea Codului de Bare</string>
+    <string name="card_list_widget_name">Listă de carduri</string>
 </resources>

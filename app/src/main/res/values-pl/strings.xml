@@ -20,11 +20,11 @@
     <string name="scanCardBarcode">Zeskanuj kod kreskowy</string>
     <string name="cardShortcut">Skrót karty</string>
     <string name="noCardsMessage">Najpierw dodaj kartę</string>
-    <string name="noCardExistsError">Nie można znaleźć tej karty lojalnościowej</string>
-    <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
+    <string name="noCardExistsError">Nie można znaleźć tej karty</string>
+    <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URL</string>
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
-    <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie kart na inne urządzenie.</string>
+    <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie danych na inne urządzenie.</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
     <string name="importFailedTitle">Importowanie nie powiodło się</string>
     <string name="importFailed">Nie udało się zaimportować</string>
@@ -59,7 +59,7 @@
     <string name="starImage">Gwiazdka ulubionych</string>
     <string name="app_copyright_old">Na podstawie Loyalty Card Keychain
 \nWszelkie prawa zastrzeżone © 2016–2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez Ciebie miejscu.</string>
+    <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez ciebie miejscu.</string>
     <string name="unstar">Usuń z ulubionych</string>
     <string name="star">Dodaj do ulubionych</string>
     <string name="noBarcode">Brak kodu kreskowego</string>
@@ -136,7 +136,7 @@
     <string name="leaveWithoutSaveTitle">Wyjdź</string>
     <string name="moveDown">Przesuń w dół</string>
     <string name="moveUp">Przesuń w górę</string>
-    <string name="failedOpeningFileManager">Najpierw zainstaluj menadżera plików.</string>
+    <string name="failedOpeningFileManager">Nie można otworzyć menadżera plików.</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> karta</item>
         <item quantity="few"><xliff:g>%d</xliff:g> karty</item>
@@ -217,7 +217,7 @@
     <string name="unarchive">Cofnij archiwizację</string>
     <string name="archived">Karta zarchiwizowana</string>
     <string name="unarchived">Karta niezarchiwizowana</string>
-    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć aplikacji galeria</string>
+    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć obsługiwanej galerii.</string>
     <string name="previousCard">Poprzedni</string>
     <string name="nextCard">Następny</string>
     <plurals name="groupCardCountWithArchived">
@@ -235,7 +235,7 @@
     <string name="updateBalanceTitle">Ile wydałeś lub otrzymałeś?</string>
     <string name="updateBalanceHint">Wpisz sumę</string>
     <string name="updateBalance">Zaktualizuj balans</string>
-    <string name="cameraPermissionDeniedTitle">Odmówiono dostępu do kamery</string>
+    <string name="cameraPermissionDeniedTitle">Brak dostępu do kamery</string>
     <string name="newBalanceSentence">Nowe saldo: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importuj karty</string>
     <string name="storageReadPermissionRequired">Pozwolenie na odczytanie pamięci masowej potrzebne do wykonania tej czynności…</string>

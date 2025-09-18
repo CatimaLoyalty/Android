@@ -1,3 +1,4 @@
 - Groepsbeheer verbeterd;
 - Foto's kunnen bijgesneden worden;
 - Foto's gaan niet meer verloren bij het draaien van het scherm.
+- Mogelijkheid om een eigen afbeelding als kaartpictogram te gebruiken

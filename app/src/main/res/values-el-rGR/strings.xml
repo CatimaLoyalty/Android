@@ -304,5 +304,5 @@
     <string name="card_list_widget_empty">Αφού προσθέσετε μερικές κάρτες επιβράβευσης στο Catima, θα εμφανιστούν εδώ. Εάν έχετε κάρτες, βεβαιωθείτε ότι δεν είναι όλες αρχειοθετημένες.</string>
     <string name="card_list_widget_name">Λίστα καρτών</string>
     <string name="cardWithNumber">Κάρτα <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Κάρτα <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Κάρτα <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Meklēt</string>
     <string name="action_add">Pievienot</string>
-    <string name="noGiftCards">Klikšķināt pogu \"+\", lai pievienotu karti, vai ievietot no ⋮izvēlnes.</string>
+    <string name="noGiftCards">Klikšķināt pogu \"+\", lai pievienotu karti, vai ievietot no ⋮izvēlnes</string>
     <string name="noMatchingGiftCards">Nekas netika atrasts. Jāmēģina mainīt savu vaicājumu.</string>
     <string name="storeName">Nosaukums</string>
     <string name="note">Piezīme</string>
@@ -29,14 +29,14 @@
     <string name="deleteConfirmation">Neatgriezeniski dzēst šo karti\?</string>
     <string name="ok">Labi</string>
     <string name="addCardTitle">Pievienot karti</string>
-    <string name="scanCardBarcode">Skenēt svītrkodu</string>
+    <string name="scanCardBarcode">Nolasīt svītrkodu</string>
     <string name="cardShortcut">Kartes saīsne</string>
     <string name="noCardsMessage">Vispirms jāpievieno karte</string>
     <string name="noCardExistsError">Nevarēja atrast karti</string>
     <string name="failedParsingImportUriError">Nevarēja apstrādāt ievietošanas URI</string>
     <string name="importExport">Ievietot/izgūt</string>
     <string name="exportName">Izgūt</string>
-    <string name="importExportHelp">Datu rezerves kopijas izveidošana ļauj tos pārnest uz citu ierīci.</string>
+    <string name="importExportHelp">Datu rezerves kopijas izveidošana ļauj tos pārnest uz citu ierīci</string>
     <string name="importSuccessfulTitle">Ievietots</string>
     <string name="importFailedTitle">Ievietošana neizdevās</string>
     <string name="importFailed">Nevarēja veikt ievietošanu</string>
@@ -45,9 +45,9 @@
     <string name="exportFailed">Nevarēja veikt izguvi</string>
     <string name="importing">Ievieto…</string>
     <string name="exporting">Izgūst…</string>
-    <string name="exportOptionExplanation">Dati tiks saglabāti izvēlētajā atrašanās vietā.</string>
+    <string name="exportOptionExplanation">Dati tiks saglabāti izvēlētajā atrašanās vietā</string>
     <string name="importOptionFilesystemTitle">Ievietot no datņu sistēmas</string>
-    <string name="importOptionFilesystemExplanation">Izvēlēties noteiktu datni datņu sistēmā.</string>
+    <string name="importOptionFilesystemExplanation">Izvēlēties noteiktu datni datņu sistēmā</string>
     <string name="importOptionFilesystemButton">No datņu sistēmas</string>
     <string name="about">Par</string>
     <string name="app_license">Copyleft brīva un atvērta programmatūra, licencēta GPLv3+</string>
@@ -65,11 +65,11 @@
     <string name="intent_import_card_from_url_share_text">Es vēlos ar Tevi kopīgot karti</string>
     <string name="importSuccessful">Dati ievietoti</string>
     <string name="exportSuccessful">Dati izgūti</string>
-    <string name="noGroups">Klikšķināt pogu \"+\", lai pievienotu kopas karšu apkopošanai.</string>
+    <string name="noGroups">Klikšķināt pogu \"+\", lai pievienotu kopas karšu apkopošanai</string>
     <string name="noGroupCards">Šī kopa ir tukša</string>
     <string name="all">Visas</string>
     <string name="deleteConfirmationGroup">Izdzēst kopu?</string>
-    <string name="failedOpeningFileManager">Vispirms jāuzstāda datņu pārvaldnieks.</string>
+    <string name="failedOpeningFileManager">Neizdevās atvērt datņu pārvaldnieku</string>
     <string name="moveUp">Pārvietot uz augšu</string>
     <string name="moveDown">Pārvietot uz leju</string>
     <string name="leaveWithoutSaveTitle">Iziet</string>
@@ -128,7 +128,7 @@
     <string name="license">Licence</string>
     <string name="source_repository">Pirmkods</string>
     <string name="rate_this_app">Novērtēt šo lietotni</string>
-    <string name="noGiftCardsGroup">Izveido kādas kartes, tad šeit pievieno tās kopai.</string>
+    <string name="noGiftCardsGroup">Izveido kādas kartes, tad šeit pievieno tās kopai</string>
     <string name="options">Parametri</string>
     <plurals name="groupCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> kartes</item>
@@ -155,8 +155,8 @@
     <string name="app_copyright_old">Balstīta uz Loyalty Card Keychain
 \nautortiesības © 2016–2020 Branden Archer</string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">Brīvas trešo pušu programmatūras bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Brīvi trešo pušu resursi: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Trešo pušu bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Trešo pušu avoti: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_card_orientation">Ekrāna novietojums</string>
     <string name="settings_follow_system_orientation">Izmantot sistēmas</string>
     <string name="settings_portrait_orientation">Stateniski</string>

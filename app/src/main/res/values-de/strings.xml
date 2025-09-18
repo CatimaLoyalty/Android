@@ -303,6 +303,6 @@
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>
     <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass diese nicht alle archiviert sind.</string>
     <string name="card_list_widget_name">Kartenliste</string>
-    <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
 </resources>

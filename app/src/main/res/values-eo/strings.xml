@@ -213,10 +213,6 @@
     <string name="cameraPermissionDeniedTitle">Fotilo neatingebla</string>
     <string name="noCameraPermissionDirectToSystemSetting">Por skani strikodojn Catima bezonas atingorajton al via fotilo. Klaku ĉi tie por ŝanĝi viajn permesajn agordojn.</string>
     <string name="app_copyright_short">Kopirajto © Sylvia van Os kaj kontribuantoj</string>
-    <string name="settings_card_orientation">Orientiĝo de strikodo</string>
-    <string name="settings_follow_system_orientation">Laŭ la sistemo</string>
-    <string name="settings_portrait_orientation">Vertikala</string>
-    <string name="settings_landscape_orientation">Horizontala</string>
     <string name="settings_display_barcode_max_brightness_summary">Bezonata por ke iuj skaniloj funkciu</string>
     <string name="unsupportedBarcodeType">Ne eblas montri ĉi tiun strikodspecon. Ĝi eble estos subtenata en posta versio de la apo.</string>
     <string name="importVoucherVaultMessage">Elektu la <i>vouchervault.json</i> eksporton de Voucher Vault kiun vi volas importi.
@@ -254,8 +250,6 @@
     <string name="pageWithNumber">Paĝo <xliff:g>%d</xliff:g></string>
     <string name="settings_system_locale">Sistemo</string>
     <string name="app_resources">Liberaj triaj risurcoj: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_follow_sensor_orientation">Ĉiam turni (ignori la agordojn de la sistemo)</string>
-    <string name="settings_lock_on_opening_orientation">Fiksi al la orientiĝo uzata dum malfermado de la karto</string>
     <string name="importCatimaMessage">Elektu la <i>catima.zip</i> eksporton kiun vi volas importi.
 \nKreu ĝin unue en la importi/eksporti menuo en alia Catima apo elektante \'eksporti\' tie.</string>
     <string name="importFidme">Importi el FidMe</string>

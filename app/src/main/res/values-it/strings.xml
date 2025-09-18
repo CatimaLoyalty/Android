@@ -201,16 +201,11 @@
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
     <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
-    <string name="settings_card_orientation">Orientamento dello schermo</string>
-    <string name="settings_follow_system_orientation">Segui il sistema</string>
     <string name="duplicateCard">Duplica</string>
     <string name="archive">Archivia</string>
     <string name="unarchive">Disarchivia</string>
     <string name="unarchived">Carta non archiviata</string>
     <string name="archived">Carta archiviata</string>
-    <string name="settings_portrait_orientation">Verticale</string>
-    <string name="settings_landscape_orientation">Orizzontale</string>
-    <string name="settings_lock_on_opening_orientation">Blocca sull\'orientamento utilizzato all\'apertura della carta</string>
     <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> carta (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
@@ -275,7 +270,6 @@
     <string name="addWithoutBarcode">Aggiungere una carta senza codice a barre</string>
     <string name="field_must_not_be_empty">Il campo non deve essere vuoto</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Ruota sempre (ignora le impostazioni di sistema)</string>
     <string name="add_manually_warning_title">Consigliata scansione</string>
     <string name="continue_">Successivo</string>
     <string name="add_manually_warning_message">In alcuni negozi, il valore del codice a barre differisce dal numero scritto sulla carta. Per questo motivo, l\'inserimento manuale del codice a barre potrebbe non funzionare sempre. Si consiglia di scansionare il codice a barre con la fotocamera. Vuoi continuare lo stesso?</string>

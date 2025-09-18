@@ -205,7 +205,6 @@
     <string name="app_copyright_old">Loyalty Card Keychain 기반
 \n저작권 © 2016–2020 Branden Archer</string>
     <string name="app_resources">자유 타사 리소스: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_lock_on_opening_orientation">카드를 열 때 사용되는 방향으로 고정</string>
     <string name="editGroup">그룹 편집: <xliff:g>%s</xliff:g></string>
     <string name="frontImageDescription">전면 사진</string>
     <string name="backImageDescription">후면 사진</string>
@@ -213,10 +212,6 @@
     <string name="importCards">카드 가져오기</string>
     <string name="updateBalanceTitle">지출하거나 수령한 금액은 얼마입니까?</string>
     <string name="newBalanceSentence">새 잔액: <xliff:g>%s</xliff:g></string>
-    <string name="settings_card_orientation">화면 방향</string>
-    <string name="settings_follow_system_orientation">기기 설정 따르기</string>
-    <string name="settings_portrait_orientation">세로</string>
-    <string name="settings_landscape_orientation">가로</string>
     <string name="noGroupCards">이 그룹은 비어 있습니다</string>
     <string name="app_loyalty_card_keychain">로열티 카드 키체인</string>
     <string name="privacy_policy">개인 정보 정책</string>
@@ -264,7 +259,6 @@
     <string name="addWithoutBarcode">바코드가 없는 카드 추가</string>
     <string name="app_name">Catima</string>
     <string name="add_manually_warning_title">스캔을 권장합니다</string>
-    <string name="settings_follow_sensor_orientation">항상 회전 (시스템 설정 무시)</string>
     <string name="continue_">계속</string>
     <string name="addFromPdfFile">PDF 파일 선택</string>
     <string name="errorReadingFile">파일을 읽을 수 없습니다</string>

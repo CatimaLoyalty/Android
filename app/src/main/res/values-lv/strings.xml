@@ -157,11 +157,6 @@
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_libraries">Trešo pušu bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Trešo pušu avoti: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_card_orientation">Ekrāna novietojums</string>
-    <string name="settings_follow_system_orientation">Izmantot sistēmas</string>
-    <string name="settings_portrait_orientation">Stateniski</string>
-    <string name="settings_landscape_orientation">Līmeniski</string>
-    <string name="settings_lock_on_opening_orientation">Izmantot novietojumu, kāds bija kartes atvēršanas brīdī</string>
     <string name="enter_group_name">Ievadīt kopas nosaukumu</string>
     <string name="groups">Kopas</string>
     <string name="group_edit">Labot kopu</string>
@@ -273,7 +268,6 @@
     <string name="spend">Tērēt</string>
     <string name="receive">Saņemt</string>
     <string name="amountParsingFailed">Nederīga summa</string>
-    <string name="settings_follow_sensor_orientation">Vienmēr pagriezt (neņem vērā sistēmas iestatījumus)</string>
     <string name="validFromDate">Derīga no</string>
     <string name="setBarcodeHeight">Iestatīt svītrkoda augstumu</string>
     <string name="switchToFrontImage">Pārslēgties uz priekšpuses attēlu</string>

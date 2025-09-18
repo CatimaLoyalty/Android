@@ -84,11 +84,6 @@
     <string name="settings_system_theme">Сістэмная</string>
     <string name="settings_light_theme">Светлая</string>
     <string name="settings_dark_theme">Цёмная</string>
-    <string name="settings_card_orientation">Арыентацыя экрана</string>
-    <string name="settings_follow_sensor_orientation">Заўсёды паварочваць (ігнаруе налады сістэмы)</string>
-    <string name="settings_portrait_orientation">Партрэтная</string>
-    <string name="settings_landscape_orientation">Альбомная</string>
-    <string name="settings_lock_on_opening_orientation">Зафіксаваць арыентацыю, якая выкарыстоўваецца пры адкрыцці карты</string>
     <string name="settings_keep_screen_on_summary">Адключае тайм-аўт экрана падчас прагляду карты</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Прадухіляць блакіроўку экрана</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Адключае блакіроўку экрана падчас прагляду карты</string>
@@ -267,7 +262,6 @@
     <string name="addFromImage">Выбраць малюнак з галерэі</string>
     <string name="settings_keep_screen_on">Трымаць экран уключаным</string>
     <string name="app_resources">Бясплатныя староннія рэсурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_follow_system_orientation">Як у сістэме</string>
     <string name="leaveWithoutSaveTitle">Выйсці</string>
     <string name="settings_allow_content_provider_read_title">Дазволіць іншым праграмам доступ да маіх даных</string>
     <string name="settings_display_barcode_max_brightness">Павялічваць яркасць экрану</string>

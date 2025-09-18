@@ -60,10 +60,6 @@
     <string name="selectBarcodeTitle">Elixir código de barras</string>
     <string name="settings">Axustes</string>
     <string name="settings_theme">Decorado</string>
-    <string name="settings_follow_sensor_orientation">Rotar sempre (ignora o axuste do sistema)</string>
-    <string name="settings_portrait_orientation">Retrato</string>
-    <string name="settings_landscape_orientation">Paisaxe</string>
-    <string name="settings_lock_on_opening_orientation">Fixar a orientación ao abrir a tarxeta</string>
     <string name="settings_display_barcode_max_brightness">Brillo da pantalla</string>
     <string name="settings_keep_screen_on_summary">Evita que se apague a pantalla cando se ve unha tarxeta</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitar bloqueo da pantalla</string>
@@ -265,11 +261,9 @@
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Estrela de favorita</string>
     <string name="settings_system_theme">Sistema</string>
-    <string name="settings_follow_system_orientation">Seguir ao sistema</string>
     <string name="settings_display_barcode_max_brightness_summary">Preciso para que algúns escáneres funcionen</string>
     <string name="settings_keep_screen_on">Manter pantalla acendida</string>
     <string name="settings_dark_theme">Escuro</string>
-    <string name="settings_card_orientation">Orientación da pantalla</string>
     <string name="group_updated">Grupo actualizado</string>
     <string name="all">Todo</string>
     <string name="deleteConfirmationGroup">Eliminar grupo?</string>

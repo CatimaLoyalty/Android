@@ -35,7 +35,6 @@
     <string name="settings_light_theme">Tema clar</string>
     <string name="settings_system_theme">Tema de sistema</string>
     <string name="settings_dark_theme">Tema Fosc</string>
-    <string name="settings_card_orientation">Orientació de la pantalla</string>
     <string name="settings_allow_content_provider_read_title">Permet altres apps a accedir a les meves dades</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Desactiva el bloqueix la pantalla mentre es visualitza la targeta</string>
     <string name="settings_allow_content_provider_read_summary">Les aplicacions han de seguir demanant permís per tenir-hi accés</string>
@@ -104,15 +103,12 @@
     <string name="cardId">Id. de la Targeta</string>
     <string name="barcodeType">Tipus de codi de barres</string>
     <string name="noBarcode">Sense codi de barres</string>
-    <string name="settings_portrait_orientation">Vertical</string>
     <string name="yes">Si</string>
     <string name="addFromPdfFile">Seleccioni un PDF</string>
     <string name="errorReadingFile">No s\'ha pogut llegir el fitxer</string>
     <string name="failedLaunchingFileManager">No s\'ha pogut trobar un gestor de fitxers compatible</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Quin dels següents codis de barres prefereix utilitzar?</string>
     <string name="pageWithNumber">Pàgina <xliff:g>%d</xliff:g></string>
-    <string name="settings_follow_system_orientation">Seguir el sistema</string>
-    <string name="settings_landscape_orientation">Horitzontal</string>
     <string name="intent_import_card_from_url_share_text">Vull compartir una targeta amb tu</string>
     <string name="takePhoto">Fer una foto</string>
     <string name="help_translate_this_app">Ajuda a traduïr aquesta app</string>
@@ -134,7 +130,6 @@
     <string name="barcodeImageDescriptionWithType">Codi de barres <xliff:g>%s</xliff:g></string>
     <string name="about_title_fmt">Sobre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versió: <xliff:g id="version">%s</xliff:g></string>
-    <string name="settings_follow_sensor_orientation">Sempre rota (ignora la configuració de sistema)</string>
     <string name="settings_display_barcode_max_brightness_summary">Alguns escàners ho necesiten</string>
     <string name="settings_keep_screen_on">Mantenir la pantalla encesa</string>
     <string name="settings_keep_screen_on_summary">Desactiva el bloqueix de la pantalla mentre mostra una targeta</string>
@@ -179,7 +174,6 @@
     <string name="noCardExistsError">No s\'ha pogut trobar aquesta targeta</string>
     <string name="failedParsingImportUriError">No s\'ha pogut analitzar la URI d\'importació</string>
     <string name="openFrontImageInGalleryApp">Obrir la imatge frontal a l\'app de galeria</string>
-    <string name="settings_lock_on_opening_orientation">En obrir la targeta, bloquejar la orientació de la pantalla</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilitza els botons de volum per canviar la targeta que es mostra</string>
     <string name="updateBarcodeQuestionText">Ha canviat el valor ID. Vol actualitzar també el codi de barres per uter utilitzar el mateix valor?</string>
     <string name="settings_sky_blue_theme">Blau fluix</string>

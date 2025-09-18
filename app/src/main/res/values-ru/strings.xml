@@ -203,14 +203,9 @@
     </plurals>
     <string name="settings_oled_dark">Чёрный фон для тёмной темы</string>
     <string name="include_if_asking_support">Если вы хотите запросить поддержку, укажите следующую информацию:</string>
-    <string name="settings_portrait_orientation">Портретная</string>
-    <string name="settings_landscape_orientation">Альбомная</string>
-    <string name="settings_lock_on_opening_orientation">Фиксировать ориентацию при открытии карты</string>
     <string name="archive">Архивировать</string>
     <string name="unarchive">Разархивировать</string>
-    <string name="settings_follow_system_orientation">Как в системе</string>
     <string name="duplicateCard">Дублировать</string>
-    <string name="settings_card_orientation">Ориентация экрана</string>
     <string name="archived">Карта архивирована</string>
     <string name="unarchived">Карта разархивирована</string>
     <string name="failedLaunchingPhotoPicker">Не найдено приложение для выбора изображений</string>
@@ -277,7 +272,6 @@
     <string name="addWithoutBarcode">Добавить карту без штрих-кода</string>
     <string name="field_must_not_be_empty">Поле не может быть пустым</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Всегда поворачивать (игнорировать системные настройки)</string>
     <string name="add_manually_warning_title">Рекомендуется сканирование</string>
     <string name="continue_">Продолжить</string>
     <string name="add_manually_warning_message">В некоторых картах значение штрих-кода отличается от написанного на карте номера, из-за чего введение штрих-кода вручную не всегда работает. Вместо этого рекомендуется отсканировать штрих-код камерой. Продолжить?</string>

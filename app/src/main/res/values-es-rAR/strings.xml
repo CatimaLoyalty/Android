@@ -210,4 +210,6 @@
     <string name="sort_by_valid_from">Válido Desde</string>
     <string name="sort_by_expiry">Vencimiento</string>
     <string name="settings_use_volume_keys_navigation_summary">Usá los botones de volumen para cambiar la tarjeta que se muestra</string>
+    <string name="cardWithNumberAndLocale">Tarjeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="cardWithNumber">Tarjeta <xliff:g>%d</xliff:g></string>
 </resources>

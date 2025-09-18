@@ -310,5 +310,5 @@
     <string name="card_list_widget_name">Lista de tarjetas</string>
     <string name="card_list_widget_empty">Después de añadir algunas tarjetas de fidelidad en Catima, aparecerán aquí. Si tienes tarjetas, asegúrate de que no estén archivadas.</string>
     <string name="cardWithNumber">Tarjeta <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Tarjeta <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Tarjeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

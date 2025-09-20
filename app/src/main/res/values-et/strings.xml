@@ -5,7 +5,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valitud</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valitud</item>
     </plurals>
-    <string name="noGiftCardsGroup">Lisa mõned kaardid ja siis jaga nad gruppidesse.</string>
+    <string name="noGiftCardsGroup">Lisa mõned kaardid ja siis jaga nad gruppidesse</string>
     <string name="noMatchingGiftCards">Tulemusi pole. Palun proovi muuta otsingut.</string>
     <string name="storeName">Nimi</string>
     <string name="note">Märkus</string>
@@ -32,7 +32,7 @@
     <string name="addCardTitle">Lisa kaart</string>
     <string name="scanCardBarcode">Skaneeri triipkoodi</string>
     <string name="app_name">Catima</string>
-    <string name="noGiftCards">Kaardi lisamiseks klõpsi + pluss nuppu või impordi ⋮ikooniga menüüst.</string>
+    <string name="noGiftCards">Kaardi lisamiseks klõpsi + pluss nuppu või impordi ⋮ikooniga menüüst</string>
     <string name="action_search">Otsi</string>
     <string name="unstar">Eemalda lemmikute hulgast</string>
     <string name="cancel">Katkesta</string>
@@ -56,10 +56,10 @@
     <string name="noCardsMessage">Esmalt lisa kaart</string>
     <string name="barcodeImageDescriptionWithType">Kaardi <xliff:g>%s</xliff:g> tiipkood</string>
     <string name="noCardExistsError">Seda kaarti ei leidu</string>
-    <string name="failedParsingImportUriError">Impordi aadressi töötlemine ei õnnestunud</string>
+    <string name="failedParsingImportUriError">Importimise aadressi töötlemine ei õnnestunud</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Ekspordi</string>
-    <string name="importExportHelp">Andmete varundamine võimaldab sul neid tõsta mõnda teise seadmesse.</string>
+    <string name="importExportHelp">Andmete varundamine võimaldab sul neid tõsta mõnda teise seadmesse</string>
     <string name="importSuccessfulTitle">Imporditud</string>
     <string name="importFailedTitle">Import ei õnnestunud</string>
     <string name="exportSuccessfulTitle">Eksporditud</string>
@@ -74,16 +74,16 @@
     <string name="permissionReadCardsDescription">loe kõiki oma Catima kaarte koos nende üksikasjadega, sealhulgas märkuste ja piltidega</string>
     <string name="cameraPermissionDeniedTitle">Puudub ligipääs kaamerale</string>
     <string name="noCameraPermissionDirectToSystemSetting">Triipkoodide skaneerimiseks vajab Catima õigust asutada kaamerat. Õiguste andmiseks klõpsi siin.</string>
-    <string name="exportOptionExplanation">Andmed salvestame sinu valitud asukohta.</string>
+    <string name="exportOptionExplanation">Andmed salvestame sinu valitud asukohta</string>
     <string name="importOptionFilesystemTitle">Impordi failisüsteemist</string>
-    <string name="importOptionFilesystemExplanation">Vali vajalik impordifail failisüsteemist.</string>
+    <string name="importOptionFilesystemExplanation">Vali vajalik impordifail failisüsteemist</string>
     <string name="importOptionFilesystemButton">Vali failisüsteemist</string>
     <string name="about">Rakenduse teave</string>
     <string name="app_copyright_short">Autoriõigused © Sylvia van Os ja kaasautorid</string>
     <string name="about_title_fmt">Teave <xliff:g id="app_name">%s</xliff:g> kohta</string>
     <string name="debug_version_fmt">Versioon: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">Kolmandate osapoolte avatud lähtekoodiga teegid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Kolmandate osapoolte avatud lähtekoodiga materjalid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Kolmandate osapoolte teegid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Kolmandate osapoolte materjalid: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="starImage">Lemmikut märkiv täht</string>
     <string name="settings">Seadistused</string>
     <string name="settings_system_theme">Süsteemi kujundus</string>
@@ -93,7 +93,7 @@
     <string name="settings_display_barcode_max_brightness_summary">See on vajalik mõnede skännerite toimimiseks</string>
     <string name="expiryStateSentenceExpired">Aegus: <xliff:g>%s</xliff:g></string>
     <string name="settings_allow_content_provider_read_summary">Selle valiku sisselülitamisel peavad muud rakendused lisaks küsima õigust vaadata kaartide andmeid</string>
-    <string name="noGroups">Kui soovid sarnaseid kaarte omavahel liigitada siis + pluss nupuga lisa kaardigruppe.</string>
+    <string name="noGroups">Kui soovid sarnaseid kaarte omavahel liigitada, siis + pluss nupuga lisa kaardigruppe</string>
     <string name="group_name_is_empty">Kaardigrupi nimi ei saa jääda tühjaks</string>
     <string name="groupsList">Grupid: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCountWithArchived">
@@ -117,10 +117,10 @@
     <string name="expiryDate">Aegumise kuupäev</string>
     <string name="never">Mitte kunagi</string>
     <string name="showMoreInfo">Näita teavet</string>
-    <string name="importLoyaltyCardKeychainMessage">Importimiseks vali oma <i>LoyaltyCardKeychain.csv</i> Loyalty Card Keychaini ekspordifail. \nSellise faili saad teha rakendusest Loyalty Card Keychain valides menüüst Import/Eksport valiku Eksport.</string>
+    <string name="importLoyaltyCardKeychainMessage">Importimiseks vali Loyalty Card Keychaini ekspordifail. \nSellise faili saad teha rakendusest Loyalty Card Keychain valides menüüst Import/Eksport valiku Eksport.</string>
     <string name="unsupportedBarcodeType">Sellist triipkoodi tüüpi pole veel võimalik kuvada, aga mõnes hilisemas rakenduse versioonis võib see võimalik olla.</string>
     <string name="wrongValueForBarcodeType">Väärtus ei sobi selle triipkoodi tüübiga</string>
-    <string name="passwordRequired">Palun sisesta salasõna</string>
+    <string name="passwordRequired">Sisesta salasõna</string>
     <string name="updateBarcodeQuestionTitle">Kas uuendame triipkoodi väärtust?</string>
     <string name="yes">Jah</string>
     <string name="no">Ei</string>
@@ -163,9 +163,9 @@
     <string name="group_updated">Kaardigrupp on uuendatud</string>
     <string name="deleteConfirmationGroup">Kas kustutame grupi?</string>
     <string name="all">Kõik</string>
-    <string name="failedOpeningFileManager">Esmalt paigalda failihaldur.</string>
+    <string name="failedOpeningFileManager">Failihalduri avamine ei õnnestunud</string>
     <string name="intent_import_card_from_url_share_text">Ma soovin sinuga jagada ühte oma kliendikaarti</string>
-    <string name="editGroup">Muudame gruppi: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Grupp on muutmisel: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Aegub: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToTopOfScreen">Tõsta triipkood ekraani ülaossa</string>
     <string name="noBarcodeFound">Ühtegi triipkoodi ei leidunud</string>
@@ -178,13 +178,13 @@
     <string name="privacy_policy">Andmekaitsepõhimõtted</string>
     <string name="accept">Nõustu</string>
     <string name="importCatima">Impordi Catima varukoopiast</string>
-    <string name="importCatimaMessage">Importimiseks vali varem tehtud <i>catima.zip</i> Catima ekspordifail. \nSellise faili saad luua mõnes teises seadmes olevast Catima rakendusest Import/Eksport menüüst valikust Eksport.</string>
+    <string name="importCatimaMessage">Importimiseks vali varem tehtud Catima ekspordifail. \nSellise faili saad luua mõnes teises seadmes olevast Catima rakendusest Import/Eksport menüüst valikust Eksport.</string>
     <string name="importFidme">Impordi FidMe varukoopiast</string>
-    <string name="importFidmeMessage">Importimiseks vali oma <i>fidme-export-request-xxxxxx.zip</i>, mille oled FidMe rakendusest eksportinud. Peale importi määra triipkoodi tüübid käsistsi. \nSellise faili loomiseks vali oma FidMe profiilist eelistuse Andmekaitse-Paki lahti.</string>
+    <string name="importFidmeMessage">Importimiseks vali fail, mille oled FidMe rakendusest eksportinud. Peale importi määra triipkoodi tüübid käsistsi. \nSellise faili loomiseks vali oma FidMe profiilist eelistuse Andmekaitse-Paki lahti.</string>
     <string name="importLoyaltyCardKeychain">Impordi rakendusest Loyalty Card Keychain</string>
     <string name="chooseImportType">Importimise valikud</string>
     <string name="importVoucherVault">Impordi rakendusest Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Importimiseks vali oma <i>vouchervault.json</i> Voucher Vaulti ekspordifail. \nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>
+    <string name="importVoucherVaultMessage">Importimiseks vali oma Voucher Vaulti ekspordifail. \nSellise faili saad teha rakenduses Voucher Vault menüüvalikust Eksport.</string>
     <string name="barcodeId">Triipkoodi väärtus</string>
     <string name="sameAsCardId">Sama, kui ID</string>
     <string name="setBarcodeId">Sisesta triipkoodi väärtus</string>
@@ -198,7 +198,7 @@
     <string name="updateBarcodeQuestionText">Sa muutsid ID väärtust? Kas sa soovid ka triipkoodiväärtuse vastavalt uuendada?</string>
     <string name="exportPassword">Sinu eksporditavate andmete turvamiseks palun sisesta salasõna (kui soovid seda)</string>
     <string name="exportPasswordHint">Sisesta salasõna</string>
-    <string name="failedGeneratingShareURL">Jagatava võrguaadressi loomine ei õnnestunud. Palun anna sellest meile teada.</string>
+    <string name="failedGeneratingShareURL">Jagatava võrguaadressi loomine ei õnnestunud</string>
     <string name="turn_flashlight_on">Lülita taskulamp sisse</string>
     <string name="turn_flashlight_off">Lülita taskulamp välja</string>
     <string name="settings_locale">Keel</string>
@@ -232,7 +232,7 @@
     <string name="unarchive">Eemalda arhiivist</string>
     <string name="archived">Kaart on arhiveeritud</string>
     <string name="unarchived">Kaart on arhiivist eemaldatud</string>
-    <string name="failedLaunchingPhotoPicker">Ei õnnestunud leida toetatud galeriirakendust</string>
+    <string name="failedLaunchingPhotoPicker">Ei õnnestunud leida toetatud pildivalijat</string>
     <string name="previousCard">Eelmine</string>
     <string name="nextCard">Järgmine</string>
     <string name="failedToOpenUrl">Esmalt paigalda veebibrauser</string>
@@ -245,8 +245,8 @@
     <string name="switchToFrontImage">Vaata esikülje pilti</string>
     <string name="switchToBackImage">Vaata tagakülje pilti</string>
     <string name="switchToBarcode">Vaata triipkoodi</string>
-    <string name="openFrontImageInGalleryApp">Ava esikülje pilt galeriirakenduses</string>
-    <string name="openBackImageInGalleryApp">Ava tagakülje pilt galeriirakenduses</string>
+    <string name="openFrontImageInGalleryApp">Ava esikülje pilt pildivalijas</string>
+    <string name="openBackImageInGalleryApp">Ava tagakülje pilt pildivalijas</string>
     <string name="setBarcodeHeight">Määra triipkoodi kõrgus</string>
     <string name="donate">Toeta rahaliselt</string>
     <string name="icon_header_click_text">Pisipildi muutmiseks vajuta pikalt</string>
@@ -269,7 +269,7 @@
     <string name="field_must_not_be_empty">Väli ei tohi olla tühi</string>
     <string name="manually_enter_barcode_instructions">Sisesta sinu kaardil kuvatav tunnusnumber või -tekst ja klõpsi triipkoodi, millelaadset kuvatakse kaardil.</string>
     <string name="add_manually_warning_title">Soovitame, et skaneerid triipkoodi</string>
-    <string name="add_manually_warning_message">Mõnede poodide ja äride puhul triipkoodi väärtus erineb kaardile kirjutatud numbrist. Seetõttu ei pruugi triipkoodi käsitsi lisamine alati toimida. Me tungivalt soovitame, et pigem skaneerid triipkoodi kaameraga. Kas sa siiski soovid jätkata?</string>
+    <string name="add_manually_warning_message">Mõnede poodide ja äride puhul triipkoodi väärtus erineb kaardile kirjutatud numbrist. Seetõttu ei pruugi triipkoodi käsitsi lisamine alati toimida. Me soovitame, et pigem skaneerid triipkoodi kaameraga. Kas sa siiski soovid jätkata?</string>
     <string name="continue_">Jätka</string>
     <string name="spend">Kuluta</string>
     <string name="receive">Võta vastu</string>
@@ -295,7 +295,7 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_7">7</string>
-    <string name="generic_error_please_retry">Vabandust, midagi läks nüüd viltu, palun proovi uuesti...</string>
+    <string name="generic_error_please_retry">Tekkis viga</string>
     <string name="unsupportedFile">See fail pole toetatud</string>
     <string name="addFromPkpass">Vali Passbooki fail (.pkpass / .pkpasses)</string>
     <string name="sort_by_valid_from">Kehtib alates</string>
@@ -304,5 +304,5 @@
     <string name="card_list_widget_name">Kaartide loend</string>
     <string name="card_list_widget_empty">Kui lisad Catimasse kliendikaarte, siis saavad nad olema nähtavad siin. Kui sul on kaardid lisatud, siis palun kontrolli, et nad kõik poleks arhiveeritud.</string>
     <string name="cardWithNumber">Kaart: <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Kaart: <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Kaart: <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

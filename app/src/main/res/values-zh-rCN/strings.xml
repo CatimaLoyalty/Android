@@ -298,5 +298,5 @@
     <string name="card_list_widget_name">卡片列表</string>
     <string name="card_list_widget_empty">在 Catima 中添加了一些会员卡后，它们会出现在这里。如果你有卡片，确保不是所有都已归档。</string>
     <string name="cardWithNumber">卡<xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">卡 <xliff:g>%d</xliff:g> （%s）</string>
+    <string name="cardWithNumberAndLocale">卡 <xliff:g>%d</xliff:g> （<xliff:g>%s</xliff:g>）</string>
 </resources>

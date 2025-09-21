@@ -310,5 +310,5 @@
     <string name="card_list_widget_name">Seznam karet</string>
     <string name="card_list_widget_empty">Karty přidané do aplikace Catima se zobrazí zde. Pokud máte karty, ujistěte se, že nejsou všechny archivovány.</string>
     <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
     <string name="action_add">أضف</string>
-    <string name="noGiftCards">اضغط على زر الإضافة + لإضافة بطاقة، أو استورد من ⋮ القائمة.</string>
+    <string name="noGiftCards">اضغط على زر الإضافة + لإضافة بطاقة، أو استورد من القائمة خلال ⋮</string>
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
@@ -29,7 +29,7 @@
     <string name="noCardExistsError">لا يمكن العثور على هذه البطاقة</string>
     <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
-    <string name="importExportHelp">دعم بياناتك يسمح بنقلها إلى جهاز آخر.</string>
+    <string name="importExportHelp">انشاء نسخة احتياطية من بياناتك يسمح بنقلها إلى جهاز آخر.</string>
     <string name="importFailed">تعذر إجراء الاستيراد</string>
     <string name="exportSuccessfulTitle">متصدر</string>
     <string name="exportFailedTitle">فشل التصدير</string>
@@ -40,7 +40,7 @@
     <string name="app_copyright_old">بناء على Loyalty Card Keychain
 \nحقوق النشر © 2016-2020 Branden Archer</string>
     <string name="app_license">البرمجيات الحرة متروكة الحقوق, ترخيص +GPLv3</string>
-    <string name="app_libraries">مكتبات الطرف الثالث الحرة: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">مكتبات الطرف الثالث : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">اختار الباركود</string>
     <string name="thumbnailDescription">صورة مصغرة</string>
     <string name="starImage">نجم مفضل</string>
@@ -63,7 +63,7 @@
     <string name="group_updated">تم تحديث المجموعة</string>
     <string name="all">الكل</string>
     <string name="deleteConfirmationGroup">هل تريد حذف المجموعة؟</string>
-    <string name="failedOpeningFileManager">ثبِّت مدير الملفات أولاً.</string>
+    <string name="failedOpeningFileManager">فشل فتح مدير الملفات</string>
     <string name="moveUp">تحرك لأعلى</string>
     <string name="addFromImage">حدد صورة من المعرض</string>
     <string name="balance">الرصيد</string>
@@ -190,7 +190,7 @@
     <string name="groupsList">مجموعات: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">منع قفل الشاشة</string>
     <string name="leaveWithoutSaveTitle">خروج</string>
-    <string name="editGroup">تعديل المجموعه: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">تعديل المجموعة: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> بطاقة</item>
         <item quantity="one"><xliff:g>%d</xliff:g> بطاقة</item>
@@ -227,7 +227,7 @@
     <string name="sort_by_expiry">انقضاء</string>
     <string name="importLoyaltyCardKeychain">الاستيراد من Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">حدّد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
-    <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة. الرجاء الإبلاغ عن هذا.</string>
+    <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
     <string name="on_google_play">على Google Play</string>
     <string name="settings_theme_color">لون المظهر</string>
@@ -308,7 +308,7 @@
     <string name="useBackImage">استخدم صورة خلفية</string>
     <string name="addFromPkpass">اختر ملف الدفتر (.pkpass)</string>
     <string name="unsupportedFile">هذا الملف غير مدعوم</string>
-    <string name="generic_error_please_retry">نعتذر، حدث خطأ ما، حاول مرة أخرى...</string>
+    <string name="generic_error_please_retry">حدث خطأ ما</string>
     <string name="settings_use_volume_keys_navigation">بدّل البطاقات باستخدام أزرار الصوت</string>
     <string name="settings_use_volume_keys_navigation_summary">بدّل البطاقات الظاهرة باستخدام أزرار الصوت</string>
     <string name="settings_category_title_cards_overview">نظرة عامة على البطاقات</string>
@@ -325,4 +325,7 @@
     <string name="sort_by_valid_from">صالح من</string>
     <string name="width">العرض</string>
     <string name="setBarcodeWidth">تعيين عرض الرمز الشريطي \"باركود\"</string>
+    <string name="card_list_widget_name">قائمة البطاقات</string>
+    <string name="cardWithNumber">البطاقة <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">البطاقة <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

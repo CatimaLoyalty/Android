@@ -1,19 +1,19 @@
 package protect.card_locker
 
 class ThirdPartyInfo(
-    private val mName: String?,
-    private val mUrl: String?,
-    private val mLicense: String?
+    private val mName: String,
+    private val mUrl: String,
+    private val mLicense: String
 ) {
-    fun name(): String? {
+    fun name(): String {
         return mName
     }
 
-    fun url(): String? {
+    fun url(): String {
         return mUrl
     }
 
-    fun license(): String? {
+    fun license(): String {
         return mLicense
     }
 

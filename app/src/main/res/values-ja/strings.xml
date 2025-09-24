@@ -186,15 +186,10 @@
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
     <string name="app_name">Catima</string>
-    <string name="settings_card_orientation">画面の向き</string>
     <string name="settings_display_barcode_max_brightness_summary">仕事をするためにいくつかのスキャナーが必要</string>
-    <string name="settings_follow_system_orientation">システムに従う</string>
     <string name="storageReadPermissionRequired">このアクションのためにストレージの読み取り権限を許可…</string>
     <string name="cameraPermissionDeniedTitle">カメラへアクセスできません</string>
-    <string name="settings_follow_sensor_orientation">自動回転 (システムを無視)</string>
     <string name="cameraPermissionRequired">このアクションのためにカメラへのアクセス権限の許可…</string>
-    <string name="settings_landscape_orientation">横</string>
-    <string name="settings_portrait_orientation">縦</string>
     <string name="noGiftCardsGroup">いくつかのカードを作って、それらをこのグループにアサインします。</string>
     <string name="noCameraPermissionDirectToSystemSetting">バーコードをスキャンするためには、Catimaはカメラへのアクセスを必要とします。ここをタップして権限設定の変更をお願いします。</string>
     <string name="importCards">カードをインポート</string>
@@ -219,7 +214,6 @@
     <string name="failedToOpenUrl">ブラウザーをインストールしてください</string>
     <string name="previousCard">前へ</string>
     <string name="nextCard">次へ</string>
-    <string name="settings_lock_on_opening_orientation">カードを開いた時の向きに固定</string>
     <string name="settings_oled_dark">ダークテーマで黒い背景を使用する</string>
     <string name="settings_oled_dark_summary">有機ELディスプレイでの電池の使用量を削減します</string>
     <string name="action_more_options">オプション</string>

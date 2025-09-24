@@ -197,14 +197,10 @@
     <string name="rate_this_app">Arvostele tämä sovellus</string>
     <string name="noGiftCardsGroup">Lisää kortteja ja lisää ne ryhmään täällä.</string>
     <string name="barcodeImageDescriptionWithType">Kuva <xliff:g>%s</xliff:g> viivakoodi</string>
-    <string name="settings_follow_system_orientation">Seuraa järjestelmää</string>
-    <string name="settings_portrait_orientation">Pysty</string>
-    <string name="settings_landscape_orientation">Vaaka</string>
     <string name="unarchived">Kortti on poistettu arkistosta</string>
     <string name="unarchive">Poista arkistosta</string>
     <string name="archived">Kortti arkistoitu</string>
     <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
-    <string name="settings_card_orientation">Näytön suunta</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
@@ -223,7 +219,6 @@
     <string name="currentBalanceSentence">Nykyinen saldo: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Uusi saldo: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Ei pääsyä kameraan</string>
-    <string name="settings_lock_on_opening_orientation">Lukitse suunta, kun korttia avataan</string>
     <string name="noCameraPermissionDirectToSystemSetting">Viivakoodien lukeminen vaatii, että Catimalla on käyttöoikeus kameraan. Napauta tästä muuttaaksesi oikeuksia.</string>
     <string name="updateBalance">Päivitä saldo</string>
     <string name="cameraPermissionRequired">Tämä toiminto vaatii oikeuden käyttää kameraa…</string>
@@ -269,7 +264,6 @@
     <string name="app_name">Catima</string>
     <string name="balanceParsingFailed">Virheellinen saldo</string>
     <string name="view_online">Näytä verkossa</string>
-    <string name="settings_follow_sensor_orientation">Kierrä aina (ohittaa järjestelmän asetukset)</string>
     <string name="continue_">Jatka</string>
     <string name="add_manually_warning_title">Skannausta suositellaan</string>
     <string name="spend">Kuluta</string>

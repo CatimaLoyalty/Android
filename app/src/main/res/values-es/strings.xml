@@ -159,20 +159,15 @@
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_locale">Idioma</string>
     <string name="noGroupCards">Este grupo está vacío</string>
-    <string name="settings_landscape_orientation">Horizontal</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> puntos</item>
         <item quantity="other"><xliff:g>%s</xliff:g> puntos</item>
     </plurals>
     <string name="barcodeImageDescriptionWithType">Imagen <xliff:g>%s</xliff:g> código de barras</string>
-    <string name="settings_card_orientation">Orientación de pantalla</string>
-    <string name="settings_portrait_orientation">Formato vertical</string>
     <string name="group_edit">Editar grupo</string>
     <string name="group_updated">Grupo actualizado</string>
     <string name="noGiftCardsGroup">Crea algunas tarjetas y luego asígnelas al grupo aquí</string>
-    <string name="settings_follow_system_orientation">Segue el sistema</string>
-    <string name="settings_lock_on_opening_orientation">Bloqueo a la orientación utilizada al abrir la tarjeta</string>
     <string name="sort_by_most_recently_used">Lo más usado recientemente</string>
     <string name="sort_by_expiry">Caducidad</string>
     <string name="version_history">Historial de versiones</string>
@@ -271,7 +266,6 @@
     <string name="addWithoutBarcode">Añadir una tarjeta sin código de barras</string>
     <string name="field_must_not_be_empty">Este campo no debe estar vacío</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Girar siempre (ignora la configuración del sistema)</string>
     <string name="continue_">Continuar</string>
     <string name="add_manually_warning_title">Se recomienda escanear</string>
     <string name="add_manually_warning_message">En algunas tiendas, el valor del código de barras difiere del número escrito en la tarjeta. Por este motivo, es posible que la introducción manual del código de barras no siempre funcione. Se recomienda encarecidamente escanear el código de barras con la cámara. ¿Aún desea continuar?</string>

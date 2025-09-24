@@ -197,16 +197,11 @@
     </plurals>
     <string name="settings_oled_dark">Svart bakgrunn for mørk drakt</string>
     <string name="include_if_asking_support">Inkluder følgende info hvis du vil ha hjelp:</string>
-    <string name="settings_card_orientation">Skjermorientering</string>
-    <string name="settings_landscape_orientation">Liggende</string>
-    <string name="settings_lock_on_opening_orientation">Lås til sideretning brukt ved åpning av kort</string>
     <string name="duplicateCard">Dupliser</string>
     <string name="archive">Arkiver</string>
     <string name="unarchive">Opphev arkivering</string>
     <string name="archived">Kort arkivert</string>
     <string name="unarchived">Kort flyttet tilbake fra arkiv</string>
-    <string name="settings_follow_system_orientation">Følg systemet</string>
-    <string name="settings_portrait_orientation">Stående</string>
     <string name="failedLaunchingPhotoPicker">Fant ikke noe støttet galleriprogram</string>
     <string name="previousCard">Forrige</string>
     <string name="nextCard">Neste</string>
@@ -274,7 +269,6 @@
     <string name="amountParsingFailed">Ugyldig beløp</string>
     <string name="spend">Utgifter</string>
     <string name="receive">Motta</string>
-    <string name="settings_follow_sensor_orientation">Alltid roter (ignorerer systeminnstilling)</string>
     <string name="add_manually_warning_message">I noen butikker er strekkoden forskjellig fra nummeret på kortet. Som følge av dette kan det hende at å skrive inn strekkoden ikke virker. Det anbefales å skanne strekkoden med kameraet istedenfor. Vil du fortsette?</string>
     <string name="pageWithNumber">Side <xliff:g>%d</xliff:g></string>
     <string name="addFromPdfFile">Velg en PDF-fil</string>

@@ -77,8 +77,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> cartões</item>
     </plurals>
     <string name="noCameraFoundGuideText">Seu dispositivo parece não ter uma câmera. Se tiver, tente reiniciar o dispositivo. Caso contrário, tente usar o botão \"Mais opções\" abaixo para adicionar um código de barras manualmente.</string>
-    <string name="settings_follow_system_orientation">Padrão do sistema</string>
-    <string name="settings_lock_on_opening_orientation">Bloquear para orientação usada ao abrir o cartão</string>
     <string name="importCatimaMessage">Selecione o arquivo exportado do Catima para importação. \nFaça isso a partir do menu \"Importar/Exportar\" em outro aplicativo Catima tocando em Exportar.</string>
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Selecione o arquivo exportado do Loyalty Card Keychain, para importação. \nFaça isso a partir do menu \"Importar/Exportar\" no Loyalty Card Keychain tocando em Exportar.</string>
@@ -221,15 +219,11 @@
     <string name="settings_display_barcode_max_brightness_summary">Necessário para alguns scanners funcionarem</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="balance">Saldo</string>
-    <string name="settings_follow_sensor_orientation">Sempre girar (ignora as configurações do sistema)</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_light_theme">Claro</string>
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_dark_theme">Escuro</string>
     <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo da tela</string>
-    <string name="settings_card_orientation">Orientação da tela</string>
-    <string name="settings_portrait_orientation">Retrato</string>
-    <string name="settings_landscape_orientation">Paisagem</string>
     <string name="settings_keep_screen_on_summary">Desativa o tempo limite de tela enquanto estiver vendo um cartão</string>
     <string name="importSuccessful">Dados importados</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa bloqueio de tela enquanto estiver vendo um cartão</string>

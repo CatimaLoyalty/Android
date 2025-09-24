@@ -144,12 +144,11 @@
             android:name=".preferences.SettingsActivity"
             android:label="@string/settings"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!-- FIXME: locked screenOrientation is a workaround for https://github.com/CatimaLoyalty/Android/issues/1715, remove when https://github.com/CatimaLoyalty/Android/issues/513 is fixed -->
+        <!-- FIXME: ImportExportActivity cancels import on rotation -->
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
             android:exported="true"
-            android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- ZIP Intent Filter -->

@@ -75,20 +75,14 @@
     <string name="selectBarcodeTitle">बारकोड निवडा</string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_portrait_orientation">पोट्रेट</string>
     <string name="settings_dark_theme">गडद</string>
     <string name="settings_system_theme">प्रणाली</string>
     <string name="starImage">आवड</string>
-    <string name="settings_follow_system_orientation">सिस्टिम अनुसरण</string>
-    <string name="settings_landscape_orientation">आडवे</string>
     <string name="settings_theme">थीम</string>
     <string name="settings_light_theme">उजळ</string>
     <string name="settings">सेटिंग्ज</string>
-    <string name="settings_card_orientation">स्क्रीन ओरिएंटेशन</string>
     <string name="thumbnailDescription">लघुप्रतिमा</string>
     <string name="settings_keep_screen_on_summary">कार्ड पाहताना स्क्रीन टाइमआउट बंद करते</string>
-    <string name="settings_follow_sensor_orientation">नेहमी फिरवा (सिस्टम सेटिंग्ज दुर्लक्षित करेल)</string>
-    <string name="settings_lock_on_opening_orientation">कार्ड उघडताना वापरला जाणारा लॉक टू ओरिएंटेशन</string>
     <string name="settings_display_barcode_max_brightness">स्क्रीन उजळवा</string>
     <string name="settings_display_barcode_max_brightness_summary">काही स्कॅनर्सना काम करण्यासाठी आवश्यक</string>
     <string name="settings_keep_screen_on">स्क्रीन चालू ठेवा</string>

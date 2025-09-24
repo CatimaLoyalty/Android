@@ -194,7 +194,6 @@
 \nLétrehozhatja az Importálás/exportálás menüből az Exportálást megnyomva egy másik Catima alkalmazásban.</string>
     <string name="importFidmeMessage">Válassza ki a FidMeből exportált <i>fidme-export-request-xxxxxx.zip</i> fájl majd importálja be, és utána válassza a kézi vonalkódbeírást.
 \nEzt hozza létre a FidMe-profiljában az Adatvédelem rész választásával, majd a Saját adatok kinyerése megnyomásával.</string>
-    <string name="settings_card_orientation">Képernyő tájolása</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
@@ -203,10 +202,6 @@
     <string name="failedLaunchingPhotoPicker">Nem található támogatott galéria alkalmazás</string>
     <string name="previousCard">Előző</string>
     <string name="nextCard">Következő</string>
-    <string name="settings_portrait_orientation">Álló</string>
-    <string name="settings_follow_system_orientation">Rendszer követése</string>
-    <string name="settings_lock_on_opening_orientation">A használt tájolás zárolása a kártya megnyitásakor</string>
-    <string name="settings_landscape_orientation">Fekvő</string>
     <string name="settings_oled_dark">Teljesen fekete háttér a sötét témánál</string>
     <string name="include_if_asking_support">Ha támogatás akar kérni, ossza meg az alábbi információkat:</string>
     <string name="archive">Archiválás</string>
@@ -269,7 +264,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os és közreműködők</string>
     <string name="show_archived_cards">Archivált kártyák megjelenítése</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Mindig forgassa (figyelmen kívül hagyja a rendszerbeállításokat)</string>
     <string name="amountParsingFailed">Hibás érték</string>
     <string name="add_manually_warning_title">Szkennelés ajánlott</string>
     <string name="add_manually_warning_message">Egyes boltoknál a kártyán levő számsor különbözik a vonalkódtól. Emiatt a manuális szám beírás nem minden esetben fog működni. Erősen ajánlott inkább a vonalkód szkennelése kamerával. Biztosan folytatja?</string>

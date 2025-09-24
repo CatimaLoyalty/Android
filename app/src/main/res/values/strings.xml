@@ -92,18 +92,6 @@
     <string name="settings_key_light_theme" translatable="false">light</string>
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
-    <string name="settings_card_orientation">Screen orientation</string>
-    <string name="settings_key_card_orientation" translatable="false">pref_card_orientation</string>
-    <string name="settings_follow_system_orientation">Follow system</string>
-    <string name="settings_key_follow_system_orientation" translatable="false">follow_system</string>
-    <string name="settings_follow_sensor_orientation">Always rotate (ignores system settings)</string>
-    <string name="settings_key_follow_sensor_orientation" translatable="false">follow_sensor</string>
-    <string name="settings_portrait_orientation">Portrait</string>
-    <string name="settings_key_portrait_orientation" translatable="false">portrait</string>
-    <string name="settings_landscape_orientation">Landscape</string>
-    <string name="settings_key_landscape_orientation" translatable="false">landscape</string>
-    <string name="settings_lock_on_opening_orientation">Lock to orientation used when opening the card</string>
-    <string name="settings_key_lock_on_opening_orientation" translatable="false">lock_on_opening</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
     <string name="settings_display_barcode_max_brightness">Brighten screen</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessary for some scanners to work</string>
@@ -364,4 +352,5 @@
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
 </resources>

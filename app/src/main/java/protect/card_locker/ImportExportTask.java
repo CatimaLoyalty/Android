@@ -1,12 +1,17 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +37,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private char[] password;
     private TaskCompleteListener listener;
 
-    private ProgressDialog progress;
+    private AlertDialog progress;
 
     /**
      * Constructor which will setup a task for exporting to the given file
@@ -88,12 +93,36 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     }
 
     public void onPreExecute() {
-        progress = new ProgressDialog(activity);
-        progress.setTitle(doImport ? R.string.importing : R.string.exporting);
+        MaterialAlertDialogBuilder progressDialogBuilder = new MaterialAlertDialogBuilder(activity);
+        progressDialogBuilder.setCancelable(false);  // Don't cancel if user taps next to dialog
+        progressDialogBuilder.setTitle(doImport ? R.string.importing : R.string.exporting);
 
-        progress.setOnCancelListener(dialog -> cancel());
-        progress.setOnDismissListener(dialog -> cancel());
+        // Create components
+        TextView progressDialogTextView = new TextView(activity);
+        progressDialogTextView.setText(R.string.pleaseDoNotRotateTheDevice); // FIXME: Instead of telling the user to not rotate, rotation should not cancel the import
+        ProgressBar progressDialogProgressBar = new ProgressBar(activity);
+        progressDialogProgressBar.setIndeterminate(true);
 
+        // Create LinearLayout (to put the components below each other)
+        LinearLayout progressDialogLayout = new LinearLayout(activity);
+        progressDialogLayout.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams progressDialogLayoutParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+        );
+        int contentPadding = activity.getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        progressDialogLayoutParams.setMargins(contentPadding, contentPadding / 2, contentPadding, 0);
+
+        // Put components in layout
+        progressDialogLayout.addView(progressDialogTextView, progressDialogLayoutParams);
+        progressDialogLayout.addView(progressDialogProgressBar, progressDialogLayoutParams);
+
+        // Create and show dialog
+        progressDialogBuilder.setView(progressDialogLayout);
+        progressDialogBuilder.setNeutralButton(R.string.cancel, (dialogInterface, i) -> cancel());
+        progressDialogBuilder.setOnCancelListener(dialogInterface -> cancel());
+        progressDialogBuilder.setOnDismissListener(dialogInterface -> cancel());
+        progress = progressDialogBuilder.create();
         progress.show();
     }
 

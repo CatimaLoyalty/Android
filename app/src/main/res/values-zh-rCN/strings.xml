@@ -189,11 +189,6 @@
     <string name="failedLaunchingPhotoPicker">找不到支持的图片选择应用</string>
     <string name="previousCard">前一张</string>
     <string name="nextCard">下一张</string>
-    <string name="settings_card_orientation">屏幕</string>
-    <string name="settings_landscape_orientation">横向</string>
-    <string name="settings_follow_system_orientation">跟随系统</string>
-    <string name="settings_lock_on_opening_orientation">使用上次打开卡片时的朝向</string>
-    <string name="settings_portrait_orientation">竖向</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="other"><xliff:g>%1$d</xliff:g> 张卡 (<xliff:g id="archivedCount">%2$d</xliff:g> 张已归档)</item>
     </plurals>
@@ -259,7 +254,6 @@
     <string name="addWithoutBarcode">不使用条形码添加卡片</string>
     <string name="field_must_not_be_empty">字段不能为空</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">始终旋转（忽略系统设置）</string>
     <string name="add_manually_warning_title">建议扫描</string>
     <string name="continue_">继续</string>
     <string name="add_manually_warning_message">某些卡片的二维码值和刻在卡上的数字并不一样。由于这个原因，手动输入二维码可能并不总是有用。这种情况下，建议你用相机扫描二维码。你仍要继续吗？</string>

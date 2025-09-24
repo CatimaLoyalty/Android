@@ -183,8 +183,6 @@
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>
-    <string name="settings_card_orientation">Orientácia obrazovky</string>
-    <string name="settings_lock_on_opening_orientation">Zamknúť na orientáciu použitú pri otváraní karty</string>
     <string name="app_loyalty_card_keychain">Kľúčenka vernostných kariet</string>
     <string name="settings_oled_dark">Čisto čierne pozadie pre tmavú tému</string>
     <string name="failedToRetrieveImageFile">Nepodarilo sa získať súbor obrázku</string>
@@ -227,9 +225,6 @@
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>
     <string name="storageReadPermissionRequired">Pre túto akciu je potrebné oprávnenie na čítanie úložiska…</string>
-    <string name="settings_follow_system_orientation">Podľa systému</string>
-    <string name="settings_portrait_orientation">Na výšku</string>
-    <string name="settings_landscape_orientation">Na šírku</string>
     <string name="importFidmeMessage">Vyberte svoj <i>fidme-export-request-xxxxxx.zip</i> export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne.
 \nVytvorte ho z profilu FidMe tak, že najprv vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
@@ -275,7 +270,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievatelia</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Vždy otočiť (ignoruje nastavenie systému)</string>
     <string name="continue_">Pokračovať</string>
     <string name="spend">Utratené</string>
     <string name="receive">Prijaté</string>

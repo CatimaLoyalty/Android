@@ -123,8 +123,6 @@
     <string name="noCameraPermissionDirectToSystemSetting">Za snimanje crtičnih kodova Catima treba pristup tvojoj kameri. Dodirni ovdje za mijenjanje postavki dozvola.</string>
     <string name="app_libraries">Slobodne biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Odaberi crtični kod</string>
-    <string name="settings_portrait_orientation">Uspravno</string>
-    <string name="settings_lock_on_opening_orientation">Odredi orijentaciju koja se koristi prilikom otvaranja kartice</string>
     <string name="group_edit">Uredi grupu</string>
     <string name="group_name_already_in_use">Ime grupe se već koristi</string>
     <string name="noBarcodeFound">Nijedan crtični kod nije pronađen</string>
@@ -163,8 +161,6 @@
     <string name="storageReadPermissionRequired">Za ovu radnju je potrebna dozvola za čitanje spremljenih podataka …</string>
     <string name="cameraPermissionRequired">Za ovu radnju je potrebna dozvola za pristup kameri …</string>
     <string name="app_license">Copylefted libre softver, GPLv3+ licenca</string>
-    <string name="settings_card_orientation">Orijentacija ekrana</string>
-    <string name="settings_follow_system_orientation">Slijedi sustav</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="importFidmeMessage">Odaberi tvoju iz FidMe izvezenu <i>idme-export-request-xxxxxx.zip</i> datoteku koju želiš uvesti i ručno odaberi vste crtičnog koda nakon toga. 
 \nStvori je putem tvog FidMe profila biranjem „Zaštita podataka” a zatim pritisni „Dekomprimiraj moje podatke”.</string>
@@ -201,7 +197,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorska prava © 2019. – <xliff:g>%d.</xliff:g> Sylvia van Os i doprinositelji</string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_resources">Slobodni resursi trećih strana: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_landscape_orientation">Ležeće</string>
     <string name="group_name_is_empty">Ime grupe ne smije biti prazno</string>
     <string name="group_updated">Grupa je aktualizirana</string>
     <string name="all">Sve</string>
@@ -275,7 +270,6 @@
     <string name="settings_category_title_privacy">Privatnost</string>
     <string name="settings_keep_screen_on_summary">Deaktivira isključivanje ekrana tijekom prikaza kartice</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Uvijek okreni (zanemaruje postavke sustava)</string>
     <string name="continue_">Nastavi</string>
     <string name="add_manually_warning_message">Za neke trgovine se vrijednost crtičnog koda razlikuje od broja na kartici. Zbog toga ručno upisivanje crtičnog koda možda neće uvijek funkcionirati. Preporučuje se snimanje crtičnog koda pomoću kamere. Želiš li svejedno nastaviti?</string>
     <string name="add_manually_warning_title">Preporučuje se snimanje</string>

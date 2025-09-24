@@ -298,4 +298,8 @@
     <string name="sort_by_valid_from">Giltigt från</string>
     <string name="unsupportedFile">Den här filen stöds inte</string>
     <string name="addFromPkpass">Välj en Passbook-fil (.pkpass / .pkpasses)</string>
+    <string name="settings_category_title_cards_overview">Kortöversikt</string>
+    <string name="generic_error_please_retry">Ett fel uppstod</string>
+    <string name="cardWithNumber">Kort <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kort <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

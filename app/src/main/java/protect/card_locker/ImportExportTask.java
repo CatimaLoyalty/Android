@@ -99,7 +99,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
 
         // Create components
         TextView progressDialogTextView = new TextView(activity);
-        progressDialogTextView.setText(R.string.pleaseDoNotRotateTheDevice);
+        progressDialogTextView.setText(R.string.pleaseDoNotRotateTheDevice); // FIXME: Instead of telling the user to not rotate, rotation should not cancel the import
         ProgressBar progressDialogProgressBar = new ProgressBar(activity);
         progressDialogProgressBar.setIndeterminate(true);
 

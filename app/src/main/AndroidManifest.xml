@@ -144,6 +144,7 @@
             android:name=".preferences.SettingsActivity"
             android:label="@string/settings"
             android:theme="@style/AppTheme.NoActionBar" />
+        <!-- FIXME: ImportExportActivity cancels import on rotation -->
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"

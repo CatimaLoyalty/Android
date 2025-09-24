@@ -1,0 +1,2 @@
+- Target Android 16
+- Remove "Screen orientation" feature (Google removed the ability for apps to control screen rotation when targeting Android 16)

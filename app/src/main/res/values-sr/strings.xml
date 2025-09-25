@@ -57,15 +57,9 @@
     <string name="settings_system_theme">Sistem</string>
     <string name="settings_light_theme">Svetla</string>
     <string name="settings_dark_theme">Tamna</string>
-    <string name="settings_follow_system_orientation">Kao sistem</string>
-    <string name="settings_follow_sensor_orientation">Uvek rotiraj (ignoriše sistemska podešavanja)</string>
-    <string name="settings_portrait_orientation">Uspravno</string>
-    <string name="settings_landscape_orientation">Položeno</string>
-    <string name="settings_lock_on_opening_orientation">Zaključavanje orijentacije koja se koristi prilikom otvaranja kartice</string>
     <string name="settings_display_barcode_max_brightness">Osvetli ekran</string>
     <string name="settings_display_barcode_max_brightness_summary">Neophodno za rad nekih čitača</string>
     <string name="selectBarcodeTitle">Odaberi bar-kod</string>
-    <string name="settings_card_orientation">Orijentacija ekrana</string>
     <string name="thumbnailDescription">Naslovna fotografija</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spreči zaključavanje ekrana</string>
     <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama da pristupe mojim podacima</string>

@@ -25,7 +25,7 @@
     <string name="importSuccessfulTitle">आयात हुआ</string>
     <string name="importFailed">आयात नहीं हो सका</string>
     <string name="action_search">खोज</string>
-    <string name="noGiftCardsGroup">कुछ कार्ड बनाएँ, और फिर उन्हें यहाँ समूह करें।</string>
+    <string name="noGiftCardsGroup">कुछ कार्ड बनाएँ, और फिर उन्हें यहाँ समूह करें</string>
     <string name="noMatchingGiftCards">कोई परिणाम नहीं। अपनी खोज बदलने का प्रयास करें।</string>
     <string name="deleteTitle">कार्ड हटाएं</string>
     <plurals name="deleteCardsTitle">
@@ -33,8 +33,8 @@
         <item quantity="other"><xliff:g>%d</xliff:g> इन कार्डों को हटाएं</item>
     </plurals>
     <string name="importFailedTitle">आयात विफल</string>
-    <string name="exportOptionExplanation">डाटा आपके पसंद के स्थान पर लिखा जाएगा।</string>
-    <string name="importOptionFilesystemExplanation">फाईल सिस्टम से एक विशिष्ट फाईल चुनें।</string>
+    <string name="exportOptionExplanation">डाटा आपके पसंद के स्थान पर लिखा जाएगा</string>
+    <string name="importOptionFilesystemExplanation">फाईल सिस्टम से एक विशिष्ट फाईल चुनें</string>
     <string name="app_copyright_old">लोयलटी कार्ड कीचैंन पर आधारित\nकॉपीराइट © 2016–2020 ब्रांडन आर्चर</string>
     <string name="action_add">जोड़ें</string>
     <string name="edit">संपादित करें</string>
@@ -53,10 +53,6 @@
     <string name="settings_dark_theme">गाढ़ा (काला)</string>
     <string name="settings">सेटिंग्स</string>
     <string name="settings_system_theme">सिस्टम</string>
-    <string name="settings_card_orientation">स्क्रीन अभिमुखता</string>
-    <string name="settings_landscape_orientation">क्षैतिज (लैंडस्केप)</string>
-    <string name="settings_follow_system_orientation">सिस्टम का पालन करें</string>
-    <string name="settings_portrait_orientation">लंबवत (पोट्रैट)</string>
     <string name="settings_display_barcode_max_brightness">स्क्रीन की चमक बढ़ाएं</string>
     <string name="settings_keep_screen_on">स्क्रीन को चालू रखें</string>
     <string name="cameraPermissionDeniedTitle">कैमरे की अनुमति नहीं मिली</string>
@@ -66,15 +62,14 @@
     <string name="noBarcode">बारकोड नहीं है</string>
     <string name="scanCardBarcode">बारकोड स्कैन करें</string>
     <string name="cardShortcut">कार्ड का सरल उपाय (शॉर्टकट)</string>
-    <string name="noGiftCards">कार्ड जोड़ने के लिए + प्लस बटन पर क्लिक करें, या ⋮ मेनू से आयात करें।</string>
-    <string name="importExportHelp">आपके डाटा को बैकअप करना उसे दूसरे डिवाइस में भेजना संभव कर देता है।</string>
+    <string name="noGiftCards">कार्ड जोड़ने के लिए + प्लस बटन पर क्लिक करें, या ⋮ मेनू से आयात करें</string>
+    <string name="importExportHelp">आपके डाटा को बैकअप करना उसे दूसरे डिवाइस में भेजना संभव कर देता है</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> का बारकोड</string>
     <string name="settings_disable_lockscreen_while_viewing_card">स्क्रीन को लॉक होने से रोकें</string>
-    <string name="settings_lock_on_opening_orientation">कार्ड खोलते समय प्रयुक्त अभिमुख अवस्था को प्रतिबंधित करें</string>
     <string name="intent_import_card_from_url_share_text">मैं तुम्हें एक कार्ड भेजना चाहता हूँ</string>
     <string name="selectBarcodeTitle">बारकोड चुनें</string>
     <string name="thumbnailDescription">छोटा चित्र</string>
-    <string name="noGroups">+ दबा कर समूहों को वर्गीकरण के लिए चुनें।</string>
+    <string name="noGroups">+ दबा कर समूहों को वर्गीकरण के लिए चुनें</string>
     <string name="sameAsCardId">आई डी से निरंतर</string>
     <string name="intent_import_card_from_url_share_multiple_text">में तुम्हें कुछ कार्ड्स भेजना चाहता हूँ</string>
     <string name="importSuccessful">डाटा आयात किया गया</string>
@@ -106,7 +101,7 @@
         <item quantity="one"><xliff:g>%s</xliff:g> पॉइंट</item>
         <item quantity="other"><xliff:g>%s</xliff:g> पॉइंट्स</item>
     </plurals>
-    <string name="importCatimaMessage">आयात करने के लिए, <i>catima.zip</i> फाइल को चुने जो की Catima से निर्यात किया गया था. \nदूसरे Catima ऍप के आयात/निर्यात मेनू से निर्यात बटन दबाकर, पहले catima.zip फाइल को बनाये।</string>
+    <string name="importCatimaMessage">आयात करने के लिए Catima से अपना निर्यात चुनें।\nइसे किसी अन्य Catima ऐप के आयात/निर्यात मेनू से \"निर्यात\" दबाकर बनाएँ।</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> चयनितहुए</item>
         <item quantity="other"><xliff:g>%d</xliff:g> चयनित किए गए</item>
@@ -118,19 +113,19 @@
         <item quantity="other"><xliff:g>%d</xliff:g> कार्डो</item>
     </plurals>
     <string name="group_updated">समूह अपडेट किया गया</string>
-    <string name="failedOpeningFileManager">पहले एक फाइल मैनेजर इनस्टॉल करें.</string>
+    <string name="failedOpeningFileManager">फ़ाइल मैनेजर खोलने में विफल</string>
     <string name="leaveWithoutSaveConfirmation">बिना सुरक्षित (सेव)किये छोड़े?</string>
     <string name="addManually">बारकोड को मैन्युअल रूप से दर्ज करें</string>
     <string name="editGroup">समूह संपादन: <xliff:g>%s</xliff:g></string>
     <string name="points">पॉइंट्स</string>
     <string name="chooseImportType">यहाँ से डेटा का आयात करें</string>
-    <string name="privacy_policy">निजता नीति</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
     <string name="importCatima">कैटिमा से आयात करें</string>
     <string name="app_license">कॉपीलेफ्ट लिबर सॉफ्टवेयर, GPLv3+ लाइसेंस प्राप्त</string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> के बारे में</string>
     <string name="debug_version_fmt">संस्करण: <xliff:g id="version">%s</xliff:g></string>
     <string name="cameraPermissionRequired">इस क्रिया के लिए कैमरा की अनुमति चाहिए…</string>
-    <string name="permissionReadCardsLabel">केटीमा कार्ड्स पढ़ें</string>
+    <string name="permissionReadCardsLabel">कैटीमा कार्ड्स पढ़ें</string>
     <string name="storageReadPermissionRequired">इस क्रिया के लिए स्टोरेज पढ़ने की अनुमति आवश्यक है…</string>
     <string name="permissionReadCardsDescription">अपने केटीमा कार्ड और सभी विवरण, सहित नोट्स और छवियों को पढ़ें</string>
     <string name="balanceParsingFailed">अमान्य शेष राशि</string>
@@ -154,8 +149,8 @@
     <string name="balanceSentence">शेष राशि: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">कार्ड देखते समय स्क्रीन का लॉक हो जाना बंद करें</string>
     <string name="expiryStateSentenceExpired">समय अवधि समाप्त: <xliff:g>%s</xliff:g></string>
-    <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">लिब्रे तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट बंद करें</string>
     <string name="removeImage">छवि हटाएं</string>
     <string name="setBackImage">पीछे की छवि सेट करें</string>
@@ -188,7 +183,7 @@
     <string name="settings_catima_theme">कैटिमा</string>
     <string name="options">विकल्प</string>
     <string name="settings_magenta_theme">मैजेंटा</string>
-    <string name="failedGeneratingShareURL">साझा करने योग्य URL जनरेट नहीं किया जा सकता. कृपया इसकी रिपोर्ट करें।</string>
+    <string name="failedGeneratingShareURL">साझा करने योग्य URL जनरेट नहीं किया जा सकता. कृपया इसकी रिपोर्ट करें</string>
     <string name="sort_by_most_recently_used">सबसे हाल ही में उपयोग किया गया</string>
     <string name="settings_theme_color">थीम का रंग</string>
     <string name="settings_sky_blue_theme">आसमानी नीला (हल्का नीला)</string>
@@ -214,9 +209,8 @@
     <string name="app_contributors">इनके द्वारा संभव बनाया गया: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">क्रमबद्ध करें</string>
     <string name="show_note">नोट दिखाएँ</string>
-    <string name="settings_follow_sensor_orientation">हमेशा घुमाएँ (सिस्टम सेटिंग्स को अनदेखा करें)</string>
-    <string name="importFidmeMessage">आयात करने के लिए FidMe से अपना <i>fidme-export-request-xxxxxx.zip</i> निर्यात चुनें, और बाद में मैन्युअल रूप से बारकोड प्रकार चुनें।\nडेटा सुरक्षा चुनकर और फिर पहले मेरा डेटा निकालें दबाकर इसे अपनी FidMe प्रोफ़ाइल से बनाएं।</string>
-    <string name="importLoyaltyCardKeychainMessage">आयात करने के लिए लॉयल्टी कार्ड कीचेन से अपना <i>LoyaltyCardKeychen.csv</i> निर्यात चुनें।\nपहले वहां एक्सपोर्ट दबाकर लॉयल्टी कार्ड कीचेन में आयात/निर्यात मेनू से इसे बनाएं।</string>
+    <string name="importFidmeMessage">आयात करने के लिए FidMe से अपना निर्यात चुनें, और उसके बाद मैन्युअल रूप से बारकोड प्रकार चुनें।\nडेटा सुरक्षा चुनकर और फिर मेरा डेटा निकालें दबाकर इसे अपनी FidMe प्रोफ़ाइल से बनाएँ।</string>
+    <string name="importLoyaltyCardKeychainMessage">आयात करने के लिए Loyalty Card Keychain से अपना निर्यात चुनें।\nइसे लॉयल्टी कार्ड कीचेन में आयात/निर्यात मेनू से निर्यात बटन दबाकर बनाएँ।</string>
     <string name="updateBarcodeQuestionText">आपने आईडी बदल दी. क्या आप समान मान का उपयोग करने के लिए बारकोड को भी अपडेट करना चाहते हैं?</string>
     <string name="exportPassword">अपने निर्यात की सुरक्षा के लिए एक पासवर्ड सेट करें (वैकल्पिक)</string>
     <string name="turn_flashlight_off">टॉर्च बंद करें</string>
@@ -224,7 +218,7 @@
     <string name="showMoreInfo">जानकारी दिखाएँ</string>
     <string name="updateBalance">शेष राशि अद्यतन (अपडेट) करें</string>
     <string name="failedToRetrieveImageFile">छवि फ़ाइल पुनः प्राप्त करने में विफल</string>
-    <string name="version_history">संस्करण इतिहास</string>
+    <string name="version_history">वर्जन तिहास</string>
     <string name="archive">पुरालेख/संग्रहित (Archive)</string>
     <string name="archived">कार्ड संग्रहीत (Archived)</string>
     <string name="barcodeLongPressMessage">गैलरी ऐप में केवल छवियां ही खोली जा सकती हैं</string>
@@ -244,10 +238,10 @@
     <string name="manually_enter_barcode_instructions">अपने कार्ड पर आईडी नंबर या टेक्स्ट दर्ज करें और अपने कार्ड पर मौजूद बारकोड की तरह दिखने वाले बारकोड को दबाएं।</string>
     <string name="welcome">कैटिमा में आपका स्वागत है</string>
     <string name="previousCard">पिछला</string>
-    <string name="failedLaunchingPhotoPicker">कोई समर्थित गैलरी ऐप नहीं मिल सका</string>
+    <string name="failedLaunchingPhotoPicker">समर्थित छवि चयनकर्ता नहीं मिल सका</string>
     <string name="reverse">...उल्टे क्रम में</string>
     <string name="height">ऊँचाई</string>
-    <string name="importVoucherVaultMessage">आयात करने के लिए वाउचर वॉल्ट से अपना <i>vouchervault.json</i> निर्यात चुनें।\nसबसे पहले वाउचर वॉल्ट में एक्सपोर्ट दबाकर इसे बनाएं।</string>
+    <string name="importVoucherVaultMessage">आयात करने के लिए वाउचर वॉल्ट से अपना निर्यात चुनें।\nवाउचर वॉल्ट में एक्सपोर्ट दबाकर इसे बनाएं।</string>
     <string name="turn_flashlight_on">टॉर्च चालू करें</string>
     <string name="sort_by_name">नाम</string>
     <string name="credits">आभार</string>
@@ -260,8 +254,8 @@
     <string name="switchToFrontImage">सामने वाली छवि पर स्विच करें</string>
     <string name="switchToBackImage">पिछली छवि पर स्विच करें</string>
     <string name="switchToBarcode">बारकोड पर स्विच करें</string>
-    <string name="openFrontImageInGalleryApp">गैलरी ऐप में सामने वाली छवि खोलें</string>
-    <string name="openBackImageInGalleryApp">गैलरी ऐप में पिछली छवि खोलें</string>
+    <string name="openFrontImageInGalleryApp">इमेज दर्शक सामने वाली इमेज खोलें</string>
+    <string name="openBackImageInGalleryApp">पिछली इमेज खोलें</string>
     <string name="setBarcodeHeight">बारकोड ऊंचाई सेट करें</string>
     <string name="icon_header_click_text">छोटी छवि (थंबनेल) संपादित करने के लिए देर तक दबाएँ</string>
     <string name="enter_card_id">अपने कार्ड पर आईडी नंबर या टेक्स्ट दर्ज करें</string>
@@ -275,7 +269,7 @@
     <string name="pageWithNumber">पेज <xliff:g>%d</xliff:g></string>
     <string name="addFromPdfFile">एक PDF फाइल चुनें</string>
     <string name="errorReadingFile">फाइल को पढ़ा नहीं जा सका</string>
-    <string name="failedLaunchingFileManager">समर्थित फाइल प्रबंधक नहीं मिल सका</string>
+    <string name="failedLaunchingFileManager">समर्थित फाइल मैनेजर नहीं मिल सका</string>
     <string name="noCameraFoundGuideText">ऐसा लगता है कि आपके डिवाइस में कैमरा नहीं है। अगर है, तो डिवाइस को रीबूट करने का प्रयास करें। अन्यथा, किसी अन्य तरीके से बारकोड जोड़ने के लिए नीचे दिए गए अधिक विकल्प बटन का उपयोग करें।</string>
     <string name="importCancelled">आयात रद्द</string>
     <string name="exportCancelled">निर्यात रद्द</string>
@@ -283,11 +277,11 @@
     <string name="useBackImage">पीछे की छवि का उपयोग करें</string>
     <string name="width">चौड़ाई</string>
     <string name="setBarcodeWidth">बारकोड की चौड़ाई सेट करें</string>
-    <string name="generic_error_please_retry">क्षमा करें, कुछ ग़लत हो गया, कृपया पुनः प्रयास करें..।</string>
+    <string name="generic_error_please_retry">क्षमा करें, कुछ ग़लत हो गया</string>
     <string name="settings_use_volume_keys_navigation_summary">कौन सा कार्ड प्रदर्शित किया जाए, यह बदलने के लिए वॉल्यूम बटन का उपयोग करें</string>
     <string name="sort_by_valid_from">मान्य तिथि के अनुसार</string>
     <string name="settings_use_volume_keys_navigation">वॉल्यूम से कार्ड बदलें</string>
-    <string name="addFromPkpass">पासबुक फ़ाइल चुनें (.pkpass)</string>
+    <string name="addFromPkpass">पासबुक फ़ाइल चुनें (.pkpass/.pkpasses)</string>
     <string name="unsupportedFile">यह फ़ाइल समर्थित नहीं है</string>
     <string name="settings_category_title_cards_overview">कार्ड अवलोकन</string>
     <string name="settings_column_count_2">2</string>
@@ -302,4 +296,6 @@
     <string name="settings_column_count_7">7</string>
     <string name="card_list_widget_name">कार्ड सूची</string>
     <string name="card_list_widget_empty">कैटिमा में कुछ लॉयल्टी कार्ड जोड़ने के बाद, वे यहाँ दिखाई देंगे। अगर आपके पास कार्ड हैं, तो सुनिश्चित करें कि वे सभी संग्रहित न हों।</string>
+    <string name="cardWithNumber">कार्ड <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">कार्ड <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

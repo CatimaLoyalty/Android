@@ -161,22 +161,6 @@
         <item>zh-rTW</item>
     </string-array>
 
-    <string-array name="card_orientation_values">
-        <item>@string/settings_key_follow_system_orientation</item>
-        <item>@string/settings_key_follow_sensor_orientation</item>
-        <item>@string/settings_key_lock_on_opening_orientation</item>
-        <item>@string/settings_key_portrait_orientation</item>
-        <item>@string/settings_key_landscape_orientation</item>
-    </string-array>
-
-    <string-array name="card_orientation_values_strings">
-        <item>@string/settings_follow_system_orientation</item>
-        <item>@string/settings_follow_sensor_orientation</item>
-        <item>@string/settings_lock_on_opening_orientation</item>
-        <item>@string/settings_portrait_orientation</item>
-        <item>@string/settings_landscape_orientation</item>
-    </string-array>
-
     <array name="letter_tile_colors">
         <item>#f16364</item>
         <item>#f58559</item>

@@ -1,2 +1,2 @@
-- मुख्य स्क्रीन से एक संवाद संवाद खोला जा सकता है, जो GitHub पर एप्लिकेशन और प्रोजेक्ट के बारे में विवरण देता है (अंक #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- मुख्य स्क्रीन से एक संवाद खोला जा सकता है, जो GitHub पर एप्लिकेशन और प्रोजेक्ट के बारे में विवरण देता है (अंक #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
 - लॉयल्टी कार्ड की जानकारी को बाहरी स्टोरेज में CSV फ़ाइल से आयात/निर्यात करने की अनुमति दें (अंक #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), अंक #20 (https: //github.com/brarcher/loyalty-card-locker/issues/20))

@@ -192,11 +192,6 @@
     <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
     <string name="previousCard">Sebelumnya</string>
     <string name="nextCard">Berikutnya</string>
-    <string name="settings_card_orientation">Orientasi layar</string>
-    <string name="settings_follow_system_orientation">Ikuti sistem</string>
-    <string name="settings_portrait_orientation">Potret</string>
-    <string name="settings_landscape_orientation">Lanskap</string>
-    <string name="settings_lock_on_opening_orientation">Kunci ke orientasi yang digunakan saat membuka kartu</string>
     <plurals name="balancePoints">
         <item quantity="other"><xliff:g>%s</xliff:g> poin</item>
     </plurals>
@@ -263,7 +258,6 @@
     <string name="addWithoutBarcode">Tambah kartu tanpa barcode</string>
     <string name="field_must_not_be_empty">Isian tidak boleh kosong</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Selalu rotasi (abaikan pengaturan sistem)</string>
     <string name="add_manually_warning_title">Pemindaian sangat dianjurkan</string>
     <string name="continue_">Lanjut</string>
     <string name="failedLaunchingFileManager">Tidak dapat menemukan pengelola file yang didukung</string>

@@ -93,16 +93,6 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
-        <ListPreference
-            android:defaultValue="@string/settings_key_follow_system_orientation"
-            android:entries="@array/card_orientation_values_strings"
-            android:entryValues="@array/card_orientation_values"
-            android:key="@string/settings_key_card_orientation"
-            android:title="@string/settings_card_orientation"
-            app:iconSpaceReserved="false"
-            app:singleLineTitle="false"
-            app:useSimpleSummaryProvider="true" />
-
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"

@@ -2,23 +2,20 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="settings_display_barcode_max_brightness">Gör skärmen ljusare</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
-    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
-\nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
+    <string name="importFidmeMessage">Välj den exporterade från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.\nSkapa den från din FidMe-profil genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
     <string name="intent_import_card_from_url_share_text">Jag vill dela ett kort med dig</string>
-    <string name="noGroups">Klicka på plus(+)-knappen för att lägga till kategorigrupper.</string>
+    <string name="noGroups">Klicka på plus(+)-knappen för att lägga till kategorigrupper</string>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="errorReadingImage">Kunde inte läsa bilden</string>
     <string name="currency">Valuta</string>
-    <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL. Var snäll och rapportera detta.</string>
+    <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valda</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Nyckelring för bonuskort</string>
-    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera.
-\nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
-    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera.
-\nSkapa den först genom att trycka på Exportera i Voucher Vault.</string>
+    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade från Loyalty Card Keychain som du vill importera.\nSkapa den från Import/Export-menyn i Loyalty Card Keychain genom att trycka på Exportera.</string>
+    <string name="importVoucherVaultMessage">Välj den exporterade från Voucher Vault som du vill importera. \nSkapa den genom att trycka på Exportera i Voucher Vault.</string>
     <string name="enter_group_name">Ange gruppnamn</string>
     <string name="groups">Grupper</string>
     <plurals name="groupCardCount">
@@ -47,7 +44,7 @@
     <string name="importLoyaltyCardKeychain">Importera från Loyalty Card Keychain</string>
     <string name="importVoucherVault">Importera från Voucher Vault</string>
     <string name="barcodeId">Streckkodsvärde</string>
-    <string name="passwordRequired">Var snäll och ange lösenordet</string>
+    <string name="passwordRequired">Ange lösenordet</string>
     <string name="no">Nej</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Du ändrade ID:t. Vill du uppdatera streckkoden så att den också använder samma värde\?</string>
@@ -78,7 +75,7 @@
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="about">Om</string>
     <string name="importOptionFilesystemButton">Från filsystemet</string>
-    <string name="importOptionFilesystemExplanation">Välj en specifik fil från filsystemet.</string>
+    <string name="importOptionFilesystemExplanation">Välj en specifik fil från filsystemet</string>
     <string name="importOptionFilesystemTitle">Importera från filsystem</string>
     <string name="exporting">Exporterar…</string>
     <string name="importing">Importerar…</string>
@@ -86,7 +83,7 @@
     <string name="importFailed">Kunde inte genomföra import</string>
     <string name="importSuccessfulTitle">Importen lyckades</string>
     <string name="importFailedTitle">Importen misslyckades</string>
-    <string name="importExportHelp">Säkerhetskopiering av din data möjliggör förflyttning av den till en annan enhet.</string>
+    <string name="importExportHelp">Säkerhetskopiering av din data möjliggör förflyttning av den till en annan enhet</string>
     <string name="importExport">Importera/Exportera</string>
     <string name="noCardExistsError">Kunde inte hitta det kortet</string>
     <string name="noCardsMessage">Lägg till ett kort först</string>
@@ -118,10 +115,10 @@
     <string name="cardId">Kort-ID</string>
     <string name="storeName">Namn</string>
     <string name="noMatchingGiftCards">Inget resultat. Försök justera din sökning.</string>
-    <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera från ⋮-menyn.</string>
+    <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera från ⋮-menyn</string>
     <string name="action_add">Lägg till</string>
     <string name="action_search">Sök</string>
-    <string name="exportOptionExplanation">Datan kommer att sparas till en plats som du väljer.</string>
+    <string name="exportOptionExplanation">Datan kommer att sparas till en plats som du väljer</string>
     <string name="exportName">Exportera</string>
     <string name="exportFailedTitle">Exporten misslyckades</string>
     <string name="exportSuccessfulTitle">Exporten lyckades</string>
@@ -133,13 +130,12 @@
     <string name="expiryDate">Förfallodatum</string>
     <string name="starImage">Favoritstjärna</string>
     <string name="app_license">Copyleftad fri programvara, under GPLv3+-licens</string>
-    <string name="app_resources">Fria tredjepartsresurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Fria tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Tredjepartsresurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
-    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera.
-\nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
+    <string name="importCatimaMessage">Välj den exporterade från Catima som du vill importera.\nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera.</string>
     <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Data exporterad</string>
     <string name="importSuccessful">Data importerad</string>
@@ -178,13 +174,13 @@
     <string name="group_updated">Gruppen har uppdaterats</string>
     <string name="group_edit">Redigera grupp</string>
     <string name="group_name_already_in_use">Gruppnamnet är redan upptaget</string>
-    <string name="group_name_is_empty">Gruppnamn måste anges</string>
+    <string name="group_name_is_empty">Gruppnamnet får inte vara tomt</string>
     <string name="editGroup">Redigerar grupp: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Välj färg</string>
     <string name="setIcon">Ställ in miniatyr</string>
     <string name="credits">Bidragsgivare</string>
     <string name="source_repository">Källkodslager</string>
-    <string name="noGiftCardsGroup">Skapa några kort och placera dem sedan i den här gruppen.</string>
+    <string name="noGiftCardsGroup">Skapa några kort och placera dem sedan i den här gruppen</string>
     <string name="translate_platform">på Weblate</string>
     <string name="shortcutSelectCard">Välj ett kort</string>
     <string name="showMoreInfo">Visa info</string>
@@ -197,13 +193,8 @@
     <string name="include_if_asking_support">Om du vill be om hjälp, inkludera då följande information:</string>
     <string name="settings_oled_dark">Helsvart bakgrund för mörkt tema</string>
     <string name="failedLaunchingPhotoPicker">Kunde inte hitta kompatibelt bildprogram</string>
-    <string name="settings_card_orientation">Streckkodsriktning</string>
-    <string name="settings_portrait_orientation">Porträtt</string>
-    <string name="settings_landscape_orientation">Landskap</string>
-    <string name="settings_lock_on_opening_orientation">Lås aktuell riktning när kort öppnas</string>
     <string name="unarchive">Ta tillbaks från arkiv</string>
     <string name="archived">Kort arkiverat</string>
-    <string name="settings_follow_system_orientation">Spårsystem</string>
     <string name="duplicateCard">Kopiera</string>
     <string name="unarchived">Kort återläst från arkiv</string>
     <string name="nextCard">Nästa</string>
@@ -228,7 +219,7 @@
     <string name="updateBalance">Uppdatera balans</string>
     <string name="failedToRetrieveImageFile">Misslyckades att hämta bildfil</string>
     <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleri app</string>
-    <string name="updateBalanceTitle">Hur mycket spenderade du?</string>
+    <string name="updateBalanceTitle">Hur mycket spenderade du eller fick du?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
     <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i galleri-appen</string>
@@ -269,7 +260,6 @@
     <string name="addWithoutBarcode">Lägg till kort utan streckkod</string>
     <string name="field_must_not_be_empty">Obligatoriskt fält</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Rotera automatiskt (ignorerar systeminställningar)</string>
     <string name="continue_">Fortsätt</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
@@ -294,12 +284,16 @@
     <string name="settings_column_count_portrait">Kolumner i porträttläge</string>
     <string name="settings_column_count_landscape">Kolumner i landskapsläge</string>
     <string name="pageWithNumber">Sida <xliff:g>%d</xliff:g></string>
-    <string name="useFrontImage">Använd bilden på framsidan</string>
-    <string name="useBackImage">Använd bilden på baksidan</string>
+    <string name="useFrontImage">Använd den främre bilden</string>
+    <string name="useBackImage">Använd bakgrundsbild</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Vilka av de hittade streckkoderna vill du använda?</string>
     <string name="card_list_widget_name">Kortlista</string>
     <string name="width">Bredd</string>
     <string name="sort_by_valid_from">Giltigt från</string>
     <string name="unsupportedFile">Den här filen stöds inte</string>
-    <string name="addFromPkpass">Välj en Passbook-fil (.pkpass)</string>
+    <string name="addFromPkpass">Välj en Passbook-fil (.pkpass / .pkpasses)</string>
+    <string name="settings_category_title_cards_overview">Kortöversikt</string>
+    <string name="generic_error_please_retry">Ett fel uppstod</string>
+    <string name="cardWithNumber">Kort <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kort <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

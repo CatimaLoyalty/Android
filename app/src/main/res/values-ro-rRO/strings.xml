@@ -105,7 +105,6 @@
     <string name="help_translate_this_app">Ajutați la traducerea aplicației</string>
     <string name="sort_by_expiry">Expirare</string>
     <string name="add_a_card_in_a_different_way">Adăugați un card într-o altă modalitate</string>
-    <string name="settings_portrait_orientation">Portret</string>
     <string name="takePhoto">Faceți o poză</string>
     <string name="validFromDate">Valid de la data de</string>
     <string name="cameraPermissionDeniedTitle">Camera nu a putut fi accesată</string>
@@ -118,7 +117,6 @@
     <string name="backImageDescription">Imagine din spate</string>
     <string name="view_online">Vizualizați online</string>
     <string name="noCameraPermissionDirectToSystemSetting">Pentru a scana codurile de bare, Catima necesită acces la cameră. Apăsați aici pentru a schimba setările permisiunilor dvs.</string>
-    <string name="settings_lock_on_opening_orientation">Blocați orientația folosită când deschideți cardul</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_on">Porniți lanterna</string>
     <string name="height">Înălțime</string>
@@ -173,7 +171,6 @@
     <string name="show_note">Afișați notița</string>
     <string name="report_error">Raportați o eroare</string>
     <string name="switchToBackImage">Comutați către imaginea din spate</string>
-    <string name="settings_follow_system_orientation">Urmează setările sistemului</string>
     <string name="reverse">...în ordine inversă</string>
     <string name="settings_brown_theme">Maro</string>
     <string name="app_contributors">Făcut posibil de: <xliff:g id="app_contributors">%s</xliff:g></string>
@@ -200,7 +197,6 @@
     <string name="failedGeneratingShareURL">Nu s-a putut genera un URL partajabil. Vă rugăm să raportați aceasta eroare.</string>
     <string name="selectColor">Selectați o culoare</string>
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
-    <string name="settings_landscape_orientation">Orizontal</string>
     <string name="privacy_policy">Politica de Confidențialitate</string>
     <string name="openBackImageInGalleryApp">Deschideți imaginea din spate în aplicația galerie</string>
     <string name="settings_system_locale">Sistem</string>
@@ -238,7 +234,6 @@
     <string name="settings_violet_theme">Mov</string>
     <string name="include_if_asking_support">Dacă doriți să cereți ajutor, includeți informațiile următoare:</string>
     <string name="show_archived_cards">Afișați cardurile arhivate</string>
-    <string name="settings_card_orientation">Orientare ecran</string>
     <string name="app_libraries">Listă de biblioteci libere de la terți: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Cât de mult ați cheltuit sau primit?</string>
     <string name="settings_blue_theme">Albastru</string>
@@ -271,7 +266,6 @@
     <string name="settings_keep_screen_on_summary">Dezactivează temporizatorul de ecran când vizualizați un card</string>
     <string name="rate_this_app">Acordați o recenzie acestei aplicații</string>
     <string name="credits">Contribuitori</string>
-    <string name="settings_follow_sensor_orientation">Rotește întotdeauna (ignora setările de sistem)</string>
     <string name="continue_">Continua</string>
     <string name="add_manually_warning_title">Se recomandă scanarea</string>
     <string name="add_manually_warning_message">Pentru unele magazine, valoarea codului de bare diferă de numărul scris pe card. Din acest motiv, este posibil ca introducerea manuală a unui cod de bare să nu funcționeze întotdeauna. În schimb, este recomandat să scanați codul de bare cu camera dvs. Mai vrei să continui?</string>

@@ -353,4 +353,9 @@
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
+    <string name="acra_catima_has_crashed">We\'re sorry, but <xliff:g id="app_name">%s</xliff:g> has crashed. Please help us fix this issue by sending us an error report.</string>
+    <string name="acra_explain_crash">If possible, please add more details on what you were doing here:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> crash report</string>
+    <string name="pref_enable_acra">Ask to send crash reports</string>
+    <string name="pref_enable_acra_summary">When enabled, you will be asked to report a crash when it happens. Crash reports are never sent automatically.</string>
 </resources>

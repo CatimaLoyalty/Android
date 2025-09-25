@@ -44,6 +44,15 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false"
             app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:widgetLayout="@layout/preference_material_switch"
+            android:defaultValue="true"
+            android:key="acra.enable"
+            android:title="@string/pref_enable_acra"
+            android:summary="@string/pref_enable_acra_summary"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false"/>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -124,7 +133,6 @@
             android:title="@string/settings_allow_content_provider_read_title"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>

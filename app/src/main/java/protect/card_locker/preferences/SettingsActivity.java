@@ -24,6 +24,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import protect.card_locker.BuildConfig;
 import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.MainActivity;
 import protect.card_locker.R;
@@ -193,6 +194,11 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             Preference contentProviderReadPreference = findPreference(getResources().getString(R.string.settings_key_allow_content_provider_read));
             assert contentProviderReadPreference != null;
             contentProviderReadPreference.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+
+            // Hide crash reporter settings on builds it's not enabled on
+            Preference crashReporterPreference = findPreference("acra.enable");
+            assert crashReporterPreference != null;
+            crashReporterPreference.setVisible(BuildConfig.useAcraCrashReporter);
         }
 
         private void refreshActivity(boolean reloadMain) {

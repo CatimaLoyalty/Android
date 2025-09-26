@@ -305,4 +305,10 @@
     <string name="card_list_widget_empty">Après avoir ajouter des cartes de fidélité dans Catima, elles apparaîtront ici. Si vous avez des cartes, assurez-vous qu\'elles ne soient pas archivées.</string>
     <string name="cardWithNumber">Carte <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Carte <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Merci de ne pas tourner l\'écran, car cela annulera l\'action</string>
+    <string name="acra_catima_has_crashed">Nous sommes désolé, <xliff:g id="app_name">%s</xliff:g> a planté. Merci de nous aider à corriger ce souci en nous envoyant un rapport d\'erreur.</string>
+    <string name="acra_explain_crash">Si possible, merci d\'ajouter plus de détails sur ce que vous étiez en train de faire :</string>
+    <string name="acra_crash_email_subject">Rapport de plantage de <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Demander pour envoyer des rapports de plantage</string>
+    <string name="pref_enable_acra_summary">Quand activé, il vous sera demandé d\'envoyer un rapport de plantage en cas de plantage. Les rapports de plantage ne sont jamais envoyés automatiquement.</string>
 </resources>

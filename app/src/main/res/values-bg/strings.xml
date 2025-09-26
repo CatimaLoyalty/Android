@@ -299,4 +299,6 @@
     <string name="card_list_widget_empty">Когато добавите карти в Catima те ще се покажат тук. Ако имате карти уверете се, че са извън архива.</string>
     <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Не завъртайте устройството, защото това ще прекъсне действието</string>
+    <string name="acra_catima_has_crashed">За съжаление <xliff:g id="app_name">%s</xliff:g> се срина. Помогнете ни да оправим проблема като ни изпратите доклад за грешката.</string>
 </resources>

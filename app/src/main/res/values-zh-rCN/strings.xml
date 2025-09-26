@@ -293,4 +293,10 @@
     <string name="card_list_widget_empty">在 Catima 中添加了一些会员卡后，它们会出现在这里。如果你有卡片，确保不是所有都已归档。</string>
     <string name="cardWithNumber">卡<xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">卡 <xliff:g>%d</xliff:g> （<xliff:g>%s</xliff:g>）</string>
+    <string name="pleaseDoNotRotateTheDevice">请不要旋转设备，这样做会取消操作</string>
+    <string name="acra_catima_has_crashed">抱歉，但 <xliff:g id="app_name">%s</xliff:g>崩溃了。请发送错误报告帮助修复这个问题。</string>
+    <string name="acra_explain_crash">如有可能，请添加崩溃发生时你在进行什么操作的更多细节：</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> 崩溃报告</string>
+    <string name="pref_enable_acra">请求发送崩溃报告</string>
+    <string name="pref_enable_acra_summary">开启后，会在发生崩溃时请求报告崩溃。应用永远不会自动发送崩溃报告。</string>
 </resources>

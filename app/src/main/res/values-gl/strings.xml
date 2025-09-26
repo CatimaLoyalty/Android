@@ -298,4 +298,10 @@
     <string name="card_list_widget_empty">Aquí aparecerán as tarxetas fidelidade cando as engadas a Catima. Se tes tarxetas mira que non estean arquivadas.</string>
     <string name="cardWithNumber">Tarxeta <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Tarxeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Por favor non rotes o dispositivo, porque isto cancelará a acción</string>
+    <string name="acra_catima_has_crashed">Lamentámolo, pero <xliff:g id="app_name">%s</xliff:g> fallou. Axúdanos a resolver a incidencia enviando un informe co erro.</string>
+    <string name="acra_explain_crash">Se é posible engade algún detalle máis como o que estabas a facer:</string>
+    <string name="acra_crash_email_subject">Informe do fallo de <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Solicitar informar sobre os fallos</string>
+    <string name="pref_enable_acra_summary">Se está activo, váiseche pedir informar sobre os fallos cando acontezan. Os informes nunca se envían automaticamente.</string>
 </resources>

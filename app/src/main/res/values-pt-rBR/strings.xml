@@ -305,4 +305,10 @@
     <string name="card_list_widget_empty">Depois que você adicionar alguns cartões de fidelidade no Catima, eles aparecerão aqui. Se você tiver cartões, verifique se eles não estão todos arquivados.</string>
     <string name="cardWithNumber">Cartão <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Cartão <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Não gire o dispositivo, pois isso cancelará a ação</string>
+    <string name="acra_catima_has_crashed">Lamentamos, mas o <xliff:g id="app_name">%s</xliff:g> travou. Ajude-nos a corrigir esse problema enviando um relatório de erro.</string>
+    <string name="acra_explain_crash">Se possível, acrescente mais detalhes sobre o que você estava fazendo aqui:</string>
+    <string name="acra_crash_email_subject">Relatório de falha em <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Solicitar o envio de relatórios de falhas</string>
+    <string name="pref_enable_acra_summary">Quando ativado, você será solicitado a relatar uma falha quando isto ocorrer. Os relatórios de falhas nunca são enviados automaticamente.</string>
 </resources>

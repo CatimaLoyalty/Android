@@ -311,4 +311,10 @@
     <string name="card_list_widget_empty">После добавления карт лояльности в Catima, они появятся здесь. Если у вас есть карты, убедитесь, что они не архивированы.</string>
     <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Не поворачивайте устройство, так как это отменит действие</string>
+    <string name="acra_catima_has_crashed">К сожалению, в <xliff:g id="app_name">%s</xliff:g> произошёл сбой. Помогите исправить проблему, отправив нам отчёт об ошибке.</string>
+    <string name="acra_explain_crash">Если возможно, добавьте больше информации о том, что произошло:</string>
+    <string name="acra_crash_email_subject">Отчёт об ошибке в <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Запрашивать отправку отчётов об ошибках</string>
+    <string name="pref_enable_acra_summary">Если включено, то в случае сбоя вам будет предложено отправить отчёт о нём. Отчёты никогда не отправляются автоматически.</string>
 </resources>

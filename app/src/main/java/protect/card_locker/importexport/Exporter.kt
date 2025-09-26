@@ -13,7 +13,7 @@ interface Exporter {
     /**
      * Export the database to the output stream in a given format.
      *
-     * @throws IOException
+     * @throws IOException, InterruptedException
      */
     @Throws(IOException::class, InterruptedException::class)
     fun exportData(

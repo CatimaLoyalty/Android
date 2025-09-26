@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -127,10 +128,10 @@ public class CatimaImporter implements Importer {
             LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
             if (existing == null) {
                 DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                        card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                        card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
             } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
                 long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                        card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                        card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
             }
         }
@@ -458,6 +459,12 @@ public class CatimaImporter implements Importer {
             barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
         }
 
+        Charset barcodeEncoding = null;
+        String unparsedBarcodeEncoding = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING, record, "");
+        if (!unparsedBarcodeEncoding.isEmpty()) {
+            barcodeEncoding = Charset.forName(unparsedBarcodeEncoding);
+        }
+
         Integer headerColor = null;
         try {
             headerColor = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record);
@@ -501,6 +508,7 @@ public class CatimaImporter implements Importer {
                 cardId,
                 barcodeId,
                 barcodeType,
+                barcodeEncoding,
                 headerColor,
                 starStatus,
                 lastUsed,

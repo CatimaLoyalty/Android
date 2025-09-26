@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,7 +74,7 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, null,  index, 1, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -81,7 +82,7 @@ public class ImportExportTest {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, null, index, 0, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -90,7 +91,7 @@ public class ImportExportTest {
 
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, 0, null,0);
         boolean result = (id != -1);
         assertTrue(result);
 
@@ -104,10 +105,11 @@ public class ImportExportTest {
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -121,10 +123,11 @@ public class ImportExportTest {
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -139,12 +142,13 @@ public class ImportExportTest {
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -158,6 +162,7 @@ public class ImportExportTest {
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -188,6 +193,7 @@ public class ImportExportTest {
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
             assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(null, card.barcodeEncoding);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(0, card.starStatus);
 
@@ -219,6 +225,7 @@ public class ImportExportTest {
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
             assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(null, card.barcodeEncoding);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(0, card.starStatus);
         }
@@ -250,6 +257,7 @@ public class ImportExportTest {
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
             assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(null, card.barcodeEncoding);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(1, card.starStatus);
 
@@ -272,6 +280,7 @@ public class ImportExportTest {
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
             assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(null, card.barcodeEncoding);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(0, card.starStatus);
 
@@ -660,6 +669,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -686,6 +696,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -724,6 +735,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(null, card.barcodeType);
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -750,6 +762,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, card.starStatus);
 
@@ -776,6 +789,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -809,6 +823,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -830,7 +845,7 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
+        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.UTF_8, 1, 0, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
@@ -844,7 +859,7 @@ public class ImportExportTest {
         loyaltyCardIconImages.put(loyaltyCardId, bitmap1);
 
         // Create card 2
-        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
+        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, null, 2, 1, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
 
         // Export everything
@@ -875,6 +890,7 @@ public class ImportExportTest {
             assertEquals(loyaltyCard.barcodeId, dbLoyaltyCard.barcodeId);
             assertEquals(loyaltyCard.starStatus, dbLoyaltyCard.starStatus);
             assertEquals(loyaltyCard.barcodeType != null ? loyaltyCard.barcodeType.format() : null, dbLoyaltyCard.barcodeType != null ? dbLoyaltyCard.barcodeType.format() : null);
+            assertEquals(loyaltyCard.barcodeEncoding != null ? loyaltyCard.barcodeEncoding : null, dbLoyaltyCard.barcodeEncoding != null ? dbLoyaltyCard.barcodeEncoding : null);
             assertEquals(loyaltyCard.balanceType, dbLoyaltyCard.balanceType);
             assertEquals(loyaltyCard.headerColor, dbLoyaltyCard.headerColor);
 
@@ -930,7 +946,7 @@ public class ImportExportTest {
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
         assertEquals(ImportExportResultType.Success, result.resultType());
-        assertEquals(7, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals(8, DBHelper.getLoyaltyCardCount(mDatabase));
         assertEquals(3, DBHelper.getGroupCount(mDatabase));
 
         // Check all groups
@@ -961,6 +977,7 @@ public class ImportExportTest {
         assertEquals("1234", card1.cardId);
         assertEquals("5432", card1.barcodeId);
         assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType.format());
+        assertEquals(null, card1.barcodeEncoding);
         assertEquals(1, (long) card1.headerColor);
         assertEquals(0, card1.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageLocationType.front));
@@ -978,6 +995,7 @@ public class ImportExportTest {
         assertEquals("a", card8.cardId);
         assertEquals(null, card8.barcodeId);
         assertEquals(null, card8.barcodeType);
+        assertEquals(null, card8.barcodeEncoding);
         assertEquals(-5317, (long) card8.headerColor);
         assertEquals(0, card8.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageLocationType.front));
@@ -995,6 +1013,7 @@ public class ImportExportTest {
         assertEquals("A", card2.cardId);
         assertEquals(null, card2.barcodeId);
         assertEquals(null, card2.barcodeType);
+        assertEquals(null, card2.barcodeEncoding);
         assertEquals(-9977996, (long) card2.headerColor);
         assertEquals(0, card2.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageLocationType.front));
@@ -1012,6 +1031,7 @@ public class ImportExportTest {
         assertEquals("dhd", card3.cardId);
         assertEquals(null, card3.barcodeId);
         assertEquals(null, card3.barcodeType);
+        assertEquals(null, card3.barcodeEncoding);
         assertEquals(-9977996, (long) card3.headerColor);
         assertEquals(0, card3.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageLocationType.front));
@@ -1029,6 +1049,7 @@ public class ImportExportTest {
         assertEquals("dhshsvshs", card4.cardId);
         assertEquals(null, card4.barcodeId);
         assertEquals(null, card4.barcodeType);
+        assertEquals(null, card4.barcodeEncoding);
         assertEquals(-10902850, (long) card4.headerColor);
         assertEquals(1, card4.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageLocationType.front));
@@ -1046,6 +1067,7 @@ public class ImportExportTest {
         assertEquals("98765432", card5.cardId);
         assertEquals("23456", card5.barcodeId);
         assertEquals(BarcodeFormat.CODE_128, card5.barcodeType.format());
+        assertEquals(StandardCharsets.ISO_8859_1, card5.barcodeEncoding);
         assertEquals(-10902850, (long) card5.headerColor);
         assertEquals(0, card5.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageLocationType.front));
@@ -1063,11 +1085,30 @@ public class ImportExportTest {
         assertEquals("a", card6.cardId);
         assertEquals("-5317", card6.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card6.barcodeType.format());
+        assertEquals(null, card6.barcodeEncoding);
         assertEquals(null, card6.headerColor);
         assertEquals(0, card6.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageLocationType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageLocationType.back));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageLocationType.icon));
+
+        LoyaltyCard card9 = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 9);
+
+        assertEquals("cheese", card9.store);
+        assertEquals("", card9.note);
+        assertEquals(null, card9.validFrom);
+        assertEquals(null, card9.expiry);
+        assertEquals(new BigDecimal("0"), card9.balance);
+        assertEquals(null, card9.balanceType);
+        assertEquals("Käseschnitte", card9.cardId);
+        assertEquals(null, card9.barcodeId);
+        assertEquals(BarcodeFormat.AZTEC, card9.barcodeType.format());
+        assertEquals(StandardCharsets.UTF_8, card9.barcodeEncoding);
+        assertEquals(-5414233, (long) card9.headerColor);
+        assertEquals(0, card9.starStatus);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card9.id, ImageLocationType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card9.id, ImageLocationType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card9.id, ImageLocationType.icon));
 
         TestHelpers.getEmptyDb(activity);
     }
@@ -1092,6 +1133,7 @@ public class ImportExportTest {
         assertEquals("82825292629272726", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(null, card.barcodeType);
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(0, card.starStatus);
 
         card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 2);
@@ -1105,6 +1147,7 @@ public class ImportExportTest {
         assertEquals("123456", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(null, card.barcodeType);
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(0, card.starStatus);
 
         card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 3);
@@ -1118,6 +1161,7 @@ public class ImportExportTest {
         assertEquals("123435363634", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(null, card.barcodeType);
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(0, card.starStatus);
 
         TestHelpers.getEmptyDb(activity);
@@ -1143,6 +1187,7 @@ public class ImportExportTest {
         assertEquals("123456", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.CODE_128, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Color.GRAY, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -1157,6 +1202,7 @@ public class ImportExportTest {
         assertEquals("26846363", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.CODE_39, card.barcodeType.format());
+        assertEquals(null, card.barcodeEncoding);
         assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
         assertEquals(0, card.starStatus);
 

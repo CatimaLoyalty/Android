@@ -5,20 +5,21 @@ Health
 Food
 Fashion
 
-_id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus
-1,Card 1,Note 1,1601510400,1618053234,100,USD,1234,5432,1,QR_CODE,0,
-8,Clothes Store,Note about store,,,0,,a,,-5317,,0,
-2,Department Store,,,1618041729,0,,A,,-9977996,,0,
+_id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,barcodetype,barcodeencoding,headercolor,starstatus,lastused,archive
+4,Pharmacy,,,,0,,dhshsvshs,,,,-10902850,1,1766674633,0
+1,Card 1,Note 1,1601510400,1618053234,100,USD,1234,5432,QR_CODE,,1,0,1766674620,0
+9,cheese,,,,0,,Käseschnitte,,AZTEC,UTF-8,-5414233,0,1766674767,0
+8,Clothes Store,Note about store,,,0,,a,,,,-5317,0,1766674625,0
+2,Department Store,,,1618041729,0,,A,,,,-9977996,0,0,0
 3,Grocery Store,"Multiline note about grocery store
 
-with blank line",,,150,,dhd,,-9977996,,0,
-4,Pharmacy,,,,0,,dhshsvshs,,-10902850,,1,
-5,Restaurant,Note about restaurant here,,,0,,98765432,23456,-10902850,CODE_128,0,
-6,Shoe Store,,,,12.50,EUR,a,-5317,,AZTEC,0,
+with blank line",,,150,,dhd,,,,-9977996,0,1766674627,0
+5,Restaurant,Note about restaurant here,,,0,,98765432,23456,CODE_128,ISO-8859-1,-10902850,0,1766674774,0
+6,Shoe Store,,,,12.50,EUR,a,-5317,AZTEC,,,0,1766674629,0
 
 cardId,groupId
+4,Health
 8,Fashion
 3,Food
-4,Health
 5,Food
 6,Fashion

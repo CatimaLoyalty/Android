@@ -52,6 +52,7 @@ public class CardsContentProvider extends ContentProvider {
             LoyaltyCardDbIds.CARD_ID,
             LoyaltyCardDbIds.BARCODE_ID,
             LoyaltyCardDbIds.BARCODE_TYPE,
+            // FIXME: Expose BARCODE_ENCODING but without ever exposing the null value (so apps using this don't have to guess)
             LoyaltyCardDbIds.STAR_STATUS,
             LoyaltyCardDbIds.LAST_USED,
             LoyaltyCardDbIds.ARCHIVE_STATUS,

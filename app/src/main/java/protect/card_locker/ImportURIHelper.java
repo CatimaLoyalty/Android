@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import androidx.annotation.Nullable;
+
 import java.io.InvalidObjectException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Currency;
 import java.util.Date;
@@ -25,6 +28,7 @@ public class ImportURIHelper {
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_ID = DBHelper.LoyaltyCardDbIds.BARCODE_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
+    private static final String BARCODE_ENCODING = DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING;
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
 
     private final Context context;
@@ -66,6 +70,7 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             CatimaBarcode barcodeType = null;
+            Charset barcodeEncoding = null;
             Date validFrom = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
@@ -103,6 +108,11 @@ public class ImportURIHelper {
                 barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
             }
 
+            String unparsedBarcodeEncoding = kv.get(BARCODE_ENCODING);
+            if (unparsedBarcodeEncoding != null && !unparsedBarcodeEncoding.equals("")) {
+                barcodeEncoding = Charset.forName(unparsedBarcodeEncoding);
+            }
+
             String unparsedBalance = kv.get(BALANCE);
             if (unparsedBalance != null && !unparsedBalance.equals("")) {
                 balance = new BigDecimal(unparsedBalance);
@@ -136,6 +146,7 @@ public class ImportURIHelper {
                     cardId,
                     barcodeId,
                     barcodeType,
+                    barcodeEncoding,
                     headerColor,
                     0,
                     Utils.getUnixTime(),
@@ -194,6 +205,9 @@ public class ImportURIHelper {
 
         if (loyaltyCard.barcodeType != null) {
             fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.name());
+        }
+        if (loyaltyCard.barcodeEncoding != null) {
+            fragment = appendFragment(fragment, BARCODE_ENCODING, loyaltyCard.barcodeEncoding.name());
         }
         if (loyaltyCard.headerColor != null) {
             fragment = appendFragment(fragment, HEADER_COLOR, loyaltyCard.headerColor.toString());

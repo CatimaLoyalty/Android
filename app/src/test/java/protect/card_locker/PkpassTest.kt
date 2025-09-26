@@ -14,6 +14,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.shadows.ShadowContentResolver
 import org.robolectric.shadows.ShadowLog
 import java.math.BigDecimal
+import java.nio.charset.StandardCharsets
 import java.util.Date
 
 @RunWith(RobolectricTestRunner::class)
@@ -101,6 +102,7 @@ class PkpassTest {
         Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -167,6 +169,7 @@ class PkpassTest {
         Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -264,6 +267,7 @@ class PkpassTest {
             Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
             Assert.assertEquals(null, parsedCard.barcodeId)
             Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+            Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
             Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
             Assert.assertEquals(0, parsedCard.starStatus)
             Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -330,6 +334,7 @@ class PkpassTest {
             Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
             Assert.assertEquals(null, parsedCard.barcodeId)
             Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+            Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
             Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
             Assert.assertEquals(0, parsedCard.starStatus)
             Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -373,6 +378,7 @@ class PkpassTest {
         Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -395,6 +401,7 @@ class PkpassTest {
         Assert.assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A012D0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(BarcodeFormat.AZTEC, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -485,6 +492,7 @@ class PkpassTest {
         Assert.assertEquals("No barcode", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(null, parsedCard.barcodeType)
+        Assert.assertEquals(null, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -551,6 +559,7 @@ class PkpassTest {
         Assert.assertEquals("No barcode", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(null, parsedCard.barcodeType)
+        Assert.assertEquals(null, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#FFFFFF"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)
@@ -612,6 +621,7 @@ class PkpassTest {
         Assert.assertEquals("ca4phaix1ahkahD2eiVi5iepahxa6rei", parsedCard.cardId)
         Assert.assertEquals(null, parsedCard.barcodeId)
         Assert.assertEquals(BarcodeFormat.QR_CODE, parsedCard.barcodeType!!.format())
+        Assert.assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding)
         Assert.assertEquals(Color.parseColor("#0014e6"), parsedCard.headerColor)
         Assert.assertEquals(0, parsedCard.starStatus)
         Assert.assertEquals(0, parsedCard.archiveStatus)

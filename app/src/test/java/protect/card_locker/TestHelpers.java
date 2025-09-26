@@ -55,7 +55,7 @@ public class TestHelpers {
         for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, null, index, 0, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }

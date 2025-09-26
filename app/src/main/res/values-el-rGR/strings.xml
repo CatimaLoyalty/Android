@@ -181,7 +181,7 @@
     <string name="sameAsCardId">Όπως ο κωδικός</string>
     <string name="exportPassword">Προσθέστε έναν κωδικό για προστασία της εξαγωγής (προαιρετικά)</string>
     <string name="exportPasswordHint">Εισαγωγή κωδικού</string>
-    <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL.</string>
+    <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL</string>
     <string name="turn_flashlight_on">Ενεργοποίηση φακού</string>
     <string name="turn_flashlight_off">Απενεργοποίηση φακού</string>
     <string name="settings_locale">Γλώσσα</string>
@@ -299,4 +299,10 @@
     <string name="card_list_widget_name">Λίστα καρτών</string>
     <string name="cardWithNumber">Κάρτα <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Κάρτα <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Μην περιστρέφετε τη συσκευή, καθώς αυτό θα ακυρώσει την ενέργεια</string>
+    <string name="acra_catima_has_crashed">Λυπούμαστε, αλλά το <xliff:g id="app_name">%s</xliff:g> παρουσίασε σφάλμα. Βοηθήστε μας να διορθώσουμε αυτό το πρόβλημα, στέλνοντάς μας μια αναφορά σφάλματος.</string>
+    <string name="acra_explain_crash">Αν είναι δυνατόν, προσθέστε περισσότερες λεπτομέρειες σχετικά με το τι κάνατε εδώ:</string>
+    <string name="acra_crash_email_subject">Αναφορά σφάλματος <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Ερώτηση για αποστολή αναφορών σφαλμάτων</string>
+    <string name="pref_enable_acra_summary">Όταν είναι ενεργοποιημένη, θα σας ζητηθεί να αναφέρετε ένα σφάλμα όταν συμβεί. Οι αναφορές σφάλματος δεν αποστέλλονται ποτέ αυτόματα.</string>
 </resources>

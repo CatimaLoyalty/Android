@@ -299,4 +299,10 @@
     <string name="card_list_widget_empty">Kui lisad Catimasse kliendikaarte, siis saavad nad olema nähtavad siin. Kui sul on kaardid lisatud, siis palun kontrolli, et nad kõik poleks arhiveeritud.</string>
     <string name="cardWithNumber">Kaart: <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Kaart: <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Palun ära pööra nutiseadet - see katkestab tegevuse</string>
+    <string name="acra_catima_has_crashed">Vabandus, aga <xliff:g id="app_name">%s</xliff:g> on kokku jooksnud. Kui saadad meile veakirjelduse, siis aitad seda viga parandada.</string>
+    <string name="acra_explain_crash">Kui vähegi võimalik, siis palun kirjelda, mida sa antud hetkel tegid:</string>
+    <string name="acra_crash_email_subject">Kokkujooksmise aruanne: <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Küsi luba kokkujooksmiste aruannete saatmiseks</string>
+    <string name="pref_enable_acra_summary">Kui eelistus on kasutusel, siis rakendus küsib sinult luba veateate saatmiseks. Seda ei tehta iialgi automaatselt.</string>
 </resources>

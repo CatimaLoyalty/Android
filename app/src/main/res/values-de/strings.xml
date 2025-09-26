@@ -299,4 +299,10 @@
     <string name="card_list_widget_name">Kartenliste</string>
     <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
+    <string name="pref_enable_acra_summary">Wenn aktiviert, wirst du bei einem Absturz gebeten diesen zu melden. Absturzberichte werden niemals automatisch gesendet.</string>
+    <string name="pref_enable_acra">Bitte um die Übermittlung von Absturzberichten</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> Absturzbericht</string>
+    <string name="acra_explain_crash">Wenn möglich, bitte übermittle mehr Details zu dem, was du hier getan hast:</string>
+    <string name="acra_catima_has_crashed">Es tut uns leid, aber <xliff:g id="app_name">%s</xliff:g> ist abgestürzt. Bitte hilf uns diesen Fehler zu beheben und übermittle uns einen Absturzbericht.</string>
+    <string name="pleaseDoNotRotateTheDevice">Bitte drehe nicht das Gerät, weil sonst die Aktion abbricht</string>
 </resources>

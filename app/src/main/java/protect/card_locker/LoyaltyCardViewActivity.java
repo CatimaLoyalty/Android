@@ -1085,6 +1085,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setMainImagePreviousNextButtons() {
+        // Ensure the main image index is valid. After a card update, some images (front/back/barcode)
+        // may have been removed, so the index should not exceed the number of available images.
+        if(mainImageIndex > imageTypes.size() - 1){
+            mainImageIndex = 0;
+        }
+
         if (imageTypes.size() < 2) {
             binding.mainLeftButton.setVisibility(View.INVISIBLE);
             binding.mainRightButton.setVisibility(View.INVISIBLE);

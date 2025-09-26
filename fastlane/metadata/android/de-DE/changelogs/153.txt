@@ -1,0 +1,3 @@
+- Angepasst für Android 16
+- Funktion "Bildschirmausrichtung" entfernt (Google entfernte bei Android 16 für Apps die Möglichkeit die Bildschirmdrehung zu kontrollieren)
+- Crash-Reporter für FOSS-build hinzugefügt (wird nicht von der Google Play Version genutzt, sondern nur von jenen aus anderen App-Stores)

@@ -3,6 +3,7 @@
 ## Unreleased - 153
 
 - Target Android 16
+- Fix possible crash after removing image from card
 - Remove "Screen orientation" feature (Google removed the ability for apps to control screen rotation when targeting Android 16)
 - Add crash reporter to FOSS build (not used in Google Play version, only in other app stores)
 

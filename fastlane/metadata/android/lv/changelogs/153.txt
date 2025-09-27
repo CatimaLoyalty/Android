@@ -1,0 +1,3 @@
+- Mērķēts uz Android 16
+- Noņemta iespēja "Ekrāna pagriešana" (Google noņēma iespēju lietotnēm ietekmēt ekrāna pagriešanu, kad mērķē uz Android 16)
+- FOSS būvējumam pievienots avāriju ziņotājs (Google Play versijā netiek izmantots, tikai citos lietotņu veikalos)

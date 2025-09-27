@@ -305,4 +305,10 @@
     <string name="card_list_widget_empty">Pēc klienta karšu pievienošanas Catima tās parādīsies šeit. Ja Tev ir kartes, jāpārliecinās, ka tās visas nav arhivētas.</string>
     <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Lūgums nepagriezt ierīci, jo tas atcels darbību</string>
+    <string name="acra_catima_has_crashed">Mēs atvainojamies, bet <xliff:g id="app_name">%s</xliff:g> avarēja. Lūgums palīdzēt mums novērst šo nepilnību, nosūtot mums ziņojumu par kļūdu.</string>
+    <string name="acra_explain_crash">Ja iespējams, lūgums pievienot vairāk informācijas, par to, ko darīji:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> avārijas ziņojums</string>
+    <string name="pref_enable_acra">Vaicāt, lai nosūtītu ziņojumus par avārijām</string>
+    <string name="pref_enable_acra_summary">Kad iespējots, tiks vaicāts ziņot par avāriju, kad tā notiek. Ziņojumi par avārijām nekad netiks automātiski nosūtīti.</string>
 </resources>

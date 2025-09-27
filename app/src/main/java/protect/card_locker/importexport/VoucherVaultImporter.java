@@ -1,9 +1,9 @@
 package protect.card_locker.importexport;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -20,12 +20,13 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Currency;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -76,11 +77,16 @@ public class VoucherVaultImporter implements Importer {
 
             String store = jsonCard.getString("description");
 
-            Date expiry = null;
+            LocalDate expiry = null;
             if (!jsonCard.isNull("expires")) {
-                @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-                expiry = dateFormat.parse(jsonCard.getString("expires"));
+                String expiryString = jsonCard.getString("expires");
+                try {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                    // Full ISO datetime with optional timezone, e.g., "2025-09-27T14:30:00.000Z"
+                    expiry = LocalDateTime.parse(expiryString, formatter).toLocalDate();
+                } catch (DateTimeParseException e1) {
+                    // Could not parse, handle as needed (e.g., log or leave expiry as null)
+                }
             }
 
             BigDecimal balance = new BigDecimal("0");

@@ -53,9 +53,9 @@ import com.google.android.material.color.DynamicColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
@@ -76,15 +76,20 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Date;
 import java.util.EnumMap;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -516,19 +521,47 @@ public class Utils {
         builder.show();
     }
 
-    static public Boolean isNotYetValid(Date validFromDate) {
+    static public Boolean isNotYetValid(LocalDate validFromDate) {
         // The note in `hasExpired` does not apply here, since the bug was fixed before this feature was added.
-        return validFromDate.after(getStartOfToday().getTime());
+        LocalDate today = LocalDate.now(); // today's date at start of day (no time needed because LocalDate has no time part)
+        return validFromDate.isAfter(today);
     }
 
-    static public Boolean hasExpired(Date expiryDate) {
-        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
-        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
-        // is not a problem for the way the comparison currently works, it's good to keep in mind such
-        // dates may exist in the DB in case the comparison changes in the future and the new one relies
-        // on both dates being set at 12:00 AM.
-        return expiryDate.before(getStartOfToday().getTime());
+    static public Boolean hasExpired(LocalDate expiryDate) {
+        // Using LocalDate avoids past issues where Date included a time component
+        // (e.g., storing 12:00 PM instead of 12:00 AM caused off-by-one-day errors).
+        // A card is considered expired if its expiry date is strictly before today.
+        return expiryDate.isBefore(LocalDate.now());
     }
+
+    static public LocalDate parseLongDate(Long longValue) {
+        if (longValue == null) return null;
+
+        // Check if it fits into LocalDate epochDay
+        if (longValue > 1_000_000_000L) {
+            return Instant.ofEpochMilli(longValue)
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+        } else {
+            return LocalDate.ofEpochDay(longValue);
+        }
+    }
+
+    static public Long localDateToMillis(LocalDate date) {
+        return date
+                .atStartOfDay(ZoneId.systemDefault()) // midnight in local timezone
+                .toInstant()
+                .toEpochMilli();
+    }
+
+    static public @NonNull LocalDate millisToUTCLocalDate(Long millis) {
+        return Instant.ofEpochMilli(millis)
+                .atZone(ZoneOffset.UTC)
+                .toLocalDate();
+    }
+
+    static DateTimeFormatter longFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.getDefault());
+    static DateTimeFormatter mediumFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.getDefault());
 
     static private Calendar getStartOfToday() {
         // today

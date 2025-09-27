@@ -112,13 +112,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.validFrom != null) {
-            inputHolder.setExtraField(inputHolder.mValidFromField, DateFormat.getDateInstance(DateFormat.MEDIUM).format(loyaltyCard.validFrom), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
+            inputHolder.setExtraField(inputHolder.mValidFromField, loyaltyCard.validFrom.format(Utils.mediumFormatter), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mValidFromField, null, null, false);
         }
 
         if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.expiry != null) {
-            inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.MEDIUM).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
+            inputHolder.setExtraField(inputHolder.mExpiryField, loyaltyCard.expiry.format(Utils.mediumFormatter), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
         }

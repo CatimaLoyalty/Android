@@ -21,9 +21,9 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -403,7 +403,7 @@ public class CatimaImporter implements Importer {
 
         String note = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
 
-        Date validFrom = null;
+        LocalDate validFrom = null;
         Long validFromLong;
         try {
             validFromLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record);
@@ -411,10 +411,10 @@ public class CatimaImporter implements Importer {
             validFromLong = null;
         }
         if (validFromLong != null) {
-            validFrom = new Date(validFromLong);
+            validFrom = Utils.parseLongDate(validFromLong);
         }
 
-        Date expiry = null;
+        LocalDate expiry = null;
         Long expiryLong;
         try {
             expiryLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record);
@@ -422,7 +422,7 @@ public class CatimaImporter implements Importer {
             expiryLong = null;
         }
         if (expiryLong != null) {
-            expiry = new Date(expiryLong);
+            expiry = Utils.parseLongDate(expiryLong);
         }
 
         // These fields did not exist in versions 1.8.1 and before

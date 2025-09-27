@@ -16,10 +16,10 @@ import java.io.IOException
 import java.math.BigDecimal
 import java.text.DateFormat
 import java.text.ParseException
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZonedDateTime
-import java.time.format.DateTimeParseException
 import java.util.Currency
-import java.util.Date
 
 class PkpassParser(context: Context, uri: Uri?) {
     private var mContext = context
@@ -30,8 +30,8 @@ class PkpassParser(context: Context, uri: Uri?) {
 
     private var store: String? = null
     private var note: String? = null
-    private var validFrom: Date? = null
-    private var expiry: Date? = null
+    private var validFrom: LocalDate? = null
+    private var expiry: LocalDate? = null
     private val balance: BigDecimal = BigDecimal(0)
     private val balanceType: Currency? = null
     // FIXME: Some cards may not have any barcodes, but Catima doesn't accept null card ID
@@ -200,8 +200,23 @@ class PkpassParser(context: Context, uri: Uri?) {
         return Color.rgb(red, green, blue)
     }
 
-    private fun parseDateTime(dateTime: String): Date {
-        return Date.from(ZonedDateTime.parse(dateTime).toInstant())
+    private fun parseDateTime(dateTime: String): LocalDate {
+        return try {
+            // Case 1: Plain ISO date like "2025-09-27"
+            LocalDate.parse(dateTime)
+        } catch (_: Exception) {
+            try {
+                // Case 2: Full ISO datetime like "2025-09-27T14:30:00Z" or "2025-09-27T14:30:00+05:30"
+                ZonedDateTime.parse(dateTime).toLocalDate()
+            } catch (_: Exception) {
+                try {
+                    // Case 3: Fallback for datetime without zone, e.g. "2025-09-27T14:30:00"
+                    LocalDateTime.parse(dateTime).toLocalDate()
+                } catch (_: Exception) {
+                    throw IllegalArgumentException("Unsupported date format: $dateTime")
+                }
+            }
+        }
     }
 
     private fun parseLanguageStrings(data: String): Map<String, String> {
@@ -408,7 +423,7 @@ class PkpassParser(context: Context, uri: Uri?) {
         var value = getTranslation(field.getString("value"), locale)
         try {
             value = DateFormat.getDateTimeInstance().format(parseDateTime(value))
-        } catch (ignored: DateTimeParseException) {
+        } catch (ignored: IllegalArgumentException) {
             // It's fine if it's not a date
         }
 

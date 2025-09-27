@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
+import android.util.Log
 import androidx.test.core.app.ApplicationProvider
 import com.google.zxing.BarcodeFormat
 import org.junit.Assert
@@ -14,7 +15,6 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.shadows.ShadowContentResolver
 import org.robolectric.shadows.ShadowLog
 import java.math.BigDecimal
-import java.util.Date
 
 @RunWith(RobolectricTestRunner::class)
 class PkpassTest {
@@ -94,7 +94,7 @@ class PkpassTest {
                 "0180 6 320 320 ( 0:00 Uhr - 24:00 Uhr )\n" +
                 "\n" +
                 "(0,20 € pro Anruf aus dem Festnetz der Deutschen Telekom - Mobilfunk maximal 0,60 € pro Anruf).", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)
@@ -160,7 +160,7 @@ class PkpassTest {
                 "\n" +
                 "Eurowings shall not be liable for any items which passengers are prohibited from carrying in their hand baggage for security reasons and are required to surrender at the security checkpoint.\n" +
                 "Contact: https://mobile.eurowings.com/booking/StaticContactInfo.aspx?culture=en-GB&back=home", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)
@@ -257,7 +257,7 @@ class PkpassTest {
                     "0180 6 320 320 ( 0:00 Uhr - 24:00 Uhr )\n" +
                     "\n" +
                     "(0,20 € pro Anruf aus dem Festnetz der Deutschen Telekom - Mobilfunk maximal 0,60 € pro Anruf).", parsedCard.note)
-            Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+            Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
             Assert.assertEquals(null, parsedCard.expiry)
             Assert.assertEquals(BigDecimal(0), parsedCard.balance)
             Assert.assertEquals(null, parsedCard.balanceType)
@@ -323,7 +323,7 @@ class PkpassTest {
                     "\n" +
                     "Eurowings shall not be liable for any items which passengers are prohibited from carrying in their hand baggage for security reasons and are required to surrender at the security checkpoint.\n" +
                     "Contact: https://mobile.eurowings.com/booking/StaticContactInfo.aspx?culture=en-GB&back=home", parsedCard.note)
-            Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+            Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
             Assert.assertEquals(null, parsedCard.expiry)
             Assert.assertEquals(BigDecimal(0), parsedCard.balance)
             Assert.assertEquals(null, parsedCard.balanceType)
@@ -366,7 +366,7 @@ class PkpassTest {
         Assert.assertEquals(-1, parsedCard.id)
         Assert.assertEquals("EUROWINGS", parsedCard.store)
         Assert.assertEquals("Eurowings Boarding Pass", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)
@@ -388,7 +388,7 @@ class PkpassTest {
         Assert.assertEquals(-1, parsedCard.id)
         Assert.assertEquals("EUROWINGS", parsedCard.store)
         Assert.assertEquals("Eurowings Boarding Pass", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)
@@ -478,7 +478,7 @@ class PkpassTest {
                 "0180 6 320 320 ( 0:00 Uhr - 24:00 Uhr )\n" +
                 "\n" +
                 "(0,20 € pro Anruf aus dem Festnetz der Deutschen Telekom - Mobilfunk maximal 0,60 € pro Anruf).", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)
@@ -544,7 +544,7 @@ class PkpassTest {
                 "\n" +
                 "Eurowings shall not be liable for any items which passengers are prohibited from carrying in their hand baggage for security reasons and are required to surrender at the security checkpoint.\n" +
                 "Contact: https://mobile.eurowings.com/booking/StaticContactInfo.aspx?culture=en-GB&back=home", parsedCard.note)
-        Assert.assertEquals(Date(1567911600000), parsedCard.validFrom)
+        Assert.assertEquals(Utils.millisToUTCLocalDate(1567911600000), parsedCard.validFrom)
         Assert.assertEquals(null, parsedCard.expiry)
         Assert.assertEquals(BigDecimal(0), parsedCard.balance)
         Assert.assertEquals(null, parsedCard.balanceType)

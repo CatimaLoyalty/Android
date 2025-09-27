@@ -19,12 +19,11 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -35,6 +34,7 @@ import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
 import protect.card_locker.TestHelpers;
+import protect.card_locker.Utils;
 
 @RunWith(RobolectricTestRunner.class)
 public class CardsContentProviderTest {
@@ -87,8 +87,8 @@ public class CardsContentProviderTest {
 
         final String store = "the best store";
         final String note = "this is a note";
-        final Date validFrom = Date.from(Instant.ofEpochMilli(1687112209000L));
-        final Date expiry = Date.from(Instant.ofEpochMilli(1687112277000L));
+        final LocalDate validFrom = Utils.millisToUTCLocalDate(1687112209000L);
+        final LocalDate expiry = Utils.millisToUTCLocalDate(1687112277000L);
         final BigDecimal balance = new BigDecimal("123.20");
         final Currency balanceType = Currency.getInstance("EUR");
         final String cardId = "a-card-id";
@@ -141,8 +141,8 @@ public class CardsContentProviderTest {
             assertEquals("Id", 1, actualId);
             assertEquals("Name", store, actualName);
             assertEquals("Note", note, actualNote);
-            assertEquals("ValidFrom", validFrom.getTime(), actualValidFrom);
-            assertEquals("Expiry", expiry.getTime(), actualExpiry);
+            assertEquals("ValidFrom", validFrom.toEpochDay(), actualValidFrom);
+            assertEquals("Expiry", expiry.toEpochDay(), actualExpiry);
             assertEquals("Balance", balance, actualBalance);
             assertEquals("BalanceTypeColumn", balanceType.toString(), actualBalanceType);
             assertEquals("CardId", cardId, actualCardId);

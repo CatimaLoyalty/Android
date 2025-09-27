@@ -44,9 +44,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -70,13 +67,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -181,13 +179,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         viewModel.setHasChanged(true);
     }
 
-    protected void setLoyaltyCardValidFrom(@Nullable Date validFrom) {
+    protected void setLoyaltyCardValidFrom(@Nullable LocalDate validFrom) {
         viewModel.getLoyaltyCard().setValidFrom(validFrom);
 
         viewModel.setHasChanged(true);
     }
 
-    protected void setLoyaltyCardExpiry(@Nullable Date expiry) {
+    protected void setLoyaltyCardExpiry(@Nullable LocalDate expiry) {
         viewModel.getLoyaltyCard().setExpiry(expiry);
 
         viewModel.setHasChanged(true);
@@ -942,11 +940,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     }
                     showDatePicker(
                             loyaltyCardField,
-                            (Date) dateField.getTag(),
+                            (LocalDate) dateField.getTag(),
                             // if the expiry date is being set, set date picker's minDate to the 'valid from' date
-                            loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
+                            loyaltyCardField == LoyaltyCardField.expiry ? (LocalDate) validFromField.getTag() : null,
                             // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
-                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null
+                            loyaltyCardField == LoyaltyCardField.validFrom ? (LocalDate) expiryField.getTag() : null
                     );
                 }
             }
@@ -962,7 +960,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         });
     }
 
-    protected static void formatDateField(Context context, EditText textField, Date date) {
+    protected static void formatDateField(Context context, EditText textField, LocalDate date) {
         textField.setTag(date);
 
         if (date == null) {
@@ -976,7 +974,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             }
             textField.setText(text);
         } else {
-            textField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
+            textField.setText(date.format(Utils.longFormatter));
         }
     }
 
@@ -1314,25 +1312,23 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     private void showDatePicker(
             LoyaltyCardField loyaltyCardField,
-            @Nullable Date selectedDate,
-            @Nullable Date minDate,
-            @Nullable Date maxDate
+            @Nullable LocalDate selectedDate,
+            @Nullable LocalDate minDate,
+            @Nullable LocalDate maxDate
     ) {
         // Create a new instance of MaterialDatePicker and return it
-        long startDate = minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker();
-        long endDate = maxDate != null ? maxDate.getTime() : getDefaultMaxDateOfDatePicker();
+        long startDate = minDate != null
+                ? Utils.localDateToMillis(minDate)
+                : getDefaultMinDateOfDatePicker();
+        long endDate = maxDate != null
+                ?  Utils.localDateToMillis(maxDate)
+                : getDefaultMaxDateOfDatePicker();
 
-        CalendarConstraints.DateValidator dateValidator;
-        switch (loyaltyCardField) {
-            case validFrom:
-                dateValidator = DateValidatorPointBackward.before(endDate);
-                break;
-            case expiry:
-                dateValidator = DateValidatorPointForward.from(startDate);
-                break;
-            default:
-                throw new AssertionError("Unexpected field: " + loyaltyCardField);
-        }
+        CalendarConstraints.DateValidator dateValidator = switch (loyaltyCardField) {
+            case validFrom -> DateValidatorPointBackward.before(endDate);
+            case expiry -> DateValidatorPointForward.from(startDate);
+            default -> throw new AssertionError("Unexpected field: " + loyaltyCardField);
+        };
 
         CalendarConstraints calendarConstraints = new CalendarConstraints.Builder()
                 .setValidator(dateValidator)
@@ -1341,13 +1337,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 .build();
 
         // Use the selected date as the default date in the picker
-        final Calendar calendar = Calendar.getInstance();
-        if (selectedDate != null) {
-            calendar.setTime(selectedDate);
-        }
+        long selection = selectedDate != null
+                ? Utils.localDateToMillis(selectedDate)
+                : MaterialDatePicker.todayInUtcMilliseconds();
 
         MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                .setSelection(calendar.getTimeInMillis())
+                .setSelection(selection)
                 .setCalendarConstraints(calendarConstraints)
                 .build();
 
@@ -1356,9 +1351,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         viewModel.setTempLoyaltyCardField(loyaltyCardField);
         getSupportFragmentManager().addFragmentOnAttachListener((fragmentManager, fragment) -> {
             if (fragment instanceof MaterialDatePicker && Objects.equals(fragment.getTag(), PICK_DATE_REQUEST_KEY)) {
-                ((MaterialDatePicker<Long>) fragment).addOnPositiveButtonClickListener(selection -> {
+                ((MaterialDatePicker<Long>) fragment).addOnPositiveButtonClickListener(newSelection -> {
                     Bundle args = new Bundle();
-                    args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection);
+                    args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, newSelection);
                     getSupportFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, args);
                 });
             }
@@ -1385,7 +1380,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 (requestKey, result) -> {
                     long selection = result.getLong(NEWLY_PICKED_DATE_ARGUMENT_KEY);
 
-                    Date newDate = new Date(selection);
+                    // Since MaterialDatePicker is always at UTC midnight, the safest way is to interpret the value as UTC and convert to LocalDate in UTC
+                    LocalDate newDate = Instant.ofEpochMilli(selection)
+                            .atZone(ZoneOffset.UTC)
+                            .toLocalDate();
 
                     LoyaltyCardField tempLoyaltyCardField = viewModel.getTempLoyaltyCardField();
                     if (tempLoyaltyCardField == null) {

@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
@@ -57,11 +56,10 @@ import com.google.zxing.BarcodeFormat;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -436,9 +434,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.create().show();
     }
 
-    private void appendDateInfo(SpannableStringBuilder infoText, Date date, Predicate<Date> dateCheck, @StringRes int dateCheckTrueString, @StringRes int dateCheckFalseString) {
+    private void appendDateInfo(SpannableStringBuilder infoText, LocalDate date, Predicate<LocalDate> dateCheck, @StringRes int dateCheckTrueString, @StringRes int dateCheckFalseString) {
         if (date != null) {
-            String formattedDate = DateFormat.getDateInstance(DateFormat.LONG).format(date);
+            String formattedDate = date.format(Utils.longFormatter);
 
             padSpannableString(infoText);
             if (dateCheck.test(date)) {

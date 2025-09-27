@@ -20,8 +20,8 @@ import org.robolectric.RobolectricTestRunner;
 import java.io.InvalidObjectException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Currency;
-import java.util.Date;
 
 @RunWith(RobolectricTestRunner.class)
 public class ImportURITest {
@@ -39,7 +39,7 @@ public class ImportURITest {
     @Test
     public void ensureNoDataLoss() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        Date date = new Date();
+        LocalDate date = LocalDate.now();
 
         DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
 

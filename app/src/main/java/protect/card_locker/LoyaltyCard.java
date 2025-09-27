@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Currency;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,9 +19,9 @@ public class LoyaltyCard {
     public String store;
     public String note;
     @Nullable
-    public Date validFrom;
+    public LocalDate validFrom;
     @Nullable
-    public Date expiry;
+    public LocalDate expiry;
     public BigDecimal balance;
     @Nullable
     public Currency balanceType;
@@ -121,8 +121,8 @@ public class LoyaltyCard {
      * @param zoomLevelWidth
      * @param archiveStatus
      */
-    public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
-                       @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
+    public LoyaltyCard(final int id, final String store, final String note, @Nullable final LocalDate validFrom,
+                       @Nullable final LocalDate expiry, final BigDecimal balance, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int zoomLevelWidth, final int archiveStatus,
@@ -216,11 +216,11 @@ public class LoyaltyCard {
         this.note = note;
     }
 
-    public void setValidFrom(@Nullable Date validFrom) {
+    public void setValidFrom(@Nullable LocalDate validFrom) {
         this.validFrom = validFrom;
     }
 
-    public void setExpiry(@Nullable Date expiry) {
+    public void setExpiry(@Nullable LocalDate expiry) {
         this.expiry = expiry;
     }
 
@@ -342,13 +342,13 @@ public class LoyaltyCard {
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
             long tmpValidFrom = bundle.getLong(BUNDLE_LOYALTY_CARD_VALID_FROM);
-            setValidFrom(tmpValidFrom > 0 ? new Date(tmpValidFrom) : null);
+            setValidFrom(tmpValidFrom > 0 ? LocalDate.ofEpochDay(tmpValidFrom) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_VALID_FROM);
         }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_EXPIRY)) {
             long tmpExpiry = bundle.getLong(BUNDLE_LOYALTY_CARD_EXPIRY);
-            setExpiry(tmpExpiry > 0 ? new Date(tmpExpiry) : null);
+            setExpiry(tmpExpiry > 0 ? LocalDate.ofEpochDay(tmpExpiry) : null);
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_EXPIRY);
         }
@@ -442,10 +442,10 @@ public class LoyaltyCard {
             bundle.putString(BUNDLE_LOYALTY_CARD_NOTE, note);
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_VALID_FROM)) {
-            bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom != null ? validFrom.getTime() : -1);
+            bundle.putLong(BUNDLE_LOYALTY_CARD_VALID_FROM, validFrom != null ? validFrom.toEpochDay() : -1);
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_EXPIRY)) {
-            bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry != null ? expiry.getTime() : -1);
+            bundle.putLong(BUNDLE_LOYALTY_CARD_EXPIRY, expiry != null ? expiry.toEpochDay() : -1);
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BALANCE)) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BALANCE, balance.toString());
@@ -521,11 +521,15 @@ public class LoyaltyCard {
         // note
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
         // validFrom
-        long validFromLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM));
-        Date validFrom = validFromLong > 0 ? new Date(validFromLong) : null;
+        int validFromColumnIndex = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM);
+        LocalDate validFrom = !cursor.isNull(validFromColumnIndex)
+                ? Utils.parseLongDate(cursor.getLong(validFromColumnIndex)) // validFrom value as 0 is valid for 1970-01-01
+                : null;
         // expiry
-        long expiryLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY));
-        Date expiry = expiryLong > 0 ? new Date(expiryLong) : null;
+        int validExpiryColumnIndex = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY);
+        LocalDate expiry = !cursor.isNull(validExpiryColumnIndex)
+                ? Utils.parseLongDate(cursor.getLong(validExpiryColumnIndex)) // expiry value as 0 is valid for 1970-01-01
+                : null;
         // balance
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         // balanceType

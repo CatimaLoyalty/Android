@@ -12,10 +12,10 @@ import android.util.Log;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -394,8 +394,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static long insertLoyaltyCard(
-            final SQLiteDatabase database, final String store, final String note, final Date validFrom,
-            final Date expiry, final BigDecimal balance, final Currency balanceType, final String cardId,
+            final SQLiteDatabase database, final String store, final String note, final LocalDate validFrom,
+            final LocalDate expiry, final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
             final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
@@ -404,8 +404,8 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
-        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
-        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.toEpochDay() : null);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.toEpochDay() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
@@ -428,7 +428,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final int id, final String store, final String note,
-            final Date validFrom, final Date expiry, final BigDecimal balance,
+            final LocalDate validFrom, final LocalDate expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
             final Long lastUsed, final int archiveStatus) {
@@ -439,8 +439,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.ID, id);
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
-        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
-        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.toEpochDay() : null);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.toEpochDay() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
@@ -463,7 +463,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static boolean updateLoyaltyCard(
             SQLiteDatabase database, final int id, final String store, final String note,
-            final Date validFrom, final Date expiry, final BigDecimal balance,
+            final LocalDate validFrom, final LocalDate expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
             final Long lastUsed, final int archiveStatus) {
@@ -473,8 +473,8 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
-        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.getTime() : null);
-        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.VALID_FROM, validFrom != null ? validFrom.toEpochDay() : null);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.toEpochDay() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
@@ -638,8 +638,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "select * from " + LoyaltyCardDbIds.TABLE + " c " +
                         " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " cg " +
                         " ON c." + LoyaltyCardDbIds.ID + " = cg." + LoyaltyCardDbIdsGroups.cardID +
-                " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
-                " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
+                        " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
+                        " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
                 withArgs(groupName)
         );
 

@@ -301,4 +301,8 @@
     <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Не завъртайте устройството, защото това ще прекъсне действието</string>
     <string name="acra_catima_has_crashed">За съжаление <xliff:g id="app_name">%s</xliff:g> се срина. Помогнете ни да оправим проблема като ни изпратите доклад за грешката.</string>
+    <string name="acra_crash_email_subject">Доклад за срив на <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Питане преди изпращане на доклад за срив</string>
+    <string name="pref_enable_acra_summary">Когато е отметнато, при срив ще ви бъде предложено да докладвате за него. Докладите никога не се изпращат автоматично.</string>
+    <string name="acra_explain_crash">Ако е възможно добавете подробности за вашите действия:</string>
 </resources>

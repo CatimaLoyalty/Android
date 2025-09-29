@@ -133,7 +133,7 @@ dependencies {
     implementation("net.lingala.zip4j:zip4j:2.11.5")
 
     // Crash reporting
-    val acraVersion = "5.12.0"
+    val acraVersion = "5.13.1"
     implementation("ch.acra:acra-mail:$acraVersion")
     implementation("ch.acra:acra-dialog:$acraVersion")
 

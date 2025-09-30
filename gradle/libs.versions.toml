@@ -1,0 +1,70 @@
+[versions]
+# Plugins
+androidGradlePlugin = "8.13.0"
+kotlin = "2.2.20"
+
+# AndroidX
+activityCompose = "1.10.1"
+appcompat = "1.7.1"
+constraintlayout = "2.2.1"
+coreKtx = "1.17.0"
+remoteviews = "1.1.0"
+splashscreen = "1.0.1"
+exifinterface = "1.4.1"
+palette = "1.0.0"
+preference = "1.2.1"
+material = "1.13.0"
+desugar = "2.1.5"
+
+# Third-party
+zxingEmbedded = "4.3.0"
+ucrop = "2.2.10"
+zxingCore = "3.5.3"
+commonsCsv = "1.9.0"
+colorpicker = "1.1.0"
+zip4j = "2.11.5"
+acra = "5.13.1"
+
+# Testing
+androidXTest = "1.7.0"
+androidXTestExtJunit = "1.3.0"
+junit = "4.13.2"
+robolectric = "4.16"
+uiautomator = "2.3.0"
+espresso = "3.7.0"
+
+[libraries]
+# AndroidX
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+core-remoteviews = { module = "androidx.core:core-remoteviews", version.ref = "remoteviews"}
+core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
+exifinterface = { module = "androidx.exifinterface:exifinterface", version.ref = "exifinterface" }
+palette = { module = "androidx.palette:palette", version.ref = "palette" }
+preference = { module = "androidx.preference:preference", version.ref = "preference" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
+
+# Third-party
+zxing-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingEmbedded" }
+ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
+zxing-core = { module = "com.google.zxing:core", version.ref = "zxingCore" }
+commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commonsCsv" }
+colorpicker = { module = "com.jaredrummler:colorpicker", version.ref = "colorpicker" }
+zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "zip4j" }
+acra-mail = { module = "ch.acra:acra-mail", version.ref = "acra" }
+acra-dialog = { module = "ch.acra:acra-dialog", version.ref = "acra" }
+
+# Testing
+test-core = { module = "androidx.test:core", version.ref = "androidXTest" }
+junit = { module = "junit:junit", version.ref = "junit" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidXTestExtJunit" }
+test-runner = { module = "androidx.test:runner", version.ref = "androidXTest" }
+uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
+espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

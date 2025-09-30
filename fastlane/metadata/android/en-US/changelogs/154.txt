@@ -1,0 +1,1 @@
+- Fix possible crash that could occur for cards missing colour information in the database

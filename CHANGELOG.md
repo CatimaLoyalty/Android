@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 154
+
+- Fix possible crash that could occur for cards missing colour information in the database
+
 ## v2.39.0 - 153 (2025-09-30)
 
 - Target Android 16

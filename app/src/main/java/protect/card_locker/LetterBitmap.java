@@ -22,11 +22,6 @@ import androidx.core.graphics.PaintCompat;
  * is shown instead.
  */
 class LetterBitmap {
-
-    /**
-     * The number of available tile colors
-     */
-    private static final int NUM_OF_TILE_COLORS = 8;
     /**
      * The letter bitmap
      */
@@ -121,7 +116,7 @@ class LetterBitmap {
     private static int pickColor(String key, TypedArray colors) {
         // String.hashCode() is not supposed to change across java versions, so
         // this should guarantee the same key always maps to the same color
-        final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
+        final int color = Math.abs(key.hashCode()) % colors.length();
         return colors.getColor(color, Color.BLACK);
     }
 

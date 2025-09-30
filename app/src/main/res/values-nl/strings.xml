@@ -299,4 +299,10 @@
     <string name="card_list_widget_empty">Zodra er kaarten in Catima toegevoegd zijn worden deze hier getoond. Heb je al kaarten? Controleer dan of deze niet gearchiveerd zijn.</string>
     <string name="cardWithNumber">Kaart <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Kaart <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Draai niet je telefoon, dit annuleert de actie</string>
+    <string name="acra_catima_has_crashed">Sorry, <xliff:g id="app_name">%s</xliff:g> is gecrasht. Je kunt ons helpen dit op te lossen door een foutrapport te sturen.</string>
+    <string name="acra_explain_crash">Voeg als het kan wat meer details toe over wat je aan het doen was:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> foutrapport</string>
+    <string name="pref_enable_acra">Vraag om foutrapporten te versturen</string>
+    <string name="pref_enable_acra_summary">Als dit aanstaat, zal je gevraagd worden om foutrapporten te sturen als de app crasht. Dit zal nooit automatisch gebeuren.</string>
 </resources>

@@ -1,6 +1,5 @@
 package protect.card_locker.importexport;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -20,12 +19,13 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Currency;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -76,11 +76,21 @@ public class VoucherVaultImporter implements Importer {
 
             String store = jsonCard.getString("description");
 
-            Date expiry = null;
+            Instant expiry = null;
             if (!jsonCard.isNull("expires")) {
-                @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-                expiry = dateFormat.parse(jsonCard.getString("expires"));
+                try {
+                    String expiryString = jsonCard.getString("expires");
+
+                    // Parse the string as a LocalDateTime since it has no timezone info
+                    LocalDateTime localDateTime = LocalDateTime.parse(expiryString);
+
+                    // Convert it to an Instant, specifying it represents a time in UTC
+                    expiry = localDateTime.toInstant(ZoneOffset.UTC);
+
+                } catch (JSONException | DateTimeParseException e) {
+                    // Handle cases where the key is missing or the date format is invalid
+                    e.printStackTrace();
+                }
             }
 
             BigDecimal balance = new BigDecimal("0");

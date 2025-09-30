@@ -21,20 +21,23 @@ public class TestHelpers {
         SQLiteDatabase database = db.getWritableDatabase();
 
         // Make sure no files remain
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(database);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            int cardID = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
+        // Use a try-with-resources block to automatically close the cursor
+        try (Cursor cursor = DBHelper.getLoyaltyCardCursor(database)) {
+            // A simpler loop pattern is while(cursor.moveToNext())
+            while (cursor.moveToNext()) {
+                // Note: getColumnIndex is expensive, it's better to get it once before the loop
+                int cardIDColumnIndex = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
+                int cardID = cursor.getInt(cardIDColumnIndex);
 
-            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
-                try {
-                    Utils.saveCardImage(context.getApplicationContext(), null, cardID, imageLocationType);
-                } catch (FileNotFoundException ignored) {
+                for (ImageLocationType imageLocationType : ImageLocationType.values()) {
+                    try {
+                        // It's generally better to pass the application context
+                        Utils.saveCardImage(context.getApplicationContext(), null, cardID, imageLocationType);
+                    } catch (FileNotFoundException ignored) {
+                    }
                 }
             }
-
-            cursor.moveToNext();
-        }
+        } // cursor.close() is automatically called here, even if an exception occurs!
 
         // Make sure DB is empty
         database.execSQL("delete from " + DBHelper.LoyaltyCardDbIds.TABLE);
@@ -55,7 +58,7 @@ public class TestHelpers {
         for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }

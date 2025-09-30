@@ -21,9 +21,10 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -175,14 +176,12 @@ public class CatimaImporter implements Importer {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         int version = parseVersion(bufferedReader);
-        switch (version) {
-            case 1:
-                return parseV1(bufferedReader);
-            case 2:
-                return parseV2(bufferedReader);
-            default:
-                throw new FormatException(String.format("No code to parse version %s", version));
-        }
+        return switch (version) {
+            case 1 -> parseV1(bufferedReader);
+            case 2 -> parseV2(bufferedReader);
+            default ->
+                    throw new FormatException(String.format("No code to parse version %s", version));
+        };
     }
 
     public ImportedData parseV1(BufferedReader input) throws IOException, FormatException, InterruptedException {
@@ -403,26 +402,24 @@ public class CatimaImporter implements Importer {
 
         String note = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
 
-        Date validFrom = null;
-        Long validFromLong;
-        try {
-            validFromLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record);
-        } catch (FormatException ignored) {
-            validFromLong = null;
-        }
+        Instant validFrom = null;
+        String validFromLong = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.VALID_FROM, record, null);
         if (validFromLong != null) {
-            validFrom = new Date(validFromLong);
+            try {
+                validFrom = Instant.parse(validFromLong);
+            } catch (DateTimeParseException e) {
+                e.printStackTrace();
+            }
         }
 
-        Date expiry = null;
-        Long expiryLong;
-        try {
-            expiryLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record);
-        } catch (FormatException ignored) {
-            expiryLong = null;
-        }
+        Instant expiry = null;
+        String expiryLong = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.EXPIRY, record, null);
         if (expiryLong != null) {
-            expiry = new Date(expiryLong);
+            try {
+                expiry = Instant.parse(expiryLong);
+            } catch (DateTimeParseException e) {
+                e.printStackTrace();
+            }
         }
 
         // These fields did not exist in versions 1.8.1 and before

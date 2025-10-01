@@ -298,7 +298,7 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_7">7</string>
-    <string name="generic_error_please_retry">Žao nam je, nešto nije u redu, pokušaj ponovo …</string>
+    <string name="generic_error_please_retry">Dogodila se greška</string>
     <string name="addFromPkpass">Odaberi jednu Passbook datoteku (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Ova datoteka nije podržana</string>
     <string name="settings_use_volume_keys_navigation_summary">Pomoću gumba za glasnoću promijeni koja se kartica prikazuje</string>

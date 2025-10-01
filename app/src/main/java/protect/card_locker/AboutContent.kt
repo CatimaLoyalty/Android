@@ -1,147 +1,192 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.util.Log;
+import android.app.Activity
+import android.content.Context
+import android.content.pm.PackageManager
+import android.util.Log
+import java.io.IOException
+import java.util.Calendar
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+object AboutContent {
+    const val TAG: String = "Catima"
 
-public class AboutContent {
-
-    public static final String TAG = "Catima";
-
-    public Context context;
-
-    public AboutContent(Context context) {
-        this.context = context;
+    fun getPageTitle(context: Context): String {
+        return String.format(
+            context.getString(R.string.about_title_fmt),
+            context.getString(R.string.app_name)
+        )
     }
 
-    public void destroy() {
-        this.context = null;
-    }
-
-    public String getPageTitle() {
-        return String.format(context.getString(R.string.about_title_fmt), context.getString(R.string.app_name));
-    }
-
-    public String getAppVersion() {
-        String version = "?";
+    fun getAppVersion(context: Activity): String? {
+        var version: String? = "?"
         try {
-            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            version = pi.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.w(TAG, "Package name not found", e);
+            val pi = context.packageManager.getPackageInfo(context.packageName, 0)
+            version = pi.versionName
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.w(TAG, "Package name not found", e)
         }
 
-        return version;
+        return version
     }
 
-    public int getCurrentYear() {
-        return Calendar.getInstance().get(Calendar.YEAR);
+    val currentYear: Int
+        get() = Calendar.getInstance().get(Calendar.YEAR)
+
+    fun getCopyright(context: Context): String {
+        return String.format(
+            context.getString(R.string.app_copyright_fmt),
+            this.currentYear
+        )
     }
 
-    public String getCopyright() {
-        return String.format(context.getString(R.string.app_copyright_fmt), getCurrentYear());
+    fun getCopyrightShort(context: Context): String {
+        return context.getString(R.string.app_copyright_short)
     }
 
-    public String getCopyrightShort() {
-        return context.getString(R.string.app_copyright_short);
-    }
-
-    public String getContributorsHtml() {
-        String contributors;
+    fun getContributorsHtml(context: Context): String {
+        val contributors: String?
         try {
-            contributors = "<br/>" + Utils.readTextFile(context, R.raw.contributors);
-        }  catch (IOException ignored) {
-            return "";
+            contributors = "<br/>" + Utils.readTextFile(context, R.raw.contributors)
+        } catch (_: IOException) {
+            return ""
         }
-        return contributors.replace("\n", "<br />");
+        return contributors.replace("\n", "<br />")
     }
 
-    public String getHistoryHtml() {
-        String versionHistory;
+    fun getHistoryHtml(context: Context): String {
+        val versionHistory: String?
         try {
             versionHistory = Utils.readTextFile(context, R.raw.changelog)
-                    .replace("# Changelog\n\n", "");
-        }  catch (IOException ignored) {
-            return "";
+                .replace("# Changelog\n\n", "")
+        } catch (_: IOException) {
+            return ""
         }
         return Utils.linkify(Utils.basicMDToHTML(versionHistory))
-                .replace("\n", "<br />");
+            .replace("\n", "<br />")
     }
 
-    public String getLicenseHtml() {
-        try {
-            return Utils.readTextFile(context, R.raw.license);
-        }  catch (IOException ignored) {
-            return "";
+    fun getLicenseHtml(context: Context): String {
+        return try {
+            Utils.readTextFile(context, R.raw.license)
+        } catch (_: IOException) {
+            ""
         }
     }
 
-    public String getPrivacyHtml() {
-        String privacyPolicy;
+    fun getPrivacyHtml(context: Context): String {
+        val privacyPolicy: String?
         try {
             privacyPolicy = Utils.readTextFile(context, R.raw.privacy)
-                    .replace("# Privacy Policy\n", "");
-        }  catch (IOException ignored) {
-            return "";
+                .replace("# Privacy Policy\n", "")
+        } catch (_: IOException) {
+            return ""
         }
         return Utils.linkify(Utils.basicMDToHTML(privacyPolicy))
-                .replace("\n", "<br />");
+            .replace("\n", "<br />")
     }
 
-    public String getThirdPartyLibrariesHtml() {
-        final List<ThirdPartyInfo> usedLibraries = new ArrayList<>();
-        usedLibraries.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
-        usedLibraries.add(new ThirdPartyInfo("Commons CSV", "https://commons.apache.org/proper/commons-csv/", "Apache 2.0"));
-        usedLibraries.add(new ThirdPartyInfo("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference", "GNU LGPL 3.0"));
-        usedLibraries.add(new ThirdPartyInfo("uCrop", "https://github.com/Yalantis/uCrop", "Apache 2.0"));
-        usedLibraries.add(new ThirdPartyInfo("Zip4j", "https://github.com/srikanth-lingala/zip4j", "Apache 2.0"));
-        usedLibraries.add(new ThirdPartyInfo("ZXing", "https://github.com/zxing/zxing", "Apache 2.0"));
-        usedLibraries.add(new ThirdPartyInfo("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded", "Apache 2.0"));
+    val thirdPartyLibrariesHtml: String
+        get() {
+            val usedLibraries: MutableList<ThirdPartyInfo> =
+                ArrayList()
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "Color Picker",
+                    "https://github.com/jaredrummler/ColorPicker",
+                    "Apache 2.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "Commons CSV",
+                    "https://commons.apache.org/proper/commons-csv/",
+                    "Apache 2.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "NumberPickerPreference",
+                    "https://github.com/invissvenska/NumberPickerPreference",
+                    "GNU LGPL 3.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "uCrop",
+                    "https://github.com/Yalantis/uCrop",
+                    "Apache 2.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "Zip4j",
+                    "https://github.com/srikanth-lingala/zip4j",
+                    "Apache 2.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "ZXing",
+                    "https://github.com/zxing/zxing",
+                    "Apache 2.0"
+                )
+            )
+            usedLibraries.add(
+                ThirdPartyInfo(
+                    "ZXing Android Embedded",
+                    "https://github.com/journeyapps/zxing-android-embedded",
+                    "Apache 2.0"
+                )
+            )
 
-        StringBuilder result = new StringBuilder("<br/>");
-        for (ThirdPartyInfo entry : usedLibraries) {
-            result.append("<br/>")
-                .append(entry.toHtml());
+            val result = StringBuilder("<br/>")
+            for (entry in usedLibraries) {
+                result.append("<br/>")
+                    .append(entry.toHtml())
+            }
+
+            return result.toString()
         }
 
-        return result.toString();
-    }
+    val usedThirdPartyAssetsHtml: String
+        get() {
+            val usedAssets: MutableList<ThirdPartyInfo> = ArrayList()
+            usedAssets.add(
+                ThirdPartyInfo(
+                    "Android icons",
+                    "https://fonts.google.com/icons?selected=Material+Icons",
+                    "Apache 2.0"
+                )
+            )
 
-    public String getUsedThirdPartyAssetsHtml() {
-        final List<ThirdPartyInfo> usedAssets = new ArrayList<>();
-        usedAssets.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
+            val result = StringBuilder().append("<br/>")
+            for (entry in usedAssets) {
+                result.append("<br/>")
+                    .append(entry.toHtml())
+            }
 
-        StringBuilder result = new StringBuilder().append("<br/>");
-        for (ThirdPartyInfo entry : usedAssets) {
-            result.append("<br/>")
-                    .append(entry.toHtml());
+            return result.toString()
         }
 
-        return result.toString();
+    fun getContributorInfoHtml(context: Context): String {
+        return getCopyright(context) +
+                "<br/><br/>" +
+                context.getString(R.string.app_copyright_old) +
+                "<br/><br/>" + String.format(
+            context.getString(R.string.app_contributors),
+            getContributorsHtml(context)
+        ) +
+                "<br/><br/>" + String.format(
+            context.getString(R.string.app_libraries),
+            this.thirdPartyLibrariesHtml
+        ) +
+                "<br/><br/>" + String.format(
+            context.getString(R.string.app_resources),
+            this.usedThirdPartyAssetsHtml
+        )
     }
 
-    public String getContributorInfoHtml() {
-        StringBuilder contributorInfo = new StringBuilder();
-        contributorInfo.append(getCopyright());
-        contributorInfo.append("<br/><br/>");
-        contributorInfo.append(context.getString(R.string.app_copyright_old));
-        contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_contributors), getContributorsHtml()));
-        contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_libraries), getThirdPartyLibrariesHtml()));
-        contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssetsHtml()));
-
-        return contributorInfo.toString();
-    }
-
-    public String getVersionHistory() {
-        return String.format(context.getString(R.string.debug_version_fmt), getAppVersion());
+    fun getVersionHistory(context: Activity): String {
+        return String.format(context.getString(R.string.debug_version_fmt), getAppVersion(context))
     }
 }

@@ -27,9 +27,6 @@ android {
         resourceConfigurations += listOf("ar", "be", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "et", "fi", "fr", "gl", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sr", "sv", "ta", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("boolean", "showDonate", "true")
-        buildConfigField("boolean", "showRateOnGooglePlay", "false")
     }
 
     buildTypes {
@@ -130,6 +127,7 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview-android")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.9.2")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
@@ -148,10 +146,16 @@ dependencies {
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+//    androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:$androidXTestVersion")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
+    implementation("androidx.test.espresso:espresso-intents:3.7.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+
+    // Test rules and transitive dependencies:
+    implementation("androidx.compose.ui:ui-test-junit4:1.9.2")
+// Needed for createComposeRule(), but not for createAndroidComposeRule<YourActivity>():
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.9.2")
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

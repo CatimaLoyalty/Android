@@ -204,4 +204,18 @@
             </intent-filter>
         </service>
     </application>
+
+    <!--
+        In Android 11 (API level 30) and higher, package visibility restrictions apply.
+        Without declaring this <queries> element, calls like
+        intent.resolveActivity(activity.packageManager) will return null,
+        because the system hides apps that can handle the intent.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
 </manifest>

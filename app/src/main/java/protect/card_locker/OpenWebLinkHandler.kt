@@ -1,28 +1,37 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
-import android.widget.Toast;
+import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.widget.Toast
+import androidx.core.net.toUri
 
-public class OpenWebLinkHandler {
-
-    private static final String TAG = "Catima";
-
-    public void openBrowser(Activity activity, String url) {
-        if (url == null) {
-            return;
+object OpenWebLinkHandler {
+    fun openURL(activity: Activity, url: String) {
+        if (url.isBlank()) {
+            Toast.makeText(activity, "Invalid URL", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
         try {
-            activity.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(activity, R.string.failedToOpenUrl, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = url.trim().toUri()
+                // Ensure it opens in browser, not your own app
+                addCategory(Intent.CATEGORY_BROWSABLE)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+
+            // Check if there is any activity that can handle this intent
+            if (intent.resolveActivity(activity.packageManager) != null) {
+                activity.startActivity(intent)
+            } else {
+                Toast.makeText(activity, "No app found to open URL", Toast.LENGTH_SHORT).show()
+            }
+
+        } catch (_: ActivityNotFoundException) {
+            Toast.makeText(activity, "No application found to open link", Toast.LENGTH_SHORT).show()
+        } catch (_: Exception) {
+            Toast.makeText(activity, "Failed to open link", Toast.LENGTH_SHORT).show()
         }
     }
 }

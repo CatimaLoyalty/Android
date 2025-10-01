@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 154
+## v2.39.1 - 154 (2025-10-01)
 
 - Fix possible crash that could occur for cards missing colour information in the database
 

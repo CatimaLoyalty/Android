@@ -291,4 +291,5 @@
     <string name="setBarcodeWidth">バーコードの幅を設定</string>
     <string name="card_list_widget_empty">Catimaで幾つかポイントカードを追加すると、ここに表示されます。カードをお持ちの場合、全てアーカイブがされていないことをご確認ください。</string>
     <string name="cardWithNumber">カード <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">カード <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
 </resources>

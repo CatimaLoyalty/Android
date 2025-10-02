@@ -6,7 +6,7 @@
     <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。
 \nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychainからインポート</string>
-    <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i>ファイルを選択してください。そのあと手動でバーコード形式を選択してください。 \nファイルがない場合、FidMeでファイルを作成してください。</string>
+    <string name="importFidmeMessage">FidMeからエクスポートしたデータを選択してインポートしたうえで、手動でバーコードの種類を選択してください。\nFidMeプロフィールから作成するには データ保護 を選択して データを抽出 を押してください。</string>
     <string name="importFidme">FidMeからインポート</string>
     <string name="importCatimaMessage">インポートするにはCatimaからエクスポートしたファイルを選択してください。\nファイルは別なCatimaアプリのインポート／エクスポートメニューからエクスポートを押して作成できます。</string>
     <string name="importCatima">Catimaからインポート</string>

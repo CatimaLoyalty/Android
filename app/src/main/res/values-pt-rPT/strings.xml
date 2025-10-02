@@ -11,7 +11,7 @@
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
-    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮.</string>
+    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮</string>
     <string name="noBarcode">Sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>

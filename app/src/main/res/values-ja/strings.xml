@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>
-    <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。
-\nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
+    <string name="importLoyaltyCardKeychainMessage">Loyalty Card Keychainからエクスポートしたデータを選択してインポートしてください。\nデータはLoyalty Card Keychainのインポート/エクスポートメニューからエクスポートを押して作成してください。</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychainからインポート</string>
-    <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i>ファイルを選択してください。そのあと手動でバーコード形式を選択してください。
-\nファイルがない場合、FidMeでファイルを作成してください。</string>
+    <string name="importFidmeMessage">FidMeからエクスポートしたデータを選択してインポートしたうえで、手動でバーコードの種類を選択してください。\nFidMeプロフィールから作成するには データ保護 を選択して データを抽出 を押してください。</string>
     <string name="importFidme">FidMeからインポート</string>
-    <string name="importCatimaMessage">インポートするにはCatimaでエクスポートした<i>Catima.zip</i>ファイルを選択してください。
-\nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
+    <string name="importCatimaMessage">インポートするにはCatimaからエクスポートしたファイルを選択してください。\nファイルは別なCatimaアプリのインポート／エクスポートメニューからエクスポートを押して作成できます。</string>
     <string name="importCatima">Catimaからインポート</string>
     <string name="accept">承認</string>
     <string name="privacy_policy">プライバシーポリシー</string>
@@ -40,10 +37,10 @@
     </plurals>
     <string name="moveDown">下に移動</string>
     <string name="moveUp">上に移動</string>
-    <string name="failedOpeningFileManager">ファイルマネージャーをインストールしてください。</string>
+    <string name="failedOpeningFileManager">ファイルマネージャーを開けません</string>
     <string name="deleteConfirmationGroup">グループを削除しますか？</string>
     <string name="all">すべて</string>
-    <string name="noGroups">+ボタンを押してグループを追加してください。</string>
+    <string name="noGroups">+ ボタンを押してグループを追加してください</string>
     <string name="groups">グループ</string>
     <string name="enter_group_name">グループ名を入力</string>
     <string name="exportSuccessful">データがエクスポートされました</string>
@@ -59,17 +56,17 @@
     <string name="settings">設定</string>
     <string name="starImage">お気に入りのスター</string>
     <string name="thumbnailDescription">サムネイル</string>
-    <string name="selectBarcodeTitle">バーコード選択</string>
-    <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">バーコードを選択</string>
+    <string name="app_libraries">サードパーティーのライブラリ: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">バージョン: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> について</string>
-    <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
-    <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_license">GPLv3+ライセンスによる、コピーレフトされた自由ソフトウェア</string>
+    <string name="app_resources">サードパーティーのリソース: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">このアプリについて</string>
     <string name="importOptionFilesystemButton">ファイルを選択</string>
-    <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください。</string>
+    <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください</string>
     <string name="importOptionFilesystemTitle">ストレージからインポート</string>
-    <string name="exportOptionExplanation">選択した場所にデータを出力します。</string>
+    <string name="exportOptionExplanation">選択した場所にデータを出力します</string>
     <string name="exporting">エクスポート中…</string>
     <string name="importing">インポート中…</string>
     <string name="exportFailed">カードをエクスポートできませんでした</string>
@@ -77,13 +74,12 @@
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カード番号に合わせる</string>
     <string name="barcodeId">バーコード番号</string>
-    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。
-\nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
+    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートしてからインポートしてください。\nエクスポートはVoucher Vaultでエクスポートを押して作成してください。</string>
     <string name="importVoucherVault">Voucher Vaultからインポート</string>
     <string name="importFailed">カードをインポートできません</string>
     <string name="importFailedTitle">インポートに失敗しました</string>
     <string name="importSuccessfulTitle">インポートしました</string>
-    <string name="importExportHelp">データをバックアップすると、他のデバイスにカードを移すことができます。</string>
+    <string name="importExportHelp">データをバックアップする事で他のデバイスにカードを移行できます</string>
     <string name="exportName">エクスポート</string>
     <string name="importExport">インポート/エクスポート</string>
     <string name="failedParsingImportUriError">インポートURIを解析できません</string>
@@ -91,8 +87,8 @@
     <string name="noCardsMessage">カードを追加</string>
     <string name="cardShortcut">カードのショートカット</string>
     <string name="scanCardBarcode">バーコードをスキャン</string>
-    <string name="addCardTitle">カードの追加</string>
-    <string name="editCardTitle">カードの編集</string>
+    <string name="addCardTitle">カードを追加</string>
+    <string name="editCardTitle">カードを編集</string>
     <string name="sendLabel">送信先を選択…</string>
     <string name="share">共有</string>
     <string name="ok">確定</string>
@@ -109,14 +105,14 @@
     <string name="note">メモ</string>
     <string name="storeName">名前</string>
     <string name="noMatchingGiftCards">該当なし</string>
-    <string name="noGiftCards">+ボタンからカードを新規追加、⋮メニューからカードをインポートすることができます。</string>
+    <string name="noGiftCards">+ ボタンからカードを新規追加、⋮ メニューからカードをインポート出来ます</string>
     <string name="action_add">追加</string>
     <string name="action_search">検索</string>
     <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
     <string name="turn_flashlight_off">ライトをオフにする</string>
     <string name="turn_flashlight_on">ライトをオンにする</string>
-    <string name="failedGeneratingShareURL">共有URLの生成を生成できませんでした。バグを報告してください。</string>
-    <string name="passwordRequired">パスワードを入力してください</string>
+    <string name="failedGeneratingShareURL">共有可能なURLを作成できませんでした</string>
+    <string name="passwordRequired">パスワードを入力</string>
     <string name="no">いいえ</string>
     <string name="yes">はい</string>
     <string name="updateBarcodeQuestionText">カード番号を変更しました。バーコード番号も同じ値に変更しますか？</string>
@@ -155,7 +151,7 @@
     <string name="noGroupCards">このグループにはカードがありません</string>
     <string name="sort_by">並び替え</string>
     <string name="sort_by_expiry">期限</string>
-    <string name="sort_by_most_recently_used">最近使用したカード</string>
+    <string name="sort_by_most_recently_used">最近使ったカード</string>
     <string name="sort_by_name">名前</string>
     <string name="sort">並び替え</string>
     <string name="rate_this_app">このアプリを評価する</string>
@@ -168,7 +164,7 @@
     <string name="help_translate_this_app">翻訳を手伝う</string>
     <string name="license">ライセンス</string>
     <string name="on_google_play">Google Play</string>
-    <string name="report_error">問題を報告する</string>
+    <string name="report_error">問題を報告</string>
     <string name="reverse">逆順</string>
     <string name="and_data_usage">データの扱いなど</string>
     <string name="group_updated">グループを更新しました</string>
@@ -186,11 +182,11 @@
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
     <string name="app_name">Catima</string>
-    <string name="settings_display_barcode_max_brightness_summary">仕事をするためにいくつかのスキャナーが必要</string>
+    <string name="settings_display_barcode_max_brightness_summary">一部のスキャナを動かすのに必要です</string>
     <string name="storageReadPermissionRequired">このアクションのためにストレージの読み取り権限を許可…</string>
     <string name="cameraPermissionDeniedTitle">カメラへアクセスできません</string>
     <string name="cameraPermissionRequired">このアクションのためにカメラへのアクセス権限の許可…</string>
-    <string name="noGiftCardsGroup">いくつかのカードを作って、それらをこのグループにアサインします。</string>
+    <string name="noGiftCardsGroup">幾つかカードを作り、それらをこのグループに紐づけます</string>
     <string name="noCameraPermissionDirectToSystemSetting">バーコードをスキャンするためには、Catimaはカメラへのアクセスを必要とします。ここをタップして権限設定の変更をお願いします。</string>
     <string name="importCards">カードをインポート</string>
     <string name="show_balance">残高を表示</string>
@@ -201,7 +197,7 @@
     <string name="welcome">Catimaへようこそ</string>
     <string name="show_name_below_image_thumbnail">画像サムネイルの下に名前を表示</string>
     <string name="settings_keep_screen_on_summary">画面の自動消灯を無効化します</string>
-    <string name="settings_category_title_cards">カード</string>
+    <string name="settings_category_title_cards">カードビュー</string>
     <string name="settings_category_title_general">一般</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">画面のロックを無効化します</string>
     <string name="action_display_options">表示の設定</string>
@@ -234,4 +230,72 @@
     <string name="permissionReadCardsDescription">Catimaカードと、ノートや画像を含むすべての詳細を読み取る</string>
     <string name="settings_use_volume_keys_navigation_summary">ボリュームボタンを使ってどのカードを表示するかを変更する</string>
     <string name="unsupportedFile">このファイルはサポートされていません</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">著作権 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os と貢献者一同</string>
+    <string name="app_copyright_short">著作権 © Sylvia van Os と貢献者一同</string>
+    <string name="app_copyright_old">Loyalty Card Keychain が基になりました\n著作権 © 2016–2020 Branden Archer</string>
+    <string name="settings_allow_content_provider_read_summary">アプリは継続したアクセス許可を要求します</string>
+    <string name="settings_use_volume_keys_navigation">音量ボタンでカードを切り替え</string>
+    <plurals name="balancePoints">
+        <item quantity="other"><xliff:g>%s</xliff:g> ポイント</item>
+    </plurals>
+    <string name="balanceParsingFailed">残高が無効です</string>
+    <string name="showMoreInfo">情報を確認</string>
+    <string name="updateBalance">残高を更新</string>
+    <string name="failedToRetrieveImageFile">画像ファイルを取得できませんでした</string>
+    <string name="barcodeLongPressMessage">ギャラリーアプリは画像のみ開けます</string>
+    <string name="sort_by_valid_from">有効期限</string>
+    <string name="starred">スター付き</string>
+    <string name="include_if_asking_support">サポートを依頼する場合、以下の情報を含めて下さい:</string>
+    <string name="failedLaunchingPhotoPicker">サポートされている画像ピッカーが見つかりませんでした</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="other"><xliff:g>%1$d</xliff:g> のカード (<xliff:g id="archivedCount">%2$d</xliff:g> アーカイブ済み)</item>
+    </plurals>
+    <string name="updateBalanceTitle">どれくらい収入・支出がありましたか？</string>
+    <string name="updateBalanceHint">金額を入力</string>
+    <string name="currentBalanceSentence">現在の残高: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">新規残高: <xliff:g>%s</xliff:g></string>
+    <string name="validFromSentence">有効期限: <xliff:g>%s</xliff:g></string>
+    <string name="height">高さ</string>
+    <string name="switchToFrontImage">前面画像へ切り替え</string>
+    <string name="switchToBackImage">背面画像へ切り替え</string>
+    <string name="switchToBarcode">バーコードへ切り替え</string>
+    <string name="openFrontImageInGalleryApp">前面画像を画像ビューワーアプリで開く</string>
+    <string name="openBackImageInGalleryApp">背面画像を画像ビューワーアプリで開く</string>
+    <string name="setBarcodeHeight">バーコードの高さを設定</string>
+    <string name="icon_header_click_text">サムネイルを長押しして編集</string>
+    <string name="settings_category_title_cards_overview">カードの概要</string>
+    <string name="settings_column_count_portrait">縦向きモードの列</string>
+    <string name="settings_column_count_landscape">横向きモードの列</string>
+    <string name="settings_automatic_column_count">自動</string>
+    <string name="view_online">オンラインで閲覧</string>
+    <string name="enter_card_id">カード記載のID番号かテキストを入力してください</string>
+    <string name="card_id_must_not_be_empty">カードIDは空っぽに出来ません</string>
+    <string name="field_must_not_be_empty">この欄は入力必須です</string>
+    <string name="manually_enter_barcode_instructions">カードに記載のID番号かテキストを入力してからカード上のバーコードかそれに類似のものを押してください。</string>
+    <string name="add_manually_warning_title">スキャンするのをお勧めします</string>
+    <string name="add_manually_warning_message">一部のカードでは、バーコードの値がカード券面記載の番号と異なります。そのために、バーコードを手動入力しても正しく機能しない場合があります。代わりにカメラでバーコードをスキャンすることをお勧めしています。それでも続けますか？</string>
+    <string name="spend">支出</string>
+    <string name="receive">収入</string>
+    <string name="amountParsingFailed">無効な金額です</string>
+    <string name="errorReadingFile">ファイルを読み取れませんでした</string>
+    <string name="failedLaunchingFileManager">サポートされているファイルマネージャーが見つかりませんでした</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">発見できたバーコードのどれを使いますか？</string>
+    <string name="pageWithNumber"><xliff:g>%d</xliff:g> ページ</string>
+    <string name="noCameraFoundGuideText">お使いのデバイスにカメラが搭載されていないようです。搭載されている場合には、デバイスを再起動してみてください。搭載されていなければ、下にあるその他のオプションボタンから別の方法でバーコードを追加してください。</string>
+    <string name="useFrontImage">前面画像を利用</string>
+    <string name="useBackImage">背面画像を利用</string>
+    <string name="addFromPkpass">Passbook 形式のファイルを選択 (.pkpass / .pkpasses)</string>
+    <string name="generic_error_please_retry">エラーが発生しました</string>
+    <string name="width">幅</string>
+    <string name="card_list_widget_name">カード一覧</string>
+    <string name="setBarcodeWidth">バーコードの幅を設定</string>
+    <string name="card_list_widget_empty">Catimaで幾つかポイントカードを追加すると、ここに表示されます。カードをお持ちの場合、全てアーカイブがされていないことをご確認ください。</string>
+    <string name="cardWithNumber">カード <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">カード <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">動作がキャンセルされるため、デバイスを回転させないようにしてください</string>
+    <string name="acra_catima_has_crashed">申し訳ありません、<xliff:g id="app_name">%s</xliff:g> がクラッシュしました。エラーレポートを送信し問題解決にご協力ください。</string>
+    <string name="acra_explain_crash">できれば、何をしようとしてそうなったのか、より詳細な情報を追加ねがいます:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> クラッシュレポート</string>
+    <string name="pref_enable_acra">クラッシュレポートを送信する</string>
+    <string name="pref_enable_acra_summary">有効にすると、クラッシュ発生時に報告するかを確認されます。クラッシュレポートが自動送信されることはありません。</string>
 </resources>

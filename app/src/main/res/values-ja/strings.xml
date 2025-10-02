@@ -3,7 +3,7 @@
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>
-    <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。 \nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
+    <string name="importLoyaltyCardKeychainMessage">Loyalty Card Keychainからエクスポートしたデータを選択してインポートしてください。\nデータはLoyalty Card Keychainのインポート/エクスポートメニューからエクスポートを押して作成してください。</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychainからインポート</string>
     <string name="importFidmeMessage">FidMeからエクスポートしたデータを選択してインポートしたうえで、手動でバーコードの種類を選択してください。\nFidMeプロフィールから作成するには データ保護 を選択して データを抽出 を押してください。</string>
     <string name="importFidme">FidMeからインポート</string>
@@ -74,7 +74,7 @@
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カード番号に合わせる</string>
     <string name="barcodeId">バーコード番号</string>
-    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。 \nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
+    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートしてからインポートしてください。\nエクスポートはVoucher Vaultでエクスポートを押して作成してください。</string>
     <string name="importVoucherVault">Voucher Vaultからインポート</string>
     <string name="importFailed">カードをインポートできません</string>
     <string name="importFailedTitle">インポートに失敗しました</string>
@@ -111,8 +111,8 @@
     <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
     <string name="turn_flashlight_off">ライトをオフにする</string>
     <string name="turn_flashlight_on">ライトをオンにする</string>
-    <string name="failedGeneratingShareURL">共有URLの生成を生成できませんでした。バグを報告してください。</string>
-    <string name="passwordRequired">パスワードを入力してください</string>
+    <string name="failedGeneratingShareURL">共有可能なURLを作成できませんでした</string>
+    <string name="passwordRequired">パスワードを入力</string>
     <string name="no">いいえ</string>
     <string name="yes">はい</string>
     <string name="updateBarcodeQuestionText">カード番号を変更しました。バーコード番号も同じ値に変更しますか？</string>
@@ -151,7 +151,7 @@
     <string name="noGroupCards">このグループにはカードがありません</string>
     <string name="sort_by">並び替え</string>
     <string name="sort_by_expiry">期限</string>
-    <string name="sort_by_most_recently_used">最近使用したカード</string>
+    <string name="sort_by_most_recently_used">最近使ったカード</string>
     <string name="sort_by_name">名前</string>
     <string name="sort">並び替え</string>
     <string name="rate_this_app">このアプリを評価する</string>
@@ -164,7 +164,7 @@
     <string name="help_translate_this_app">翻訳を手伝う</string>
     <string name="license">ライセンス</string>
     <string name="on_google_play">Google Play</string>
-    <string name="report_error">問題を報告する</string>
+    <string name="report_error">問題を報告</string>
     <string name="reverse">逆順</string>
     <string name="and_data_usage">データの扱いなど</string>
     <string name="group_updated">グループを更新しました</string>
@@ -197,7 +197,7 @@
     <string name="welcome">Catimaへようこそ</string>
     <string name="show_name_below_image_thumbnail">画像サムネイルの下に名前を表示</string>
     <string name="settings_keep_screen_on_summary">画面の自動消灯を無効化します</string>
-    <string name="settings_category_title_cards">カード</string>
+    <string name="settings_category_title_cards">カードビュー</string>
     <string name="settings_category_title_general">一般</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">画面のロックを無効化します</string>
     <string name="action_display_options">表示の設定</string>
@@ -239,4 +239,56 @@
         <item quantity="other"><xliff:g>%s</xliff:g> ポイント</item>
     </plurals>
     <string name="balanceParsingFailed">残高が無効です</string>
+    <string name="showMoreInfo">情報を確認</string>
+    <string name="updateBalance">残高を更新</string>
+    <string name="failedToRetrieveImageFile">画像ファイルを取得できませんでした</string>
+    <string name="barcodeLongPressMessage">ギャラリーアプリは画像のみ開けます</string>
+    <string name="sort_by_valid_from">有効期限</string>
+    <string name="starred">スター付き</string>
+    <string name="include_if_asking_support">サポートを依頼する場合、以下の情報を含めて下さい:</string>
+    <string name="failedLaunchingPhotoPicker">サポートされている画像ピッカーが見つかりませんでした</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="other"><xliff:g>%1$d</xliff:g> のカード (<xliff:g id="archivedCount">%2$d</xliff:g> アーカイブ済み)</item>
+    </plurals>
+    <string name="updateBalanceTitle">どれくらい収入・支出がありましたか？</string>
+    <string name="updateBalanceHint">金額を入力</string>
+    <string name="currentBalanceSentence">現在の残高: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">新規残高: <xliff:g>%s</xliff:g></string>
+    <string name="validFromSentence">有効期限: <xliff:g>%s</xliff:g></string>
+    <string name="height">高さ</string>
+    <string name="switchToFrontImage">前面画像へ切り替え</string>
+    <string name="switchToBackImage">背面画像へ切り替え</string>
+    <string name="switchToBarcode">バーコードへ切り替え</string>
+    <string name="openFrontImageInGalleryApp">前面画像を画像ビューワーアプリで開く</string>
+    <string name="openBackImageInGalleryApp">背面画像を画像ビューワーアプリで開く</string>
+    <string name="setBarcodeHeight">バーコードの高さを設定</string>
+    <string name="icon_header_click_text">サムネイルを長押しして編集</string>
+    <string name="settings_category_title_cards_overview">カードの概要</string>
+    <string name="settings_column_count_portrait">縦向きモードの列</string>
+    <string name="settings_column_count_landscape">横向きモードの列</string>
+    <string name="settings_automatic_column_count">自動</string>
+    <string name="view_online">オンラインで閲覧</string>
+    <string name="enter_card_id">カード記載のID番号かテキストを入力してください</string>
+    <string name="card_id_must_not_be_empty">カードIDは空っぽに出来ません</string>
+    <string name="field_must_not_be_empty">この欄は入力必須です</string>
+    <string name="manually_enter_barcode_instructions">カードに記載のID番号かテキストを入力してからカード上のバーコードかそれに類似のものを押してください。</string>
+    <string name="add_manually_warning_title">スキャンするのをお勧めします</string>
+    <string name="add_manually_warning_message">一部のカードでは、バーコードの値がカード券面記載の番号と異なります。そのために、バーコードを手動入力しても正しく機能しない場合があります。代わりにカメラでバーコードをスキャンすることをお勧めしています。それでも続けますか？</string>
+    <string name="spend">支出</string>
+    <string name="receive">収入</string>
+    <string name="amountParsingFailed">無効な金額です</string>
+    <string name="errorReadingFile">ファイルを読み取れませんでした</string>
+    <string name="failedLaunchingFileManager">サポートされているファイルマネージャーが見つかりませんでした</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">発見できたバーコードのどれを使いますか？</string>
+    <string name="pageWithNumber"><xliff:g>%d</xliff:g> ページ</string>
+    <string name="noCameraFoundGuideText">お使いのデバイスにカメラが搭載されていないようです。搭載されている場合には、デバイスを再起動してみてください。搭載されていなければ、下にあるその他のオプションボタンから別の方法でバーコードを追加してください。</string>
+    <string name="useFrontImage">前面画像を利用</string>
+    <string name="useBackImage">背面画像を利用</string>
+    <string name="addFromPkpass">Passbook 形式のファイルを選択 (.pkpass / .pkpasses)</string>
+    <string name="generic_error_please_retry">エラーが発生しました</string>
+    <string name="width">幅</string>
+    <string name="card_list_widget_name">カード一覧</string>
+    <string name="setBarcodeWidth">バーコードの幅を設定</string>
+    <string name="card_list_widget_empty">Catimaで幾つかポイントカードを追加すると、ここに表示されます。カードをお持ちの場合、全てアーカイブがされていないことをご確認ください。</string>
+    <string name="cardWithNumber">カード <xliff:g>%d</xliff:g></string>
 </resources>

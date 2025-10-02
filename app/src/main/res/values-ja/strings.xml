@@ -57,11 +57,11 @@
     <string name="starImage">お気に入りのスター</string>
     <string name="thumbnailDescription">サムネイル</string>
     <string name="selectBarcodeTitle">バーコードを選択</string>
-    <string name="app_libraries">Third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">サードパーティーのライブラリ: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">バージョン: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> について</string>
-    <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
-    <string name="app_resources">Third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_license">GPLv3+ライセンスによる、コピーレフトされた自由ソフトウェア</string>
+    <string name="app_resources">サードパーティーのリソース: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">このアプリについて</string>
     <string name="importOptionFilesystemButton">ファイルを選択</string>
     <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください</string>
@@ -292,4 +292,10 @@
     <string name="card_list_widget_empty">Catimaで幾つかポイントカードを追加すると、ここに表示されます。カードをお持ちの場合、全てアーカイブがされていないことをご確認ください。</string>
     <string name="cardWithNumber">カード <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">カード <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">動作がキャンセルされるため、デバイスを回転させないようにしてください</string>
+    <string name="acra_catima_has_crashed">申し訳ありません、<xliff:g id="app_name">%s</xliff:g> がクラッシュしました。エラーレポートを送信し問題解決にご協力ください。</string>
+    <string name="acra_explain_crash">できれば、何をしようとしてそうなったのか、より詳細な情報を追加ねがいます:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> クラッシュレポート</string>
+    <string name="pref_enable_acra">クラッシュレポートを送信する</string>
+    <string name="pref_enable_acra_summary">有効にすると、クラッシュ発生時に報告するかを確認されます。クラッシュレポートが自動送信されることはありません。</string>
 </resources>

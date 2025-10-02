@@ -3,6 +3,12 @@
 androidGradlePlugin = "8.13.0"
 kotlin = "2.2.20"
 
+# SDK
+# @keep
+compileSdk = "36"
+targetSdk = "35"
+minSdk = "24"
+
 # AndroidX
 activityCompose = "1.10.1"
 appcompat = "1.7.1"

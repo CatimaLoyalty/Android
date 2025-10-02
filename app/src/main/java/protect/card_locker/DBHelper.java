@@ -284,37 +284,38 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbFTS.STORE + ", " + LoyaltyCardDbFTS.NOTE + ", " +
                     "tokenize=unicode61);");
 
-            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+            try (Cursor cursor = db.query(
+                    LoyaltyCardDbIds.TABLE,
+                    new String[]{LoyaltyCardDbIds.ID, LoyaltyCardDbIds.STORE, LoyaltyCardDbIds.NOTE},
+                    null, null, null, null, null, null)
+            ) {
+                cursor.moveToFirst();
 
-            cursor.moveToFirst();
-
-            while (cursor.moveToNext()) {
-                int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
-                String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
-                String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
-                insertFTS(db, id, store, note);
+                while (cursor.moveToNext()) {
+                    int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                    String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
+                    String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+                    insertFTS(db, id, store, note);
+                }
             }
         }
 
         if (oldVersion < 13 && newVersion >= 13) {
             db.execSQL("DELETE FROM " + LoyaltyCardDbFTS.TABLE + ";");
 
-            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
-
-            if (cursor.moveToFirst()) {
-                int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
-                String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
-                String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
-                insertFTS(db, id, store, note);
-
+            try(Cursor cursor = db.query(
+                    LoyaltyCardDbIds.TABLE,
+                    new String[]{LoyaltyCardDbIds.ID, LoyaltyCardDbIds.STORE, LoyaltyCardDbIds.NOTE},
+                    null, null, null, null, null
+            )){
+                // This single loop handles all cases, including an empty cursor.
                 while (cursor.moveToNext()) {
-                    id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
-                    store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
-                    note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+                    int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                    String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
+                    String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
                     insertFTS(db, id, store, note);
                 }
             }
-            cursor.close();
         }
 
         if (oldVersion < 14 && newVersion >= 14) {
@@ -562,25 +563,35 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static List<Group> getLoyaltyCardGroups(SQLiteDatabase database, final int id) {
-        Cursor data = database.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE + " g " +
-                " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " ig ON ig." + LoyaltyCardDbIdsGroups.groupID + " = g." + LoyaltyCardDbGroups.ID +
-                " where " + LoyaltyCardDbIdsGroups.cardID + "=?" +
-                " ORDER BY " + LoyaltyCardDbIdsGroups.groupID, withArgs(id));
-
+        // A list to hold the resulting Group objects.
         List<Group> groups = new ArrayList<>();
 
-        if (!data.moveToFirst()) {
-            data.close();
-            return groups;
+        // Define the table join for the query.
+        String table = LoyaltyCardDbGroups.TABLE + " g LEFT JOIN " +
+                LoyaltyCardDbIdsGroups.TABLE + " ig ON ig." +
+                LoyaltyCardDbIdsGroups.groupID + " = g." + LoyaltyCardDbGroups.ID;
+
+        // Define the WHERE clause and its arguments.
+        String selection = LoyaltyCardDbIdsGroups.cardID + " = ?";
+        String[] selectionArgs = { String.valueOf(id) };
+
+        // Define the ORDER BY clause.
+        String orderBy = LoyaltyCardDbIdsGroups.groupID;
+
+        try(Cursor cursor = database.query(
+                table,
+                null, // Using null for columns selects all ('*').
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy
+        )){
+            // A single while loop is cleaner for iterating through the cursor.
+            while (cursor.moveToNext()) {
+                groups.add(Group.toGroup(cursor));
+            }
         }
-
-        groups.add(Group.toGroup(data));
-
-        while (data.moveToNext()) {
-            groups.add(Group.toGroup(data));
-        }
-
-        data.close();
 
         return groups;
     }
@@ -633,20 +644,29 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(1));
     }
 
+    /**
+     * Calculates the number of archived loyalty cards within a specific group.
+     * <p>
+     * This method performs a query with a LEFT JOIN on the card and group-linking tables
+     * to find cards that are both marked as archived and associated with the specified group name.
+     * For optimal performance, it uses {@link DatabaseUtils#longForQuery(SQLiteDatabase, String, String[])}
+     * to execute a COUNT(*) query, which is significantly more efficient than retrieving all
+     * matching rows into a Cursor just to get the count.
+     *
+     * @param database  The readable SQLiteDatabase instance to query against.
+     * @param groupName The name of the group for which to count archived cards.
+     * @return The total number of archived cards found in the specified group.
+     */
     public static int getArchivedCardsCount(SQLiteDatabase database, final String groupName) {
-        Cursor data = database.rawQuery(
-                "select * from " + LoyaltyCardDbIds.TABLE + " c " +
-                        " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " cg " +
-                        " ON c." + LoyaltyCardDbIds.ID + " = cg." + LoyaltyCardDbIdsGroups.cardID +
-                " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
-                " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
-                withArgs(groupName)
-        );
+        String query = "SELECT COUNT(*) FROM " + LoyaltyCardDbIds.TABLE + " c " +
+                "LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " cg " +
+                "ON c." + LoyaltyCardDbIds.ID + " = cg." + LoyaltyCardDbIdsGroups.cardID +
+                " WHERE " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
+                " AND " + LoyaltyCardDbIdsGroups.groupID + " = ?";
 
-        int count = data.getCount();
+        long count = DatabaseUtils.longForQuery(database, query, new String[]{groupName});
 
-        data.close();
-        return count;
+        return (int) count;
     }
 
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database) {
@@ -689,47 +709,79 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction, LoyaltyCardArchiveFilter archiveFilter) {
-        StringBuilder groupFilter = new StringBuilder();
-        String limitString = "";
+        // Use lists to dynamically and safely build the WHERE clause and its arguments.
+        List<String> conditions = new ArrayList<>();
+        List<String> selectionArgs = new ArrayList<>();
 
+        // 1. Full-Text Search (FTS) Filter
+        String trimmedFilter = filter.trim();
+        if (!trimmedFilter.isEmpty()) {
+            Log.d("MyQueryDebug", "Filter is NOT empty. Adding MATCH clause.");
+            conditions.add(LoyaltyCardDbFTS.TABLE + " MATCH ?");
+            // Prepare the filter argument for FTS (e.g., "word1 word2" -> "word1* word2*")
+            selectionArgs.add(TextUtils.join("* ", trimmedFilter.split(" ")) + '*');
+        }
+
+        // 2. Archive Status Filter
+        if (archiveFilter != LoyaltyCardArchiveFilter.All) {
+            conditions.add(LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = ?");
+            selectionArgs.add(archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? "0" : "1");
+        }
+
+        // 3. Group Filter
         if (group != null) {
             List<Integer> allowedIds = getGroupCardIds(database, group._id);
-
-            // Empty group
-            if (!allowedIds.isEmpty()) {
-                groupFilter.append("AND (");
-
+            if (allowedIds.isEmpty()) {
+                // If the group has no cards, add a condition that is always false.
+                // This is a safe and clean replacement for the original "LIMIT 0" hack.
+                conditions.add("LIMIT=0");
+            } else {
+                // Build a "?,?,?" string for the IN clause based on the number of IDs.
+                StringBuilder inClausePlaceholders = new StringBuilder();
                 for (int i = 0; i < allowedIds.size(); i++) {
-                    groupFilter.append(LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID + " = ").append(allowedIds.get(i));
-                    if (i != allowedIds.size() - 1) {
-                        groupFilter.append(" OR ");
+                    inClausePlaceholders.append("?");
+                    if (i < allowedIds.size() - 1) {
+                        inClausePlaceholders.append(",");
                     }
                 }
-                groupFilter.append(") ");
-            } else {
-                limitString = "LIMIT 0";
+                conditions.add(LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID + " IN (" + inClausePlaceholders + ")");
+
+                // Add all the group card IDs to the selection arguments.
+                for (Integer id : allowedIds) {
+                    selectionArgs.add(String.valueOf(id));
+                }
             }
         }
 
-        String archiveFilterString = "";
-        if (archiveFilter != LoyaltyCardArchiveFilter.All) {
-            archiveFilterString = " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = " + (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? 0 : 1);
-        }
-
-        String orderField = getFieldForOrder(order);
-
-        return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
+        // Define the tables to join.
+        String table = LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
-                " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
-                (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
-                groupFilter.toString() +
-                archiveFilterString +
-                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
+                " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID;
+
+        // Combine all conditions with " AND ".
+        String selection = TextUtils.join(" AND ", conditions);
+
+        // Build the complex ORDER BY clause. This is safe as it contains no user data.
+        String orderField = getFieldForOrder(order);
+        String orderBy = LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
-                LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
-                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
-                limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
+                LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction);
+
+        if(order != LoyaltyCardOrder.Alpha) {
+            orderBy += ", " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC";
+        }
+
+        // Execute the query using the safe builder method.
+        return database.query(
+                table,
+                new String[]{LoyaltyCardDbIds.TABLE + ".*"}, // Using null for columns selects all ('*').
+                selection,
+                selectionArgs.toArray(new String[0]),
+                null, // groupBy
+                null, // having
+                orderBy
+        );
     }
 
     /**
@@ -747,8 +799,14 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getGroupCursor(SQLiteDatabase database) {
-        return database.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE +
-                " ORDER BY " + LoyaltyCardDbGroups.ORDER + " ASC," + LoyaltyCardDbGroups.ID + " COLLATE NOCASE ASC", null, null);
+        String table = LoyaltyCardDbGroups.TABLE;
+        String orderBy = LoyaltyCardDbGroups.ORDER + " ASC," + LoyaltyCardDbGroups.ID + " COLLATE NOCASE ASC";
+
+        return database.query(
+                table,
+                null, // Using null for columns selects all ('*').
+                null, null, null, null, orderBy
+        );
     }
 
     public static List<Group> getGroups(SQLiteDatabase database) {

@@ -2,8 +2,6 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;

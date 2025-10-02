@@ -1,0 +1,1 @@
+- Opraven možný pád, který mohl nastat u karet, kterým chybí barva v databázi

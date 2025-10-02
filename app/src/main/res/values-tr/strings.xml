@@ -299,4 +299,9 @@
     <string name="card_list_widget_empty">Catima\'ya sadakat kartları eklediğinizde, burada gözükecekler. Eğer kartlarınız varsa, arşivlemediğinizden emin olun.</string>
     <string name="cardWithNumber">Kart <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Kart <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Lütfen cihazı döndürme, bu işlemi iptal edecektir</string>
+    <string name="acra_catima_has_crashed">Üzgünüz, fakat <xliff:g id="app_name">%s</xliff:g> çöktü. Lütfen bunu çözmemize yardım etmek için bize bir hata raporu gönderin.</string>
+    <string name="acra_explain_crash">Mümkünse lütfen ne yaptığınızla ilgili daha fazla detay ekleyin:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> çökme raporu</string>
+    <string name="pref_enable_acra_summary">Etkinleştirildiğinde, bir çökmeyi şikayet etmeniz istenecektir. Çökme raporları hiç bir zaman otomatik olarak gönderilmez.</string>
 </resources>

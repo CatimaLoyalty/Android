@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased - 153
+## v2.39.1 - 154 (2025-10-01)
+
+- Fix possible crash that could occur for cards missing colour information in the database
+
+## v2.39.0 - 153 (2025-09-30)
 
 - Target Android 16
 - Fix possible crash after removing image from card

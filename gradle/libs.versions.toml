@@ -6,8 +6,8 @@ kotlin = "2.2.20"
 # SDK
 # @keep
 compileSdk = "36"
-targetSdk = "35"
-minSdk = "24"
+targetSdk = "36"
+minSdk = "21"
 
 # AndroidX
 activityCompose = "1.10.1"

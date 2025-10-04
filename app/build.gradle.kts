@@ -126,7 +126,7 @@ dependencies {
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
-    implementation("com.github.yalantis:ucrop:2.2.11-native")
+    implementation("com.github.yalantis:ucrop:2.2.11")
     implementation("com.google.zxing:core:3.5.3")
     implementation("org.apache.commons:commons-csv:1.9.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")

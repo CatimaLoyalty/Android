@@ -26,6 +26,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowInsets;
@@ -41,16 +42,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -65,12 +71,15 @@ import org.robolectric.shadows.ShadowLog;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Currency;
-import java.util.Date;
+
+import protect.card_locker.viewmodels.LoyaltyCardDateType;
 
 @RunWith(RobolectricTestRunner.class)
 public class LoyaltyCardViewActivityTest {
@@ -84,7 +93,6 @@ public class LoyaltyCardViewActivityTest {
         ADD_CARD,
         VIEW_CARD,
         UPDATE_CARD,
-        ;
     }
 
     enum FieldTypeView {
@@ -93,10 +101,23 @@ public class LoyaltyCardViewActivityTest {
         ImageView
     }
 
+    Context context;
+    ActivityController<LoyaltyCardEditActivity> activityController;
+    LoyaltyCardEditActivity activity;
+
     @Before
     public void setUp() {
         // Output logs emitted during tests so they may be accessed
         ShadowLog.stream = System.out;
+        context = ApplicationProvider.getApplicationContext();
+        activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class);
+        activity = activityController.get();
+        activityController.setup();
+    }
+
+    @After
+    public void tearDown() {
+        activityController.destroy();
     }
 
     /**
@@ -176,14 +197,14 @@ public class LoyaltyCardViewActivityTest {
         if (validFrom.equals(activity.getApplicationContext().getString(R.string.anyDate))) {
             assertEquals(null, card.validFrom);
         } else {
-            assertEquals(DateFormat.getDateInstance().parse(validFrom), card.validFrom);
+            assertEquals(Instant.parse(validFrom), card.validFrom);
         }
 
         // The special "Never" string shouldn't actually be written to the loyalty card
         if (expiry.equals(activity.getApplicationContext().getString(R.string.never))) {
             assertEquals(null, card.expiry);
         } else {
-            assertEquals(DateFormat.getDateInstance().parse(expiry), card.expiry);
+            assertEquals(Instant.parse(expiry), card.expiry);
         }
 
         // The special "Points" string shouldn't actually be written to the loyalty card
@@ -345,7 +366,7 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    @Config(qualifiers="de")
+    @Config(qualifiers = "de")
     public void noCrashOnRegionlessLocale() {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
 
@@ -410,17 +431,17 @@ public class LoyaltyCardViewActivityTest {
             final ImageView backImageView = activity.findViewById(R.id.backImage);
 
             Currency currency = Currency.getInstance("EUR");
-            Date validFromDate = Date.from(Instant.now().minus(20, ChronoUnit.DAYS));
-            Date expiryDate = new Date();
+            ZonedDateTime validFromDate = ZonedDateTime.now().minusDays(20);
+            ZonedDateTime expiryDate = ZonedDateTime.now();
             Bitmap frontBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
             Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_done);
 
             storeField.setText("correct store");
             noteField.setText("correct note");
             LoyaltyCardEditActivity.formatDateField(context, validFromField, validFromDate);
-            activity.setLoyaltyCardValidFrom(validFromDate);
+            activity.setLoyaltyCardValidFrom(validFromDate.toInstant());
             LoyaltyCardEditActivity.formatDateField(context, expiryField, expiryDate);
-            activity.setLoyaltyCardExpiry(expiryDate);
+            activity.setLoyaltyCardExpiry(expiryDate.toInstant());
             balanceField.setText("100");
             balanceTypeField.setText(currency.getSymbol());
             cardIdField.setText("12345678");
@@ -432,7 +453,7 @@ public class LoyaltyCardViewActivityTest {
             shadowOf(getMainLooper()).idle();
 
             // Check if changed
-            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(validFromDate), DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", validFromDate.format(DateTimeUtils.longDateShortTimeFormatter), expiryDate.format(DateTimeUtils.longDateShortTimeFormatter), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
 
             // Resume
             activityController.pause();
@@ -441,7 +462,7 @@ public class LoyaltyCardViewActivityTest {
             shadowOf(getMainLooper()).idle();
 
             // Check if no changes lost
-            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(validFromDate), DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", validFromDate.format(DateTimeUtils.longDateShortTimeFormatter), expiryDate.format(DateTimeUtils.longDateShortTimeFormatter), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
 
             // Rotate to landscape
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -449,7 +470,7 @@ public class LoyaltyCardViewActivityTest {
             shadowOf(getMainLooper()).idle();
 
             // Check if no changes lost
-            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(validFromDate), DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", validFromDate.format(DateTimeUtils.longDateShortTimeFormatter), expiryDate.format(DateTimeUtils.longDateShortTimeFormatter), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
 
             // Rotate to portrait
             shadowOf(getMainLooper()).idle();
@@ -457,7 +478,7 @@ public class LoyaltyCardViewActivityTest {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
             // Check if no changes lost
-            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(validFromDate), DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", validFromDate.format(DateTimeUtils.longDateShortTimeFormatter), expiryDate.format(DateTimeUtils.longDateShortTimeFormatter), "100.00", currency.getSymbol(), "12345678", "87654321", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName(), frontBitmap, backBitmap);
         }
     }
 
@@ -726,14 +747,83 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    public void startWithLoyaltyCardNoExpirySetExpiry() throws IOException {
-        final Context context = ApplicationProvider.getApplicationContext();
-        SQLiteDatabase database = TestHelpers.getEmptyDb(context).getWritableDatabase();
+    public void testShowDateTimePicker() {
+        LoyaltyCardDateType dateType = LoyaltyCardDateType.VALID_FROM;
+        ZonedDateTime selectedDateTime = ZonedDateTime.now();
+        ZonedDateTime minDateTime = null;
+        ZonedDateTime maxDateTime = null;
 
+        activity.showDateTimePicker(
+                dateType, selectedDateTime, minDateTime, maxDateTime
+        );
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        // Verify date picker is shown
+        FragmentManager fm = activity.getSupportFragmentManager();
+        MaterialDatePicker<?> datePicker = (MaterialDatePicker<?>) fm.findFragmentByTag("DATE_PICKER");
+
+        assertNotNull(datePicker);
+        assertTrue(datePicker.isVisible());
+    }
+
+    @Test
+    public void testTimePickerShowsAfterDateSelection() {
+        // Given
+        LoyaltyCardDateType dateType = LoyaltyCardDateType.VALID_FROM;
+        long utcDateSelectionMillis = System.currentTimeMillis();
+        ZonedDateTime initialDateTime = ZonedDateTime.now();
+
+        // When
+        activity.showTimePicker(dateType, utcDateSelectionMillis, initialDateTime);
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        // Then - Verify time picker is shown
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        MaterialTimePicker timePicker = (MaterialTimePicker)
+                fragmentManager.findFragmentByTag("TIME_PICKER");
+
+        assertNotNull(timePicker);
+        assertTrue(timePicker.isVisible());
+    }
+
+    @Test
+    public void testDatePickerPositiveButtonShowsTimePicker() {
+        LoyaltyCardDateType dateType = LoyaltyCardDateType.VALID_FROM;
+        ZonedDateTime selectedDateTime = ZonedDateTime.now();
+        ZonedDateTime minDateTime = null;
+        ZonedDateTime maxDateTime = null;
+
+        activity.showDateTimePicker(
+                dateType, selectedDateTime, minDateTime, maxDateTime
+        );
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        FragmentManager fm = activity.getSupportFragmentManager();
+        MaterialDatePicker<?> datePicker = (MaterialDatePicker<?>) fm.findFragmentByTag("DATE_PICKER");
+        Dialog dialog = datePicker.getDialog();
+        assertNotNull(dialog);
+        datePicker.getDialog().findViewById(com.google.android.material.R.id.confirm_button).performClick();
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        MaterialTimePicker timePicker = (MaterialTimePicker)
+                fm.findFragmentByTag("TIME_PICKER");
+
+        assertNotNull(timePicker);
+        assertTrue(timePicker.isVisible());
+    }
+
+
+    @Test
+    public void startWithLoyaltyCardNoExpirySetExpiry() {
+        SQLiteDatabase database = TestHelpers.getEmptyDb(context).getWritableDatabase();
         long cardId = DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null, 0);
 
-        ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
-        Activity activity = (Activity) activityController.get();
+        activityController = createActivityWithLoyaltyCard(true, (int) cardId);
+        activity = activityController.get();
 
         activityController.start();
         activityController.visible();
@@ -741,19 +831,38 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
+        ZonedDateTime selectedDateTime = ZonedDateTime.now();
+
         // Set date to today
         MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
         expiryField.setText(expiryField.getAdapter().getItem(1).toString(), false);
 
+        shadowOf(Looper.getMainLooper()).idle();
+
+        FragmentManager fm = activity.getSupportFragmentManager();
+        MaterialDatePicker<?> datePicker = (MaterialDatePicker<?>) fm.findFragmentByTag("DATE_PICKER");
+        Dialog dialog = datePicker.getDialog();
+        assertNotNull(dialog);
+        datePicker.getDialog().findViewById(com.google.android.material.R.id.confirm_button).performClick();
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        MaterialTimePicker timePicker = (MaterialTimePicker) fm.findFragmentByTag("TIME_PICKER");
+        assertNotNull(timePicker);
+        assertTrue(timePicker.isVisible());
+
+        timePicker.setHour(20);
+        timePicker.setMinute(30);
+
+        timePicker.getDialog().findViewById(com.google.android.material.R.id.material_timepicker_ok_button).performClick();
+
         shadowOf(getMainLooper()).idle();
 
-        Dialog datePickerDialog = ShadowDialog.getLatestDialog();
-        assertNotNull(datePickerDialog);
-        datePickerDialog.findViewById(com.google.android.material.R.id.confirm_button).performClick();
+        LocalDate selectedDate = selectedDateTime.toLocalDate();
+        LocalTime selectedTime = LocalTime.of(timePicker.getHour(), timePicker.getMinute());
+        ZonedDateTime selectedDateAndTime = ZonedDateTime.of(selectedDate, selectedTime, ZoneId.systemDefault());
 
-        shadowOf(getMainLooper()).idle();
-
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), selectedDateAndTime.format(DateTimeUtils.longDateShortTimeFormatter), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
         database.close();
     }
@@ -763,7 +872,7 @@ public class LoyaltyCardViewActivityTest {
         final Context context = ApplicationProvider.getApplicationContext();
         SQLiteDatabase database = TestHelpers.getEmptyDb(context).getWritableDatabase();
 
-        long cardId = DBHelper.insertLoyaltyCard(database, "store", "note", null, new Date(), new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null, 0);
+        long cardId = DBHelper.insertLoyaltyCard(database, "store", "note", null, Instant.now(), new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null, 0);
 
         ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
         Activity activity = (Activity) activityController.get();
@@ -772,7 +881,7 @@ public class LoyaltyCardViewActivityTest {
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), DateTimeUtils.formatLong(Instant.now()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
         // Set date to never
         MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
@@ -826,7 +935,7 @@ public class LoyaltyCardViewActivityTest {
 
                 shadowOf(getMainLooper()).idle();
 
-                checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "10.00", "€", EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE.toString(), null, null);
+                checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateTimeUtils.formatLong(Instant.now()), DateTimeUtils.formatLong(Instant.now()), "10.00", "€", EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE.toString(), null, null);
 
                 database.close();
             }
@@ -1348,9 +1457,9 @@ public class LoyaltyCardViewActivityTest {
 
     @Test
     public void importCard() {
-        Date date = new Date();
+        Instant date = Instant.now();
 
-        Uri importUri = Uri.parse("https://catima.app/share#store%3DExample%2BStore%26note%3D%26validfrom%3D" + date.getTime() + "%26expiry%3D" + date.getTime() + "%26balance%3D10.00%26balancetype%3DUSD%26cardid%3D123456%26barcodetype%3DAZTEC%26headercolor%3D-416706");
+        Uri importUri = Uri.parse("https://catima.app/share#store%3DExample%2BStore%26note%3D%26validfrom%3D" + date.toString() + "%26expiry%3D" + date + "%26balance%3D10.00%26balancetype%3DUSD%26cardid%3D123456%26barcodetype%3DAZTEC%26headercolor%3D-416706");
 
         Intent intent = new Intent();
         intent.setData(importUri);
@@ -1366,7 +1475,7 @@ public class LoyaltyCardViewActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), DateFormat.getDateInstance(DateFormat.LONG).format(date), "10.00", "$", "123456", context.getString(R.string.sameAsCardId), "Aztec", null, null);
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateTimeUtils.formatLong(date), DateTimeUtils.formatLong(date), "10.00", "$", "123456", context.getString(R.string.sameAsCardId), "Aztec", null, null);
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 

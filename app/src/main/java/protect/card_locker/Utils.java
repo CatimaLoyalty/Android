@@ -53,9 +53,9 @@ import com.google.android.material.color.DynamicColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
@@ -76,15 +76,14 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Date;
 import java.util.EnumMap;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -514,31 +513,6 @@ public class Utils {
         );
         builder.setOnCancelListener(dialogInterface -> callback.onUserDismissedSelector());
         builder.show();
-    }
-
-    static public Boolean isNotYetValid(Date validFromDate) {
-        // The note in `hasExpired` does not apply here, since the bug was fixed before this feature was added.
-        return validFromDate.after(getStartOfToday().getTime());
-    }
-
-    static public Boolean hasExpired(Date expiryDate) {
-        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
-        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
-        // is not a problem for the way the comparison currently works, it's good to keep in mind such
-        // dates may exist in the DB in case the comparison changes in the future and the new one relies
-        // on both dates being set at 12:00 AM.
-        return expiryDate.before(getStartOfToday().getTime());
-    }
-
-    static private Calendar getStartOfToday() {
-        // today
-        Calendar date = new GregorianCalendar();
-        // reset hour, minutes, seconds and millis
-        date.set(Calendar.HOUR_OF_DAY, 0);
-        date.set(Calendar.MINUTE, 0);
-        date.set(Calendar.SECOND, 0);
-        date.set(Calendar.MILLISECOND, 0);
-        return date;
     }
 
     static public String formatBalance(Context context, BigDecimal value, Currency currency) {

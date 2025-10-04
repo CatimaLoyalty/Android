@@ -74,7 +74,7 @@
     <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>
     <string name="exportSuccessful">Datumoj eksportitaj</string>
     <string name="noGroupCards">Ĉi tiu grupo estas malplena</string>
-    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu el la menuo \" ⋮\".</string>
+    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu el la menuo \" ⋮\"</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> elektita</item>
         <item quantity="other"><xliff:g>%d</xliff:g> elektitaj</item>

@@ -127,10 +127,10 @@ public class CatimaImporter implements Importer {
             LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
             if (existing == null) {
                 DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                        card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                        card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
             } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
                 long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                        card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                        card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
             }
         }
@@ -501,6 +501,7 @@ public class CatimaImporter implements Importer {
                 cardId,
                 barcodeId,
                 barcodeType,
+                null,
                 headerColor,
                 starStatus,
                 lastUsed,

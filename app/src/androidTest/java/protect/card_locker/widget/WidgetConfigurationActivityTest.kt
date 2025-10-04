@@ -22,6 +22,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.not
@@ -55,6 +56,7 @@ class WidgetConfigurationActivityTest {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 1)
         }
     }
+
     // This setup runs before each test
     @OptIn(ExperimentalCoroutinesApi::class)
     @Before
@@ -84,7 +86,15 @@ class WidgetConfigurationActivityTest {
         // ACT: Activity is launched by the rule
 
         // ASSERT: UI shows the default values
-        onView(withId(R.id.group_spinner_autocomplete)).check(matches(withText(testContext.getString(R.string.all))))
+        onView(withId(R.id.group_spinner_autocomplete)).check(
+            matches(
+                withText(
+                    testContext.getString(
+                        R.string.all
+                    )
+                )
+            )
+        )
         onView(withId(R.id.starred_filter_checkbox)).check(matches(not(isChecked())))
         onView(withId(R.id.archive_filter_checkbox)).check(matches(not(isChecked())))
         onView(withId(R.id.starred_switch_container)).check(matches(not(isDisplayed())))
@@ -92,13 +102,16 @@ class WidgetConfigurationActivityTest {
     }
 
     @Test
-    fun changeSettingsAndSave_persistsCorrectlyInDataStore() = runTest {
+    fun changeSettingsAndSave_persistsCorrectlyInDataStore() {
         onView(withId(R.id.starred_filter_checkbox)).perform(click())
         onView(withId(R.id.starred_status_switch)).perform(click())
         onView(withId(R.id.archive_filter_checkbox)).perform(click())
         onView(withId(R.id.save_button)).perform(click())
 
-        val savedSettings = settingsManager.settingsFlow.first()
+        // ASSERT: Use runBlocking to pause the test and safely get the saved data
+        val savedSettings = runBlocking {
+            settingsManager.settingsFlow.first()
+        }
 
         assertThat(savedSettings.starFilter).isTrue()
         assertThat(savedSettings.archiveFilter).isEqualTo(DBHelper.LoyaltyCardArchiveFilter.Unarchived)

@@ -638,8 +638,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "select * from " + LoyaltyCardDbIds.TABLE + " c " +
                         " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " cg " +
                         " ON c." + LoyaltyCardDbIds.ID + " = cg." + LoyaltyCardDbIdsGroups.cardID +
-                " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
-                " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
+                        " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
+                        " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
                 withArgs(groupName)
         );
 
@@ -677,24 +677,43 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group, LoyaltyCardArchiveFilter archiveFilter) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, archiveFilter);
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, archiveFilter, null);
     }
 
     /**
-     * Returns a cursor to all loyalty cards with the filter text in either the store or note in a certain group sorted as requested.
+     * ## Pseudo-Code Explanation
+     * Returns a cursor to all loyalty cards by joining the main card table with the card search table.
+     * WHERE all the following conditions are true:
+     * AND IF a text filter is provided,
+     * * Only include cards that match the search text.
+     * AND IF a group is provided,
+     * * Only include cards that belong to that specific group.
+     * * (If the group exists but has no cards, return an empty list immediately).
+     * AND IF the archiveFilter is set to "Archived" or "Unarchived",
+     * * Only include cards with that specific archive status.
+     * AND IF the starStatusFilter is set to "Starred" or "Not Starred",
+     * * Only include cards with that specific star status.
+     * ORDER THE RESULTS BY the following priority:
+     * 1. First, by the user's chosen field (like Store Name or Date Added) in the specified direction. Cards with no value for this field are always placed last.
+     * 2. Then, as a tie-breaker, by Archive Status (unarchived cards come first).
+     * 3. Then, as another tie-breaker, by Star Status (starred cards come first).
+     * 4. Finally, as a last tie-breaker (if the primary sort wasn't by name), by the card's Store Name alphabetically.
      *
      * @param filter
      * @param group
      * @param order
      * @return Cursor
      */
-    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction, LoyaltyCardArchiveFilter archiveFilter) {
+    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction, LoyaltyCardArchiveFilter archiveFilter, Boolean starStatusFilter) {
+        String groupId = group != null ? group._id : null;
+        Log.d("DB-Helper", String.format("Filter %s :::  Group: %s ::::  Order:  %s  :::: Direction: %s :::  archiveFilter : %s  :::  starStatus: %s", filter, groupId, order.name(), direction.name(), archiveFilter.name(), starStatusFilter));
         StringBuilder groupFilter = new StringBuilder();
         String limitString = "";
 
+        Log.d("DBHelper", "group is null: " + (group == null));
         if (group != null) {
             List<Integer> allowedIds = getGroupCardIds(database, group._id);
-
+            Log.d("DBHelper", "allowedIds: " + allowedIds);
             // Empty group
             if (!allowedIds.isEmpty()) {
                 groupFilter.append("AND (");
@@ -707,28 +726,49 @@ public class DBHelper extends SQLiteOpenHelper {
                 }
                 groupFilter.append(") ");
             } else {
-                limitString = "LIMIT 0";
+                limitString = " LIMIT 0";
             }
         }
+        Log.d("DBHelper", "groupFilter: " + groupFilter);
 
         String archiveFilterString = "";
         if (archiveFilter != LoyaltyCardArchiveFilter.All) {
             archiveFilterString = " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = " + (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? 0 : 1);
         }
 
+        String starStatusFilterString = "";
+        if (starStatusFilter != null) {
+            starStatusFilterString = " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " = " + (starStatusFilter ? 1 : 0);
+        }
+
         String orderField = getFieldForOrder(order);
+
+        // --- THIS IS THE CORRECTED ORDER BY LOGIC ---
+        String orderByClause = " ORDER BY " +
+                // 1. Primary sort: Pin unarchived cards to the top
+                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
+
+                // 2. Secondary sort: Pin starred cards to the top
+                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
+
+                // 3. Tertiary sort (tie-breaker): The user's selected order
+                " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
+                LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction);
+
+
+        if (order != LoyaltyCardOrder.Alpha) {
+            // 4. Final tie-breaker: store name
+            orderByClause += ", " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC";
+        }
 
         return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
-                groupFilter.toString() +
+                groupFilter +
                 archiveFilterString +
-                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
-                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
-                " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
-                LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
-                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                starStatusFilterString +
+                orderByClause + // Use the new, correctly ordered clause
                 limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
     }
 
@@ -804,23 +844,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static List<Integer> getGroupCardIds(SQLiteDatabase database, final String groupName) {
-        Cursor data = database.query(LoyaltyCardDbIdsGroups.TABLE, withArgs(LoyaltyCardDbIdsGroups.cardID),
-                whereAttrs(LoyaltyCardDbIdsGroups.groupID), withArgs(groupName), null, null, null);
-        List<Integer> cardIds = new ArrayList<>();
-
-        if (!data.moveToFirst()) {
+        try (Cursor cursor = database.query(LoyaltyCardDbIdsGroups.TABLE, withArgs(LoyaltyCardDbIdsGroups.cardID),
+                whereAttrs(LoyaltyCardDbIdsGroups.groupID), withArgs(groupName), null, null, null)) {
+            List<Integer> cardIds = new ArrayList<>();
+            while (cursor.moveToNext()) {
+                cardIds.add(cursor.getInt(0));
+            }
             return cardIds;
         }
-
-        cardIds.add(data.getInt(0));
-
-        while (data.moveToNext()) {
-            cardIds.add(data.getInt(0));
-        }
-
-        data.close();
-
-        return cardIds;
     }
 
     public static long insertGroup(SQLiteDatabase database, final String name) {

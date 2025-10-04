@@ -10,4 +10,5 @@
     android:targetCellHeight="2"
     android:updatePeriodMillis="86400000"
     android:configure="protect.card_locker.widget.WidgetConfigurationActivity"
+    android:widgetFeatures="reconfigurable"
     android:widgetCategory="home_screen" />

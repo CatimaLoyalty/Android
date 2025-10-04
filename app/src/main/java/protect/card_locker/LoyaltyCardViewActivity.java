@@ -99,7 +99,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
 
-    static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_ID = "id";
     static final String BUNDLE_CARDLIST = "cardList";
     static final String BUNDLE_TRANSITION_RIGHT = "transition_right";
 

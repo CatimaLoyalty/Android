@@ -350,6 +350,7 @@
     <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set barcode width</string>
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
+    <string name="empty_cards_widget_message">No cards match your current filters. Try adjusting your settings to see more.</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
@@ -358,4 +359,9 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> crash report</string>
     <string name="pref_enable_acra">Ask to send crash reports</string>
     <string name="pref_enable_acra_summary">When enabled, you will be asked to report a crash when it happens. Crash reports are never sent automatically.</string>
+    <string name="starred_filter_hint">Use this to show only starred or non-starred cards. When the box is unchecked, all cards will be shown regardless of their star status.</string>
+    <string name="archive_filter_hint">Use this to show only archived or unarchived cards. When the box is unchecked, all cards will be shown regardless of their archive status.</string>
+    <string name="filter_by_archive_status">Filter by Archive Status</string>
+    <string name="filter_by_star_status">Filter by Star Status</string>
+    <string name="not_starred">Not Starred</string>
 </resources>

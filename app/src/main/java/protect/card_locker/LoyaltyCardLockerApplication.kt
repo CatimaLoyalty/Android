@@ -1,45 +1,66 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.app.Application;
+import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
+import org.acra.ACRA
+import org.acra.config.CoreConfigurationBuilder
+import org.acra.config.DialogConfigurationBuilder
+import org.acra.config.MailSenderConfigurationBuilder
+import org.acra.data.StringFormat
+import protect.card_locker.core.WidgetSettingsManager
+import protect.card_locker.core.dataStore
+import protect.card_locker.preferences.Settings
 
-import androidx.appcompat.app.AppCompatDelegate;
 
-import org.acra.ACRA;
-import org.acra.config.CoreConfigurationBuilder;
-import org.acra.config.DialogConfigurationBuilder;
-import org.acra.config.MailSenderConfigurationBuilder;
-import org.acra.data.StringFormat;
+class LoyaltyCardLockerApplication : Application() {
 
-import protect.card_locker.preferences.Settings;
+    companion object {
+        lateinit var settingsManager: WidgetSettingsManager
+            private set
+    }
 
-public class LoyaltyCardLockerApplication extends Application {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    override fun onCreate() {
+        super.onCreate()
+        settingsManager = WidgetSettingsManager(dataStore)
 
         // Initialize crash reporter (if enabled)
         if (BuildConfig.useAcraCrashReporter) {
-            ACRA.init(this, new CoreConfigurationBuilder()
+            ACRA.init(
+                this, CoreConfigurationBuilder()
                     //core configuration:
-                    .withBuildConfigClass(BuildConfig.class)
+                    .withBuildConfigClass(BuildConfig::class.java)
                     .withReportFormat(StringFormat.KEY_VALUE_LIST)
                     .withPluginConfigurations(
-                            new DialogConfigurationBuilder()
-                                    .withText(String.format(getString(R.string.acra_catima_has_crashed), getString(R.string.app_name)))
-                                    .withCommentPrompt(getString(R.string.acra_explain_crash))
-                                    .withResTheme(R.style.AppTheme)
-                                    .build(),
-                            new MailSenderConfigurationBuilder()
-                                    .withMailTo("acra-crash@catima.app")
-                                    .withSubject(String.format(getString(R.string.acra_crash_email_subject), getString(R.string.app_name)))
-                                    .build()
+                        DialogConfigurationBuilder()
+                            .withText(
+                                String.format(
+                                    getString(R.string.acra_catima_has_crashed),
+                                    getString(R.string.app_name)
+                                )
+                            )
+                            .withCommentPrompt(getString(R.string.acra_explain_crash))
+                            .withResTheme(R.style.AppTheme)
+                            .build(),
+                        MailSenderConfigurationBuilder()
+                            .withMailTo("acra-crash@catima.app")
+                            .withSubject(
+                                String.format(
+                                    getString(R.string.acra_crash_email_subject),
+                                    getString(R.string.app_name)
+                                )
+                            )
+                            .build()
                     )
-            );
+            )
         }
 
         // Set theme
-        Settings settings = new Settings(this);
-        AppCompatDelegate.setDefaultNightMode(settings.getTheme());
+        val settings = Settings(this)
+        AppCompatDelegate.setDefaultNightMode(settings.theme)
+    }
+
+    // For tests
+    fun setTestSettingsManager(manager: WidgetSettingsManager) {
+        settingsManager = manager
     }
 }

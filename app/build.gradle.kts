@@ -122,6 +122,9 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.13.0")
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     // Third-party
@@ -143,13 +146,23 @@ dependencies {
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.robolectric:robolectric:4.16")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    testImplementation("app.cash.turbine:turbine:1.2.1") // Turbine for testing Flow
+    testImplementation("androidx.datastore:datastore-preferences-core:1.1.7") // DataStore testing artifac
+    testImplementation("com.google.truth:truth:1.4.5") // assertion library for readable tests
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:$androidXTestVersion")
+    androidTestImplementation("androidx.test:rules:$androidXTestVersion")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.7.0")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    androidTestImplementation("com.google.truth:truth:1.4.5")
+    androidTestImplementation("app.cash.turbine:turbine:1.2.1") // Turbine for testing Flow
+    androidTestImplementation("androidx.datastore:datastore-preferences-core:1.1.7") // DataStore testing artifact
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

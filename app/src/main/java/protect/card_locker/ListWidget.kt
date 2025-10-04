@@ -9,10 +9,16 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.RemoteViews
 import androidx.core.widget.RemoteViewsCompat
-import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import protect.card_locker.core.WidgetSettings
 
 class ListWidget : AppWidgetProvider() {
     fun updateAll(context: Context) {
@@ -25,70 +31,85 @@ class ListWidget : AppWidgetProvider() {
         )
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            val database = DBHelper(context).readableDatabase
+            GlobalScope.launch(Dispatchers.IO) {
+                val settingsManager = LoyaltyCardLockerApplication.settingsManager
+                val settings = settingsManager.settingsFlow.first()
 
-            // Get cards
-            val order = Utils.getLoyaltyCardOrder(context);
-            val orderDirection = Utils.getLoyaltyCardOrderDirection(context);
+                val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
+                    .setHasStableIds(true)
+                    .setViewTypeCount(1)
 
-            val loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
-                database,
-                "",
-                null,
-                order,
-                orderDirection,
-                LoyaltyCardArchiveFilter.Unarchived
-            )
+                // Load the cards
+                val allCards = loadAndFilterCards(context, settings)
 
-            // Bind every card to cell in the grid
-            var hasCards = false
-            val remoteCollectionItemsBuilder = RemoteViewsCompat.RemoteCollectionItems.Builder()
-            if (loyaltyCardCursor.moveToFirst()) {
-                do {
-                    val loyaltyCard = LoyaltyCard.fromCursor(context, loyaltyCardCursor)
-                    remoteCollectionItemsBuilder.addItem(
-                        loyaltyCard.id.toLong(),
-                        createRemoteViews(
-                            context, loyaltyCard
-                        )
+                val hasCards = allCards.isNotEmpty()
+
+                if (hasCards) {
+                    allCards.forEach { card ->
+                        val itemView = createRemoteViews(context, card)
+                        remoteCollectionItemsBuilder.addItem(card.id.toLong(), itemView)
+                    }
+                }
+
+                val views = RemoteViews(context.packageName, R.layout.list_widget)
+                views.setEmptyView(R.id.grid_view, R.id.no_cards_view)
+
+                if (hasCards) {
+                    // If we have cards, create the list
+                    val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java)
+                    val pendingIntent = PendingIntent.getActivity(
+                        context,
+                        0,
+                        templateIntent,
+                        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
                     )
-                    hasCards = true
-                } while (loyaltyCardCursor.moveToNext())
+                    views.setPendingIntentTemplate(R.id.grid_view, pendingIntent)
+
+                    RemoteViewsCompat.setRemoteAdapter(
+                        context,
+                        views,
+                        appWidgetId,
+                        R.id.grid_view,
+                        remoteCollectionItemsBuilder.build()
+                    )
+                }
+
+                // Let Android know the widget is ready for display
+                appWidgetManager.updateAppWidget(appWidgetId, views)
             }
-            loyaltyCardCursor.close()
+        }
+    }
 
-            // Create the base empty view
-            var views = RemoteViews(context.packageName, R.layout.list_widget_empty)
+    internal fun loadAndFilterCards(context: Context, settings: WidgetSettings): List<LoyaltyCard> {
+        val database = DBHelper(context).readableDatabase
+        val cardsToShow = mutableListOf<LoyaltyCard>()
 
-            if (hasCards) {
-                // If we have cards, create the list
-                views = RemoteViews(context.packageName, R.layout.list_widget)
-                val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java)
-                val pendingIntent = PendingIntent.getActivity(
-                    context,
-                    0,
-                    templateIntent,
-                    PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-                )
-                views.setPendingIntentTemplate(R.id.grid_view, pendingIntent)
+        val groups = DBHelper.getGroups(database)
 
-                RemoteViewsCompat.setRemoteAdapter(
-                    context,
-                    views,
-                    appWidgetId,
-                    R.id.grid_view,
-                    remoteCollectionItemsBuilder.build()
-                )
+        Log.d("ListWidget", "settings.group: ${settings.group}")
+        val matchedGroup = if (settings.group.isNullOrEmpty()) null
+        else groups.firstOrNull { group -> group._id == settings.group }
+        Log.d("ListWidget", "matchedGroup: ${matchedGroup?._id}")
+        return DBHelper.getLoyaltyCardCursor(
+            database,
+            "",
+            matchedGroup,
+            settings.sortOrder,
+            settings.sortOrderDirection,
+            settings.archiveFilter,
+            settings.starFilter,
+        ).use { cursor ->
+            while (cursor.moveToNext()) {
+                cardsToShow.add(LoyaltyCard.fromCursor(context, cursor))
             }
-
-            // Let Android know the widget is ready for display
-            appWidgetManager.updateAppWidget(appWidgetId, views)
+            cardsToShow
         }
     }
 

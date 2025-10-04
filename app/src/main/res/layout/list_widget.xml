@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_layout"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
@@ -10,9 +12,22 @@
         android:id="@+id/grid_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:numColumns="auto_fit"
         android:columnWidth="107dp"
-        android:verticalSpacing="4dp"
+        android:gravity="center"
         android:horizontalSpacing="4dp"
-        android:gravity="center"/>
-</LinearLayout>
+        android:numColumns="auto_fit"
+        android:verticalSpacing="4dp"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/no_cards_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_theme_light_background"
+        android:padding="16dp"
+        android:text="@string/empty_cards_widget_message"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+</FrameLayout>

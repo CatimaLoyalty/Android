@@ -2,8 +2,6 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -238,9 +236,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        mUpdateLoyaltyCardListRunnable = () -> {
-            updateLoyaltyCardList(false);
-        };
+        mUpdateLoyaltyCardListRunnable = () -> updateLoyaltyCardList(false);
 
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -308,6 +304,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         });
+
+        LoyaltyCardLockerApplication.Companion.getSettingsManager()
+                .getSettingsLiveData().observe(this, settings -> {
+                    mOrder = settings.getSortOrder();
+                    mOrderDirection = settings.getSortOrderDirection();
+                });
     }
 
     @Override
@@ -331,10 +333,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 Context.MODE_PRIVATE);
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
 
-        // Restore sort preferences from Shared Preferences
-        mOrder = Utils.getLoyaltyCardOrder(this);
-        mOrderDirection = Utils.getLoyaltyCardOrderDirection(this);
-
         mGroup = null;
 
         if (groupsTabLayout.getTabCount() != 0) {
@@ -350,6 +348,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             scaleScreen();
         }
 
+        Log.d("MainActivity", "Going to call updateLoyaltyCardList");
         updateLoyaltyCardList(true);
         // End of active tab logic
 
@@ -389,7 +388,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             group = (Group) mGroup;
         }
 
-        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mAdapter.showingArchivedCards() ? DBHelper.LoyaltyCardArchiveFilter.All : DBHelper.LoyaltyCardArchiveFilter.Unarchived));
+        Log.d("MainActivity", "mOrder: " + mOrder);
+        Log.d("MainActivity", "mOrderDirection: " + mOrderDirection);
+        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mAdapter.showingArchivedCards() ? DBHelper.LoyaltyCardArchiveFilter.All : DBHelper.LoyaltyCardArchiveFilter.Unarchived, null));
 
         if (updateCount) {
             updateLoyaltyCardCount();

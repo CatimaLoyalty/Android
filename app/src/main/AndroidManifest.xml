@@ -30,6 +30,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:localeConfig="@xml/locales_config">
+
+        <activity
+            android:name=".widget.WidgetConfigurationActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
         
         <receiver
             android:name=".ListWidget"

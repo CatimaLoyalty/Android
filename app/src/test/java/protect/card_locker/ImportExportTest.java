@@ -73,7 +73,7 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -81,7 +81,7 @@ public class ImportExportTest {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -90,7 +90,7 @@ public class ImportExportTest {
 
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
 
@@ -107,7 +107,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -124,7 +124,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -144,7 +144,7 @@ public class ImportExportTest {
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -170,59 +170,58 @@ public class ImportExportTest {
      * where the smallest card's index is 1
      */
     private void checkLoyaltyCards() {
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
-        int index = 1;
+        try (Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase)) {
+            int index = 1;
 
-        while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
+            while (cursor.moveToNext()) {
+                LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
-            String expectedStore = String.format("store, \"%4d", index);
-            String expectedNote = String.format("note, \"%4d", index);
+                String expectedStore = String.format("store, \"%4d", index);
+                String expectedNote = String.format("note, \"%4d", index);
 
-            assertEquals(expectedStore, card.store);
-            assertEquals(expectedNote, card.note);
-            assertEquals(null, card.validFrom);
-            assertEquals(null, card.expiry);
-            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
-            assertEquals(null, card.balanceType);
-            assertEquals(BARCODE_DATA, card.cardId);
-            assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
-            assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(0, card.starStatus);
+                assertEquals(expectedStore, card.store);
+                assertEquals(expectedNote, card.note);
+                assertEquals(null, card.validFrom);
+                assertEquals(null, card.expiry);
+                assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+                assertEquals(null, card.balanceType);
+                assertEquals(BARCODE_DATA, card.cardId);
+                assertEquals(null, card.barcodeId);
+                assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+                assertEquals(Integer.valueOf(index), card.headerColor);
+                assertEquals(0, card.starStatus);
 
-            index++;
+                index++;
+            }
         }
-        cursor.close();
     }
 
     private void checkLoyaltyCardsAndDuplicates(int numCards) {
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+        try (Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase)) {
+            while (cursor.moveToNext()) {
+                LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
-        while (cursor.moveToNext()) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
+                // ID goes up for duplicates (b/c the cursor orders by store), down for originals
+                int index = card.id > numCards ? card.id - numCards : numCards - card.id + 1;
+                // balance is doubled for modified originals
+                int balance = card.id > numCards ? index : index * 2;
 
-            // ID goes up for duplicates (b/c the cursor orders by store), down for originals
-            int index = card.id > numCards ? card.id - numCards : numCards - card.id + 1;
-            // balance is doubled for modified originals
-            int balance = card.id > numCards ? index : index * 2;
+                String expectedStore = String.format("store, \"%4d", index);
+                String expectedNote = String.format("note, \"%4d", index);
 
-            String expectedStore = String.format("store, \"%4d", index);
-            String expectedNote = String.format("note, \"%4d", index);
-
-            assertEquals(expectedStore, card.store);
-            assertEquals(expectedNote, card.note);
-            assertEquals(null, card.validFrom);
-            assertEquals(null, card.expiry);
-            assertEquals(new BigDecimal(String.valueOf(balance)), card.balance);
-            assertEquals(null, card.balanceType);
-            assertEquals(BARCODE_DATA, card.cardId);
-            assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
-            assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(0, card.starStatus);
+                assertEquals(expectedStore, card.store);
+                assertEquals(expectedNote, card.note);
+                assertEquals(null, card.validFrom);
+                assertEquals(null, card.expiry);
+                assertEquals(new BigDecimal(String.valueOf(balance)), card.balance);
+                assertEquals(null, card.balanceType);
+                assertEquals(BARCODE_DATA, card.cardId);
+                assertEquals(null, card.barcodeId);
+                assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+                assertEquals(Integer.valueOf(index), card.headerColor);
+                assertEquals(0, card.starStatus);
+            }
         }
-        cursor.close();
     }
 
     /**
@@ -231,54 +230,53 @@ public class ImportExportTest {
      * with starred ones first
      */
     private void checkLoyaltyCardsFiveStarred() {
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
-        int index = 5;
+        try (Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase)) {
+            int index = 5;
 
-        while (index < 10) {
-            cursor.moveToNext();
-            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
+            while (index < 10) {
+                cursor.moveToNext();
+                LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
 
-            String expectedStore = String.format("store, \"%4d", index);
-            String expectedNote = String.format("note, \"%4d", index);
+                String expectedStore = String.format("store, \"%4d", index);
+                String expectedNote = String.format("note, \"%4d", index);
 
-            assertEquals(expectedStore, card.store);
-            assertEquals(expectedNote, card.note);
-            assertEquals(null, card.validFrom);
-            assertEquals(null, card.expiry);
-            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
-            assertEquals(null, card.balanceType);
-            assertEquals(BARCODE_DATA, card.cardId);
-            assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
-            assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(1, card.starStatus);
+                assertEquals(expectedStore, card.store);
+                assertEquals(expectedNote, card.note);
+                assertEquals(null, card.validFrom);
+                assertEquals(null, card.expiry);
+                assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+                assertEquals(null, card.balanceType);
+                assertEquals(BARCODE_DATA, card.cardId);
+                assertEquals(null, card.barcodeId);
+                assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+                assertEquals(Integer.valueOf(index), card.headerColor);
+                assertEquals(1, card.starStatus);
 
-            index++;
+                index++;
+            }
+
+            index = 1;
+            while (cursor.moveToNext() && index < 5) {
+                LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
+
+                String expectedStore = String.format("store, \"%4d", index);
+                String expectedNote = String.format("note, \"%4d", index);
+
+                assertEquals(expectedStore, card.store);
+                assertEquals(expectedNote, card.note);
+                assertEquals(null, card.validFrom);
+                assertEquals(null, card.expiry);
+                assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+                assertEquals(null, card.balanceType);
+                assertEquals(BARCODE_DATA, card.cardId);
+                assertEquals(null, card.barcodeId);
+                assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+                assertEquals(Integer.valueOf(index), card.headerColor);
+                assertEquals(0, card.starStatus);
+
+                index++;
+            }
         }
-
-        index = 1;
-        while (cursor.moveToNext() && index < 5) {
-            LoyaltyCard card = LoyaltyCard.fromCursor(activity.getApplicationContext(), cursor);
-
-            String expectedStore = String.format("store, \"%4d", index);
-            String expectedNote = String.format("note, \"%4d", index);
-
-            assertEquals(expectedStore, card.store);
-            assertEquals(expectedNote, card.note);
-            assertEquals(null, card.validFrom);
-            assertEquals(null, card.expiry);
-            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
-            assertEquals(null, card.balanceType);
-            assertEquals(BARCODE_DATA, card.cardId);
-            assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
-            assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(0, card.starStatus);
-
-            index++;
-        }
-
-        cursor.close();
     }
 
     /**
@@ -287,19 +285,19 @@ public class ImportExportTest {
      * where the smallest group's index is 1
      */
     private void checkGroups() {
-        Cursor cursor = DBHelper.getGroupCursor(mDatabase);
-        int index = DBHelper.getGroupCount(mDatabase);
+        try (Cursor cursor = DBHelper.getGroupCursor(mDatabase)) {
+            int index = DBHelper.getGroupCount(mDatabase);
 
-        while (cursor.moveToNext()) {
-            Group group = Group.toGroup(cursor);
+            while (cursor.moveToNext()) {
+                Group group = Group.toGroup(cursor);
 
-            String expectedGroupName = String.format("group, \"%4d", index);
+                String expectedGroupName = String.format("group, \"%4d", index);
 
-            assertEquals(expectedGroupName, group._id);
+                assertEquals(expectedGroupName, group._id);
 
-            index--;
+                index--;
+            }
         }
-        cursor.close();
     }
 
     @Test
@@ -432,7 +430,7 @@ public class ImportExportTest {
         groupsForFour.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
 
         List<Group> groupsForFive = new ArrayList<>();
-        groupsForFive.add(DBHelper.getGroup(mDatabase,"group, \"   1"));
+        groupsForFive.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
         groupsForFive.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
 
         DBHelper.setLoyaltyCardGroups(mDatabase, 1, groupsForOne);
@@ -830,7 +828,7 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
+        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null, 0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
@@ -844,7 +842,7 @@ public class ImportExportTest {
         loyaltyCardIconImages.put(loyaltyCardId, bitmap1);
 
         // Create card 2
-        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
+        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null, 0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
 
         // Export everything

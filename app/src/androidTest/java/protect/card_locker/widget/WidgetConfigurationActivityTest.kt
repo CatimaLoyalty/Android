@@ -1,5 +1,6 @@
 package protect.card_locker.widget
 
+import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
@@ -67,7 +68,7 @@ class WidgetConfigurationActivityTest {
         val app = ApplicationProvider.getApplicationContext<LoyaltyCardLockerApplication>()
         app.setTestSettingsManager(settingsManager)
 
-        scenario = ActivityScenario.launch(createLaunchIntent())
+        scenario = ActivityScenario.launchActivityForResult(createLaunchIntent())
     }
 
     @After
@@ -101,6 +102,9 @@ class WidgetConfigurationActivityTest {
 
         assertThat(savedSettings.starFilter).isTrue()
         assertThat(savedSettings.archiveFilter).isEqualTo(DBHelper.LoyaltyCardArchiveFilter.Unarchived)
+        assertThat(savedSettings.group).isEqualTo(null)
+
+        assertThat(scenario.result.resultCode).isEqualTo(Activity.RESULT_OK)
     }
 
 

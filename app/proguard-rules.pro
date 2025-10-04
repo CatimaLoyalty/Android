@@ -22,3 +22,18 @@
 
 # This keep the class and method names the same, for debugging stack traces
 -dontobfuscate
+
+# Required for uCrop 2.2.11
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn javax.annotation.processing.AbstractProcessor
+-dontwarn javax.annotation.processing.SupportedOptions
+-dontwarn okhttp3.Call
+-dontwarn okhttp3.Dispatcher
+-dontwarn okhttp3.OkHttpClient
+-dontwarn okhttp3.Request$Builder
+-dontwarn okhttp3.Request
+-dontwarn okhttp3.Response
+-dontwarn okhttp3.ResponseBody
+-dontwarn okio.BufferedSource
+-dontwarn okio.Okio
+-dontwarn okio.Sink

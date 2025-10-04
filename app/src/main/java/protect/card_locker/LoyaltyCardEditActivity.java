@@ -719,7 +719,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         int colorOnSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
         int colorBackground = MaterialColors.getColor(this, android.R.attr.colorBackground, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
         mCropperOptions.setToolbarColor(colorSurface);
-        mCropperOptions.setStatusBarColor(colorSurface);
         mCropperOptions.setToolbarWidgetColor(colorOnSurface);
         mCropperOptions.setRootViewBackgroundColor(colorBackground);
         // set tool tip to be the darker of primary color

@@ -17,14 +17,17 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withTimeout
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
 import org.junit.Before
@@ -50,13 +53,6 @@ class WidgetConfigurationActivityTest {
     @get:Rule
     val temporaryFolder: TemporaryFolder = TemporaryFolder.builder().assureDeletion().build()
 
-    private fun createLaunchIntent(): Intent {
-        return Intent(testContext, WidgetConfigurationActivity::class.java).apply {
-            // Provide a dummy widget ID for the test. Your Activity expects this.
-            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 1)
-        }
-    }
-
     // This setup runs before each test
     @OptIn(ExperimentalCoroutinesApi::class)
     @Before
@@ -70,7 +66,12 @@ class WidgetConfigurationActivityTest {
         val app = ApplicationProvider.getApplicationContext<LoyaltyCardLockerApplication>()
         app.setTestSettingsManager(settingsManager)
 
-        scenario = ActivityScenario.launchActivityForResult(createLaunchIntent())
+        scenario = ActivityScenario.launchActivityForResult(
+            Intent(ApplicationProvider.getApplicationContext(), WidgetConfigurationActivity::class.java)
+                .apply {
+                    putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 12345)
+                }
+        )
     }
 
     @After
@@ -101,16 +102,29 @@ class WidgetConfigurationActivityTest {
         onView(withId(R.id.archive_switch_container)).check(matches(not(isDisplayed())))
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun changeSettingsAndSave_persistsCorrectlyInDataStore() {
+    fun changeSettingsAndSave_persistsCorrectlyInDataStore() = runTest {
+
         onView(withId(R.id.starred_filter_checkbox)).perform(click())
         onView(withId(R.id.starred_status_switch)).perform(click())
         onView(withId(R.id.archive_filter_checkbox)).perform(click())
         onView(withId(R.id.save_button)).perform(click())
 
-        // ASSERT: Use runBlocking to pause the test and safely get the saved data
-        val savedSettings = runBlocking {
-            settingsManager.settingsFlow.first()
+        // Wait for activity to finish
+        InstrumentationRegistry.getInstrumentation().waitForIdleSync()
+
+        val expectedArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Unarchived
+
+        val savedSettings = withTimeout(5_000) {
+            settingsManager.settingsFlow
+                .onEach { println("Observed: $it") }
+                .filter { settings ->
+                    settings.starFilter == true &&
+                            settings.archiveFilter == expectedArchiveFilter &&
+                            settings.group == null
+                }
+                .first()
         }
 
         assertThat(savedSettings.starFilter).isTrue()

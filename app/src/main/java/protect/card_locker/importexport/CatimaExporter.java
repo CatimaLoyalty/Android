@@ -61,23 +61,24 @@ public class CatimaExporter implements Exporter {
         zipOutputStream.closeEntry();
 
         // Loop over all cards again
-        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
-        while (cardCursor.moveToNext()) {
-            // For each card
-            LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor);
+        try(Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database)){
+            while (cardCursor.moveToNext()) {
+                // For each card
+                LoyaltyCard card = LoyaltyCard.fromCursor(context, cardCursor);
 
-            // For each image
-            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
-                // If it exists, add to the .zip file
-                Bitmap image = card.getImageForImageLocationType(context, imageLocationType);
-                if (image != null) {
-                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType), password);
-                    zipOutputStream.putNextEntry(imageZipParameters);
-                    InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
-                    while ((readLen = imageInputStream.read(readBuffer)) != -1) {
-                        zipOutputStream.write(readBuffer, 0, readLen);
+                // For each image
+                for (ImageLocationType imageLocationType : ImageLocationType.values()) {
+                    // If it exists, add to the .zip file
+                    Bitmap image = card.getImageForImageLocationType(context, imageLocationType);
+                    if (image != null) {
+                        ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType), password);
+                        zipOutputStream.putNextEntry(imageZipParameters);
+                        InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
+                        while ((readLen = imageInputStream.read(readBuffer)) != -1) {
+                            zipOutputStream.write(readBuffer, 0, readLen);
+                        }
+                        zipOutputStream.closeEntry();
                     }
-                    zipOutputStream.closeEntry();
                 }
             }
         }
@@ -147,8 +148,8 @@ public class CatimaExporter implements Exporter {
             printer.printRecord(card.id,
                     card.store,
                     card.note,
-                    card.validFrom != null ? card.validFrom.getTime() : "",
-                    card.expiry != null ? card.expiry.getTime() : "",
+                    card.validFrom != null ? card.validFrom.toString() : "",
+                    card.expiry != null ? card.expiry.toString() : "",
                     card.balance,
                     card.balanceType,
                     card.cardId,

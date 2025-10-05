@@ -72,9 +72,9 @@ class SettingsActivity : CatimaAppCompatActivity() {
         if (fragment.mReloadMain) {
             val intent = Intent()
             intent.putExtra(MainActivity.RESTART_ACTIVITY_INTENT, true)
-            setResult(Activity.RESULT_OK, intent)
+            setResult(RESULT_OK, intent)
         } else {
-            setResult(Activity.RESULT_OK)
+            setResult(RESULT_OK)
         }
         finish()
     }

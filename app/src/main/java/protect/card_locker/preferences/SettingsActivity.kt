@@ -18,7 +18,6 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
-import java.util.Locale
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -89,7 +88,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
             // Show pretty names and summaries
             val themePreference = findPreference<ListPreference>(getString(R.string.settings_key_theme))
-            themePreference?.setOnPreferenceChangeListener { _, o ->
+            themePreference!!.setOnPreferenceChangeListener { _, o ->
                 when (o.toString()) {
                     getString(R.string.settings_key_light_theme) -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -105,23 +104,24 @@ class SettingsActivity : CatimaAppCompatActivity() {
             }
 
             val themeColorPreference = findPreference<ListPreference>(getString(R.string.setting_key_theme_color))
-            themeColorPreference?.setOnPreferenceChangeListener { _, _ ->
+            themeColorPreference!!.setOnPreferenceChangeListener { _, _ ->
                 refreshActivity(true)
                 true
             }
             if (!DynamicColors.isDynamicColorAvailable()) {
-                themeColorPreference?.setEntryValues(R.array.color_values_no_dynamic)
-                themeColorPreference?.setEntries(R.array.color_value_strings_no_dynamic)
+                themeColorPreference.setEntryValues(R.array.color_values_no_dynamic)
+                themeColorPreference.setEntries(R.array.color_value_strings_no_dynamic)
             }
 
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))
-            oledDarkPreference?.setOnPreferenceChangeListener { _, _ ->
+            oledDarkPreference!!.setOnPreferenceChangeListener { _, _ ->
                 refreshActivity(true)
                 true
             }
 
-            val localePreference = findPreference<ListPreference>(getString(R.string.settings_key_locale))
-            localePreference?.let {
+            val localePreference =
+                findPreference<ListPreference>(getString(R.string.settings_key_locale))!!
+            localePreference.let {
                 val entryValues = it.entryValues
                 val entries = entryValues.map { entry ->
                     if (entry.isEmpty()) {
@@ -156,7 +156,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
             }
 
-            localePreference?.setOnPreferenceChangeListener { _, newValue ->
+            localePreference.setOnPreferenceChangeListener { _, newValue ->
                 // See corresponding comment in Utils.updateBaseContextLocale for Android 6- notes
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                     refreshActivity(true)
@@ -171,11 +171,12 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Disable content provider on SDK < 23 since dangerous permissions
             // are granted at install-time
             val contentProviderReadPreference = findPreference<Preference>(getString(R.string.settings_key_allow_content_provider_read))
-            contentProviderReadPreference?.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+            contentProviderReadPreference!!.isVisible =
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
 
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
-            crashReporterPreference?.isVisible = BuildConfig.useAcraCrashReporter
+            crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
         }
 
         private fun refreshActivity(reloadMain: Boolean) {

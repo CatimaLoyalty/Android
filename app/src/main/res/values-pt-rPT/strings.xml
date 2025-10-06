@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Adicionar</string>
-    <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico a partir do sistema de ficheiros.</string>
+    <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico do sistema de ficheiros</string>
     <string name="action_search">Pesquisa</string>
     <string name="star">Adicionar aos favoritos</string>
     <string name="noMatchingGiftCards">Sem resultados. Tente alterar a sua pesquisa.</string>
@@ -36,10 +36,10 @@
     <string name="noCardsMessage">Adicione um cartão primeiro</string>
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
-    <string name="importExport">Importar / Exportar</string>
+    <string name="importExport">Importar/exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importSuccessful">Dados importados</string>
-    <string name="noGroups">Clique no botão + para adicionar grupos para categorização.</string>
+    <string name="noGroups">Clique no botão + para adicionar grupos para a categorização</string>
     <string name="noGroupCards">Este grupo está vazio</string>
     <string name="intent_import_card_from_url_share_text">Quero partilhar um cartão</string>
     <string name="settings_display_barcode_max_brightness">Iluminar o ecrã</string>
@@ -58,11 +58,11 @@
     <string name="selectBarcodeTitle">Selecionar código de barras</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Favorito</string>
-    <string name="failedOpeningFileManager">Instalar primeiro um gestor de ficheiros.</string>
+    <string name="failedOpeningFileManager">Falha ao abrir o gestor de ficheiros</string>
     <string name="moveUp">Subir</string>
     <string name="moveDown">Descer</string>
     <string name="leaveWithoutSaveTitle">Sair</string>
-    <string name="importExportHelp">A cópia de segurança dos seus dados permite-lhe movê-los para outro dispositivo.</string>
+    <string name="importExportHelp">A cópia de segurança dos seus dados permite-lhe movê-los para outro dispositivo</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">A importação falhou</string>
     <string name="importFailed">Não foi possível importar</string>
@@ -76,8 +76,8 @@
     <string name="chooseImportType">Importar dados de</string>
     <string name="card">Cartão</string>
     <string name="expiryStateSentence">Expiram: <xliff:g>%s</xliff:g></string>
-    <string name="app_resources">Recursos livres de terceiros: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Bibliotecas livres de terceiros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Recursos de terceiros: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotecas de terceiros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="takePhoto">Tirar uma fotografia</string>
     <string name="yes">Sim</string>
     <string name="exportPassword">Defina uma palavra-passe para proteger a exportação (opcional)</string>
@@ -87,7 +87,7 @@
     <string name="importFidmeMessage">Selecione a exportação <i>fidme-export-request-xxxxxx.zip</i> do FidMe para importar e depois selecione os tipos de código de barras manualmente.
 \nPrimeiro crie a exportação no seu perfil do FidMe escolhendo a opção \"Proteção de dados\" e em seguida pressionando \"Extrair os meus dados\".</string>
     <string name="barcodeId">Valor do código de barras</string>
-    <string name="wrongValueForBarcodeType">O valor não é válido para o tipo de código de barras selecionado</string>
+    <string name="wrongValueForBarcodeType">O valor é inválido para o tipo de código de barras selecionado</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quero partilhar alguns cartões</string>
     <string name="removeImage">Remover imagem</string>
     <string name="backImageDescription">Imagem de trás</string>
@@ -142,7 +142,7 @@
     <string name="unsupportedBarcodeType">Este tipo de código de barras ainda não pode ser mostrado. Pode vir a ser suportado numa versão posterior da aplicação.</string>
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem de trás</string>
-    <string name="failedGeneratingShareURL">Não foi possível gerar um URL partilhável. Por favor reporte isto aos programadores.</string>
+    <string name="failedGeneratingShareURL">Não foi possível gerar um URL partilhável</string>
     <string name="turn_flashlight_on">Ligar lanterna</string>
     <string name="turn_flashlight_off">Desligar lanterna</string>
     <string name="settings_locale">Idioma</string>
@@ -169,7 +169,7 @@
     <string name="and_data_usage">e utilização de dados</string>
     <string name="rate_this_app">Avalie esta aplicação</string>
     <string name="on_google_play">no Google Play</string>
-    <string name="exportOptionExplanation">Os dados serão guardados num local à sua escolha.</string>
+    <string name="exportOptionExplanation">Os dados serão guardados num local à sua escolha</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eliminar <xliff:g>%d</xliff:g> cartão</item>
         <item quantity="many">Eliminar <xliff:g>%d</xliff:g> cartões</item>
@@ -187,7 +187,7 @@
     <string name="group_name_is_empty">O nome do grupo não pode ser vazio</string>
     <string name="group_updated">Grupo atualizado</string>
     <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
-    <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui.</string>
+    <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui</string>
     <string name="selectColor">Selecionar cor</string>
     <string name="setIcon">Definir miniatura</string>
     <string name="shortcutSelectCard">Selecione um cartão</string>
@@ -243,7 +243,7 @@
     <string name="donate">Doar</string>
     <string name="show_validity">Mostrar validade</string>
     <string name="show_balance">Mostrar saldo</string>
-    <string name="permissionReadCardsLabel">Ler Cartões Catima</string>
+    <string name="permissionReadCardsLabel">Ler cartões Catima</string>
     <string name="permissionReadCardsDescription">leia seus cartões do Catima e todos os seus detalhes, incluindo notas e imagens</string>
     <string name="show_note">Mostrar nota</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome abaixo da miniatura do ícone</string>
@@ -301,12 +301,16 @@
     <string name="settings_column_count_7">7</string>
     <string name="addFromPkpass">Selecionar um ficheiro Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Este ficheiro não é suportado</string>
-    <string name="generic_error_please_retry">Lamento, ocorreu um erro, tente novamente...</string>
+    <string name="generic_error_please_retry">Ocorreu um erro</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
     <string name="width">Largura</string>
     <string name="setBarcodeWidth">Definir a largura do código de barras</string>
     <string name="card_list_widget_name">Lista de cartões</string>
     <string name="card_list_widget_empty">Após adicionar cartões de fidelidade em Catima, eles aparecerão aqui. Se tem cartões, certifique-se de que não estão todos arquivados.</string>
     <string name="cardWithNumber">Cartão <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Cartão <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Cartão <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Não gire o dispositivo, pois cancelará a ação</string>
+    <string name="acra_catima_has_crashed">Lamentamos, mas o <xliff:g id="app_name">%s</xliff:g> travou. Ajude-nos a corrigir este problema a enviar um relatório de erro.</string>
+    <string name="acra_explain_crash">Se possível, acrescente detalhes sobre o que fazia aqui:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> relatório de travamento</string>
 </resources>

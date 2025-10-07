@@ -163,7 +163,7 @@ public class CatimaImporter implements Importer {
         }
         for (ImageLocationType imageLocationType : ImageLocationType.values()) {
             String nameExists = Utils.getCardImageFileName(existing.id, imageLocationType);
-            String nameChecksum = nameExists.replaceFirst("card_\\d+_", "card_" + card.id + "_");
+            String nameChecksum = Utils.getCardImageFileName(card.id, imageLocationType);
 
             boolean exists = existingImages.contains(nameExists);
             if (exists != imageChecksums.containsKey(nameChecksum)) {

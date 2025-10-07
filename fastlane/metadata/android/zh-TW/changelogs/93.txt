@@ -1,0 +1,2 @@
+- 新增將 Catima 加入快速裝置控制的功能（https://developer.android.com/guide/topics/ui/device-control）
+- 修正部分群組在群組管理畫面中未正確顯示的問題

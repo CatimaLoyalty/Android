@@ -595,23 +595,7 @@ public class LoyaltyCard {
                         b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
-                a.archiveStatus == b.archiveStatus && // non-nullable int
-                nullableBitmapsEqual(a.getImageThumbnail(context), b.getImageThumbnail(context)) && // nullable Bitmap
-                nullableBitmapsEqual(a.getImageFront(context), b.getImageFront(context)) && // nullable Bitmap
-                nullableBitmapsEqual(a.getImageBack(context), b.getImageBack(context)); // nullable Bitmap
-    }
-
-    public static boolean nullableBitmapsEqual(@Nullable Bitmap a, @Nullable Bitmap b) {
-        if (a == null && b == null) {
-            return true;
-        }
-
-        if (a != null && b != null) {
-            return a.sameAs(b);
-        }
-
-        // One is null and the other isn't, so it's not equal
-        return false;
+                a.archiveStatus == b.archiveStatus; // non-nullable int
     }
 
     @NonNull

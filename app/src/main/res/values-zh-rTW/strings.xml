@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">搜尋</string>
     <string name="action_add">新增</string>
-    <string name="noGiftCards">點選 + 按鈕以新增卡片，或從 ⋮ 選單中匯入。</string>
+    <string name="noGiftCards">點選 + 按鈕以新增卡片，或從 ⋮ 選單中匯入</string>
     <string name="noMatchingGiftCards">找不到相關結果。試試其他關鍵字。</string>
     <string name="storeName">名稱</string>
     <string name="note">註記</string>
@@ -40,7 +40,7 @@
     <string name="deleteConfirmationGroup">刪除此群組？</string>
     <string name="deleteTitle">刪除卡片</string>
     <string name="editBarcode">編輯條碼</string>
-    <string name="editCardTitle">編輯圖片</string>
+    <string name="editCardTitle">編輯卡片</string>
     <string name="enter_group_name">輸入群組名稱</string>
     <string name="errorReadingImage">無法讀取此圖片</string>
     <string name="expiryDate">逾期日期</string>
@@ -50,12 +50,12 @@
     <string name="exportFailedTitle">匯出失敗</string>
     <string name="exporting">匯出中…</string>
     <string name="exportName">匯出</string>
-    <string name="exportOptionExplanation">資料將寫至您所選的位置。</string>
+    <string name="exportOptionExplanation">資料將寫至您所選的位置</string>
     <string name="exportPassword">透過密碼保護您的匯出檔（選用）</string>
     <string name="exportPasswordHint">輸入密碼</string>
     <string name="exportSuccessful">已匯出資料</string>
     <string name="exportSuccessfulTitle">已匯出</string>
-    <string name="failedOpeningFileManager">請先安裝檔案管理員。</string>
+    <string name="failedOpeningFileManager">無法開啟檔案管理員</string>
     <string name="failedParsingImportUriError">無法讀取匯入 URI</string>
     <string name="frontImageDescription">正面圖片</string>
     <string name="groups">群組</string>
@@ -143,33 +143,33 @@
     <string name="ok">OK</string>
     <string name="sendLabel">送出…</string>
     <string name="scanCardBarcode">掃描條碼</string>
-    <string name="importExportHelp">備份您的資料以將其轉移至其他裝置中。</string>
+    <string name="importExportHelp">備份您的資料以將其轉移至其他裝置中</string>
     <string name="importOptionFilesystemTitle">自檔案系統中匯入</string>
-    <string name="importOptionFilesystemExplanation">自檔案系統中選取檔案。</string>
+    <string name="importOptionFilesystemExplanation">自檔案系統中選取檔案</string>
     <string name="importOptionFilesystemButton">自檔案系統</string>
     <string name="app_copyright_fmt">著作權所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os 與其他貢獻者</string>
     <string name="importVoucherVault">自 Voucher Vault 中匯入</string>
-    <string name="importVoucherVaultMessage">選取您自 Voucher Vault 匯出的 <i>vouchervault.json</i> 檔案以進行匯入。 \n請您先透過 Voucher Vault 進行匯出。</string>
+    <string name="importVoucherVaultMessage">請選取您從 Voucher Vault 匯出的檔案以進行匯入。\n您可以在 Voucher Vault 中按下「匯出」來建立此檔案。</string>
     <string name="importLoyaltyCardKeychain">自 Loyalty Card Keychain 中匯入</string>
-    <string name="importLoyaltyCardKeychainMessage">選取您自 Loyalty Card Keychain <i>LoyaltyCardKeychain.csv</i> 檔案以進行匯入。 \n請您先透過 Loyalty Card Keychain 的匯入/匯出選單進行匯出。</string>
+    <string name="importLoyaltyCardKeychainMessage">請選取您從 Loyalty Card Keychain 匯出的檔案以進行匯入。\n您可以在 Loyalty Card Keychain 的「匯入／匯出」選單中按下「匯出」來建立此檔案。</string>
     <string name="importFidme">自 FidMe 匯入</string>
-    <string name="importFidmeMessage">選取您自 FidMe 匯出的<i>fidme-export-request-xxxxxx.zip</i> 檔案以進行匯入，並手動選擇條碼種類。 \n請您先透過您的 FidMe 個人檔案選取『Data Protection』，並選擇『Extract my data』。</string>
+    <string name="importFidmeMessage">請選取您從 FidMe 匯出的檔案以進行匯入，並在之後手動選擇條碼類型。\n您可以在 FidMe 的個人檔案中選擇「Data Protection」，然後按下「Extract my data」來建立此檔案。</string>
     <string name="importCatima">自卡提碼匯入</string>
-    <string name="importCatimaMessage">選取您自卡提碼匯出的 <i>catima.zip</i> 檔案以進行匯入。 \n您可透過其他裝置的卡提碼程式中的匯入／匯出選單進行匯出。</string>
+    <string name="importCatimaMessage">請選取您從 Catima 匯出檔案以進行匯入。\n您可以在另一台裝置的 Catima 應用程式中，透過「匯入／匯出」選單按下「匯出」來建立此檔案。</string>
     <string name="points">點</string>
-    <string name="app_libraries">第三方自由函式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">第三方程式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">第三方資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">選擇條碼</string>
-    <string name="noGroups">請點選 + 加號按鈕新增群組。</string>
+    <string name="noGroups">請點選 + 加號按鈕新增群組</string>
     <string name="moveBarcodeToTopOfScreen">將條碼移至螢幕上方</string>
     <string name="app_loyalty_card_keychain">萬用卡片錢包</string>
     <string name="unsupportedBarcodeType">尚支援此條碼種類，但未來版本的應用程式可能會支援此條碼種類。</string>
     <string name="wrongValueForBarcodeType">條碼內容不適用於此條碼種類</string>
     <string name="backImageDescription">背面圖片</string>
     <string name="updateBarcodeQuestionText">您已更新了 ID，是否要更新條碼內容以匹配此 ID？</string>
-    <string name="failedGeneratingShareURL">無法建立可分享的 URL，請回報此錯誤。</string>
+    <string name="failedGeneratingShareURL">無法建立可分享的 URL</string>
     <string name="starImage">收藏標示</string>
-    <string name="noGiftCardsGroup">建立一些卡片，然後將它們分配到這個群組中。</string>
+    <string name="noGiftCardsGroup">建立一些卡片，然後將它們分配到這個群組中</string>
     <string name="showMoreInfo">顯示資訊</string>
     <string name="shortcutSelectCard">選擇卡片</string>
     <string name="starred">已收藏</string>
@@ -198,7 +198,7 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> 張卡片 (<xliff:g id="archivedCount">%2$d</xliff:g> 張已封存)</item>
     </plurals>
     <string name="failedToOpenUrl">先安裝網頁瀏覽器</string>
-    <string name="failedLaunchingPhotoPicker">無法找到支援的圖庫應用程式</string>
+    <string name="failedLaunchingPhotoPicker">無法找到支援的圖片選取器</string>
     <string name="previousCard">上一張</string>
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用卡提碼</string>
@@ -217,7 +217,7 @@
     <string name="currentBalanceSentence">餘額：<xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">新的餘額：<xliff:g>%s</xliff:g></string>
     <string name="switchToBarcode">選擇條碼</string>
-    <string name="openFrontImageInGalleryApp">以圖庫軟件開啟正面圖片</string>
+    <string name="openFrontImageInGalleryApp">在圖片檢視應用程式中開啟正面圖片</string>
     <string name="show_note">顯示備註</string>
     <string name="show_balance">顯示餘額</string>
     <string name="show_validity">顯示有效性</string>
@@ -226,7 +226,7 @@
     <string name="height">高</string>
     <string name="donate">捐款</string>
     <string name="icon_header_click_text">長按以編輯縮圖</string>
-    <string name="openBackImageInGalleryApp">以圖庫軟體開啟背面圖片</string>
+    <string name="openBackImageInGalleryApp">在圖片檢視應用程式中開啟背面圖片</string>
     <string name="show_name_below_image_thumbnail">在縮圖下方顯示名稱</string>
     <string name="setBarcodeHeight">設定條碼高度</string>
     <string name="app_copyright_short">著作權所有© Sylvia van Os與其他貢獻者</string>
@@ -262,7 +262,7 @@
     <string name="continue_">繼續</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">你想要使用哪個找到的條碼？</string>
     <string name="pageWithNumber">第 <xliff:g>%d</xliff:g> 頁</string>
-    <string name="add_manually_warning_message">對於某些商店，條碼值與卡片上寫的數字並不相同。因此，手動輸入條碼可能並不總是有效。強烈建議使用相機掃描條碼。你還想繼續嗎？</string>
+    <string name="add_manually_warning_message">有些卡片上的條碼數值與卡面上印的號碼可能不同，因此手動輸入條碼可能無法正常運作。建議您改用相機掃描條碼。您仍要繼續嗎？</string>
     <string name="spend">花費</string>
     <string name="noCameraFoundGuideText">您的裝置似乎沒有相機鏡頭。如果實際上有相機鏡頭，請嘗試重新啟動此裝置，否則請點選下方的「更多」按鈕，以其它方式新增條碼。</string>
     <string name="exportCancelled">已取消匯出</string>
@@ -282,12 +282,20 @@
     <string name="settings_category_title_cards_overview">卡片概覽</string>
     <string name="settings_column_count_portrait">縱向模式下的列數</string>
     <string name="settings_column_count_landscape">横向模式下的列數</string>
-    <string name="addFromPkpass">選擇 Passbook 檔案 (.pkpass)</string>
+    <string name="addFromPkpass">選擇 Passbook 檔案 (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">不支援此檔案</string>
-    <string name="generic_error_please_retry">抱歉，似乎出了點錯誤，請您再試一次...</string>
+    <string name="generic_error_please_retry">發生錯誤</string>
     <string name="sort_by_valid_from">有效期限開始日</string>
     <string name="card_list_widget_empty">加入卡提碼的卡片會在這顯示。若您已加入卡片，請確認卡片是否被歸檔。</string>
     <string name="width">寬</string>
     <string name="card_list_widget_name">卡片清單</string>
     <string name="setBarcodeWidth">設定條碼寬度</string>
+    <string name="cardWithNumber">卡片 <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">卡片 <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">請勿旋轉裝置，否則此操作將被取消</string>
+    <string name="acra_catima_has_crashed">很抱歉，<xliff:g id="app_name">%s</xliff:g> 已發生當機。請協助我們修正此問題，並傳送錯誤報告給我們。</string>
+    <string name="acra_explain_crash">如果可以的話，請在此提供您當時的操作詳細資訊：</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> 當機報告</string>
+    <string name="pref_enable_acra">詢問是否傳送當機報告</string>
+    <string name="pref_enable_acra_summary">啟用後，當發生當機時系統會詢問您是否要回報。當機報告絕不會自動傳送。</string>
 </resources>

@@ -1,0 +1,3 @@
+- 新增對 .pkpasses 檔案的支援
+- 移除 Stocard 匯入功能（Stocard 已不再存在）
+- 暫時停用 Android 12L 以下版本的小工具圖片（用以暫時避開當機問題）

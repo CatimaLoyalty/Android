@@ -561,6 +561,30 @@ public class DBHelper extends SQLiteOpenHelper {
         return card;
     }
 
+    public static List<LoyaltyCard> getLoyaltyCardsByCardId(Context context, SQLiteDatabase database, final String cardId) {
+        List<LoyaltyCard> cards = new ArrayList<>();
+
+        Cursor data = database.query(
+                LoyaltyCardDbIds.TABLE,
+                null,
+                whereAttrs(LoyaltyCardDbIds.CARD_ID),
+                withArgs(cardId),
+                null,
+                null,
+                null
+        );
+
+        if (data.moveToFirst()) {
+            do {
+                LoyaltyCard card = LoyaltyCard.fromCursor(context, data);
+                cards.add(card);
+            } while (data.moveToNext());
+        }
+
+        data.close();
+        return cards;
+    }
+
     public static List<Group> getLoyaltyCardGroups(SQLiteDatabase database, final int id) {
         Cursor data = database.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE + " g " +
                 " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " ig ON ig." + LoyaltyCardDbIdsGroups.groupID + " = g." + LoyaltyCardDbGroups.ID +

@@ -162,6 +162,7 @@ public class VoucherVaultImporter implements Importer {
                     cardId,
                     null,
                     barcodeType,
+                    null,
                     headerColor,
                     0,
                     Utils.getUnixTime(),
@@ -186,7 +187,7 @@ public class VoucherVaultImporter implements Importer {
         for (LoyaltyCard card : data.cards) {
             // Do not use card.id which is set to -1
             DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                    card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
         }
     }
 }

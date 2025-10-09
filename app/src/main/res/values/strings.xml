@@ -358,4 +358,6 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> crash report</string>
     <string name="pref_enable_acra">Ask to send crash reports</string>
     <string name="pref_enable_acra_summary">When enabled, you will be asked to report a crash when it happens. Crash reports are never sent automatically.</string>
+    <string name="barcodeEncoding">Barcode encoding</string>
+    <string name="automatic">Automatic</string>
 </resources>

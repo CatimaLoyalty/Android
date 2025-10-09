@@ -268,7 +268,7 @@
     <string name="app_name">Catima</string>
     <string name="continue_">Continuar</string>
     <string name="add_manually_warning_title">Se recomienda escanear</string>
-    <string name="add_manually_warning_message">En algunas tiendas, el valor del código de barras difiere del número escrito en la tarjeta. Por este motivo, es posible que la introducción manual del código de barras no siempre funcione. Se recomienda encarecidamente escanear el código de barras con la cámara. ¿Aún desea continuar?</string>
+    <string name="add_manually_warning_message">En algunas tarjetas, el valor del código de barras difiere del número escrito en la tarjeta. Por este motivo, es posible que la introducción manual del código de barras no siempre funcione. Se recomienda escanear el código de barras con la cámara. ¿Aún desea continuar?</string>
     <string name="spend">Gastar</string>
     <string name="receive">Recibió</string>
     <string name="amountParsingFailed">Importe incorrecto</string>

@@ -1,247 +1,240 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.text.InputType;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.DialogInterface
+import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
+import android.os.Bundle
+import android.text.InputType
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.edit
+import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import protect.card_locker.GroupCursorAdapter.GroupAdapterListener
+import protect.card_locker.databinding.ManageGroupsActivityBinding
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+class ManageGroupsActivity : CatimaAppCompatActivity(), GroupAdapterListener {
+    private lateinit var binding: ManageGroupsActivityBinding
+    private lateinit var mDatabase: SQLiteDatabase
+    private lateinit var mHelpText: TextView
+    private lateinit var mGroupList: RecyclerView
+    private lateinit var mAdapter: GroupCursorAdapter
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-import java.util.List;
+        binding = ManageGroupsActivityBinding.inflate(layoutInflater)
+        setTitle(R.string.groups)
+        setContentView(binding.root)
+        Utils.applyWindowInsets(binding.root)
+        setSupportActionBar(binding.toolbar)
+        enableToolbarBackButton()
 
-import protect.card_locker.databinding.ManageGroupsActivityBinding;
-
-public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
-    private ManageGroupsActivityBinding binding;
-    private static final String TAG = "Catima";
-
-    private SQLiteDatabase mDatabase;
-    private TextView mHelpText;
-    private RecyclerView mGroupList;
-    GroupCursorAdapter mAdapter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ManageGroupsActivityBinding.inflate(getLayoutInflater());
-        setTitle(R.string.groups);
-        setContentView(binding.getRoot());
-        Utils.applyWindowInsets(binding.getRoot());
-        Toolbar toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
-        enableToolbarBackButton();
-
-        mDatabase = new DBHelper(this).getWritableDatabase();
+        mDatabase = DBHelper(this).writableDatabase
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    override fun onResume() {
+        super.onResume()
 
-        FloatingActionButton addButton = binding.fabAdd;
-        addButton.setOnClickListener(v -> createGroup());
-        addButton.bringToFront();
+        with(binding.fabAdd) {
+            setOnClickListener { v: View ->
+                createGroup()
+            }
+            bringToFront()
+        }
 
-        mGroupList = binding.include.list;
-        mHelpText = binding.include.helpText;
+        mGroupList = binding.include.list
+        mHelpText = binding.include.helpText
 
         // Init group list
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mGroupList.setLayoutManager(mLayoutManager);
-        mGroupList.setItemAnimator(new DefaultItemAnimator());
+        LinearLayoutManager(applicationContext).apply {
+            mGroupList.layoutManager = this
+        }
+        mGroupList.setItemAnimator(DefaultItemAnimator())
+        mAdapter = GroupCursorAdapter(this, null, this)
+        mGroupList.setAdapter(mAdapter)
 
-        mAdapter = new GroupCursorAdapter(this, null, this);
-        mGroupList.setAdapter(mAdapter);
-
-        updateGroupList();
+        updateGroupList()
     }
 
-    private void updateGroupList() {
-        mAdapter.swapCursor(DBHelper.getGroupCursor(mDatabase));
+    private fun updateGroupList() {
+        mAdapter.swapCursor(DBHelper.getGroupCursor(mDatabase))
 
         if (DBHelper.getGroupCount(mDatabase) == 0) {
-            mGroupList.setVisibility(View.GONE);
-            mHelpText.setVisibility(View.VISIBLE);
+            mGroupList.visibility = View.GONE
+            mHelpText.visibility = View.VISIBLE
 
-            return;
+            return
         }
 
-        mGroupList.setVisibility(View.VISIBLE);
-        mHelpText.setVisibility(View.GONE);
+        mGroupList.visibility = View.VISIBLE
+        mHelpText.visibility = View.GONE
     }
 
-    private void invalidateHomescreenActiveTab() {
-        SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_active_tab),
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor activeTabPrefEditor = activeTabPref.edit();
-        activeTabPrefEditor.putInt(getString(R.string.sharedpreference_active_tab), 0);
-        activeTabPrefEditor.apply();
+    private fun invalidateHomescreenActiveTab() {
+        val activeTabPref = getSharedPreferences(
+            getString(R.string.sharedpreference_active_tab),
+            MODE_PRIVATE
+        )
+        activeTabPref.edit {
+            putInt(getString(R.string.sharedpreference_active_tab), 0)
+        }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            finish();
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item)
     }
 
-    private void createGroup() {
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+    private fun createGroup() {
+        val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this)
 
         // Header
-        builder.setTitle(R.string.enter_group_name);
+        builder.setTitle(R.string.enter_group_name)
 
         // Layout
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-        params.leftMargin = contentPadding;
-        params.topMargin = contentPadding / 2;
-        params.rightMargin = contentPadding;
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+        val params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply {
+            val contentPadding =
+                resources.getDimensionPixelSize(R.dimen.alert_dialog_content_padding)
+            leftMargin = contentPadding
+            topMargin = contentPadding / 2
+            rightMargin = contentPadding
+        }
 
         // EditText with spacing
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setLayoutParams(params);
-        layout.addView(input);
+        val input = EditText(this)
+        input.setInputType(InputType.TYPE_CLASS_TEXT)
+        input.setLayoutParams(params)
+        layout.addView(input)
 
         // Set layout
-        builder.setView(layout);
+        builder.setView(layout)
 
         // Buttons
-        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.insertGroup(mDatabase, input.getText().toString().trim());
-            updateGroupList();
-        });
-        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
-        AlertDialog dialog = builder.create();
+        builder.setPositiveButton(getString(R.string.ok)) { dialog: DialogInterface, which: Int ->
+            DBHelper.insertGroup(mDatabase, input.text.trim().toString())
+            updateGroupList()
+        }
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog: DialogInterface, which: Int ->
+            dialog.cancel()
+        }
+        val dialog = builder.create()
 
         // Now that the dialog exists, we can bind something that affects the OK button
-        input.addTextChangedListener(new SimpleTextWatcher() {
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String groupName = s.toString().trim();
+        input.doOnTextChanged { s: CharSequence?, start: Int, before: Int, count: Int ->
+            val groupName = s?.trim().toString()
 
-                if (groupName.length() == 0) {
-                    input.setError(getString(R.string.group_name_is_empty));
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-                    return;
-                }
-
-                if (DBHelper.getGroup(mDatabase, groupName) != null) {
-                    input.setError(getString(R.string.group_name_already_in_use));
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-                    return;
-                }
-
-                input.setError(null);
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+            if (groupName.isEmpty()) {
+                input.error = getString(R.string.group_name_is_empty)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false)
+                return@doOnTextChanged
             }
-        });
 
-        dialog.show();
+            if (DBHelper.getGroup(mDatabase, groupName) != null) {
+                input.error = getString(R.string.group_name_already_in_use)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false)
+                return@doOnTextChanged
+            }
 
-        // Disable button (must be done **after** dialog is shown to prevent crash
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-        // Set focus on input field
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        input.requestFocus();
+            input.error = null
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true)
+        }
+
+        dialog.apply {
+            show()
+            // Disable button (must be done **after** dialog is shown to prevent crash
+            getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false)
+            // Set focus on input field
+            window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+        }
+
+        input.requestFocus()
     }
 
-    private String getGroupName(View view) {
-        TextView groupNameTextView = view.findViewById(R.id.name);
-        return (String) groupNameTextView.getText();
+    private fun getGroupName(view: View): String {
+        val groupNameTextView = view.findViewById<TextView>(R.id.name)
+        return groupNameTextView.text.toString()
     }
 
-    private void moveGroup(View view, boolean up) {
-        List<Group> groups = DBHelper.getGroups(mDatabase);
-        final String groupName = getGroupName(view);
+    private fun moveGroup(view: View, up: Boolean) {
+        val groups = DBHelper.getGroups(mDatabase)
+        val groupName = getGroupName(view)
 
-        int currentIndex = DBHelper.getGroup(mDatabase, groupName).order;
-        int newIndex;
+        val currentIndex = DBHelper.getGroup(mDatabase, groupName).order
 
         // Reinsert group in correct position
-        if (up) {
-            newIndex = currentIndex - 1;
+        val newIndex: Int = if (up) {
+            currentIndex - 1
         } else {
-            newIndex = currentIndex + 1;
+            currentIndex + 1
         }
 
         // Don't try to move out of bounds
-        if (newIndex < 0 || newIndex >= groups.size()) {
-            return;
+        if (newIndex < 0 || newIndex >= groups.size) {
+            return
         }
 
-        Group group = groups.remove(currentIndex);
-        groups.add(newIndex, group);
+        val group = groups.removeAt(currentIndex)
+        groups.add(newIndex, group)
 
         // Update database
-        DBHelper.reorderGroups(mDatabase, groups);
+        DBHelper.reorderGroups(mDatabase, groups)
 
         // Update UI
-        updateGroupList();
+        updateGroupList()
 
         // Ordering may have changed, so invalidate
-        invalidateHomescreenActiveTab();
+        invalidateHomescreenActiveTab()
     }
 
-    @Override
-    public void onMoveDownButtonClicked(View view) {
-        moveGroup(view, false);
+    override fun onMoveDownButtonClicked(view: View) {
+        moveGroup(view, false)
     }
 
-    @Override
-    public void onMoveUpButtonClicked(View view) {
-        moveGroup(view, true);
+    override fun onMoveUpButtonClicked(view: View) {
+        moveGroup(view, true)
     }
 
-    @Override
-    public void onEditButtonClicked(View view) {
-        Intent intent = new Intent(this, ManageGroupActivity.class);
-        intent.putExtra("group", getGroupName(view));
-        startActivity(intent);
+    override fun onEditButtonClicked(view: View) {
+        Intent(this, ManageGroupActivity::class.java).apply {
+            putExtra("group", getGroupName(view))
+            startActivity(this)
+        }
     }
 
-    @Override
-    public void onDeleteButtonClicked(View view) {
-        final String groupName = getGroupName(view);
+    override fun onDeleteButtonClicked(view: View) {
+        val groupName = getGroupName(view)
 
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-        builder.setTitle(R.string.deleteConfirmationGroup);
-        builder.setMessage(groupName);
+        MaterialAlertDialogBuilder(this).apply {
+            setTitle(R.string.deleteConfirmationGroup)
+            setMessage(groupName)
 
-        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.deleteGroup(mDatabase, groupName);
-            updateGroupList();
-            // Delete may change ordering, so invalidate
-            invalidateHomescreenActiveTab();
-        });
-        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
-        AlertDialog dialog = builder.create();
-        dialog.show();
+            setPositiveButton(getString(R.string.ok)) { dialog: DialogInterface, which: Int ->
+                DBHelper.deleteGroup(mDatabase, groupName)
+                updateGroupList()
+                // Delete may change ordering, so invalidate
+                invalidateHomescreenActiveTab()
+            }
+            setNegativeButton(getString(R.string.cancel)) { dialog: DialogInterface, which: Int ->
+                dialog.cancel()
+            }
+        }.create().show()
     }
 }

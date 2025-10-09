@@ -99,7 +99,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         }
     }
 
-    public void importInGroupState(HashMap<Integer, Boolean> cardIdInGroupMap) {
+    public void importInGroupState(Map<Integer, Boolean> cardIdInGroupMap) {
         mInGroupOverlay = new HashMap<>(cardIdInGroupMap);
     }
 

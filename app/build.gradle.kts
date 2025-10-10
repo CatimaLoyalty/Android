@@ -2,7 +2,7 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 kotlin {
@@ -113,40 +113,40 @@ android {
 
 dependencies {
     // AndroidX
-    implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.core.ktx)
-    implementation(libs.core.remoteviews)
-    implementation(libs.core.splashscreen)
-    implementation(libs.exifinterface)
-    implementation(libs.palette)
-    implementation(libs.preference)
-    implementation(libs.material)
-    coreLibraryDesugaring(libs.desugar)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.remoteviews)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.exifinterface)
+    implementation(libs.androidx.palette)
+    implementation(libs.androidx.preference)
+    implementation(libs.google.android.material)
+    coreLibraryDesugaring(libs.google.android.tools.desugar)
 
     // Third-party
-    implementation(libs.zxing.embedded)
-    implementation(libs.ucrop)
-    implementation(libs.zxing.core)
-    implementation(libs.commons.csv)
-    implementation(libs.colorpicker)
-    implementation(libs.zip4j)
+    implementation(libs.journeyapps.zxing.android.embedded)
+    implementation(libs.github.yalantis.ucrop)
+    implementation(libs.google.zxing.core)
+    implementation(libs.apache.commons.csv)
+    implementation(libs.jaredrummler.colorpicker)
+    implementation(libs.net.lingala.zip4j)
 
     // Crash reporting
-    implementation(libs.acra.mail)
-    implementation(libs.acra.dialog)
+    implementation(libs.ch.acra.mail)
+    implementation(libs.ch.acra.dialog)
 
     // Testing
-    testImplementation(libs.test.core)
+    testImplementation(libs.androidx.test.core)
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
 
-    androidTestImplementation(libs.test.core)
+    androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.junit)
-    androidTestImplementation(libs.test.ext.junit)
-    androidTestImplementation(libs.test.runner)
-    androidTestImplementation(libs.uiautomator)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.uiautomator)
+    androidTestImplementation(libs.androidx.test.espresso.core)
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

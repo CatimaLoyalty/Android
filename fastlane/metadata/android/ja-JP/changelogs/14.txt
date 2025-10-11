@@ -1,0 +1,3 @@
+- カード表示時の画面回転ロックメニューオプションを追加。ロック時に画面が「自然な」向きに遷移し、それ以上の画面回転はブロックされます。(pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- メイン画面からカードが選択されて読み込めなかった場合でも、アプリケーションはメッセージを表示して正しく終了します。(pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- 起動時ウィザードでレイアウトIDが見つからないケースの修正。(pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

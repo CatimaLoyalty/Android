@@ -1,0 +1,3 @@
+- Android 15 へ対応
+- 編集画面で保存ボタンをキーボードが覆う問題を修正
+- 一部の pkpass ファイルが pkpass形式として検出されなかった問題を修正（application/vnd-com.apple.pkpass MIMEタイプのサポート）

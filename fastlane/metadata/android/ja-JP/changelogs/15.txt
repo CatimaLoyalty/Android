@@ -1,0 +1,2 @@
+- アプリショートカットのサポートを追加（Android 7.1以上）し、直近で使用したカードがショートカットとして表示されるようになりました。（pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145)）
+- アプリの固定ショートカットのように動作するウィジェットを、Android 7.1未満の端末向けに追加（pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142)）

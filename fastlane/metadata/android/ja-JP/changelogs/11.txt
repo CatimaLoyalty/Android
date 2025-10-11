@@ -1,0 +1,5 @@
+- ID編集時、既存IDを初期値に事前入力。 (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- 生成バーコード幅を制限しメモリ使用量・不足エラーを削減。(pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- カード編集時、既にIDがある場合は”作成”ボタンを”編集”へ変更。(pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- 柔らかな配色でアプリアイコンと調和を図るとともに、カード表示レイアウトを整理。(pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- 初回起動時の導入ウィザード追加。(pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

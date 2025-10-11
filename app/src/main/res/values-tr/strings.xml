@@ -198,7 +198,7 @@
     <string name="archived">Kart arşivlendi</string>
     <string name="unarchived">Kart arşivden çıkarıldı</string>
     <string name="archive">Arşivle</string>
-    <string name="failedLaunchingPhotoPicker">"Desteklenen bir resim seçici  bulunamadı"</string>
+    <string name="failedLaunchingPhotoPicker">Desteklenen bir resim seçici bulunamadı</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> tane arşivlendi)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> tane arşivlendi)</item>
@@ -304,4 +304,5 @@
     <string name="acra_explain_crash">Mümkünse lütfen ne yaptığınızla ilgili daha fazla detay ekleyin:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> çökme raporu</string>
     <string name="pref_enable_acra_summary">Etkinleştirildiğinde, bir çökmeyi şikayet etmeniz istenecektir. Çökme raporları hiç bir zaman otomatik olarak gönderilmez.</string>
+    <string name="pref_enable_acra">Çökme bildirimlerini göndermeyi iste</string>
 </resources>

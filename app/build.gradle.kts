@@ -1,8 +1,8 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 kotlin {
@@ -113,43 +113,40 @@ android {
 
 dependencies {
     // AndroidX
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("androidx.core:core-ktx:1.17.0")
-    implementation("androidx.core:core-remoteviews:1.1.0")
-    implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("androidx.exifinterface:exifinterface:1.4.1")
-    implementation("androidx.palette:palette:1.0.0")
-    implementation("androidx.preference:preference:1.2.1")
-    implementation("com.google.android.material:material:1.13.0")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.remoteviews)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.exifinterface)
+    implementation(libs.androidx.palette)
+    implementation(libs.androidx.preference)
+    implementation(libs.google.android.material)
+    coreLibraryDesugaring(libs.google.android.tools.desugar)
 
     // Third-party
-    implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
-    implementation("com.github.yalantis:ucrop:2.2.11")
-    implementation("com.google.zxing:core:3.5.3")
-    implementation("org.apache.commons:commons-csv:1.9.0")
-    implementation("com.jaredrummler:colorpicker:1.1.0")
-    implementation("net.lingala.zip4j:zip4j:2.11.5")
+    implementation(libs.journeyapps.zxing.android.embedded)
+    implementation(libs.github.yalantis.ucrop)
+    implementation(libs.google.zxing.core)
+    implementation(libs.apache.commons.csv)
+    implementation(libs.jaredrummler.colorpicker)
+    implementation(libs.net.lingala.zip4j)
 
     // Crash reporting
-    val acraVersion = "5.13.1"
-    implementation("ch.acra:acra-mail:$acraVersion")
-    implementation("ch.acra:acra-dialog:$acraVersion")
+    implementation(libs.ch.acra.mail)
+    implementation(libs.ch.acra.dialog)
 
     // Testing
-    val androidXTestVersion = "1.7.0"
-    val junitVersion = "4.13.2"
-    testImplementation("androidx.test:core:$androidXTestVersion")
-    testImplementation("junit:junit:$junitVersion")
-    testImplementation("org.robolectric:robolectric:4.16")
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
 
-    androidTestImplementation("androidx.test:core:$androidXTestVersion")
-    androidTestImplementation("junit:junit:$junitVersion")
-    androidTestImplementation("androidx.test.ext:junit:1.3.0")
-    androidTestImplementation("androidx.test:runner:$androidXTestVersion")
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.uiautomator)
+    androidTestImplementation(libs.androidx.test.espresso.core)
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

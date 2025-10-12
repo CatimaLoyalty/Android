@@ -815,8 +815,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-
         if (loyaltyCard != null) {
             // Update star status
             if (loyaltyCard.starStatus == 1) {
@@ -829,15 +827,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Update archive/unarchive button
             if (loyaltyCard.archiveStatus != 0) {
-                menu.findItem(R.id.action_unarchive).setVisible(true);
-                menu.findItem(R.id.action_archive).setVisible(false);
+                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.unarchive);
+                menu.findItem(R.id.action_archive_unarchive).setIcon(R.drawable.ic_unarchive);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    menu.findItem(R.id.action_archive_unarchive).setTooltipText(getString(R.string.unarchive));
+                }
             } else {
-                menu.findItem(R.id.action_unarchive).setVisible(false);
-                menu.findItem(R.id.action_archive).setVisible(true);
+                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
+                menu.findItem(R.id.action_archive_unarchive).setIcon(R.drawable.ic_outline_archive);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    menu.findItem(R.id.action_archive_unarchive).setTooltipText(getString(R.string.archive));
+                }
             }
         }
 
-        return true;
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -874,22 +878,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             invalidateOptionsMenu();
 
             return true;
-        } else if (id == R.id.action_archive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
-            Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+        } else if (id == R.id.action_archive_unarchive) {
+            if(loyaltyCard.archiveStatus == 0){
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
-            ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
-            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
-
-            // Re-init loyaltyCard with new data from DB
-            onResume();
-            invalidateOptionsMenu();
-
-            return true;
-        } else if (id == R.id.action_unarchive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
-            Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
-
+                ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
+                new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+            }else{
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
+            }
             // Re-init loyaltyCard with new data from DB
             onResume();
             invalidateOptionsMenu();

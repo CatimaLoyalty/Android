@@ -137,6 +137,11 @@
             android:label="@string/scanCardBarcode"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ScanActivityKt"
+            android:label="@string/scanCardBarcode"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true" />
+        <activity
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"
             android:theme="@style/AppTheme.NoActionBar" />

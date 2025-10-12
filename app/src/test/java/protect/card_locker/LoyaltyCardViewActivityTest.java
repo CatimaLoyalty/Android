@@ -1034,11 +1034,13 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, star and overflow options should be present
-        assertEquals(menu.size(), 3);
+        assertEquals(menu.size(), 5);
 
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+        assertEquals("Archive", menu.findItem(R.id.action_archive_unarchive).getTitle().toString());
+        assertEquals("Duplicate", menu.findItem(R.id.action_duplicate).getTitle().toString());
+        assertEquals("Delete", menu.findItem(R.id.action_delete).getTitle().toString());
 
         database.close();
     }
@@ -1194,8 +1196,7 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, star and overflow options should be present
-        assertEquals(menu.size(), 3);
+        assertEquals(menu.size(), 5);
 
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
@@ -1206,6 +1207,16 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
         shadowOf(getMainLooper()).idle();
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+
+        assertEquals("Archive", menu.findItem(R.id.action_archive_unarchive).getTitle().toString());
+
+        shadowOf(activity).clickMenuItem(R.id.action_archive_unarchive);
+        shadowOf(getMainLooper()).idle();
+        assertEquals("Unarchive", menu.findItem(R.id.action_archive_unarchive).getTitle().toString());
+
+        shadowOf(activity).clickMenuItem(R.id.action_archive_unarchive);
+        shadowOf(getMainLooper()).idle();
+        assertEquals("Archive", menu.findItem(R.id.action_archive_unarchive).getTitle().toString());
 
         database.close();
     }

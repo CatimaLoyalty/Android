@@ -40,7 +40,12 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import protect.card_locker.databinding.CustomBarcodeScannerBinding
 import protect.card_locker.databinding.ScanActivityBinding
 
-
+/**
+ * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
+ * <p>
+ * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java
+ * originally licensed under Apache 2.0
+ */
 class ScanActivity : CatimaAppCompatActivity() {
     private lateinit var binding: ScanActivityBinding
     private lateinit var customBarcodeScannerBinding: CustomBarcodeScannerBinding

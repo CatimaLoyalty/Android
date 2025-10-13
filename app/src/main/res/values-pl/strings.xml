@@ -315,4 +315,9 @@
     <string name="card_list_widget_name">Lista kart</string>
     <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="pleaseDoNotRotateTheDevice">Proszę nie obracać urządzenia, gdyż anuluje to obecne zadanie</string>
+    <string name="acra_explain_crash">Jeśli możliwe, dodaj więcej szczegółów na temat co robiłeś/aś tutaj:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> raport błędu</string>
+    <string name="pref_enable_acra">Zapytaj o wysłanie raportu błędu</string>
+    <string name="pref_enable_acra_summary">Kiedy zaznaczone, będziesz proszony/a o zgłoszenie raportu błędu, gdyby zaistniał. Raporty błędu nigdy nie są wysyłane automatycznie.</string>
 </resources>

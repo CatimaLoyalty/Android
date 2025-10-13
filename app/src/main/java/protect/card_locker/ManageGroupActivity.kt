@@ -48,7 +48,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
         mGroupNameText.doAfterTextChanged {
             mGroupNameNotInUse = true
             mGroupNameText.error = null
-            val currentGroupName = mGroupNameText.getText().trim().toString()
+            val currentGroupName = mGroupNameText.text.trim().toString()
             if (currentGroupName.isEmpty()) {
                 mGroupNameText.error = getResources().getText(R.string.group_name_is_empty)
                 return@doAfterTextChanged
@@ -94,7 +94,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
         enableToolbarBackButton()
 
         saveButton.setOnClickListener { v: View ->
-            val currentGroupName = mGroupNameText.getText().trim().toString()
+            val currentGroupName = mGroupNameText.text.trim().toString()
             if (currentGroupName != mGroup._id) {
                 when {
                     currentGroupName.isEmpty() -> {
@@ -183,7 +183,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
             SAVE_INSTANCE_ADAPTER_STATE,
             adapterStateToBundle(mAdapter.exportInGroupState())
         )
-        outState.putString(SAVE_INSTANCE_CURRENT_GROUP_NAME, mGroupNameText.getText().toString())
+        outState.putString(SAVE_INSTANCE_CURRENT_GROUP_NAME, mGroupNameText.text.toString())
     }
 
     private fun updateLoyaltyCardList() {
@@ -221,7 +221,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
     }
 
     private fun hasChanged(): Boolean {
-        return mAdapter.hasChanged() || mGroup._id != mGroupNameText.getText().trim().toString()
+        return mAdapter.hasChanged() || mGroup._id != mGroupNameText.text.trim().toString()
     }
 
     override fun onRowLongClicked(inputPosition: Int) {
@@ -233,7 +233,6 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
     }
 
     private companion object {
-
         const val SAVE_INSTANCE_ADAPTER_STATE = "adapterState"
         const val SAVE_INSTANCE_CURRENT_GROUP_NAME = "currentGroupName"
     }

@@ -1,0 +1,2 @@
+- Android SDK 24以降でファイル選択ツールのインポートオプション使用時に起こるクラッシュの修正。(pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- 新アイコン・カラースキームの採用。(pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

@@ -1,0 +1,3 @@
+- 特定の種類の破損CSVファイルをインポートする際のクラッシュを修正。(pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- ファイルシステムからバックアップ直接インポートする際の問題を修正。(pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- 特定の種類のコンテンツプロバイダーからバックアップをインポートする際の問題を修正。(pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

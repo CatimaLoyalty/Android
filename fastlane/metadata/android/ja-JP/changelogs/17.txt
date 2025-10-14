@@ -1,0 +1,2 @@
+- ランチャー／ホーム画面からのポイントカードのショートカット追加機能をサポート (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- アプリ本体からポイントカードショートカット追加機能サポートを削除。ショートカット権限不要へ。(pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

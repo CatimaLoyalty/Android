@@ -1,0 +1,1 @@
+- 一部Androidバージョン（恐らくはAndroid 5以前）でのインストール時クラッシュの回避。(pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

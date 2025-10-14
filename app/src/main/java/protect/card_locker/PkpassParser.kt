@@ -16,10 +16,10 @@ import java.io.IOException
 import java.math.BigDecimal
 import java.text.DateFormat
 import java.text.ParseException
+import java.time.Instant
 import java.time.ZonedDateTime
 import java.time.format.DateTimeParseException
 import java.util.Currency
-import java.util.Date
 
 class PkpassParser(context: Context, uri: Uri?) {
     private var mContext = context
@@ -30,8 +30,8 @@ class PkpassParser(context: Context, uri: Uri?) {
 
     private var store: String? = null
     private var note: String? = null
-    private var validFrom: Date? = null
-    private var expiry: Date? = null
+    private var validFrom: Instant? = null
+    private var expiry: Instant? = null
     private val balance: BigDecimal = BigDecimal(0)
     private val balanceType: Currency? = null
     // FIXME: Some cards may not have any barcodes, but Catima doesn't accept null card ID
@@ -200,8 +200,15 @@ class PkpassParser(context: Context, uri: Uri?) {
         return Color.rgb(red, green, blue)
     }
 
-    private fun parseDateTime(dateTime: String): Date {
-        return Date.from(ZonedDateTime.parse(dateTime).toInstant())
+    private fun parseDateTime(dateTime: String?): ZonedDateTime? {
+        if(dateTime.isNullOrEmpty()) return  null
+        Log.d("PARSE", "parseDateTime: $dateTime")
+        return try {
+            ZonedDateTime.parse(dateTime)
+        } catch (_: IllegalArgumentException) {
+            // The string was not in the correct ISO 8601 format
+            null
+        }
     }
 
     private fun parseLanguageStrings(data: String): Map<String, String> {
@@ -256,11 +263,11 @@ class PkpassParser(context: Context, uri: Uri?) {
         noteText.append(getTranslation(jsonObject.getString("description"), locale))
 
         try {
-            validFrom = parseDateTime(jsonObject.getString("relevantDate"))
+            validFrom = parseDateTime(jsonObject.getString("relevantDate"))?.toInstant()
         } catch (ignored: JSONException) {}
 
         try {
-            expiry = parseDateTime(jsonObject.getString("expirationDate"))
+            expiry = parseDateTime(jsonObject.getString("expirationDate"))?.toInstant()
         } catch (ignored: JSONException) {}
 
         try {

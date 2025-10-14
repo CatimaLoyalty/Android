@@ -1,0 +1,5 @@
+- カード追加・編集時のホーム画面へのショートカット追加サポート。(pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- ショートカットの代替に不十分だった為、ウィジェットを削除。(pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Android 7.0以降のバックアップエクスポート修正。(pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- バックアップデータエクスポート時のMIMEタイプ精度向上 (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- カード編集が不能になる不具合の修正 (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

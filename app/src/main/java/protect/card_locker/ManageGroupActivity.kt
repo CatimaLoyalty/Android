@@ -11,7 +11,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -34,37 +33,32 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
         super.onCreate(inputSavedInstanceState)
         binding = ActivityManageGroupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Utils.applyWindowInsetsAndFabOffset(binding.getRoot(), binding.fabSave)
-        val toolbar: Toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
+        Utils.applyWindowInsetsAndFabOffset(binding.root, binding.fabSave)
+        setSupportActionBar(binding.toolbar)
 
         mDatabase = DBHelper(this).writableDatabase
         noGroupCardsText = binding.include.noGroupCardsText
         mCardList = binding.include.list
 
-        val saveButton = binding.fabSave
         mGroupNameText = binding.editTextGroupName
-
         mGroupNameText.doAfterTextChanged {
             mGroupNameNotInUse = true
             mGroupNameText.error = null
             val currentGroupName = mGroupNameText.text.trim().toString()
             if (currentGroupName.isEmpty()) {
-                mGroupNameText.error = getResources().getText(R.string.group_name_is_empty)
+                mGroupNameText.error = getText(R.string.group_name_is_empty)
                 return@doAfterTextChanged
             }
             if (mGroup._id != currentGroupName) {
                 if (DBHelper.getGroup(mDatabase, currentGroupName) != null) {
                     mGroupNameNotInUse = false
-                    mGroupNameText.error =
-                        getResources().getText(R.string.group_name_already_in_use)
+                    mGroupNameText.error = getText(R.string.group_name_already_in_use)
                 } else {
                     mGroupNameNotInUse = true
                 }
             }
         }
 
-        val intent = getIntent()
         val groupId = intent.getStringExtra("group")
             ?: throw (IllegalArgumentException("this activity expects a group loaded into it's intent"))
         Log.d("groupId", "groupId: $groupId")
@@ -73,7 +67,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
         mGroupNameText.setText(mGroup._id)
         setTitle(getString(R.string.editGroup, mGroup._id))
         mAdapter = ManageGroupCursorAdapter(this, null, this, mGroup, null)
-        mCardList.setAdapter(mAdapter)
+        mCardList.adapter = mAdapter
         registerForContextMenu(mCardList)
 
         if (inputSavedInstanceState != null) {
@@ -93,7 +87,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         enableToolbarBackButton()
 
-        saveButton.setOnClickListener { v: View ->
+        binding.fabSave.setOnClickListener { v: View ->
             val currentGroupName = mGroupNameText.text.trim().toString()
             if (currentGroupName != mGroup._id) {
                 when {
@@ -121,12 +115,15 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
             if (currentGroupName != mGroup._id) {
                 DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName)
             }
-            Toast.makeText(applicationContext, R.string.group_updated, Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(
+                applicationContext,
+                R.string.group_updated,
+                Toast.LENGTH_SHORT
+            ).show()
             finish()
         }
         // this setText is here because content_main.xml is reused from main activity
-        noGroupCardsText.text = getResources().getText(R.string.noGiftCardsGroup)
+        noGroupCardsText.text = getText(R.string.noGiftCardsGroup)
         updateLoyaltyCardList()
 
         onBackPressedDispatcher.addCallback(

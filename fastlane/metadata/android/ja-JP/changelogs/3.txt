@@ -1,0 +1,14 @@
+- 以下の１・２次元バーコードを正式にサポート：
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- 生成されるバーコードはより大きくなり、スキャナーからの読取が簡単になりました

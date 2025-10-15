@@ -1,0 +1,3 @@
+- 全画面表示終了時のバーコード中央位置を調整 (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- バックアップエクスポート先選択機能を追加 (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- 翻訳を更新 (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

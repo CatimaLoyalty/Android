@@ -1,0 +1,2 @@
+- 大文字小文字を区別しないカード一覧のソート (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- 全カードの向きを固定にする設定を追加 (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269))

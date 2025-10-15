@@ -1,0 +1,3 @@
+- Popravek napake pri uvozu nekaterih vrst poškodovanih CSV datotek. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Popravek uvoza varnostnih kopij neposredno iz datotečnega sistema. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Popravek uvoza varnostnih kopij iz določenih vrst ponudnikov vsebin. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

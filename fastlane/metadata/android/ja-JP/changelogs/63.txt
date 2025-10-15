@@ -1,0 +1,3 @@
+- Voucher Vault（https://github.com/tim-smart/vouchervault/) 形式エクスポートファイルのインポートをサポート
+- ポイントカード閲覧中は画面をオンに保持するオプション
+- ポイントカード閲覧中は画面ロックを一時停止にするオプション

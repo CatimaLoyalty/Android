@@ -1,0 +1,2 @@
+- ユーザーがバーコードを手動で入力可能に。ユーザーがバーコードの手動入力を選択した場合、有効でサポートされている全バーコード画像の一覧を表示。希望するバーコード画像を選択できるように。issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- 一部バーコードがぼやけた表示になる問題を修正（issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37)）

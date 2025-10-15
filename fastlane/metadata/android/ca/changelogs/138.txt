@@ -1,0 +1,1 @@
+- Corregeix el gest de retrocés a la pantalla principal que tancava el teclat i la cerca a Android 13+

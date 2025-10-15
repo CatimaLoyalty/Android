@@ -1,0 +1,1 @@
+- Gestioneu amb més elegància els colors de capçalera que falten

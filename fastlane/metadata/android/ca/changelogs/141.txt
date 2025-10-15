@@ -1,0 +1,4 @@
+- Canvia la columna predeterminada a les pantalles amples a 4
+- Permet la substitució del recompte de columnes per a vertical i horitzontal a la configuració
+- Mantén el filtre de cerca de la pantalla principal en girar la pantalla o obrir una targeta
+- Limita la longitud màxima de la visualització de la nota a la pantalla principal

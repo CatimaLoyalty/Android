@@ -1,0 +1,2 @@
+- Afegeix compatibilitat amb dreceres d'aplicacions (Android 7.1+), on les targetes utilitzades més recentment apareixeran com a dreceres. (extracció #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Afegeix un widget que funciona com una drecera d'aplicació fixada, per admetre dispositius que executen versions anteriors d'Android 7.1. (extracció #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

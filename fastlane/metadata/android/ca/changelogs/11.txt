@@ -1,0 +1,5 @@
+- Quan editeu un ID de targeta, ompliu prèviament l'ID existent per començar. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Limiteu l'amplada dels codis de barres generats per reduir l'ús de memòria i els errors de memòria insuficient. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Quan editeu una targeta, canvieu el botó "Introduïu la targeta" per "Edita la targeta" si ja existeix un ID de targeta. (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Canvieu l'esquema de colors perquè sigui més suau i compatible amb la icona de l'aplicació i canvieu el disseny quan visualitzeu una targeta perquè sigui més net. (extracció #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Afegeix un assistent d'introducció que s'inicia en el primer inici de l'aplicació. (extracció #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

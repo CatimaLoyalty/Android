@@ -1,0 +1,3 @@
+- Premeu llargament la icona de la targeta a l'activitat de visualització per canviar-la
+- Milloreu l'estil dels botons a la pantalla Grups
+- Corregiu els valors de codi de barres llargs que feien que el codi de barres es reduís a zero

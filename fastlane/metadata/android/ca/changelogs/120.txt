@@ -1,0 +1,3 @@
+- Redisseny complet de les pantalles principal i de la targeta de fidelització
+- Material que dissenyeu per a la pantalla de configuració
+- Correcció d'un error en utilitzar "Fes una foto" amb l'aplicació de càmera desactivada

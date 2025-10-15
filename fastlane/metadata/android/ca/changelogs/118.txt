@@ -1,0 +1,2 @@
+- Suport per configurar l'inici de validesa de la targeta
+- Correcció de la importació de Stocard (el format d'exportació de Stocard ha canviat)

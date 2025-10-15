@@ -1,0 +1,4 @@
+- Compatibilitat amb la creació d'una targeta en compartir text sense format
+- Mostrar el tipus d'imatge en lloc del codi de barres sota les imatges
+- Corregir un possible error en intentar importar una còpia de seguretat des de l'aplicació Nextcloud
+- Millora de la compatibilitat amb dispositius sense càmera

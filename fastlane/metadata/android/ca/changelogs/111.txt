@@ -1,0 +1,7 @@
+- Compatibilitat amb l'àrab
+- Mostra el recompte de cartes arxivades a la vista general del grup
+- Corregeix errors d'anàlisi de saldo (les cartes no es podien desar en àrab ni en altres idiomes amb números no occidentals)
+- Corregeix el tema personalitzat que no s'aplicava correctament a la pantalla principal
+- Millora la visualització de les cartes seleccionades
+- Corregeix el bloqueig en sortir de la vista de cartes en els dissenys RTL per a cartes amb caducitat o saldo
+- Corregeix la fletxa enrere a la vista de cartes que apuntava en la direcció incorrecta en els dissenys RTL

@@ -1,0 +1,5 @@
+- Afegeix la funció de duplicació de targetes
+- No permet triar la caducitat abans de 1970 (de totes maneres, mai van funcionar)
+- Afegeix compatibilitat amb l'arxivament de targetes
+- Mou l'eliminació de l'edició a la vista
+- Elimina la icona de bloqueig de rotació en favor d'una nova configuració de bloqueig de rotació

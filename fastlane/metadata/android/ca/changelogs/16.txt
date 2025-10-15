@@ -1,0 +1,5 @@
+- S'ha afegit compatibilitat per afegir dreceres a la pantalla d'inici en afegir o editar una targeta. (extracció #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- S'ha eliminat el widget, ja que era un mal substitut de les dreceres.
+- S'ha corregit l'exportació de còpies de seguretat a Android 7+.
+- S'ha informat d'un tipus MIME més precís en exportar dades de còpia de seguretat.
+- S'ha corregit l'error que feia que no es pogués editar una targeta.

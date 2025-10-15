@@ -1,0 +1,3 @@
+- Opció per navegar per les targetes amb els botons de volum
+- Correcció de la importació de Stocard
+- Correcció del missatge "Importació cancel·lada" que apareix després d'una importació correcta

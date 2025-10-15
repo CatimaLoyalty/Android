@@ -1,0 +1,3 @@
+- Compatibilitat amb l'escaneig de codis de barres de fitxers PDF
+- Compatibilitat amb fitxers d'imatge amb diversos codis de barres
+- Correccions menors de la interfície d'usuari

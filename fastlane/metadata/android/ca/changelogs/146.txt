@@ -1,0 +1,2 @@
+- Possibilitat d'ordenar les targetes per inici de validesa
+- Torna temporalment a la configuració d'Android 14 per solucionar alguns problemes d'IU

@@ -1,0 +1,3 @@
+- Importador de Catima millorat (corregeix targetes que falten en importar)
+- Corregeix un error en girar la pantalla mentre es configura la data de vàlid des de/caducitat
+- Ajustos menors a la interfície d'usuari

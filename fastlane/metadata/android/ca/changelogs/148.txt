@@ -1,0 +1,4 @@
+- Afegir la possibilitat de triar l'amplada del codi de barres en la vista de pantalla completa
+- Eliminar la funció d'importació confusa de l'aplicació
+- Diverses correccions d'escaneig
+- Corregir el bloqueig en carregar un fitxer pkpass sense codi de barres

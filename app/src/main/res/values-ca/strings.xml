@@ -7,7 +7,7 @@
     <string name="delete">Elimina</string>
     <string name="confirm">Confirma</string>
     <string name="ok">D\'acord</string>
-    <string name="importExport">Importa/Exporta</string>
+    <string name="importExport">Importa/exporta</string>
     <string name="exportName">Exporta</string>
     <string name="action_search">Cerca</string>
     <string name="deleteTitle">Elimina la targeta</string>
@@ -27,7 +27,7 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i contribuïdors</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os i contribuïdors</string>
     <string name="app_license">Software lliure Copyleft, licència GPLv3+</string>
-    <string name="app_resources">Recursos lliures de tercers: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Recursos de tercers: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Estrella de preferides</string>
     <string name="settings">Configuració</string>
@@ -55,10 +55,10 @@
     <string name="add_manually_warning_title">Recomenem escanejar</string>
     <string name="add_manually_warning_message">En algunes targetes el valor imprès en la targeta no correspon amb el codi registrat en el codi de barres. Per això, introduint manualment el codi pot no funcionar en alguns casos. Recomanem sempre que sigui possible escanejar la targeta amb la càmera. Vol igualment continuar la edició manual?</string>
     <string name="continue_">Continuar</string>
-    <string name="exportOptionExplanation">La informació serà escrita al lloc de la seva elecció.</string>
+    <string name="exportOptionExplanation">La informació serà escrita al lloc de la seva elecció</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de fitxers</string>
     <string name="importOptionFilesystemButton">Desde el sistema de fitxers</string>
-    <string name="selectBarcodeTitle">Sel•lecciona el Codi de Barres</string>
+    <string name="selectBarcodeTitle">Sel•lecciona el codi de barres</string>
     <string name="importSuccessful">Dades importades correctament</string>
     <string name="exportSuccessful">Dades exportades correctament</string>
     <string name="failedOpeningFileManager">Instala un gestor de fitxers.</string>
@@ -72,7 +72,7 @@
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionats</item>
         <item quantity="other"><xliff:g>%d</xliff:g> seleccionats</item>
     </plurals>
-    <string name="importOptionFilesystemExplanation">Escull un fitxer especific del sistema de fitxers.</string>
+    <string name="importOptionFilesystemExplanation">Escull un fitxer especific del sistema de fitxers</string>
     <string name="no">No</string>
     <string name="settings_pink_theme">Rosa</string>
     <string name="sort">Ordenar</string>
@@ -96,7 +96,7 @@
     </plurals>
     <string name="importCancelled">Importació anulada</string>
     <string name="exportCancelled">Exportació cancelada</string>
-    <string name="noGiftCardsGroup">Crea algunes targetes, asigna-les en un grup aquí.</string>
+    <string name="noGiftCardsGroup">Crea algunes targetes, asigna-les en un grup aquí</string>
     <string name="noMatchingGiftCards">Sense resultats. Prova a canviar la teva cerca.</string>
     <string name="storeName">Nom</string>
     <string name="note">Nota</string>
@@ -166,10 +166,10 @@
     <string name="deleteConfirmation">Vols eliminar de forma permanent aquesta targeta?</string>
     <string name="share">Compartir</string>
     <string name="sendLabel">Enviar…</string>
-    <string name="editCardTitle">Editar Targeta</string>
-    <string name="addCardTitle">Afegir Targeta</string>
-    <string name="scanCardBarcode">Escanejar Codi de Barres</string>
-    <string name="cardShortcut">Drecera a la Targeta</string>
+    <string name="editCardTitle">Editar targeta</string>
+    <string name="addCardTitle">Afegir targeta</string>
+    <string name="scanCardBarcode">Escanejar codi de barres</string>
+    <string name="cardShortcut">Drecera a la targeta</string>
     <string name="noCardsMessage">Afegeix primer una targeta</string>
     <string name="noCardExistsError">No s\'ha pogut trobar aquesta targeta</string>
     <string name="failedParsingImportUriError">No s\'ha pogut analitzar la URI d\'importació</string>
@@ -180,7 +180,7 @@
     <string name="starred">Preferides</string>
     <string name="deleteConfirmationGroup">Vols eliminar aquest grup?</string>
     <string name="removeImage">Eliminar imatge</string>
-    <string name="app_libraries">Llibreries lliures de tercers: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Llibreries de tercers: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="settings_display_barcode_max_brightness">Màxima iluminació</string>
     <string name="settings_brown_theme">Marró</string>
     <string name="manually_enter_barcode_instructions">Introdueixi el ID de la targeta manualment i trii un codi de barres que s\'assembli al de la seva targeta.</string>
@@ -238,4 +238,21 @@
     <string name="settings_system_locale">Idioma del sistema</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="spend">Gastar</string>
+    <string name="importExportHelp">Fer una còpia de seguretat de les dades permet moure-les a un altre dispositiu</string>
+    <string name="importSuccessfulTitle">Importat</string>
+    <string name="importFailedTitle">La importació ha fallat</string>
+    <string name="importFailed">No s\'ha pogut realitzar la importació</string>
+    <string name="exportSuccessfulTitle">Exportat</string>
+    <string name="exportFailedTitle">L\'exportació ha fallat</string>
+    <string name="exportFailed">No s\'ha pogut realitzar l\'exportació</string>
+    <string name="importing">Important…</string>
+    <string name="exporting">Exportant…</string>
+    <string name="storageReadPermissionRequired">Cal permís per llegir l\'emmagatzematge per a aquesta acció…</string>
+    <string name="cameraPermissionRequired">Cal permís per accedir a la càmera per a aquesta acció…</string>
+    <string name="permissionReadCardsLabel">Legeix targetes Catima</string>
+    <string name="permissionReadCardsDescription">llegeix les teves targetes Catima i tots els seus detalls, incloses notes i imatges</string>
+    <string name="cameraPermissionDeniedTitle">No s\'ha pogut accedir a la càmera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Per escanejar codis de barres, Catima necessitarà accés a la teva càmera. Toca aquí per canviar la configuració dels permisos.</string>
+    <string name="about">Sobre</string>
+    <string name="app_copyright_old">Clauer basat en la targeta de fidelització\nCopyright © 2016–2020 Branden Archer</string>
 </resources>

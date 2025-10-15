@@ -1,0 +1,2 @@
+- カード表示時のヘッダー領域を縮小。(pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- バーコードスキャン時のビープ音を無効化。(pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

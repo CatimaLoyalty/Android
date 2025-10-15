@@ -99,7 +99,9 @@ public class CatimaImporter implements Importer {
             throw new FormatException("No imported data");
         }
 
-        Map<Integer, Integer> idMap = saveAndDeduplicate(context, database, importedData, imageChecksums);
+        List<String> duplicatedCardsImages = new ArrayList<>();
+
+        Map<Integer, Integer> idMap = saveAndDeduplicate(context, database, importedData, imageChecksums, duplicatedCardsImages);
 
         if (isZipFile) {
             // Pass #2: save images
@@ -109,7 +111,7 @@ public class CatimaImporter implements Importer {
 
             while ((localFileHeader = zipInputStream2.getNextEntry()) != null) {
                 String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
-                if (fileName.endsWith(".png")) {
+                if (fileName.endsWith(".png") && !duplicatedCardsImages.contains(fileName)) {
                     String newFileName = Utils.getRenamedCardImageFileName(fileName, idMap);
                     Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream2), newFileName);
                 }
@@ -119,7 +121,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public Map<Integer, Integer> saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data, final Map<String, String> imageChecksums) throws IOException {
+    public Map<Integer, Integer> saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
         Map<Integer, Integer> idMap = new HashMap<>();
         Set<String> existingImages = DBHelper.imageFiles(context, database);
 
@@ -128,7 +130,7 @@ public class CatimaImporter implements Importer {
             boolean duplicateFound = false;
 
             for (LoyaltyCard existing : candidates) {
-                if (isDuplicate(context, existing, card, existingImages, imageChecksums)) {
+                if (isDuplicate(context, existing, card, existingImages, imageChecksums, duplicatedCardsImages)) {
                     duplicateFound = true;
                     break;
                 }
@@ -157,13 +159,14 @@ public class CatimaImporter implements Importer {
         return idMap;
     }
 
-    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums) throws IOException {
+    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
         if (!LoyaltyCard.isDuplicate(context, existing, card)) {
             return false;
         }
+        String nameChecksum = null;
         for (ImageLocationType imageLocationType : ImageLocationType.values()) {
             String nameExists = Utils.getCardImageFileName(existing.id, imageLocationType);
-            String nameChecksum = nameExists.replaceFirst("card_\\d+_", "card_" + card.id + "_");
+            nameChecksum = Utils.getCardImageFileName(card.id, imageLocationType);
 
             boolean exists = existingImages.contains(nameExists);
             if (exists != imageChecksums.containsKey(nameChecksum)) {
@@ -176,6 +179,7 @@ public class CatimaImporter implements Importer {
                 }
             }
         }
+        duplicatedCardsImages.add(nameChecksum);
         return true;
     }
 

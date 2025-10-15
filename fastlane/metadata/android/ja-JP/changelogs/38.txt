@@ -1,0 +1,3 @@
+- バーコードをタップすると画面最上部に移動するように (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- ダークモードでのスキャン精度向上の為に、バーコード周囲に余白を追加 (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- 入れ替わっていたインポートボタンを修正 (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

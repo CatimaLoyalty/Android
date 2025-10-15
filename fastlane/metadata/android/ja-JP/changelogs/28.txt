@@ -1,0 +1,5 @@
+- 翻訳の追加
+  - ポーランド語 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - スペイン語 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - スロバキア語 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- 翻訳の更新 (pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

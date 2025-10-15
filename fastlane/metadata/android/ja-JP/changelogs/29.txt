@@ -1,0 +1,2 @@
+- スペイン語訳を修正 (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+- 翻訳を更新 (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))

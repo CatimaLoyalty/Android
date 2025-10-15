@@ -1,0 +1,3 @@
+- バーコード先頭／末尾へ静止領域を追加 (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- 店舗名フォント・背景へ利用色を設定するオプションを追加 (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- カード一覧ページ・単一カードページでフォントサイズ調整オプションを追加 (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

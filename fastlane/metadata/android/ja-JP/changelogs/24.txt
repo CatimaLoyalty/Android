@@ -1,0 +1,4 @@
+- 翻訳の更新。 (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- バーコード描画方式の更新: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - 画面回転時カードビューアクティビティを再読込し、バーコード画像が正しいサイズになるように。
+  - 1Dバーコードをより広い領域で描画し、より効果的に画面を埋められるように。

@@ -1,0 +1,1 @@
+- Popravek morebitnega sesutja, ki bi se lahko pojavilo pri karticah, ki v bazi podatkov nimajo informacije o barvi

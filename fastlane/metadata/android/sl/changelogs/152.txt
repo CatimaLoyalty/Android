@@ -1,0 +1,3 @@
+- Dodana podpora za datoteke .pkpasses
+- Odstranjen uvoznik Stocard (Stocard ne obstaja več)
+- Začasno onemogočene slike gradnikov pod Android 12L (začasna rešitev za težavo z zatikanjem)

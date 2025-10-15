@@ -1,0 +1,4 @@
+- Ciljni Android 16
+- Popravek morebitnega sesutja po odstranitvi slike s kartice
+- Odstranitev funkcije »Usmeritev zaslona« (Google je odstranil možnost, da aplikacije nadzorujejo vrtenje zaslona, ko ciljajo na Android 16)
+- Dodajanje poročevalca o sesutjih v FOSS build (ne uporablja se v različici Google Play, ampak samo v drugih trgovinah)

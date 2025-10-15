@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Dodaj</string>
-    <string name="noGiftCards">Pritisni gumb + za dodajanje nove kartice ali gumb ⋮ v meniju za uvoz.</string>
+    <string name="noGiftCards">Pritisni gumb + za dodajanje nove kartice ali gumb ⋮ v meniju za uvoz</string>
     <string name="storeName">Ime</string>
     <string name="note">Opomba</string>
     <string name="cardId">Št. kartice</string>
@@ -18,9 +18,9 @@
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Najprej dodaj kartico</string>
     <string name="noCardExistsError">Te kartice ni bilo mogoče najti</string>
-    <string name="importExport">Uvozi/Izvozi</string>
+    <string name="importExport">Uvozi/izvozi</string>
     <string name="exportName">Izvozi</string>
-    <string name="importExportHelp">Varnostna kopija podatkovne baze omogoča prenos na drugo napravo.</string>
+    <string name="importExportHelp">Varnostna kopija podatkovne baze omogoča prenos na drugo napravo</string>
     <string name="importSuccessfulTitle">Uvoz je bil uspešen</string>
     <string name="importFailedTitle">Uvoz ni uspel</string>
     <string name="importFailed">Napaka pri uvozu</string>
@@ -30,7 +30,7 @@
     <string name="importing">Uvažanje …</string>
     <string name="exporting">Izvažanje …</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
-    <string name="importOptionFilesystemExplanation">Izberi specifično datoteko iz datotečnega sistema.</string>
+    <string name="importOptionFilesystemExplanation">Izberi specifično datoteko iz datotečnega sistema</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>
     <string name="about">Več o aplikaciji</string>
     <string name="app_license">Prosta programska oprema s copyleftom, licenca GPL3+</string>
@@ -49,11 +49,11 @@
     <string name="leaveWithoutSaveTitle">Izhod</string>
     <string name="moveDown">Premikanje navzdol</string>
     <string name="moveUp">Premik navzgor</string>
-    <string name="failedOpeningFileManager">Najprej namesti upravitelja datotek.</string>
+    <string name="failedOpeningFileManager">Ni mogoče odpreti upravitelja datotek</string>
     <string name="deleteConfirmationGroup">Brisanje skupine\?</string>
     <string name="all">Vse</string>
     <string name="noGroupCards">Ta skupina je prazna</string>
-    <string name="noGroups">Pritisni gumb +, če želiš dodati skupine za kategorizacijo.</string>
+    <string name="noGroups">Pritisni gumb +, če želiš dodati skupine za kategorizacijo</string>
     <string name="groups">Skupine</string>
     <string name="enter_group_name">Vnesi ime skupine</string>
     <string name="exportSuccessful">Podatkovna baza izvožena</string>
@@ -67,7 +67,7 @@
     <string name="settings_theme">Tema</string>
     <string name="starImage">Zvezdica za priljubljene</string>
     <string name="app_copyright_old">Na podlagi aplikacije Loyalty Card Keychain \navtorske pravice © 2016-2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Podatki bodo zapisani na izbrano mesto.</string>
+    <string name="exportOptionExplanation">Podatki bodo zapisani na izbrano mesto</string>
     <string name="failedParsingImportUriError">Ni bilo mogoče razčleniti URI uvoza</string>
     <string name="share">Deli</string>
     <string name="unstar">Odstrani iz priljubljenih</string>
@@ -171,7 +171,7 @@
     <string name="unarchive">Odpakiraj arhiv</string>
     <string name="archived">Kartica arhivirana</string>
     <string name="unarchived">Kartica ni arhivirana</string>
-    <string name="failedLaunchingPhotoPicker">Ni mogoče najti podprte aplikacije za gledanje slik</string>
+    <string name="failedLaunchingPhotoPicker">Ni mogoče najti podprte aplikacije za slike</string>
     <string name="previousCard">Prejšnja</string>
     <string name="nextCard">Naslednja</string>
     <string name="updateBalanceTitle">Koliko si porabil ali prejel?</string>
@@ -180,18 +180,18 @@
     <string name="group_name_is_empty">Ime skupine ne sme biti prazno</string>
     <string name="group_updated">Skupina posodobljena</string>
     <string name="groupsList">Skupine: <xliff:g>%s</xliff:g></string>
-    <string name="app_libraries">Proste knjižnice tretjih oseb: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Prosti viri tretjih oseb: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Knjižnice tretjih oseb: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Viri tretjih oseb: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="expiryStateSentence">Poteče: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Poteklo: <xliff:g>%s</xliff:g></string>
     <string name="expiryDate">Datum poteka veljavnosti</string>
     <string name="chooseExpiryDate">Izberi datum poteka veljavnosti</string>
     <string name="moveBarcodeToTopOfScreen">Premakni črtno kodo na vrh zaslona</string>
-    <string name="importCatimaMessage">Izberi svoj obstoječ Catima <i>catima.zip</i> izvoz podatkov za uvoz v aplikacijo. \nNajprej izvozi podatke v meniju \"Uvozi/Izvozi\" v drugi aplikaciji Catima s pritiskom na Izvozi.</string>
-    <string name="importVoucherVaultMessage">Izberi svoj <i>vouchervault.json</i> Voucher Vault izvoz podatkov za uvoz. \nIzvoz podatkov dobiš s pritiskom na gumb »Export« v Voucher Vault first.</string>
+    <string name="importCatimaMessage">Izberi svoj obstoječ izvoz podatkov za uvoz v aplikacijo. \nNajprej izvozi podatke v meniju Uvozi/izvozi v drugi aplikaciji Catima s pritiskom na Izvozi.</string>
+    <string name="importVoucherVaultMessage">Izberi svoj Voucher Vault izvoz podatkov za uvoz. \nIzvoz podatkov dobiš s pritiskom na gumb »Export« v Voucher Vault.</string>
     <string name="failedToOpenUrl">Prvo namesti spletni brskalnik</string>
     <string name="welcome">Pozdravljen v Catimi</string>
-    <string name="noGiftCardsGroup">Ustvari kartice in jih dodeli tej skupini.</string>
+    <string name="noGiftCardsGroup">Ustvari kartice in jih dodeli tej skupini</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Izbriši <xliff:g>%d</xliff:g> kartico</item>
         <item quantity="two">Izbriši <xliff:g>%d</xliff:g> kartici</item>
@@ -213,9 +213,9 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kartic</item>
     </plurals>
     <string name="editGroup">Urejanje skupine: <xliff:g>%s</xliff:g></string>
-    <string name="importFidmeMessage">Izberi svoj <i>fidme-export-request-xxxxxx.zip</i> FidMe izvoz podatkov za uvoz in naknadno ročno izberi tipe črtnih kod. \nFidMe izvoz podatkov naredi v svojem FidMe profilu z izbiro »Data Protection« in nato s pritiskom na gumb »Extract my data first«.</string>
-    <string name="importLoyaltyCardKeychainMessage">Izberi svoj <i>LoyaltyCardKeychain.csv</i> Kartice zvestobe izvoz podatkov za uvoz. \nKartice zvestobe izvoz podatkov naredi s pritiskom na gumb »Import/Export« v meniju s pritiskom najprej na gumb »Export«.</string>
-    <string name="failedGeneratingShareURL">URL-ja za skupno rabo ni bilo mogoče ustvariti. Prosim prijavi napako.</string>
+    <string name="importFidmeMessage">Izberi svoj izvoz iz FindMe za uvoz in naknadno ročno izberi tipe črtnih kod. \nFidMe izvoz podatkov naredi v svojem FidMe profilu z izbiro »Data Protection« in nato s pritiskom na gumb »Extract my data«.</string>
+    <string name="importLoyaltyCardKeychainMessage">Izberi svoj izvoz iz Kartice zvestobe za uvoz. \nKartice zvestobe izvoz podatkov naredi s pritiskom na gumb »Uvoz/izvoz« v meniju s pritiskom na gumb »Export«.</string>
+    <string name="failedGeneratingShareURL">URL-ja za skupno rabo ni bilo mogoče ustvariti</string>
     <string name="settings_oled_dark">Čisto črno ozadje za temno temo</string>
     <string name="selectColor">Izberi barvo</string>
     <string name="settings_catima_theme">Catima</string>
@@ -276,7 +276,7 @@
     <string name="field_must_not_be_empty">Polje ne sme biti prazno</string>
     <string name="manually_enter_barcode_instructions">Vnesi identifikacijsko številko ali besedilo na kartici in pritisni črtno kodo, ki je podobna tisti na kartici.</string>
     <string name="add_manually_warning_title">Priporočljivo je skeniranje</string>
-    <string name="add_manually_warning_message">V nekaterih trgovinah se vrednost črtne kode razlikuje od številke, napisane na kartici. Zaradi tega ročno vnašanje črtne kode morda ne bo vedno delovalo. Priporočamo, da črtno kodo raje skeniraš s kamero. Želiš nadaljevati?</string>
+    <string name="add_manually_warning_message">V nekatere kartice se vrednost črtne kode razlikuje od številke, napisane na kartici. Zaradi tega ročno vnašanje črtne kode morda ne bo vedno delovalo. Priporočamo, da črtno kodo raje skeniraš s kamero. Želiš nadaljevati?</string>
     <string name="continue_">Nadaljuj</string>
     <string name="spend">Porabi</string>
     <string name="receive">Prejmi</string>
@@ -296,16 +296,24 @@
     <string name="switchToFrontImage">Preklopi na prednjo sliko</string>
     <string name="switchToBackImage">Preklopi na zadnjo sliko</string>
     <string name="switchToBarcode">Preklopi na črtno kodo</string>
-    <string name="openFrontImageInGalleryApp">Odpri sprednjo sliko v galeriji</string>
-    <string name="openBackImageInGalleryApp">Odpri zadnjo sliko v galeriji</string>
+    <string name="openFrontImageInGalleryApp">Odpri sprednjo sliko v aplikaciji za slike</string>
+    <string name="openBackImageInGalleryApp">Odpri zadnjo sliko v aplikaciji za slike</string>
     <string name="setBarcodeHeight">Nastavi višino črtne kode</string>
     <string name="useFrontImage">Uporabi prednjo sliko</string>
     <string name="useBackImage">Uporabi zadnjo sliko</string>
-    <string name="addFromPkpass">Izberi Passbook datoteko (.pkpass)</string>
+    <string name="addFromPkpass">Izberi Passbook datoteko (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Ta datoteka ni podprta</string>
-    <string name="generic_error_please_retry">Žal se je pojavila napaka, poskusi znova …</string>
+    <string name="generic_error_please_retry">Prišlo je do napake</string>
     <string name="width">Širina</string>
     <string name="card_list_widget_name">Seznam kartic</string>
     <string name="setBarcodeWidth">Nastavi širino črtne kode</string>
     <string name="card_list_widget_empty">Ko v Catimi dodaš nekaj kartic zvestobe, se bodo te prikazale tukaj. Če imaš kartice, se prepričaj, da niso vse arhivirane.</string>
+    <string name="cardWithNumber">Kartica <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kartica <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Naprave ne obračaj, saj bo to prekinilo postopek</string>
+    <string name="acra_catima_has_crashed">Žal nam je, vendar se je aplikacija <xliff:g id="app_name">%s</xliff:g> sesula. Pomagaj nam odpraviti to težavo tako, da nam pošlješ poročilo o napaki.</string>
+    <string name="acra_explain_crash">Če je mogoče, dodaj več podrobnosti o tem, kaj si tukaj počel/a:</string>
+    <string name="acra_crash_email_subject">Poročilo o sesutju aplikacije <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Prosi za pošiljanje poročila o sesutju</string>
+    <string name="pref_enable_acra_summary">Ko je ta možnost omogočena, boš ob pojavu sesutja pozvan, da prijaviš napako. Poročilo o sesutju se nikoli ne pošilja samodejno.</string>
 </resources>

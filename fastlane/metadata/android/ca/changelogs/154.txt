@@ -1,0 +1,1 @@
+- Corregeix un possible error que es podia produir en targetes a les quals falta informació de color a la base de dades

@@ -1,0 +1,4 @@
+- Target Android 14
+- Obre la icona de la targeta a la galeria en tocar-la
+- Millora el disseny de la pestanya Fotos a la vista d'edició
+- Actualitza la pantalla de despeses perquè també admeti rebre

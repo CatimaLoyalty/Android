@@ -1,0 +1,3 @@
+- Afegir compatibilitat amb Passbook (.pkpass)
+- Corregir la importació de fitxers PDF transparents
+- Millora la visualització de miniatures transparents

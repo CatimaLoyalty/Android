@@ -1,0 +1,2 @@
+- Afegeix un widget que mostri totes les targetes no arxivades
+- Evita que el teclat se superposi al botó de desar a les pantalles d'edició i agrupació

@@ -1,0 +1,2 @@
+- S'ha solucionat el quadre de diàleg de despesa ràpida que no permetia el separador
+- Suport per carregar imatges des del gestor de fitxers

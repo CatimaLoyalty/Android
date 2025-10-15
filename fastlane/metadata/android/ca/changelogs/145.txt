@@ -1,0 +1,3 @@
+- Target Android 15
+- Correcció del teclat que cobreix el botó de desar a la pantalla d'edició
+- Correcció d'alguns fitxers pkpass que no es detecten com a pkpass (compatibilitat amb el tipus MIME application/vnd-com.apple.pkpass)

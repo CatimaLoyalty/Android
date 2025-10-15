@@ -1,0 +1,1 @@
+- Corregeix l'ajustament de text al quadre de diàleg d'afegir

@@ -1,0 +1,3 @@
+- Moure el "Mode d'arxiu" al menú "Opcions de visualització" (anteriorment "Mostra detalls")
+- Compatibilitat amb idiomes per aplicació d'Android 13
+- Incorporar la política de privadesa, el registre de canvis i la llicència a l'aplicació

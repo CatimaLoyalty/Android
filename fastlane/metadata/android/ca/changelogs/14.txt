@@ -1,0 +1,3 @@
+- S'ha afegit l'opció de menú de bloqueig de rotació de la pantalla en mostrar una targeta. Si està bloquejada, la pantalla passarà a la seva orientació "natural" i es bloquejarà la rotació posterior de la pantalla
+- Si es selecciona una targeta des de la pantalla principal però no es pot carregar, l'aplicació falla correctament i publica un missatge.
+- S'ha corregit el cas en què no es podien trobar els ID de disseny per a l'assistent d'introducció.

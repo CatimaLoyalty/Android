@@ -1,0 +1,2 @@
+- Un canvi a la v0.11 va reduir l'ús de memòria del dibuix del codi de barres, però va afectar les dimensions del codi de barres. Ara això s'ha canviat per mantenir les dimensions del codi de barres i reduir l'ús de memòria. (pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- Actualització de les traduccions a l'alemany i al francès.

@@ -1,0 +1,1 @@
+- Suport per seleccionar exactament quins detalls es veuran a la vista general de la targeta

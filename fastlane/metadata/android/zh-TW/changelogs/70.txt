@@ -1,0 +1,11 @@
+- 重大變更：備份格式已更新，詳見 https://github.com/TheLastProject/Catima/wiki/Export-format
+- 重大變更：網址分享格式已更新，詳見 https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- 掃描時可開啟或關閉手電筒
+- 新增 UPC-E 條碼支援
+- 支援為每張卡片新增正面與背面照片
+- 支援匯入受密碼保護的 zip 檔案
+- 支援從 Stocard 匯入（測試版）
+- 修正從 Fidme 匯入筆記時出現多餘空白的問題
+- 支援新的 Voucher Vault 匯出格式
+- 修正 Android 4 上懸浮操作按鈕被其他介面元素遮住的問題
+- 修正會員卡檢視器 Appbar 的頂部邊距

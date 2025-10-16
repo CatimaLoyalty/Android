@@ -1,0 +1,7 @@
+「Locker」這個名稱不夠直覺。為了改善這點，由 betsythefc 設計了新的應用程式圖示，更能代表此應用的用途：儲存使用條碼的會員卡。隨著新圖示的推出，應用程式名稱也更改為「Loyalty Card Keychain」。
+
+其他功能與改進：
+
+- 匯入／匯出卡片功能變得更加彈性。（pull #76：https://github.com/brarcher/loyalty-card-locker/pull/76）
+- 新增立陶宛文翻譯。（pull #62：https://github.com/brarcher/loyalty-card-locker/pull/62）
+- 新增法文翻譯。（pull #80：https://github.com/brarcher/loyalty-card-locker/pull/80）

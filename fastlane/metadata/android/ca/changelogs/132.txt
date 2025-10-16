@@ -1,0 +1,6 @@
+- Refinar el flux de treball "Afegir targeta"
+- Millores en el flux de validació
+- Corregir el cas límit que causava un estat de la interfície d'usuari no vàlid en mostrar l'arxiu
+- Utilitzar un tema o un color de targeta per a la barra de navegació (Android 8.1+)
+- Selector de dates de validesa i caducitat actualitzat
+- Afegir l'opció per girar sempre (ignorant la configuració del sistema)

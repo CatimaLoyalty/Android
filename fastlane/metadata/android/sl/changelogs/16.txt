@@ -1,0 +1,5 @@
+- Dodana podpora za dodajanje bližnjic na začetni zaslon pri dodajanju ali urejanju kartice. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Odstranjen gradnik, saj je bil slaba nadomestitev za bližnjice. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Popravek za izvoz varnostnih kopij na Android 7+.
+- Poročanje o natančnejšem tipu mime pri izvozu varnostnih kopij.
+- Popravek napake, zaradi katere kartice ni bilo mogoče urediti.

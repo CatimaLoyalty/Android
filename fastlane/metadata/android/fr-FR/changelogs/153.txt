@@ -1,0 +1,4 @@
+- Cible Android 16
+- Correction d'un plantage possible après avoir supprimé l'image d'une carte
+- Suppression de la fonctionnalité "Orientation de l'écran" (Google a supprimé la possibilité pour les applications de contrôler l'orientation de l'écran quand elles ciblent Android 16)
+- Ajout d'un rapporteur de plantage pour la version FOSS (non utilisé dans la version du Google Play Store, seulement pour les autres magasins d'applications)

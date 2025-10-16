@@ -90,9 +90,6 @@
     <string name="settings_theme">تم</string>
     <string name="settings_system_theme">سیستم</string>
     <string name="settings_dark_theme">تیره</string>
-    <string name="settings_card_orientation">جهت صفحه نمایش</string>
-    <string name="settings_follow_sensor_orientation">همیشه قابل چرخش باشد (بدون در نظر گرفتن تنظیمات سیستم)</string>
-    <string name="settings_portrait_orientation">عمودی</string>
     <string name="settings_keep_screen_on">روشن نگه داشتن صفحه نمایش</string>
     <string name="settings_keep_screen_on_summary">غیرفعال سازی مهلت صفحه نمایش هنگام مشاهده کارت</string>
     <string name="settings_disable_lockscreen_while_viewing_card">جلوگیری از قفل شدن صفحه</string>
@@ -100,12 +97,10 @@
     <string name="settings_allow_content_provider_read_summary">برنامه ها باید برای گرفتن مجوز درخواست کنند</string>
     <string name="importSuccessful">داده وارد شد</string>
     <string name="thumbnailDescription">تصویر کوچک</string>
-    <string name="settings_landscape_orientation">افقی</string>
     <string name="settings_light_theme">روشن</string>
     <string name="settings_display_barcode_max_brightness_summary">برای کارکرد برخی اسکنر ها ضروری است</string>
     <string name="settings_display_barcode_max_brightness">روشنایی صفحه</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">جلوگیری از قفل شدن صفحه هنگام مشاهده کارت</string>
-    <string name="settings_follow_system_orientation">پیروی از سیستم</string>
     <string name="intent_import_card_from_url_share_text">میخواهم یک کارت را با تو به اشتراک بگذارم</string>
     <string name="settings_use_volume_keys_navigation">جابجایی میان کارت ها با استفاده از کلید های صدا</string>
     <string name="settings_use_volume_keys_navigation_summary">از کلید های صدا برای تغیر کارت نمایشی استفاده کنید</string>
@@ -120,7 +115,6 @@
     <string name="noGroups">روی دکمه + اضافه کلیک کنید تا گروه‌هایی برای دسته‌بندی اضافه کنید.</string>
     <string name="editGroup">ویرایش گروه: <xliff:g>%s</xliff:g></string>
     <string name="importCatimaMessage">فایل <i>catima.zip</i> خروجی خود را از Catima برای وارد کردن انتخاب کنید.\nآن را از منوی وارد/صادر کردن در یک اپلیکیشن دیگر Catima با فشردن دکمه صادرکردن ابتدا ایجاد کنید.</string>
-    <string name="importStocard">واردات از Stocard</string>
     <string name="unsupportedBarcodeType">این نوع بارکد هنوز نمی‌تواند نمایش داده شود. ممکن است در نسخه آینده برنامه پشتیبانی شود.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> امتیاز</item>
@@ -136,7 +130,6 @@
     <string name="importLoyaltyCardKeychain">وارد کردن از جاکلیدی کارت وفاداری</string>
     <string name="importLoyaltyCardKeychainMessage">فایل خروجی <i>LoyaltyCardKeychain.csv</i> خود را از جاسوئیچی کارت وفاداری برای وارد کردن انتخاب کنید.\nآن را از منوی وارد/صادر‌کردن در جاسوئیچی کارت وفاداری با فشردن دکمه صادر‌کردن ابتدا ایجاد کنید.</string>
     <string name="app_resources">منابع آزاد از طرف شخص ثالث: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_lock_on_opening_orientation">قفل به جهت استفاده شده در هنگام بازکردن کارت</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> کارت</item>
         <item quantity="other"><xliff:g>%d</xliff:g> کارت</item>
@@ -171,7 +164,6 @@
     <string name="accept">قبول</string>
     <string name="importCatima">واردات از کاتیما</string>
     <string name="importFidme">واردات از FidMe</string>
-    <string name="importStocardMessage">فایل خروجی <i>***.zip</i> خود را از Stocard برای وارد کردن انتخاب کنید.\nاین فایل را با ارسال ایمیل به آدرس support@stocardapp.com و درخواست خروجی داده‌های خود دریافت کنید.</string>
     <string name="importVoucherVault">واردات از صندوق کوپن</string>
     <string name="importVoucherVaultMessage">فایل خروجی <i>vouchervault.json</i> خود را از صندوق کوپن برای وارد کردن انتخاب کنید.\nآن را ابتدا با فشردن دکمه صادرکردن در صندوق کوپن ایجاد کنید.</string>
     <string name="barcodeId">مقدار بارکد</string>

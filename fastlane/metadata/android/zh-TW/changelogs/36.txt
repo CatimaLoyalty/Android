@@ -1,14 +1,8 @@
-- 新增搜尋卡片功能 (https://github.com/brarcher/loyalty-card-locker/pull/320)
-- 新增分享和接收會員卡功能 (https://github.com/brarcher/loyalty-card-locker/pull/321)
-- 支援深色模式 (https://github.com/brarcher/loyalty-card-locker/pull/322)
-- 會員卡現在可以沒有條碼 (https://github.com/brarcher/loyalty-card-locker/pull/324)
-- 註解可以跨多行 (https://github.com/brarcher/loyalty-card-locker/pull/326)
-- 改進註解的尺寸調整 (https://github.com/brarcher/loyalty-card-locker/pull/319)
-- 改善通知和應用程式圖示的可見性 (https://github.com/brarcher/loyalty-card-locker/pull/330)
-- 更新目標 SDK 為 Android 10
-- 改善以下翻譯：
-  - 德文
-  - 義大利文
-  - 荷蘭文
-  - 波蘭語
-  - 俄文
+- 新增卡片搜尋功能  
+- 新增會員卡分享與接收功能  
+- 支援深色模式  
+- 支援無條碼會員卡  
+- 備註可多行顯示並改善版面  
+- 改善通知與圖示可見度  
+- 目標 SDK 更新至 Android 10  
+- 更新德文、義大利文、荷蘭文、波蘭文與俄文翻譯

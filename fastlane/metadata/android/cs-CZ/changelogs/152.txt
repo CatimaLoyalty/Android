@@ -1,0 +1,3 @@
+- Přidána podpora pro soubory .pkpasses
+- Odstraněn importér Stocard (aplikace již neexistuje)
+- Dočasně zakázány widgety obrázků v systémech starších, než Android 12L (obejití problému s pády)

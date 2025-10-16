@@ -11,14 +11,14 @@ kotlin {
 
 android {
     namespace = "protect.card_locker"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 21
-        targetSdk = 35
-        versionCode = 151
-        versionName = "2.37.0"
+        targetSdk = 36
+        versionCode = 154
+        versionName = "2.39.1"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
@@ -29,6 +29,7 @@ android {
 
         buildConfigField("boolean", "showDonate", "true")
         buildConfigField("boolean", "showRateOnGooglePlay", "false")
+        buildConfigField("boolean", "useAcraCrashReporter", "true")
     }
 
     buildTypes {
@@ -61,6 +62,9 @@ android {
             // Google doesn't allow donation links
             buildConfigField("boolean", "showDonate", "false")
             buildConfigField("boolean", "showRateOnGooglePlay", "true")
+
+            // Google Play already sends crashes to the Google Play Console
+            buildConfigField("boolean", "useAcraCrashReporter", "false")
         }
     }
 
@@ -111,29 +115,34 @@ dependencies {
     // AndroidX
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.core:core-remoteviews:1.1.0")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.exifinterface:exifinterface:1.4.1")
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material:1.13.0")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
-    implementation("com.github.yalantis:ucrop:2.2.10")
+    implementation("com.github.yalantis:ucrop:2.2.11")
     implementation("com.google.zxing:core:3.5.3")
     implementation("org.apache.commons:commons-csv:1.9.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")
     implementation("net.lingala.zip4j:zip4j:2.11.5")
+
+    // Crash reporting
+    val acraVersion = "5.13.1"
+    implementation("ch.acra:acra-mail:$acraVersion")
+    implementation("ch.acra:acra-dialog:$acraVersion")
 
     // Testing
     val androidXTestVersion = "1.7.0"
     val junitVersion = "4.13.2"
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")
-    testImplementation("org.robolectric:robolectric:4.15.1")
+    testImplementation("org.robolectric:robolectric:4.16")
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")

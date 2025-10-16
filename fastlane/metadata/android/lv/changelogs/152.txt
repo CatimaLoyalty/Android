@@ -1,0 +1,3 @@
+- Pievienots .pkpasses datņu atbalsts
+- Noņemts Stocard ievietotājs (Stocard vairs nepastāv)
+- Īslaicīgi atspējoti logrīka attēli ierīcēs, kurās ir Android vecāks par 12L (apkārtrisinājums avārijai)

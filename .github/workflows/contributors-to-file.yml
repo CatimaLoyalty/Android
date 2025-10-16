@@ -1,22 +1,14 @@
 name: Write contributors to file
+
 on:
   workflow_dispatch:
   schedule:
     - cron: '3 4 * * 0'
+
 permissions:
-  actions: none
-  checks: none
   contents: write
-  deployments: none
-  discussions: none
-  id-token: none
-  issues: none
-  packages: none
-  pages: none
   pull-requests: write
-  repository-projects: none
-  security-events: none
-  statuses: none
+
 jobs:
   contributors_to_file:
     runs-on: ubuntu-latest
@@ -25,7 +17,7 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v5.0.0
+      uses: actions/checkout@v5
     - name: Update contributors
       id: update_contributors
       uses: TheLastProject/contributors-to-file-action@v3.2.0

@@ -1,0 +1,22 @@
+Deixa de buscar targetes de recompensa de plàstic durant el pagament a la botiga o a la botiga en línia.
+
+<b>Escaneja codis de barres al teu dispositiu amb la càmera, oblida't de les targetes.</b>
+
+Oblida't de la cartera o mantén-la ultralleugera per a objectes de valor.
+
+Amb aquesta eina essencial per portar cada dia (EDC) pots substituir el plàstic inútil per diners en efectiu.
+
+- Evita l'espionatge amb molt pocs permisos. Sense accés a Internet i sense anuncis.
+- Afegeix targetes o codis amb noms i colors personalitzables.
+- Introducció manual del codi si no hi ha cap codi de barres per emmagatzemar o no es pot utilitzar.
+- Importa targetes i codis des de fitxers, Catima, FidMe, clauer de targetes de fidelització i caixa forta de vals.
+- Fes una còpia de seguretat de totes les teves targetes i transfereix-les a un dispositiu nou si vols.
+- Comparteix cupons, ofertes exclusives, codis promocionals o targetes i codis amb qualsevol aplicació.
+- Tema fosc i opcions d'accessibilitat per a usuaris amb discapacitat visual.
+- Fet per a tothom per la comunitat de programari lliure.
+- Traduccions localitzades a mà per a més de 40 idiomes. - Gratuït, amb el suport de les contribucions de la comunitat.
+- Utilitza-ho, estudia-ho, canvia-ho i comparteix-ho com vulguis; <i>amb tothom</i>.
+- No només programari lliure / codi obert. Gestió de targetes de programari lliure amb <i>copyleft</i> (GPLv3+).
+
+Simplifica la teva vida i les teves compres, i no tornis a perdre mai més un rebut en paper, una targeta regal de pagament a la botiga o un bitllet d'avió.
+Emporta't totes les teves recompenses i bonificacions i estalvia sobre la marxa.

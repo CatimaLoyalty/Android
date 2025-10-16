@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridať</string>
-    <string name="noGiftCards">Ak chcete pridať kartu, kliknite na tlačidlo + plus alebo ju importujte z ⋮ ponuky.</string>
+    <string name="noGiftCards">Ak chcete pridať kartu, kliknite na tlačidlo + plus alebo ju importujte z ⋮ ponuky</string>
     <string name="storeName">Názov</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
@@ -15,7 +15,7 @@
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
     <string name="scanCardBarcode">Skenovať čiarový kód</string>
-    <string name="cardShortcut">Skratka</string>
+    <string name="cardShortcut">Skratka karty</string>
     <string name="noCardsMessage">Najprv pridajte kartu</string>
     <string name="noCardExistsError">Nepodarilo sa nájsť túto kartu</string>
     <string name="importExport">Import/Export</string>
@@ -136,7 +136,6 @@
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobraziť podrobnosti</string>
     <string name="yes">Áno</string>
-    <string name="importStocard">Import z aplikácie Stocard</string>
     <string name="selectColor">Vybrať farbu</string>
     <string name="setIcon">Nastavenie miniatúry</string>
     <string name="settings_catima_theme">Catima</string>
@@ -181,11 +180,9 @@
     <string name="updateBarcodeQuestionText">Zmenili ste ID. Chcete aktualizovať aj čiarový kód, aby používal rovnakú hodnotu\?</string>
     <string name="no">Nie</string>
     <string name="passwordRequired">Zadajte prosím heslo</string>
-    <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
+    <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>
-    <string name="settings_card_orientation">Orientácia obrazovky</string>
-    <string name="settings_lock_on_opening_orientation">Zamknúť na orientáciu použitú pri otváraní karty</string>
     <string name="app_loyalty_card_keychain">Kľúčenka vernostných kariet</string>
     <string name="settings_oled_dark">Čisto čierne pozadie pre tmavú tému</string>
     <string name="failedToRetrieveImageFile">Nepodarilo sa získať súbor obrázku</string>
@@ -228,13 +225,8 @@
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>
     <string name="storageReadPermissionRequired">Pre túto akciu je potrebné oprávnenie na čítanie úložiska…</string>
-    <string name="settings_follow_system_orientation">Podľa systému</string>
-    <string name="settings_portrait_orientation">Na výšku</string>
-    <string name="settings_landscape_orientation">Na šírku</string>
     <string name="importFidmeMessage">Vyberte svoj <i>fidme-export-request-xxxxxx.zip</i> export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne.
 \nVytvorte ho z profilu FidMe tak, že najprv vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
-    <string name="importStocardMessage">Vyberte svoj <i>***.zip</i> export zo Stocard pre import.
-\nZískate ho zaslaním e-mailu na adresu support@stocardapp.com, v ktorom požiadate o export svojich údajov.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
     <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>
@@ -278,7 +270,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievatelia</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Vždy otočiť (ignoruje nastavenie systému)</string>
     <string name="continue_">Pokračovať</string>
     <string name="spend">Utratené</string>
     <string name="receive">Prijaté</string>
@@ -311,9 +302,11 @@
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
-    <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Vyberte súbor Passbook (.pkpass / .pkpasses)</string>
     <string name="settings_use_volume_keys_navigation">Zmena kariet pomocou tlačidiel hlasitosti</string>
     <string name="settings_use_volume_keys_navigation_summary">Pre posúvanie medzi kartami používať tlačidlá hlasitosti</string>
     <string name="card_list_widget_name">Zoznam kariet</string>
     <string name="card_list_widget_empty">Po pridaní vernostných kariet do Catima sa zobrazia tu. Ak máte karty, uistite sa, že nie sú všetky archivované.</string>
+    <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
 </resources>

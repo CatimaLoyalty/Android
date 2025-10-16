@@ -1,0 +1,1 @@
+- カード表示でのノート表記を変更、カードIDの複数行表示を可能とし、店舗名を表示。(pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

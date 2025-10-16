@@ -37,9 +37,6 @@ public class MultiFormatImporter {
             case Fidme:
                 importer = new FidmeImporter();
                 break;
-            case Stocard:
-                importer = new StocardImporter();
-                break;
             case VoucherVault:
                 importer = new VoucherVaultImporter();
                 break;

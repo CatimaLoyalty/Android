@@ -57,15 +57,9 @@
     <string name="settings_system_theme">Sistem</string>
     <string name="settings_light_theme">Svetla</string>
     <string name="settings_dark_theme">Tamna</string>
-    <string name="settings_follow_system_orientation">Kao sistem</string>
-    <string name="settings_follow_sensor_orientation">Uvek rotiraj (ignoriše sistemska podešavanja)</string>
-    <string name="settings_portrait_orientation">Uspravno</string>
-    <string name="settings_landscape_orientation">Položeno</string>
-    <string name="settings_lock_on_opening_orientation">Zaključavanje orijentacije koja se koristi prilikom otvaranja kartice</string>
     <string name="settings_display_barcode_max_brightness">Osvetli ekran</string>
     <string name="settings_display_barcode_max_brightness_summary">Neophodno za rad nekih čitača</string>
     <string name="selectBarcodeTitle">Odaberi bar-kod</string>
-    <string name="settings_card_orientation">Orijentacija ekrana</string>
     <string name="thumbnailDescription">Naslovna fotografija</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spreči zaključavanje ekrana</string>
     <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama da pristupe mojim podacima</string>
@@ -107,7 +101,6 @@
     <string name="importLoyaltyCardKeychain">Uvezi iz aplikacije Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Odaberi svoj <i>LoyaltyCardKeychain.csv</i> izvoz iz aplikacije Loyalty Card Keychain za uvoz.
 \nKreiraj ga iz menija \"Import/Export\" u aplikaciji Loyalty Card Keychain klikom na \"Export\".</string>
-    <string name="importStocard">Uvoz iz Stocard</string>
     <string name="importVoucherVault">Uvoz iz Voucher Vault</string>
     <string name="importVoucherVaultMessage">Odaberi svoj <i>vouchervault.json</i> izvoz iz Voucher Vault za uvoz.
 \nKreiraj ga pritiskom na \"Export\" u Voucher Vault aplikaciji.</string>
@@ -250,8 +243,6 @@
 \nMožeš da ga kreiraš u Catima aplikaciji koju prenosiš iz menija Uvoz/Izvoz aplikacije pritiskom na izvoz.</string>
     <string name="importFidmeMessage">Odaberi svoj <i>fidme-export-request-xxxxxx.zip</i> izvoz iz FidMe za uvoz, a zatim ručno izaberite tipove bar-kodova.
 \nKreirajte ga iz svog FidMe profila tako što ćeš izabrati \"Data Protection\", a zatim pritisnuti \"Extract my data first\".</string>
-    <string name="importStocardMessage">Odaberi svoj <i>***.zip</i> izvoz iz Stocard za uvoz.
-\nNabavi ga putem e-mail adrese support@stocardapp.com tražeći izvoz vaših podataka.</string>
     <string name="backImageDescription">Zadnja fotografija kartice</string>
     <string name="setBackImage">Postavi zadnju fotografiju</string>
     <string name="passwordRequired">Unesi lozinku</string>
@@ -314,4 +305,6 @@
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_4">4</string>
     <string name="addFromPkpass">Izaberi \"Passbook\" dokument (.pkpass)</string>
+    <string name="card_list_widget_name">Lista kartica</string>
+    <string name="card_list_widget_empty">Nakon što dodate neke kartice lojalnosti u Catima, one će se pojaviti ovde. Ako imate kartice, uverite se da nisu sve arhivirane.</string>
 </resources>

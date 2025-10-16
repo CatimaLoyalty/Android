@@ -1,0 +1,2 @@
+- Millores menors de la interfície d'usuari
+- Correcció del nou disseny que no es podia utilitzar en dispositius amb pantalles quadrades

@@ -44,6 +44,15 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false"
             app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:widgetLayout="@layout/preference_material_switch"
+            android:defaultValue="true"
+            android:key="acra.enable"
+            android:title="@string/pref_enable_acra"
+            android:summary="@string/pref_enable_acra_summary"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false"/>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -93,16 +102,6 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
-        <ListPreference
-            android:defaultValue="@string/settings_key_follow_system_orientation"
-            android:entries="@array/card_orientation_values_strings"
-            android:entryValues="@array/card_orientation_values"
-            android:key="@string/settings_key_card_orientation"
-            android:title="@string/settings_card_orientation"
-            app:iconSpaceReserved="false"
-            app:singleLineTitle="false"
-            app:useSimpleSummaryProvider="true" />
-
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"
@@ -134,7 +133,6 @@
             android:title="@string/settings_allow_content_provider_read_title"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>

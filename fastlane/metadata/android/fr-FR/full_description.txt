@@ -8,7 +8,7 @@ Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plas
 - Évitez l'espionnage avec très peu de permissions. Aucun accès à Internet et aucune publicité.
 - Ajoutez des cartes ou des codes avec des noms et des couleurs personnalisables.
 - Saisie manuelle du code s'il n'y a pas de code-barres à stocker ou s'il ne peut pas être utilisé.
-- Importez des cartes et des codes depuis des fichiers, Catima, FidMe, Loyalty Card Keychain, Stocard et Voucher Vault.
+- Importez des cartes et des codes depuis des fichiers, Catima, FidMe, Loyalty Card Keychain et Voucher Vault.
 - Faites une sauvegarde de toutes vos cartes et transférez-les sur un nouvel appareil si vous le souhaitez.
 - Partagez des coupons, des offres exclusives, des codes promotionnels ou des cartes et des codes en utilisant n'importe quelle application.
 - Thème sombre et options d'accessibilité pour les utilisateurs malvoyants.

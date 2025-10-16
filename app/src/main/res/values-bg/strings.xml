@@ -16,13 +16,13 @@
     <string name="note">Бележка</string>
     <string name="storeName">Наименование</string>
     <string name="noMatchingGiftCards">Няма резултати. Променете критериите за търсене.</string>
-    <string name="noGiftCards">Докоснете бутона +, за да добавите карта или внесете от менюто ⋮.</string>
+    <string name="noGiftCards">Докоснете бутона +, за да добавите карта или внесете от менюто ⋮</string>
     <string name="all">Всички</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> карта</item>
         <item quantity="other"><xliff:g>%d</xliff:g> карти</item>
     </plurals>
-    <string name="failedOpeningFileManager">Инсталирайте приложение за управление на файлове.</string>
+    <string name="failedOpeningFileManager">Грешка при отваряне управление на файлове</string>
     <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+</string>
     <string name="frontImageDescription">Снимка на предната страна</string>
     <string name="backImageDescription">Снимка на задната страна</string>
@@ -45,10 +45,9 @@
     <string name="sameAsCardId">Като номера</string>
     <string name="barcodeId">Стойност на щрихкода</string>
     <string name="importLoyaltyCardKeychain">Внасяне от Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Изберете файла <i>fidme-export-request-xxxxxx.zip</i>, предварително изнесен от FidMe и ръчно изберете вида на щрихкодовете.
-\nСъздайте такъв файл от Data Protection в менюто на профила във FidMe и изберете „Extract my data“.</string>
+    <string name="importFidmeMessage">Изберете предварително изнесен файл от FidMe, който да внесете и ръчно изберете вида на щрихкодовете.\nСъздайте такъв файл от Data Protection в менюто на профила във FidMe и изберете „Extract my data“.</string>
     <string name="importFidme">Внасяне от FidMe</string>
-    <string name="exportOptionExplanation">Данните ще бъдат запазени на място по ваш избор.</string>
+    <string name="exportOptionExplanation">Данните ще бъдат запазени на място по ваш избор</string>
     <string name="accept">Приемане</string>
     <string name="privacy_policy">Политика за личните данни</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
@@ -70,7 +69,7 @@
     <string name="expiryStateSentence">Валидност до: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
-    <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
+    <string name="noGroups">Докоснете бутона +, за да добавите списък</string>
     <string name="groups">Списъци</string>
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
@@ -93,22 +92,21 @@
     <string name="importFailedTitle">Грешка при внасяне</string>
     <string name="exportSuccessfulTitle">Резултат от изнасяне</string>
     <string name="importSuccessfulTitle">Резултат от внасяне</string>
-    <string name="importExportHelp">Резервните копия на данните ви дават възможност да ги премествате на друго устройство.</string>
+    <string name="importExportHelp">Резервните копия на данните дават възможност да ги премествате на друго устройство</string>
     <string name="exportName">Изнасяне</string>
     <string name="importExport">Внасяне/изнасяне</string>
     <string name="sendLabel">Изпращане…</string>
     <string name="scanCardBarcode">Снемане на щрихкод</string>
-    <string name="editCardTitle">Редактиране на карта</string>
+    <string name="editCardTitle">Променяне на карта</string>
     <string name="share">Споделя</string>
     <string name="ok">Добре</string>
     <string name="importSuccessful">Данните са внесени</string>
     <string name="chooseImportType">Внасяне на данни на</string>
-    <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.
-\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
+    <string name="importCatimaMessage">Изберете предварително изнесен файл от Catima, който да внесете.\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
     <string name="importOptionFilesystemButton">Избиране от файлова система</string>
-    <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
-    <string name="app_resources">Свободни ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Свободни библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система</string>
+    <string name="app_resources">Ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Издание: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Относно <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Силвия ван Ос и сътрудници</string>
@@ -129,16 +127,11 @@
     <string name="addManually">Ръчно въвеждане</string>
     <string name="leaveWithoutSaveConfirmation">Оставяте промените незапазени\?</string>
     <string name="unsupportedBarcodeType">Щрихкод от този вид не може да бъде показан. Може да бъде поддържан в следващо издание.</string>
-    <string name="importStocard">Внасяне от Stocard</string>
     <string name="importVoucherVault">Внасяне от Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Изберете файла <i>vouchervault.json</i>, предварително изнесен от Voucher Vault.
-\nСъздайте такъв файл от меню „Export“ във Voucher Vault.</string>
-    <string name="importStocardMessage">Изберете файла <i>***.zip</i>, предварително изнесен от Stocard.
-\nПолучете го като изпратите писмо на support@stocardapp.com с искане за изнасяне вашите данни.</string>
-    <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
-\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
-    <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
-    <string name="failedGeneratingShareURL">Не може да бъде генериран адрес за споделяне. Изпратете доклад за дефект.</string>
+    <string name="importVoucherVaultMessage">Изберете предварително изнесен файл от Voucher Vault, който да внесете.\nСъздайте такъв файл от меню „Export“ във Voucher Vault.</string>
+    <string name="importLoyaltyCardKeychainMessage">Изберете предварително изнесен файл от Loyalty Card Keychain, който да внесете.\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
+    <string name="failedParsingImportUriError">Адресът за внасяне не може да бъде анализиран</string>
+    <string name="failedGeneratingShareURL">Грешка при създаване на адрес, който да споделите</string>
     <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
@@ -188,7 +181,7 @@
     <string name="selectColor">Избиране на цвят</string>
     <string name="group_name_is_empty">Името на списъка не трябва да е празно</string>
     <string name="group_edit">Редактиране на списък</string>
-    <string name="noGiftCardsGroup">Създайте карти и ги зачислите към списък от тук.</string>
+    <string name="noGiftCardsGroup">Създайте карти и ги зачислете към списък от тук</string>
     <string name="translate_platform">в Weblate</string>
     <string name="shortcutSelectCard">Избор на карта</string>
     <string name="starred">Със звезда</string>
@@ -200,17 +193,12 @@
     </plurals>
     <string name="settings_oled_dark">Черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
-    <string name="settings_card_orientation">Завъртане на екрана</string>
-    <string name="settings_follow_system_orientation">Според системата</string>
-    <string name="settings_portrait_orientation">Портрет</string>
-    <string name="settings_landscape_orientation">Пейзаж</string>
-    <string name="settings_lock_on_opening_orientation">Като при отваряне на картата</string>
     <string name="duplicateCard">Дублиране</string>
     <string name="archive">Архивиране</string>
     <string name="unarchive">Изваждане от архива</string>
     <string name="archived">Картата е архивирана</string>
     <string name="unarchived">Карта е извадена от архива</string>
-    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия</string>
+    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за избор на изображение</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
@@ -239,8 +227,8 @@
     <string name="switchToFrontImage">Показване на предната страна</string>
     <string name="switchToBackImage">Показване на задната страна</string>
     <string name="switchToBarcode">Показване на щрихкода</string>
-    <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложението галерия</string>
-    <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
+    <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложение за преглед за изображения</string>
+    <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложение за преглед за изображения</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
     <string name="donate">Даряване</string>
     <string name="icon_header_click_text">Задръжте, за да промените миниатюрата</string>
@@ -272,10 +260,9 @@
     <string name="addWithoutBarcode">Добавяне на карта без щрихкод</string>
     <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Винаги да се завърта (пренебрегва системната настройка)</string>
     <string name="continue_">Продължаване</string>
     <string name="add_manually_warning_title">Препоръчително е да сканирате</string>
-    <string name="add_manually_warning_message">Стойностите от щрихкода и отбелязаните на картата числа в някои случаи се различават. По тази причина е при ръчно въвеждане картата може да не работи. Силно препоръчително е да сканирате щрихкода с камерата. Желаете ли да продължите въпреки това?</string>
+    <string name="add_manually_warning_message">Стойностите от щрихкода и отбелязаните на картата числа в някои случаи се различават. По тази причина при ръчно въвеждане картата може да не работи. Препоръчително е да сканирате щрихкода с камерата. Желаете ли да продължите въпреки това?</string>
     <string name="amountParsingFailed">Неприемлива сума</string>
     <string name="spend">Похарчено</string>
     <string name="receive">Получено</string>
@@ -302,12 +289,20 @@
     <string name="settings_column_count_landscape">Колони в пейзажен изглед</string>
     <string name="settings_column_count_portrait">Колони в портретен изглед</string>
     <string name="settings_category_title_cards_overview">Списък с карти</string>
-    <string name="generic_error_please_retry">Съжаляваме, нещо се обърка, опитайте отново…</string>
-    <string name="addFromPkpass">Изберете файл на Passbook (.pkpass)</string>
+    <string name="generic_error_please_retry">Възникна грешка</string>
+    <string name="addFromPkpass">Изберете файл на Passbook (.pkpass / pkpasses)</string>
     <string name="unsupportedFile">Този вид файлове не се поддържат</string>
     <string name="sort_by_valid_from">Начало валидност</string>
     <string name="width">Ширина</string>
-    <string name="setBarcodeWidth">Задаване ширина на щрих кода</string>
+    <string name="setBarcodeWidth">Задаване ширина на щрихкода</string>
     <string name="card_list_widget_name">Списък с карти</string>
     <string name="card_list_widget_empty">Когато добавите карти в Catima те ще се покажат тук. Ако имате карти уверете се, че са извън архива.</string>
+    <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Не завъртайте устройството, защото това ще прекъсне действието</string>
+    <string name="acra_catima_has_crashed">За съжаление <xliff:g id="app_name">%s</xliff:g> се срина. Помогнете ни да оправим проблема като ни изпратите доклад за грешката.</string>
+    <string name="acra_crash_email_subject">Доклад за срив на <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Питане преди изпращане на доклад за срив</string>
+    <string name="pref_enable_acra_summary">Когато е отметнато, при срив ще ви бъде предложено да докладвате за него. Докладите никога не се изпращат автоматично.</string>
+    <string name="acra_explain_crash">Ако е възможно добавете подробности за вашите действия:</string>
 </resources>

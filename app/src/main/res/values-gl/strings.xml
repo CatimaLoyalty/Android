@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Catima</string>
     <string name="action_add">Engadir</string>
-    <string name="noGiftCards">Preme no botón + para engadir unha tarxeta ou desde o menú ⋮.</string>
-    <string name="noGiftCardsGroup">Crear tarxetas e despois engádeas aquí ao grupo.</string>
+    <string name="noGiftCards">Preme no botón + para engadir unha tarxeta ou desde o menú ⋮</string>
+    <string name="noGiftCardsGroup">Crea tarxetas e despois engádeas aquí ao grupo</string>
     <string name="noMatchingGiftCards">Sen resultados. Intenta cambiar a busca.</string>
     <string name="storeName">Nome</string>
     <string name="barcodeType">Tipo de código de barras</string>
@@ -22,16 +22,16 @@
     <string name="ok">OK</string>
     <string name="share">Compartir</string>
     <string name="sendLabel">Enviar…</string>
-    <string name="editCardTitle">Editar Tarxeta</string>
-    <string name="addCardTitle">Engadir Tarxeta</string>
-    <string name="scanCardBarcode">Escanear Código de Barras</string>
-    <string name="cardShortcut">Atallo á Tarxeta</string>
+    <string name="editCardTitle">Editar tarxeta</string>
+    <string name="addCardTitle">Engadir tarxeta</string>
+    <string name="scanCardBarcode">Escanear código de barras</string>
+    <string name="cardShortcut">Atallo á tarxeta</string>
     <string name="noCardsMessage">Primeiro engade a tarxeta</string>
     <string name="barcodeImageDescriptionWithType">Imaxe do código de barras de <xliff:g>%s</xliff:g></string>
     <string name="failedParsingImportUriError">Non se puido procesar o URI de importación</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">Facendo copia de apoio dos datos podes movelos a outro dispositivo.</string>
+    <string name="importExportHelp">Ao facer copia de apoio dos datos podes movelos a outro dispositivo</string>
     <string name="importSuccessfulTitle">Importados</string>
     <string name="importFailedTitle">Fallou a importación</string>
     <string name="exportSuccessfulTitle">Exportado</string>
@@ -42,11 +42,11 @@
     <string name="exporting">Exportando…</string>
     <string name="storageReadPermissionRequired">O preciso o permiso de lectura para realizar esta acción…</string>
     <string name="cameraPermissionRequired">O preciso o acceso á cámara para realizar esta acción…</string>
-    <string name="permissionReadCardsLabel">Ler Tarxetas Catima</string>
+    <string name="permissionReadCardsLabel">Ler tarxetas Catima</string>
     <string name="permissionReadCardsDescription">ler as tarxetas Catima e os seus detalles, incluíndo notas e imaxes</string>
     <string name="cameraPermissionDeniedTitle">Non puido acceder á cámara</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima precisa acceso á cámara para escanear códigos de barras. Toca aquí para cambiar os axustes do permiso.</string>
-    <string name="exportOptionExplanation">Os datos vanse escribir na localización que elixas.</string>
+    <string name="exportOptionExplanation">Os datos vanse escribir na localización que elixas</string>
     <string name="importOptionFilesystemTitle">Importar desde o sistema de ficheiros</string>
     <string name="about">Sobre</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os e colaboradoras</string>
@@ -55,15 +55,11 @@
     <string name="app_license">Software Libre con Copyleft, licenza GPLv3+</string>
     <string name="about_title_fmt">Sobre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">Bibliotecas libres alleas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Recursos alleos libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="selectBarcodeTitle">Elixir Código de barras</string>
+    <string name="app_libraries">Bibliotecas alleas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Recursos alleos: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Elixir código de barras</string>
     <string name="settings">Axustes</string>
     <string name="settings_theme">Decorado</string>
-    <string name="settings_follow_sensor_orientation">Rotar sempre (ignora o axuste do sistema)</string>
-    <string name="settings_portrait_orientation">Retrato</string>
-    <string name="settings_landscape_orientation">Paisaxe</string>
-    <string name="settings_lock_on_opening_orientation">Fixar a orientación ao abrir a tarxeta</string>
     <string name="settings_display_barcode_max_brightness">Brillo da pantalla</string>
     <string name="settings_keep_screen_on_summary">Evita que se apague a pantalla cando se ve unha tarxeta</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitar bloqueo da pantalla</string>
@@ -78,7 +74,7 @@
     <string name="enter_group_name">Escribe o nome do grupo</string>
     <string name="groups">Grupos</string>
     <string name="group_edit">Editar Grupo</string>
-    <string name="noGroups">Preme no botón + para engadir grupos por categorías.</string>
+    <string name="noGroups">Preme no botón + para engadir grupos por categorías</string>
     <string name="noGroupCards">O grupo está baleiro</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> tarxeta</item>
@@ -93,7 +89,7 @@
     <string name="addManually">Escribir manualmente o código</string>
     <string name="addFromImage">Elixe unha imaxe desde a galería</string>
     <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
-    <string name="editGroup">Editando o Grupo: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Editando o grupo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Caducidade: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Caducou: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
@@ -115,18 +111,16 @@
     <string name="balanceParsingFailed">Saldo non válido</string>
     <string name="chooseImportType">Importar datos desde</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="privacy_policy">Directiva de privacidade</string>
     <string name="accept">Aceptar</string>
     <string name="importCatima">Importar desde Catima</string>
-    <string name="importCatimaMessage">Selecciona o ficheiro de exportación <i>catima.zip</i> para importalo.\nCréao no menú Importar/Exportar noutra app Catima premendo en Exportar.</string>
+    <string name="importCatimaMessage">Selecciona o ficheiro de exportación para importalo.\nCréao no menú Importar/Exportar noutra app Catima premendo en Exportar.</string>
     <string name="importFidme">Importar desde FidMe</string>
-    <string name="importFidmeMessage">Elixe o ficheiro exportado <i>fidme-export-request-xxxxxx.zip</i> desde FidMe, e despois elixe manualmente o tipo de código de barras.\nCréao no teu perfil FidMe en Protección de Datos e despois premendo en Extraer os meus datos.</string>
+    <string name="importFidmeMessage">Elixe o ficheiro exportado desde FidMe, e despois elixe manualmente o tipo de código de barras.\nCréao no teu perfil FidMe en Protección de Datos e despois premendo en Extraer os meus datos.</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Elixe o ficheiro de exportación <i>LoyaltyCardKeychain.csv</i> desde Loyalty Card Keychain \nCréao no menú Importar/Exportar en Loyalty Card Keychain premendo en Exportar.</string>
-    <string name="importStocard">Importar desde Stocard</string>
-    <string name="importStocardMessage">Elixe o ficheiro <i>***.zip</i> desde Stocard. \nPodes obtelo escribindo un correo a support@stocardapp.com e pedindo a exportación dos datos.</string>
+    <string name="importLoyaltyCardKeychainMessage">Elixe o ficheiro de exportación desde Loyalty Card Keychain \nCréao no menú Importar/Exportar en Loyalty Card Keychain premendo en Exportar.</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Selecciona o ficheiro de exportación <i>vouchervault.json</i> desde Voucher Vault. \nCréao premendo en Exportar en Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Selecciona o ficheiro de exportación desde Voucher Vault.\nCréao premendo en Exportar en Voucher Vault.</string>
     <string name="barcodeId">Valor do código de barras</string>
     <string name="sameAsCardId">Igual que o ID</string>
     <string name="setBarcodeId">Establecer valor do código de barras</string>
@@ -144,7 +138,7 @@
     <string name="updateBarcodeQuestionText">Cambiaches o ID. Queres cambiar tamén o código de barras para que use o mesmo valor?</string>
     <string name="yes">Si</string>
     <string name="no">Non</string>
-    <string name="failedGeneratingShareURL">Non se puido crear un URL para compartir. Informa sobre o fallo.</string>
+    <string name="failedGeneratingShareURL">Non se puido crear un URL para compartir</string>
     <string name="turn_flashlight_on">Acender o flash</string>
     <string name="turn_flashlight_off">Apagar o flash</string>
     <string name="settings_oled_dark">Fondo en negro puro para o decorado escuro</string>
@@ -208,8 +202,8 @@
     <string name="height">Altura</string>
     <string name="switchToFrontImage">Cambiar á imaxe frontal</string>
     <string name="switchToBackImage">Cambiar á imaxe posterior</string>
-    <string name="openFrontImageInGalleryApp">Abrir imaxe frontal na app de galería</string>
-    <string name="openBackImageInGalleryApp">Abrir imaxe posterior na app de galería</string>
+    <string name="openFrontImageInGalleryApp">Abrir imaxe frontal no visor de imaxes</string>
+    <string name="openBackImageInGalleryApp">Abrir imaxe posterior no visor de imaxes</string>
     <string name="setBarcodeHeight">Establecer altura do código de barras</string>
     <string name="icon_header_click_text">Pulsación longa para editar a miniatura</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome debaixo da miniatura</string>
@@ -234,7 +228,7 @@
     <string name="field_must_not_be_empty">O campo non pode quedar baleiro</string>
     <string name="manually_enter_barcode_instructions">Escribe o número ID ou texto na túa tarxeta e preme no código de barras que se pareza ao da túa tarxeta.</string>
     <string name="add_manually_warning_title">Recomendamos escanear</string>
-    <string name="add_manually_warning_message">Nalgunhas tendas o código de barras é diferente ao número escrito na tarxeta. Debido a isto escribir o código de barras manualmente non sempre funciona. Recomendamos que escanees o código de barras coa cámara. Queres continuar igualmente?</string>
+    <string name="add_manually_warning_message">Nalgunhas tarxetas o código de barras é diferente ao número escrito na tarxeta. Debido a isto escribir o código de barras manualmente non sempre funciona. Recomendamos que escanees o código de barras coa cámara. Queres continuar igualmente?</string>
     <string name="continue_">Continuar</string>
     <string name="spend">Gastar</string>
     <string name="receive">Recibir</string>
@@ -263,26 +257,24 @@
     <string name="noCardExistsError">Non atopamos esa tarxeta</string>
     <string name="settings_light_theme">Claro</string>
     <string name="importOptionFilesystemButton">Desde sistema de ficheiros</string>
-    <string name="importOptionFilesystemExplanation">Elixe un ficheiro concreto no sistema de ficheiros.</string>
+    <string name="importOptionFilesystemExplanation">Elixe un ficheiro concreto no sistema de ficheiros</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Estrela de favorita</string>
     <string name="settings_system_theme">Sistema</string>
-    <string name="settings_follow_system_orientation">Seguir ao sistema</string>
     <string name="settings_display_barcode_max_brightness_summary">Preciso para que algúns escáneres funcionen</string>
     <string name="settings_keep_screen_on">Manter pantalla acendida</string>
     <string name="settings_dark_theme">Escuro</string>
-    <string name="settings_card_orientation">Orientación da pantalla</string>
     <string name="group_updated">Grupo actualizado</string>
     <string name="all">Todo</string>
     <string name="deleteConfirmationGroup">Eliminar grupo?</string>
-    <string name="failedOpeningFileManager">Primeiro instala un xestor de ficheiros.</string>
+    <string name="failedOpeningFileManager">Non puido abrir un xestor de ficheiros</string>
     <string name="settings_locale">Idioma</string>
     <string name="settings_blue_theme">Azul</string>
     <string name="passwordRequired">Escribe o contrasinal</string>
     <string name="exportPassword">Establece un contrasinal para protexer a exportación (optativo)</string>
     <string name="exportPasswordHint">Escribe o contrasinal</string>
     <string name="setIcon">Establecer miniatura</string>
-    <string name="failedLaunchingPhotoPicker">Non se atopa unha app de galería compatible</string>
+    <string name="failedLaunchingPhotoPicker">Non se atopa un selector de imaxes compatible</string>
     <string name="importCards">Importar tarxetas</string>
     <string name="validFromDate">Válida desde</string>
     <string name="switchToBarcode">Cambiar ao código de barras</string>
@@ -297,11 +289,19 @@
     <string name="addFromPdfFile">Elixe un ficheiro PDF</string>
     <string name="errorReadingFile">Non se puido ler o ficheiro</string>
     <string name="unsupportedFile">Este ficheiro non é compatible</string>
-    <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass)</string>
-    <string name="generic_error_please_retry">Sentímolo, pero algo fallou, inténtao outra vez…</string>
+    <string name="addFromPkpass">Selecciona un ficheiro Passbook (.pkpass / .pkpasses)</string>
+    <string name="generic_error_please_retry">Houbo un fallo</string>
     <string name="sort_by_valid_from">Válido desde</string>
     <string name="width">Anchura</string>
     <string name="setBarcodeWidth">Establecer anchura do código de barras</string>
     <string name="card_list_widget_name">Lista de tarxetas</string>
     <string name="card_list_widget_empty">Aquí aparecerán as tarxetas fidelidade cando as engadas a Catima. Se tes tarxetas mira que non estean arquivadas.</string>
+    <string name="cardWithNumber">Tarxeta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Tarxeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Por favor non rotes o dispositivo, porque isto cancelará a acción</string>
+    <string name="acra_catima_has_crashed">Lamentámolo, pero <xliff:g id="app_name">%s</xliff:g> fallou. Axúdanos a resolver a incidencia enviando un informe co erro.</string>
+    <string name="acra_explain_crash">Se é posible engade algún detalle máis como o que estabas a facer:</string>
+    <string name="acra_crash_email_subject">Informe do fallo de <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Solicitar informar sobre os fallos</string>
+    <string name="pref_enable_acra_summary">Se está activo, váiseche pedir informar sobre os fallos cando acontezan. Os informes nunca se envían automaticamente.</string>
 </resources>

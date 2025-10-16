@@ -1,0 +1,2 @@
+- Desa l'estat de l'expansió dels detalls de la targeta
+- Correccions menors de la interfície d'usuari

@@ -1,0 +1,2 @@
+- Correcció d'un bloc gris que apareix en un valor no vàlid per al codi de barres
+- Correccions d'importació de Stocard

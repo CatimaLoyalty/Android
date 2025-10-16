@@ -1,0 +1,1 @@
+- Correction d'un risque de plantage qui pouvait survenir pour des cartes dont l'information de couleur était manquante en base de données

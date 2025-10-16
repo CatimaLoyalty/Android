@@ -1,0 +1,2 @@
+- v0.11の変更でバーコード描画のメモリ使用量は削減されたものの、バーコードの寸法に影響がありました。メモリ使用量を削減しつつバーコードの寸法を維持するよう変更しました。(pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- ドイツ語・フランス語の翻訳を更新。(pull #122 (https://github.com/brarcher/loyalty-card-locker/pull/122), pull #124 (https://github.com/brarcher/loyalty-card-locker/pull/124), pull #125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

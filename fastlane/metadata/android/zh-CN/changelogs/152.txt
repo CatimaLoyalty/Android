@@ -1,0 +1,3 @@
+- 新增支持 .pkpasses 文件
+- 删除了 Stocard 导入器（Stocard 已不存在）
+- 临时禁用了 Android 12L 下的小部件图片（崩溃问题的临时解决方法）

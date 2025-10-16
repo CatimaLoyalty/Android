@@ -1,0 +1,3 @@
+- Voeg ondersteuning voor .pkpasses bestanden toe
+- Verwijder Stocard-importeur (Stocard bestaat niet meer)
+- Zet tijdelijk widgetafbeeldingen uit op Android versies ouder dan 12L (tijdelijke oplossing voor crash)

@@ -1,0 +1,4 @@
+- カード表示時に画面輝度を最大に設定して、バーコードスキャナーがコードを確実に読み取れるようにした。(pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- カード削除時は削除確認するようにした。(pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- ドイツ語（pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)）とチェコ語（pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)）の翻訳を追加。
+- イタリア語翻訳の明確化（プルリクエスト #66 (https://github.com/brarcher/loyalty-card-locker/pull/66)）

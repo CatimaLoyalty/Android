@@ -1,0 +1,4 @@
+- Permet que els noms de botigues llargs de la vista prèvia es divideixin en diverses línies
+- Opció d'utilitzar la imatge frontal i posterior al menú de miniatures
+- Correccions menors d'importació/exportació
+- Correccions menors de la interfície d'usuari

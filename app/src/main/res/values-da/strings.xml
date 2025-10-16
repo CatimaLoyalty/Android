@@ -3,15 +3,15 @@
     <string name="scanCardBarcode">Scan stregkode</string>
     <string name="addCardTitle">Tilføj kort</string>
     <string name="editCardTitle">Rediger kort</string>
-    <string name="sendLabel">Afsend…</string>
-    <string name="share">Aktie</string>
+    <string name="sendLabel">Send…</string>
+    <string name="share">Del</string>
     <string name="ok">OK</string>
-    <string name="deleteConfirmation">Slete dette kort permanent\?</string>
+    <string name="deleteConfirmation">Slet dette kort permanent?</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Streichen <xliff:g>%d</xliff:g> kort</item>
-        <item quantity="other">Streichen <xliff:g>%d</xliff:g> korts</item>
+        <item quantity="one">Slet <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Slet <xliff:g>%d</xliff:g> korts</item>
     </plurals>
-    <string name="deleteTitle">Karte streichen</string>
+    <string name="deleteTitle">Slet kort</string>
     <string name="confirm">Bekræft</string>
     <string name="delete">Slet</string>
     <string name="edit">Rediger</string>
@@ -34,7 +34,7 @@
     <string name="action_search">Søg</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksport</string>
-    <string name="importExportHelp">Sikkerhedskopiering af dit data, giver dig mulighed for at flytte dem til en anden enhed.</string>
+    <string name="importExportHelp">Sikkerhedskopiering af dine data, giver dig mulighed for at flytte dem til en anden enhed.</string>
     <string name="importSuccessfulTitle">Importeret</string>
     <string name="importFailedTitle">Import mislykkedes</string>
     <string name="importFailed">Kunne ikke udføre importering</string>
@@ -54,12 +54,12 @@
 \ncopyright © 2016-2020 Branden Archer.</string>
     <string name="about">Om</string>
     <string name="noCardsMessage">Tilføj først et kort</string>
-    <string name="cardShortcut">Kort genvej</string>
+    <string name="cardShortcut">Genvej til kort</string>
     <string name="importOptionFilesystemButton">Fra filsystemet</string>
     <string name="importOptionFilesystemExplanation">Vælg en bestemt fil fra filsystemet.</string>
     <string name="importOptionFilesystemTitle">Import fra filsystem</string>
     <string name="exportOptionExplanation">Dataene skrives til en placering efter eget valg.</string>
-    <string name="failedParsingImportUriError">Kunne ikke analysere import-URI\'en</string>
+    <string name="failedParsingImportUriError">Kunne ikke importere URI\'en</string>
     <string name="noCardExistsError">Kunne ikke finde det kort</string>
     <string name="deleteConfirmationGroup">Slet gruppe\?</string>
     <string name="all">Alle</string>
@@ -79,16 +79,16 @@
     <string name="moveDown">Bevæger sig nedad</string>
     <string name="leaveWithoutSaveTitle">Afslut</string>
     <string name="addManually">Indtast stregkoden manuelt</string>
-    <string name="noGiftCardsGroup">Opret kort og tildel dem gupper her.</string>
+    <string name="noGiftCardsGroup">Opret kort og tildel dem grupper her.</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Slet dette <xliff:g>%d</xliff:g> kort permanent\?</item>
         <item quantity="other">Slet disse <xliff:g>%d</xliff:g> kort permanent\?</item>
     </plurals>
     <string name="app_name">Catima</string>
-    <string name="cameraPermissionRequired">Behov for kamera adgang krævet for denne funktion…</string>
-    <string name="storageReadPermissionRequired">Behov for lager adgang krævet for denne funktion…</string>
+    <string name="cameraPermissionRequired">Behov for kamera adgang er krævet for denne funktion…</string>
+    <string name="storageReadPermissionRequired">Behov for lager adgang er krævet for denne funktion…</string>
     <string name="permissionReadCardsLabel">Læs Catima Kort</string>
-    <string name="permissionReadCardsDescription">læs dine Catima kort og alle deres detaljer, også noter og billeder</string>
+    <string name="permissionReadCardsDescription">læs dit Catima kort og alle kortets detaljer, også noter og billeder</string>
     <string name="cameraPermissionDeniedTitle">Kunne ikke få adgang til kamera</string>
     <string name="noCameraPermissionDirectToSystemSetting">For at scanne stregkoder, har Catima behov for at få adgang til dit kamera. Klik her for at ændre dine tilladelser i indstillinger.</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os og hjælpere</string>
@@ -100,10 +100,6 @@
     <string name="group_name_already_in_use">Gruppenavn allerede i brug</string>
     <string name="editGroup">Redigerer Gruppe: <xliff:g>%s</xliff:g></string>
     <string name="importFidme">Importer fra FidMe</string>
-    <string name="settings_card_orientation">Skærm orientation</string>
-    <string name="settings_follow_system_orientation">Følg system</string>
-    <string name="settings_portrait_orientation">Portræt</string>
-    <string name="settings_landscape_orientation">Landskab</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiver låseskærm når et kort er åbent</string>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Udløber: <xliff:g>%s</xliff:g></string>
@@ -114,7 +110,6 @@
     <string name="never">Aldrig</string>
     <string name="chooseExpiryDate">Vælg udløbsdato</string>
     <string name="balance">Balance</string>
-    <string name="importStocard">Importer fra Stocard</string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
     <string name="group_name_is_empty">Gruppenavn må ikke være tom</string>
     <string name="group_updated">Gruppe opdateret</string>
@@ -134,10 +129,8 @@
     <string name="setBarcodeId">Vælg stregkode værdi</string>
     <string name="sameAsCardId">Samme som ID</string>
     <string name="settings_system_theme">System</string>
-    <string name="settings_lock_on_opening_orientation">Lås til orientation når kort åbnes</string>
     <string name="settings_keep_screen_on_summary">Deaktiver skærm tids slukning når et kort er åbent</string>
     <string name="group_edit">Rediger gruppe</string>
-    <string name="settings_follow_sensor_orientation">Altid roter (ignorer system indstillinger)</string>
     <string name="chooseImportType">Importer data fra</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
     <string name="settings_use_volume_keys_navigation">Skift kort ved brug af lydstyrke knapperne</string>

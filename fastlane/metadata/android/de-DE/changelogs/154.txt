@@ -1,0 +1,1 @@
+- Möglichen Absturz behoben, der auftreten konnte, wenn in der Datenbank Farbinformationen für Karten fehlten

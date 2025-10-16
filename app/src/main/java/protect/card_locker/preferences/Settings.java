@@ -74,10 +74,6 @@ public class Settings {
         return getBoolean(R.string.settings_key_display_barcode_max_brightness, true);
     }
 
-    public String getCardViewOrientation() {
-        return getString(R.string.settings_key_card_orientation, getResString(R.string.settings_key_follow_system_orientation));
-    }
-
     public boolean getKeepScreenOn() {
         return getBoolean(R.string.settings_key_keep_screen_on, true);
     }

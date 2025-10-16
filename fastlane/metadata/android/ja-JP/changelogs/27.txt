@@ -1,0 +1,2 @@
+- 最低SDKバージョンを17から15に引き下げ。(pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- ユニットテストでのみ使用されていて不要となったレガシーなApacheライブラリを削除 (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

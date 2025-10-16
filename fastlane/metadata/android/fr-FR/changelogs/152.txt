@@ -1,0 +1,3 @@
+- Ajout du support des fichiers .pkpasses
+- Suppression de l'import depuis Stocard (Stocard n'existe plus).
+- Désactivation temporaire des images de widget pour les versions Android avant 12L (contournement pour éviter un crash)

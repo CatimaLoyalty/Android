@@ -1,0 +1,1 @@
+- Corregeix el bloqueig en obrir fitxers pkpass no vàlids

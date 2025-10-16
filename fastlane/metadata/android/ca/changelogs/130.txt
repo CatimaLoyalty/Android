@@ -1,0 +1,4 @@
+- Correccions menors de la interfície d'usuari
+- S'ha corregit la data de vàlid des de i la data de caducitat que es restableix en girar la pantalla d'edició de targetes
+- S'ha corregit el bloqueig en girar la pantalla mentre es mostra el selector de color
+- S'ha corregit la importació de Stocard

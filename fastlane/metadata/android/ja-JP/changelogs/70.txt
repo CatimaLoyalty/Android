@@ -1,0 +1,11 @@
+- 重要な変更: バックアップ形式を変更。詳細は https://github.com/TheLastProject/Catima/wiki/Export-format を参照
+- 重要な変更: URL共有形式を変更。詳細は https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format を参照
+- スキャン中の懐中電灯オン／オフを切替可能にした
+- UPC-Eのサポートを追加
+- 各カード表裏写真の追加を可能に
+- パスワード保護zipファイルのインポートをサポート
+- Stocardからのインポートをサポート(ベータ版)
+- Fidmeインポート時のメモ内の不要な空白混入を修正
+- 新たなVoucher Vaultエクスポート形式をサポート
+- Android 4でフローティングアクションボタンが他UI要素の下に隠れる問題を修正
+- ポイントカードビューアーのアプリバー上部マージンを修正

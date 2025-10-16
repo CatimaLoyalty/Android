@@ -1,0 +1,2 @@
+- カードの長押しでカードIDをクリップボードにコピーするオプションを表示。(pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- インポート／エクスポート画面の戻るボタンでのメイン画面への移動が、機能するように

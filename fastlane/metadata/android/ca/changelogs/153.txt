@@ -1,0 +1,4 @@
+- Destinat a Android 16
+- Corregeix un possible error després de treure la imatge de la targeta
+- Elimina la funció "Orientació de la pantalla" (Google ha eliminat la possibilitat que les aplicacions controlessin la rotació de la pantalla quan es dirigien a Android 16)
+- Afegeix un informe d'errors a la compilació de FOSS (no s'utilitza a la versió de Google Play, només en altres botigues d'aplicacions)

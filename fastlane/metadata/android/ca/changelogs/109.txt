@@ -1,0 +1,1 @@
+- Corregeix el color de text incorrecte al botó "Sense codi de barres"

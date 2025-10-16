@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="action_search">Suchen</string>
+    <string name="action_search">Suche</string>
     <string name="action_add">Hinzufügen</string>
-    <string name="noGiftCards">Füge eine Karte mit + hinzu oder importiere welche über das ⋮ Menü.</string>
+    <string name="noGiftCards">Füge eine Karte mit + hinzu oder importiere welche über das ⋮ Menü</string>
     <string name="noMatchingGiftCards">Keine Ergebnisse. Versuche, deine Suche zu ändern.</string>
     <string name="storeName">Name</string>
     <string name="note">Notiz</string>
@@ -24,7 +24,7 @@
     <string name="noCardExistsError">Konnte die Karte nicht finden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen.</string>
+    <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen</string>
     <string name="importSuccessfulTitle">Importiert</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
     <string name="importFailed">Import konnte nicht durchgeführt werden</string>
@@ -34,7 +34,7 @@
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="importOptionFilesystemTitle">Aus Dateisystem importieren</string>
-    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus.</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus</string>
     <string name="importOptionFilesystemButton">vom Dateisystem</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
@@ -53,20 +53,20 @@
     <string name="settings_theme">Farbschema</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
 \nCopyright © 2016-2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
+    <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben</string>
     <string name="failedParsingImportUriError">Die Import-URI konnte nicht verarbeitet werden</string>
     <string name="share">Teilen</string>
     <string name="barcodeType">Barcodetyp</string>
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Gruppe löschen?</string>
     <string name="all">Alle</string>
-    <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen.</string>
+    <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen</string>
     <string name="noGroupCards">Diese Gruppe ist leer</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Gruppennamen eingeben</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
     <string name="leaveWithoutSaveTitle">Beenden</string>
-    <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
+    <string name="failedOpeningFileManager">Dateimanager konnte nicht geöffnet werden</string>
     <string name="noBarcode">Kein Barcode</string>
     <string name="addManually">Barcode manuell eingeben</string>
     <string name="moveDown">Nach unten verschieben</string>
@@ -94,14 +94,13 @@
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus. \nErstelle ihn, indem du zuerst auf Export in Voucher Vault drückst.</string>
+    <string name="importVoucherVaultMessage">Wähle deinen Export aus „Voucher Vault“ zum Importieren aus.\nErstelle ihn, indem du Export in Voucher Vault drückst.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
-    <string name="importLoyaltyCardKeychainMessage">Wählen du deinen <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
-\nErstelle ihn über das Menü Import/Export in Loyalty Card Keychain, indem du dort zuerst auf Export drückst.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wähle deinen Export vom „Loyalty Card Keychain“ zum Importieren aus.\nErstelle ihn über das Import/Export Menü in Loyalty Card Keychain, indem du dort auf Export drückst.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Barcodetypen manuell aus. \nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
+    <string name="importFidmeMessage">Wähle deinen „FidMe-Export“ zum Importieren und anschließend manuell die Barcodetypen aus.\nErstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Wähle deinen „<i>catima.zip</i>-Export“ von Catima zum Importieren aus.\nErstelle ihn zuerst aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort Export drückst.</string>
+    <string name="importCatimaMessage">Wähle deinen „Catima-Export“ zum Importieren aus.\nErstelle diesen durch das Drücken auf Export im Import/Export-Menü in einer anderen Catima-Anwendung.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Barcodewert festlegen</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
@@ -110,9 +109,9 @@
     <string name="noBarcodeFound">Keinen Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
     <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
-    <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
-    <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="wrongValueForBarcodeType">Der Wert ist ungültig für den gewählten Barcodetyp</string>
+    <string name="app_resources">Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
     <string name="no">Nein</string>
     <string name="yes">Ja</string>
@@ -125,12 +124,10 @@
     <string name="photos">Fotos</string>
     <string name="frontImageDescription">Vorderseite</string>
     <string name="backImageDescription">Rückseite</string>
-    <string name="passwordRequired">Bitte gib das Passwort ein</string>
-    <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus. \nDu erhälst ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bittest.</string>
-    <string name="importStocard">Von Stocard importieren</string>
+    <string name="passwordRequired">Gib das Passwort ein</string>
     <string name="turn_flashlight_off">Blitzlicht ausschalten</string>
     <string name="turn_flashlight_on">Blitzlicht einschalten</string>
-    <string name="failedGeneratingShareURL">URL konnte nicht erstellt werden. Bitte melde das an uns.</string>
+    <string name="failedGeneratingShareURL">Teilbare URL konnte nicht erstellt werden</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> ausgewählt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> ausgewählt</item>
@@ -179,9 +176,9 @@
     <string name="group_name_already_in_use">Der Gruppenname wird bereits verwendet</string>
     <string name="group_name_is_empty">Gruppenname darf nicht leer sein</string>
     <string name="group_updated">Gruppe aktualisiert</string>
-    <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Gruppe bearbeiten: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
-    <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
+    <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu</string>
     <string name="setIcon">Vorschaubild festlegen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="translate_platform">auf Weblate</string>
@@ -195,21 +192,16 @@
     </plurals>
     <string name="settings_oled_dark">Komplett schwarzer Hintergrund im dunklen Design</string>
     <string name="include_if_asking_support">Wenn Du Unterstützung haben möchtest, gib bitte folgende Informationen an:</string>
-    <string name="settings_follow_system_orientation">System folgen</string>
-    <string name="settings_landscape_orientation">Querformat</string>
-    <string name="settings_portrait_orientation">Hochformat</string>
     <string name="duplicateCard">Duplizieren</string>
     <string name="unarchive">Aus dem Archiv wiederherstellen</string>
-    <string name="settings_card_orientation">Bildschirm-Ausrichtung</string>
     <string name="unarchived">Karte aus dem Archiv wiederhergestellt</string>
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
-    <string name="settings_lock_on_opening_orientation">Kartenausrichtung nach dem Öffnen beibehalten</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-App gefunden werden</string>
+    <string name="failedLaunchingPhotoPicker">Keine unterstützte App zur Bildauswahl gefunden</string>
     <string name="previousCard">Vorherige</string>
     <string name="nextCard">Nächste</string>
     <string name="failedToOpenUrl">Bitte installiere zuerst einen Webbrowser</string>
@@ -217,7 +209,7 @@
     <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
     <string name="updateBalanceTitle">Wie viel hast du ausgegeben oder erhalten?</string>
-    <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera möglich</string>
+    <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera</string>
     <string name="noCameraPermissionDirectToSystemSetting">Um Barcodes zu scannen, benötigt Catima Zugriff auf deine Kamera. Tippe hier, um deine Berechtigungseinstellungen zu ändern.</string>
     <string name="updateBalanceHint">Betrag eingeben</string>
     <string name="importCards">Karten importieren</string>
@@ -232,8 +224,8 @@
     <string name="anyDate">Beliebiges Datum</string>
     <string name="icon_header_click_text">Zum Bearbeiten des Vorschaubildes lang drücken</string>
     <string name="switchToBarcode">Zum Barcode wechseln</string>
-    <string name="openFrontImageInGalleryApp">Vorderseite in Galerie öffnen</string>
-    <string name="openBackImageInGalleryApp">Rückseite in Galerie öffnen</string>
+    <string name="openFrontImageInGalleryApp">Vorderseite in Bildbetrachter öffnen</string>
+    <string name="openBackImageInGalleryApp">Rückseite in Bildbetrachter öffnen</string>
     <string name="height">Höhe</string>
     <string name="switchToFrontImage">Zur Vorderseite wechseln</string>
     <string name="switchToBackImage">Zur Rückseite wechseln</string>
@@ -268,10 +260,9 @@
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
     <string name="manually_enter_barcode_instructions">Trage die Kartenummer oder Text deiner Karte ein und drücke auf den Barcode, der wie der auf deiner Karte aussieht.</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Immer drehen (ignoriert Systemeinstellungen)</string>
     <string name="continue_">Fortfahren</string>
     <string name="add_manually_warning_title">Scannen empfohlen</string>
-    <string name="add_manually_warning_message">In einigen Geschäften weicht der Wert des Barcodes von dem auf der Karte angegebenen Wert ab. Aus diesem Grund funktioniert die manuelle Eingabe des Barcodes in einigen Fällen nicht. Es wird dringend empfohlen, den Barcode mit einer Kamera zu scannen. Möchtest du dennoch fortfahren?</string>
+    <string name="add_manually_warning_message">In einigen Geschäften weicht der Wert des Barcodes von dem auf der Karte angegebenen Wert ab. Aus diesem Grund funktioniert die manuelle Eingabe des Barcodes in einigen Fällen nicht. Es wird empfohlen, stattdessen den Barcode mit deiner Kamera zu scannen. Möchtest du dennoch fortfahren?</string>
     <string name="spend">Zahlen</string>
     <string name="receive">Erhalten</string>
     <string name="amountParsingFailed">Ungültiger Betrag</string>
@@ -298,12 +289,20 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_6">6</string>
-    <string name="generic_error_please_retry">Entschuldigung, da ist etwas schief gelaufen, versuchen Sie es noch einmal ...</string>
+    <string name="generic_error_please_retry">Ein Fehler ist aufgetreten</string>
     <string name="unsupportedFile">Diese Datei wird nicht unterstützt</string>
-    <string name="addFromPkpass">Passbook-Datei (.pkpass) auswählen</string>
+    <string name="addFromPkpass">Eine Passbook-Datei (.pkpass / .pkpasses) auswählen</string>
     <string name="sort_by_valid_from">Gültig ab</string>
     <string name="width">Breite</string>
     <string name="setBarcodeWidth">Barcodebreite einstellen</string>
-    <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass sie nicht alle archiviert sind.</string>
+    <string name="card_list_widget_empty">Nachdem du einige Treuekarten in Catima hinzugefügt hast, werden sie hier angezeigt. Wenn du Karten hast, stelle sicher, dass diese nicht alle archiviert sind.</string>
     <string name="card_list_widget_name">Kartenliste</string>
+    <string name="cardWithNumberAndLocale">Karte <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="cardWithNumber">Karte <xliff:g>%d</xliff:g></string>
+    <string name="pref_enable_acra_summary">Wenn aktiviert, wirst du bei einem Absturz gebeten diesen zu melden. Absturzberichte werden niemals automatisch gesendet.</string>
+    <string name="pref_enable_acra">Bitte um die Übermittlung von Absturzberichten</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> Absturzbericht</string>
+    <string name="acra_explain_crash">Wenn möglich, bitte übermittle mehr Details zu dem, was du hier getan hast:</string>
+    <string name="acra_catima_has_crashed">Es tut uns leid, aber <xliff:g id="app_name">%s</xliff:g> ist abgestürzt. Bitte hilf uns diesen Fehler zu beheben und übermittle uns einen Absturzbericht.</string>
+    <string name="pleaseDoNotRotateTheDevice">Bitte drehe nicht das Gerät, weil sonst die Aktion abbricht</string>
 </resources>

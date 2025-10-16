@@ -26,7 +26,6 @@
     <string name="starImage">তারা ছবি</string>
     <string name="importCatima">ক্যাতিনা আগম</string>
     <string name="importLoyaltyCardKeychain">আমদানি লয়্যালটি কার্ড কীচেন</string>
-    <string name="importStocard">স্টো কার্ড আমদানি করুন</string>
     <string name="importVoucherVault">আমদানি ভাউচার ভল্ট</string>
     <string name="barcodeId">বারকোড আইডি</string>
     <string name="sameAsCardId">আইডি আর এটা এক</string>
@@ -111,9 +110,6 @@
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g>টির সম্পর্কে</string>
     <string name="app_resources">মুক্ত সম্পদ যেগুলি আমার নয়: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="thumbnailDescription">থাম্বনেইল</string>
-    <string name="settings_card_orientation">বারকোড অভিমুখ</string>
-    <string name="settings_follow_system_orientation">সিস্টেমের অনুসারে</string>
-    <string name="settings_portrait_orientation">প্রতিকৃতি</string>
     <string name="barcodeImageDescriptionWithType">ছবি <xliff:g>%s</xliff:g> বারকোড</string>
     <string name="exportName">রপ্তানি</string>
     <string name="failedParsingImportUriError">আমদানির URI-টি বোঝা যাচ্ছে না</string>
@@ -139,8 +135,6 @@
     <string name="selectBarcodeTitle">বারকোড নির্বাচন করুন</string>
     <string name="settings">সেটিংস</string>
     <string name="settings_dark_theme">অন্ধকার</string>
-    <string name="settings_landscape_orientation">অনুভূমিক</string>
-    <string name="settings_lock_on_opening_orientation">কার্ড খোলার সময় যে অভিমুখ থাকে সেটিতে লক করে দেবেন</string>
     <string name="group_name_already_in_use">গ্রুপটির নাম আগে একবার ব্যবহার করে ফেলেছেন</string>
     <string name="group_edit">গ্রুপ সম্পাদনা করুন</string>
     <string name="group_updated">গ্রুপটি আপডেট করা হল</string>
@@ -203,8 +197,6 @@
 \nআপনার FidMe প্রোফাইল থেকে ডেটা সুরক্ষা নির্বাচন করে এবং তারপর প্রথমে আমার ডেটা বের করুন টিপে এটি তৈরি করুন।</string>
     <string name="importCatimaMessage">ক্যাটিমা থেকে আমদানি করতে আপনার <i>catima.zip</i> রপ্তানি নির্বাচন করুন।
 \nঅন্য Catima অ্যাপের আমদানি/রপ্তানি মেনু থেকে প্রথমে সেখানে রপ্তানি টিপে এটি তৈরি করুন।</string>
-    <string name="importStocardMessage">আমদানি করতে Stocard থেকে আপনার <i>***.zip</i> এক্সপোর্ট নির্বাচন করুন।
-\nআপনার ডেটা রপ্তানির জন্য জিজ্ঞাসা করে support@stocardapp.com ই-মেইল করে এটি পান।</string>
     <string name="importVoucherVaultMessage">আমদানি করতে ভাউচার ভল্ট থেকে আপনার <i>vouchervault.json</i> এক্সপোর্ট নির্বাচন করুন।
 \nপ্রথমে ভাউচার ভল্টে এক্সপোর্ট টিপে এটি তৈরি করুন।</string>
     <string name="settings_oled_dark">অন্ধকার থিমের জন্য খাঁটি কালো পটভূমি</string>

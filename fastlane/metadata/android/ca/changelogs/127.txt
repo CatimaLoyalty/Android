@@ -1,0 +1,4 @@
+- Millores en el renderitzat de codis de barres
+- Interoperabilitat bàsica amb aplicacions externes (Android 6.0+)
+- Pantalla de configuració reorganitzada
+- Correcció de la importació des d'alguns navegadors que afegeixen una / final a l'URL de compartició

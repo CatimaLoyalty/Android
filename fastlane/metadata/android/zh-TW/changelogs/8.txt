@@ -1,0 +1,4 @@
+- 顯示卡片時螢幕亮度會自動調至最大，以協助條碼掃描器成功讀取條碼。（pull #54：https://github.com/brarcher/loyalty-card-locker/pull/54）
+- 新增刪除卡片時的確認提示。（pull #55：https://github.com/brarcher/loyalty-card-locker/pull/55）
+- 新增德文（pull #57：https://github.com/brarcher/loyalty-card-locker/pull/57）與捷克文（pull #58：https://github.com/brarcher/loyalty-card-locker/pull/58）翻譯。
+- 修正義大利文翻譯的描述以更清楚表達。（pull #66：https://github.com/brarcher/loyalty-card-locker/pull/66）

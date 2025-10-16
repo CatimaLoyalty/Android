@@ -1,0 +1,4 @@
+- Cíl Android 16
+- Oprava možného selhání po odstranění obrázku z karty
+- Odstarněna funkce „Orientace obrazovky“ (Google odstranil schopnost aplikací ovládat otočení obrazovky při cílení na Android 16)
+- Přidán nástroj pro hlášení pádů do FOSS sestavení (není používáno ve verzi z Google Play, pouze v ostatních obchodech s aplikacemi)

@@ -1,0 +1,4 @@
+- バーコード表示時の画面輝度制御設定を追加（pull #259 (https://github.com/brarcher/loyalty-card-locker/pull/259)）
+- ギリシャ語の翻訳を追加（pull #252 (https://github.com/brarcher/loyalty-card-locker/pull/252)）
+- スロベニア語の翻訳を追加（pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260)）
+- 翻訳を更新（pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260)、pull #254 (https://github.com/brarcher/loyalty-card-locker/pull/254)）

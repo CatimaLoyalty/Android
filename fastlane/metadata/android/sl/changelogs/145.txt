@@ -1,0 +1,3 @@
+- Cilj Android 15
+- Popravek tipkovnice, ki prekriva gumb za shranjevanje na zaslonu za urejanje
+- Popravek nekaterih datotek pkpass, ki niso bile zaznale kot pkpass (podpora za vrsto mime application/vnd-com.apple.pkpass)

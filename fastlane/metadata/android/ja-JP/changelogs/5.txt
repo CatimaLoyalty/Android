@@ -1,0 +1,2 @@
+- メイン画面から"About"ダイアログを開くことで、アプリケーション・GitHub上のプロジェクトに関する詳細情報を表示（Issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19)）
+- 外部ストレージ内のCSVファイルからポイントカード情報をインポート／エクスポートできるように（issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36)、issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20)）

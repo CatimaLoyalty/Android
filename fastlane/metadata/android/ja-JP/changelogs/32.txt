@@ -1,0 +1,1 @@
+- バーコードを手動入力し新規のカードを作成する機能を修正（issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272)）

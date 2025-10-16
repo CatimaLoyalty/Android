@@ -12,13 +12,13 @@
     <string name="exportFailed">No se pudo exportar</string>
     <string name="noBarcode">Sin código de barra</string>
     <string name="edit">Editar</string>
-    <string name="noGiftCards">Pulsá el botón + para agregar una tarjeta de regalo, o importá una desde el menú.</string>
-    <string name="noGiftCardsGroup">Crea tarjetas de regalo, y asignales un grupo.</string>
+    <string name="noGiftCards">Pulsá el botón + para agregar una tarjeta de regalo, o importá una desde el menú</string>
+    <string name="noGiftCardsGroup">Crea tarjetas de regalo, y asignales un grupo</string>
     <string name="note">Nota</string>
     <string name="unstar">Borrar de favoritos</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">Crear una copia de seguridad de sus datos, permite moverlos hacia otro dispositivo.</string>
+    <string name="importExportHelp">Crear una copia de seguridad de sus datos, permite moverlos hacia otro dispositivo</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
     <string name="save">Guardar</string>
@@ -44,12 +44,12 @@
     <plurals name="deleteCardsTitle">
         <item quantity="one">Borrar <xliff:g>%d</xliff:g> tajeta</item>
         <item quantity="many">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">¿Borrar esta<xliff:g>%d</xliff:g> tarjeta de forma permanente\?</item>
         <item quantity="many">Borrar estas <xliff:g>%d</xliff:g> tarjetas de forma permanente\?</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="failedOpeningFileManager">Primero instale un administrador de archivos.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quiero compartirte algunas tarjetas</string>
@@ -58,18 +58,15 @@
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="editBarcode">Editar código de barras</string>
     <string name="removeImage">Remover imágen</string>
-    <string name="settings_portrait_orientation">Vertical</string>
     <string name="takePhoto">Tomar una foto</string>
     <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
     <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
     <string name="expiryDate">Fecha de vencimiento</string>
-    <string name="importStocard">Importar desde Stocard</string>
     <string name="currency">Moneda</string>
     <string name="group_edit">Editar grupo</string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="backImageDescription">Imágen dorsal</string>
     <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barra, Catima necesitará acceso a la cámara. Presione aquí para cambiar la configuración de sus permisos.</string>
-    <string name="settings_lock_on_opening_orientation">Bloquear a la orientación utilizada al abrir la tarjeta</string>
     <string name="app_loyalty_card_keychain">Cartera para Tarjetas de Fidelización</string>
     <string name="importOptionFilesystemTitle">Importar desde su sistema de archivos</string>
     <string name="leaveWithoutSaveTitle">Salir</string>
@@ -81,11 +78,10 @@
     <string name="settings_dark_theme">Oscuro</string>
     <string name="importFidme">Importar desde FidMe</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deshabilita el bloqueo de pantalla mientras se ve una tarjeta</string>
-    <string name="exportOptionExplanation">Los datos serán escritos a una ubicación de tu elección.</string>
+    <string name="exportOptionExplanation">Los datos serán escritos a una ubicación de tu elección</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
-    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
-\nPrimero créelo presionando la opción Exportar en Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Seleccione su exportado desde Voucher Vault para importarlo.\nCréelo presionando la opción Exportar en Voucher Vault.</string>
     <string name="chooseImportType">Importar datos desde</string>
     <string name="frontImageDescription">Imágen frontal</string>
     <string name="settings_system_theme">Sistema</string>
@@ -103,11 +99,10 @@
     <string name="settings_keep_screen_on">Mantener la pantalla encendida</string>
     <string name="setBarcodeId">Establecer valor del código de barras</string>
     <string name="importCatima">Importar desde Catima</string>
-    <string name="settings_follow_system_orientation">Seguir el sistema</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
     <string name="addFromImage">Seleccione una imágen desde la galería</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os y colaboradores</string>
-    <string name="importOptionFilesystemExplanation">Elija un archivo desde su sistema de archivos.</string>
+    <string name="importOptionFilesystemExplanation">Elija un archivo desde su sistema de archivos</string>
     <string name="exportSuccessful">Datos exportados</string>
     <string name="settings_allow_content_provider_read_summary">Las aplicaciones aún tendrán que pedir permiso para obtener acceso</string>
     <string name="editGroup">Edición de grupo: <xliff:g>%s</xliff:g></string>
@@ -116,11 +111,8 @@
     <string name="about">Acerca de</string>
     <string name="sameAsCardId">Igual que el código</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
-    <string name="settings_landscape_orientation">Horizontal</string>
     <string name="privacy_policy">Política de Privacidad</string>
     <string name="enter_group_name">Ingrese el nombre del grupo</string>
-    <string name="importStocardMessage">Seleccione su <i>***.zip</i> exportado desde Stocard para importarlo.
-\nObténgalo mandando un correo electrónico a support@stocardapp.com preguntando por una copia de tus datos.</string>
     <string name="addManually">Ingresar el código de barras manualmente</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os y colaboradores</string>
     <string name="importVoucherVault">Importar desde Voucher Vault</string>
@@ -131,8 +123,7 @@
     <string name="balance">Balance</string>
     <string name="cameraPermissionRequired">Se necesita permiso para acceder a la cámara para realizar esta acción…</string>
     <string name="settings_allow_content_provider_read_title">Permitir que otras aplicaciones accedan a mis datos</string>
-    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
-\nPrimero créelo desde el menu Importar/Exportar de Loyalty Card Keychain al presionar la opción Exportar.</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleccione su exportado desde Loyalty Card Keychain para importarlo.\nCréelo desde el menu Importar/Exportar de Loyalty Card Keychain al presionar la opción Exportar.</string>
     <string name="settings_light_theme">Claro</string>
     <string name="moveDown">Mover hacia abajo</string>
     <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
@@ -150,30 +141,27 @@
     <string name="settings">Configuración</string>
     <string name="selectBarcodeTitle">Seleccione el código de barras</string>
     <string name="importSuccessful">Datos importados</string>
-    <string name="settings_card_orientation">Orientación del código de barras</string>
-    <string name="app_libraries">Librerías externas libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Recursos externos libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Librerías externas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Recursos externos: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
     <string name="accept">Aceptar</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> tarjeta</item>
         <item quantity="many"><xliff:g>%d</xliff:g> tarjetas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionado</item>
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionados</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
-    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
-\nPrimero créelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
+    <string name="importCatimaMessage">Seleccione su exportado desde Catima para importarlo.\nCréelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> puntos</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
-    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras.
-\nPrimero créelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>
+    <string name="importFidmeMessage">Seleccione su exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras.\nCréelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>
     <string name="updateBarcodeQuestionTitle">¿Actualizar el valor del código de barras\?</string>
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>
     <string name="thumbnailDescription">Miniatura</string>
@@ -204,17 +192,18 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeLongPressMessage">Solo se puede abrir imágenes en la aplicación de galería</string>
-    <string name="settings_follow_sensor_orientation">Siempre rotar (ignora configuración del sistema)</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
-    <string name="passwordRequired">Por favor ingresa la contraseña</string>
-    <string name="failedGeneratingShareURL">No se pudo generar URL compartible. Por favor reporte esto.</string>
+    <string name="passwordRequired">Ingresa la contraseña</string>
+    <string name="failedGeneratingShareURL">No se pudo generar URL compartible</string>
     <string name="sort_by_name">Nombre</string>
     <string name="sort_by">Ordenar por</string>
     <string name="reverse">en orden inverso</string>
-    <string name="sort_by_most_recently_used">Más Recientemente Usado</string>
+    <string name="sort_by_most_recently_used">Más recientemente usado</string>
     <string name="settings_use_volume_keys_navigation">Cambiar tarjetas usando los botones de volumen</string>
     <string name="sort_by_valid_from">Válido Desde</string>
     <string name="sort_by_expiry">Vencimiento</string>
     <string name="settings_use_volume_keys_navigation_summary">Usá los botones de volumen para cambiar la tarjeta que se muestra</string>
+    <string name="cardWithNumberAndLocale">Tarjeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="cardWithNumber">Tarjeta <xliff:g>%d</xliff:g></string>
 </resources>

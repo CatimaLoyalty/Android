@@ -1,0 +1,4 @@
+- Obre la imatge a la galeria amb una pulsació llarga
+- Aplica l'estil Material als diàlegs
+- Permet crear targetes compartint una imatge a Catima
+- Afegeix un botó de despesa ràpida a la pantalla de la targeta

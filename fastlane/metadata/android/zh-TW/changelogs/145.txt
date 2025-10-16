@@ -1,0 +1,3 @@
+- 目標版本更新至 Android 15
+- 修正編輯畫面鍵盤遮住儲存按鈕的問題
+- 修正部分 pkpass 檔案未被辨識為 pkpass，新增支援 application/vnd-com.apple.pkpass MIME 類型

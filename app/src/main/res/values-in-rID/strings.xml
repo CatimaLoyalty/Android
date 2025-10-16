@@ -70,7 +70,7 @@
     <string name="removeImage">Hapus gambar</string>
     <string name="setBackImage">Atur gambar bagian belakang</string>
     <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan Anda</string>
-    <string name="noGiftCards">Tap tanda tombol plus ( + ) untuk menambahkan kartu, atau mengimpor nya melalui menu ( ⋮ ).</string>
+    <string name="noGiftCards">Tap tanda tombol plus ( + ) untuk menambahkan kartu, atau mengimpor nya melalui menu ( ⋮ )</string>
     <string name="noMatchingGiftCards">Tidak menemukan apapun. Cobalah untuk mengubah pencarian anda.</string>
     <string name="noBarcode">Bukan barcode</string>
     <string name="confirm">Konfirmasi</string>
@@ -139,9 +139,6 @@
     <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor.
 \nBuat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
-    <string name="importStocard">Impor dari Stocard</string>
-    <string name="importStocardMessage">Pilih ekspor <i>***.zip</i> Anda dari Stocard untuk diimpor.
-\nDapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
     <string name="importVoucherVault">Impor dari Voucher Vault</string>
     <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Voucher Vault untuk diimpor.
 \nBuat dengan menekan Ekspor di Voucher Vault terlebih dahulu.</string>
@@ -179,7 +176,7 @@
     </plurals>
     <string name="editGroup">Menyunting Grup: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Pilih warna</string>
-    <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini.</string>
+    <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini</string>
     <string name="group_name_already_in_use">Nama grup telah dipakai</string>
     <string name="setIcon">Atur thumbnail</string>
     <string name="settings_oled_dark">Latar belakang gelap gulita untuk tema gelap</string>
@@ -195,11 +192,6 @@
     <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
     <string name="previousCard">Sebelumnya</string>
     <string name="nextCard">Berikutnya</string>
-    <string name="settings_card_orientation">Orientasi layar</string>
-    <string name="settings_follow_system_orientation">Ikuti sistem</string>
-    <string name="settings_portrait_orientation">Potret</string>
-    <string name="settings_landscape_orientation">Lanskap</string>
-    <string name="settings_lock_on_opening_orientation">Kunci ke orientasi yang digunakan saat membuka kartu</string>
     <plurals name="balancePoints">
         <item quantity="other"><xliff:g>%s</xliff:g> poin</item>
     </plurals>
@@ -266,7 +258,6 @@
     <string name="addWithoutBarcode">Tambah kartu tanpa barcode</string>
     <string name="field_must_not_be_empty">Isian tidak boleh kosong</string>
     <string name="app_name">Catima</string>
-    <string name="settings_follow_sensor_orientation">Selalu rotasi (abaikan pengaturan sistem)</string>
     <string name="add_manually_warning_title">Pemindaian sangat dianjurkan</string>
     <string name="continue_">Lanjut</string>
     <string name="failedLaunchingFileManager">Tidak dapat menemukan pengelola file yang didukung</string>
@@ -296,7 +287,7 @@
     <string name="settings_column_count_1">1</string>
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
-    <string name="addFromPkpass">Pilih file Buku Tabungan (.pkpass)</string>
+    <string name="addFromPkpass">Pilih file Buku Tabungan (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">File ini tidak didukung</string>
     <string name="generic_error_please_retry">Maaf, terjadi kesalahan, silakan coba lagi...</string>
     <string name="sort_by_valid_from">Berlaku dari</string>

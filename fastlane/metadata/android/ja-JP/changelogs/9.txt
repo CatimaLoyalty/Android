@@ -1,0 +1,7 @@
+名称の "Locker" 部分が直感的ではありませんでした。改善のため betsythefc によるアプリケーションの目的: バーコード式ポイントカードの保管 をより適切に表現する新しいアプリケーションアイコンが作られました。この新アイコンにならって、アプリケーション名が "Loyalty Card Keychain" に変更されました。
+
+追加機能／改善点:
+
+- カードのインポート／エクスポート機能の柔軟化。(pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- リトアニア語の翻訳を追加。(pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- フランス語の翻訳を追加。(pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

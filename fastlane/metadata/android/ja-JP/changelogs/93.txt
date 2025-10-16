@@ -1,0 +1,2 @@
+- Catimaをクイックアクセスデバイスコントロールへ追加（https://developer.android.com/guide/topics/ui/device-control）
+- グループ管理画面で一部グループが正しく表示されない問題を修正

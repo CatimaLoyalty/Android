@@ -1,0 +1,2 @@
+- Popravljena napaka v Android SDK 24+, kjer je uporaba možnosti uvoza izbirnika datotek povzročila sesutje. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Nova ikona in barvna shema. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

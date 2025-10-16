@@ -99,7 +99,9 @@ public class CatimaImporter implements Importer {
             throw new FormatException("No imported data");
         }
 
-        Map<Integer, Integer> idMap = saveAndDeduplicate(context, database, importedData, imageChecksums);
+        List<String> duplicatedCardsImages = new ArrayList<>();
+
+        Map<Integer, Integer> idMap = saveAndDeduplicate(context, database, importedData, imageChecksums, duplicatedCardsImages);
 
         if (isZipFile) {
             // Pass #2: save images
@@ -109,7 +111,7 @@ public class CatimaImporter implements Importer {
 
             while ((localFileHeader = zipInputStream2.getNextEntry()) != null) {
                 String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
-                if (fileName.endsWith(".png")) {
+                if (fileName.endsWith(".png") && !duplicatedCardsImages.contains(fileName)) {
                     String newFileName = Utils.getRenamedCardImageFileName(fileName, idMap);
                     Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream2), newFileName);
                 }
@@ -119,16 +121,22 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public Map<Integer, Integer> saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data, final Map<String, String> imageChecksums) throws IOException {
+    public Map<Integer, Integer> saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
         Map<Integer, Integer> idMap = new HashMap<>();
         Set<String> existingImages = DBHelper.imageFiles(context, database);
 
         for (LoyaltyCard card : data.cards) {
-            LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
-            if (existing == null) {
-                DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                        card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
-            } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
+            List<LoyaltyCard> candidates = DBHelper.getLoyaltyCardsByCardId(context, database, card.cardId);
+            boolean duplicateFound = false;
+
+            for (LoyaltyCard existing : candidates) {
+                if (isDuplicate(context, existing, card, existingImages, imageChecksums, duplicatedCardsImages)) {
+                    duplicateFound = true;
+                    break;
+                }
+            }
+
+            if (!duplicateFound) {
                 long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
@@ -151,23 +159,27 @@ public class CatimaImporter implements Importer {
         return idMap;
     }
 
-    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums) throws IOException {
+    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
         if (!LoyaltyCard.isDuplicate(context, existing, card)) {
             return false;
         }
+        String nameChecksum = null;
         for (ImageLocationType imageLocationType : ImageLocationType.values()) {
-            String name = Utils.getCardImageFileName(existing.id, imageLocationType);
-            boolean exists = existingImages.contains(name);
-            if (exists != imageChecksums.containsKey(name)) {
+            String nameExists = Utils.getCardImageFileName(existing.id, imageLocationType);
+            nameChecksum = Utils.getCardImageFileName(card.id, imageLocationType);
+
+            boolean exists = existingImages.contains(nameExists);
+            if (exists != imageChecksums.containsKey(nameChecksum)) {
                 return false;
             }
             if (exists) {
-                File file = Utils.retrieveCardImageAsFile(context, name);
-                if (!imageChecksums.get(name).equals(Utils.checksum(new FileInputStream(file)))) {
+                File file = Utils.retrieveCardImageAsFile(context, nameExists);
+                if (!imageChecksums.get(nameChecksum).equals(Utils.checksum(new FileInputStream(file)))) {
                     return false;
                 }
             }
         }
+        duplicatedCardsImages.add(nameChecksum);
         return true;
     }
 

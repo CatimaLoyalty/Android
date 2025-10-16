@@ -582,8 +582,7 @@ public class LoyaltyCard {
     public static boolean isDuplicate(Context context, final LoyaltyCard a, final LoyaltyCard b) {
         // Note: Bitmap comparing is slow, be careful when calling this method
         // Skip lastUsed & zoomLevel*
-        return a.id == b.id && // non-nullable int
-                a.store.equals(b.store) && // non-nullable String
+        return a.store.equals(b.store) && // non-nullable String
                 a.note.equals(b.note) && // non-nullable String
                 Utils.equals(a.validFrom, b.validFrom) && // nullable Date
                 Utils.equals(a.expiry, b.expiry) && // nullable Date
@@ -595,23 +594,7 @@ public class LoyaltyCard {
                         b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
-                a.archiveStatus == b.archiveStatus && // non-nullable int
-                nullableBitmapsEqual(a.getImageThumbnail(context), b.getImageThumbnail(context)) && // nullable Bitmap
-                nullableBitmapsEqual(a.getImageFront(context), b.getImageFront(context)) && // nullable Bitmap
-                nullableBitmapsEqual(a.getImageBack(context), b.getImageBack(context)); // nullable Bitmap
-    }
-
-    public static boolean nullableBitmapsEqual(@Nullable Bitmap a, @Nullable Bitmap b) {
-        if (a == null && b == null) {
-            return true;
-        }
-
-        if (a != null && b != null) {
-            return a.sameAs(b);
-        }
-
-        // One is null and the other isn't, so it's not equal
-        return false;
+                a.archiveStatus == b.archiveStatus; // non-nullable int
     }
 
     @NonNull

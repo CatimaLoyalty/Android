@@ -1,0 +1,4 @@
+- Fidme（https://play.google.com/store/apps/details?id=fr.snapp.fidme）形式エクスポートファイルのインポートをサポート
+- ユーザーのAndroidギャラリーに保存された画像からのカードインポートを可能に
+- 複数行メモの文字数制限を修正
+- Huaweiの過剰な格調尊重の為、プライバシーダイアログの"ありがとう"テキストを"承諾"へ変更

@@ -34,7 +34,7 @@
     <string name="importing">Importowanie…</string>
     <string name="exporting">Eksportowanie…</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
-    <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
+    <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
     <string name="about">O aplikacji</string>
     <string name="app_license">Wolne oprogramowanie typu copyleft, na licencji GPLv3+</string>

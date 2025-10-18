@@ -815,6 +815,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        boolean result = super.onPrepareOptionsMenu(menu);
         if (loyaltyCard != null) {
             // Update star status
             if (loyaltyCard.starStatus == 1) {
@@ -827,21 +828,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Update archive/unarchive button
             if (loyaltyCard.archiveStatus != 0) {
+                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
+                menu.findItem(R.id.action_archive_unarchive).setIcon(R.drawable.ic_archive);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    menu.findItem(R.id.action_archive_unarchive).setTooltipText(getString(R.string.archive));
+                }
+            } else {
                 menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.unarchive);
                 menu.findItem(R.id.action_archive_unarchive).setIcon(R.drawable.ic_unarchive);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     menu.findItem(R.id.action_archive_unarchive).setTooltipText(getString(R.string.unarchive));
                 }
-            } else {
-                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
-                menu.findItem(R.id.action_archive_unarchive).setIcon(R.drawable.ic_outline_archive);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    menu.findItem(R.id.action_archive_unarchive).setTooltipText(getString(R.string.archive));
-                }
             }
         }
 
-        return super.onPrepareOptionsMenu(menu);
+        return result;
     }
 
     @Override

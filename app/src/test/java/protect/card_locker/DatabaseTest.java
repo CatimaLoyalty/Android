@@ -41,7 +41,7 @@ public class DatabaseTest {
     @Test
     public void addRemoveOneGiftCard() {
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -69,7 +69,7 @@ public class DatabaseTest {
 
     @Test
     public void updateGiftCard() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -96,7 +96,7 @@ public class DatabaseTest {
 
     @Test
     public void updateGiftCardOnlyStar() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -133,7 +133,7 @@ public class DatabaseTest {
 
     @Test
     public void emptyGiftCardValues() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -168,34 +168,31 @@ public class DatabaseTest {
         }
 
         assertEquals(CARDS_TO_ADD, DBHelper.getLoyaltyCardCount(mDatabase));
+        try (Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase)) {
+            assertNotNull(cursor);
+            assertEquals(CARDS_TO_ADD, cursor.getCount());
 
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
-        assertNotNull(cursor);
+            cursor.moveToFirst();
 
-        assertEquals(CARDS_TO_ADD, cursor.getCount());
+            for (int index = 0; index < CARDS_TO_ADD; index++) {
+                assertEquals("store" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE)));
+                assertEquals("note" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE)));
+                assertEquals(0, cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM)));
+                assertEquals(0, cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY)));
+                assertEquals("0", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
+                assertEquals(null, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE)));
+                assertEquals("cardId" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
+                assertEquals(null, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID)));
+                assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
+                assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
+                assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
+                assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS)));
 
-        cursor.moveToFirst();
+                cursor.moveToNext();
+            }
 
-        for (int index = 0; index < CARDS_TO_ADD; index++) {
-            assertEquals("store" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE)));
-            assertEquals("note" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE)));
-            assertEquals(0, cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM)));
-            assertEquals(0, cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY)));
-            assertEquals("0", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
-            assertEquals(null, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE)));
-            assertEquals("cardId" + index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
-            assertEquals(null, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID)));
-            assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
-            assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
-            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
-            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS)));
-
-            cursor.moveToNext();
+            assertTrue(cursor.isAfterLast());
         }
-
-        assertTrue(cursor.isAfterLast());
-
-        cursor.close();
     }
 
     @Test

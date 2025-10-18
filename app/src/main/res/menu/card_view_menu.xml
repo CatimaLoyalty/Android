@@ -16,8 +16,8 @@
 
     <item
         android:id="@+id/action_archive_unarchive"
-        android:title="@string/archive"
         android:icon="@drawable/ic_outline_archive"
+        android:title="@string/archive"
         app:showAsAction="always"/>
 
     <item

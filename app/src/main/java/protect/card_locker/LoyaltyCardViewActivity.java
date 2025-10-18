@@ -879,16 +879,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_archive_unarchive) {
-            if(loyaltyCard.archiveStatus == 0){
-                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, loyaltyCard.archiveStatus == 0 ? 1 : 0);
+            Toast.makeText(LoyaltyCardViewActivity.this, loyaltyCard.archiveStatus == 0 ? R.string.archived : R.string.unarchived, Toast.LENGTH_LONG).show();
 
+            // If we're archiving the card, remove any existing shortcut
+            // Archived cards also do not show up in the shortcut picker
+            if (loyaltyCard.archiveStatus == 0) {
                 ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
-                new ListWidget().updateAll(LoyaltyCardViewActivity.this);
-            }else{
-                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
             }
+
+            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
             // Re-init loyaltyCard with new data from DB
             onResume();
             invalidateOptionsMenu();

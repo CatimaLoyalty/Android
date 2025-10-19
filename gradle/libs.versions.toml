@@ -20,7 +20,7 @@ com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desu
 
 # Third-party
 com-journeyapps-zxing_android_embedded = { group = "com.journeyapps", name = "zxing-android-embedded", version = "4.3.0" }
-com-github-yalantis-ucrop = { group = "com.github.yalantis", name = "ucrop", version = "2.2.10" }
+com-github-yalantis-ucrop = { group = "com.github.yalantis", name = "ucrop", version = "2.2.11" }
 com-google-zxing-core = { group = "com.google.zxing", name = "core", version = "3.5.3" }
 org-apache-commons-commons_csv = { group = "org.apache.commons", name = "commons-csv", version = "1.9.0" }
 com-jaredrummler-colorpicker = { group = "com.jaredrummler", name = "colorpicker", version = "1.1.0" }

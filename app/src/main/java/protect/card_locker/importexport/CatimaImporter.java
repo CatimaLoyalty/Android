@@ -2,10 +2,11 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
-import net.lingala.zip4j.io.inputstream.ZipInputStream;
-import net.lingala.zip4j.model.LocalFileHeader;
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.model.FileHeader;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -27,7 +28,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -36,7 +36,6 @@ import protect.card_locker.Group;
 import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
-import protect.card_locker.ZipUtils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -59,78 +58,35 @@ public class CatimaImporter implements Importer {
     }
 
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, InterruptedException {
-        // Pass #1: get hashes and parse CSV
-        InputStream input1 = new FileInputStream(inputFile);
-        InputStream bufferedInputStream1 = new BufferedInputStream(input1);
-        bufferedInputStream1.mark(100);
-        ZipInputStream zipInputStream1 = new ZipInputStream(bufferedInputStream1, password);
-
-        // First, check if this is a zip file
-        boolean isZipFile = false;
-        LocalFileHeader localFileHeader;
-        Map<String, String> imageChecksums = new HashMap<>();
         ImportedData importedData = null;
+        ZipFile zipFile = new ZipFile(inputFile, password);
 
-        while ((localFileHeader = zipInputStream1.getNextEntry()) != null) {
-            isZipFile = true;
-
-            String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
-            if (fileName.equals("catima.csv")) {
-                importedData = importCSV(zipInputStream1);
-            } else if (fileName.endsWith(".png")) {
-                if (!fileName.matches(Utils.CARD_IMAGE_FILENAME_REGEX)) {
-                    throw new FormatException("Unexpected PNG file in import: " + fileName);
-                }
-                imageChecksums.put(fileName, Utils.checksum(zipInputStream1));
-            } else {
-                throw new FormatException("Unexpected file in import: " + fileName);
-            }
-        }
-
-        if (!isZipFile) {
+        if (zipFile.isValidZipFile()) {
+            importedData = importZIP(zipFile);
+        }else {
             // This is not a zip file, try importing as bare CSV
-            bufferedInputStream1.reset();
-            importedData = importCSV(bufferedInputStream1);
+            InputStream input = new FileInputStream(inputFile);
+            InputStream bufferedInputStream = new BufferedInputStream(input);
+            bufferedInputStream.mark(100);
+            importedData = importCSV(bufferedInputStream);
         }
-
-        input1.close();
+        zipFile.close();
 
         if (importedData == null) {
             throw new FormatException("No imported data");
         }
-
-        List<String> duplicatedCardsImages = new ArrayList<>();
-
-        Map<Integer, Integer> idMap = saveAndDeduplicate(context, database, importedData, imageChecksums, duplicatedCardsImages);
-
-        if (isZipFile) {
-            // Pass #2: save images
-            InputStream input2 = new FileInputStream(inputFile);
-            InputStream bufferedInputStream2 = new BufferedInputStream(input2);
-            ZipInputStream zipInputStream2 = new ZipInputStream(bufferedInputStream2, password);
-
-            while ((localFileHeader = zipInputStream2.getNextEntry()) != null) {
-                String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
-                if (fileName.endsWith(".png") && !duplicatedCardsImages.contains(fileName)) {
-                    String newFileName = Utils.getRenamedCardImageFileName(fileName, idMap);
-                    Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream2), newFileName);
-                }
-            }
-
-            input2.close();
-        }
+        saveAndDeduplicate(context, database, importedData);
     }
 
-    public Map<Integer, Integer> saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
+    public void saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data) throws IOException {
         Map<Integer, Integer> idMap = new HashMap<>();
-        Set<String> existingImages = DBHelper.imageFiles(context, database);
 
         for (LoyaltyCard card : data.cards) {
             List<LoyaltyCard> candidates = DBHelper.getLoyaltyCardsByCardId(context, database, card.cardId);
             boolean duplicateFound = false;
 
             for (LoyaltyCard existing : candidates) {
-                if (isDuplicate(context, existing, card, existingImages, imageChecksums, duplicatedCardsImages)) {
+                if (isDuplicate(context, existing, card)) {
                     duplicateFound = true;
                     break;
                 }
@@ -140,6 +96,10 @@ public class CatimaImporter implements Importer {
                 long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
+
+                Utils.saveCardImage(context, card.getImageThumbnail(context), (int) newId, ImageLocationType.icon);
+                Utils.saveCardImage(context, card.getImageFront(context), (int) newId, ImageLocationType.front);
+                Utils.saveCardImage(context, card.getImageBack(context), (int) newId, ImageLocationType.back);
             }
         }
 
@@ -155,31 +115,12 @@ public class CatimaImporter implements Importer {
             cardGroups.add(DBHelper.getGroup(database, groupId));
             DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
         }
-
-        return idMap;
     }
 
-    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums, List<String> duplicatedCardsImages) throws IOException {
+    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card) {
         if (!LoyaltyCard.isDuplicate(context, existing, card)) {
             return false;
         }
-        String nameChecksum = null;
-        for (ImageLocationType imageLocationType : ImageLocationType.values()) {
-            String nameExists = Utils.getCardImageFileName(existing.id, imageLocationType);
-            nameChecksum = Utils.getCardImageFileName(card.id, imageLocationType);
-
-            boolean exists = existingImages.contains(nameExists);
-            if (exists != imageChecksums.containsKey(nameChecksum)) {
-                return false;
-            }
-            if (exists) {
-                File file = Utils.retrieveCardImageAsFile(context, nameExists);
-                if (!imageChecksums.get(nameChecksum).equals(Utils.checksum(new FileInputStream(file)))) {
-                    return false;
-                }
-            }
-        }
-        duplicatedCardsImages.add(nameChecksum);
         return true;
     }
 
@@ -189,21 +130,41 @@ public class CatimaImporter implements Importer {
         int version = parseVersion(bufferedReader);
         switch (version) {
             case 1:
-                return parseV1(bufferedReader);
+                return parseV1(bufferedReader, null);
             case 2:
-                return parseV2(bufferedReader);
+                return parseV2(bufferedReader, null);
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
         }
     }
 
-    public ImportedData parseV1(BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public ImportedData importZIP(ZipFile zipFile) throws IOException, FormatException, InterruptedException {
+        FileHeader fileHeader = zipFile.getFileHeader("catima.csv");
+        if (fileHeader == null){
+            throw new FormatException("No imported data");
+        }
+
+        InputStream inputStream = zipFile.getInputStream(fileHeader);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+
+        int version = parseVersion(bufferedReader);
+        switch (version) {
+            case 1:
+                return parseV1(bufferedReader, zipFile);
+            case 2:
+                return parseV2(bufferedReader, zipFile);
+            default:
+                throw new FormatException(String.format("No code to parse version %s", version));
+        }
+    }
+
+    public ImportedData parseV1(BufferedReader bufferedInput, ZipFile zipFile) throws IOException, FormatException, InterruptedException {
         ImportedData data = new ImportedData(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
+        final CSVParser parser = new CSVParser(bufferedInput, CSVFormat.RFC4180.builder().setHeader().build());
 
         try {
             for (CSVRecord record : parser) {
-                LoyaltyCard card = importLoyaltyCard(record);
+                LoyaltyCard card = importLoyaltyCard(record, zipFile);
                 data.cards.add(card);
 
                 if (Thread.currentThread().isInterrupted()) {
@@ -219,7 +180,7 @@ public class CatimaImporter implements Importer {
         return data;
     }
 
-    public ImportedData parseV2(BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public ImportedData parseV2(BufferedReader input, ZipFile zipFile) throws IOException, FormatException, InterruptedException {
         List<LoyaltyCard> cards = new ArrayList<>();
         List<String> groups = new ArrayList<>();
         List<Map.Entry<Integer, String>> cardGroups = new ArrayList<>();
@@ -249,7 +210,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 2:
                             try {
-                                cards = parseV2Cards(stringPart.toString());
+                                cards = parseV2Cards(stringPart.toString(), zipFile);
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -316,7 +277,7 @@ public class CatimaImporter implements Importer {
         return groups;
     }
 
-    public List<LoyaltyCard> parseV2Cards(String data) throws IOException, FormatException, InterruptedException {
+    public List<LoyaltyCard> parseV2Cards(String data, ZipFile zipFile) throws IOException, FormatException, InterruptedException {
         // Parse cards
         final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -338,7 +299,7 @@ public class CatimaImporter implements Importer {
 
         List<LoyaltyCard> cards = new ArrayList<>();
         for (CSVRecord record : records) {
-            LoyaltyCard card = importLoyaltyCard(record);
+            LoyaltyCard card = importLoyaltyCard(record, zipFile);
             cards.add(card);
         }
         return cards;
@@ -405,7 +366,7 @@ public class CatimaImporter implements Importer {
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private LoyaltyCard importLoyaltyCard(CSVRecord record) throws FormatException {
+    private LoyaltyCard importLoyaltyCard(CSVRecord record, ZipFile zipFile) throws FormatException, IOException {
         int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record);
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
@@ -502,6 +463,26 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
+        Bitmap imgIcon = null;
+        Bitmap imgFront = null;
+        Bitmap imgBack = null;
+
+        if (zipFile != null) {
+            FileHeader headerIcon = zipFile.getFileHeader(Utils.getCardImageFileName(id, ImageLocationType.icon));
+            FileHeader headerFront = zipFile.getFileHeader(Utils.getCardImageFileName(id, ImageLocationType.front));
+            FileHeader headerBack = zipFile.getFileHeader(Utils.getCardImageFileName(id, ImageLocationType.back));
+
+            if (headerIcon != null) {
+                imgIcon = BitmapFactory.decodeStream(zipFile.getInputStream(headerIcon));
+            }
+            if (headerFront != null) {
+                imgFront = BitmapFactory.decodeStream(zipFile.getInputStream(headerFront));
+            }
+            if (headerBack != null) {
+                imgBack = BitmapFactory.decodeStream(zipFile.getInputStream(headerBack));
+            }
+        }
+
         return new LoyaltyCard(
                 id,
                 store,
@@ -519,11 +500,11 @@ public class CatimaImporter implements Importer {
                 DBHelper.DEFAULT_ZOOM_LEVEL,
                 DBHelper.DEFAULT_ZOOM_LEVEL_WIDTH,
                 archiveStatus,
+                imgIcon,
                 null,
+                imgFront,
                 null,
-                null,
-                null,
-                null,
+                imgBack,
                 null
         );
     }

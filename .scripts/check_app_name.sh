@@ -25,11 +25,11 @@ find app/src/main/res/values* -name "strings.xml" | while read xml; do
 
     elif [[ ! -s "$xml" || -z "$APP_NAME" ]]; then
         echo -e "${RED}Error: ${LIGHTCYAN}app_name is missing or file is empty in $xml ($LANG). ${NC}"
-        success=$((success & 0))
+        success=0
 
     elif [[ "$APP_NAME" != "$CANONICAL_TITLE" ]]; then
         echo -e "${RED}Error: ${LIGHTCYAN}app_name in $xml ($LANG) is ${RED}'$APP_NAME'${LIGHTCYAN}, expected ${GREEN}'$CANONICAL_TITLE'. ${NC}"
-        success=$((success & 0))
+        success=0
     fi
 done
 

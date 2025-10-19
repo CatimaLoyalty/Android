@@ -1,8 +1,8 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
 kotlin {
@@ -113,40 +113,38 @@ android {
 
 dependencies {
     // AndroidX
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.core.remoteviews)
-    implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.exifinterface)
-    implementation(libs.androidx.palette)
-    implementation(libs.androidx.preference)
-    implementation(libs.google.android.material)
-    coreLibraryDesugaring(libs.google.android.tools.desugar)
+    implementation(libs.androidx.appcompat.appcompat)
+    implementation(libs.androidx.constraintlayout.constraintlayout)
+    implementation(libs.androidx.core.core.ktx)
+    implementation(libs.androidx.core.core.remoteviews)
+    implementation(libs.androidx.core.core.splashscreen)
+    implementation(libs.androidx.exifinterface.exifinterface)
+    implementation(libs.androidx.palette.palette)
+    implementation(libs.androidx.preference.preference)
+    implementation(libs.com.google.android.material.material)
+    coreLibraryDesugaring(libs.com.android.tools.desugar.jdk.libs)
 
     // Third-party
-    implementation(libs.journeyapps.zxing.android.embedded)
-    implementation(libs.github.yalantis.ucrop)
-    implementation(libs.google.zxing.core)
-    implementation(libs.apache.commons.csv)
-    implementation(libs.jaredrummler.colorpicker)
-    implementation(libs.net.lingala.zip4j)
+    implementation(libs.com.journeyapps.zxing.android.embedded)
+    implementation(libs.com.github.yalantis.ucrop)
+    implementation(libs.com.google.zxing.core)
+    implementation(libs.org.apache.commons.commons.csv)
+    implementation(libs.com.jaredrummler.colorpicker)
+    implementation(libs.net.lingala.zip4j.zip4j)
 
     // Crash reporting
-    implementation(libs.ch.acra.mail)
-    implementation(libs.ch.acra.dialog)
+    implementation(libs.bundles.acra)
 
     // Testing
     testImplementation(libs.androidx.test.core)
-    testImplementation(libs.junit)
-    testImplementation(libs.robolectric)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.org.robolectric.robolectric)
 
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.bundles.androidx.test)
+    androidTestImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.uiautomator)
-    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.test.uiautomator.uiautomator)
+    androidTestImplementation(libs.androidx.test.espresso.espresso.core)
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

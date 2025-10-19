@@ -84,7 +84,7 @@
     <string name="exportPasswordHint">Digite a palavra-passe</string>
     <string name="setBarcodeId">Definir o valor do código de barras</string>
     <string name="sameAsCardId">Igual ao identificador</string>
-    <string name="importFidmeMessage">Selecione a exportação <i>fidme-export-request-xxxxxx.zip</i> do FidMe para importar e depois selecione os tipos de código de barras manualmente. \nPrimeiro crie a exportação no seu perfil do FidMe escolhendo a opção \"Proteção de dados\" e em seguida pressionando \"Extrair os meus dados\".</string>
+    <string name="importFidmeMessage">Selecione o seu ficheiro exportado do FidMe a importae e depois selecione manualmente os tipos de código de barras. \nCrie-o no seu perfil do FidMe a escolher a opção \"Proteção de dados\" e depois pressionar \"Extrair os meus dados\".</string>
     <string name="barcodeId">Valor do código de barras</string>
     <string name="wrongValueForBarcodeType">O valor é inválido para o tipo de código de barras selecionado</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quero partilhar alguns cartões</string>
@@ -311,4 +311,6 @@
     <string name="acra_catima_has_crashed">Lamentamos, mas o <xliff:g id="app_name">%s</xliff:g> travou. Ajude-nos a corrigir este problema a enviar um relatório de erro.</string>
     <string name="acra_explain_crash">Se possível, acrescente detalhes sobre o que fazia aqui:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> relatório de travamento</string>
+    <string name="pref_enable_acra">Solicitar o envio de relatórios de falhas</string>
+    <string name="pref_enable_acra_summary">Quando ativado, relatar uma falha será solicitado quando isto ocorrer. Os relatórios de falhas nunca são enviados automaticamente.</string>
 </resources>

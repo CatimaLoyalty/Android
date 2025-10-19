@@ -10,12 +10,11 @@ RED='\033[0;31m'
 NC='\033[0m'    # No Color
 
 CANONICAL_TITLE="Catima"
-# From "ast" is empty file list.
-ALLOWLIST=("ar" "bn" "fa" "hi" "kn" "ml" "mr" "ta" "zh-rTW" "ast" "bn-rIN" "bs" "cy" "he-rIL" "is" "iw" "lb" "oc")
+ALLOWLIST=("ar" "ast" "bn" "bn-rIN" "bs" "cy" "fa" "he-rIL" "hi" "is" "iw" "kn" "lb" "ml" "mr" "oc" "ta" "zh-rTW")
 
 success=1
 
-find ../app/src/main/res/values* -name "strings.xml" | while read xml; do
+find app/src/main/res/values* -name "strings.xml" | while read xml; do
     LANG=$(echo "$xml" | sed -n 's|.*/values-\([^/]*\)/strings.xml|\1|p')
     LANG=${LANG:-en}
 
@@ -25,11 +24,11 @@ find ../app/src/main/res/values* -name "strings.xml" | while read xml; do
         continue
 
     elif [[ ! -s "$xml" || -z "$APP_NAME" ]]; then
-        echo -e "${RED}Error: ${LIGHTCYAN}app_name is missing or file is empty in $xml ($LANG)."
+        echo -e "${RED}Error: ${LIGHTCYAN}app_name is missing or file is empty in $xml ($LANG). ${NC}"
         success=$((success & 0))
 
     elif [[ "$APP_NAME" != "$CANONICAL_TITLE" ]]; then
-        echo -e "${RED}Error: ${LIGHTCYAN}app_name in $xml ($LANG) is ${RED}'$APP_NAME'${LIGHTCYAN}, expected ${GREEN}'$CANONICAL_TITLE'."
+        echo -e "${RED}Error: ${LIGHTCYAN}app_name in $xml ($LANG) is ${RED}'$APP_NAME'${LIGHTCYAN}, expected ${GREEN}'$CANONICAL_TITLE'. ${NC}"
         success=$((success & 0))
     fi
 done

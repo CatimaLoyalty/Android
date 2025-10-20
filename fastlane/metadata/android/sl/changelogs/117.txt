@@ -1,0 +1,2 @@
+- Odstranjena nepotrebna dovoljenja
+- Ciljni Android 13

@@ -1,0 +1,3 @@
+- Dolgo pritisni ikono kartice v pogledu dejavnosti, da jo spremeniš
+- Izboljšan stil gumbov na zaslonu Skupine
+- Popravek dolge vrednosti črtnih kod, ki povzročajo, da se črtna koda pomanjša do nič

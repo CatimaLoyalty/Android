@@ -1,0 +1,2 @@
+- Popravek dialoga za hitro porabo, ki ne dovoljuje ločevalnika ,
+- Podpora za nalaganje slike iz datotečnega upravitelja

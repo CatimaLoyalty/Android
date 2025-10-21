@@ -143,7 +143,7 @@ public class Utils {
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterImageSize);
 
         if (backgroundColor == null) {
-            backgroundColor = LetterBitmap.getDefaultColor(context, store);
+            backgroundColor = LetterBitmap.Companion.getDefaultColor(context, store);
         }
 
         return new LetterBitmap(context, store, store,
@@ -1129,7 +1129,7 @@ public class Utils {
     }
 
     public static int getHeaderColor(Context context, LoyaltyCard loyaltyCard) {
-        return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
+        return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.Companion.getDefaultColor(context, loyaltyCard.store);
     }
 
     public static String checksum(InputStream input) throws IOException {

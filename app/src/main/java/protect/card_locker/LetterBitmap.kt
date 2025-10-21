@@ -1,18 +1,18 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.TextPaint;
-import android.util.Log;
-
-import androidx.core.graphics.PaintCompat;
+import android.content.Context
+import android.content.res.TypedArray
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.Typeface
+import android.text.TextPaint
+import android.util.Log
+import androidx.core.graphics.PaintCompat
+import java.util.Locale
+import kotlin.math.abs
 
 /**
  * Original from https://github.com/andOTP/andOTP/blob/master/app/src/main/java/org/shadowice/flocke/andotp/Utilities/LetterBitmap.java
@@ -20,121 +20,117 @@ import androidx.core.graphics.PaintCompat;
  * Used to create a {@link Bitmap} that contains a letter used in the English
  * alphabet or digit, if there is no letter or digit available, a default image
  * is shown instead.
+ *
+ * @constructor Constructor for <code>LetterTileProvider</code>
+ * @param context            The {@link Context} to use
+ * @param displayName        The name used to create the letter for the tile
+ * @param key                The key used to generate the background color for the tile
+ * @param tileLetterFontSize The font size used to display the letter
+ * @param width              The desired width of the tile
+ * @param height             The desired height of the tile
+ * @param backgroundColor    (optional) color to use for background.
+ * @param textColor          (optional) color to use for text.
  */
-class LetterBitmap {
+class LetterBitmap(
+    context: Context, displayName: String, key: String, tileLetterFontSize: Int,
+    width: Int, height: Int, backgroundColor: Int?, textColor: Int?
+) {
     /**
-     * The letter bitmap
-     */
-    private final Bitmap mBitmap;
-    /**
-     * The background color of the letter bitmap
-     */
-    private final Integer mColor;
-
-    /**
-     * Constructor for <code>LetterTileProvider</code>
-     *
-     * @param context            The {@link Context} to use
-     * @param displayName        The name used to create the letter for the tile
-     * @param key                The key used to generate the background color for the tile
-     * @param tileLetterFontSize The font size used to display the letter
-     * @param width              The desired width of the tile
-     * @param height             The desired height of the tile
-     * @param backgroundColor    (optional) color to use for background.
-     * @param textColor          (optional) color to use for text.
-     */
-    public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize,
-                        int width, int height, Integer backgroundColor, Integer textColor) {
-        TextPaint paint = new TextPaint();
-
-        if (textColor != null) {
-            paint.setColor(textColor);
-        } else {
-            paint.setColor(Color.WHITE);
-        }
-
-        paint.setTextAlign(Paint.Align.CENTER);
-        paint.setAntiAlias(true);
-        paint.setTextSize(tileLetterFontSize);
-        paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-
-        if (backgroundColor == null) {
-            mColor = getDefaultColor(context, key);
-        } else {
-            mColor = backgroundColor;
-        }
-
-        mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        String firstChar = displayName.substring(0, 1).toUpperCase();
-        int firstCharEnd = 2;
-        while (firstCharEnd <= displayName.length()) {
-            // Test for the longest render-able string
-            // But ignore containing only a-Z0-9 to not render things like ffi as a single character
-            String test = displayName.substring(0, firstCharEnd);
-            if (!isAlphabetical(test) && PaintCompat.hasGlyph(paint, test)) {
-                firstChar = test;
-            }
-            firstCharEnd++;
-        }
-
-        Log.d("LetterBitmap", "using sequence " + firstChar + " to render first char which has length " + firstChar.length());
-
-        final Canvas c = new Canvas();
-        c.setBitmap(mBitmap);
-        c.drawColor(mColor);
-
-        Rect bounds = new Rect();
-        paint.getTextBounds(firstChar, 0, firstChar.length(), bounds);
-        c.drawText(firstChar,
-                0, firstChar.length(),
-                width / 2.0f, (height - (bounds.bottom + bounds.top)) / 2.0f
-                , paint);
-
-    }
-
-    /**
-     * @return A {@link Bitmap} that contains a letter used in the English
+     * A {@link Bitmap} that contains a letter used in the English
      * alphabet or digit, if there is no letter or digit available, a
      * default image is shown instead
      */
-    public Bitmap getLetterTile() {
-        return mBitmap;
-    }
+    private val letterTile: Bitmap
 
     /**
-     * @return background color used for letter title.
+     * The background color of the letter bitmap
      */
-    public int getBackgroundColor() {
-        return mColor;
+    private val mColor: Int
+
+    init {
+        val paint = TextPaint().apply {
+            color = textColor ?: Color.WHITE
+            textAlign = Paint.Align.CENTER
+            isAntiAlias = true
+            textSize = tileLetterFontSize.toFloat()
+            typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+        }
+
+        mColor = backgroundColor ?: getDefaultColor(context, key)
+
+        this.letterTile = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+        var firstChar = displayName.substring(0, 1).uppercase(Locale.getDefault())
+        var firstCharEnd = 2
+        while (firstCharEnd <= displayName.length) {
+            // Test for the longest render-able string
+            // But ignore containing only a-Z0-9 to not render things like ffi as a single character
+            val test = displayName.substring(0, firstCharEnd)
+            if (!isAlphabetical(test) && PaintCompat.hasGlyph(paint, test)) {
+                firstChar = test
+            }
+            firstCharEnd++
+        }
+
+        Log.d(
+            "LetterBitmap",
+            "using sequence $firstChar to render first char which has length ${firstChar.length}"
+        )
+
+        Canvas().apply {
+            setBitmap(this@LetterBitmap.letterTile)
+            drawColor(mColor)
+
+            val bounds = Rect()
+            paint.getTextBounds(firstChar, 0, firstChar.length, bounds)
+            drawText(
+                firstChar,
+                0, firstChar.length,
+                width / 2.0f, (height - (bounds.bottom + bounds.top)) / 2.0f,
+                paint
+            )
+        }
     }
 
-    /**
-     * @param key The key used to generate the tile color
-     * @return A new or previously chosen color for <code>key</code> used as the
-     * tile background color
-     */
-    private static int pickColor(String key, TypedArray colors) {
-        // String.hashCode() is not supposed to change across java versions, so
-        // this should guarantee the same key always maps to the same color
-        final int color = Math.abs(key.hashCode()) % colors.length();
-        return colors.getColor(color, Color.BLACK);
+    val backgroundColor: Int
+        /**
+         * @return background color used for letter title.
+         */
+        get() = mColor
+    
+    fun getLetterTile(): Bitmap {
+        return letterTile
     }
 
-    private static boolean isAlphabetical(String string) {
-        return string.matches("[a-zA-Z0-9]*");
-    }
+    companion object {
+        /**
+         * @param key The key used to generate the tile color
+         * @return A new or previously chosen color for `key` used as the
+         * tile background color
+         */
+        private fun pickColor(key: String, colors: TypedArray): Int {
+            // String.hashCode() is not supposed to change across java versions, so
+            // this should guarantee the same key always maps to the same color
+            val color = abs(key.hashCode()) % colors.length()
+            return colors.getColor(color, Color.BLACK)
+        }
 
-    /**
-     * Determine the color which the letter tile will use if no default
-     * color is provided.
-     */
-    public static int getDefaultColor(Context context, String key) {
-        final Resources res = context.getResources();
+        private fun isAlphabetical(string: String): Boolean {
+            return string.matches("[a-zA-Z0-9]*".toRegex())
+        }
 
-        TypedArray colors = res.obtainTypedArray(R.array.letter_tile_colors);
-        int color = pickColor(key, colors);
-        colors.recycle();
+        /**
+         * Determine the color which the letter tile will use if no default
+         * color is provided.
+         */
+        fun getDefaultColor(context: Context, key: String): Int {
+            val res = context.resources
 
-        return color;
+            val colors = res.obtainTypedArray(R.array.letter_tile_colors)
+            val color: Int = pickColor(key, colors)
+            colors.recycle()
+
+            return color
+        }
     }
 }

@@ -69,8 +69,8 @@
     <string name="options">Opcions</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionat</item>
-        <item quantity="many"><xliff:g>%d</xliff:g> seleccionat</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> seleccionat</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> seleccionats</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> seleccionats</item>
     </plurals>
     <string name="importOptionFilesystemExplanation">Escull un fitxer especific del sistema de fitxers</string>
     <string name="no">No</string>
@@ -264,7 +264,7 @@
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
         <item quantity="many"><xliff:g>%s</xliff:g> punts</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="card">Targeta</string>

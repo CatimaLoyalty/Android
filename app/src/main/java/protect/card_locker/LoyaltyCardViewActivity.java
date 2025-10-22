@@ -69,6 +69,10 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.widget.Toast;
+
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
@@ -915,6 +919,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             dialog.show();
 
             return true;
+        } else if (id == R.id.action_copy_value) {
+            copyValueToClipboard();          // <— helper you added earlier
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -1247,4 +1254,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
     }
+
+    private void copyValueToClipboard() {
+        // Take the value that’s already displayed to the user
+        String value = loyaltyCard.cardId;
+
+        if (value == null || value.isEmpty()) {
+            Toast.makeText(this, R.string.nothing_to_copy, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Card value", value);
+        cm.setPrimaryClip(clip);
+
+        Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+    }
+
 }

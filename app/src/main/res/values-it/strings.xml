@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
-    <string name="noGiftCards">Premi il pulsante + per aggiungere una carta oppure importala dal menù</string>
+    <string name="noGiftCards">Premi il pulsante + per aggiungere una carta oppure importala dal menù ⋮</string>
     <string name="noMatchingGiftCards">Nessun risultato. Prova a cambiare la tua ricerca.</string>
     <string name="storeName">Nome</string>
     <string name="note">Note</string>
@@ -183,7 +183,7 @@
     <string name="report_error">Segnala un errore</string>
     <string name="editGroup">Modifica del gruppo: <xliff:g>%s</xliff:g></string>
     <string name="group_name_is_empty">Il nome del gruppo non deve essere vuoto</string>
-    <string name="noGiftCardsGroup">Crea alcune carte e poi assegnale al gruppo qui.</string>
+    <string name="noGiftCardsGroup">Crea alcune carte e poi assegnale al gruppo qui</string>
     <string name="group_edit">Modifica il gruppo</string>
     <string name="group_name_already_in_use">Il nome del gruppo è già in uso</string>
     <string name="group_updated">Gruppo aggiornato</string>

@@ -63,7 +63,7 @@ public class CatimaImporter implements Importer {
 
         if (zipFile.isValidZipFile()) {
             importedData = importZIP(zipFile);
-        }else {
+        } else {
             // This is not a zip file, try importing as bare CSV
             InputStream input = new FileInputStream(inputFile);
             InputStream bufferedInputStream = new BufferedInputStream(input);
@@ -86,26 +86,27 @@ public class CatimaImporter implements Importer {
             boolean duplicateFound = false;
 
             for (LoyaltyCard existing : candidates) {
-                if (isDuplicate(context, existing, card)) {
+                if (LoyaltyCard.isDuplicate(context, existing, card)) {
                     duplicateFound = true;
                     break;
                 }
             }
-            LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
 
-            if (candidates.isEmpty()) {
+            if (!duplicateFound) {
+                LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
                 if (existing != null && existing.id == card.id) {
-                    long newId = insertCard(context, database, card, true);
+                    long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                            card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                     idMap.put(card.id, (int) newId);
+                    Utils.saveCardImage(context, card.getImageThumbnail(context), (int) newId, ImageLocationType.icon);
+                    Utils.saveCardImage(context, card.getImageFront(context), (int) newId, ImageLocationType.front);
+                    Utils.saveCardImage(context, card.getImageBack(context), (int) newId, ImageLocationType.back);
                 }else{
-                    insertCard(context, database, card, false);
-                }
-            }else if (!duplicateFound) {
-                if (existing != null && existing.id == card.id) {
-                    long newId = insertCard(context, database, card, true);
-                    idMap.put(card.id, (int) newId);
-                }else{
-                    insertCard(context, database, card, false);
+                    DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                            card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                    Utils.saveCardImage(context, card.getImageThumbnail(context), card.id, ImageLocationType.icon);
+                    Utils.saveCardImage(context, card.getImageFront(context), card.id, ImageLocationType.front);
+                    Utils.saveCardImage(context, card.getImageBack(context), card.id, ImageLocationType.back);
                 }
             }
         }
@@ -124,29 +125,6 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card) {
-        if (!LoyaltyCard.isDuplicate(context, existing, card)) {
-            return false;
-        }
-        return true;
-    }
-
-    private long insertCard(Context context, SQLiteDatabase database, LoyaltyCard card, boolean newCard) throws IOException{
-        long newId = 0;
-        if (newCard){
-            newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
-        }else {
-            DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
-                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
-        }
-        Utils.saveCardImage(context, card.getImageThumbnail(context), card.id, ImageLocationType.icon);
-        Utils.saveCardImage(context, card.getImageFront(context), card.id, ImageLocationType.front);
-        Utils.saveCardImage(context, card.getImageBack(context), card.id, ImageLocationType.back);
-
-        return newId;
-    }
-
     public ImportedData importCSV(InputStream input) throws IOException, FormatException, InterruptedException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
@@ -163,7 +141,7 @@ public class CatimaImporter implements Importer {
 
     public ImportedData importZIP(ZipFile zipFile) throws IOException, FormatException, InterruptedException {
         FileHeader fileHeader = zipFile.getFileHeader("catima.csv");
-        if (fileHeader == null){
+        if (fileHeader == null) {
             throw new FormatException("No imported data");
         }
 

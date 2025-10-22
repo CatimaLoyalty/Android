@@ -609,8 +609,8 @@ public class LoyaltyCard {
             return a.sameAs(b);
         }
 
-        return false;
         // One is null and the other isn't, so it's not equal
+        return false;
     }
 
     @NonNull

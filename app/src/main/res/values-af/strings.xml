@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="action_search">Soek</string>
+    <string name="action_add">Voeg by</string>
+    <string name="save">Stoor</string>
 </resources>

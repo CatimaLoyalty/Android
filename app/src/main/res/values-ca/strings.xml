@@ -12,7 +12,7 @@
     <string name="action_search">Cerca</string>
     <string name="deleteTitle">Elimina la targeta</string>
     <string name="welcome">Benvingut a Catima</string>
-    <string name="noGiftCards">Cliqueu el botó + més per afegir una targeta, o importeu-ne des del ⋮ menú.</string>
+    <string name="noGiftCards">Fue clic al botó + per afegir una targeta, o importeu-la des del menú ⋮</string>
     <string name="photos">Fotos</string>
     <string name="app_name">Catima</string>
     <string name="moveDown">Baixar abaix</string>
@@ -69,8 +69,8 @@
     <string name="options">Opcions</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionat</item>
-        <item quantity="many"><xliff:g>%d</xliff:g> seleccionats</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> seleccionats</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> seleccionat</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> seleccionat</item>
     </plurals>
     <string name="importOptionFilesystemExplanation">Escull un fitxer especific del sistema de fitxers</string>
     <string name="no">No</string>
@@ -172,7 +172,7 @@
     <string name="cardShortcut">Drecera a la targeta</string>
     <string name="noCardsMessage">Afegeix primer una targeta</string>
     <string name="noCardExistsError">No s\'ha pogut trobar aquesta targeta</string>
-    <string name="failedParsingImportUriError">No s\'ha pogut analitzar la URI d\'importació</string>
+    <string name="failedParsingImportUriError">No s\'ha pogut analitzar l\'URI d\'importació</string>
     <string name="openFrontImageInGalleryApp">Obrir la imatge frontal a l\'app de galeria</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilitza els botons de volum per canviar la targeta que es mostra</string>
     <string name="updateBarcodeQuestionText">Ha canviat el valor ID. Vol actualitzar també el codi de barres per uter utilitzar el mateix valor?</string>

@@ -99,6 +99,7 @@
     -->
     <string-array name="locale_values">
         <item />
+        <!-- <item>af</item> -->
         <item>ar</item>
         <!-- <item>ast</item> -->
         <item>be</item>
@@ -121,6 +122,7 @@
         <item>fi</item>
         <!-- <item>fil</item> -->
         <item>fr</item>
+        <!-- <item>fy</item> -->
         <item>gl</item>
         <item>he-rIL</item>
         <item>hi</item>

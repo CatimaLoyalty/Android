@@ -12,7 +12,7 @@
     <string name="action_search">Cerca</string>
     <string name="deleteTitle">Elimina la targeta</string>
     <string name="welcome">Benvingut a Catima</string>
-    <string name="noGiftCards">Fue clic al botó + per afegir una targeta, o importeu-la des del menú ⋮</string>
+    <string name="noGiftCards">Fes clic al botó + per afegir una targeta, o importa des del menú ⋮</string>
     <string name="photos">Fotos</string>
     <string name="app_name">Catima</string>
     <string name="moveDown">Baixar abaix</string>
@@ -96,8 +96,8 @@
     </plurals>
     <string name="importCancelled">Importació anulada</string>
     <string name="exportCancelled">Exportació cancelada</string>
-    <string name="noGiftCardsGroup">Crea algunes targetes, asigna-les en un grup aquí</string>
-    <string name="noMatchingGiftCards">Sense resultats. Prova a canviar la teva cerca.</string>
+    <string name="noGiftCardsGroup">Crea algunes targetes i després asigna-les en al grup aquí</string>
+    <string name="noMatchingGiftCards">No hi ha resultats; prova de modificar la cerca.</string>
     <string name="storeName">Nom</string>
     <string name="note">Nota</string>
     <string name="cardId">Id. de la Targeta</string>

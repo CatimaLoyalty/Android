@@ -39,7 +39,7 @@ org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric",
 
 [plugins]
 com-android-application = { id = "com.android.application", version = "8.13.0" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.20" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.21" }
 
 [bundles]
 acra = ["ch-acra-acra-mail", "ch-acra-acra-dialog"]

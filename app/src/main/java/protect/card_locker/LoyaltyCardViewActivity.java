@@ -38,6 +38,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -57,6 +58,7 @@ import com.google.zxing.BarcodeFormat;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -86,6 +88,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     String cardIdString;
     String barcodeIdString;
     CatimaBarcode format;
+    @Nullable
+    Charset barcodeEncoding;
 
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
@@ -685,6 +689,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         format = loyaltyCard.barcodeType;
         cardIdString = loyaltyCard.cardId;
         barcodeIdString = loyaltyCard.barcodeId;
+        barcodeEncoding = loyaltyCard.barcodeEncoding;
 
         binding.mainImageDescription.setText(loyaltyCard.cardId);
 
@@ -946,6 +951,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     barcodeRenderTarget,
                     barcodeIdString != null ? barcodeIdString : cardIdString,
                     format,
+                    barcodeEncoding,
                     null,
                     false,
                     this,

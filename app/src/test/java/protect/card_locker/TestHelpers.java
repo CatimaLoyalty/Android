@@ -21,27 +21,28 @@ public class TestHelpers {
         SQLiteDatabase database = db.getWritableDatabase();
 
         // Make sure no files remain
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(database);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            int cardID = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
+        try(Cursor cursor = DBHelper.getLoyaltyCardCursor(database)){
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                int cardID = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
 
-            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
-                try {
-                    Utils.saveCardImage(context.getApplicationContext(), null, cardID, imageLocationType);
-                } catch (FileNotFoundException ignored) {
+                for (ImageLocationType imageLocationType : ImageLocationType.values()) {
+                    try {
+                        Utils.saveCardImage(context.getApplicationContext(), null, cardID, imageLocationType);
+                    } catch (FileNotFoundException ignored) {
+                    }
                 }
+
+                cursor.moveToNext();
             }
 
-            cursor.moveToNext();
+            // Make sure DB is empty
+            database.execSQL("delete from " + DBHelper.LoyaltyCardDbIds.TABLE);
+            database.execSQL("delete from " + DBHelper.LoyaltyCardDbGroups.TABLE);
+            database.execSQL("delete from " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
+
+            return db;
         }
-
-        // Make sure DB is empty
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbIds.TABLE);
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbGroups.TABLE);
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
-
-        return db;
     }
 
     /**

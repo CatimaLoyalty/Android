@@ -17,6 +17,7 @@ import android.os.Looper;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,10 +38,11 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,6 +56,7 @@ import protect.card_locker.importexport.MultiFormatImporter;
 @RunWith(RobolectricTestRunner.class)
 public class ImportExportTest {
     private Activity activity;
+    private DBHelper mDbHelper;
     private SQLiteDatabase mDatabase;
 
     private final String BARCODE_DATA = "428311627547";
@@ -64,7 +67,17 @@ public class ImportExportTest {
         ShadowLog.stream = System.out;
 
         activity = Robolectric.setupActivity(MainActivity.class);
-        mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        mDbHelper = TestHelpers.getEmptyDb(activity);
+        mDatabase = mDbHelper.getWritableDatabase();
+    }
+
+    @After
+    public void tearDown() {
+        // This method runs after every test and is the perfect place to clean up.
+        // Closing the helper will also close the underlying database connection.
+        if (mDbHelper != null) {
+            mDbHelper.close();
+        }
     }
 
     private void addLoyaltyCardsFiveStarred() {
@@ -107,7 +120,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, Instant.ofEpochMilli(1L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -115,7 +128,7 @@ public class ImportExportTest {
         assertEquals("Past", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
-        assertTrue(card.expiry.before(new Date()));
+        assertTrue(card.expiry.isBefore(Instant.now()));
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
@@ -124,7 +137,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, Instant.now(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -132,8 +145,8 @@ public class ImportExportTest {
         assertEquals("Today", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
-        assertTrue(card.expiry.before(new Date(new Date().getTime() + 86400)));
-        assertTrue(card.expiry.after(new Date(new Date().getTime() - 86400)));
+        assertTrue(card.expiry.isBefore(Instant.now().plus(1L, ChronoUnit.DAYS)));
+        assertTrue(card.expiry.isAfter(Instant.now().minus(1L, ChronoUnit.DAYS)));
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
@@ -144,7 +157,7 @@ public class ImportExportTest {
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, Instant.ofEpochMilli(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -152,7 +165,7 @@ public class ImportExportTest {
         assertEquals("Future", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
-        assertTrue(card.expiry.after(new Date(new Date().getTime() + 86400)));
+        assertTrue(card.expiry.isAfter(Instant.now().plus(1L, ChronoUnit.DAYS)));
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
@@ -830,7 +843,7 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
+        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", Instant.ofEpochMilli(1601510400000L), Instant.ofEpochMilli(1618053234000L), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
@@ -954,8 +967,8 @@ public class ImportExportTest {
 
         assertEquals("Card 1", card1.store);
         assertEquals("Note 1", card1.note);
-        assertEquals(new Date(1601510400), card1.validFrom);
-        assertEquals(new Date(1618053234), card1.expiry);
+        assertEquals(Instant.parse("2020-10-01T00:00:00Z"), card1.validFrom);
+        assertEquals(Instant.parse("2021-04-10T11:13:54Z"), card1.expiry);
         assertEquals(new BigDecimal("100"), card1.balance);
         assertEquals(Currency.getInstance("USD"), card1.balanceType);
         assertEquals("1234", card1.cardId);
@@ -989,7 +1002,7 @@ public class ImportExportTest {
         assertEquals("Department Store", card2.store);
         assertEquals("", card2.note);
         assertEquals(null, card2.validFrom);
-        assertEquals(new Date(1618041729), card2.expiry);
+        assertEquals(Instant.parse("2021-04-10T08:02:09Z"), card2.expiry);
         assertEquals(new BigDecimal("0"), card2.balance);
         assertEquals(null, card2.balanceType);
         assertEquals("A", card2.cardId);
@@ -1151,7 +1164,7 @@ public class ImportExportTest {
         assertEquals("Department Store", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
-        assertEquals(new Date(1616716800000L), card.expiry);
+        assertEquals(Instant.ofEpochMilli(1616716800000L), card.expiry);
         assertEquals(new BigDecimal("3.5"), card.balance);
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("26846363", card.cardId);

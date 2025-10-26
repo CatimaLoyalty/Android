@@ -296,4 +296,12 @@
     <string name="width">அகலம்</string>
     <string name="card_list_widget_name">அட்டை பட்டியல்</string>
     <string name="card_list_widget_empty">கேட்டிமாவில் நீங்கள் விசுவாச அட்டைகளை சேர்த்த பிறகு, அவை இங்கு தோன்றும். அட்டைகள் காப்பகப்படுத்த படவில்லை என உறுதி செய்க.</string>
+    <string name="cardWithNumber">அட்டை<xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">அட்டை<xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">தயவுசெய்து சாதனத்தை சுழற்றாதீர்கள், இது செயலை ரத்து செய்யும்.</string>
+    <string name="acra_catima_has_crashed">மன்னிக்கவும், <xliff:g id="app_name">%s</xliff:g> செயலி செயலிழந்துள்ளது. தயவுசெய்து பிழை அறிக்கையை அனுப்பி, இந்த பிரச்சினையை சரிசெய்ய எங்களுக்கு உதவுங்கள்.</string>
+    <string name="acra_explain_crash">சாத்தியமானால், நீங்கள் இங்கே என்ன செய்தீர்கள் என்பதைப் பற்றிய மேலும் விவரங்களைச் சேர்க்கவும்:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> செயலிழப்பு அறிக்கை</string>
+    <string name="pref_enable_acra">செயலிழப்பு அறிக்கைகளை அனுப்ப வேண்டுமா</string>
+    <string name="pref_enable_acra_summary">இது இயக்கப்பட்டால், செயலி செயலிழக்கும் போது அதைப் பற்றிய அறிக்கையை அனுப்பும்படி உங்களிடம் கேட்கப்படும். செயலிழப்பு அறிக்கைகள் ஒருபோதும் தானாக அனுப்பப்படமாட்டாது.</string>
 </resources>

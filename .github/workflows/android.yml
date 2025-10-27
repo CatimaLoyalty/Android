@@ -66,7 +66,7 @@ jobs:
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
       - name: Archive test results
         if: always()
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v5.0.0
         with:
           name: test-results-flavor${{ matrix.flavor }}
           path: app/build/reports

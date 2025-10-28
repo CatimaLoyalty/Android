@@ -132,9 +132,9 @@
     <string name="importCatimaMessage">Selecione a exportação <i>catima.zip</i> do Catima a importar. \nPrimeiro crie a exportação no menu \"Importar / exportar\" de outra aplicação Catima pressionando \"Exportar\" nesse menu.</string>
     <string name="importFidme">Importar do FidMe</string>
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Selecione a exportação <i>LoyaltyCardKeychain.csv</i> do Loyalty Card Keychain para importar. \nPrimeiro crie a exportação no menu \"Importar / exportar\" no Loyalty Card Keychain pressionando \"Exportar\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Selecione a exportação do Loyalty Card Keychain a importar. \nCrie a exportação no menu \"Importar/exportar\" no Loyalty Card Keychain a pressionar \"Exportar\".</string>
     <string name="importVoucherVault">Importar do Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar. \nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Selecione a exportação do Voucher Vault a importar. \nCrie-a a pressionar a opção Exportar no Voucher Vault.</string>
     <string name="unsupportedBarcodeType">Este tipo de código de barras ainda não pode ser mostrado. Pode vir a ser suportado numa versão posterior da aplicação.</string>
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem de trás</string>
@@ -152,7 +152,7 @@
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
     <string name="sort_by_name">Nome</string>
-    <string name="sort_by_most_recently_used">Mais usados recentemente</string>
+    <string name="sort_by_most_recently_used">Mais recentemente utilizado</string>
     <string name="sort_by_expiry">Validade</string>
     <string name="reverse">…na ordem inversa</string>
     <string name="sort_by">Ordenar por</string>
@@ -208,7 +208,7 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Não foi encontrada nenhuma aplicação de galeria de imagens</string>
+    <string name="failedLaunchingPhotoPicker">Não foi possível encontrar um seletor de imagens compatível</string>
     <string name="nextCard">Próximo</string>
     <string name="previousCard">Anterior</string>
     <string name="failedToOpenUrl">Instale primeiro um navegador de Internet</string>
@@ -233,8 +233,8 @@
     <string name="height">Altura</string>
     <string name="switchToBackImage">Mudar para a imagem de trás</string>
     <string name="switchToBarcode">Mudar para o código de barras</string>
-    <string name="openFrontImageInGalleryApp">Abrir a imagem frontal na aplicação da galeria</string>
-    <string name="openBackImageInGalleryApp">Abrir a imagem traseira na aplicação da galeria</string>
+    <string name="openFrontImageInGalleryApp">Abrir imagem frontal na app visualizadora de imagens</string>
+    <string name="openBackImageInGalleryApp">Abrir imagem traseira na app visualizadora de imagens</string>
     <string name="setBarcodeHeight">Definir altura do código de barras</string>
     <string name="donate">Doar</string>
     <string name="show_validity">Mostrar validade</string>
@@ -268,7 +268,7 @@
     <string name="app_name">Catima</string>
     <string name="continue_">Continuar</string>
     <string name="add_manually_warning_title">Recomenda-se a digitalização</string>
-    <string name="add_manually_warning_message">Em algumas lojas, o valor do código de barras é diferente do número escrito no cartão. Por este motivo, a introdução manual de um código de barras pode nem sempre funcionar. Recomenda-se vivamente que, em vez disso, digitalize o código de barras com a sua câmara. Ainda quer continuar?</string>
+    <string name="add_manually_warning_message">Em alguns cartões, o valor do código de barras é diferente do número escrito no cartão. Por este motivo, a introdução manual de um código de barras pode nem sempre funcionar. Recomenda-se que, em vez disso, digitalizar o código de barras com a sua câmara. Ainda quer continuar?</string>
     <string name="spend">Gastar</string>
     <string name="receive">Receber</string>
     <string name="amountParsingFailed">Montante inválido</string>
@@ -276,7 +276,7 @@
     <string name="errorReadingFile">Não foi possível ler o ficheiro</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Qual dos códigos de barras encontrados pretende utilizar?</string>
     <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
-    <string name="failedLaunchingFileManager">Não foi possível encontrar um gestor de ficheiros suportado</string>
+    <string name="failedLaunchingFileManager">Não foi possível encontrar um gestor de ficheiros apoiado</string>
     <string name="noCameraFoundGuideText">O seu dispositivo não parece ter uma câmara. Se tiver, tente reiniciar o dispositivo. Caso contrário, utilize o botão \"Mais opções\" abaixo para adicionar um código de barras de outra maneira.</string>
     <string name="importCancelled">Importação cancelada</string>
     <string name="exportCancelled">Exportação cancelada</string>

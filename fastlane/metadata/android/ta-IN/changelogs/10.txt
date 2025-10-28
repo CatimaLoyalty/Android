@@ -1,0 +1,3 @@
+இயல்புநிலை இறக்குமதி/ஏற்றுமதி கோப்பு பெயர் மாற்றப்பட்டது. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+இறக்குமதி/ஏற்றுமதி பக்கத்தில் சரியான சரம் (string) திருத்தப்பட்டது. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+அட்டை பார்வை (card view) பக்கத்தின் வடிவமைப்பு மேம்படுத்தப்பட்டது. எழுத்துகள் படிக்க எளிதாகவும், நீண்ட அழுத்தத்தில் தேர்ந்தெடுக்கக் கூடியவையாகவும் மாற்றப்பட்டுள்ளன. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91)

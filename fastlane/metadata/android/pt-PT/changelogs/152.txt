@@ -1,1 +1,3 @@
 - Adicionar apoio para ficheiros de .pkpasses
+- Remover o importador de Stocard (o Stocard já não existe)
+- Desativar temporariamente as imagens do widget abaixo do Android 12L (solução alternativa para um problema de falha)

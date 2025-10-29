@@ -29,12 +29,10 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.zxing.DecodeHintType
 import com.google.zxing.ResultPoint
-import com.google.zxing.client.android.Intents
 import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.CaptureManager
@@ -72,6 +70,7 @@ class ScanActivity : CatimaAppCompatActivity() {
     private var torch = false
 
     private lateinit var manualAddLauncher: ActivityResultLauncher<Intent>
+    // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private lateinit var photoPickerLauncher: ActivityResultLauncher<Intent>
     private lateinit var pdfPickerLauncher: ActivityResultLauncher<Intent>
     private lateinit var pkpassPickerLauncher: ActivityResultLauncher<Intent>

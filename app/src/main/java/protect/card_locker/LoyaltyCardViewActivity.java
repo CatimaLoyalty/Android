@@ -69,6 +69,10 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.widget.Toast;
+
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
@@ -704,7 +708,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.cardId);
             builder.setView(cardIdView);
-            builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+            builder.setPositiveButton(R.string.copy_value, (dialog, which) -> {
+                ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                cm.setPrimaryClip(ClipData.newPlainText("QR value", loyaltyCard.cardId));
+                // Optional app toast; comment out if you rely on Android's privacy toast only
+                Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+            });
+            builder.setNegativeButton(android.R.string.ok, (dialog, which) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
         });
@@ -914,6 +924,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             AlertDialog dialog = builder.create();
             dialog.show();
 
+            return true;
+        } else if (id == R.id.action_copy_value) {
+            copyValueToClipboard();          // <— helper you added earlier
             return true;
         }
 
@@ -1247,4 +1260,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
     }
+
+    private void copyValueToClipboard() {
+        // Take the value that’s already displayed to the user
+        String value = loyaltyCard.cardId;
+
+        if (value == null || value.isEmpty()) {
+            Toast.makeText(this, R.string.nothing_to_copy, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Card value", value);
+        cm.setPrimaryClip(clip);
+
+        Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+    }
+
 }

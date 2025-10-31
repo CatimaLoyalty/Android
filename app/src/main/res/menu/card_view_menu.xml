@@ -28,6 +28,11 @@
                 app:showAsAction="never" />
 
             <item
+                android:id="@+id/action_copy_value"
+                android:title="@string/copy_value"
+                app:showAsAction="ifRoom" />
+
+            <item
                 android:id="@+id/action_archive"
                 android:title="@string/archive"
                 app:showAsAction="never"/>

@@ -1,15 +1,15 @@
-Deje de buscar tarjetas de recompensa de plástico al pasar por caja en tiendas o tiendas web.
+Deja de buscar tarjetas de recompensa de plástico al pasar por caja en la tienda o tienda web.
 <b>Escanea códigos de barras en tu dispositivo usando su cámara, olvídate de las tarjetas.</b>
 
-Olvídese de la cartera, o manténgala ultraligera para los objetos de valor.
+Olvida tu cartera, o manténla ultraligera para los objetos de valor.
 
-Con esta herramienta esencial para llevar a diario (EDC) puede sustituir el plástico inútil por dinero en efectivo.
+Con esta herramienta esencial para llevar a diario (EDC), puedes sustituir el plástico inútil por dinero en efectivo.
 
-- Evite espiar con muy pocos permisos. Sin acceso a Internet y sin anuncios.
-- Añadir tarjetas o códigos con nombres y colores personalizables.
+- Evita espiar con muy pocos permisos. Sin acceso a Internet y sin anuncios.
+- Añade tarjetas o códigos con nombres y colores personalizables.
 - Entrada manual de código si no hay código de barras para almacenar, o no se puede utilizar.
-- Importar tarjetas y códigos de archivos, Catima, FidMe, Loyalty Card Keychain, Stocard y Voucher Vault.
-- Haga una copia de seguridad de todas sus tarjetas y transferirlas a un nuevo dispositivo si lo desea.
+- Importa tarjetas y códigos de archivos, Catima, FidMe, Loyalty Card Keychain, Stocard y Voucher Vault.
+- Haz una copia de seguridad de todas tus tarjetas y transfiérelas a un nuevo dispositivo si lo deseas.
 - Comparte cupones, ofertas exclusivas, códigos promocionales o tarjetas y códigos utilizando cualquier aplicación.
 - Tema oscuro y opciones de accesibilidad para usuarios con problemas de visión.
 - Hecho para todos por la comunidad del software libre.
@@ -18,5 +18,5 @@ Con esta herramienta esencial para llevar a diario (EDC) puede sustituir el plá
 - Utilízala, estúdiala, modifícala y compártela como quieras; <i>con todos</i>.
 - No sólo Software Libre / Open Source. <i>Copylefted</i> software libre (GPLv3+) gestión de tarjetas.
 
-Simplifique su vida y sus compras, y no vuelva a perder un recibo en papel, una tarjeta regalo de pago en tienda o un billete de avión.
+Simplifica tu vida y tus compras, y no vuelvas a perder un recibo en papel, una tarjeta regalo de pago en tienda o un billete de avión.
 Llévate todos tus premios y bonificaciones contigo y ahorra sobre la marcha.

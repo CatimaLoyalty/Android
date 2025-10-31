@@ -12,20 +12,24 @@ NC='\033[0m'    # No Color
 # Vars
 SUCCESS=1
 CANONICAL_TITLE="Catima"
-ALLOWLIST_TITLE_TXT=("ar" "fa-IR" "he-IL" "hi-IN" "kn-IN" "zh-TW")
-ALLOWLIST_STRING_XML=("ar" "ast" "bn" "bn-rIN" "bs" "cy" "fa" "he-rIL" "hi" "is" "iw" "kn" "lb" "ml" "mr" "oc" "ta" "zh-rTW")
+ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mrx" "ta" "zh-rTW" "zh-TW")
 
-# Arguments:
-#   $1: LANG
-#   $2: APP_NAME
-#   $3: FILE
+function get_lang() {
+    LANG=$(echo "$FILE" | LC_ALL=C perl -nE "say \$2 if /.*\/(values-)?(?!values)([a-zA-Z-]+)\/($1)/")  # LC_ALL=C to suppress perl warning.
+    LANG=${LANG:-en}
+}
+
 function check() {
-    if [[ ! -s $3 || -z $2 ]]; then
-        echo -e "${RED}Error: ${LIGHTCYAN}app_name/title is missing or file is empty in $3 ($1). ${NC}"
-        SUCCESS=0
+    if [[ ${ALLOWLIST[@]} =~ ${LANG} || -z ${APP_NAME} ]]; then
+        return 0
 
-    elif [[ ! $2 =~ ^${CANONICAL_TITLE} ]]; then
-        echo -e "${RED}Error: ${LIGHTCYAN}app_name/title in $3 ($1) is ${RED}'$2'${LIGHTCYAN}, expected to start with ${GREEN}'$CANONICAL_TITLE'. ${NC}"
+    elif [[ ! ${APP_NAME} =~ ^${CANONICAL_TITLE} ]]; then
+        if [[ ${FILE} =~ "title.txt" ]]; then
+            echo -e "${RED}Error: ${LIGHTCYAN}title in $FILE ($LANG) is ${RED}'$APP_NAME'${LIGHTCYAN}, expected to start with ${GREEN}'$CANONICAL_TITLE'. ${NC}"
+        else
+            echo -e "${RED}Error: ${LIGHTCYAN}app_name in $FILE ($LANG) is ${RED}'$APP_NAME'${LIGHTCYAN}, expected ${GREEN}'$CANONICAL_TITLE'. ${NC}"
+        fi
+
         SUCCESS=0
     fi
 }
@@ -33,31 +37,19 @@ function check() {
 echo -e "${LIGHTCYAN}Checking title.txt's. ${NC}"
 
 find fastlane/metadata/android/* -maxdepth 1 -type f -name "title.txt" | while read FILE; do
-    LANG=$(echo $FILE | sed -n 's|.*/\([^/]*\)/title.txt|\1|p')
-    LANG=${LANG:-en}
-
     APP_NAME=$(head -n 1 $FILE)
 
-    if [[ ${ALLOWLIST_TITLE_TXT[@]} =~ ${LANG} ]]; then
-        continue
-    fi
-
-    check "$LANG" "$APP_NAME" "$FILE"
+    get_lang "title.txt"
+    check
 done
 
 echo -e "${LIGHTCYAN}Checking string.xml's. ${NC}"
 
 find app/src/main/res/values* -maxdepth 1 -type f -name "strings.xml" | while read FILE; do
-    LANG=$(echo "$FILE" | sed -n 's|.*/values-\([^/]*\)/strings.xml|\1|p')
-    LANG=${LANG:-en}
-
     APP_NAME=$(grep -oP '<string name="app_name">\K[^<]+' "$FILE" | head -n1)
 
-    if [[ " ${ALLOWLIST_STRING_XML[@]} " =~ " ${LANG} " ]]; then
-        continue
-    fi
-
-    check "$LANG" "$APP_NAME" "$FILE"
+    get_lang "strings.xml"
+    check
 done
 
 if [[ $SUCCESS -eq 1 ]]; then

@@ -12,11 +12,13 @@ NC='\033[0m'    # No Color
 # Vars
 SUCCESS=1
 CANONICAL_TITLE="Catima"
-ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mrx" "ta" "zh-rTW" "zh-TW")
+ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mrx" "ta" "ta-IN" "zh-rTW" "zh-TW")
 
 function get_lang() {
-    LANG=$(echo "$FILE" | LC_ALL=C perl -nE "say \$2 if /.*\/(values-)?(?!values)([a-zA-Z-]+)\/($1)/")  # LC_ALL=C to suppress perl warning.
-    LANG=${LANG:-en}
+    LANG_DIRNAME=$(dirname $FILE | xargs basename)
+    LANG=${LANG_DIRNAME#values-}    # Fetch lang name
+    LANG=${LANG#values}             # Handle "app/src/main/res/values"
+    LANG=${LANG:-en}                # Default to en
 }
 
 function check() {
@@ -39,7 +41,7 @@ echo -e "${LIGHTCYAN}Checking title.txt's. ${NC}"
 find fastlane/metadata/android/* -maxdepth 1 -type f -name "title.txt" | while read FILE; do
     APP_NAME=$(head -n 1 $FILE)
 
-    get_lang "title.txt"
+    get_lang
     check
 done
 
@@ -48,7 +50,7 @@ echo -e "${LIGHTCYAN}Checking string.xml's. ${NC}"
 find app/src/main/res/values* -maxdepth 1 -type f -name "strings.xml" | while read FILE; do
     APP_NAME=$(grep -oP '<string name="app_name">\K[^<]+' "$FILE" | head -n1)
 
-    get_lang "strings.xml"
+    get_lang
     check
 done
 

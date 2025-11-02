@@ -1,0 +1,1 @@
+- Preparations for future improvements (rewrote many classes to Kotlin)

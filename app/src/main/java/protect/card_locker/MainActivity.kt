@@ -105,6 +105,24 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     inputMode.finish()
                     return true
                 }
+                R.id.action_duplicate -> {
+                    require(mAdapter.selectedItemCount == 1) { "Cannot duplicate more than 1 card at a time" }
+
+                    startActivity(
+                        Intent(applicationContext, LoyaltyCardEditActivity::class.java).apply {
+                            putExtras(Bundle().apply {
+                                putInt(
+                                    LoyaltyCardEditActivity.BUNDLE_ID,
+                                    mAdapter.getSelectedItems()[0].id
+                                )
+                                putBoolean(LoyaltyCardEditActivity.BUNDLE_DUPLICATE_ID, true)
+                            })
+                        }
+                    )
+
+                    inputMode.finish()
+                    return true
+                }
                 R.id.action_delete -> {
                     MaterialAlertDialogBuilder(this@MainActivity).apply {
                         // The following may seem weird, but it is necessary to give translators enough flexibility.
@@ -824,6 +842,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             )
 
             val editItem = mCurrentActionMode!!.menu.findItem(R.id.action_edit)
+            val duplicateItem = mCurrentActionMode!!.menu.findItem(R.id.action_duplicate)
             val archiveItem = mCurrentActionMode!!.menu.findItem(R.id.action_archive)
             val unarchiveItem = mCurrentActionMode!!.menu.findItem(R.id.action_unarchive)
             val starItem = mCurrentActionMode!!.menu.findItem(R.id.action_star)
@@ -861,12 +880,16 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 unstarItem.isVisible = !hasUnstarred
                 editItem.isVisible = true
                 editItem.isEnabled = true
+                duplicateItem.isVisible = true
+                duplicateItem.isEnabled = true
             } else {
                 starItem.isVisible = hasUnstarred
                 unstarItem.isVisible = hasStarred
 
                 editItem.isVisible = false
                 editItem.isEnabled = false
+                duplicateItem.isVisible = false
+                duplicateItem.isEnabled = false
             }
 
             mCurrentActionMode!!.invalidate()

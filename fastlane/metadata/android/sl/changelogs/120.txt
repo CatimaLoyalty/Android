@@ -1,0 +1,3 @@
+- Popolna prenova zaslona za glavno kartico in kartico zvestobe
+- Oblikovanje Material You za zaslon nastavitev
+- Popravek napake pri uporabi funkcije »Posnemi fotografijo« z onemogočeno aplikacijo za kamero

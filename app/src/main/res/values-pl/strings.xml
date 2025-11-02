@@ -34,7 +34,7 @@
     <string name="importing">Importowanie…</string>
     <string name="exporting">Eksportowanie…</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
-    <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
+    <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
     <string name="about">O aplikacji</string>
     <string name="app_license">Wolne oprogramowanie typu copyleft, na licencji GPLv3+</string>
@@ -174,8 +174,8 @@
     <string name="sort_by">Sortuj według</string>
     <string name="credits">Podziękowania</string>
     <string name="help_translate_this_app">Pomóż przetłumaczyć tę aplikację</string>
-    <string name="source_repository">Repozytorium Źródłowe</string>
-    <string name="report_error">Zgłoś Błąd</string>
+    <string name="source_repository">Repozytorium źródłowe</string>
+    <string name="report_error">Zgłoś błąd</string>
     <string name="setIcon">Ustaw miniaturę</string>
     <string name="on_github">na GitHub\'ie</string>
     <string name="selectColor">Wybierz kolor</string>
@@ -243,10 +243,10 @@
     <string name="switchToFrontImage">Przełącz na obraz z przodu</string>
     <string name="switchToBackImage">Przełącz na obraz z tyłu</string>
     <string name="switchToBarcode">Przełącz na kod kreskowy</string>
-    <string name="openFrontImageInGalleryApp">Otwórz obraz z przodu w aplikacji galeria</string>
+    <string name="openFrontImageInGalleryApp">Otwórz obraz z przodu w galerii</string>
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>
-    <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
+    <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w galerii</string>
     <string name="icon_header_click_text">Przytrzymaj, aby edytować miniaturę</string>
     <string name="show_name_below_image_thumbnail">Pokaż nazwę pod miniaturką zdjęcia</string>
     <string name="show_balance">Pokaż balans</string>

@@ -12,7 +12,7 @@
     <string name="action_search">Cerca</string>
     <string name="deleteTitle">Elimina la targeta</string>
     <string name="welcome">Benvingut a Catima</string>
-    <string name="noGiftCards">Cliqueu el botó + més per afegir una targeta, o importeu-ne des del ⋮ menú.</string>
+    <string name="noGiftCards">Fes clic al botó + per afegir una targeta, o importa des del menú ⋮</string>
     <string name="photos">Fotos</string>
     <string name="app_name">Catima</string>
     <string name="moveDown">Baixar abaix</string>
@@ -24,9 +24,9 @@
     <string name="on_google_play">al Google Play</string>
     <string name="settings_locale">Idioma</string>
     <string name="field_must_not_be_empty">El camp no pot estar buit</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i contribuïdors</string>
-    <string name="app_copyright_short">Copyright © Sylvia van Os i contribuïdors</string>
-    <string name="app_license">Software lliure Copyleft, licència GPLv3+</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i col·laboradors</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os i col·laboradors</string>
+    <string name="app_license">Programari lliure Copyleft, licència GPLv3+</string>
     <string name="app_resources">Recursos de tercers: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Estrella de preferides</string>
@@ -58,10 +58,10 @@
     <string name="exportOptionExplanation">La informació serà escrita al lloc de la seva elecció</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de fitxers</string>
     <string name="importOptionFilesystemButton">Desde el sistema de fitxers</string>
-    <string name="selectBarcodeTitle">Sel•lecciona el codi de barres</string>
+    <string name="selectBarcodeTitle">Selecciona el codi de barres</string>
     <string name="importSuccessful">Dades importades correctament</string>
     <string name="exportSuccessful">Dades exportades correctament</string>
-    <string name="failedOpeningFileManager">Instala un gestor de fitxers.</string>
+    <string name="failedOpeningFileManager">No s\'ha pogut obrir el gestor de fitxers</string>
     <string name="showMoreInfo">Mostrar informació</string>
     <string name="version_history">Històric de versions</string>
     <string name="sort_by">Ordenar per</string>
@@ -96,8 +96,8 @@
     </plurals>
     <string name="importCancelled">Importació anulada</string>
     <string name="exportCancelled">Exportació cancelada</string>
-    <string name="noGiftCardsGroup">Crea algunes targetes, asigna-les en un grup aquí</string>
-    <string name="noMatchingGiftCards">Sense resultats. Prova a canviar la teva cerca.</string>
+    <string name="noGiftCardsGroup">Crea algunes targetes i després asigna-les en al grup aquí</string>
+    <string name="noMatchingGiftCards">No hi ha resultats; prova de modificar la cerca.</string>
     <string name="storeName">Nom</string>
     <string name="note">Nota</string>
     <string name="cardId">Id. de la Targeta</string>
@@ -172,7 +172,7 @@
     <string name="cardShortcut">Drecera a la targeta</string>
     <string name="noCardsMessage">Afegeix primer una targeta</string>
     <string name="noCardExistsError">No s\'ha pogut trobar aquesta targeta</string>
-    <string name="failedParsingImportUriError">No s\'ha pogut analitzar la URI d\'importació</string>
+    <string name="failedParsingImportUriError">No s\'ha pogut analitzar l\'URI d\'importació</string>
     <string name="openFrontImageInGalleryApp">Obrir la imatge frontal a l\'app de galeria</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilitza els botons de volum per canviar la targeta que es mostra</string>
     <string name="updateBarcodeQuestionText">Ha canviat el valor ID. Vol actualitzar també el codi de barres per uter utilitzar el mateix valor?</string>
@@ -227,7 +227,7 @@
     <string name="addFromPkpass">Seleccioni el fitxer Passbook (.pkpass)</string>
     <string name="unsupportedFile">Aquest fitxer no està soportat</string>
     <string name="settings_use_volume_keys_navigation">Canviar les targetes al prèmer els botons de volum</string>
-    <string name="noGroups">Clica el botó + per afegir grups per categoritzar.</string>
+    <string name="noGroups">Feu clic al botó + més per aferir grups pre categoritzar</string>
     <string name="noGroupCards">Aquest grup està buit</string>
     <string name="group_name_already_in_use">Ja existeix un grup amb aquest nom</string>
     <string name="group_updated">Grup actualitzat</string>
@@ -254,5 +254,27 @@
     <string name="cameraPermissionDeniedTitle">No s\'ha pogut accedir a la càmera</string>
     <string name="noCameraPermissionDirectToSystemSetting">Per escanejar codis de barres, Catima necessitarà accés a la teva càmera. Toca aquí per canviar la configuració dels permisos.</string>
     <string name="about">Sobre</string>
-    <string name="app_copyright_old">Clauer basat en la targeta de fidelització\nCopyright © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_old">Clauer basat en na Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer</string>
+    <string name="addManually">Introduïu el codi de barres manualment</string>
+    <string name="addFromImage">Seleccioneu una imatge de la galeria</string>
+    <string name="groupsList">Grups: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Editeu el grup: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Caduca el: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Caducat el: <xliff:g>%s</xliff:g></string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> punts</item>
+        <item quantity="other"/>
+    </plurals>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="card">Targeta</string>
+    <string name="editBarcode">Editeu el codi de barres</string>
+    <string name="expiryDate">Data de caducitat</string>
+    <string name="never">Mai</string>
+    <string name="chooseExpiryDate">Trieu la data de caducitat</string>
+    <string name="moveBarcodeToTopOfScreen">Moveu el codi de barres a la part superior de la pantalla</string>
+    <string name="noBarcodeFound">No s\'ha trobat cap codi de barres</string>
+    <string name="errorReadingImage">No s\'ha pogut llegir la imatge</string>
+    <string name="balance">Saldo</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
 </resources>

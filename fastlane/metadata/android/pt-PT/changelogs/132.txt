@@ -1,5 +1,6 @@
 - Aperfeiçoar o fluxo de trabalho "Adicionar cartão"
 - Melhorias no fluxo de validação
 - Reparo de caso extremo causador de estado inválido da IU ao alternar a exibição do arquivo
-- Use tema ou cor do cartão para a barra de navegação (Android 8.1+)
+- Usar tema ou cor do cartão para a barra de navegação (Android 8.1+)
+- Atualizado seletor de validade e data de expiração
 - Adicionar opção para rodar sempre (ignorando as definições do sistema)

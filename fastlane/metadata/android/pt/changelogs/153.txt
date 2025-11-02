@@ -1,0 +1,4 @@
+- Alvo Android 16
+- Corrigir possível falha após remover imagem do cartão
+- Remover recurso "Orientação do ecrã" (o Google removeu a capacidade de apps controlarem a rotação do ecrã ao ter o Android 16 como alvo)
+- Adicionar relator de falhas à compilação FOSS (não usado na versão do Google Play, apenas em outras lojas de apps)

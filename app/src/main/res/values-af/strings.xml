@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Catima</string>
+    <string name="action_search">Soek</string>
+    <string name="action_add">Voeg by</string>
+    <string name="save">Stoor</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> geselekteer</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> geselekteer</item>
+    </plurals>
+</resources>

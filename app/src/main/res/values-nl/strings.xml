@@ -2,10 +2,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
-    <string name="noGiftCards">Druk op de plusknop (‘+’) om een kaart toe te voegen of importeer kaarten via het ⋮-menu</string>
-    <string name="noMatchingGiftCards">Geen zoekresultaten - probeer een andere zoekopdracht.</string>
+    <string name="noGiftCards">Druk op de + plusknop om een kaart toe te voegen of importeer kaarten via het ⋮-menu</string>
+    <string name="noMatchingGiftCards">Geen zoekresultaten – probeer een andere zoekopdracht.</string>
     <string name="storeName">Naam</string>
-    <string name="note">Aantekening</string>
+    <string name="note">Notitie</string>
     <string name="cardId">Kaartnummer</string>
     <string name="barcodeType">Soort barcode</string>
     <string name="cancel">Annuleren</string>

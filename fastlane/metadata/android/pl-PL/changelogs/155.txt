@@ -1,0 +1,1 @@
+- Przygotowanie do przyszłych zmian (przepisanie wielu klas na Kotlin)

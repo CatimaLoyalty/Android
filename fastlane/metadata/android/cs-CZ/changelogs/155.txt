@@ -1,0 +1,1 @@
+- Přípravy na budoucí vylepšení (spousta tříd přepsána do Kotlinu)

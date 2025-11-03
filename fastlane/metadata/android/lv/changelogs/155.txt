@@ -1,0 +1,1 @@
+- Sagatavošanās uzlabojumiem nākotnē (daudz klašu pārrakstītas ar Kotlin)

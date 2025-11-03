@@ -1,6 +1,7 @@
 package protect.card_locker.importexport;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -82,15 +83,29 @@ public class CatimaImporter implements Importer {
         Map<Integer, Integer> idMap = new HashMap<>();
 
         for (LoyaltyCard card : data.cards) {
-            List<LoyaltyCard> candidates = DBHelper.getLoyaltyCardsByCardId(context, database, card.cardId);
             boolean duplicateFound = false;
 
-            for (LoyaltyCard existing : candidates) {
-                if (LoyaltyCard.isDuplicate(context, existing, card)) {
-                    duplicateFound = true;
-                    break;
-                }
+            Cursor cursor = database.query(
+                    DBHelper.LoyaltyCardDbIds.TABLE,
+                    null,
+                    DBHelper.LoyaltyCardDbIds.CARD_ID + " = ?",
+                    new String[]{card.cardId},
+                    null,
+                    null,
+                    null
+            );
+
+            if (cursor.moveToFirst()) {
+                do {
+                    LoyaltyCard existing = LoyaltyCard.fromCursor(context, cursor);
+                    if (LoyaltyCard.isDuplicate(context, existing, card)) {
+                        duplicateFound = true;
+                        break;
+                    }
+                } while (cursor.moveToNext());
             }
+
+            cursor.close();
 
             if (!duplicateFound) {
                 LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);

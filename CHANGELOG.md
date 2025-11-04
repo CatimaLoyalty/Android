@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 155
+## v2.39.2 - 155 (2025-11-04)
 
 - Preparations for future improvements (rewrote many classes to Kotlin)
 

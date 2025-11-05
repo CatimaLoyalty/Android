@@ -24,7 +24,7 @@
     </plurals>
     <string name="all">Alla</string>
     <string name="deleteConfirmationGroup">Ta bort grupp\?</string>
-    <string name="failedOpeningFileManager">Installera en filhanterare först.</string>
+    <string name="failedOpeningFileManager">Kunde ej öppna en filhanterare</string>
     <string name="moveUp">Flytta uppåt</string>
     <string name="moveDown">Flytta nedåt</string>
     <string name="leaveWithoutSaveTitle">Avsluta</string>
@@ -192,7 +192,7 @@
     </plurals>
     <string name="include_if_asking_support">Om du vill be om hjälp, inkludera då följande information:</string>
     <string name="settings_oled_dark">Helsvart bakgrund för mörkt tema</string>
-    <string name="failedLaunchingPhotoPicker">Kunde inte hitta kompatibelt bildprogram</string>
+    <string name="failedLaunchingPhotoPicker">Kunde ej hitta kompatibel bildväljare</string>
     <string name="unarchive">Ta tillbaks från arkiv</string>
     <string name="archived">Kort arkiverat</string>
     <string name="duplicateCard">Kopiera</string>
@@ -222,7 +222,7 @@
     <string name="updateBalanceTitle">Hur mycket spenderade du eller fick du?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
-    <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i galleri-appen</string>
+    <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i bildvisningsappen</string>
     <string name="show_name_below_image_thumbnail">Visa namnet nedanför bildens miniatyr</string>
     <string name="show_validity">Visa giltighet</string>
     <string name="view_online">Visa på internet</string>
@@ -242,7 +242,7 @@
     <string name="switchToFrontImage">Byt till bilden på framsidan</string>
     <string name="settings_allow_content_provider_read_summary">Appar måste fortfarande begära åtkomst för att få tillgång</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
-    <string name="openBackImageInGalleryApp">Öppna bilden på baksidan i galleri-appen</string>
+    <string name="openBackImageInGalleryApp">Öppna bilden på baksidan i bildvisningsappen</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
     <string name="settings_allow_content_provider_read_title">Tillåt andra appar att komma åt min data</string>
     <string name="permissionReadCardsLabel">Läs Catima-kort</string>
@@ -296,4 +296,5 @@
     <string name="generic_error_please_retry">Ett fel uppstod</string>
     <string name="cardWithNumber">Kort <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Kort <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="setBarcodeWidth">Ange streckkodsbredd</string>
 </resources>

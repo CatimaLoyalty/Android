@@ -232,7 +232,7 @@
     <string name="height">Alto</string>
     <string name="switchToFrontImage">Cambiar a imagen frontal</string>
     <string name="openFrontImageInGalleryApp">Abrir imagen frontal en la aplicación de la galería</string>
-    <string name="openBackImageInGalleryApp">Abrir imagen trasera en la aplicación de la galería</string>
+    <string name="openBackImageInGalleryApp">Abrir imagen trasera en la aplicación de visor de imagen</string>
     <string name="setBarcodeHeight">Ajustar la altura del código de barras</string>
     <string name="donate">Donar</string>
     <string name="switchToBarcode">Cambiar a código de barras</string>

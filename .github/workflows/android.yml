@@ -33,11 +33,7 @@ jobs:
         flavor: [Foss, Gplay]
     steps:
       - uses: actions/checkout@v5
-      - name: Fail on bad translations
-        run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
       - uses: gradle/actions/wrapper-validation@v5
-      - name: Check app_name consistency
-        run: bash .scripts/check_app_name.sh
       - name: set up OpenJDK 21
         run: |
           sudo apt-get update

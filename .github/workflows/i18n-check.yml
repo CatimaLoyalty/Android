@@ -1,0 +1,34 @@
+name: i18n check
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - staging
+      - trying
+  pull_request:
+    branches:
+      - main
+permissions:
+  actions: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Fail on bad translations
+        run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
+      - name: Check app_name consistency
+        run: bash .scripts/check_app_name.sh

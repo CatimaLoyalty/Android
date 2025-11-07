@@ -13,8 +13,8 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valda</item>
     </plurals>
-    <string name="app_loyalty_card_keychain">Nyckelring för bonuskort</string>
-    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade från Loyalty Card Keychain som du vill importera.\nSkapa den från Import/Export-menyn i Loyalty Card Keychain genom att trycka på Exportera.</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Välj det exporterade från Loyalty Card Keychain som du vill importera.\nSkapa det från Import/Export-menyn i Loyalty Card Keychain genom att trycka på Exportera.</string>
     <string name="importVoucherVaultMessage">Välj den exporterade från Voucher Vault som du vill importera. \nSkapa den genom att trycka på Exportera i Voucher Vault.</string>
     <string name="enter_group_name">Ange gruppnamn</string>
     <string name="groups">Grupper</string>
@@ -215,10 +215,10 @@
     <string name="storageReadPermissionRequired">Tillstånd att läsa lagring behövs för denna åtgärd…</string>
     <string name="currentBalanceSentence">Nuvarande balans: <xliff:g>%s</xliff:g></string>
     <string name="validFromDate">Giltig från</string>
-    <string name="cameraPermissionRequired">Tillstånd att komma åt kameran krävs för denna åtgärd…</string>
+    <string name="cameraPermissionRequired">Behörighet att komma åt kameran krävs för denna åtgärd…</string>
     <string name="updateBalance">Uppdatera balans</string>
     <string name="failedToRetrieveImageFile">Misslyckades att hämta bildfil</string>
-    <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleri app</string>
+    <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleriappen</string>
     <string name="updateBalanceTitle">Hur mycket spenderade du eller fick du?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
@@ -230,7 +230,7 @@
     <string name="settings_category_title_general">Generellt</string>
     <string name="switchToBarcode">Byt till streckkod</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset medans kort visas</string>
-    <string name="permissionReadCardsDescription">Se dina kort med alla dess detaljer, inklusive anteckningar och bilder</string>
+    <string name="permissionReadCardsDescription">läsa dina Catima-kort med alla dess detaljer, inklusive anteckningar och bilder</string>
     <string name="action_display_options">Visningsalternativ</string>
     <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
     <string name="settings_oled_dark_summary">Reducerar batterianvändning på OLED-skärmar</string>
@@ -245,7 +245,7 @@
     <string name="openBackImageInGalleryApp">Öppna bilden på baksidan i bildvisningsappen</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
     <string name="settings_allow_content_provider_read_title">Tillåt andra appar att komma åt min data</string>
-    <string name="permissionReadCardsLabel">Läs Catima-kort</string>
+    <string name="permissionReadCardsLabel">Läsa Catima-kort</string>
     <string name="donate">Donera</string>
     <string name="show_archived_cards">Visa arkiverade kort</string>
     <string name="settings_category_title_privacy">Sekretess</string>
@@ -297,4 +297,12 @@
     <string name="cardWithNumber">Kort <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Kort <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="setBarcodeWidth">Ange streckkodsbredd</string>
+    <string name="card_list_widget_empty">Bonuskort som du lägger till i Catima kommer att dyka upp här. Om du redan har kort, kontrollera att de alla inte är arkiverade.</string>
+    <string name="add_manually_warning_message">För vissa kort skiljer sig streckkodsvärdet från numret som är skrivet på kortet. På grund av detta kan det ibland ej vara möjligt att ange en streckkod manuellt. Det rekommenderas att istället skanna streckkoden med din kamera. Vill du ändå fortsätta?</string>
+    <string name="pleaseDoNotRotateTheDevice">Var vänlig rotera ej enheten, då detta kommer att avbryta åtgärden</string>
+    <string name="acra_catima_has_crashed">Vi beklagar, men <xliff:g id="app_name">%s</xliff:g> har kraschat. Vänligen hjälp oss att lösa detta problem genom att skicka en felrapport till oss.</string>
+    <string name="acra_crash_email_subject">Kraschrapport för <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Be om att skicka kraschrapporter</string>
+    <string name="pref_enable_acra_summary">När det är aktiverat kommer du att bli ombedd att rapportera en krasch när den inträffar. Kraschrapporter skickas aldrig automatiskt.</string>
+    <string name="acra_explain_crash">Om möjligt, var vänlig lägg till fler detaljer om vad du höll på med här:</string>
 </resources>

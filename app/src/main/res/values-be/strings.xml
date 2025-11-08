@@ -306,4 +306,14 @@
     <string name="generic_error_please_retry">На жаль, нешта пайшло не так, паспрабуйце яшчэ раз...</string>
     <string name="setBarcodeWidth">Задаць шырыню штрыхкода</string>
     <string name="app_license">Свабоднае копілефт праграмнае забеспячэнне, ліцэнзаванае паводле GPLv3+</string>
+    <string name="cardWithNumber">Карта <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Карта <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Калі ласка, не паварочвайце прыладу, бо гэта адменіць дзеянне</string>
+    <string name="acra_explain_crash">Калі магчыма, дадайце больш падрабязную інфармацыю пра тое, што вы тут рабілі:</string>
+    <string name="acra_crash_email_subject">Справаздача аб збоі <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Запытваць дазвол на адпраўку справаздач аб збоях</string>
+    <string name="pref_enable_acra_summary">Калі гэта ўключана, вам будзе прапанавана паведаміць пра збой, калі ён адбудзецца. Справаздачы аб збоях ніколі не адпраўляюцца аўтаматычна.</string>
+    <string name="card_list_widget_name">Спіс карт</string>
+    <string name="card_list_widget_empty">Пасля таго, як вы дадасце некалькі картак лаяльнасці ў Catima, яны з\'явяцца тут. Калі ў вас ёсць карты, пераканайцеся, што яны не ўсе заархіваваны.</string>
+    <string name="acra_catima_has_crashed">Прабачце, але ў праграме <xliff:g id="app_name">%s</xliff:g> адбыўся збой. Калі ласка, дапамажыце нам выправіць гэту праблему, даслаўшы нам справаздачу аб памылцы.</string>
 </resources>

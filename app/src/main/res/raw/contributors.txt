@@ -7,8 +7,8 @@ Heimen Stoffels
 Oğuz Ersen
 FC (Fay) Stegerman
 StoyanDimitrov
-SlavekB
 大王叫我来巡山
+SlavekB
 Katharine Chui
 B o d o
 mondstern
@@ -16,12 +16,12 @@ IllusiveMan196
 Silvério Santos
 Altonss
 Edgars Andersons
-Michael Moroni
 Joel A
+Michael Moroni
 Eric
 Priit Jõerüüt
-Максим Горпиніч
 Liner Seven
+Максим Горпиніч
 GM
 Petr Novák
 laralem
@@ -38,12 +38,12 @@ Nyatsuki
 Giovanni Donisi
 Milo Ivir
 HudobniVolk
+Kachelkaiser
 Jiri Grönroos
 Vasilis
 Warder
-Kachelkaiser
-Samantaz Fox
 Горпиніч Максим Олександрович
+Samantaz Fox
 Balázs Meskó
 Feike Donia
 Arno-github
@@ -70,12 +70,13 @@ waffshappen
 e-michalak
 JungHee Lee
 hajertabbane
+delvani
+Aliaksandr Trush
 Denis Shilin
 Renko
 Ricky Tigg
 Robin Liu
 Ziad OUALHADJ
-delvani
 しいたけ
 Alexander Ivanov
 Miha Frangež
@@ -84,8 +85,6 @@ mrestivill
 ehrt74
 Virginie
 Tim Trek
-Peter Dave Hello
-Aliaksandr Trush
 MisterCosta96
 arshbeerSingh
 Augustin LAVILLE
@@ -96,3 +95,4 @@ Kim Seohyun
 rudy3
 Michael Gangolf
 PRATHAMESH BHAGAT 
+Peter Dave Hello

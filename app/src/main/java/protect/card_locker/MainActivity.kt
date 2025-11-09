@@ -229,16 +229,16 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }).start()
 
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
-        extractIntentFields(getIntent())
+        extractIntentFields(intent)
 
-        binding = MainActivityBinding.inflate(getLayoutInflater())
+        binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding!!.getRoot())
         Utils.applyWindowInsets(binding!!.getRoot())
         setSupportActionBar(binding!!.toolbar)
         groupsTabLayout = binding!!.groups
         contentMainBinding = ContentMainBinding.bind(binding!!.include.getRoot())
 
-        mDatabase = DBHelper(this).getWritableDatabase()
+        mDatabase = DBHelper(this).writableDatabase
 
         mUpdateLoyaltyCardListRunnable = Runnable {
             updateLoyaltyCardList(false)
@@ -251,7 +251,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 mGroup = tab.getTag()
                 updateLoyaltyCardList(false)
                 // Store active tab in Shared Preference to restore next app launch
-                val activeTabPref = getApplicationContext().getSharedPreferences(
+                val activeTabPref = applicationContext.getSharedPreferences(
                     getString(R.string.sharedpreference_active_tab),
                     MODE_PRIVATE
                 )
@@ -288,16 +288,16 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
 
                 val editIntent =
-                    Intent(getApplicationContext(), LoyaltyCardEditActivity::class.java)
-                editIntent.putExtras(result.getData()!!.getExtras()!!)
+                    Intent(applicationContext, LoyaltyCardEditActivity::class.java)
+                editIntent.putExtras(result.data!!.extras!!)
                 startActivity(editIntent)
             })
 
         mSettingsLauncher = registerForActivityResult<Intent?, ActivityResult?>(
             StartActivityForResult(),
             ActivityResultCallback { result: ActivityResult? ->
-                if (result!!.getResultCode() == RESULT_OK) {
-                    val intent = result.getData()
+                if (result!!.resultCode == RESULT_OK) {
+                    val intent = result.data
                     if (intent != null && intent.getBooleanExtra(RESTART_ACTIVITY_INTENT, false)) {
                         recreate()
                     }
@@ -306,8 +306,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (mSearchView != null && !mSearchView!!.isIconified()) {
-                    mSearchView!!.setIconified(true)
+                if (mSearchView != null && !mSearchView!!.isIconified) {
+                    mSearchView!!.isIconified = true
                 } else {
                     finish()
                 }
@@ -501,7 +501,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             // Parse whatever file was sent, regardless of opening or sharing
             val data: Uri?
             if (receivedAction == Intent.ACTION_VIEW) {
-                data = intent.getData()
+                data = intent.data
             } else if (receivedAction == Intent.ACTION_SEND) {
                 data = intent.getParcelableExtra<Uri?>(Intent.EXTRA_STREAM)
             } else {
@@ -722,7 +722,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
                     setSort(
                         loyaltyCardOrders.get(currentIndex.get())!!,
-                        if (showReversed.isChecked()) LoyaltyCardOrderDirection.Descending else LoyaltyCardOrderDirection.Ascending
+                        if (showReversed.isChecked) LoyaltyCardOrderDirection.Descending else LoyaltyCardOrderDirection.Ascending
                     )
                     ListWidget().updateAll(this)
                     dialog!!.dismiss()
@@ -739,25 +739,25 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         if (id == protect.card_locker.R.id.action_manage_groups) {
-            val i = Intent(getApplicationContext(), ManageGroupsActivity::class.java)
+            val i = Intent(applicationContext, ManageGroupsActivity::class.java)
             startActivity(i)
             return true
         }
 
         if (id == protect.card_locker.R.id.action_import_export) {
-            val i = Intent(getApplicationContext(), ImportExportActivity::class.java)
+            val i = Intent(applicationContext, ImportExportActivity::class.java)
             startActivity(i)
             return true
         }
 
         if (id == protect.card_locker.R.id.action_settings) {
-            val i = Intent(getApplicationContext(), SettingsActivity::class.java)
+            val i = Intent(applicationContext, SettingsActivity::class.java)
             mSettingsLauncher!!.launch(i)
             return true
         }
 
         if (id == protect.card_locker.R.id.action_about) {
-            val i = Intent(getApplicationContext(), AboutActivity::class.java)
+            val i = Intent(applicationContext, AboutActivity::class.java)
             startActivity(i)
             return true
         }
@@ -804,21 +804,21 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
     private fun scaleScreen() {
         val displayMetrics = DisplayMetrics()
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics)
         val screenHeight = displayMetrics.heightPixels
         val mediumSizePx = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             MEDIUM_SCALE_FACTOR_DIP.toFloat(),
-            getResources().getDisplayMetrics()
+            getResources().displayMetrics
         )
         val shouldScaleSmaller = screenHeight < mediumSizePx
 
-        binding!!.include.welcomeIcon.setVisibility(if (shouldScaleSmaller) View.GONE else View.VISIBLE)
+        binding!!.include.welcomeIcon.visibility = if (shouldScaleSmaller) View.GONE else View.VISIBLE
     }
 
     private fun toggleSelection(inputPosition: Int) {
         mAdapter!!.toggleSelection(inputPosition)
-        val count = mAdapter!!.getSelectedItemCount()
+        val count = mAdapter!!.selectedItemCount
 
         if (count == 0) {
             mCurrentActionMode!!.finish()
@@ -832,15 +832,15 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             )
 
             val editItem =
-                mCurrentActionMode!!.getMenu().findItem(protect.card_locker.R.id.action_edit)
+                mCurrentActionMode!!.menu.findItem(protect.card_locker.R.id.action_edit)
             val archiveItem =
-                mCurrentActionMode!!.getMenu().findItem(protect.card_locker.R.id.action_archive)
+                mCurrentActionMode!!.menu.findItem(protect.card_locker.R.id.action_archive)
             val unarchiveItem =
-                mCurrentActionMode!!.getMenu().findItem(protect.card_locker.R.id.action_unarchive)
+                mCurrentActionMode!!.menu.findItem(protect.card_locker.R.id.action_unarchive)
             val starItem =
-                mCurrentActionMode!!.getMenu().findItem(protect.card_locker.R.id.action_star)
+                mCurrentActionMode!!.menu.findItem(protect.card_locker.R.id.action_star)
             val unstarItem =
-                mCurrentActionMode!!.getMenu().findItem(protect.card_locker.R.id.action_unstar)
+                mCurrentActionMode!!.menu.findItem(protect.card_locker.R.id.action_unstar)
 
             var hasStarred = false
             var hasUnstarred = false

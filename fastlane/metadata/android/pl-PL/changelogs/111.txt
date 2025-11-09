@@ -1,4 +1,4 @@
-- Wsparcie j. arabskkiego
+- Wsparcie j. arabskiego
 - Dodano liczbę zarchiwizowanych kart w podglądzie grupy
 - Naprawa błędów parsowania salda (niepoprawny zapis m.in w j. arabskim)
 - Naprawa niepoprawnego wyświetlania personalizowanego motywu na głównym ekranie

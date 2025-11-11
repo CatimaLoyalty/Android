@@ -38,7 +38,7 @@ junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.16" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version = "8.13.0" }
+com-android-application = { id = "com.android.application", version = "8.13.1" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.21" }
 
 [bundles]

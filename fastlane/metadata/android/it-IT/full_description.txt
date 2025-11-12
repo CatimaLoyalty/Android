@@ -1,21 +1,21 @@
-Dici basta alla ricerca di carte premio di plastica quando devi pagare.
+Smetti di cercare le carte fedeltà di plastica, ogni volta che devi pagare.
 <b>Scansiona i codici a barre sul tuo dispositivo usando la sua fotocamera e dimentica le carte.</b>
 
-Dimentica il tuo portafoglio o tienilo ultra-leggero per gli oggetti di valore.
+Non usare più il portafoglio o tienilo ultraleggero solo per le cose che contano.
 
-Con questo strumento essenziale per la quotidianità permettendo di sostiuire la plastica inutile con i contanti.
+Questo strumento essenziale per la quotidianità permette di sostituire la plastica inutile con i contanti.
 
-- Evita di essere spiati con pochissimi permessi. Nessun accesso a Internet richiesto e nessuna pubblicità.
+- Evita di essere spiati necessita di pochissimi permessi. Non richiede nessun accesso a Internet e non ha nessuna pubblicità.
 - Aggiungi carte o codici con nomi e colori personalizzabili.
-- Inserisci manualmente il codice se non c'è un codice a barre da memorizzare o non può essere utilizzato.
+- Inserisci manualmente il codice se non c'è un codice a barre da memorizzare o non può viene scansito.
 - Importa carte fedeltà e codici da files, Catima, FidMe, Loyalty Card Keychain, Stocard e Voucher Vault.
-- Fai un backup di tutte le tue carte e trasferiscile su un nuovo dispositivo, se vuoi.
+- Fai un backup di tutte le tue carte e trasferiscile su un altro telefono, se vuoi.
 - Condividi coupon, offerte esclusive, codici promozionali o carte e codici utilizzando qualsiasi app.
 - Tema scuro e opzioni di accessibilità per gli utenti con problemi di vista.
 - Fatto per tutti dalla comunità del software libero.
 - Traduzioni localizzate a mano per 40+ lingue.
 - Gratis, supportato dai contributi della comunità.
-- Usala, studiala, cambiala e condividila come vuoi; <i>con tutti</i>.
+- Usa l'app, studiala, cambiala e condividila come vuoi; <i>con tutti</i>.
 - Non solo un software libero ed open source. <i>Copylefted</i> software libero (GPLv3+).
 
 Semplifica la tua vita e gli acquisti e non perdere mai più una ricevuta cartacea, una carta regalo o un biglietto aereo

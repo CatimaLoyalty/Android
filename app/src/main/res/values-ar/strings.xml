@@ -71,7 +71,7 @@
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="accept">قبول</string>
     <string name="importCatima">الاستيراد من Catima</string>
-    <string name="importCatimaMessage">حدّد ملفك <i>catima.zip</i> تصدير من Catima للاستيراد. \nإنشئها من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير هناك أولاً.</string>
+    <string name="importCatimaMessage">حدّد ملفك تصدير من Catima للاستيراد.\nإنشئها من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير .</string>
     <string name="importFidme">الاستيراد من FidMe</string>
     <string name="importFidmeMessage">حدّد ملفك <i>fidme-export-request-xxxxxx.zip</i> تصدير من FidMe للاستيراد، ثم حدد أنواع الباركود يدويًا بعد ذلك. \nإنشئها من ملف تعريف FidMe الخاص بك عن طريق اختيار حماية البيانات ثم الضغط على استخراج بياناتي أولاً.</string>
     <string name="importVoucherVault">الاستيراد من Voucher Vault</string>

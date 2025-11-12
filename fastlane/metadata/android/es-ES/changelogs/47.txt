@@ -1,0 +1,2 @@
+– Mostrar siempre todas las opciones de importación/exportación y mostrar una notificación emergente en caso de problemas (mejora la compatibilidad con XPrivacyLua)
+– Solicitar confirmación al salir de la vista de edición después de realizar cambios sin guardar

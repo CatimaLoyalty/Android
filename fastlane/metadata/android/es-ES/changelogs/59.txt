@@ -1,0 +1,2 @@
+– Añadir compatibilidad con balances
+– Reorganizar la pestaña de códigos de barras en la vista de edición

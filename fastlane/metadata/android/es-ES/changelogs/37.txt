@@ -1,1 +1,1 @@
-- Problema arreglado con el compartir tarjetas sin el color de fondo (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))
+– Problema arreglado con el compartir tarjetas sin el color de fondo (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

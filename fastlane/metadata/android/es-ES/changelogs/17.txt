@@ -1,0 +1,2 @@
+– Añadir compatibilidad para agregar accesos directos a la tarjeta de fidelización desde el lanzador/pantalla de inicio. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+– Se elimina la compatibilidad para añadir accesos directos a tarjetas de fidelización desde la propia aplicación. Esto elimina la necesidad del permiso para accesos directos. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

@@ -1,6 +1,6 @@
-- Renombrar a Catima
-- Introducción eliminada
-- Botones de acción añadidas
-- Cierre repentino al abrir la pantalla Acerca de en Android 5 arreglado
-- Soporte de favoritos añadido
-- Reparación de la rotación automática desactivada siendo ignorado
+– Renombrar a Catima
+– Introducción eliminada
+– Botones de acción añadidas
+– Cierre repentino al abrir la pantalla Acerca de en Android 5 arreglado
+– Soporte de favoritos añadido
+– Reparación de la rotación automática desactivada siendo ignorado

@@ -1,0 +1,3 @@
+– Compatible con Android 15
+– Se corrigió el fallo que se producía al leer archivos pkpass no compatibles
+– Se mejoró la compatibilidad con pkpass

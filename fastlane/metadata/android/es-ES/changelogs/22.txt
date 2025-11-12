@@ -1,1 +1,2 @@
-- Cambios al mostrar una nota en la vista de tarjeta, permitir que el ID de tarjeta ocupe varias líneas, y mostrar el nomber de la tienda. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))
+– Cambios al mostrar una nota en la vista de tarjeta, permitir que el ID de tarjeta ocupe varias líneas, y mostrar el nombre de la tienda.
+	(pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

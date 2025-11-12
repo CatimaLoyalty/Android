@@ -1,3 +1,3 @@
-- El doble toque en sobre una tarjeta ahora lo mueve al tope de la pantalla (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
-- Añadir un espacio en blanco al rededor de los códigos de barras para mejorar el escaneo en modo oscuro (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
-- Botones de importación arreglados. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))
+– El doble toque en sobre una tarjeta ahora lo mueve al tope de la pantalla (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+– Añadir un espacio en blanco al rededor de los códigos de barras para mejorar el escaneo en modo oscuro (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+– Botones de importación arreglados. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

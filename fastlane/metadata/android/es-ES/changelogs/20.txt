@@ -1,1 +1,1 @@
-- Solución alternativa al fallo durante la instalación en algunas versiones de Android (como Android 5 o menor), (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))
+– Solución alternativa al fallo durante la instalación en algunas versiones de Android (como Android 5 o menor), (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

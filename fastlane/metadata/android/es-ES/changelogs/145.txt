@@ -1,0 +1,3 @@
+– Compatible con Android 15
+– Se corrigió un error que provocaba que el teclado cubriera el botón de guardar en la pantalla de edición
+– Se corrigió un error que impedía la detección de algunos archivos pkpass como tales (compatibilidad con el tipo MIME application/vnd-com.apple.pkpass)

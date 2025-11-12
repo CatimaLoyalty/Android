@@ -1,4 +1,4 @@
-- Traducción holandesa
-- Permitir la edición del campo de nombre después de añadir la tarjeta de recompensas
-- Campo de notas opcionales añadido
-- Resolver todos los problemas identificados por FindBugs y requerir que todos los problemas de FindBugs sean resueltos antes de aceptar la solicitud de incorporación de cambios
+– Traducción holandesa
+– Permitir la edición del campo de nombre después de añadir la tarjeta de recompensas
+– Campo de notas opcionales añadido
+– Resolver todos los problemas identificados por FindBugs y requerir que todos los problemas de FindBugs sean resueltos antes de aceptar la solicitud de incorporación de cambios

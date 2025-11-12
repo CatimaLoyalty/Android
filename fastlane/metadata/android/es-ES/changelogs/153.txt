@@ -1,0 +1,4 @@
+– Compatible con Android 16
+– Se corrigió un posible fallo tras eliminar una imagen de la tarjeta
+– Se eliminó la función «Orientación de pantalla» (Google eliminó la capacidad de las aplicaciones para controlar la rotación de pantalla al desarrollar para Android 16)
+– Se añadió un informe de fallos a la compilación FOSS (no se usa en la versión de Google Play, solo en otras tiendas de aplicaciones)

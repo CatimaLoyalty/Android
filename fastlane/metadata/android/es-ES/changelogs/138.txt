@@ -1,0 +1,1 @@
+- Reparar el gesto hacia atrás en la pantalla principal desestimando el teclado y la búsqueda en Android 13+

@@ -1,0 +1,3 @@
+– Enfocar automáticamente el campo de texto al crear o editar un grupo
+– Corregir iconos borrosos (usar SVG en todas partes)
+– Abrir siempre la cámara, pero añadir un botón de escaneo manual a la vista de la cámara

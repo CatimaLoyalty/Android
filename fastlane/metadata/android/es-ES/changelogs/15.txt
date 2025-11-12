@@ -1,2 +1,2 @@
-- Soporte para atajos de aplicación añadidos (Android 7.1+), donde las tarjetas usadas recientemente aparecerán como atajos. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
-- Widget añadido que trabaja como un atajo de aplicación fijado, para dispositivos debajo de Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))
+– Soporte para atajos de aplicación añadidos (Android 7.1+), donde las tarjetas usadas recientemente aparecerán como atajos. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+– Añade un Widget que funciona como un atajo de aplicación pinchado, para dispositivos debajo de Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

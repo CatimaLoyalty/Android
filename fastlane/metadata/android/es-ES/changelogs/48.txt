@@ -1,3 +1,3 @@
-- Mover pantalla Acerca de a su propia actividad
-- Preguntar al usuario si quiere usar su camara o insertar manualmente el ID en añadir/editar tarjeta
-- Hacer el orden del grupo manual en vez de forzarlo alfabéticamente
+– Mover pantalla Acerca de a su propia actividad
+– Preguntar al usuario si quiere usar su cámara o insertar manualmente el ID en añadir/editar tarjeta
+– Hacer el orden del grupo manual en vez de forzarlo alfabéticamente

@@ -1,0 +1,1 @@
+– Se corrigió un error que impedía guardar la apunte manual de códigos de barras

@@ -1,2 +1,2 @@
-- Habilitar las copias de seguridad de la aplicación
-- Actualizar las traducciones en francés y esloveno
+– Habilitar las copias de seguridad de la aplicación
+– Actualizar las traducciones en francés y esloveno

@@ -1,0 +1,2 @@
+– Se ha corregido un problema en Android SDK 24+ en el que el uso de la opción de importación del selector de archivos provocaba un fallo. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+– Nuevo icono y esquema de colores. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

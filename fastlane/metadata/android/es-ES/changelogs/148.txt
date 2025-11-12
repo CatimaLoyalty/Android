@@ -1,0 +1,4 @@
+– Se agregó la opción de elegir el ancho del código de barras en la vista de pantalla completa.
+– Se eliminó la función de importación desde la aplicación que resultaba confusa.
+– Se corrigieron varios errores de escaneo.
+– Se corrigió el error que provocaba el cierre inesperado de la aplicación al cargar un archivo pkpass sin código de barras

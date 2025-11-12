@@ -1,0 +1,1 @@
+– Corregir el equilibrio del análisis sintáctico para los países que utilizan el espacio como separador

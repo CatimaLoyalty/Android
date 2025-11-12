@@ -1,0 +1,1 @@
+– Corregir el problema de transparencia del fondo de la hoja inferior

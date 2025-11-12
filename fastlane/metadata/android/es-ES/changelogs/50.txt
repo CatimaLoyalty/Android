@@ -1,0 +1,2 @@
+– Mejora el contraste usando siempre texto blanco sobre botones rojos
+– Hoja inferior arrastrable en la vista de la tarjeta de fidelización

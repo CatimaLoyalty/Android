@@ -1,0 +1,3 @@
+– Se agregó compatibilidad con Passbook (.pkpass)
+– Se corrigió la importación de archivos PDF transparentes
+– Se mejoró la visualización de miniaturas transparentes

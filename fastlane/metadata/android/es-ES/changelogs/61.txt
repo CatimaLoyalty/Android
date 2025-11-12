@@ -1,0 +1,2 @@
+– Mejorar la lógica de análisis del saldo
+– Corregir la exhibición de los decimales de la moneda en la pantalla principal

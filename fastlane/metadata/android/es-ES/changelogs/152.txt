@@ -1,0 +1,3 @@
+– Se agregó compatibilidad con archivos .pkpasses
+– Se eliminó el importador Stocard (Stocard ya no existe)
+– Se deshabilitaron temporalmente las imágenes de widgets en versiones anteriores a Android 12L (solución alternativa para un problema de bloqueo)

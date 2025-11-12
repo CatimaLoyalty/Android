@@ -1,0 +1,1 @@
+– Corregir el ajuste de texto en el cuadro de diálogo de agregar

@@ -1,0 +1,4 @@
+– Cambiar el número de columnas predeterminado a 4 en pantallas panorámicas
+– Permitir modificar el número de columnas para los modos vertical y horizontal en la configuración
+– Mantener el filtro de búsqueda de la pantalla principal al girar la pantalla o abrir una tarjeta
+– Limitar la longitud máxima de las notas que se muestran en la pantalla principal

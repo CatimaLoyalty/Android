@@ -1,2 +1,2 @@
-- Mejorada la distribución en la lista de tarjetas. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
-- Mejorada la distribución al ver una tarjeta. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))
+– Mejorada la distribución en la lista de tarjetas. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+– Mejorada la distribución al ver una tarjeta. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

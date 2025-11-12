@@ -1,0 +1,2 @@
+– Posibilidad de ordenar las tarjetas por fecha de inicio de validez
+– Se ha vuelto temporalmente a la versión para Android 14 para solucionar algunos problemas de la interfaz de usuario

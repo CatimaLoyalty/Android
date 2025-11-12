@@ -1,0 +1,2 @@
+– Agregar un widget que muestre todas las tarjetas no archivadas
+– Evitar que el teclado tape el botón de guardar en las pantallas de edición y de grupo

@@ -1,0 +1,1 @@
+– Se soluciona el cuelgue que se producía al abrir archivos pkpass no válidos

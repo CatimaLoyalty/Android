@@ -17,7 +17,7 @@
     <string name="sendLabel">Invia…</string>
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
-    <string name="scanCardBarcode">Scansiona il codice</string>
+    <string name="scanCardBarcode">Scansiona codice a barre</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
     <string name="noCardsMessage">Aggiungi prima una carta</string>
     <string name="noCardExistsError">Impossibile trovare quella carta</string>

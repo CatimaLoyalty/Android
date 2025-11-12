@@ -1,4 +1,4 @@
-- Se mejoró el flujo de trabajo "Agregar tarjeta"
+- Se mejoró el flujo de trabajo «Agregar tarjeta»
 - Mejoras en el proceso de validación.
 - Se corrigió un error que causaba que la interfaz de usuario entrara en un estado no válido al cambiar la vista del archivo.
 - El color del sistema o del mapa se utiliza para la barra de navegación (Android 8.1+)

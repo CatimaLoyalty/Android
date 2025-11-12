@@ -1,1 +1,1 @@
-- Correcciones varias de RTL
+- Varias correcciones de RTL

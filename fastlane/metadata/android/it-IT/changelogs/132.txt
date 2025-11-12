@@ -1,5 +1,5 @@
 - Perfezionato il flusso di lavoro "Aggiungi carta"
 - Miglioramenti al flusso di convalida
-- Corretto un caso limite che causava uno stato dell'interfaccia non valido attivando la visualizzazione dell'archivio
+- Corretto un caso limite che causava uno stato non valido dell'interfaccia attivando la visualizzazione dell'archivio
 - Usato il tema o il colore della carta per la barra di navigazione (Android 8.1+)
 - Aggiornato il selettore della validità e delle date di scadenza

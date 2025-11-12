@@ -1,0 +1,4 @@
+- Obiettivo Android 14
+- Apre l'icona della carta nella galleria al tocco
+- Migliora il design del pannello Foto nella vista di modifica
+- Aggiorna la schermata delle spese per supportare anche le entrate

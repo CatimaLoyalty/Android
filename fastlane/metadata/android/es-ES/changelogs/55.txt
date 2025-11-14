@@ -1,0 +1,2 @@
+– Interfaz de edición separada en pestañas para una mayor sensación de amplitud
+– Añadir compatibilidad con el campo de caducidad

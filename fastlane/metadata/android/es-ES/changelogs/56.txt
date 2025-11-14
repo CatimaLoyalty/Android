@@ -1,0 +1,1 @@
+– Se corrigió el fallo que se producía al cambiar a la pestaña de código de barras en la vista de edición si no había ningún código de barras

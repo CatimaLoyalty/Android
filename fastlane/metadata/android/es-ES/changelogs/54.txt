@@ -1,0 +1,1 @@
+– Corregir el botón de edición o el dibujo de la hoja inferior con más información sobre el código de barras ID

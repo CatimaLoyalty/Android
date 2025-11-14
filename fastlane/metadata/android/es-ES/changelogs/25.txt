@@ -1,0 +1,2 @@
+- Reducir el espacio en el encabezado al visualizar una tarjeta.
+- Desactivar el pitido al escanear un código de barras.

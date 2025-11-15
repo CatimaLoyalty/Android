@@ -74,8 +74,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
@@ -91,8 +89,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import protect.card_locker.preferences.Settings;
 
@@ -100,7 +96,6 @@ public class Utils {
     private static final String TAG = "Catima";
 
     // Activity request codes
-    public static final int MAIN_REQUEST = 1;
     public static final int SELECT_BARCODE_REQUEST = 2;
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
@@ -112,8 +107,6 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_FRONT = 10;
     public static final int CARD_IMAGE_FROM_FILE_BACK = 11;
     public static final int CARD_IMAGE_FROM_FILE_ICON = 12;
-
-    public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -724,31 +717,6 @@ public class Utils {
         return cardImageFileNameBuilder.toString();
     }
 
-    /**
-     * Returns a card image filename (string) with the ID replaced according to the map if the input is a valid card image filename (string), otherwise null.
-     *
-     * @param fileName e.g. "card_1_front.png"
-     * @param idMap e.g. Map.of(1, 2)
-     * @return String e.g. "card_2_front.png"
-     */
-    static public String getRenamedCardImageFileName(final String fileName, final Map<Integer, Integer> idMap) {
-        Pattern pattern = Pattern.compile(CARD_IMAGE_FILENAME_REGEX);
-        Matcher matcher = pattern.matcher(fileName);
-        if (matcher.matches()) {
-            StringBuilder cardImageFileNameBuilder = new StringBuilder();
-            cardImageFileNameBuilder.append(matcher.group(1));
-            try {
-                int id = Integer.parseInt(matcher.group(2));
-                cardImageFileNameBuilder.append(idMap.getOrDefault(id, id));
-            } catch (NumberFormatException _e) {
-                return null;
-            }
-            cardImageFileNameBuilder.append(matcher.group(3));
-            return cardImageFileNameBuilder.toString();
-        }
-        return null;
-    }
-
     static public void saveCardImage(Context context, Bitmap bitmap, String fileName) throws FileNotFoundException {
         if (bitmap == null) {
             context.deleteFile(fileName);
@@ -1130,24 +1098,6 @@ public class Utils {
 
     public static int getHeaderColor(Context context, LoyaltyCard loyaltyCard) {
         return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.Companion.getDefaultColor(context, loyaltyCard.store);
-    }
-
-    public static String checksum(InputStream input) throws IOException {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-1");
-            byte[] buf = new byte[4096];
-            int len;
-            while ((len = input.read(buf)) != -1) {
-                md.update(buf, 0, len);
-            }
-            StringBuilder sb = new StringBuilder();
-            for (byte b : md.digest()) {
-                sb.append(String.format("%02x", b));
-            }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException _e) {
-            return null;
-        }
     }
 
     public static boolean equals(final Object a, final Object b) {

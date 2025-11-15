@@ -582,8 +582,7 @@ public class LoyaltyCard {
     public static boolean isDuplicate(Context context, final LoyaltyCard a, final LoyaltyCard b) {
         // Note: Bitmap comparing is slow, be careful when calling this method
         // Skip lastUsed & zoomLevel*
-        return a.id == b.id && // non-nullable int
-                a.store.equals(b.store) && // non-nullable String
+        return a.store.equals(b.store) && // non-nullable String
                 a.note.equals(b.note) && // non-nullable String
                 Utils.equals(a.validFrom, b.validFrom) && // nullable Date
                 Utils.equals(a.expiry, b.expiry) && // nullable Date

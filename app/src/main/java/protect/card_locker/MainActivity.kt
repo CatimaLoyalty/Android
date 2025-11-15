@@ -44,10 +44,10 @@ import java.util.Arrays
 import java.util.concurrent.atomic.AtomicInteger
 
 class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
-    private var binding: MainActivityBinding? = null
-    private var contentMainBinding: ContentMainBinding? = null
-    private var mDatabase: SQLiteDatabase? = null
-    private var mAdapter: LoyaltyCardCursorAdapter? = null
+    private lateinit var binding: MainActivityBinding
+    private lateinit var contentMainBinding: ContentMainBinding
+    private lateinit var mDatabase: SQLiteDatabase
+    private lateinit var mAdapter: LoyaltyCardCursorAdapter
     private var mCurrentActionMode: ActionMode? = null
     private var mSearchView: SearchView? = null
     private var mLoyaltyCardCount = 0
@@ -56,17 +56,13 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private var currentQuery = ""
     private var finalQuery = ""
     protected var mGroup: Any? = null
-    protected var mOrder: LoyaltyCardOrder? = LoyaltyCardOrder.Alpha
-    protected var mOrderDirection: LoyaltyCardOrderDirection? = LoyaltyCardOrderDirection.Ascending
+    protected var mOrder: LoyaltyCardOrder = LoyaltyCardOrder.Alpha
+    protected var mOrderDirection: LoyaltyCardOrderDirection = LoyaltyCardOrderDirection.Ascending
     protected var selectedTab: Int = 0
-    private var mCardList: RecyclerView? = null
-    private var mHelpSection: View? = null
-    private var mNoMatchingCardsText: View? = null
-    private var mNoGroupCardsText: View? = null
-    private var groupsTabLayout: TabLayout? = null
-    private var mUpdateLoyaltyCardListRunnable: Runnable? = null
-    private var mBarcodeScannerLauncher: ActivityResultLauncher<Intent?>? = null
-    private var mSettingsLauncher: ActivityResultLauncher<Intent?>? = null
+    private lateinit var groupsTabLayout: TabLayout
+    private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
+    private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent?>
+    private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent?>
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -79,125 +75,133 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         override fun onActionItemClicked(inputMode: ActionMode, inputItem: MenuItem): Boolean {
-            if (inputItem.getItemId() == R.id.action_share) {
-                val importURIHelper = ImportURIHelper(this@MainActivity)
-                try {
-                    importURIHelper.startShareIntent(mAdapter!!.getSelectedItems())
-                } catch (e: UnsupportedEncodingException) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        R.string.failedGeneratingShareURL,
-                        Toast.LENGTH_LONG
-                    ).show()
-                    e.printStackTrace()
+            when (inputItem.getItemId()) {
+                R.id.action_share -> {
+                    val importURIHelper = ImportURIHelper(this@MainActivity)
+                    try {
+                        importURIHelper.startShareIntent(mAdapter.getSelectedItems())
+                    } catch (e: UnsupportedEncodingException) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            R.string.failedGeneratingShareURL,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        e.printStackTrace()
+                    }
+                    inputMode.finish()
+                    return true
                 }
-                inputMode.finish()
-                return true
-            } else if (inputItem.getItemId() == R.id.action_edit) {
-                require(mAdapter!!.getSelectedItemCount() == 1) { "Cannot edit more than 1 card at a time" }
+                R.id.action_edit -> {
+                    require(mAdapter.getSelectedItemCount() == 1) { "Cannot edit more than 1 card at a time" }
 
-                val intent = Intent(getApplicationContext(), LoyaltyCardEditActivity::class.java)
-                val bundle = Bundle()
-                bundle.putInt(
-                    LoyaltyCardEditActivity.BUNDLE_ID,
-                    mAdapter!!.getSelectedItems().get(0).id
-                )
-                bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true)
-                intent.putExtras(bundle)
-                startActivity(intent)
-                inputMode.finish()
-                return true
-            } else if (inputItem.getItemId() == R.id.action_delete) {
-                val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this@MainActivity)
-                // The following may seem weird, but it is necessary to give translators enough flexibility.
-                // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
-                // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
-                // In here, we use the plain string when meaning exactly 1, and otherwise use the plural forms
-                if (mAdapter!!.getSelectedItemCount() == 1) {
-                    builder.setTitle(R.string.deleteTitle)
-                    builder.setMessage(R.string.deleteConfirmation)
-                } else {
-                    builder.setTitle(
-                        getResources().getQuantityString(
-                            R.plurals.deleteCardsTitle,
-                            mAdapter!!.getSelectedItemCount(),
-                            mAdapter!!.getSelectedItemCount()
-                        )
+                    val intent = Intent(getApplicationContext(), LoyaltyCardEditActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putInt(
+                        LoyaltyCardEditActivity.BUNDLE_ID,
+                        mAdapter.getSelectedItems().get(0).id
                     )
-                    builder.setMessage(
-                        getResources().getQuantityString(
-                            R.plurals.deleteCardsConfirmation,
-                            mAdapter!!.getSelectedItemCount(),
-                            mAdapter!!.getSelectedItemCount()
-                        )
-                    )
+                    bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                    inputMode.finish()
+                    return true
                 }
+                R.id.action_delete -> {
+                    val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this@MainActivity)
+                    // The following may seem weird, but it is necessary to give translators enough flexibility.
+                    // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
+                    // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
+                    // In here, we use the plain string when meaning exactly 1, and otherwise use the plural forms
+                    if (mAdapter.getSelectedItemCount() == 1) {
+                        builder.setTitle(R.string.deleteTitle)
+                        builder.setMessage(R.string.deleteConfirmation)
+                    } else {
+                        builder.setTitle(
+                            getResources().getQuantityString(
+                                R.plurals.deleteCardsTitle,
+                                mAdapter.getSelectedItemCount(),
+                                mAdapter.getSelectedItemCount()
+                            )
+                        )
+                        builder.setMessage(
+                            getResources().getQuantityString(
+                                R.plurals.deleteCardsConfirmation,
+                                mAdapter.getSelectedItemCount(),
+                                mAdapter.getSelectedItemCount()
+                            )
+                        )
+                    }
 
-                builder.setPositiveButton(
-                    R.string.confirm,
-                    DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
-                        for (loyaltyCard in mAdapter!!.getSelectedItems()) {
+                    builder.setPositiveButton(
+                        R.string.confirm
+                    ) { dialog, _ ->
+                        for (loyaltyCard in mAdapter.getSelectedItems()) {
                             Log.d(TAG, "Deleting card: " + loyaltyCard.id)
 
                             DBHelper.deleteLoyaltyCard(mDatabase, this@MainActivity, loyaltyCard.id)
 
                             ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
                         }
-                        val tab = groupsTabLayout!!.getTabAt(selectedTab)
+                        val tab = groupsTabLayout.getTabAt(selectedTab)
                         mGroup = if (tab != null) tab.getTag() else null
 
                         updateLoyaltyCardList(true)
-                        dialog!!.dismiss()
-                    })
-                builder.setNegativeButton(
-                    R.string.cancel,
-                    DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int -> dialog!!.dismiss() })
-                val dialog = builder.create()
-                dialog.show()
+                        dialog.dismiss()
+                    }
+                    builder.setNegativeButton(R.string.cancel) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    val dialog = builder.create()
+                    dialog.show()
 
-                return true
-            } else if (inputItem.getItemId() == R.id.action_archive) {
-                for (loyaltyCard in mAdapter!!.getSelectedItems()) {
-                    Log.d(TAG, "Archiving card: " + loyaltyCard.id)
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1)
-                    ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
-                    updateLoyaltyCardList(false)
-                    inputMode.finish()
-                    invalidateOptionsMenu()
+                    return true
                 }
-                return true
-            } else if (inputItem.getItemId() == R.id.action_unarchive) {
-                for (loyaltyCard in mAdapter!!.getSelectedItems()) {
-                    Log.d(TAG, "Unarchiving card: " + loyaltyCard.id)
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0)
-                    updateLoyaltyCardList(false)
-                    inputMode.finish()
-                    invalidateOptionsMenu()
+                R.id.action_archive -> {
+                    for (loyaltyCard in mAdapter.getSelectedItems()) {
+                        Log.d(TAG, "Archiving card: " + loyaltyCard.id)
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1)
+                        ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
+                        updateLoyaltyCardList(false)
+                        inputMode.finish()
+                        invalidateOptionsMenu()
+                    }
+                    return true
                 }
-                return true
-            } else if (inputItem.getItemId() == R.id.action_star) {
-                for (loyaltyCard in mAdapter!!.getSelectedItems()) {
-                    Log.d(TAG, "Starring card: " + loyaltyCard.id)
-                    DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1)
-                    updateLoyaltyCardList(false)
-                    inputMode.finish()
+                R.id.action_unarchive -> {
+                    for (loyaltyCard in mAdapter.getSelectedItems()) {
+                        Log.d(TAG, "Unarchiving card: " + loyaltyCard.id)
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0)
+                        updateLoyaltyCardList(false)
+                        inputMode.finish()
+                        invalidateOptionsMenu()
+                    }
+                    return true
                 }
-                return true
-            } else if (inputItem.getItemId() == R.id.action_unstar) {
-                for (loyaltyCard in mAdapter!!.getSelectedItems()) {
-                    Log.d(TAG, "Unstarring card: " + loyaltyCard.id)
-                    DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0)
-                    updateLoyaltyCardList(false)
-                    inputMode.finish()
+                R.id.action_star -> {
+                    for (loyaltyCard in mAdapter.getSelectedItems()) {
+                        Log.d(TAG, "Starring card: " + loyaltyCard.id)
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1)
+                        updateLoyaltyCardList(false)
+                        inputMode.finish()
+                    }
+                    return true
                 }
-                return true
+                R.id.action_unstar -> {
+                    for (loyaltyCard in mAdapter.getSelectedItems()) {
+                        Log.d(TAG, "Unstarring card: " + loyaltyCard.id)
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0)
+                        updateLoyaltyCardList(false)
+                        inputMode.finish()
+                    }
+                    return true
+                }
             }
 
             return false
         }
 
         override fun onDestroyActionMode(inputMode: ActionMode?) {
-            mAdapter!!.clearSelections()
+            mAdapter.clearSelections()
             mCurrentActionMode = null
         }
     }
@@ -208,7 +212,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         // Delete old cache files
         // These could be temporary images for the cropper, temporary images in LoyaltyCard toBundle/writeParcel/ etc.
-        Thread(Runnable {
+        Thread {
             val twentyFourHoursAgo = System.currentTimeMillis() - (1000 * 60 * 60 * 24)
             val tempFiles = getCacheDir().listFiles()
 
@@ -217,7 +221,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     TAG,
                     "getCacheDir().listFiles() somehow returned null, this should never happen... Skipping cache cleanup..."
                 )
-                return@Runnable
+                return@Thread
             }
             for (file in tempFiles) {
                 if (file.lastModified() < twentyFourHoursAgo) {
@@ -226,17 +230,17 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     }
                 }
             }
-        }).start()
+        }.start()
 
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
         extractIntentFields(intent)
 
         binding = MainActivityBinding.inflate(layoutInflater)
-        setContentView(binding!!.getRoot())
-        Utils.applyWindowInsets(binding!!.getRoot())
-        setSupportActionBar(binding!!.toolbar)
-        groupsTabLayout = binding!!.groups
-        contentMainBinding = ContentMainBinding.bind(binding!!.include.getRoot())
+        setContentView(binding.getRoot())
+        Utils.applyWindowInsets(binding.getRoot())
+        setSupportActionBar(binding.toolbar)
+        groupsTabLayout = binding.groups
+        contentMainBinding = ContentMainBinding.bind(binding.include.getRoot())
 
         mDatabase = DBHelper(this).writableDatabase
 
@@ -244,7 +248,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             updateLoyaltyCardList(false)
         }
 
-        groupsTabLayout!!.addOnTabSelectedListener(object : OnTabSelectedListener {
+        groupsTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 selectedTab = tab.getPosition()
                 Log.d("onTabSelected", "Tab Position " + tab.getPosition())
@@ -270,14 +274,9 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             }
         })
 
-        mHelpSection = contentMainBinding!!.helpSection
-        mNoMatchingCardsText = contentMainBinding!!.noMatchingCardsText
-        mNoGroupCardsText = contentMainBinding!!.noGroupCardsText
-        mCardList = contentMainBinding!!.list
-
         mAdapter = LoyaltyCardCursorAdapter(this, null, this, mUpdateLoyaltyCardListRunnable)
-        mCardList!!.setAdapter(mAdapter)
-        registerForContextMenu(mCardList)
+        contentMainBinding.list.setAdapter(mAdapter)
+        registerForContextMenu(contentMainBinding.list)
 
         mBarcodeScannerLauncher = registerForActivityResult<Intent?, ActivityResult?>(
             StartActivityForResult(),
@@ -319,7 +318,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         super.onResume()
 
         if (mCurrentActionMode != null) {
-            mAdapter!!.clearSelections()
+            mAdapter.clearSelections()
             mCurrentActionMode!!.finish()
         }
 
@@ -327,7 +326,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             mFilter = mSearchView!!.getQuery().toString()
         }
         // Start of active tab logic
-        updateTabGroups(groupsTabLayout!!)
+        updateTabGroups(groupsTabLayout)
 
         // Restore selected tab from Shared Preference
         val activeTabPref = getApplicationContext().getSharedPreferences(
@@ -342,13 +341,13 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         mGroup = null
 
-        if (groupsTabLayout!!.getTabCount() != 0) {
-            var tab = groupsTabLayout!!.getTabAt(selectedTab)
+        if (groupsTabLayout.getTabCount() != 0) {
+            var tab = groupsTabLayout.getTabAt(selectedTab)
             if (tab == null) {
-                tab = groupsTabLayout!!.getTabAt(0)
+                tab = groupsTabLayout.getTabAt(0)
             }
 
-            groupsTabLayout!!.selectTab(tab)
+            groupsTabLayout.selectTab(tab)
             checkNotNull(tab)
             mGroup = tab.getTag()
         } else {
@@ -357,24 +356,22 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         updateLoyaltyCardList(true)
 
-        // End of active tab logic
-        val addButton = binding!!.fabAdd
-
-        addButton.setOnClickListener(View.OnClickListener { v: View? ->
+        binding.fabAdd.setOnClickListener {
             val intent = Intent(getApplicationContext(), ScanActivity::class.java)
             val bundle = Bundle()
             if (selectedTab != 0) {
                 bundle.putString(
                     LoyaltyCardEditActivity.BUNDLE_ADDGROUP,
-                    groupsTabLayout!!.getTabAt(selectedTab)!!.getText().toString()
+                    groupsTabLayout.getTabAt(selectedTab)!!.getText().toString()
                 )
             }
             intent.putExtras(bundle)
-            mBarcodeScannerLauncher!!.launch(intent)
-        })
-        addButton.bringToFront()
+            mBarcodeScannerLauncher.launch(intent)
+        }
+        // End of active tab logic
+        binding.fabAdd.bringToFront()
 
-        val layoutManager = mCardList!!.getLayoutManager() as GridLayoutManager?
+        val layoutManager = contentMainBinding.list.getLayoutManager() as GridLayoutManager?
         if (layoutManager != null) {
             val settings = Settings(this)
             layoutManager.setSpanCount(settings.getPreferredColumnCount())
@@ -397,14 +394,14 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             group = mGroup as Group
         }
 
-        mAdapter!!.swapCursor(
+        mAdapter.swapCursor(
             DBHelper.getLoyaltyCardCursor(
                 mDatabase,
                 mFilter,
                 group,
                 mOrder,
                 mOrderDirection,
-                if (mAdapter!!.showingArchivedCards()) DBHelper.LoyaltyCardArchiveFilter.All else DBHelper.LoyaltyCardArchiveFilter.Unarchived
+                if (mAdapter.showingArchivedCards()) DBHelper.LoyaltyCardArchiveFilter.All else DBHelper.LoyaltyCardArchiveFilter.Unarchived
             )
         )
 
@@ -418,37 +415,37 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            mHelpSection!!.setVisibility(View.GONE)
-            mNoGroupCardsText!!.setVisibility(View.GONE)
+            contentMainBinding.helpSection.setVisibility(View.GONE)
+            contentMainBinding.noGroupCardsText.setVisibility(View.GONE)
 
-            if (mAdapter!!.getItemCount() > 0) {
-                mCardList!!.setVisibility(View.VISIBLE)
-                mNoMatchingCardsText!!.setVisibility(View.GONE)
+            if (mAdapter.getItemCount() > 0) {
+                contentMainBinding.list.setVisibility(View.VISIBLE)
+                contentMainBinding.noMatchingCardsText.setVisibility(View.GONE)
             } else {
-                mCardList!!.setVisibility(View.GONE)
+                contentMainBinding.list.setVisibility(View.GONE)
                 if (!mFilter.isEmpty()) {
                     // Actual Empty Search Result
-                    mNoMatchingCardsText!!.setVisibility(View.VISIBLE)
-                    mNoGroupCardsText!!.setVisibility(View.GONE)
+                    contentMainBinding.noMatchingCardsText.setVisibility(View.VISIBLE)
+                    contentMainBinding.noGroupCardsText.setVisibility(View.GONE)
                 } else {
                     // Group Tab with no Group Cards
-                    mNoMatchingCardsText!!.setVisibility(View.GONE)
-                    mNoGroupCardsText!!.setVisibility(View.VISIBLE)
+                    contentMainBinding.noMatchingCardsText.setVisibility(View.GONE)
+                    contentMainBinding.noGroupCardsText.setVisibility(View.VISIBLE)
                 }
             }
         } else {
-            mCardList!!.setVisibility(View.GONE)
-            mHelpSection!!.setVisibility(View.VISIBLE)
+            contentMainBinding.list.setVisibility(View.GONE)
+            contentMainBinding.helpSection.setVisibility(View.VISIBLE)
 
-            mNoMatchingCardsText!!.setVisibility(View.GONE)
-            mNoGroupCardsText!!.setVisibility(View.GONE)
+            contentMainBinding.noMatchingCardsText.setVisibility(View.GONE)
+            contentMainBinding.noGroupCardsText.setVisibility(View.GONE)
         }
 
         if (mCurrentActionMode != null) {
             mCurrentActionMode!!.finish()
         }
 
-        ListWidget().updateAll(mAdapter!!.mContext)
+        ListWidget().updateAll(mAdapter.mContext)
     }
 
     private fun processParseResultList(
@@ -650,7 +647,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                         currentQuery = newText
                     }
                     val currentTab =
-                        groupsTabLayout!!.getTabAt(groupsTabLayout!!.getSelectedTabPosition())
+                        groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition())
                     mGroup = if (currentTab != null) currentTab.getTag() else null
 
                     updateLoyaltyCardList(false)
@@ -672,20 +669,16 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     }
 
     override fun onOptionsItemSelected(inputItem: MenuItem): Boolean {
-        val id = inputItem.getItemId()
-
-        if (id == android.R.id.home) {
-            onBackPressedDispatcher.onBackPressed()
-        }
-
-        if (id == protect.card_locker.R.id.action_display_options) {
-            mAdapter!!.showDisplayOptionsDialog()
-            invalidateOptionsMenu()
-
-            return true
-        }
-
-        if (id == protect.card_locker.R.id.action_sort) {
+        when (val id = inputItem.getItemId()) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+            }
+            protect.card_locker.R.id.action_display_options -> {
+                mAdapter.showDisplayOptionsDialog()
+                invalidateOptionsMenu()
+                return true
+            }
+            protect.card_locker.R.id.action_sort -> {
             val currentIndex = AtomicInteger()
             val loyaltyCardOrders =
                 listOf<LoyaltyCardOrder?>(*LoyaltyCardOrder.entries.toTypedArray())
@@ -719,49 +712,46 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
             builder.setPositiveButton(
                 protect.card_locker.R.string.sort,
-                DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
+                DialogInterface.OnClickListener { dialog, _ ->
                     setSort(
                         loyaltyCardOrders.get(currentIndex.get())!!,
                         if (showReversed.isChecked) LoyaltyCardOrderDirection.Descending else LoyaltyCardOrderDirection.Ascending
                     )
                     ListWidget().updateAll(this)
-                    dialog!!.dismiss()
-                })
+                    dialog?.dismiss()
+                }
+            )
 
-            builder.setNegativeButton(
-                protect.card_locker.R.string.cancel,
-                DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int -> dialog!!.dismiss() })
+            builder.setNegativeButton(protect.card_locker.R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
 
             val dialog = builder.create()
             dialog.show()
 
-            return true
+                return true
+            }
+            protect.card_locker.R.id.action_manage_groups -> {
+                val i = Intent(applicationContext, ManageGroupsActivity::class.java)
+                startActivity(i)
+                return true
+            }
+            protect.card_locker.R.id.action_import_export -> {
+                val i = Intent(applicationContext, ImportExportActivity::class.java)
+                startActivity(i)
+                return true
+            }
+            protect.card_locker.R.id.action_settings -> {
+                val i = Intent(applicationContext, SettingsActivity::class.java)
+                mSettingsLauncher.launch(i)
+                return true
+            }
+            protect.card_locker.R.id.action_about -> {
+                val i = Intent(applicationContext, AboutActivity::class.java)
+                startActivity(i)
+                return true
+            }
         }
-
-        if (id == protect.card_locker.R.id.action_manage_groups) {
-            val i = Intent(applicationContext, ManageGroupsActivity::class.java)
-            startActivity(i)
-            return true
-        }
-
-        if (id == protect.card_locker.R.id.action_import_export) {
-            val i = Intent(applicationContext, ImportExportActivity::class.java)
-            startActivity(i)
-            return true
-        }
-
-        if (id == protect.card_locker.R.id.action_settings) {
-            val i = Intent(applicationContext, SettingsActivity::class.java)
-            mSettingsLauncher!!.launch(i)
-            return true
-        }
-
-        if (id == protect.card_locker.R.id.action_about) {
-            val i = Intent(applicationContext, AboutActivity::class.java)
-            startActivity(i)
-            return true
-        }
-
 
         return super.onOptionsItemSelected(inputItem)
     }
@@ -813,12 +803,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         )
         val shouldScaleSmaller = screenHeight < mediumSizePx
 
-        binding!!.include.welcomeIcon.visibility = if (shouldScaleSmaller) View.GONE else View.VISIBLE
+        binding.include.welcomeIcon.visibility = if (shouldScaleSmaller) View.GONE else View.VISIBLE
     }
 
     private fun toggleSelection(inputPosition: Int) {
-        mAdapter!!.toggleSelection(inputPosition)
-        val count = mAdapter!!.selectedItemCount
+        mAdapter.toggleSelection(inputPosition)
+        val count = mAdapter.selectedItemCount
 
         if (count == 0) {
             mCurrentActionMode!!.finish()
@@ -847,7 +837,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             var hasArchived = false
             var hasUnarchived = false
 
-            for (loyaltyCard in mAdapter!!.getSelectedItems()) {
+            for (loyaltyCard in mAdapter.getSelectedItems()) {
                 if (loyaltyCard.starStatus == 1) {
                     hasStarred = true
                 } else {
@@ -888,7 +878,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
 
     override fun onRowClicked(inputPosition: Int) {
-        if (mAdapter!!.getSelectedItemCount() > 0) {
+        if (mAdapter.getSelectedItemCount() > 0) {
             enableActionMode(inputPosition)
         } else {
             // FIXME
@@ -901,7 +891,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             // click is being processed. Sadly, I have not yet found a way to make that possible.
             val loyaltyCard: LoyaltyCard
             try {
-                loyaltyCard = mAdapter!!.getCard(inputPosition)
+                loyaltyCard = mAdapter.getCard(inputPosition)
             } catch (e: CursorIndexOutOfBoundsException) {
                 Log.w(TAG, "Prevented crash from tap + swipe on ID " + inputPosition + ": " + e)
                 return
@@ -913,8 +903,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             b.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id)
 
             val cardList = ArrayList<Int?>()
-            for (i in 0..<mAdapter!!.getItemCount()) {
-                cardList.add(mAdapter!!.getCard(i).id)
+            for (i in 0..<mAdapter.getItemCount()) {
+                cardList.add(mAdapter.getCard(i).id)
             }
 
             b.putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList)

@@ -155,7 +155,7 @@
     <string name="updateBalance">Cập nhật số dư</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Bản quyền © 2019–<xliff:g>%d</xliff:g> Sylvia van Os và các cộng sự</string>
     <string name="sort_by_most_recently_used">Sửa dụng gần đây nhất</string>
-    <string name="noGiftCards">Bấm nút dấu cộng + để thêm thẻ, hoặc nhập dữ liệu từ menu ⋮.</string>
+    <string name="noGiftCards">Bấm nút dấu cộng + để thêm thẻ, hoặc nhập dữ liệu từ ⋮ menu</string>
     <string name="settings_theme_color">Chủ đề màu</string>
     <string name="importVoucherVault">Nhập dữ liệu từ Voucher Vault</string>
     <string name="barcodeId">Giá trị mã vạch</string>

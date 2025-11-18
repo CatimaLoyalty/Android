@@ -1,0 +1,3 @@
+- Thêm nút “Trước” và “Tiếp theo” vào giao diện thẻ khách hàng thân thiết.
+- Sửa lỗi màu chữ (màu tiền cảnh) trên nút chỉnh sửa
+- Thay biểu tượng lưu (đĩa mềm) bằng dấu kiểm (✓)

@@ -1,0 +1,2 @@
+- Gỡ bỏ các quyền không cần thiết
+- Nhắm mục tiêu Android 13

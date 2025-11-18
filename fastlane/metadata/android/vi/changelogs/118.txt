@@ -1,0 +1,2 @@
+- Hỗ trợ thiết lập thời điểm bắt đầu hiệu lực của thẻ
+- Sửa lỗi nhập từ Stocard (định dạng xuất của Stocard đã thay đổi)

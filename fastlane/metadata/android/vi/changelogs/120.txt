@@ -1,0 +1,3 @@
+- Thiết kế lại hoàn toàn màn hình chính và màn hình xem thẻ khách hàng thân thiết
+- Thiết kế Material You cho màn hình cài đặt
+- Sửa lỗi sập ứng dụng khi dùng “Chụp ảnh” với ứng dụng máy ảnh bị vô hiệu hóa

@@ -1,0 +1,4 @@
+- Cải thiện hiển thị mã vạch
+- Khả năng tương tác cơ bản với các ứng dụng bên ngoài (Android 6.0+)
+- Sắp xếp lại màn hình cài đặt
+- Sửa lỗi nhập từ một số trình duyệt thêm dấu / ở cuối URL chia sẻ

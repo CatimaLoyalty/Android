@@ -1,0 +1,2 @@
+- Cải thiện giao diện người dùng nhỏ
+- Sửa lỗi thiết kế mới không sử dụng được trên các thiết bị có màn hình vuông

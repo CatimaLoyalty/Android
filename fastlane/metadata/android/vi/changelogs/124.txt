@@ -1,0 +1,1 @@
+- Hỗ trợ chọn chính xác những thông tin cần hiển thị trong phần tổng quan thẻ

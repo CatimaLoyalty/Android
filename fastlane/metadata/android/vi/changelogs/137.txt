@@ -1,0 +1,4 @@
+- Cho phép tên cửa hàng dài trong phần xem trước được xuống nhiều dòng
+- Tùy chọn sử dụng ảnh mặt trước hoặc mặt sau trong menu hình thu nhỏ
+- Sửa một số lỗi nhỏ khi nhập/xuất
+- Sửa một số lỗi giao diện nhỏ

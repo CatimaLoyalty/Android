@@ -1,0 +1,4 @@
+- Hỗ trợ tạo thẻ khi chia sẻ văn bản thuần
+- Hiển thị loại hình ảnh thay vì mã vạch bên dưới hình ảnh
+- Sửa lỗi có thể sập ứng dụng khi cố gắng nhập bản sao lưu từ ứng dụng Nextcloud
+- Cải thiện hỗ trợ cho các thiết bị không có camera

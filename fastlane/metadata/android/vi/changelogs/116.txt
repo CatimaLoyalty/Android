@@ -1,0 +1,2 @@
+- Sửa lỗi hộp thoại chi tiêu nhanh không cho phép dấu phẩy làm dấu phân tách
+- Hỗ trợ tải hình ảnh từ trình quản lý tệp

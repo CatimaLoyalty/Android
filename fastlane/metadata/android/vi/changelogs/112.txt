@@ -1,0 +1,1 @@
+- Làm cho khả năng thiết lập tiêu đề tùy chỉnh dễ thấy hơn

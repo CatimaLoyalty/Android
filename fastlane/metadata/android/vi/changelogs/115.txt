@@ -1,0 +1,4 @@
+- Mở hình ảnh trong thư viện khi nhấn giữ lâu
+- Áp dụng kiểu Material cho các hộp thoại
+- Hỗ trợ tạo thẻ bằng cách chia sẻ hình ảnh tới Catima
+- Thêm nút chi tiêu nhanh trên màn hình thẻ

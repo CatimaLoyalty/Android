@@ -1,0 +1,1 @@
+- Ngăn chặn ứng dụng bị sập khi xoay màn hình trong trình hướng dẫn giới thiệu lần chạy đầu tiên.

@@ -1,0 +1,6 @@
+- Tinh chỉnh quy trình "Thêm thẻ"
+- Cải thiện luồng kiểm tra dữ liệu
+- Sửa trường hợp biên gây trạng thái giao diện không hợp lệ khi bật/tắt hiển thị lưu trữ
+- Sử dụng màu chủ đề hoặc màu thẻ cho thanh điều hướng (Android 8.1+)
+- Cập nhật bộ chọn ngày hiệu lực và ngày hết hạn
+- Thêm tùy chọn luôn xoay màn hình (bỏ qua cài đặt hệ thống)

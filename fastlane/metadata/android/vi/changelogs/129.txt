@@ -1,0 +1,3 @@
+- Cải thiện trình nhập Catima (sửa lỗi thiếu thẻ khi nhập)
+- Sửa lỗi sập ứng dụng khi xoay màn hình trong lúc đặt ngày bắt đầu hiệu lực/ngày hết hạn
+- Tinh chỉnh giao diện nhỏ

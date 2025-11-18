@@ -1,0 +1,3 @@
+- Nhấn giữ biểu tượng thẻ trong màn hình xem để thay đổi nó
+- Cải thiện kiểu dáng nút trên màn hình Nhóm
+- Sửa lỗi giá trị mã vạch quá dài khiến mã vạch bị thu nhỏ đến mức không còn hiển thị

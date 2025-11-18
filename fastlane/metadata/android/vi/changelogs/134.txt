@@ -1,0 +1,3 @@
+- Hỗ trợ quét mã vạch trong tệp PDF
+- Hỗ trợ tệp hình ảnh có nhiều mã vạch
+- Sửa một số lỗi giao diện nhỏ

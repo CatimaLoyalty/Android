@@ -1,0 +1,1 @@
+- Xử lý tốt hơn trong trường hợp thiếu màu tiêu đề

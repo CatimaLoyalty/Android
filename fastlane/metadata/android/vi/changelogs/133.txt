@@ -1,0 +1,4 @@
+- Nhắm mục tiêu Android 14
+- Mở biểu tượng thẻ trong thư viện khi chạm
+- Cải thiện thiết kế tab Ảnh trong màn hình chỉnh sửa
+- Cập nhật màn hình chi tiêu để hỗ trợ cả nhận

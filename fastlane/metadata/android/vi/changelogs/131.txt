@@ -1,0 +1,3 @@
+- Di chuyển "Chế độ lưu trữ" vào menu "Tùy chọn hiển thị" (trước đây là "Hiển thị chi tiết")
+- Hỗ trợ ngôn ngữ theo từng ứng dụng trên Android 13
+- Nhúng chính sách quyền riêng tư, nhật ký thay đổi và giấy phép trong ứng dụng

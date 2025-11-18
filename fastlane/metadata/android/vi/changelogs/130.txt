@@ -1,0 +1,4 @@
+- Sửa một số lỗi giao diện nhỏ
+- Sửa lỗi ngày bắt đầu hiệu lực và ngày hết hạn bị đặt lại khi xoay màn hình chỉnh sửa thẻ
+- Sửa lỗi sập ứng dụng khi xoay màn hình trong khi bộ chọn màu đang hiển thị
+- Sửa lỗi nhập Stocard

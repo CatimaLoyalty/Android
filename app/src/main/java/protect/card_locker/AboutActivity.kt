@@ -165,6 +165,6 @@ fun AboutScreenContent(
 
 @Preview
 @Composable
-fun AboutActivityPreview() {
+private fun AboutActivityPreview() {
     AboutScreenContent(AboutContent(LocalContext.current))
 }

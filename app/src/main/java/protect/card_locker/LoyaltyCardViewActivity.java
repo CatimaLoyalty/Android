@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
@@ -57,11 +56,11 @@ import com.google.zxing.BarcodeFormat;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -425,9 +424,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         }
 
-        appendDateInfo(infoText, loyaltyCard.validFrom, (Utils::isNotYetValid), R.string.validFromSentence, R.string.validFromSentence);
+        appendDateInfo(infoText, loyaltyCard.validFrom, (DateTimeUtils::isNotYetValid), R.string.validFromSentence, R.string.validFromSentence);
 
-        appendDateInfo(infoText, loyaltyCard.expiry, (Utils::hasExpired), R.string.expiryStateSentenceExpired, R.string.expiryStateSentence);
+        appendDateInfo(infoText, loyaltyCard.expiry, (DateTimeUtils::hasExpired), R.string.expiryStateSentenceExpired, R.string.expiryStateSentence);
 
         infoTextview.setText(infoText);
 
@@ -436,9 +435,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.create().show();
     }
 
-    private void appendDateInfo(SpannableStringBuilder infoText, Date date, Predicate<Date> dateCheck, @StringRes int dateCheckTrueString, @StringRes int dateCheckFalseString) {
+    private void appendDateInfo(SpannableStringBuilder infoText, Instant date, Predicate<Instant> dateCheck, @StringRes int dateCheckTrueString, @StringRes int dateCheckFalseString) {
         if (date != null) {
-            String formattedDate = DateFormat.getDateInstance(DateFormat.LONG).format(date);
+            ZonedDateTime zoneDate = DateTimeUtils.instantToZonedDateTime(date);
+            String formattedDate = zoneDate == null ? "" : zoneDate.format(DateTimeUtils.longDateShortTimeFormatter);
 
             padSpannableString(infoText);
             if (dateCheck.test(date)) {

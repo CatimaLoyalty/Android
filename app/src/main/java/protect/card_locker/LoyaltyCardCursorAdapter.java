@@ -1,13 +1,11 @@
 package protect.card_locker;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
-import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +24,6 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.color.MaterialColors;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.util.ArrayList;
 
 import protect.card_locker.databinding.LoyaltyCardLayoutBinding;
@@ -112,13 +109,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.validFrom != null) {
-            inputHolder.setExtraField(inputHolder.mValidFromField, DateFormat.getDateInstance(DateFormat.MEDIUM).format(loyaltyCard.validFrom), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
+            inputHolder.setExtraField(inputHolder.mValidFromField, DateTimeUtils.formatMedium(loyaltyCard.validFrom), DateTimeUtils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mValidFromField, null, null, false);
         }
 
         if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.expiry != null) {
-            inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.MEDIUM).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
+            inputHolder.setExtraField(inputHolder.mExpiryField, DateTimeUtils.formatMedium(loyaltyCard.expiry), DateTimeUtils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
         }

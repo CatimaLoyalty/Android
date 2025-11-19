@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,8 +66,8 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             CatimaBarcode barcodeType = null;
-            Date validFrom = null;
-            Date expiry = null;
+            Instant validFrom = null;
+            Instant expiry = null;
             BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
             Integer headerColor = null;
@@ -113,11 +113,11 @@ public class ImportURIHelper {
             }
             String unparsedValidFrom = kv.get(VALID_FROM);
             if (unparsedValidFrom != null && !unparsedValidFrom.equals("")) {
-                validFrom = new Date(Long.parseLong(unparsedValidFrom));
+                validFrom = Instant.parse(unparsedValidFrom);
             }
             String unparsedExpiry = kv.get(EXPIRY);
-            if (unparsedExpiry != null && !unparsedExpiry.equals("")) {
-                expiry = new Date(Long.parseLong(unparsedExpiry));
+            if (unparsedExpiry != null && !unparsedExpiry.isEmpty()) {
+                expiry = Instant.parse(unparsedExpiry);
             }
 
             String unparsedHeaderColor = kv.get(HEADER_COLOR);
@@ -182,10 +182,10 @@ public class ImportURIHelper {
             fragment = appendFragment(fragment, BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
         }
         if (loyaltyCard.validFrom != null) {
-            fragment = appendFragment(fragment, VALID_FROM, String.valueOf(loyaltyCard.validFrom.getTime()));
+            fragment = appendFragment(fragment, VALID_FROM, loyaltyCard.validFrom.toString());
         }
         if (loyaltyCard.expiry != null) {
-            fragment = appendFragment(fragment, EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
+            fragment = appendFragment(fragment, EXPIRY, loyaltyCard.expiry.toString());
         }
         fragment = appendFragment(fragment, CARD_ID, loyaltyCard.cardId);
         if (loyaltyCard.barcodeId != null) {

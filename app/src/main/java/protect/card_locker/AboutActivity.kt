@@ -55,7 +55,7 @@ class AboutActivity : ComponentActivity() {
 fun AboutScreenContent(
     content: AboutContent,
     showDonate: Boolean = true,
-    showRateOnGooglePlay: Boolean = true,
+    showRateOnGooglePlay: Boolean = false,
     onBackPressedDispatcher: OnBackPressedDispatcher? = null,
 ) {
     CatimaTheme {

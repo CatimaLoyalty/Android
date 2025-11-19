@@ -10,7 +10,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,11 +22,9 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-
 import protect.card_locker.compose.CatimaAboutSection
 import protect.card_locker.compose.CatimaTopAppBar
 import protect.card_locker.compose.theme.CatimaTheme
-
 
 class AboutActivity : ComponentActivity() {
     private lateinit var content: AboutContent
@@ -49,9 +46,7 @@ class AboutActivity : ComponentActivity() {
             }
         }
     }
-
 }
-
 
 @Composable
 fun AboutScreenContent(
@@ -64,7 +59,9 @@ fun AboutScreenContent(
         topBar = { CatimaTopAppBar(content.pageTitle.toString(), onBackPressedDispatcher) }
     ) { innerPadding ->
         Column(
-            modifier = Modifier.padding(innerPadding).verticalScroll(rememberScrollState())
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
         ) {
             CatimaAboutSection(
                 stringResource(R.string.version_history),

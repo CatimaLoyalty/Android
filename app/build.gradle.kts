@@ -125,11 +125,10 @@ dependencies {
     // Compose
     val composeBom = platform("androidx.compose:compose-bom:2025.05.01")
     implementation(composeBom)
-    testImplementation(composeBom)
-    androidTestImplementation(composeBom)
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview-android")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
@@ -146,9 +145,10 @@ dependencies {
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.robolectric:robolectric:4.14.1")
 
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-    androidTestImplementation("androidx.compose.ui:ui-test")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation(composeBom)
+    testImplementation("androidx.compose.ui:ui-test")
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
     androidTestImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

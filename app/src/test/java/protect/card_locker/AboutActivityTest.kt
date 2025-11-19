@@ -1,47 +1,96 @@
 package protect.card_locker
 
-import androidx.compose.ui.platform.LocalContext
+import android.app.Instrumentation
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.Robolectric
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.Shadows.shadowOf
-import org.robolectric.shadows.ShadowActivity
 import org.robolectric.shadows.ShadowLog
+import protect.card_locker.compose.theme.CatimaTheme
 
 @RunWith(AndroidJUnit4::class)
 class AboutActivityTest {
     @get:Rule
-    val rule: ComposeContentTestRule = createComposeRule()
+    private val rule: ComposeContentTestRule = createComposeRule()
+
+    private val instrumentation: Instrumentation = InstrumentationRegistry.getInstrumentation()
+
+    private lateinit var content: AboutContent
 
     @Before
     fun setUp() {
         ShadowLog.stream = System.out
+        content = AboutContent(instrumentation.targetContext)
     }
 
     @Test
-    fun testPasses(): Unit = with(rule) {
+    fun testInitialState(): Unit = with(rule) {
         setContent {
-            AboutScreenContent(AboutContent(LocalContext.current))
+            CatimaTheme {
+                AboutScreenContent(content = content)
+            }
         }
 
         onNodeWithTag("topbar_catima").assertIsDisplayed()
+
+        onNodeWithTag("card_version_history").assertIsDisplayed()
+        onNodeWithText(content.versionHistory).assertIsDisplayed()
+
+        onNodeWithTag("card_credits").assertIsDisplayed()
+        onNodeWithText(content.copyrightShort).assertIsDisplayed()
+
+        onNodeWithTag("card_translate").assertIsDisplayed()
+        onNodeWithTag("card_license").assertIsDisplayed()
+
+        // We might be off the screen so start scrolling
+        onNodeWithTag("card_source_github").performScrollTo().assertIsDisplayed()
+        onNodeWithTag("card_privacy_policy").performScrollTo().assertIsDisplayed()
+        onNodeWithTag("card_donate").performScrollTo().assertIsDisplayed()
+        // Dont scroll to this, since its not displayed
+        onNodeWithTag("card_rate_google").assertIsNotDisplayed()
+        onNodeWithTag("card_report_error").performScrollTo().assertIsDisplayed()
     }
 
     @Test
-    fun testFails(): Unit = with(rule) {
+    fun testDonateAndGoogleCardVisible(): Unit = with(rule) {
         setContent {
-            AboutScreenContent(AboutContent(LocalContext.current))
+            CatimaTheme {
+                AboutScreenContent(
+                    content = content,
+                    showDonate = true,
+                    showRateOnGooglePlay = true,
+                )
+            }
         }
 
-        onNodeWithTag("topbar_catima").assertIsNotDisplayed()
+        onNodeWithTag("card_donate").performScrollTo().assertIsDisplayed()
+        onNodeWithTag("card_rate_google").performScrollTo().assertIsDisplayed()
+    }
+
+    @Test
+    fun testDonateAndGoogleCardHidden(): Unit = with(rule) {
+        setContent {
+            CatimaTheme {
+                AboutScreenContent(
+                    content = content,
+                    showDonate = false,
+                    showRateOnGooglePlay = false,
+                )
+            }
+        }
+
+        onNodeWithTag("card_privacy_policy").performScrollTo().assertIsDisplayed()
+        onNodeWithTag("card_donate").assertIsNotDisplayed()
+        onNodeWithTag("card_rate_google").assertIsNotDisplayed()
+        onNodeWithTag("card_report_error").performScrollTo().assertIsDisplayed()
     }
 }

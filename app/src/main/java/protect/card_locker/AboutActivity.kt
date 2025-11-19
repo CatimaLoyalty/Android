@@ -54,9 +54,9 @@ class AboutActivity : ComponentActivity() {
 @Composable
 fun AboutScreenContent(
     content: AboutContent,
-    showDonate: Boolean,
-    showRateOnGooglePlay: Boolean,
-    onBackPressedDispatcher: OnBackPressedDispatcher?,
+    showDonate: Boolean = true,
+    showRateOnGooglePlay: Boolean = true,
+    onBackPressedDispatcher: OnBackPressedDispatcher? = null,
 ) {
     CatimaTheme {
         Scaffold(
@@ -166,10 +166,5 @@ fun AboutScreenContent(
 @Preview
 @Composable
 fun AboutActivityPreview() {
-    AboutScreenContent(
-        content = AboutContent(LocalContext.current),
-        showDonate = true,
-        showRateOnGooglePlay = true,
-        onBackPressedDispatcher = null
-    )
+    AboutScreenContent(AboutContent(LocalContext.current))
 }

@@ -16,12 +16,7 @@ class ComposeAboutActivityTest {
     @Test
     fun testPasses(): Unit = with(rule) {
         setContent {
-            AboutScreenContent(
-                content = AboutContent(LocalContext.current),
-                showDonate = true,
-                showRateOnGooglePlay = false,
-                onBackPressedDispatcher = null
-            )
+            AboutScreenContent(AboutContent(LocalContext.current))
         }
 
         onNodeWithTag("topbar_catima").assertIsDisplayed()
@@ -30,12 +25,7 @@ class ComposeAboutActivityTest {
     @Test
     fun testFails(): Unit = with(rule) {
         setContent {
-            AboutScreenContent(
-                content = AboutContent(LocalContext.current),
-                showDonate = true,
-                showRateOnGooglePlay = false,
-                onBackPressedDispatcher = null
-            )
+            AboutScreenContent(AboutContent(LocalContext.current))
         }
 
         onNodeWithTag("topbar_catima").assertIsNotDisplayed()

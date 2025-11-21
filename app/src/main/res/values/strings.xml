@@ -22,6 +22,7 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
+    <string name="History">History_title</string>
     <!-- START NOTE: i18n oddness -->
     <!-- The following may seem weird, but it is necessary to give translators enough flexibility.
          For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".

@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -15,9 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class HistoryActivity extends CatimaAppCompatActivity {
-
-    private AppDatabase appDatabase;
-    private HistoryDao historyDao;
+    private static final String TAG = "HistoryActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,9 +30,6 @@ public class HistoryActivity extends CatimaAppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        appDatabase = AppDatabase.getInstance(this);
-        historyDao = appDatabase.historyDao();
-
         RecyclerView rvHistory = findViewById(R.id.rvHistory);
         TextView tvEmpty = findViewById(R.id.tvEmpty);
 
@@ -42,18 +38,33 @@ public class HistoryActivity extends CatimaAppCompatActivity {
         long sevenDaysAgo = calendar.getTimeInMillis();
 
         new Thread(() -> {
-            List<HistoryEntity> historyItems = historyDao.getLast7Days(sevenDaysAgo);
-            runOnUiThread(() -> {
-                if (historyItems.isEmpty()) {
+            try {
+                AppDatabase db = AppDatabase.getInstance(this);
+                // Remove any previously seeded debug-sample rows (cardId = -1)
+                db.historyDao().deleteByCardId(-1);
+                Log.d(TAG, "Removed any debug-sample history rows (cardId=-1)");
+                List<HistoryEntity> historyItems = db.historyDao().getLast7Days(sevenDaysAgo);
+                Log.d(TAG, "Loaded history items: " + (historyItems == null ? "null" : historyItems.size()));
+
+                final List<HistoryEntity> finalItems = historyItems;
+                runOnUiThread(() -> {
+                    if (finalItems == null || finalItems.isEmpty()) {
+                        rvHistory.setVisibility(View.GONE);
+                        tvEmpty.setVisibility(View.VISIBLE);
+                    } else {
+                        rvHistory.setVisibility(View.VISIBLE);
+                        tvEmpty.setVisibility(View.GONE);
+                        rvHistory.setLayoutManager(new LinearLayoutManager(this));
+                        rvHistory.setAdapter(new HistoryAdapter(finalItems));
+                    }
+                });
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to load history", e);
+                runOnUiThread(() -> {
                     rvHistory.setVisibility(View.GONE);
                     tvEmpty.setVisibility(View.VISIBLE);
-                } else {
-                    rvHistory.setVisibility(View.VISIBLE);
-                    tvEmpty.setVisibility(View.GONE);
-                    rvHistory.setLayoutManager(new LinearLayoutManager(this));
-                    rvHistory.setAdapter(new HistoryAdapter(historyItems));
-                }
-            });
+                });
+            }
         }).start();
     }
 

@@ -124,6 +124,11 @@ dependencies {
     implementation(libs.com.google.android.material.material)
     coreLibraryDesugaring(libs.com.android.tools.desugar.jdk.libs)
 
+    // Room (local database for history)
+    // Use explicit coordinates to ensure dependency resolution
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
     // Third-party
     implementation(libs.com.journeyapps.zxing.android.embedded)
     implementation(libs.com.github.yalantis.ucrop)

@@ -16,4 +16,8 @@ public interface HistoryDao {
 
     @Query("DELETE FROM history WHERE timestamp < :sevenDaysAgo")
     void deleteOlderThan(long sevenDaysAgo);
+
+    // Remove debug-sample rows inserted previously (cardId = -1)
+    @Query("DELETE FROM history WHERE cardId = :debugCardId")
+    void deleteByCardId(int debugCardId);
 }

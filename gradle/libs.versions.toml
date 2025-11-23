@@ -1,6 +1,7 @@
 [versions]
 # Third-party
 acra = "5.13.1"
+room = "2.6.1"
 
 # Testing
 androidXTest = "1.7.0"
@@ -17,6 +18,9 @@ androidx-palette-palette = { group = "androidx.palette", name = "palette", versi
 androidx-preference-preference = { group = "androidx.preference", name = "preference", version = "1.2.1" }
 com-google-android-material-material = { group = "com.google.android.material", name = "material", version = "1.13.0" }
 com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
+
+androidx-room-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 # Third-party
 com-journeyapps-zxing_android_embedded = { group = "com.journeyapps", name = "zxing-android-embedded", version = "4.3.0" }

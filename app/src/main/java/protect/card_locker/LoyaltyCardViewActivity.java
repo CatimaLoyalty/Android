@@ -676,6 +676,32 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        // Log history entry (record that this card was viewed). Use Room database in background.
+        new Thread(() -> {
+            try {
+                HistoryEntity entity = new HistoryEntity();
+                entity.cardId = loyaltyCardId;
+                entity.cardName = loyaltyCard != null ? loyaltyCard.store : "";
+                entity.timestamp = System.currentTimeMillis();
+
+                Log.d(TAG, "Inserting history entry: cardId=" + entity.cardId + " cardName=" + entity.cardName + " ts=" + entity.timestamp);
+
+                AppDatabase db = AppDatabase.getInstance(LoyaltyCardViewActivity.this);
+                db.historyDao().insert(entity);
+
+                // Cleanup old history entries older than 7 days
+                long sevenDaysAgo = System.currentTimeMillis() - 7L * 24 * 60 * 60 * 1000;
+                db.historyDao().deleteOlderThan(sevenDaysAgo);
+
+                // Log current count for debugging
+                List<HistoryEntity> items = db.historyDao().getLast7Days(sevenDaysAgo);
+                Log.d(TAG, "History count after insert: " + (items == null ? "null" : items.size()));
+            } catch (Exception e) {
+                // Keep logging non-fatal; don't crash the view activity
+                Log.e(TAG, "Failed to insert history entry", e);
+            }
+        }).start();
+
         setTitle(loyaltyCard.store);
 
         loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);

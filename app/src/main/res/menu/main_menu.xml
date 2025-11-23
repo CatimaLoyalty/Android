@@ -24,7 +24,7 @@
     <item
         android:id="@+id/action_history"
         android:icon="@drawable/ic_history_white_24dp"
-        android:title="@string/History"
+        android:title="@string/history_title"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_manage_groups"

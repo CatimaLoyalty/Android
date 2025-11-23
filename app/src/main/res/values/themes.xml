@@ -44,6 +44,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.Material3.ActionBar">
+        <!-- Lightweight overlay used by AppBarLayout/Toolbar -->
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3">
+        <!-- Lightweight popup overlay used for toolbar popups -->
+    </style>
+
     <style name="AppTheme.TextView.NoData" parent="AppTheme">
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_centerVertical">true</item>

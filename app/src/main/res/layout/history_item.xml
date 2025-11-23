@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
-        android.layout.height="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="14sp" />
 
 </LinearLayout>

@@ -726,6 +726,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             return true;
         }
 
+        if (id == R.id.action_history) {
+            // Open history activity showing last 7 days of card views
+            Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
+            startActivity(i);
+            return true;
+        }
+
         if (id == R.id.action_settings) {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             mSettingsLauncher.launch(i);

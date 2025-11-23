@@ -171,17 +171,13 @@
     <string name="privacy_policy">Privacy policy</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
-    <string name="importCatimaMessage">Select your export from Catima to import.
-\nCreate it from the "Import/export" menu of another Catima app by pressing "Export".</string>
+    <string name="importCatimaMessage">Select your export from Catima to import.\n\nCreate it from the "Import/export" menu of another Catima app by pressing "Export".</string>
     <string name="importFidme">Import from FidMe</string>
-    <string name="importFidmeMessage">Select your export from FidMe to import, and select the barcode types manually afterwards.
-\nCreate it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data".</string>
+    <string name="importFidmeMessage">Select your export from FidMe to import, and select the barcode types manually afterwards.\n\nCreate it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data".</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Select your export from Loyalty Card Keychain to import.
-\nCreate it from the "Import/Export" menu in Loyalty Card Keychain by pressing "Export".</string>
+    <string name="importLoyaltyCardKeychainMessage">Select your export from Loyalty Card Keychain to import.\n\nCreate it from the "Import/Export" menu in Loyalty Card Keychain by pressing "Export".</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Select your export from Voucher Vault to import.
-\nCreate it by pressing "Export" in Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Select your export from Voucher Vault to import.\n\nCreate it by pressing "Export" in Voucher Vault.</string>
     <string name="barcodeId">Barcode value</string>
     <string name="sameAsCardId">Same as ID</string>
     <string name="setBarcodeId">Set barcode value</string>
@@ -359,4 +355,8 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> crash report</string>
     <string name="pref_enable_acra">Ask to send crash reports</string>
     <string name="pref_enable_acra_summary">When enabled, you will be asked to report a crash when it happens. Crash reports are never sent automatically.</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="last_7_days">Last 7 days</string>
+    <string name="no_history">No history</string>
 </resources>

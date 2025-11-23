@@ -22,6 +22,11 @@
         app:showAsAction="always"
         android:visible="false"/>
     <item
+        android:id="@+id/action_history"
+        android:icon="@drawable/ic_history_white_24dp"
+        android:title="@string/History"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/action_manage_groups"
         android:icon="@drawable/ic_folder_white"
         android:title="@string/groups"

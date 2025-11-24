@@ -136,6 +136,7 @@ public class ImportURIHelper {
                     cardId,
                     barcodeId,
                     barcodeType,
+                    null,
                     headerColor,
                     0,
                     Utils.getUnixTime(),

@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Update contributors
       id: update_contributors
       uses: TheLastProject/contributors-to-file-action@v3.2.0

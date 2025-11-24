@@ -17,7 +17,7 @@ jobs:
   update-locales:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Add new locales
       run: .scripts/new-locales.py
     - name: Update locales

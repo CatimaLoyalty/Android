@@ -76,16 +76,16 @@
     <string name="leaveWithoutSaveConfirmation">Iziet nesaglabājot\?</string>
     <string name="addFromImage">Atlasīt attēlu no galerijas</string>
     <string name="card">Karte</string>
-    <string name="expiryDate">Derīguma termiņš</string>
+    <string name="expiryDate">Derīguma beigu datums</string>
     <string name="never">Nekad</string>
     <string name="chooseExpiryDate">Izvēlēties beigu datumu</string>
     <string name="failedToRetrieveImageFile">Neizdevās iegūt attēla datni</string>
     <string name="barcodeLongPressMessage">Galerijas lietotnē var atvērt tikai attēlus</string>
-    <string name="sort_by_expiry">Derīguma termiņš</string>
+    <string name="sort_by_expiry">Derīgums</string>
     <string name="reverse">...apgrieztā secībā</string>
     <string name="credits">Pateicības</string>
     <string name="shortcutSelectCard">Atlasīt karti</string>
-    <string name="duplicateCard">Dublēt</string>
+    <string name="duplicateCard">Pavairot</string>
     <string name="archive">Arhivēt</string>
     <string name="translate_platform">Weblate</string>
     <string name="starred">Izlase</string>
@@ -96,7 +96,7 @@
         <item quantity="other">Neatgriezeniski dzēst šīs <xliff:g>%d</xliff:g> kartes\?</item>
     </plurals>
     <string name="about_title_fmt">Par <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Derīguma termiņš beidzās: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Derīgums beidzās: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Atlasīt krāsu</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_pink_theme">Rozā</string>
@@ -129,7 +129,7 @@
     <string name="source_repository">Pirmkoda glabātava</string>
     <string name="rate_this_app">Novērtēt šo lietotni</string>
     <string name="noGiftCardsGroup">Izveido kādas kartes, tad šeit pievieno tās kopai</string>
-    <string name="options">Parametri</string>
+    <string name="options">Iespējas</string>
     <plurals name="groupCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> kartes</item>
         <item quantity="one"><xliff:g>%d</xliff:g> karte</item>
@@ -165,7 +165,7 @@
     <string name="group_updated">Kopa atjaunināta</string>
     <string name="addManually">Pašrocīgi ievadīt svītrkodu</string>
     <string name="groupsList">Kopas: <xliff:g>%s</xliff:g></string>
-    <string name="expiryStateSentence">Derīguma termiņš: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Derīgums beigsies: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Atlikums: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Labot svītrkodu</string>
     <string name="importCatima">Ievietot no Catima</string>
@@ -182,10 +182,10 @@
     <string name="intent_import_card_from_url_share_multiple_text">Vēlos ar Tevi kopīgot dažas kartes</string>
     <string name="frontImageDescription">Priekšpuses attēls</string>
     <string name="backImageDescription">Aizmugures attēls</string>
-    <string name="photos">Foto</string>
+    <string name="photos">Fotoattēli</string>
     <string name="setFrontImage">Iestatīt priekšpuses attēlu</string>
     <string name="setBackImage">Iestatīt aizmugures attēlu</string>
-    <string name="takePhoto">Fotografēt</string>
+    <string name="takePhoto">Uzņemt attēlu</string>
     <string name="passwordRequired">Jāievada parole</string>
     <string name="exportPassword">Iestatīt paroli, lai aizsargātu savu izguves datni (pēc izvēles)</string>
     <string name="turn_flashlight_on">Ieslēgt zibspuldzi</string>

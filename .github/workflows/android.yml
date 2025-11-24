@@ -32,7 +32,7 @@ jobs:
       matrix:
         flavor: [Foss, Gplay]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: gradle/actions/wrapper-validation@v5
       - name: set up OpenJDK 21
         run: |

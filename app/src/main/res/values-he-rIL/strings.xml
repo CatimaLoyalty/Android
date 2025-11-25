@@ -51,5 +51,4 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">באיזה מהברקודים שנמצאו אתה רוצה להשתמש?</string>
     <string name="useFrontImage">השתמש בתמונה קדמית</string>
     <string name="useBackImage">השתמש בתמונה אחורית</string>
-    <string name="app_name"></string>
 </resources>

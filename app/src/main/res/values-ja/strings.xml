@@ -45,7 +45,7 @@
     <string name="enter_group_name">グループ名を入力</string>
     <string name="exportSuccessful">データがエクスポートされました</string>
     <string name="importSuccessful">データがインポートされました</string>
-    <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
+    <string name="intent_import_card_from_url_share_text">カードを共有しましょう</string>
     <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中に画面をロックしない</string>
     <string name="settings_keep_screen_on">バーコード表示中に画面を点けたままにする</string>
     <string name="settings_display_barcode_max_brightness">画面を明るくする</string>
@@ -109,8 +109,8 @@
     <string name="action_add">追加</string>
     <string name="action_search">検索</string>
     <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
-    <string name="turn_flashlight_off">ライトをオフにする</string>
-    <string name="turn_flashlight_on">ライトをオンにする</string>
+    <string name="turn_flashlight_off">ライトを消灯する</string>
+    <string name="turn_flashlight_on">ライトを点灯する</string>
     <string name="failedGeneratingShareURL">共有可能なURLを作成できませんでした</string>
     <string name="passwordRequired">パスワードを入力</string>
     <string name="no">いいえ</string>
@@ -119,11 +119,11 @@
     <string name="updateBarcodeQuestionTitle">バーコードの番号を変更しますか？</string>
     <string name="takePhoto">写真を撮影する</string>
     <string name="removeImage">画像を削除</string>
-    <string name="setBackImage">裏面の画像を設定</string>
-    <string name="setFrontImage">表面の画像を設定</string>
+    <string name="setBackImage">背面の画像を設定</string>
+    <string name="setFrontImage">前面の画像を設定</string>
     <string name="photos">画像</string>
-    <string name="backImageDescription">裏</string>
-    <string name="frontImageDescription">表</string>
+    <string name="backImageDescription">背面</string>
+    <string name="frontImageDescription">前面</string>
     <plurals name="selectedCardCount">
         <item quantity="other">選択済み: <xliff:g>%d</xliff:g> 枚</item>
     </plurals>

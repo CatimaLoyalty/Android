@@ -710,10 +710,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             builder.setView(cardIdView);
             builder.setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss());
             builder.setNeutralButton(R.string.copy_value, (dialog, which) -> {
-                copyValueToClipboard();
+                copyCardIdToClipboard();
             });
             AlertDialog dialog = builder.create();
             dialog.show();
+        });
+        binding.mainImageDescription.setOnLongClickListener(view -> {
+            if (mainImageIndex != 0) {
+                // Don't copy to clipboard, we're showing something else
+                return false;
+            }
+
+            copyCardIdToClipboard();
+            return true;
         });
 
         int backgroundHeaderColor = Utils.getHeaderColor(this, loyaltyCard);
@@ -1255,7 +1264,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
     }
 
-    private void copyValueToClipboard() {
+    private void copyCardIdToClipboard() {
         // Take the value that’s already displayed to the user
         String value = loyaltyCard.cardId;
 

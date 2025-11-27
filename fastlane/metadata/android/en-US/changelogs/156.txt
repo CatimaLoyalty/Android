@@ -1,0 +1,1 @@
+- Copy card ID to clipboard from view dialog or long press

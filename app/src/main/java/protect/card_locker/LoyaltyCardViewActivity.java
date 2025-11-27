@@ -1,8 +1,9 @@
 package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
@@ -704,9 +705,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.cardId);
             builder.setView(cardIdView);
-            builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+            builder.setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss());
+            builder.setNeutralButton(R.string.copy_value, (dialog, which) -> {
+                copyCardIdToClipboard();
+            });
             AlertDialog dialog = builder.create();
             dialog.show();
+        });
+        binding.mainImageDescription.setOnLongClickListener(view -> {
+            if (mainImageIndex != 0) {
+                // Don't copy to clipboard, we're showing something else
+                return false;
+            }
+
+            copyCardIdToClipboard();
+            return true;
         });
 
         int backgroundHeaderColor = Utils.getHeaderColor(this, loyaltyCard);
@@ -1246,5 +1259,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
             );
         }
+    }
+
+    private void copyCardIdToClipboard() {
+        // Take the value that’s already displayed to the user
+        String value = loyaltyCard.cardId;
+
+        if (value == null || value.isEmpty()) {
+            Toast.makeText(this, R.string.nothing_to_copy, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(getString(R.string.cardId), value);
+        cm.setPrimaryClip(clip);
+
+        Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
     }
 }

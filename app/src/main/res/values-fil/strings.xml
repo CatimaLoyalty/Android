@@ -15,4 +15,16 @@
         <item quantity="one"><xliff:g>%d</xliff:g> napili</item>
         <item quantity="other"><xliff:g>%d</xliff:g> ang napili</item>
     </plurals>
+    <string name="star">Sa card viewing, ang text ay naka-display lamang tuwing naka-long press ang star icon</string>
+    <string name="cancel">I-kansela</string>
+    <string name="save">I-save</string>
+    <string name="edit">I-edit</string>
+    <string name="delete">I-delete</string>
+    <string name="confirm">I-confirm</string>
+    <string name="share">I-share</string>
+    <string name="sendLabel">I-send…</string>
+    <string name="editCardTitle">I-edit ang card</string>
+    <string name="noCardsMessage">Mag-add ng card muna</string>
+    <string name="noCardExistsError">Hindi mahanap ang card</string>
+    <string name="exportName">I-export</string>
 </resources>

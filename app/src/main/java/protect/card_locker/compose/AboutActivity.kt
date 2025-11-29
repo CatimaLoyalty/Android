@@ -23,13 +23,19 @@ import protect.card_locker.OpenWebLinkHandler
 import protect.card_locker.R
 
 @Composable
-fun CatimaAboutSection(title: String, message: String, onClickUrl: String? = null, onClickDialogText: AnnotatedString? = null) {
+fun CatimaAboutSection(
+    title: String,
+    message: String,
+    modifier: Modifier = Modifier,
+    onClickUrl: String? = null,
+    onClickDialogText: AnnotatedString? = null,
+) {
     val activity = LocalActivity.current
 
     val openDialog = remember { mutableStateOf(false) }
 
-    Column(
-        modifier = Modifier
+    Row(
+        modifier = modifier
             .padding(8.dp)
             .clickable {
                 if (onClickDialogText != null) {
@@ -39,19 +45,17 @@ fun CatimaAboutSection(title: String, message: String, onClickUrl: String? = nul
                 }
             }
     ) {
-        Row {
-            Column(modifier = Modifier.weight(1F)) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleLarge
-                )
-                Text(text = message)
-            }
-            Text(modifier = Modifier.align(Alignment.CenterVertically),
-                text = ">",
-                style = MaterialTheme.typography.titleMedium
+        Column(modifier = Modifier.weight(1F)) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleLarge
             )
+            Text(text = message)
         }
+        Text(modifier = Modifier.align(Alignment.CenterVertically),
+            text = ">",
+            style = MaterialTheme.typography.titleMedium
+        )
     }
     if (openDialog.value && onClickDialogText != null) {
         AlertDialog(

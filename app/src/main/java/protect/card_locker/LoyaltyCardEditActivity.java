@@ -123,8 +123,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     ChipGroup groupsChips;
     AutoCompleteTextView validFromField;
     AutoCompleteTextView expiryField;
-    EditText balanceField;
     AutoCompleteTextView balanceCurrencyField;
+    EditText balanceField;
     TextView cardIdFieldView;
     AutoCompleteTextView barcodeIdField;
     AutoCompleteTextView barcodeTypeField;
@@ -148,9 +148,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     boolean onRestoring = false;
     AlertDialog confirmExitDialog = null;
 
-    boolean validBalance = true;
     HashMap<String, Currency> currencies = new HashMap<>();
     HashMap<String, String> currencySymbols = new HashMap<>();
+    boolean validBalance = true;
 
     ActivityResultLauncher<Uri> mPhotoTakerLauncher;
     ActivityResultLauncher<Intent> mPhotoPickerLauncher;
@@ -193,14 +193,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         viewModel.setHasChanged(true);
     }
 
-    protected void setLoyaltyCardBalance(@NonNull BigDecimal balance) {
-        viewModel.getLoyaltyCard().setBalance(balance);
+    protected void setLoyaltyCardBalanceType(@Nullable Currency balanceType) {
+        viewModel.getLoyaltyCard().setBalanceType(balanceType);
 
         viewModel.setHasChanged(true);
     }
 
-    protected void setLoyaltyCardBalanceType(@Nullable Currency balanceType) {
-        viewModel.getLoyaltyCard().setBalanceType(balanceType);
+    protected void setLoyaltyCardBalance(@NonNull BigDecimal balance) {
+        viewModel.getLoyaltyCard().setBalance(balance);
 
         viewModel.setHasChanged(true);
     }
@@ -329,8 +329,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         groupsChips = binding.groupChips;
         validFromField = binding.validFromField;
         expiryField = binding.expiryField;
-        balanceField = binding.balanceField;
         balanceCurrencyField = binding.balanceCurrencyField;
+        balanceField = binding.balanceField;
         cardIdFieldView = binding.cardIdView;
         barcodeIdField = binding.barcodeIdField;
         barcodeTypeField = binding.barcodeTypeField;
@@ -372,33 +372,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
 
         setMaterialDatePickerResultListener();
-
-        balanceField.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus && !onResuming && !onRestoring) {
-                if (balanceField.getText().toString().isEmpty()) {
-                    setLoyaltyCardBalance(BigDecimal.valueOf(0));
-                }
-
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
-            }
-        });
-
-        balanceField.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (onResuming || onRestoring) return;
-                try {
-                    BigDecimal balance = Utils.parseBalance(s.toString(), viewModel.getLoyaltyCard().balanceType);
-                    setLoyaltyCardBalance(balance);
-                    balanceField.setError(null);
-                    validBalance = true;
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    balanceField.setError(getString(R.string.balanceParsingFailed));
-                    validBalance = false;
-                }
-            }
-        });
 
         balanceCurrencyField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
@@ -449,6 +422,33 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 currencyList.add(0, getString(R.string.points));
                 ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
                 balanceCurrencyField.setAdapter(currencyAdapter);
+            }
+        });
+
+        balanceField.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus && !onResuming && !onRestoring) {
+                if (balanceField.getText().toString().isEmpty()) {
+                    setLoyaltyCardBalance(BigDecimal.valueOf(0));
+                }
+
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
+            }
+        });
+
+        balanceField.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (onResuming || onRestoring) return;
+                try {
+                    BigDecimal balance = Utils.parseBalance(s.toString(), viewModel.getLoyaltyCard().balanceType);
+                    setLoyaltyCardBalance(balance);
+                    balanceField.setError(null);
+                    validBalance = true;
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    balanceField.setError(getString(R.string.balanceParsingFailed));
+                    validBalance = false;
+                }
             }
         });
 

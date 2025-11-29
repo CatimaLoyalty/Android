@@ -276,6 +276,24 @@
                     android:paddingTop="@dimen/inputPadding"
                     android:orientation="horizontal">
 
+                    <!-- Currency -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/balanceCurrencyView"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:hint="@string/currency"
+                        android:labelFor="@+id/balanceCurrencyField">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/balanceCurrencyField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
                     <!-- Balance -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/balanceView"
@@ -292,24 +310,6 @@
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
                             android:digits="0123456789,." />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <!-- Currency -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/balanceCurrencyView"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:hint="@string/currency"
-                        android:labelFor="@+id/balanceCurrencyField">
-
-                        <AutoCompleteTextView
-                            android:id="@+id/balanceCurrencyField"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

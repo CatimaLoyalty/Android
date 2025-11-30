@@ -19,8 +19,8 @@ Edgars Andersons
 Joel A
 Michael Moroni
 Eric
-Priit Jõerüüt
 Liner Seven
+Priit Jõerüüt
 Максим Горпиніч
 GM
 Petr Novák
@@ -92,7 +92,7 @@ Augustin LAVILLE
 Traductor
 Freddo espresso
 Gideon
-n3m0-blip
+vasudev-cell
 Kim Seohyun
 rudy3
 Michael Gangolf

@@ -21,7 +21,6 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -75,9 +74,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         override fun onActionItemClicked(inputMode: ActionMode, inputItem: MenuItem): Boolean {
             when (inputItem.itemId) {
                 R.id.action_share -> {
-                    val importURIHelper = ImportURIHelper(this@MainActivity)
                     try {
-                        importURIHelper.startShareIntent(mAdapter.getSelectedItems())
+                        ImportURIHelper(this@MainActivity).startShareIntent(mAdapter.getSelectedItems())
                     } catch (e: UnsupportedEncodingException) {
                         Toast.makeText(
                             this@MainActivity,
@@ -92,65 +90,68 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 R.id.action_edit -> {
                     require(mAdapter.selectedItemCount == 1) { "Cannot edit more than 1 card at a time" }
 
-                    val intent = Intent(applicationContext, LoyaltyCardEditActivity::class.java)
-                    val bundle = Bundle()
-                    bundle.putInt(
-                        LoyaltyCardEditActivity.BUNDLE_ID,
-                        mAdapter.getSelectedItems()[0].id
+                    startActivity(
+                        Intent(applicationContext, LoyaltyCardEditActivity::class.java).apply {
+                            putExtras(Bundle().apply {
+                                putInt(
+                                    LoyaltyCardEditActivity.BUNDLE_ID,
+                                    mAdapter.getSelectedItems()[0].id
+                                )
+                                putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true)
+                            })
+                        }
                     )
-                    bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true)
-                    intent.putExtras(bundle)
-                    startActivity(intent)
+
                     inputMode.finish()
                     return true
                 }
                 R.id.action_delete -> {
-                    val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this@MainActivity)
-                    // The following may seem weird, but it is necessary to give translators enough flexibility.
-                    // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
-                    // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
-                    // In here, we use the plain string when meaning exactly 1, and otherwise use the plural forms
-                    if (mAdapter.selectedItemCount == 1) {
-                        builder.setTitle(R.string.deleteTitle)
-                        builder.setMessage(R.string.deleteConfirmation)
-                    } else {
-                        builder.setTitle(
-                            getResources().getQuantityString(
-                                R.plurals.deleteCardsTitle,
-                                mAdapter.selectedItemCount,
-                                mAdapter.selectedItemCount
+                    MaterialAlertDialogBuilder(this@MainActivity).apply {
+                        // The following may seem weird, but it is necessary to give translators enough flexibility.
+                        // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
+                        // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
+                        // In here, we use the plain string when meaning exactly 1, and otherwise use the plural forms
+                        if (mAdapter.selectedItemCount == 1) {
+                            setTitle(R.string.deleteTitle)
+                            setMessage(R.string.deleteConfirmation)
+                        } else {
+                            setTitle(
+                                getResources().getQuantityString(
+                                    R.plurals.deleteCardsTitle,
+                                    mAdapter.selectedItemCount,
+                                    mAdapter.selectedItemCount
+                                )
                             )
-                        )
-                        builder.setMessage(
-                            getResources().getQuantityString(
-                                R.plurals.deleteCardsConfirmation,
-                                mAdapter.selectedItemCount,
-                                mAdapter.selectedItemCount
+                            setMessage(
+                                getResources().getQuantityString(
+                                    R.plurals.deleteCardsConfirmation,
+                                    mAdapter.selectedItemCount,
+                                    mAdapter.selectedItemCount
+                                )
                             )
-                        )
-                    }
-
-                    builder.setPositiveButton(
-                        R.string.confirm
-                    ) { dialog, _ ->
-                        for (loyaltyCard in mAdapter.getSelectedItems()) {
-                            Log.d(TAG, "Deleting card: " + loyaltyCard.id)
-
-                            DBHelper.deleteLoyaltyCard(mDatabase, this@MainActivity, loyaltyCard.id)
-
-                            ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
                         }
-                        val tab = groupsTabLayout.getTabAt(selectedTab)
-                        mGroup = tab?.tag
 
-                        updateLoyaltyCardList(true)
-                        dialog.dismiss()
-                    }
-                    builder.setNegativeButton(R.string.cancel) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    val dialog = builder.create()
-                    dialog.show()
+                        setPositiveButton(
+                            R.string.confirm
+                        ) { dialog, _ ->
+                            for (loyaltyCard in mAdapter.getSelectedItems()) {
+                                Log.d(TAG, "Deleting card: " + loyaltyCard.id)
+
+                                DBHelper.deleteLoyaltyCard(mDatabase, this@MainActivity, loyaltyCard.id)
+
+                                ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
+                            }
+                            val tab = groupsTabLayout.getTabAt(selectedTab)
+                            mGroup = tab?.tag
+
+                            updateLoyaltyCardList(true)
+                            dialog.dismiss()
+                        }
+
+                        setNegativeButton(R.string.cancel) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                    }.create().show()
 
                     return true
                 }
@@ -253,11 +254,10 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 mGroup = tab.tag
                 updateLoyaltyCardList(false)
                 // Store active tab in Shared Preference to restore next app launch
-                val activeTabPref = applicationContext.getSharedPreferences(
+                applicationContext.getSharedPreferences(
                     getString(R.string.sharedpreference_active_tab),
                     MODE_PRIVATE
-                )
-                activeTabPref.edit {
+                ).edit {
                     putInt(
                         getString(R.string.sharedpreference_active_tab),
                         tab.position
@@ -284,10 +284,11 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     return@registerForActivityResult
                 }
 
-                val editIntent =
-                    Intent(applicationContext, LoyaltyCardEditActivity::class.java)
-                editIntent.putExtras(result.data!!.extras!!)
-                startActivity(editIntent)
+                startActivity(
+                    Intent(applicationContext, LoyaltyCardEditActivity::class.java).apply {
+                        putExtras(result.data!!.extras!!)
+                    }
+                )
             })
 
         mSettingsLauncher = registerForActivityResult(
@@ -327,11 +328,10 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         updateTabGroups(groupsTabLayout)
 
         // Restore selected tab from Shared Preference
-        val activeTabPref = applicationContext.getSharedPreferences(
+        selectedTab = applicationContext.getSharedPreferences(
             getString(R.string.sharedpreference_active_tab),
             MODE_PRIVATE
-        )
-        selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0)
+        ).getInt(getString(R.string.sharedpreference_active_tab), 0)
 
         // Restore sort preferences from Shared Preferences
         mOrder = Utils.getLoyaltyCardOrder(this)
@@ -355,16 +355,18 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         updateLoyaltyCardList(true)
 
         binding.fabAdd.setOnClickListener {
-            val intent = Intent(applicationContext, ScanActivity::class.java)
-            val bundle = Bundle()
-            if (selectedTab != 0) {
-                bundle.putString(
-                    LoyaltyCardEditActivity.BUNDLE_ADDGROUP,
-                    groupsTabLayout.getTabAt(selectedTab)!!.text.toString()
-                )
-            }
-            intent.putExtras(bundle)
-            mBarcodeScannerLauncher.launch(intent)
+            mBarcodeScannerLauncher.launch(
+                Intent(applicationContext, ScanActivity::class.java).apply {
+                    putExtras(Bundle().apply {
+                        if (selectedTab != 0) {
+                            putString(
+                                LoyaltyCardEditActivity.BUNDLE_ADDGROUP,
+                                groupsTabLayout.getTabAt(selectedTab)!!.text.toString()
+                            )
+                        }
+                    })
+                }
+            )
         }
         // End of active tab logic
         binding.fabAdd.bringToFront()
@@ -552,17 +554,22 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         groupsTabLayout.removeAllTabs()
-
-        val allTab = groupsTabLayout.newTab()
-        allTab.setText(R.string.all)
-        allTab.tag = null
-        groupsTabLayout.addTab(allTab, false)
+        groupsTabLayout.addTab(
+            groupsTabLayout.newTab().apply {
+                setText(R.string.all)
+                tag = null
+            },
+            false
+        )
 
         for (group in newGroups) {
-            val tab = groupsTabLayout.newTab()
-            tab.text = group._id
-            tab.tag = group
-            groupsTabLayout.addTab(tab, false)
+            groupsTabLayout.addTab(
+                groupsTabLayout.newTab().apply {
+                    text = group._id
+                    tag = group
+                },
+                false
+            )
         }
 
         groupsTabLayout.visibility = View.VISIBLE
@@ -688,63 +695,64 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     }
                 }
 
-                val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this@MainActivity)
-                builder.setTitle(R.string.sort_by)
+                MaterialAlertDialogBuilder(this@MainActivity).apply {
+                    setTitle(R.string.sort_by)
 
-                val sortingOptionBinding = SortingOptionBinding
-                    .inflate(LayoutInflater.from(this@MainActivity), null, false)
-                val customLayout: View = sortingOptionBinding.getRoot()
-                builder.setView(customLayout)
+                    val sortingOptionBinding = SortingOptionBinding.inflate(LayoutInflater.from(this@MainActivity), null, false)
+                    val customLayout: View = sortingOptionBinding.getRoot()
+                    setView(customLayout)
 
-                val showReversed = sortingOptionBinding.checkBoxReverse
+                    val showReversed = sortingOptionBinding.checkBoxReverse
 
-                showReversed.isChecked = mOrderDirection == LoyaltyCardOrderDirection.Descending
+                    showReversed.isChecked = mOrderDirection == LoyaltyCardOrderDirection.Descending
 
-                builder.setSingleChoiceItems(
-                    R.array.sort_types_array,
-                    currentIndex.get()
-                ) { _: DialogInterface?, which: Int ->
-                    currentIndex.set(which)
-                }
+                    setSingleChoiceItems(
+                        R.array.sort_types_array,
+                        currentIndex.get()
+                    ) { _: DialogInterface?, which: Int ->
+                        currentIndex.set(which)
+                    }
 
-                builder.setPositiveButton(
-                    R.string.sort
-                ) { dialog, _ ->
-                    setSort(
-                        loyaltyCardOrders[currentIndex.get()]!!,
-                        if (showReversed.isChecked) LoyaltyCardOrderDirection.Descending else LoyaltyCardOrderDirection.Ascending
-                    )
-                    ListWidget().updateAll(this)
-                    dialog?.dismiss()
-                }
+                    setPositiveButton(
+                        R.string.sort
+                    ) { dialog, _ ->
+                        setSort(
+                            loyaltyCardOrders[currentIndex.get()]!!,
+                            if (showReversed.isChecked) LoyaltyCardOrderDirection.Descending else LoyaltyCardOrderDirection.Ascending
+                        )
+                        ListWidget().updateAll(this@MainActivity)
+                        dialog?.dismiss()
+                    }
 
-                builder.setNegativeButton(R.string.cancel) { dialog, _ ->
-                dialog.dismiss()
-            }
-
-            val dialog = builder.create()
-            dialog.show()
+                    setNegativeButton(R.string.cancel) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                }.create().show()
 
                 return true
             }
             R.id.action_manage_groups -> {
-                val i = Intent(applicationContext, ManageGroupsActivity::class.java)
-                startActivity(i)
+                startActivity(
+                    Intent(applicationContext, ManageGroupsActivity::class.java)
+                )
                 return true
             }
             R.id.action_import_export -> {
-                val i = Intent(applicationContext, ImportExportActivity::class.java)
-                startActivity(i)
+                startActivity(
+                    Intent(applicationContext, ImportExportActivity::class.java)
+                )
                 return true
             }
             R.id.action_settings -> {
-                val i = Intent(applicationContext, SettingsActivity::class.java)
-                mSettingsLauncher.launch(i)
+                mSettingsLauncher.launch(
+                    Intent(applicationContext, SettingsActivity::class.java)
+                )
                 return true
             }
             R.id.action_about -> {
-                val i = Intent(applicationContext, AboutActivity::class.java)
-                startActivity(i)
+                startActivity(
+                    Intent(applicationContext, AboutActivity::class.java)
+                )
                 return true
             }
         }
@@ -758,11 +766,10 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         mOrderDirection = direction
 
         // Store in Shared Preference to restore next app launch
-        val sortPref = applicationContext.getSharedPreferences(
+        applicationContext.getSharedPreferences(
             getString(R.string.sharedpreference_sort),
             MODE_PRIVATE
-        )
-        sortPref.edit {
+        ).edit {
             putString(
                 getString(R.string.sharedpreference_sort_order),
                 order.name
@@ -886,20 +893,21 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 return
             }
 
-            val intent = Intent(this, LoyaltyCardViewActivity::class.java)
-            intent.action = ""
-            val b = Bundle()
-            b.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id)
+            startActivity(
+                Intent(this, LoyaltyCardViewActivity::class.java).apply {
+                    action = ""
+                    putExtras(Bundle().apply {
+                        putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id)
 
-            val cardList = ArrayList<Int?>()
-            for (i in 0..<mAdapter.itemCount) {
-                cardList.add(mAdapter.getCard(i).id)
-            }
+                        val cardList = ArrayList<Int?>()
+                        for (i in 0..<mAdapter.itemCount) {
+                            cardList.add(mAdapter.getCard(i).id)
+                        }
 
-            b.putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList)
-            intent.putExtras(b)
-
-            startActivity(intent)
+                        putIntegerArrayList(LoyaltyCardViewActivity.BUNDLE_CARDLIST, cardList)
+                    })
+                }
+            )
         }
     }
 

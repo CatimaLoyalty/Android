@@ -52,10 +52,10 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     var mFilter: String = ""
     private var currentQuery = ""
     private var finalQuery = ""
-    protected var mGroup: Any? = null
-    protected var mOrder: LoyaltyCardOrder = LoyaltyCardOrder.Alpha
-    protected var mOrderDirection: LoyaltyCardOrderDirection = LoyaltyCardOrderDirection.Ascending
-    protected var selectedTab: Int = 0
+    private var mGroup: Any? = null
+    private var mOrder: LoyaltyCardOrder = LoyaltyCardOrder.Alpha
+    private var mOrderDirection: LoyaltyCardOrderDirection = LoyaltyCardOrderDirection.Ascending
+    private var selectedTab: Int = 0
     private lateinit var groupsTabLayout: TabLayout
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent?>

@@ -280,7 +280,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             StartActivityForResult(),
             ActivityResultCallback registerForActivityResult@{ result: ActivityResult? ->
                 // Exit early if the user cancelled the scan (pressed back/home)
-                if (result!!.resultCode != RESULT_OK) {
+                if (result == null || result.resultCode != RESULT_OK) {
                     return@registerForActivityResult
                 }
 
@@ -294,7 +294,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         mSettingsLauncher = registerForActivityResult(
             StartActivityForResult()
         ) { result: ActivityResult? ->
-            if (result!!.resultCode == RESULT_OK) {
+            if (result?.resultCode == RESULT_OK) {
                 val intent = result.data
                 if (intent != null && intent.getBooleanExtra(RESTART_ACTIVITY_INTENT, false)) {
                     recreate()

@@ -354,6 +354,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         updateLoyaltyCardList(true)
 
+        // End of active tab logic
+
         binding.fabAdd.setOnClickListener {
             mBarcodeScannerLauncher.launch(
                 Intent(applicationContext, ScanActivity::class.java).apply {
@@ -368,7 +370,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             )
         }
-        // End of active tab logic
         binding.fabAdd.bringToFront()
 
         val layoutManager = contentMainBinding.list.layoutManager as GridLayoutManager?

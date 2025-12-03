@@ -311,4 +311,7 @@
     <string name="acra_crash_email_subject">Rapport de plantage de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Demander pour envoyer des rapports de plantage</string>
     <string name="pref_enable_acra_summary">Quand activé, il vous sera demandé d\'envoyer un rapport de plantage en cas de plantage. Les rapports de plantage ne sont jamais envoyés automatiquement.</string>
+    <string name="copy_value">Copier la valeur</string>
+    <string name="copied_to_clipboard">Copié dans le presse-papier</string>
+    <string name="nothing_to_copy">Aucune valeur trouvée</string>
 </resources>

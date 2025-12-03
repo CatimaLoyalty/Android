@@ -299,4 +299,7 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> 崩溃报告</string>
     <string name="pref_enable_acra">请求发送崩溃报告</string>
     <string name="pref_enable_acra_summary">开启后，会在发生崩溃时请求报告崩溃。应用永远不会自动发送崩溃报告。</string>
+    <string name="copy_value">复制值</string>
+    <string name="copied_to_clipboard">已复制到剪贴板</string>
+    <string name="nothing_to_copy">没找到值</string>
 </resources>

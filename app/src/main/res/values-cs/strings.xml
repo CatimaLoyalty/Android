@@ -311,4 +311,7 @@
     <string name="acra_crash_email_subject">Hlášení o pádu <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Ptát se na odesílání hlášení o pádech</string>
     <string name="pref_enable_acra_summary">Pokud je povoleno, budete při pádu aplikace dotázáni na jeho nahlášení. Hlášení nejsou nikdy odesílána automaticky.</string>
+    <string name="copy_value">Kopírovat hodnotu</string>
+    <string name="copied_to_clipboard">Zkopírováno do schránky</string>
+    <string name="nothing_to_copy">Nenalezena žádná hodnota</string>
 </resources>

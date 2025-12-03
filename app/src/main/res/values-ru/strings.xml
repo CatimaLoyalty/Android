@@ -317,4 +317,7 @@
     <string name="acra_crash_email_subject">Отчёт об ошибке в <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Запрашивать отправку отчётов об ошибках</string>
     <string name="pref_enable_acra_summary">Если включено, то в случае сбоя вам будет предложено отправить отчёт о нём. Отчёты никогда не отправляются автоматически.</string>
+    <string name="copy_value">Скопировать значение</string>
+    <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
+    <string name="nothing_to_copy">Значение не найдено</string>
 </resources>

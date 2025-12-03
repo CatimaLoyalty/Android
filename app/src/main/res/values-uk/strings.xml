@@ -317,4 +317,7 @@
     <string name="acra_crash_email_subject">Звіт про збій <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Запит на надсилання звітів про збої</string>
     <string name="pref_enable_acra_summary">Якщо цю функцію ввімкнено, вам буде запропоновано повідомити про збій, коли він станеться. Звіти про збої ніколи не надсилаються автоматично.</string>
+    <string name="copy_value">Копіювати значення</string>
+    <string name="copied_to_clipboard">Скопійовано в буфер обміну</string>
+    <string name="nothing_to_copy">Значення не знайдено</string>
 </resources>

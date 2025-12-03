@@ -1,0 +1,2 @@
+- Kopiere die Karten-ID aus dem "Ansichtsdialog" oder durch "langes Klicken" in die Zwischenablage
+- Tausch der Felder Guthaben und Währung, um hoffentlich so unbeabsichtigte Konvertierungen zu reduzieren

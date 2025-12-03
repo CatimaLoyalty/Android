@@ -1,0 +1,2 @@
+- Zkopírování ID karty do schránky z dialogu zobrazení nebo po dlouhém podržení
+- Prohození polí zůstatku a měny pro snížení nechtěného zaokrouhlování

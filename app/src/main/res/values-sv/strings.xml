@@ -305,4 +305,7 @@
     <string name="pref_enable_acra">Be om att skicka kraschrapporter</string>
     <string name="pref_enable_acra_summary">När det är aktiverat kommer du att bli ombedd att rapportera en krasch när den inträffar. Kraschrapporter skickas aldrig automatiskt.</string>
     <string name="acra_explain_crash">Om möjligt, var vänlig lägg till fler detaljer om vad du höll på med här:</string>
+    <string name="copy_value">Kopiera värde</string>
+    <string name="copied_to_clipboard">Kopierade till urklipp</string>
+    <string name="nothing_to_copy">Inget värde hittades</string>
 </resources>

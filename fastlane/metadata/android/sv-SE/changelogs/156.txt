@@ -1,0 +1,2 @@
+- Kopiera kort-ID till urklipp från visningsdialogen eller långt tryck
+- Byt plats på fälten saldo och valuta för att förhoppningsvis minska oavsiktlig avrundning

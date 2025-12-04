@@ -305,4 +305,7 @@
     <string name="acra_crash_email_subject">Αναφορά σφάλματος <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Ερώτηση για αποστολή αναφορών σφαλμάτων</string>
     <string name="pref_enable_acra_summary">Όταν είναι ενεργοποιημένη, θα σας ζητηθεί να αναφέρετε ένα σφάλμα όταν συμβεί. Οι αναφορές σφάλματος δεν αποστέλλονται ποτέ αυτόματα.</string>
+    <string name="copy_value">Αντιγραφή τιμής</string>
+    <string name="copied_to_clipboard">Αντιγράφηκε στο πρόχειρο</string>
+    <string name="nothing_to_copy">Δεν βρέθηκε τιμή</string>
 </resources>

@@ -1,0 +1,2 @@
+- Ievieto starpliktuvē kartes Id no apskatīšanas lodziņa vai ar ilgu piespiešanu
+- Apmainīti atlikuma un valūtas lauki, lai, cerams, samazinātu nevēlamu noapaļošanu

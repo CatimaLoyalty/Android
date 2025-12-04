@@ -1,0 +1,2 @@
+- Copier l'ID de la carte dans le presse-papier depuis la fenêtre de dialogue ou un appui long
+- Échange des champs de solde et de devise pour espérer réduire les arrondis non souhaités

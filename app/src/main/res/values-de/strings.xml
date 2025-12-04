@@ -305,4 +305,7 @@
     <string name="acra_explain_crash">Wenn möglich, bitte übermittle mehr Details zu dem, was du hier getan hast:</string>
     <string name="acra_catima_has_crashed">Es tut uns leid, aber <xliff:g id="app_name">%s</xliff:g> ist abgestürzt. Bitte hilf uns diesen Fehler zu beheben und übermittle uns einen Absturzbericht.</string>
     <string name="pleaseDoNotRotateTheDevice">Bitte drehe nicht das Gerät, weil sonst die Aktion abbricht</string>
+    <string name="copy_value">Kopiere Betrag</string>
+    <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
+    <string name="nothing_to_copy">Keinen Betrag gefunden</string>
 </resources>

@@ -12,7 +12,7 @@ androidx-constraintlayout-constraintlayout = { group = "androidx.constraintlayou
 androidx-core-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.17.0" }
 androidx-core-core-remoteviews = { group = "androidx.core", name = "core-remoteviews", version = "1.1.0" }
 androidx-core-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version = "1.2.0" }
-androidx-exifinterface-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version = "1.4.1" }
+androidx-exifinterface-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version = "1.4.2" }
 androidx-palette-palette = { group = "androidx.palette", name = "palette", version = "1.0.0" }
 androidx-preference-preference = { group = "androidx.preference", name = "preference", version = "1.2.1" }
 com-google-android-material-material = { group = "com.google.android.material", name = "material", version = "1.13.0" }

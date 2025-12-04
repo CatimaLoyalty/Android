@@ -298,4 +298,7 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> クラッシュレポート</string>
     <string name="pref_enable_acra">クラッシュレポートを送信する</string>
     <string name="pref_enable_acra_summary">有効にすると、クラッシュ発生時に報告するかを確認されます。クラッシュレポートが自動送信されることはありません。</string>
+    <string name="copy_value">値をコピー</string>
+    <string name="copied_to_clipboard">クリップボードへコピー</string>
+    <string name="nothing_to_copy">値が見つかりません</string>
 </resources>

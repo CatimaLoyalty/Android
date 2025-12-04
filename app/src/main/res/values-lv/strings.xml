@@ -311,4 +311,7 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> avārijas ziņojums</string>
     <string name="pref_enable_acra">Vaicāt, lai nosūtītu ziņojumus par avārijām</string>
     <string name="pref_enable_acra_summary">Kad iespējots, tiks vaicāts ziņot par avāriju, kad tā notiek. Ziņojumi par avārijām nekad netiks automātiski nosūtīti.</string>
+    <string name="copy_value">Ievietot vērtību starpliktuvē</string>
+    <string name="copied_to_clipboard">Ievietots starpliktuvē</string>
+    <string name="nothing_to_copy">Nav atrasta vērtība</string>
 </resources>

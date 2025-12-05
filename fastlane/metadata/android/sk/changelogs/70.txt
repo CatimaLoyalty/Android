@@ -1,8 +1,8 @@
-- AKTUÁLNA ZMENA: Zmenil sa formát zálohy, - https://github.com/TheLastProject/Catima/wiki/Export-format
-- AKTUÁLNA ZMENA: Zmenil sa formát zdieľania URL, - https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Umožniť zapnutie alebo vypnutie baterky počas skenovania
+- Zmena formátu zálohy
+- Zmena formátu zdieľania URL
+- Umožnené zapnutie alebo vypnutie baterky počas skenovania
 - Pridaná podpora UPC-E
-- Podpora pridania fotografie prednej a zadnej strany u každej karty
+- Podpora pridania fotografie prednej a zadnej strany každej karty
 - Podpora importu súborov zip chránených heslom
 - Podpora importu Stocard (Beta)
 - Oprava medzier v poznámkach z importu Fidme

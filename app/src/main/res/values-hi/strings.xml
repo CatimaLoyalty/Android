@@ -298,4 +298,13 @@
     <string name="card_list_widget_empty">कैटिमा में कुछ लॉयल्टी कार्ड जोड़ने के बाद, वे यहाँ दिखाई देंगे। अगर आपके पास कार्ड हैं, तो सुनिश्चित करें कि वे सभी संग्रहित न हों।</string>
     <string name="cardWithNumber">कार्ड <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">कार्ड <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">कृपया डिवाइस को घुमाएँ नहीं, क्योंकि इससे कार्रवाई रद्द हो जाएगी</string>
+    <string name="acra_catima_has_crashed">हमें खेद है, लेकिन <xliff:g id="app_name">%s</xliff:g> क्रैश हो गया है। कृपया हमें एक त्रुटि रिपोर्ट भेजकर इस समस्या को ठीक करने में हमारी सहायता करें।</string>
+    <string name="acra_explain_crash">यदि संभव हो तो कृपया यहां आप क्या कर रहे थे, इसके बारे में अधिक विवरण जोड़ें:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> क्रैश रिपोर्ट</string>
+    <string name="pref_enable_acra">दुर्घटना रिपोर्ट भेजने के लिए कहें</string>
+    <string name="pref_enable_acra_summary">सक्षम होने पर, क्रैश होने पर आपको रिपोर्ट करने के लिए कहा जाएगा। क्रैश रिपोर्ट कभी भी स्वचालित रूप से नहीं भेजी जाती हैं।</string>
+    <string name="copy_value">मान कॉपी करें</string>
+    <string name="copied_to_clipboard">क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="nothing_to_copy">कोई मूल्य नहीं मिला</string>
 </resources>

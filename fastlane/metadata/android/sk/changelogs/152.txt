@@ -1,1 +1,3 @@
 - Pridaná podpora pre súbory .pkpasses
+- Odstránenie importu z aplikácie Stocard (Stocard už neexistuje)
+- Dočasná deaktivácia obrázkových widgetov pre Android 12L a staršie (riešenie pádu aplikácie)

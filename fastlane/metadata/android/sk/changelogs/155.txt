@@ -1,0 +1,1 @@
+- Príprava na budúce zlepšenia (prepísanie mnohých tried na Kotlin)

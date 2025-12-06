@@ -8,15 +8,15 @@ S týmto základným nástrojom na každodenné nosenie (EDC) môžete nahradiť
 - Vyhnite sa špehovaniu s veľmi malým počtom povolení. Bez internetu a bez reklám.
 - Pridajte karty alebo kódy s menami a farbami.
 - Manuálne zadanie kódu, ak nie je k dispozícii čiarový kód.
-- Importujte karty a kódy zo súborov, Catima, FidMe, kľúčenky k vernostným kartám, Stocard.
+- Importujte karty a kódy zo súborov alebo aplikácií Catima, FidMe, Loyalty Card Keychain.
 - Vytvorte si zálohu všetkých svojich kariet a v prípade potreby ich preneste do nového zariadenia.
 - Zdieľajte kupóny, exkluzívne ponuky, promo kódy alebo karty pomocou ľubovoľnej aplikácie.
 - Tmavá téma a možnosti prístupnosti pre zrakovo postihnutých používateľov.
 - Vytvorené pre všetkých komunitou softvéru libre.
 - Ručne vytvorené preklady pre viac ako 40 jazykov.
 - Bezplatné, podporované komunitou.
-- Používajte, upravujte a zdieľajte podľa vlastného uváženia; *so všetkým*.
-- Nielen slobodný softvér / otvorený zdrojový kód. *správa kariet s *copyleftom* (GPLv3+).
+- Používajte, upravujte a zdieľajte podľa vlastného uváženia; <i>so všetkým</i>.
+- Nielen slobodný softvér / otvorený zdrojový kód. Správa kariet s <i>copyleftom</i> (GPLv3+).
 
 Zjednodušte si život a nakupovanie a už nikdy nestratíte žiadny doklad.
 Vezmite si všetky svoje odmeny so sebou a ušetrite na cestách.

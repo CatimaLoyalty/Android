@@ -1,0 +1,2 @@
+- Kopírovanie ID karty do schránky z dialógového okna zobrazenia alebo dlhého podržania
+- Výmena polí zostatku a meny s cieľom obmedziť neplánované zaokrúhľovanie

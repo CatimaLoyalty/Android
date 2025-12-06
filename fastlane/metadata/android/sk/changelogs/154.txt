@@ -1,0 +1,1 @@
+- Oprava možného pádu, ktorý by mohol nastať, ak karte chýbajú v databáze informácie o farbe

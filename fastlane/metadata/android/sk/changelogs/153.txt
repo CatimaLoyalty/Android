@@ -1,0 +1,4 @@
+- Verzia pre Android 16
+- Oprava možných pádov po odstránení obrázka z karty
+- Odstránenie funkcie „Orientácia obrazovky“ (Google v Androide 16 odstránil aplikáciám schopnosť ovládať orientáciu obrazovky)
+- Pridanie hlásenia o páde do FOSS verzie (nepoužívané vo verziii Google Play, iba v iných zdrojoch aplikácií)

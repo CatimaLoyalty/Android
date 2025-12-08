@@ -1,0 +1,5 @@
+- Kart eklerken veya değiştirirken ana ekranda kısayolların desteklenmesi eklendi
+- Kısayolların yerine geçen ve yetersiz olan widget kaldırıldı
+- Android 7+'da yedeklemelerin dışa aktarılması düzeltildi
+- Yedekleme verilerini dışa aktarırken daha doğru mime türü raporu
+- "Bir harita değiştirilemedi" hatası düzeltildi

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 156
+## v2.40.0 - 156 (2025-12-08)
 
 - Copy card ID to clipboard from view dialog or long press
 - Swap balance and currency fields to hopefully reduce unintended rounding

@@ -1,22 +1,22 @@
-Mağazada veya internette ödeme sırasında plastik ödül kartlarını aramaya son verin.
-<b>Kamerasını kullanarak barkodları aygıtınıza tarayın, kartları unutun.</b>
+Mağaza veya çevrimiçi mağazalarda ödeme yaparken plastik sadakat kartlarını aramayı bırakın.
+<b>Cihazınızın kamerasını kullanarak barkodları tarayın, kartları unutun</b>.
 
-Cüzdanınızı unutun veya değerli eşyalarınız için aşırı hafif tutun.
+Cüzdanınızı unutun veya değerli eşyalarınız için ultra hafif tutun.
 
-Bu temel günlük taşıma aracıyla işe yaramaz plastiği nakitle değiştirebilirsiniz.
+Günlük hayatta yanınızda taşımanız gereken bu temel araçla, gereksiz plastik kartları nakit parayla değiştirebilirsiniz.
 
-- Çok az izinle casusluktan kaçının. İnternet erişimi ve reklam yok.
-- Adları ve özelleştirilebilir renkleri olan kartlar veya kodlar ekleyin.
-- Kaydedilecek barkod yoksa veya kullanılamıyorsa elle kod girişi.
-- Dosyalardan, Catima, FidMe, Loyalty Card Keychain, Stocard ve Voucher Vault'tan kartları ve kodları içe aktarın.
-- Tüm kartlarınızın yedeğini alın ve isterseniz yeni bir aygıta aktarın.
-- Herhangi bir uygulamayı kullanarak kuponları, özel teklifleri, tanıtım kodlarını veya kartları ve kodları paylaşın.
+- Çok az izinle casusluğu önleyin. İnternet erişimi ve reklam yok.
+- Özelleştirilebilir isimler ve renklerle kartlar veya kodlar ekleyin.
+- Saklanacak barkod yoksa veya kullanılamıyorsa kodu manuel olarak girin.
+- Kartları ve kodları dosyalardan, Catima, FidMe, Loyalty Card Keychain ve Voucher Vault'tan içe aktarın.
+- Tüm kartlarınızı yedekleyin ve isterseniz yeni bir cihaza aktarın.
+- Herhangi bir uygulamayı kullanarak kuponları, özel teklifleri, promosyon kodlarını veya kartları ve kodları paylaşın.
 - Görme engelli kullanıcılar için koyu tema ve erişilebilirlik seçenekleri.
-- Özgür yazılım topluluğu tarafından herkes için yapıldı.
-- 40'den fazla dil için yerelleştirilen el yapımı çeviriler.
-- Topluluk katkılarıyla desteklenir ve ücretsizdir.
-- Dilediğiniz gibi kullanın, inceleyin, değiştirin ve <i>herkesle</i> paylaşın.
-- Yalnızca Özgür Yazılım / Açık Kaynaklı değil. <i>Copyleft lisanslı</i> özgür (GPLv3+) kart yönetimi yazılımı.
+- Özgür yazılım topluluğu tarafından herkes için yapılmıştır.
+- 40'tan fazla dil için yerelleştirilmiş çeviriler.
+- Ücretsiz, topluluğun katkılarıyla desteklenmektedir.
+- İstediğiniz gibi kullanın, inceleyin, değiştirin ve paylaşın; <i>herkesle</i>.
+- Sadece özgür ve açık kaynaklı yazılım değil, kart yönetimi için <i>copyleft özgür yazılım</i> (GPLv3+).
 
-Hayatınızı ve alışverişinizi basitleştirin ve bir daha asla kağıt fatura, mağaza içi ödemeli hediye kartı veya uçak bileti kaybetmeyin.
-Tüm ödüllerinizi yanınıza alın ve kaydedin.
+Hayatınızı ve alışverişlerinizi kolaylaştırın, bir daha asla kağıt fiş, mağaza ödeme kartı veya uçak bileti kaybetmeyin.
+Tüm ödüllerinizi ve primlerinizi yanınızda taşıyın ve her seferinde tasarruf edin.

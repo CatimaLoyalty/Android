@@ -1,0 +1,2 @@
+- Başlatıcı/ana ekrandan sadakat kartı kısayollarının eklenmesi desteği eklendi. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Uygulamanın içinden sadakat kartı kısayollarının eklenmesi desteği kaldırıldı. Bu, kısayol izni gerekliliğini ortadan kaldırır. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

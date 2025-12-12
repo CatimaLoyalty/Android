@@ -16,6 +16,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
 
 # Workaround for https://github.com/dependabot/dependabot-core/issues/6888
 registries:

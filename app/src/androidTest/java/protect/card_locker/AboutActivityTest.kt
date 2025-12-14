@@ -1,6 +1,7 @@
 package protect.card_locker
 
 import android.app.Instrumentation
+import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
@@ -8,15 +9,15 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.runComposeUiTest
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.shadows.ShadowLog
 import protect.card_locker.compose.theme.CatimaTheme
 
+@OptIn(ExperimentalTestApi::class)
 @RunWith(AndroidJUnit4::class)
 class AboutActivityTest {
     @get:Rule
@@ -24,20 +25,12 @@ class AboutActivityTest {
 
     private val instrumentation: Instrumentation = InstrumentationRegistry.getInstrumentation()
 
-    private lateinit var content: AboutContent
-
-    @Before
-    fun setUp() {
-        ShadowLog.stream = System.out
-        content = AboutContent(instrumentation.targetContext)
-    }
+    private val content: AboutContent = AboutContent(instrumentation.targetContext)
 
     @Test
-    fun testInitialState(): Unit = with(rule) {
+    fun testInitialState(): Unit = runComposeUiTest {
         setContent {
-            CatimaTheme {
-                AboutScreenContent(content = content)
-            }
+            AboutScreenContent(content = content)
         }
 
         onNodeWithTag("topbar_catima").assertIsDisplayed()
@@ -61,7 +54,7 @@ class AboutActivityTest {
     }
 
     @Test
-    fun testDonateAndGoogleCardVisible(): Unit = with(rule) {
+    fun testDonateAndGoogleCardVisible(): Unit = runComposeUiTest {
         setContent {
             CatimaTheme {
                 AboutScreenContent(
@@ -77,7 +70,7 @@ class AboutActivityTest {
     }
 
     @Test
-    fun testDonateAndGoogleCardHidden(): Unit = with(rule) {
+    fun testDonateAndGoogleCardHidden(): Unit = runComposeUiTest {
         setContent {
             CatimaTheme {
                 AboutScreenContent(

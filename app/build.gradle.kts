@@ -25,7 +25,6 @@ android {
         multiDexEnabled = true
 
         resourceConfigurations += listOf("ar", "be", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "et", "fi", "fr", "gl", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sr", "sv", "ta", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("boolean", "showDonate", "true")
@@ -72,6 +71,10 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     compileOptions {
         encoding = "UTF-8"
 
@@ -100,13 +103,6 @@ android {
     lint {
         lintConfig = file("lint.xml")
     }
-    kotlinOptions {
-        jvmTarget = "21"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
 }
 
 dependencies {
@@ -123,12 +119,16 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     // Compose
-    val composeBom = platform("androidx.compose:compose-bom:2025.05.01")
+    val composeBom = platform("androidx.compose:compose-bom:2025.11.01")
     implementation(composeBom)
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
     implementation("androidx.compose.ui:ui-tooling-preview-android")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    androidTestImplementation(composeBom)
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
@@ -139,22 +139,18 @@ dependencies {
     implementation("net.lingala.zip4j:zip4j:2.11.5")
 
     // Testing
-    val androidXTestVersion = "1.6.1"
+    val androidXTestVersion = "1.7.0"
     val junitVersion = "4.13.2"
     testImplementation("androidx.test:core:$androidXTestVersion")
     testImplementation("junit:junit:$junitVersion")
-    testImplementation("org.robolectric:robolectric:4.14.1")
-
-    testImplementation(composeBom)
-    testImplementation("androidx.compose.ui:ui-test")
-    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("org.robolectric:robolectric:4.16")
 
     androidTestImplementation("androidx.test:core:$androidXTestVersion")
-    androidTestImplementation("junit:junit:$junitVersion")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:$androidXTestVersion")
+    androidTestImplementation("androidx.test:rules:$androidXTestVersion")
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

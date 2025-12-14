@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 157
+
+- Add duplicate option to main screen and reorder options slightly
+
 ## v2.40.0 - 156 (2025-12-08)
 
 - Copy card ID to clipboard from view dialog or long press

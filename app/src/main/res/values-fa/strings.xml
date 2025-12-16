@@ -36,7 +36,7 @@
     <string name="scanCardBarcode">اسکن بارکد</string>
     <string name="cardShortcut">میان‌بر کارت</string>
     <string name="noCardsMessage">ابتدا یک کارت بیافزایید</string>
-    <string name="noCardExistsError">کارت پیدا نشد</string>
+    <string name="noCardExistsError">آن کارت پیدا نشد</string>
     <string name="importFailedTitle">ایمپورت ناموفق بود</string>
     <string name="importFailed">نمیتوان ایمپورت کرد</string>
     <string name="exportSuccessfulTitle">خروجی گرفته شده</string>
@@ -68,7 +68,7 @@
     <string name="permissionReadCardsDescription">کارت های کاتیما و تمام جزئیاتشان از جمله یادداشت‌ها و عکس‌ها را بخوانید</string>
     <string name="cameraPermissionDeniedTitle">نمیتوان به دوربین دسترسی پیدا کرد</string>
     <string name="noCameraPermissionDirectToSystemSetting">برای اسکن بارکد ها، کاتیما نیاز دارد به دوربین شما دسترسی داشته باشد. اینجا بزنید تا تنظیمات دسترسی خود را تغییر دهید.</string>
-    <string name="importExport">ایمپورت/خروجی گرفتن</string>
+    <string name="importExport">واردات/صادرات</string>
     <string name="settings_category_title_privacy">حریم شخصی</string>
     <string name="settings_category_title_general">عمومی</string>
     <string name="settings_category_title_cards">نمایش کارت</string>
@@ -117,8 +117,8 @@
     <string name="importCatimaMessage">فایل <i>catima.zip</i> خروجی خود را از Catima برای وارد کردن انتخاب کنید.\nآن را از منوی وارد/صادر کردن در یک اپلیکیشن دیگر Catima با فشردن دکمه صادرکردن ابتدا ایجاد کنید.</string>
     <string name="unsupportedBarcodeType">این نوع بارکد هنوز نمی‌تواند نمایش داده شود. ممکن است در نسخه آینده برنامه پشتیبانی شود.</string>
     <plurals name="balancePoints">
-        <item quantity="one"><xliff:g>%s</xliff:g> امتیاز</item>
-        <item quantity="other"><xliff:g>%s</xliff:g> امتیاز</item>
+        <item quantity="one"><xliff:g>%s</xliff:g> نقطه</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> نقطه</item>
     </plurals>
     <string name="importFidmeMessage">فایل خروجی <i>fidme-export-request-xxxxxx.zip</i> خود را از FidMe برای وارد کردن انتخاب کنید، و سپس نوع بارکدها را به صورت دستی مشخص کنید.\nآن را از پروفایل FidMe خود با انتخاب گزینه حفاظت از داده و سپس فشار دادن گزینه استخراج داده من ابتدا ایجاد کنید.</string>
     <string name="leaveWithoutSaveTitle">خروج</string>
@@ -294,4 +294,5 @@
     <string name="spend">خرج کردن</string>
     <string name="addFromPkpass">یک فایل دفترچه حساب (.pkpass) انتخاب کنید</string>
     <string name="noCameraFoundGuideText">به نظر نمی‌رسد دستگاه شما دوربین داشته باشد. اگر دارد، دستگاه را مجدداً راه‌اندازی کنید. در غیر این صورت، از دکمه گزینه‌های بیشتر در زیر برای افزودن بارکد به روش دیگری استفاده کنید.</string>
+    <string name="card_list_widget_empty">بعد از اینکه چند کارت وفاداری در کاتیما اضافه کردید، آنها اینجا ظاهر می‌شوند. اگر کارت دارید، مطمئن شوید که همه آنها بایگانی نشده‌اند.</string>
 </resources>

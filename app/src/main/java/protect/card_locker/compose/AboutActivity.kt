@@ -36,7 +36,7 @@ fun CatimaAboutSection(
 
     Row(
         modifier = modifier
-            .padding(8.dp)
+            .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable {
                 if (onClickDialogText != null) {
                     openDialog.value = true
@@ -48,13 +48,13 @@ fun CatimaAboutSection(
         Column(modifier = Modifier.weight(1F)) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleMedium
             )
             Text(text = message)
         }
         Text(modifier = Modifier.align(Alignment.CenterVertically),
             text = ">",
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.bodyMedium
         )
     }
     if (openDialog.value && onClickDialogText != null) {
@@ -66,7 +66,8 @@ fun CatimaAboutSection(
             text = {
                 Text(
                     text = onClickDialogText,
-                    modifier = Modifier.verticalScroll(rememberScrollState()))
+                    modifier = Modifier.verticalScroll(rememberScrollState())
+                )
             },
             onDismissRequest = {
                 openDialog.value = false

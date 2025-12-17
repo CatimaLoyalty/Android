@@ -7,6 +7,7 @@
     tools:context=".HistoryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,19 +21,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/tvEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/no_history"
-        android:visibility="gone" />
+    <include layout="@layout/content_history" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

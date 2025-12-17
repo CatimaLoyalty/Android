@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -12,11 +11,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class HistoryActivity extends CatimaAppCompatActivity {
+<<<<<<< HEAD
     private static final String TAG = "HistoryActivity";
+=======
+>>>>>>> 6c35fca7 (making UI compatible)
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,14 +31,21 @@ public class HistoryActivity extends CatimaAppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+<<<<<<< HEAD
         RecyclerView rvHistory = findViewById(R.id.rvHistory);
         TextView tvEmpty = findViewById(R.id.tvEmpty);
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, -7);
         long sevenDaysAgo = calendar.getTimeInMillis();
+=======
+        final RecyclerView historyList = findViewById(R.id.history_list);
+        final View emptyView = findViewById(R.id.history_empty);
+>>>>>>> 6c35fca7 (making UI compatible)
 
+        final AppDatabase db = AppDatabase.getInstance(this);
         new Thread(() -> {
+<<<<<<< HEAD
             try {
                 AppDatabase db = AppDatabase.getInstance(this);
                 // Remove any previously seeded debug-sample rows (cardId = -1)
@@ -65,6 +73,21 @@ public class HistoryActivity extends CatimaAppCompatActivity {
                     tvEmpty.setVisibility(View.VISIBLE);
                 });
             }
+=======
+            final List<HistoryEntity> history = db.historyDao().getAll();
+            runOnUiThread(() -> {
+                if (history.isEmpty()) {
+                    historyList.setVisibility(View.GONE);
+                    emptyView.setVisibility(View.VISIBLE);
+                } else {
+                    historyList.setVisibility(View.VISIBLE);
+                    emptyView.setVisibility(View.GONE);
+
+                    historyList.setLayoutManager(new LinearLayoutManager(this));
+                    historyList.setAdapter(new HistoryAdapter(history));
+                }
+            });
+>>>>>>> 6c35fca7 (making UI compatible)
         }).start();
     }
 

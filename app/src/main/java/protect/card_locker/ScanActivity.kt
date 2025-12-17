@@ -538,7 +538,7 @@ class ScanActivity : CatimaAppCompatActivity() {
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
-        permissions: Array<String?>,
+        permissions: Array<String>,
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -548,7 +548,7 @@ class ScanActivity : CatimaAppCompatActivity() {
 
     override fun onMockedRequestPermissionsResult(
         requestCode: Int,
-        permissions: Array<String?>,
+        permissions: Array<String>,
         grantResults: IntArray
     ) {
         val granted =

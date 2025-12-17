@@ -127,12 +127,14 @@ dependencies {
     coreLibraryDesugaring(libs.com.android.tools.desugar.jdk.libs)
 
     // Compose
+    implementation(libs.androidx.activity.activity.compose)
     val composeBom = platform(libs.androidx.compose.compose.bom)
     implementation(composeBom)
     implementation(libs.androidx.compose.foundation.foundation)
     implementation(libs.androidx.compose.material3.material3)
     implementation(libs.androidx.compose.material.material.icons.extended)
-    implementation(libs.androidx.compose.ui.ui.test.manifest)
+    implementation(libs.androidx.compose.ui.ui.tooling.preview.android)
+    debugImplementation(libs.androidx.compose.ui.ui.test.manifest)
 
     androidTestImplementation(composeBom)
     androidTestImplementation(libs.androidx.compose.ui.ui.test.junit4)
@@ -156,6 +158,8 @@ dependencies {
     androidTestImplementation(libs.bundles.androidx.test)
     androidTestImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.test.uiautomator.uiautomator)
     androidTestImplementation(libs.androidx.test.espresso.espresso.core)
 }

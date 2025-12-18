@@ -25,7 +25,7 @@ jobs:
         file_in_repo: app/src/main/res/raw/contributors.txt
         min_commit_count: 5
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v7.0.11
+      uses: peter-evans/create-pull-request@v8.0.0
       with:
         title: "Update contributors"
         commit-message: "Update contributors"

@@ -1,0 +1,1 @@
+- Dem Hauptbildschirm eine Option zum Duplizieren hinzugefügt und die Optionen etwas verändert angeordnet

@@ -1,3 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">کاتیما</string>
+    <string name="action_search">گشتن</string>
+    <string name="action_add">اضافه کردن</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> انتخاب شد</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> انتخاب شد</item>
+    </plurals>
+    <string name="noGiftCards">برای اضافه کردن کارت، روی دکمه + به علاوه بزنید ، یا از منوی ⋮ توش کنید</string>
+    <string name="noMatchingGiftCards">بدون نتیجه. سعی کن گشتن تون رو عوض کنید</string>
+    <string name="storeName">اسم</string>
+    <string name="note">نسخه برداری</string>
+    <string name="cardId">هویت کارت</string>
+    <string name="barcodeType">گونه بارکد</string>
+    <string name="noBarcode">بدون بارکد</string>
+    <string name="star">اضاف کردن به دوست داشتنی‌ها</string>
+    <string name="unstar">‌پاک‌کردن از دوست‌ داشتنی‌ها</string>
+    <string name="cancel">بیخیال</string>
+    <string name="save">نگه داشتن</string>
+    <string name="edit">عوض کردن</string>
+    <string name="delete">بیخیال</string>
+    <string name="confirm">قبول</string>
+    <string name="deleteTitle">پاک کردن‌ کارت</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">پاک‌کردن <xliff:g>%d</xliff:g> کارت</item>
+        <item quantity="other">پاک‌کردن <xliff:g>%d</xliff:g> کارت</item>
+    </plurals>
+    <string name="deleteConfirmation">ای کارت همیشه پاک شه ؟</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">ای <xliff:g>%d</xliff:g> \u0020کارت همیشه پاک شه ؟</item>
+        <item quantity="other">ای <xliff:g>%d</xliff:g> \u0020کارت همیشه پاک شه ؟</item>
+    </plurals>
+    <string name="ok">قبول</string>
+    <string name="share">خبر چینی</string>
+    <string name="sendLabel">.‌‌ . . فرستادن</string>
+    <string name="editCardTitle">عوض کردن‌کارن</string>
+    <string name="addCardTitle">اضاف کردن کارت</string>
+    <string name="scanCardBarcode">اسکن بارکد</string>
+    <string name="cardShortcut">بریدنِ شرتِ کارت</string>
+    <string name="noCardsMessage">اول کارت اضاف کن</string>
+    <string name="noCardExistsError">اون کارت پیدا نشد</string>
+    <string name="failedParsingImportUriError">نتونستم آدرس اینترنتی (URI) مربوط به واردات رو باز کنم</string>
+    <string name="importExport">آوردن/بردن</string>
+    <string name="exportName">بیرون گرفتن</string>
+    <string name="importExportHelp">پشتیبان‌گیری از داده‌ها امکان انتقال اونا به دستگاه دیگه رو فراهم می‌کنه</string>
+    <string name="importSuccessfulTitle">وارد شده</string>
+    <string name="importFailedTitle">وارد کردن ناموفق بوده</string>
+    <string name="importFailed">نمیشه وارد کرد</string>
+    <string name="exportSuccessfulTitle">بیرونی گرفته شد</string>
+    <string name="exportFailedTitle">خروجی گرفته نمیشه</string>
+    <string name="exportFailed">نمیشه خروجی گرفت</string>
+    <string name="importing">. . ‌.درحال وارد کردن</string>
+    <string name="exporting">. . .درحال بیرونی گرفتن</string>
+    <string name="storageReadPermissionRequired">…برای این کار دسترسی به حافظه نیازه</string>
+    <string name="cameraPermissionRequired">… دسترسی به دوربین نیازه</string>
+    <string name="permissionReadCardsLabel">کارت های کاتیما رو بخونید</string>
+    <string name="permissionReadCardsDescription">کارتای کاتیما و تمام جزئیاتشون از جمله یادداشت‌ها و عکس‌ها رو بخون</string>
+    <string name="cameraPermissionDeniedTitle">دسترسی به دوربین گرفته نشد</string>
+    <string name="noCameraPermissionDirectToSystemSetting">"برای اسکن بارکدای کاتیما ،  دسترسی به دوربین نیازه. برای تغییر تنظیمات مجوز، اینجا رو لمس کن"</string>
+    <string name="exportOptionExplanation">داده‌ها تو جای دلخواه خودت نوشته میشه</string>
+    <string name="importOptionFilesystemTitle">ورود از فایل سیستم</string>
+    <string name="importOptionFilesystemExplanation">یه فایل خاص رو از سیستم انتخاب کن</string>
+    <string name="importOptionFilesystemButton">از فایلای سیستم</string>
+    <string name="about">درمورد</string>
+    <string name="app_copyright_short">حق نشر © سیلویا وَن اُس و مشارکت کننده‌ها</string>
 </resources>

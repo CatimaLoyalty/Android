@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.com.android.application)
@@ -74,16 +75,6 @@ android {
         }
     }
 
-    compileOptions {
-        encoding = "UTF-8"
-
-        // Flag to enable support for the new language APIs
-        isCoreLibraryDesugaringEnabled = true
-
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
     sourceSets {
         getByName("test") {
             resources.srcDirs("src/test/res")
@@ -102,10 +93,16 @@ android {
     lint {
         lintConfig = file("lint.xml")
     }
-    kotlinOptions {
-        jvmTarget = "21"
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_21
+        }
     }
     compileOptions {
+        encoding = "UTF-8"
+
+        // Flag to enable support for the new language APIs
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }

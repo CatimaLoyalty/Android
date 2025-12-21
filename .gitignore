@@ -19,8 +19,8 @@
 /app/*.log
 /app/build
 /app/release
-/.idea
-
+/.idea/*
+!/.idea/icon.svg
 # Bundle
 /.bundle/
 /vendor/bundle

@@ -298,4 +298,7 @@
     <string name="width">Larghezza</string>
     <string name="card_list_widget_name">Lista delle carte</string>
     <string name="card_list_widget_empty">Dopo aver aggiunto alcune carte fedeltà in Catima, queste appariranno qui. Se hai delle carte, assicurati che non siano tutte archiviate.</string>
+    <string name="cardWithNumber">Carta <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Carta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> rapporto sull\'incidente</string>
 </resources>

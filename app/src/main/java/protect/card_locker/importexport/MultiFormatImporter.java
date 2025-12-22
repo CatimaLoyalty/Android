@@ -28,53 +28,41 @@ public class MultiFormatImporter {
      * the database.
      */
     public static ImportExportResult importData(Context context, SQLiteDatabase database, InputStream input, DataFormat format, char[] password) {
-        Importer importer = null;
+        Importer importer = switch (format) {
+            case Catima -> new CatimaImporter();
+            case Fidme -> new FidmeImporter();
+            case VoucherVault -> new VoucherVaultImporter();
+        };
 
-        switch (format) {
-            case Catima:
-                importer = new CatimaImporter();
-                break;
-            case Fidme:
-                importer = new FidmeImporter();
-                break;
-            case VoucherVault:
-                importer = new VoucherVaultImporter();
-                break;
-        }
+        String error;
+        File inputFile;
 
-        String error = null;
-        if (importer != null) {
-            File inputFile;
+        try {
+            inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
+            database.beginTransaction();
             try {
-                inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
-                database.beginTransaction();
-                try {
-                    importer.importData(context, database, inputFile, password);
-                    database.setTransactionSuccessful();
-                    return new ImportExportResult(ImportExportResultType.Success);
-                } catch (ZipException e) {
-                    if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
-                        return new ImportExportResult(ImportExportResultType.BadPassword);
-                    } else {
-                        Log.e(TAG, "Failed to import data", e);
-                        error = e.toString();
-                    }
-                } catch (Exception e) {
+                importer.importData(context, database, inputFile, password);
+                database.setTransactionSuccessful();
+                return new ImportExportResult(ImportExportResultType.Success);
+            } catch (ZipException e) {
+                if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
+                    return new ImportExportResult(ImportExportResultType.BadPassword);
+                } else {
                     Log.e(TAG, "Failed to import data", e);
                     error = e.toString();
-                } finally {
-                    database.endTransaction();
-                    if (!inputFile.delete()) {
-                        Log.w(TAG, "Failed to delete temporary ZIP file (should not be a problem) " + inputFile);
-                    }
                 }
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to copy ZIP file", e);
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to import data", e);
                 error = e.toString();
+            } finally {
+                database.endTransaction();
+                if (!inputFile.delete()) {
+                    Log.w(TAG, "Failed to delete temporary ZIP file (should not be a problem) " + inputFile);
+                }
             }
-        } else {
-            error = "Unsupported data format imported: " + format.name();
-            Log.e(TAG, error);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to copy ZIP file", e);
+            error = e.toString();
         }
 
         return new ImportExportResult(ImportExportResultType.GenericFailure, error);

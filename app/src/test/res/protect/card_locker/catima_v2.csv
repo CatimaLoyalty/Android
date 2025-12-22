@@ -6,9 +6,9 @@ Food
 Fashion
 
 _id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus
-1,Card 1,Note 1,1601510400,1618053234,100,USD,1234,5432,1,QR_CODE,0,
+1,Card 1,Note 1,2020-10-01T00:00:00Z,2021-04-10T11:13:54Z,100,USD,1234,5432,1,QR_CODE,0,
 8,Clothes Store,Note about store,,,0,,a,,-5317,,0,
-2,Department Store,,,1618041729,0,,A,,-9977996,,0,
+2,Department Store,,,2021-04-10T08:02:09Z,0,,A,,-9977996,,0,
 3,Grocery Store,"Multiline note about grocery store
 
 with blank line",,,150,,dhd,,-9977996,,0,

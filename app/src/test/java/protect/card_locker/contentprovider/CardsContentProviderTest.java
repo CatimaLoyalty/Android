@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Currency;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -87,8 +86,8 @@ public class CardsContentProviderTest {
 
         final String store = "the best store";
         final String note = "this is a note";
-        final Date validFrom = Date.from(Instant.ofEpochMilli(1687112209000L));
-        final Date expiry = Date.from(Instant.ofEpochMilli(1687112277000L));
+        final Instant validFrom = Instant.ofEpochMilli(1687112209000L);
+        final Instant expiry = Instant.ofEpochMilli(1687112277000L);
         final BigDecimal balance = new BigDecimal("123.20");
         final Currency balanceType = Currency.getInstance("EUR");
         final String cardId = "a-card-id";
@@ -126,8 +125,8 @@ public class CardsContentProviderTest {
             final int actualId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
             final String actualName = cursor.getString(cursor.getColumnIndexOrThrow("store"));
             final String actualNote = cursor.getString(cursor.getColumnIndexOrThrow("note"));
-            final long actualValidFrom = cursor.getLong(cursor.getColumnIndexOrThrow("validfrom"));
-            final long actualExpiry = cursor.getLong(cursor.getColumnIndexOrThrow("expiry"));
+            final String actualValidFrom = cursor.getString(cursor.getColumnIndexOrThrow("validfrom"));
+            final String actualExpiry = cursor.getString(cursor.getColumnIndexOrThrow("expiry"));
             final BigDecimal actualBalance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow("balance")));
             final String actualBalanceType = cursor.getString(cursor.getColumnIndexOrThrow("balancetype"));
             final String actualCardId = cursor.getString(cursor.getColumnIndexOrThrow("cardid"));
@@ -141,8 +140,8 @@ public class CardsContentProviderTest {
             assertEquals("Id", 1, actualId);
             assertEquals("Name", store, actualName);
             assertEquals("Note", note, actualNote);
-            assertEquals("ValidFrom", validFrom.getTime(), actualValidFrom);
-            assertEquals("Expiry", expiry.getTime(), actualExpiry);
+            assertEquals("ValidFrom", validFrom.toString(), actualValidFrom);
+            assertEquals("Expiry", expiry.toString(), actualExpiry);
             assertEquals("Balance", balance, actualBalance);
             assertEquals("BalanceTypeColumn", balanceType.toString(), actualBalanceType);
             assertEquals("CardId", cardId, actualCardId);

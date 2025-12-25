@@ -2,6 +2,7 @@
 
 ## Unreleased - 157
 
+- Add support for UTF-8 barcodes
 - Add duplicate option to main screen and reorder options slightly
 
 ## v2.40.0 - 156 (2025-12-08)

@@ -1,1 +1,2 @@
+- Add support for UTF-8 barcodes
 - Add duplicate option to main screen and reorder options slightly

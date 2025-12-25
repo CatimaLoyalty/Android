@@ -301,4 +301,7 @@
     <string name="acra_crash_email_subject">Relatório de falha em <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Solicitar o envio de relatórios de falhas</string>
     <string name="pref_enable_acra_summary">Quando ativado, relatar uma falha será solicitado quando isto ocorrer. Os relatórios de falhas nunca são enviados automaticamente.</string>
+    <string name="copy_value">Copiar valor</string>
+    <string name="copied_to_clipboard">Copiado para a área de transferência</string>
+    <string name="nothing_to_copy">Nenhum valor encontrado</string>
 </resources>

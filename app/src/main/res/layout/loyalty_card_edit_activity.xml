@@ -191,6 +191,32 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
+                <!-- Barcode encoding -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingTop="@dimen/inputPadding"
+                    android:orientation="horizontal">
+
+                    <!-- Barcode type -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/barcodeEncodingView"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:hint="@string/barcodeEncoding"
+                        android:labelFor="@+id/barcodeEncodingField">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/barcodeEncodingField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
                 <!-- Barcode -->
                 <LinearLayout android:orientation="horizontal"
                     android:layout_marginTop="10.0dp"

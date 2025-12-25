@@ -4,17 +4,24 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.StringUtils;
 
 import java.lang.ref.WeakReference;
+import java.nio.charset.Charset;
+import java.util.Map;
 
 import protect.card_locker.async.CompatCallable;
 
@@ -39,6 +46,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private final WeakReference<TextView> textViewReference;
     private String cardId;
     private final CatimaBarcode format;
+    private final Charset encoding;
     private final int imageHeight;
     private final int imageWidth;
     private final int imagePadding;
@@ -48,7 +56,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
-            CatimaBarcode barcodeFormat, TextView textView,
+            CatimaBarcode barcodeFormat, @Nullable Charset barcodeEncoding, TextView textView,
             boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding, boolean isFullscreen
     ) {
         mContext = context;
@@ -62,6 +70,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
         cardId = cardIdString;
         format = barcodeFormat;
+        encoding = barcodeEncoding;
 
         int imageViewHeight = imageView.getHeight();
         int imageViewWidth = imageView.getWidth();
@@ -172,10 +181,22 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         }
 
         MultiFormatWriter writer = new MultiFormatWriter();
+
+        Map<EncodeHintType, Object> encodeHints = new ArrayMap<>();
+        // Use charset if defined or guess otherwise
+        if (encoding != null) {
+            Log.d(TAG, "Encoding explicitly set, " + encoding.name());
+            encodeHints.put(EncodeHintType.CHARACTER_SET, encoding);
+        } else {
+            String guessedEncoding = StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>());
+            Log.d(TAG, "Guessed encoding: " + guessedEncoding);
+            encodeHints.put(EncodeHintType.CHARACTER_SET, Charset.forName(guessedEncoding));
+        }
+
         BitMatrix bitMatrix;
         try {
             try {
-                bitMatrix = writer.encode(cardId, format.format(), imageWidth, imageHeight, null);
+                bitMatrix = writer.encode(cardId, format.format(), imageWidth, imageHeight, encodeHints);
             } catch (Exception e) {
                 // Cast a wider net here and catch any exception, as there are some
                 // cases where an encoder may fail if the data is invalid for the

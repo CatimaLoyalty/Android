@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +31,8 @@ public class LoyaltyCard {
     public String barcodeId;
     @Nullable
     public CatimaBarcode barcodeType;
+    @Nullable
+    public Charset barcodeEncoding;
     @Nullable
     public Integer headerColor;
     public int starStatus;
@@ -62,6 +65,7 @@ public class LoyaltyCard {
     public static final String BUNDLE_LOYALTY_CARD_CARD_ID = "loyaltyCardCardId";
     public static final String BUNDLE_LOYALTY_CARD_BARCODE_ID = "loyaltyCardBarcodeId";
     public static final String BUNDLE_LOYALTY_CARD_BARCODE_TYPE = "loyaltyCardBarcodeType";
+    public static final String BUNDLE_LOYALTY_CARD_BARCODE_ENCODING = "loyaltyCardBarcodeEncoding";
     public static final String BUNDLE_LOYALTY_CARD_HEADER_COLOR = "loyaltyCardHeaderColor";
     public static final String BUNDLE_LOYALTY_CARD_STAR_STATUS = "loyaltyCardStarStatus";
     public static final String BUNDLE_LOYALTY_CARD_LAST_USED = "loyaltyCardLastUsed";
@@ -90,6 +94,7 @@ public class LoyaltyCard {
         setCardId("");
         setBarcodeId(null);
         setBarcodeType(null);
+        setBarcodeEncoding(null);
         setHeaderColor(null);
         setStarStatus(0);
         setLastUsed(Utils.getUnixTime());
@@ -124,7 +129,7 @@ public class LoyaltyCard {
     public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
                        @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus,
+                       @Nullable final Charset barcodeEncoding, @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int zoomLevelWidth, final int archiveStatus,
                        @Nullable Bitmap imageThumbnail, @Nullable String imageThumbnailPath,
                        @Nullable Bitmap imageFront, @Nullable String imageFrontPath,
@@ -139,6 +144,7 @@ public class LoyaltyCard {
         setCardId(cardId);
         setBarcodeId(barcodeId);
         setBarcodeType(barcodeType);
+        setBarcodeEncoding(barcodeEncoding);
         setHeaderColor(headerColor);
         setStarStatus(starStatus);
         setLastUsed(lastUsed);
@@ -242,6 +248,10 @@ public class LoyaltyCard {
 
     public void setBarcodeType(@Nullable CatimaBarcode barcodeType) {
         this.barcodeType = barcodeType;
+    }
+
+    public void setBarcodeEncoding(@Nullable Charset barcodeEncoding) {
+        this.barcodeEncoding = barcodeEncoding;
     }
 
     public void setHeaderColor(@Nullable Integer headerColor) {
@@ -379,6 +389,11 @@ public class LoyaltyCard {
         } else if (requireFull) {
             throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_TYPE);
         }
+        if (bundle.containsKey(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING)) {
+            setBarcodeEncoding(Charset.forName(bundle.getString(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING)));
+        } else if (requireFull) {
+            throw new IllegalArgumentException("Missing key " + BUNDLE_LOYALTY_CARD_BARCODE_ENCODING);
+        }
         if (bundle.containsKey(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
             int tmpHeaderColor = bundle.getInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR);
             setHeaderColor(tmpHeaderColor != -1 ? tmpHeaderColor : null);
@@ -462,6 +477,9 @@ public class LoyaltyCard {
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BARCODE_TYPE)) {
             bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         }
+        if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING)) {
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING, barcodeEncoding != null ? barcodeEncoding.name() : null);
+        }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
             bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor != null ? headerColor : -1);
         }
@@ -539,6 +557,9 @@ public class LoyaltyCard {
         // barcodeType
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         CatimaBarcode barcodeType = !cursor.isNull(barcodeTypeColumn) ? CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn)) : null;
+        // barcodeEncoding
+        int barcodeEncodingColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING);
+        Charset barcodeEncoding = !cursor.isNull(barcodeEncodingColumn) ? Charset.forName(cursor.getString(barcodeEncodingColumn)) : null;
         // headerColor
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
         Integer headerColor = !cursor.isNull(headerColorColumn) ? cursor.getInt(headerColorColumn) : null;
@@ -564,6 +585,7 @@ public class LoyaltyCard {
                 cardId,
                 barcodeId,
                 barcodeType,
+                barcodeEncoding,
                 headerColor,
                 starStatus,
                 lastUsed,
@@ -593,6 +615,7 @@ public class LoyaltyCard {
                 Utils.equals(a.barcodeId, b.barcodeId) && // nullable String
                 Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(),
                         b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
+                Utils.equals(a.barcodeEncoding, b.barcodeEncoding) && // nullable String
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
                 a.archiveStatus == b.archiveStatus && // non-nullable int
@@ -619,7 +642,7 @@ public class LoyaltyCard {
     public String toString() {
         return String.format(
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
-                        + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
+                        + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n barcodeEncoding=%s,%n"
                         + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  zoomLevelWidth=%s,%n  archiveStatus=%s%n"
                         + "  imageThumbnail=%s,%n  imageThumbnailPath=%s,%n  imageFront=%s,%n  imageFrontPath=%s,%n  imageBack=%s,%n  imageBackPath=%s,%n}",
                 this.id,
@@ -632,6 +655,7 @@ public class LoyaltyCard {
                 this.cardId,
                 this.barcodeId,
                 this.barcodeType != null ? this.barcodeType.format() : null,
+                this.barcodeEncoding != null ? this.barcodeEncoding.name() : null,
                 this.headerColor,
                 this.starStatus,
                 this.lastUsed,

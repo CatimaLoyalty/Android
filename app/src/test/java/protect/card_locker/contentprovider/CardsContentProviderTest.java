@@ -19,6 +19,8 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,13 +96,14 @@ public class CardsContentProviderTest {
         final String cardId = "a-card-id";
         final String barcodeId = "barcode-id";
         final CatimaBarcode barcodeType = CatimaBarcode.fromName("QR_CODE");
+        final Charset barcodeEncoding = StandardCharsets.UTF_8;
         final int headerColor = 0xFFFF00FF;
         final int starStatus = 1;
         final long lastUsed = 1687112282000L;
         final int archiveStatus = 1;
         long id = DBHelper.insertLoyaltyCard(
                 mDatabase, store, note, validFrom, expiry, balance, balanceType,
-                cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed,
+                cardId, barcodeId, barcodeType, barcodeEncoding, headerColor, starStatus, lastUsed,
                 archiveStatus
         );
         assertEquals("expect first card", 1, id);

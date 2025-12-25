@@ -20,6 +20,7 @@ import org.robolectric.RobolectricTestRunner;
 import java.io.InvalidObjectException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.Currency;
 import java.util.Date;
 
@@ -41,7 +42,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.UTF_8, Color.BLACK, 1, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -62,6 +63,7 @@ public class ImportURITest {
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
         assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
+        assertEquals(card.barcodeEncoding, parsedCard.barcodeEncoding);
         assertEquals(card.headerColor, parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -71,7 +73,7 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -92,6 +94,7 @@ public class ImportURITest {
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
         assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
+        assertEquals(card.barcodeEncoding, parsedCard.barcodeEncoding);
         assertNull(parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -101,7 +104,7 @@ public class ImportURITest {
     @Test
     public void parseWithTrailingSlash() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.UTF_8, null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -123,6 +126,7 @@ public class ImportURITest {
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
         assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
+        assertEquals(card.barcodeEncoding, parsedCard.barcodeEncoding);
         assertNull(parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -183,6 +187,7 @@ public class ImportURITest {
             assertEquals("12345", parsedCard.cardId);
             assertEquals(null, parsedCard.barcodeId);
             assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType.format());
+            assertEquals(null, parsedCard.barcodeEncoding);
             assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
             assertEquals(0, parsedCard.starStatus);
         }

@@ -12,10 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doAfterTextChanged
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import protect.card_locker.LoyaltyCardCursorAdapter.CardAdapterListener
 import protect.card_locker.databinding.ActivityManageGroupBinding
+import protect.card_locker.preferences.Settings
 
 class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var binding: ActivityManageGroupBinding
@@ -132,7 +134,15 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 override fun handleOnBackPressed() {
                     leaveWithoutSaving()
                 }
-            })
+            }
+        )
+
+        // Apply column count setting to card list
+        val layoutManager = mCardList.layoutManager as GridLayoutManager?
+        if (layoutManager != null) {
+            val settings = Settings(this)
+            layoutManager.setSpanCount(settings.getPreferredColumnCount())
+        }
     }
 
     private fun adapterStateToBundle(adapterState: HashMap<Int, Boolean>): Bundle {

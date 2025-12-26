@@ -390,6 +390,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
         binding.fabAdd.bringToFront()
 
+        // Apply column count setting to card list
         val layoutManager = contentMainBinding.list.layoutManager as GridLayoutManager?
         if (layoutManager != null) {
             val settings = Settings(this)

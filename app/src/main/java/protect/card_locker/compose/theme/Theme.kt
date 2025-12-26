@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import protect.card_locker.R
@@ -27,10 +28,14 @@ fun CatimaTheme(content: @Composable () -> Unit) {
         lightColorScheme(primary = colorResource(id = R.color.md_theme_light_primary))
     }
 
-    val darkTheme = if (isDynamicColorSupported) {
+    var darkTheme = if (isDynamicColorSupported) {
         dynamicDarkColorScheme(context)
     } else {
         darkColorScheme(primary = colorResource(id = R.color.md_theme_dark_primary))
+    }
+
+    if (settings.oledDark) {
+        darkTheme = darkTheme.copy(background = Color.Black)
     }
 
     val colorScheme = when (settings.theme) {

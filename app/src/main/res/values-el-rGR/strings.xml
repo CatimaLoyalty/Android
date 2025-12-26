@@ -299,4 +299,6 @@
     <string name="copy_value">Αντιγραφή τιμής</string>
     <string name="copied_to_clipboard">Αντιγράφηκε στο πρόχειρο</string>
     <string name="nothing_to_copy">Δεν βρέθηκε τιμή</string>
+    <string name="automatic">Αυτόματη</string>
+    <string name="barcodeEncoding">Κωδικοποίηση γραμμωτού κώδικα</string>
 </resources>

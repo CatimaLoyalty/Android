@@ -144,15 +144,6 @@
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
     <string name="app_contributors">Möjliggjordes av: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Brunt</string>
-    <string name="settings_green_theme">Grönt</string>
-    <string name="settings_sky_blue_theme">Himmelblått</string>
-    <string name="settings_blue_theme">Blått</string>
-    <string name="settings_violet_theme">Violett</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Temafärg</string>
     <string name="noGroupCards">Denna grupp är tom</string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> streckkod</string>
     <string name="reverse">...i omvänd ordning</string>

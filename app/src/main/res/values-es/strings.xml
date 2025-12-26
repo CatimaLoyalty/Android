@@ -147,15 +147,6 @@
         <item quantity="other">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Marrón</string>
-    <string name="settings_green_theme">Verde</string>
-    <string name="settings_sky_blue_theme">Azul cielo</string>
-    <string name="settings_blue_theme">Azul</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_theme_color">Color del tema</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_locale">Idioma</string>
     <string name="noGroupCards">Este grupo está vacío</string>

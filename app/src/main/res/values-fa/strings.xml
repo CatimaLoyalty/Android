@@ -180,7 +180,6 @@
     <string name="height">ارتفاع</string>
     <string name="add_manually_warning_message">برای برخی از فروشگاه‌ها، مقدار بارکد با عدد نوشته شده روی کارت متفاوت است. به همین دلیل، وارد کردن دستی بارکد ممکن است همیشه کار نکند. اکیداً توصیه می‌شود که به جای آن، بارکد را با دوربین خود اسکن کنید. آیا هنوز می‌خواهید ادامه دهید؟</string>
     <string name="generic_error_please_retry">ببخشید، مشکلی پیش آمده، لطفا دوباره امتحان کنید...</string>
-    <string name="settings_magenta_theme">سرخابی</string>
     <string name="welcome">یه کتیما خوش آمدید</string>
     <string name="chooseValidFromDate">مقداری درست از تاریخ برگزینید</string>
     <string name="intent_import_card_from_url_share_multiple_text">می‌خواهم چند کارت به شما بدهم</string>
@@ -198,15 +197,8 @@
     <string name="settings_oled_dark">پس‌زمینه‌ی یک‌دست سیاه برای حالت تاریک</string>
     <string name="settings_oled_dark_summary">استفاده‌ی باتری را برای نمایشگرهای OLED کاهش می‌دهد</string>
     <string name="setIcon">قالب پیش‌نمایه را بگمارید</string>
-    <string name="settings_theme_color">رنگ زمینه</string>
-    <string name="settings_catima_theme">کتیما</string>
     <string name="settings_system_locale">سیستم</string>
     <string name="selectColor">رنگ را برگزینید</string>
-    <string name="settings_violet_theme">بنفش</string>
-    <string name="settings_blue_theme">آبی</string>
-    <string name="settings_sky_blue_theme">آبی آسمانی</string>
-    <string name="settings_green_theme">سبز</string>
-    <string name="settings_brown_theme">قهوه‌ای</string>
     <string name="app_contributors">با کمک او ممکن شد: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">مرتب‌کردن</string>
     <string name="showMoreInfo">نمایش اطلاعات</string>
@@ -220,7 +212,6 @@
     <string name="passwordRequired">لطفا گذرواژه را وارد کنید</string>
     <string name="previousCard">پیشین</string>
     <string name="turn_flashlight_off">چراغ‌قوه را خاموش کنید</string>
-    <string name="settings_pink_theme">صورتی</string>
     <string name="updateBalance">به‌روزرسانی موجودی</string>
     <string name="barcodeLongPressMessage">تنها عکس می‌تواند در گالری برنامه باز شود</string>
     <string name="sort_by_name">نام</string>

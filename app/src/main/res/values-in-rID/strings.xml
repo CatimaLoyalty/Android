@@ -50,15 +50,6 @@
     <string name="rate_this_app">Beri nilai pada aplikasi ini</string>
     <string name="sort_by_expiry">Masa berlaku</string>
     <string name="sort_by_most_recently_used">Yang paling baru digunakan</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Merah Muda</string>
-    <string name="settings_blue_theme">Biru</string>
-    <string name="settings_green_theme">Hijau</string>
-    <string name="settings_sky_blue_theme">Biru Langit</string>
-    <string name="settings_brown_theme">Cokelat</string>
-    <string name="settings_violet_theme">Ungu</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_theme_color">Warna tema</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="settings_locale">Bahasa</string>
     <string name="turn_flashlight_on">Hidupkan lampu flash</string>

@@ -118,8 +118,6 @@
     <string name="updateBarcodeQuestionTitle">Kas uuendame triipkoodi väärtust?</string>
     <string name="yes">Jah</string>
     <string name="no">Ei</string>
-    <string name="settings_theme_color">Kujunduse värv</string>
-    <string name="settings_pink_theme">Roosa</string>
     <string name="barcodeLongPressMessage">Galeriirakenduses saad avada vaid pilte</string>
     <string name="sort_by_most_recently_used">Viimati kasutatud</string>
     <string name="sort_by_expiry">Aegumine</string>
@@ -201,13 +199,6 @@
     <string name="settings_system_locale">Süsteemi keel</string>
     <string name="selectColor">Vali värv</string>
     <string name="setIcon">Lisa pisipilt</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_magenta_theme">Fuksiapunane</string>
-    <string name="settings_violet_theme">Punakassinine</string>
-    <string name="settings_blue_theme">Sinine</string>
-    <string name="settings_sky_blue_theme">Taevasinine</string>
-    <string name="settings_green_theme">Roheline</string>
-    <string name="settings_brown_theme">Pruun</string>
     <string name="app_contributors">Seda rakendust on aidanud teha: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Järjesta</string>
     <string name="updateBalance">Uuenda maksejääki</string>

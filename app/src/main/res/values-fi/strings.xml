@@ -147,15 +147,6 @@
     <string name="turn_flashlight_on">Käytä taskulamppua</string>
     <string name="turn_flashlight_off">Sammuta salamavalo</string>
     <string name="app_contributors">Mahdollistanut: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Ruskea</string>
-    <string name="settings_green_theme">Vihreä</string>
-    <string name="settings_sky_blue_theme">Taivaansininen</string>
-    <string name="settings_blue_theme">Siniset</string>
-    <string name="settings_violet_theme">Violetti</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Pinkki</string>
-    <string name="settings_theme_color">Teeman väri</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="settings_system_locale">Järjestelmä</string>
     <string name="settings_locale">Kieli</string>
     <string name="noGroupCards">Tämä ryhmä on tyhjä</string>

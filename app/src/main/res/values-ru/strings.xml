@@ -152,15 +152,6 @@
     </plurals>
     <string name="settings_system_locale">Системный</string>
     <string name="settings_locale">Язык</string>
-    <string name="settings_sky_blue_theme">Голубой</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_brown_theme">Коричневый</string>
-    <string name="settings_green_theme">Зелёный</string>
-    <string name="settings_blue_theme">Синий</string>
-    <string name="settings_violet_theme">Фиолетовый</string>
-    <string name="settings_magenta_theme">Пурпурный</string>
-    <string name="settings_pink_theme">Розовый</string>
-    <string name="settings_theme_color">Цвет темы</string>
     <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Группа пуста</string>
     <string name="barcodeImageDescriptionWithType">Изображение штрих-кода <xliff:g>%s</xliff:g></string>

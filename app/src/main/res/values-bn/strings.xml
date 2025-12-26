@@ -2,10 +2,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="settings_locale">ভাষা</string>
     <string name="action_search">খুঁজুন</string>
-    <string name="settings_pink_theme">গুলাপি</string>
-    <string name="settings_blue_theme">নীল</string>
-    <string name="settings_green_theme">সবুজ</string>
-    <string name="settings_brown_theme">বাদামি</string>
     <string name="save">সংরক্ষণ</string>
     <string name="cardId">কার্ড আইডি</string>
     <string name="barcodeType">বারকোডের ধরন</string>
@@ -19,7 +15,6 @@
     <string name="all">সকল</string>
     <string name="never">কখনো না</string>
     <string name="currency">মুদ্রা</string>
-    <string name="settings_violet_theme">বেগুনি</string>
     <string name="no">না</string>
     <string name="nextCard">পরবর্তী</string>
     <string name="action_add">যুক্ত করুন</string>

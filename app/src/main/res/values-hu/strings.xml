@@ -52,14 +52,11 @@
     <string name="noCardExistsError">A kártya nem található</string>
     <string name="importVoucherVault">Importálás a Voucher Vaultból</string>
     <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a kiválasztott vonalkódtípushoz</string>
-    <string name="settings_green_theme">Zöld</string>
     <string name="setBackImage">Hátlapi kép beállítása</string>
     <string name="no">Nem</string>
     <string name="passwordRequired">Adja meg a jelszót</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="exportPasswordHint">Kód beírása</string>
     <string name="failedGeneratingShareURL">Nem lehetett megosztható webcímet előállítani. Kérjük, ezt jelentse.</string>
-    <string name="settings_theme_color">Téma színe</string>
     <string name="sort">Rendezés</string>
     <string name="on_google_play">a Google Playen</string>
     <string name="and_data_usage">és adathasználat</string>
@@ -146,12 +143,6 @@
     <string name="settings_system_locale">Rendszer</string>
     <string name="selectColor">Szín kiválasztása</string>
     <string name="setIcon">Miniatűr beállítása</string>
-    <string name="settings_pink_theme">Rózsaszín</string>
-    <string name="settings_magenta_theme">Bíbor</string>
-    <string name="settings_violet_theme">Ibolya</string>
-    <string name="settings_blue_theme">Kék</string>
-    <string name="settings_sky_blue_theme">Égszínkék</string>
-    <string name="settings_brown_theme">Barna</string>
     <string name="app_contributors">Lehetővé tették: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Információk megjelenítése</string>
     <string name="reverse">…fordított sorrendben</string>

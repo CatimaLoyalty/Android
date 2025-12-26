@@ -211,24 +211,6 @@
     <string name="settings_system_locale">System</string>
     <string name="selectColor">Select color</string>
     <string name="setIcon">Set thumbnail</string>
-    <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
-    <string name="settings_theme_color">Theme color</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Pink</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Violet</string>
-    <string name="settings_blue_theme">Blue</string>
-    <string name="settings_sky_blue_theme">Sky blue</string>
-    <string name="settings_green_theme">Green</string>
-    <string name="settings_brown_theme">Brown</string>
-    <string name="settings_key_catima_theme" translatable="false">catima_theme</string>
-    <string name="settings_key_pink_theme" translatable="false">pink_theme</string>
-    <string name="settings_key_magenta_theme" translatable="false">magenta_theme</string>
-    <string name="settings_key_violet_theme" translatable="false">violet_theme</string>
-    <string name="settings_key_blue_theme" translatable="false">blue_theme</string>
-    <string name="settings_key_sky_blue_theme" translatable="false">sky_blue_theme</string>
-    <string name="settings_key_green_theme" translatable="false">green_theme</string>
-    <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>

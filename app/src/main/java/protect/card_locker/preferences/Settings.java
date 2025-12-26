@@ -90,10 +90,6 @@ public class Settings {
         return getBoolean(R.string.settings_key_oled_dark, false);
     }
 
-    public String getColor() {
-        return getString(R.string.setting_key_theme_color, mContext.getResources().getString(R.string.settings_key_system_theme));
-    }
-
     public int getPreferredColumnCount() {
         var defaultSymbol = mContext.getResources().getString(R.string.settings_key_automatic_column_count);
         var defaultColumnCount = mContext.getResources().getInteger(R.integer.main_view_card_columns);

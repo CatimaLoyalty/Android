@@ -16,16 +16,6 @@
             app:singleLineTitle="false"
             app:useSimpleSummaryProvider="true" />
 
-        <ListPreference
-            android:key="@string/setting_key_theme_color"
-            android:title="@string/settings_theme_color"
-            android:defaultValue="@string/settings_key_system_theme"
-            android:entries="@array/color_value_strings"
-            android:entryValues="@array/color_values"
-            app:iconSpaceReserved="false"
-            app:singleLineTitle="false"
-            app:useSimpleSummaryProvider="true" />
-
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="false"

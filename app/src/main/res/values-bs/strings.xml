@@ -50,15 +50,6 @@
     <string name="turn_flashlight_off">Ugasi lampu</string>
     <string name="settings_locale">Jezik</string>
     <string name="settings_system_locale">Sistem</string>
-    <string name="settings_theme_color">Boja teme</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Ružičasto</string>
-    <string name="settings_magenta_theme">Ljubičasto</string>
-    <string name="settings_violet_theme">Ljubičasto</string>
-    <string name="settings_blue_theme">Plavo</string>
-    <string name="settings_sky_blue_theme">Nebo plavo</string>
-    <string name="settings_green_theme">Zeleno</string>
-    <string name="settings_brown_theme">Braun</string>
     <string name="sort">Poništi sortiranje</string>
     <string name="sort_by_name">Ime</string>
     <string name="sort_by_most_recently_used">Nedavno Korišten</string>

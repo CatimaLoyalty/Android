@@ -146,16 +146,7 @@
     </plurals>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
-    <string name="settings_violet_theme">Fiolett</string>
-    <string name="settings_magenta_theme">Magentarød</string>
     <string name="app_contributors">Muliggjort av: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Brun</string>
-    <string name="settings_green_theme">Grønn</string>
-    <string name="settings_sky_blue_theme">Himmelblå</string>
-    <string name="settings_blue_theme">Blå</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Draktfarge</string>
     <string name="noGroupCards">Denne gruppen er tom</string>
     <string name="barcodeImageDescriptionWithType">Bilde av <xliff:g>%s</xliff:g>-strekkode</string>
     <string name="sort_by">Sortering</string>

@@ -87,12 +87,6 @@
     <string name="settings_locale">언어</string>
     <string name="settings_system_locale">시스템</string>
     <string name="selectColor">색상 선택</string>
-    <string name="settings_theme_color">테마 색상</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">핑크색</string>
-    <string name="settings_magenta_theme">자홍색</string>
-    <string name="settings_violet_theme">보라색</string>
-    <string name="settings_blue_theme">파란색</string>
     <string name="app_contributors">기여자: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">정보 보기</string>
     <string name="updateBalance">잔액 업데이트</string>
@@ -228,9 +222,6 @@
     <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다.
 \n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>
     <string name="sameAsCardId">아이디와 동일</string>
-    <string name="settings_sky_blue_theme">하늘색</string>
-    <string name="settings_green_theme">초록색</string>
-    <string name="settings_brown_theme">갈색</string>
     <string name="previousCard">이전의</string>
     <string name="nextCard">다음</string>
     <string name="failedToOpenUrl">먼저 웹 브라우저를 설치하십시오</string>

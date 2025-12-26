@@ -137,9 +137,6 @@
     <string name="app_resources">Πηγές τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectColor">Επιλογή χρώματος</string>
     <string name="setIcon">Ορισμός εικονιδίου</string>
-    <string name="settings_sky_blue_theme">Γαλάζιο</string>
-    <string name="settings_green_theme">Πράσινο</string>
-    <string name="settings_brown_theme">Καφέ</string>
     <string name="sort_by_expiry">Λήξη</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> κάρτα</item>
@@ -187,12 +184,6 @@
     <string name="settings_locale">Γλώσσα</string>
     <string name="settings_oled_dark">Απόλυτο μαύρο φόντο για το μαύρο θέμα</string>
     <string name="settings_system_locale">Σύστημα</string>
-    <string name="settings_theme_color">Χρώμα θέματος</string>
-    <string name="settings_catima_theme">Κάτιμα</string>
-    <string name="settings_pink_theme">Ροζ</string>
-    <string name="settings_magenta_theme">Φούξια</string>
-    <string name="settings_violet_theme">Βιολετί</string>
-    <string name="settings_blue_theme">Μπλε</string>
     <string name="app_contributors">Δημιουργήθηκε από: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Εμφάνιση πληροφοριών</string>
     <string name="sort_by_name">Όνομα</string>

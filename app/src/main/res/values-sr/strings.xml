@@ -128,12 +128,6 @@
     <string name="settings_system_locale">Sistem</string>
     <string name="selectColor">Odaberi boju</string>
     <string name="setIcon">Odaberi naslovnu fotografiju</string>
-    <string name="settings_theme_color">Boja teme</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Roze</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Ljubičasta</string>
-    <string name="settings_brown_theme">Braon</string>
     <string name="sort">Sortiranje</string>
     <string name="showMoreInfo">Prikaži informacije</string>
     <string name="updateBalance">Ažuriraj stanje</string>
@@ -249,10 +243,7 @@
     <string name="updateBarcodeQuestionText">Promenio si broj kartice. Da li želiš da ažuriraš i bar-kod da bude iste vrednosti?</string>
     <string name="no">Ne</string>
     <string name="app_contributors">Saradnici: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_sky_blue_theme">Nebo plava</string>
-    <string name="settings_green_theme">Zelena</string>
     <string name="barcodeLongPressMessage">Samo fotografije mogu da se otvore u galerija aplikaciji</string>
-    <string name="settings_blue_theme">Plava</string>
     <string name="translate_platform">na Weblate-u</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>

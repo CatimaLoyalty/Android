@@ -67,15 +67,6 @@
     <string name="deleteTitle">Usuń kartę</string>
     <string name="deleteConfirmation">Usunąć tę kartę na stałe\?</string>
     <string name="app_contributors">Możliwe dzięki: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Brązowy</string>
-    <string name="settings_green_theme">Zielony</string>
-    <string name="settings_sky_blue_theme">Błękitny</string>
-    <string name="settings_blue_theme">Niebieski</string>
-    <string name="settings_violet_theme">Fioletowy</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Różowy</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Kolor akcentowy motywu</string>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Język</string>
     <string name="turn_flashlight_off">Wyłącz latarkę</string>

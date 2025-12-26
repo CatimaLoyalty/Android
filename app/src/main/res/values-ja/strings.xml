@@ -137,15 +137,6 @@
     </plurals>
     <string name="barcodeImageDescriptionWithType">バーコード形式の画像 <xliff:g>%s</xliff:g></string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">ブラウン/茶色</string>
-    <string name="settings_green_theme">グリーン/緑色</string>
-    <string name="settings_sky_blue_theme">スカイブルー/水色</string>
-    <string name="settings_blue_theme">ブルー/青色</string>
-    <string name="settings_violet_theme">バイオレット/菫色</string>
-    <string name="settings_magenta_theme">マゼンタ/赤紫色</string>
-    <string name="settings_pink_theme">ピンク/桃色</string>
-    <string name="settings_catima_theme">Catimaテーマ</string>
-    <string name="settings_theme_color">テーマカラー</string>
     <string name="settings_system_locale">システムに従う</string>
     <string name="settings_locale">言語</string>
     <string name="noGroupCards">このグループにはカードがありません</string>

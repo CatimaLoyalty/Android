@@ -80,14 +80,6 @@
     <string name="exportPassword">Izberi geslo za zaščito izvoza (neobvezno)</string>
     <string name="help_translate_this_app">Pomagaj pri prevajanju aplikacije</string>
     <string name="version_history">Zgodovina različic</string>
-    <string name="settings_brown_theme">Rjava</string>
-    <string name="settings_green_theme">Zelena</string>
-    <string name="settings_sky_blue_theme">Sinje modra</string>
-    <string name="settings_blue_theme">Modra</string>
-    <string name="settings_violet_theme">Vijolična</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Roza</string>
-    <string name="settings_theme_color">Barva teme</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="settings_locale">Jezik</string>
     <string name="barcodeImageDescriptionWithType">Slika <xliff:g>%s</xliff:g> črtna koda</string>
@@ -218,7 +210,6 @@
     <string name="failedGeneratingShareURL">URL-ja za skupno rabo ni bilo mogoče ustvariti</string>
     <string name="settings_oled_dark">Čisto črno ozadje za temno temo</string>
     <string name="selectColor">Izberi barvo</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="app_contributors">Omogočeno od: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeLongPressMessage">V aplikaciji za gledanje slik lahko odpremo samo slike</string>
     <plurals name="groupCardCountWithArchived">

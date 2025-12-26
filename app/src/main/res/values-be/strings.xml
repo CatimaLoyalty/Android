@@ -158,9 +158,6 @@
     <string name="settings_oled_dark">Чысты чорны фон для цёмнай тэмы</string>
     <string name="selectColor">Выбраць колер</string>
     <string name="setIcon">Задаць мініяцюру</string>
-    <string name="settings_theme_color">Колер тэмы</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_magenta_theme">Пурпурны</string>
     <string name="app_contributors">Стала магчымым дзякуючы: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Сартаваць</string>
     <string name="showMoreInfo">Паказаць інфармацыю</string>
@@ -275,8 +272,6 @@
     <string name="switchToBackImage">Пераключыцца на задні відарыс</string>
     <string name="importFidmeMessage">Каб імпартаваць, выберыце файл <i>fidme-export-request-xxxxxx.zip</i> з FidMe, а потым уручную выберыце тыпы штрыхкодаў. \nСтварыце яго з вашага профілю FidMe, выбраўшы \"Абарону даных\", а затым націснуўшы \"Выняць мае даныя\".</string>
     <string name="importCatimaMessage">Каб імпартаваць, выберыце файл <i>catima.zip</i> з Catima. \nСтварыце яго з меню \"Імпарт/Экспарт\" іншай праграмы Catima, спачатку націснуўшы там \"Экспарт\".</string>
-    <string name="settings_sky_blue_theme">Нябесна-блакітны</string>
-    <string name="settings_brown_theme">Карычневы</string>
     <string name="switchToBarcode">Пераключыцца на штрыхкод</string>
     <string name="settings_locale">Мова</string>
     <plurals name="groupCardCountWithArchived">
@@ -288,12 +283,8 @@
     <string name="unarchived">Карта разархівавана</string>
     <string name="updateBarcodeQuestionText">Вы змянілі ID. Вы хочаце таксама абнавіць штрыхкод, каб выкарыстоўваць тое ж значэнне?</string>
     <string name="no">Не</string>
-    <string name="settings_pink_theme">Ружовы</string>
     <string name="settings_system_locale">Сістэма</string>
-    <string name="settings_violet_theme">Фіялетавы</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Які са знойдзеных штрыхкодаў вы хочаце выкарыстоўваць?</string>
-    <string name="settings_blue_theme">Сіні</string>
-    <string name="settings_green_theme">Зялёны</string>
     <string name="report_error">Паведаміць пра памылку</string>
     <string name="failedLaunchingPhotoPicker">Не атрымалася знайсці праграму для галерэі, якая падтрымліваецца</string>
     <string name="unsupportedFile">Гэты файл не падтрымліваецца</string>

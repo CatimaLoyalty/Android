@@ -144,15 +144,6 @@
     </plurals>
     <string name="settings_system_locale">Systeemtaal</string>
     <string name="settings_locale">Taal</string>
-    <string name="settings_brown_theme">Bruin</string>
-    <string name="settings_green_theme">Groen</string>
-    <string name="settings_sky_blue_theme">Hemelsblauw</string>
-    <string name="settings_blue_theme">Blauw</string>
-    <string name="settings_violet_theme">Violet</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Roze</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Themakleur</string>
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>

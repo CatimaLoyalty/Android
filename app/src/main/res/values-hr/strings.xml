@@ -88,8 +88,6 @@
     <string name="importCards">Uvezi kartice</string>
     <string name="selectColor">Odaberi boju</string>
     <string name="setIcon">Postavi sličicu</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_green_theme">Zelena</string>
     <string name="sort_by_expiry">Istek</string>
     <string name="barcodeImageDescriptionWithType">Slika vrste crtičnog koda <xliff:g>%s</xliff:g></string>
     <string name="importLoyaltyCardKeychain">Uvezi iz Loyalty Card Keychain</string>
@@ -99,9 +97,6 @@
     <string name="failedGeneratingShareURL">Nije bilo moguće generirati URL za dijeljenje</string>
     <string name="turn_flashlight_off">Isključi bljeskalicu</string>
     <string name="settings_locale">Jezik</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Ljubičasta</string>
-    <string name="settings_sky_blue_theme">Nebesko plava</string>
     <string name="sort">Razvrstaj</string>
     <string name="updateBalance">Aktualiziraj saldo</string>
     <string name="sort_by">Razvrstaj po</string>
@@ -162,8 +157,6 @@
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="importFidmeMessage">Odaberi tvoj izvoz iz FidMe za uvoz i ručno odaberi vste crtičnog koda nakon toga. \nStvori ga putem tvog FidMe profila biranjem „Zaštita podataka” a zatim pritisni „Dekomprimiraj moje podatke”.</string>
     <string name="importVoucherVaultMessage">Odaberi tvoj izvoz iz Voucher Vault za uvoz. \nStvori ga u aplikaciji Voucher Vault pritiskom na „Izvoz”.</string>
-    <string name="settings_pink_theme">Ružičasta</string>
-    <string name="settings_blue_theme">Plava</string>
     <string name="failedToRetrieveImageFile">Neuspjelo dohvaćanje slikovne datoteke</string>
     <string name="license">Licenca</string>
     <string name="barcodeLongPressMessage">U aplikaciji galerije se mogu otvoriiti samo slike</string>
@@ -223,8 +216,6 @@
     <string name="passwordRequired">Upiši lozinku</string>
     <string name="exportPassword">Postavi lozinku za zaštitu tvog izvoza (opcionalno)</string>
     <string name="settings_oled_dark">Potpuno crna pozadina za tamnu temu</string>
-    <string name="settings_theme_color">Boja teme</string>
-    <string name="settings_brown_theme">Smeđa</string>
     <string name="app_contributors">Doprinositelji: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Prikaži informacije</string>
     <string name="sort_by_name">Ime</string>

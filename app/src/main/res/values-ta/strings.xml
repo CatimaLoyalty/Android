@@ -70,8 +70,6 @@
     <string name="settings_system_locale">மண்டலம்</string>
     <string name="selectColor">வண்ணத்தைத் தேர்ந்தெடுக்கவும்</string>
     <string name="setIcon">சிறு உருவத்தை அமைக்கவும்</string>
-    <string name="settings_blue_theme">நீலம்</string>
-    <string name="settings_green_theme">பச்சை</string>
     <string name="sort">வரிசைப்படுத்து</string>
     <string name="showMoreInfo">தகவலைக் காட்டு</string>
     <string name="nextCard">அடுத்தது</string>
@@ -161,17 +159,10 @@
     <string name="turn_flashlight_off">ஒளிரும் விளக்கை அணைக்கவும்</string>
     <string name="settings_locale">மொழி</string>
     <string name="settings_oled_dark">இருண்ட கருப்பொருளுக்கு தூய கருப்பு பின்னணி</string>
-    <string name="settings_theme_color">கருப்பொருள் நிறம்</string>
-    <string name="settings_catima_theme">கேட்டிமா</string>
-    <string name="settings_pink_theme">இளஞ்சிவப்பு</string>
-    <string name="settings_magenta_theme">மெசந்தா</string>
-    <string name="settings_violet_theme">கத்தரி</string>
-    <string name="settings_sky_blue_theme">வானம் நீலம்</string>
     <string name="sort_by_name">பெயர்</string>
     <string name="sort_by_most_recently_used">மிக அண்மைக் காலத்தில் பயன்படுத்தப்பட்டது</string>
     <string name="sort_by_expiry">காலாவதியாகும்</string>
     <string name="reverse">… தலைகீழ் வரிசையில்</string>
-    <string name="settings_brown_theme">பழுப்பு</string>
     <string name="updateBalance">இருப்பு புதுப்பிக்கவும்</string>
     <string name="failedToRetrieveImageFile">படக் கோப்பை மீட்டெடுப்பதில் தோல்வி</string>
     <string name="sort_by">வரிசைப்படுத்தவும்</string>

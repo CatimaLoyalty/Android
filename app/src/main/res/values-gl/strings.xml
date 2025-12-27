@@ -145,14 +145,6 @@
     <string name="settings_oled_dark_summary">Diminúe o uso da batería nas pantallas OLED</string>
     <string name="settings_system_locale">Sistema</string>
     <string name="selectColor">Elixir cor</string>
-    <string name="settings_theme_color">Cor do decorado</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_magenta_theme">Maxenta</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_sky_blue_theme">Azul celeste</string>
-    <string name="settings_green_theme">Verde</string>
-    <string name="settings_brown_theme">Marrón</string>
     <string name="app_contributors">Creada grazas a: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Orde</string>
     <string name="showMoreInfo">Ver info</string>
@@ -269,7 +261,6 @@
     <string name="deleteConfirmationGroup">Eliminar grupo?</string>
     <string name="failedOpeningFileManager">Non puido abrir un xestor de ficheiros</string>
     <string name="settings_locale">Idioma</string>
-    <string name="settings_blue_theme">Azul</string>
     <string name="passwordRequired">Escribe o contrasinal</string>
     <string name="exportPassword">Establece un contrasinal para protexer a exportación (optativo)</string>
     <string name="exportPasswordHint">Escribe o contrasinal</string>

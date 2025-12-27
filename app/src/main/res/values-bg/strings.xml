@@ -143,15 +143,6 @@
         <item quantity="other">Желаете ли тези <xliff:g>%d</xliff:g> карти да бъдат премахнати\?</item>
     </plurals>
     <string name="app_contributors">Осъществено от: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Кафяво</string>
-    <string name="settings_green_theme">Зелено</string>
-    <string name="settings_sky_blue_theme">Небесносиньо</string>
-    <string name="settings_blue_theme">Синьо</string>
-    <string name="settings_violet_theme">Виолетово</string>
-    <string name="settings_magenta_theme">Цикламено</string>
-    <string name="settings_pink_theme">Розово</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Цвят на темата</string>
     <string name="settings_system_locale">Система</string>
     <string name="settings_locale">Език</string>
     <string name="noGroupCards">Групата е празна</string>

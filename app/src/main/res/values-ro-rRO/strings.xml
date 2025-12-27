@@ -140,10 +140,8 @@
     <string name="setBackImage">Setați imaginea din spate</string>
     <string name="permissionReadCardsDescription">citiți cardurile dumneavoastră Catima și toate detaliile lor, inclusiv notițele și imaginile</string>
     <string name="anyDate">Orice dată</string>
-    <string name="settings_green_theme">Verde</string>
     <string name="failedLaunchingPhotoPicker">Nu a putut fi găsită o aplicație galerie suportată</string>
     <string name="expiryStateSentenceExpired">Expirat: <xliff:g>%s</xliff:g></string>
-    <string name="settings_pink_theme">Roz</string>
     <string name="source_repository">Repozitor Sursă</string>
     <string name="groupsList">Grupuri: <xliff:g>%s</xliff:g></string>
     <string name="enter_card_id">Introduceți numărul de identificare sau textul de pe cardul dumneavoastră</string>
@@ -172,7 +170,6 @@
     <string name="report_error">Raportați o eroare</string>
     <string name="switchToBackImage">Comutați către imaginea din spate</string>
     <string name="reverse">...în ordine inversă</string>
-    <string name="settings_brown_theme">Maro</string>
     <string name="app_contributors">Făcut posibil de: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="app_copyright_short">Drepturi de autor © Sylvia van Os și contribuitorii</string>
     <string name="settings_oled_dark">Fundal pur negru pentru tema întunecată</string>
@@ -180,7 +177,6 @@
     <string name="field_must_not_be_empty">Câmpul nu poate fi gol</string>
     <string name="switchToFrontImage">Comutați către imaginea frontală</string>
     <string name="validFromSentence">Valid de la data de: <xliff:g>%s</xliff:g></string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="previousCard">Precedent</string>
     <string name="settings_allow_content_provider_read_summary">Aplicațiile vor trebui totuși să solicite permisiunea pentru a primi acces</string>
     <string name="license">Licență</string>
@@ -193,7 +189,6 @@
     </plurals>
     <string name="sameAsCardId">Acelașil cu identificatorul</string>
     <string name="options">Opțiuni</string>
-    <string name="settings_magenta_theme">Magenta</string>
     <string name="failedGeneratingShareURL">Nu s-a putut genera un URL partajabil. Vă rugăm să raportați aceasta eroare.</string>
     <string name="selectColor">Selectați o culoare</string>
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
@@ -202,13 +197,11 @@
     <string name="settings_system_locale">Sistem</string>
     <string name="updateBalance">Actualizați balanța</string>
     <string name="sort_by_most_recently_used">Cele mai recent utilizate</string>
-    <string name="settings_theme_color">Culoare temă</string>
     <string name="importVoucherVault">Importați din Voucher Vault</string>
     <string name="barcodeId">Valoarea codului de bare</string>
     <string name="settings_locale">Limbă</string>
     <string name="sort_by_name">Nume</string>
     <string name="setFrontImage">Setați imaginea din față</string>
-    <string name="settings_sky_blue_theme">Albastru ca cerul</string>
     <string name="cameraPermissionRequired">Pentru această acțiune este necesară permisiunea de acces la camera …</string>
     <string name="settings_allow_content_provider_read_title">Permiteți altor aplicații să acceseze datele mele</string>
     <string name="updateBarcodeQuestionText">Ați schimbat identificatorul. Doriți să actualizați și codul de bare pentru a utiliza aceeași valoare?</string>
@@ -231,12 +224,10 @@
     <string name="failedToRetrieveImageFile">Nu s-a putut recupera fișierul imaginii</string>
     <string name="donate">Donați</string>
     <string name="group_name_already_in_use">Acest nume de grup este deja utilizat</string>
-    <string name="settings_violet_theme">Mov</string>
     <string name="include_if_asking_support">Dacă doriți să cereți ajutor, includeți informațiile următoare:</string>
     <string name="show_archived_cards">Afișați cardurile arhivate</string>
     <string name="app_libraries">Listă de biblioteci libere de la terți: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Cât de mult ați cheltuit sau primit?</string>
-    <string name="settings_blue_theme">Albastru</string>
     <string name="app_resources">Listă de resurse gratuite de la terți: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
     <string name="shortcutSelectCard">Selectați un card</string>

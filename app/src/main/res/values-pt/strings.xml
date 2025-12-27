@@ -189,15 +189,6 @@
     <string name="settings_system_locale">Sistema</string>
     <string name="selectColor">Selecionar cor</string>
     <string name="setIcon">Definir miniatura</string>
-    <string name="settings_theme_color">Cor do tema</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_blue_theme">Azul</string>
-    <string name="settings_sky_blue_theme">Azul celeste</string>
-    <string name="settings_green_theme">Verde</string>
-    <string name="settings_brown_theme">Marrom</string>
     <string name="app_contributors">Só foi possível graças a: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
     <string name="showMoreInfo">Mostrar informações</string>

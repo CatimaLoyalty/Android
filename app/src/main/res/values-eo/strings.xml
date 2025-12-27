@@ -101,7 +101,6 @@
     <string name="balance">Saldo</string>
     <string name="moveBarcodeToTopOfScreen">Movi la strekodon al la supro de la ekrano</string>
     <string name="errorReadingImage">Ne eblis legi bildon</string>
-    <string name="settings_brown_theme">Bruna</string>
     <string name="showMoreInfo">Montri informojn</string>
     <string name="on_github">sur GitHub</string>
     <string name="archive">Enarkivigi</string>
@@ -127,7 +126,6 @@
     <string name="validFromDate">Valida ekde</string>
     <string name="accept">Akcepti</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="settings_sky_blue_theme">Ĉielblua</string>
     <string name="unarchive">Elarkivigi</string>
     <string name="switchToBarcode">Ŝanĝi al strikodo</string>
     <string name="currentBalanceSentence">Nuna saldo: <xliff:g>%s</xliff:g></string>
@@ -166,7 +164,6 @@
     <string name="balanceParsingFailed">Nevalida saldo</string>
     <string name="chooseImportType">Importi datumojn de</string>
     <string name="importCatima">Importi el Catima</string>
-    <string name="settings_green_theme">Verda</string>
     <string name="updateBalance">Ĝisdatigi saldon</string>
     <string name="barcodeLongPressMessage">Nur bildoj povas esti malfermitaj en la galeria apo</string>
     <string name="sort_by_name">Nomo</string>
@@ -225,8 +222,6 @@
     <string name="settings_oled_dark_summary">Malpligrandigas baterian uzadon sur OLED-ekranoj</string>
     <string name="selectColor">Elekti koloron</string>
     <string name="setIcon">Starigi bildeton</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rozkolora</string>
     <string name="field_must_not_be_empty">Kampo devas ne esti malplena</string>
     <string name="manually_enter_barcode_instructions">Entajpu la identigilon aŭ tekston sur via karto kaj premu la strikodon kiu aspektas kiel tiu sur via karto.</string>
     <string name="turn_flashlight_off">Malŝalti poŝlampon</string>
@@ -241,7 +236,6 @@
     <string name="wrongValueForBarcodeType">La valoro ne validas por la elektita tipo de strikodo</string>
     <string name="importCancelled">Importado nuligita</string>
     <string name="exportCancelled">Eksportado nuligita</string>
-    <string name="settings_theme_color">Koloro de la temo</string>
     <string name="app_libraries">Liberaj triaj bibliotekoj: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="addFromPdfFile">Elekti PDF-dosieron</string>
     <string name="failedLaunchingFileManager">Subtenata dosiermastrumilo ne trovebla</string>
@@ -267,9 +261,6 @@
     <string name="importVoucherVault">Importi el Voucher Vault</string>
     <string name="turn_flashlight_on">Enŝalti poŝlampon</string>
     <string name="settings_locale">Lingvo</string>
-    <string name="settings_magenta_theme">Maĝenta</string>
-    <string name="settings_violet_theme">Viola</string>
-    <string name="settings_blue_theme">Blua</string>
     <string name="enter_card_id">Entajpu la identigilon aŭ tekston sur via karto</string>
     <string name="card_id_must_not_be_empty">Identigilo devas ne esti malplena</string>
     <string name="add_a_card_in_a_different_way">Aldoni karton alimaniere</string>

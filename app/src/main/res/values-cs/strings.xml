@@ -83,15 +83,6 @@
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
     <string name="moveDown">Přesunout dolů</string>
     <string name="moveUp">Přesunout nahoru</string>
-    <string name="settings_brown_theme">Hnědá</string>
-    <string name="settings_green_theme">Zelená</string>
-    <string name="settings_sky_blue_theme">Azurová</string>
-    <string name="settings_blue_theme">Modrá</string>
-    <string name="settings_violet_theme">Fialová</string>
-    <string name="settings_magenta_theme">Purpurová</string>
-    <string name="settings_pink_theme">Růžová</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Barva motivu</string>
     <string name="settings_system_locale">Podle systému</string>
     <string name="settings_locale">Jazyk</string>
     <string name="turn_flashlight_off">Vypnout světlo</string>

@@ -151,15 +151,6 @@
     </plurals>
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_locale">Lingua</string>
-    <string name="settings_brown_theme">Marrone</string>
-    <string name="settings_green_theme">Verde</string>
-    <string name="settings_sky_blue_theme">Azzurro</string>
-    <string name="settings_blue_theme">Blu</string>
-    <string name="settings_violet_theme">Viola</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Colore del tema</string>
     <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Questo gruppo è vuoto</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre in formato <xliff:g>%s</xliff:g></string>

@@ -169,11 +169,7 @@
     <string name="updateBarcodeQuestionText">Has cambiado el ID. ¿Quieres actualizar también el código de barras para usar el mismo valor?</string>
     <string name="settings_locale">Idioma</string>
     <string name="settings_system_locale">Sistema</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rosa</string>
     <string name="exportPassword">Configura una contraseña para proteger tu exportación (opcional)</string>
-    <string name="settings_sky_blue_theme">Celeste</string>
-    <string name="settings_green_theme">Verde</string>
     <string name="exportPasswordHint">Ingresar contraseña</string>
     <string name="setIcon">Establecer miniatura</string>
     <string name="showMoreInfo">Mostrar información</string>
@@ -184,12 +180,7 @@
     <string name="settings_oled_dark_summary">Reduce uso de batería en pantallas OLED</string>
     <string name="settings_oled_dark">Fondo negro puro para tema oscuro</string>
     <string name="selectColor">Seleccionar color</string>
-    <string name="settings_theme_color">Color del tema</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_brown_theme">Marrón</string>
     <string name="sort">Ordenar</string>
-    <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeLongPressMessage">Solo se puede abrir imágenes en la aplicación de galería</string>
     <string name="yes">Si</string>

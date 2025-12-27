@@ -72,10 +72,8 @@
     <string name="permissionReadCardsDescription">đọc thẻ Catima của bạn và mọi thông tin trong đó, bao gồm cả ghi chú và ảnh</string>
     <string name="anyDate">Bất cứ ngày nào</string>
     <string name="unsupportedBarcodeType">Loại mã vạch này chưa thể hiện thị được. Ửng dụng có thể hỗ trợ nó ở những phiên bản sau này.</string>
-    <string name="settings_green_theme">Màu xanh lá</string>
     <string name="failedLaunchingPhotoPicker">Không tìm thấy ứng dụng thư viện ảnh được hỗ trợ</string>
     <string name="expiryStateSentenceExpired">Quá hạn: <xliff:g>%s</xliff:g></string>
-    <string name="settings_pink_theme">Màu hồng</string>
     <string name="groupsList">Nhóm: <xliff:g>%s</xliff:g></string>
     <string name="yes">Có</string>
     <string name="barcodeType">Loại mã vạch</string>
@@ -114,7 +112,6 @@
     <string name="star">Đánh dấu ưa thích</string>
     <string name="addFromImage">Chọn ảnh từ thư viện ảnh</string>
     <string name="reverse">...theo trật tự đảo ngược</string>
-    <string name="settings_brown_theme">Màu nâu</string>
     <string name="app_copyright_short">Bản quyền © Sylvia van Os và các cộng sự</string>
     <string name="importExportHelp">Sao lưu cho phép bạn chuyển dữ liệu của mình đến thiết bị khác.</string>
     <string name="settings_oled_dark">Nền đen tuyền cho chủ đề tối</string>
@@ -123,7 +120,6 @@
     <string name="importOptionFilesystemExplanation">Chọn 1 tập tin cụ thể từ hệ thống (filesystem).</string>
     <string name="validFromSentence">Hợp lệ từ: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Xuất dữ liệu xong</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="previousCard">Trước</string>
     <string name="settings_allow_content_provider_read_summary">Mọi ứng dụng vẫn phải cần phải xin cấp phép để được truy cập</string>
     <string name="license">Giấy phép</string>
@@ -141,7 +137,6 @@
     <string name="options">Tùy chọn</string>
     <string name="sendLabel">Gửi…</string>
     <string name="importOptionFilesystemButton">Lấy từ hệ thống</string>
-    <string name="settings_magenta_theme">Màu sắc tố tím và đỏ</string>
     <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
     <string name="selectColor">Chọn màu</string>
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
@@ -156,7 +151,6 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Bản quyền © 2019–<xliff:g>%d</xliff:g> Sylvia van Os và các cộng sự</string>
     <string name="sort_by_most_recently_used">Sửa dụng gần đây nhất</string>
     <string name="noGiftCards">Bấm nút dấu cộng + để thêm thẻ, hoặc nhập dữ liệu từ ⋮ menu</string>
-    <string name="settings_theme_color">Chủ đề màu</string>
     <string name="importVoucherVault">Nhập dữ liệu từ Voucher Vault</string>
     <string name="barcodeId">Giá trị mã vạch</string>
     <string name="settings_locale">Ngôn ngữ</string>
@@ -166,7 +160,6 @@
     <string name="errorReadingImage">Không thể xem được ảnh</string>
     <string name="setFrontImage">Đặt ảnh mặt trước</string>
     <string name="settings_theme">Chủ đề</string>
-    <string name="settings_sky_blue_theme">Xanh da trời</string>
     <string name="balance">Số dư</string>
     <string name="cameraPermissionRequired">Tác vụ này cần được cấp quyền sử dụng camera…</string>
     <string name="settings_allow_content_provider_read_title">Cho phép ứng dụng khác truy cập vào dữ liệu của tôi</string>
@@ -202,7 +195,6 @@
     <string name="group_name_already_in_use">Tên nhóm đã tạo rồi</string>
     <string name="exportFailedTitle">Xuất dữ liệu thất bại</string>
     <string name="leaveWithoutSaveConfirmation">Bỏ không lưu chứ\?</string>
-    <string name="settings_violet_theme">Màu tím</string>
     <string name="card">Thẻ</string>
     <string name="never">Không bao giờ</string>
     <string name="include_if_asking_support">Nếu bạn muốn yêu cầu hỗ trợ, hãy cung cấp những thông tin sau:</string>
@@ -214,7 +206,6 @@
     <string name="updateBalanceTitle">Bạn đã chi tiêu hoặc nhận được bao nhiêu?</string>
     <string name="editCardTitle">Sửa Thẻ</string>
     <string name="archive">Lưu trữ</string>
-    <string name="settings_blue_theme">Màu xanh dương</string>
     <string name="app_resources">Tài nguyên mở từ bên thứ 3: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="shortcutSelectCard">Chọn một thẻ</string>
     <string name="accept">Đồng ý</string>

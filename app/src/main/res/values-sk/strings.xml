@@ -114,7 +114,6 @@
     <string name="expiryStateSentenceExpired">Platnosť vypršala: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Zostatok: <xliff:g>%s</xliff:g></string>
     <string name="importCatima">Import z aplikácie Catima</string>
-    <string name="settings_theme_color">Farba témy</string>
     <string name="app_libraries">Knižnice tretích strán: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Zdroje tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="importCatimaMessage">Vyberte svoj export z aplikácie Catima, ktorý chcete importovať. \nVytvorte ho z ponuky Import/export inej aplikácie Catima tak, že stlačíte tlačidlo Exportovať.</string>
@@ -137,14 +136,6 @@
     <string name="yes">Áno</string>
     <string name="selectColor">Vybrať farbu</string>
     <string name="setIcon">Nastavenie miniatúry</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Ružová</string>
-    <string name="settings_magenta_theme">Purpurová</string>
-    <string name="settings_violet_theme">Fialová</string>
-    <string name="settings_blue_theme">Modrá</string>
-    <string name="settings_sky_blue_theme">Azurová</string>
-    <string name="settings_green_theme">Zelená</string>
-    <string name="settings_brown_theme">Hnedá</string>
     <string name="sort">Zoradiť</string>
     <string name="help_translate_this_app">Pomôžte preložiť túto aplikáciu</string>
     <string name="license">Licencia</string>

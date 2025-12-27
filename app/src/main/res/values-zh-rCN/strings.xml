@@ -147,10 +147,8 @@
     </plurals>
     <string name="settings_locale">语言</string>
     <string name="setIcon">设置缩略图</string>
-    <string name="settings_pink_theme">粉色</string>
     <string name="settings_oled_dark">纯黑色背景的深色主题</string>
     <string name="translate_platform">在Weblate上</string>
-    <string name="settings_sky_blue_theme">天蓝</string>
     <string name="showMoreInfo">显示信息</string>
     <string name="options">选项</string>
     <string name="source_repository">源码库</string>
@@ -164,26 +162,19 @@
     <string name="shortcutSelectCard">选择一张卡片</string>
     <string name="group_name_already_in_use">组名已在使用中</string>
     <string name="group_name_is_empty">组名不可为空</string>
-    <string name="settings_brown_theme">棕色</string>
-    <string name="settings_green_theme">绿色</string>
     <string name="sort_by_most_recently_used">最近使用</string>
     <string name="sort_by_name">名称</string>
     <string name="help_translate_this_app">帮助翻译此应用</string>
     <string name="reverse">倒序</string>
     <string name="sort_by">排序方式</string>
     <string name="selectColor">选择颜色</string>
-    <string name="settings_theme_color">主题色</string>
-    <string name="settings_blue_theme">蓝色</string>
     <string name="sort_by_expiry">到期日</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="noGroupCards">该组是空的</string>
     <string name="on_github">在GitHub上</string>
     <string name="group_updated">群组已更新</string>
     <string name="editGroup">编辑组：<xliff:g>%s</xliff:g></string>
     <string name="settings_system_locale">系统</string>
     <string name="exportPassword">设置密码来保护导出的内容（可选）</string>
-    <string name="settings_magenta_theme">紫红</string>
-    <string name="settings_violet_theme">紫色</string>
     <string name="app_contributors">因他们而存在: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="and_data_usage">和数据使用方法</string>
     <string name="failedLaunchingPhotoPicker">找不到支持的图片选择应用</string>

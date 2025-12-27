@@ -963,31 +963,9 @@ public class Utils {
     // replace colors in the current theme
     public static void patchColors(AppCompatActivity activity) {
         Settings settings = new Settings(activity);
-        String color = settings.getColor();
 
         Resources.Theme theme = activity.getTheme();
-        Resources resources = activity.getResources();
-        if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
-            theme.applyStyle(R.style.pink, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_magenta_theme))) {
-            theme.applyStyle(R.style.magenta, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_violet_theme))) {
-            theme.applyStyle(R.style.violet, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_blue_theme))) {
-            theme.applyStyle(R.style.blue, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_sky_blue_theme))) {
-            theme.applyStyle(R.style.skyblue, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_green_theme))) {
-            theme.applyStyle(R.style.green, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_brown_theme))) {
-            theme.applyStyle(R.style.brown, true);
-        } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
-            // catima theme is AppTheme itself, no dynamic colors nor applyStyle
-        } else {
-            // final catch all in case of invalid theme value from older versions
-            // also handles R.string.settings_key_system_theme
-            DynamicColors.applyToActivityIfAvailable(activity);
-        }
+        DynamicColors.applyToActivityIfAvailable(activity);
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {
             theme.applyStyle(R.style.DarkBackground, true);

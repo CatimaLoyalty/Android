@@ -50,15 +50,6 @@
     <string name="turn_flashlight_off">টর্চলাইট বন্ধ করুন</string>
     <string name="settings_locale">লোকেল</string>
     <string name="settings_system_locale">সিস্টেম লোকেল</string>
-    <string name="settings_theme_color">থিম রঙ</string>
-    <string name="settings_catima_theme">কটিমা থিম</string>
-    <string name="settings_pink_theme">গোলাপী থিম</string>
-    <string name="settings_magenta_theme">ম্যাজেন্টা থিম</string>
-    <string name="settings_violet_theme">ভায়োলেট থিম</string>
-    <string name="settings_blue_theme">নীল থিম</string>
-    <string name="settings_sky_blue_theme">আকাশী নীল থিম</string>
-    <string name="settings_green_theme">সবুজ থিম</string>
-    <string name="settings_brown_theme">বাদামী থিম</string>
     <string name="sort">সাজান</string>
     <string name="sort_by_name">নামের দ্বারা সাজান</string>
     <string name="sort_by_most_recently_used">সর্বাধিক সম্প্রতি ব্যবহৃত দ্বারা সাজান</string>

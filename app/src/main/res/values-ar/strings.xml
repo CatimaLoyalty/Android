@@ -101,14 +101,6 @@
     <string name="settings_locale">لغة</string>
     <string name="settings_system_locale">النظام</string>
     <string name="setIcon">تعيين الصورة المصغرة</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">زهري</string>
-    <string name="settings_magenta_theme">أرجواني</string>
-    <string name="settings_violet_theme">البنفسجي</string>
-    <string name="settings_blue_theme">أزرق</string>
-    <string name="settings_sky_blue_theme">أزرق سماوي</string>
-    <string name="settings_green_theme">أخضر</string>
-    <string name="settings_brown_theme">بني</string>
     <string name="app_contributors">أصبح ممكنًا بواسطة: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">فرز</string>
     <string name="showMoreInfo">اظهر المعلومات</string>
@@ -225,7 +217,6 @@
     <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
     <string name="on_google_play">على Google Play</string>
-    <string name="settings_theme_color">لون المظهر</string>
     <string name="previousCard">السابق</string>
     <string name="nextCard">التالي</string>
     <string name="failedToRetrieveImageFile">فشل في استخراج ملف الصورة</string>

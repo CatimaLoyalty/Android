@@ -98,11 +98,6 @@
     <string name="about_title_fmt">Par <xliff:g id="app_name">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Derīgums beidzās: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Atlasīt krāsu</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rozā</string>
-    <string name="settings_magenta_theme">Purpura</string>
-    <string name="settings_sky_blue_theme">Gaiši zila</string>
-    <string name="settings_green_theme">Zaļa</string>
     <string name="sort_by_name">Nosaukums</string>
     <string name="on_google_play">pakalpojumā Google Play</string>
     <string name="report_error">Ziņot par kļūdu</string>
@@ -150,7 +145,6 @@
     <string name="privacy_policy">Privātuma politika</string>
     <string name="accept">Pieņemt</string>
     <string name="editGroup">Kopas labošana: <xliff:g>%s</xliff:g></string>
-    <string name="settings_brown_theme">Brūna</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autortiesības © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_copyright_old">Balstīta uz Loyalty Card Keychain
 \nautortiesības © 2016–2020 Branden Archer</string>
@@ -191,9 +185,6 @@
     <string name="turn_flashlight_on">Ieslēgt zibspuldzi</string>
     <string name="settings_oled_dark">Tīri melns fons tumšajam izskatam</string>
     <string name="setIcon">Iestatīt sīktēlu</string>
-    <string name="settings_theme_color">Izskata krāsa</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_blue_theme">Zila</string>
     <string name="sort">Kārtot</string>
     <string name="showMoreInfo">Rādīt informāciju</string>
     <string name="sort_by_most_recently_used">Visnesenāk izmantotās</string>

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Kahverengi</string>
-    <string name="settings_green_theme">Yeşil</string>
-    <string name="settings_sky_blue_theme">Gök mavisi</string>
-    <string name="settings_blue_theme">Mavi</string>
-    <string name="settings_violet_theme">Mor</string>
-    <string name="settings_magenta_theme">Eflatun</string>
-    <string name="settings_pink_theme">Pembe</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Tema rengi</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="settings_locale">Dil</string>
     <string name="turn_flashlight_off">El fenerini kapat</string>

@@ -71,7 +71,6 @@
     <string name="exportFailed">Não foi possível exportar</string>
     <string name="importing">A importar…</string>
     <string name="exporting">A exportar…</string>
-    <string name="settings_sky_blue_theme">Azul céu</string>
     <string name="report_error">Reportar erro</string>
     <string name="chooseImportType">Importar dados de</string>
     <string name="card">Cartão</string>
@@ -93,8 +92,6 @@
     <string name="frontImageDescription">Imagem frontal</string>
     <string name="photos">Fotografias</string>
     <string name="passwordRequired">Introduza a palavra-passe</string>
-    <string name="settings_green_theme">Verde</string>
-    <string name="settings_brown_theme">Castanho</string>
     <string name="updateBarcodeQuestionTitle">Atualizar o valor do código de barras\?</string>
     <string name="updateBarcodeQuestionText">Alterou o identificador. Também quer atualizar o código de barras para usar o mesmo valor\?</string>
     <string name="no">Não</string>
@@ -143,12 +140,6 @@
     <string name="turn_flashlight_off">Desligar lanterna</string>
     <string name="settings_locale">Idioma</string>
     <string name="settings_system_locale">Sistema</string>
-    <string name="settings_theme_color">Cor do tema</string>
-    <string name="settings_catima_theme">Catima</string>
-    <string name="settings_pink_theme">Rosa</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
     <string name="sort_by_name">Nome</string>

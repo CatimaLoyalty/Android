@@ -42,10 +42,6 @@
     <string name="leaveWithoutSaveConfirmation">Vols sortir sense grabar?</string>
     <string name="passwordRequired">Introdueixi el password</string>
     <string name="turn_flashlight_on">Encendre el llum flash</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_violet_theme">Violeta</string>
-    <string name="settings_blue_theme">Blau</string>
-    <string name="settings_green_theme">Verd</string>
     <string name="translate_platform">a la Pàgina Web</string>
     <string name="report_error">Informar un Error</string>
     <string name="archived">Targeta arxivada</string>
@@ -74,7 +70,6 @@
     </plurals>
     <string name="importOptionFilesystemExplanation">Escull un fitxer especific del sistema de fitxers</string>
     <string name="no">No</string>
-    <string name="settings_pink_theme">Rosa</string>
     <string name="sort">Ordenar</string>
     <string name="failedToRetrieveImageFile">Ha fallat l\'obtenció del fitxer d\'imatge</string>
     <string name="barcodeLongPressMessage">Les imatges només es poden obrir desde la app galeria</string>
@@ -146,7 +141,6 @@
     <string name="settings_oled_dark">Negre pur en el tema fosc</string>
     <string name="selectColor">Sel•leccioni el color</string>
     <string name="setIcon">Setegi la miniatura</string>
-    <string name="settings_theme_color">Color del tema</string>
     <string name="app_contributors">Fet possible per: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="updateBalance">Actualitzar el balanç</string>
     <string name="sort_by_name">Nom</string>
@@ -176,13 +170,11 @@
     <string name="openFrontImageInGalleryApp">Obrir la imatge frontal a l\'app de galeria</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilitza els botons de volum per canviar la targeta que es mostra</string>
     <string name="updateBarcodeQuestionText">Ha canviat el valor ID. Vol actualitzar també el codi de barres per uter utilitzar el mateix valor?</string>
-    <string name="settings_sky_blue_theme">Blau fluix</string>
     <string name="starred">Preferides</string>
     <string name="deleteConfirmationGroup">Vols eliminar aquest grup?</string>
     <string name="removeImage">Eliminar imatge</string>
     <string name="app_libraries">Llibreries de tercers: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="settings_display_barcode_max_brightness">Màxima iluminació</string>
-    <string name="settings_brown_theme">Marró</string>
     <string name="manually_enter_barcode_instructions">Introdueixi el ID de la targeta manualment i trii un codi de barres que s\'assembli al de la seva targeta.</string>
     <string name="rate_this_app">Valora aquesta app</string>
     <string name="exportPasswordHint">Introdueixi el password</string>
@@ -236,7 +228,6 @@
     <string name="turn_flashlight_off">Apagar el llum Flash</string>
     <string name="settings_oled_dark_summary">Redueix l\'ús de la bateria en pantalles OLED</string>
     <string name="settings_system_locale">Idioma del sistema</string>
-    <string name="settings_catima_theme">Catima</string>
     <string name="spend">Gastar</string>
     <string name="importExportHelp">Fer una còpia de seguretat de les dades permet moure-les a un altre dispositiu</string>
     <string name="importSuccessfulTitle">Importat</string>

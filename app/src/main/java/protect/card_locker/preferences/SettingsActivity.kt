@@ -11,7 +11,6 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.google.android.material.color.DynamicColors
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
 import protect.card_locker.MainActivity
@@ -101,16 +100,6 @@ class SettingsActivity : CatimaAppCompatActivity() {
                     }
                 }
                 true
-            }
-
-            val themeColorPreference = findPreference<ListPreference>(getString(R.string.setting_key_theme_color))
-            themeColorPreference!!.setOnPreferenceChangeListener { _, _ ->
-                refreshActivity(true)
-                true
-            }
-            if (!DynamicColors.isDynamicColorAvailable()) {
-                themeColorPreference.setEntryValues(R.array.color_values_no_dynamic)
-                themeColorPreference.setEntries(R.array.color_value_strings_no_dynamic)
             }
 
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))

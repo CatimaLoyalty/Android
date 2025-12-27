@@ -1,0 +1,3 @@
+- رفع مشکل کرش هنگام وارد کردن انواع خاصی از فایل‌های CSV خراب. (pull #177 (https://github.com/braarcher/loyalty-card-locker/pull/177))
+- رفع مشکل وارد کردن مستقیم نسخه‌های پشتیبان از سیستم فایل. (pull #180 (https://github.com/braarcher/loyalty-card-locker/pull/180))
+- رفع مشکل وارد کردن نسخه‌های پشتیبان از انواع خاصی از ارائه‌دهندگان محتوا. (pull #179 (https://github.com/braarcher/loyalty-card-locker/pull/179))

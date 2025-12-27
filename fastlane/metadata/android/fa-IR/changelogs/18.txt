@@ -1,0 +1,2 @@
+- رفع مشکل در اندروید SDK نسخه ۲۴+ که در آن استفاده از گزینه انتخاب فایل برای وارد کردن فایل باعث خرابی می‌شد. (pull #170 (https://github.com/braarcher/loyalty-card-locker/pull/170))
+- آیکون و طرح رنگ جدید. (pull #171 (https://github.com/braarcher/loyalty-card-locker/pull/171))

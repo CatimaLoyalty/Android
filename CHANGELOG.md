@@ -6,6 +6,7 @@
 - Add duplicate option to main screen and reorder options slightly
 - Fix column count setting not being applied to group card list
 - Reduce max photo size to reduce storage use (only for newly added photos)
+- Migrate About activity from Android XML to Jetpack Compose
 
 ## v2.40.0 - 156 (2025-12-08)
 

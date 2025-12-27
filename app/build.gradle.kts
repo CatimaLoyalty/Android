@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.org.jetbrains.kotlin.plugin.compose)
 }
 
 kotlin {
@@ -48,6 +49,7 @@ android {
 
     buildFeatures {
         buildConfig = true
+        compose = true
         viewBinding = true
     }
 
@@ -93,9 +95,10 @@ android {
     lint {
         lintConfig = file("lint.xml")
     }
+
     kotlin {
         compilerOptions {
-            jvmTarget = JvmTarget.JVM_21
+            jvmTarget = JvmTarget.JVM_17
         }
     }
     compileOptions {
@@ -103,8 +106,10 @@ android {
 
         // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+
+
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -120,6 +125,19 @@ dependencies {
     implementation(libs.androidx.preference.preference)
     implementation(libs.com.google.android.material.material)
     coreLibraryDesugaring(libs.com.android.tools.desugar.jdk.libs)
+
+    // Compose
+    implementation(libs.androidx.activity.activity.compose)
+    val composeBom = platform(libs.androidx.compose.compose.bom)
+    implementation(composeBom)
+    implementation(libs.androidx.compose.foundation.foundation)
+    implementation(libs.androidx.compose.material3.material3)
+    implementation(libs.androidx.compose.material.material.icons.extended)
+    implementation(libs.androidx.compose.ui.ui.tooling.preview.android)
+    debugImplementation(libs.androidx.compose.ui.ui.test.manifest)
+
+    androidTestImplementation(composeBom)
+    androidTestImplementation(libs.androidx.compose.ui.ui.test.junit4)
 
     // Third-party
     implementation(libs.com.journeyapps.zxing.android.embedded)
@@ -140,6 +158,8 @@ dependencies {
     androidTestImplementation(libs.bundles.androidx.test)
     androidTestImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.test.uiautomator.uiautomator)
     androidTestImplementation(libs.androidx.test.espresso.espresso.core)
 }

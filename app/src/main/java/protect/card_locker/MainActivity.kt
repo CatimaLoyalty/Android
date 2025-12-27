@@ -58,8 +58,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private var selectedTab: Int = 0
     private lateinit var groupsTabLayout: TabLayout
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
-    private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent?>
-    private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent?>
+    private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {

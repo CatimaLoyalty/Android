@@ -32,9 +32,9 @@
         <item quantity="other">ای <xliff:g>%d</xliff:g> \u0020کارت همیشه پاک شه ؟</item>
     </plurals>
     <string name="ok">قبول</string>
-    <string name="share">خبر چینی</string>
+    <string name="share"></string>
     <string name="sendLabel">.‌‌ . . فرستادن</string>
-    <string name="editCardTitle">عوض کردن‌کارن</string>
+    <string name="editCardTitle"></string>
     <string name="addCardTitle">اضاف کردن کارت</string>
     <string name="scanCardBarcode">اسکن بارکد</string>
     <string name="cardShortcut">بریدنِ شرتِ کارت</string>
@@ -68,8 +68,8 @@
     <string name="app_license">نرم‌افزار آزاد با حقوق کپی‌لفت، تحت مجوز GPLv3+</string>
     <string name="about_title_fmt">درمورد <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">ورژن <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">کتابخونه های حوادث رانندگی : <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">-منابع حوادث رانندگی : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries"></string>
+    <string name="app_resources"></string>
     <string name="selectBarcodeTitle">بارکد انتخاب کن</string>
     <string name="thumbnailDescription">عکس کوچیک</string>
     <string name="starImage">ستاره دوست داشتنی</string>

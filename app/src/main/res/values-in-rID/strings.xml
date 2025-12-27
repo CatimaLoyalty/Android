@@ -290,4 +290,6 @@
     <string name="acra_crash_email_subject">Laporan crash <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Minta untuk mengirimkan laporan crash</string>
     <string name="pref_enable_acra_summary">Ketika diaktifkan, Anda akan diminta untuk melaporkan crash saat terjadi. Laporan crash tidak pernah dikirim secara otomatis.</string>
+    <string name="copy_value">Salin nilai</string>
+    <string name="copied_to_clipboard">Disalin ke papan klip</string>
 </resources>

@@ -1,0 +1,2 @@
+- Copiar o ID do cartão para a área de transferência da caixa de diálogo de vista ou imprensa longa
+- Trocar balance e campos de moeda para reduzir o arredondamento não intencional

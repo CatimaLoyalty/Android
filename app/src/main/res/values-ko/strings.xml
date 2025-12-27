@@ -16,7 +16,7 @@
     <string name="about">정보</string>
     <string name="exporting">내보내는 중…</string>
     <string name="importing">가져오는 중…</string>
-    <string name="importExportHelp">데이터를 백업하면 다른 장치로 이동할 수 있습니다.</string>
+    <string name="importExportHelp">데이터를 백업하면 다른 장치로 이동할 수 있습니다</string>
     <string name="exportName">내보내기</string>
     <string name="importExport">가져오기/내보내기</string>
     <string name="cardShortcut">카드 바로 가기</string>
@@ -41,7 +41,7 @@
     <string name="noGiftCards">+ 더하기 버튼을 클릭하여 카드를 추가하거나 ⋮ 메뉴에서 가져옵니다.</string>
     <string name="action_add">추가</string>
     <string name="action_search">검색</string>
-    <string name="importOptionFilesystemExplanation">파일 시스템에서 파일을 선택합니다.</string>
+    <string name="importOptionFilesystemExplanation">파일 시스템에서 파일을 선택합니다</string>
     <string name="importOptionFilesystemTitle">파일 시스템에서 가져오기</string>
     <string name="exportFailed">내보내기를 수행할 수 없습니다</string>
     <string name="exportFailedTitle">내보내기 실패</string>
@@ -51,8 +51,8 @@
     <string name="importSuccessfulTitle">가져오기 완료</string>
     <string name="storeName">이름</string>
     <string name="thumbnailDescription">썸네일</string>
-    <string name="failedParsingImportUriError">가져올 URI를 분석할 수 없음</string>
-    <string name="noCardExistsError">해당 카드를 찾을 수 없음</string>
+    <string name="failedParsingImportUriError">가져올 URI를 분석할 수 없습니다</string>
+    <string name="noCardExistsError">해당 카드를 찾을 수 없습니다</string>
     <string name="moveUp">위로 이동</string>
     <string name="leaveWithoutSaveTitle">종료</string>
     <string name="moveDown">아래로 이동</string>
@@ -63,7 +63,7 @@
     <plurals name="deleteCardsTitle">
         <item quantity="other">카드 <xliff:g>%d</xliff:g> 장 제거</item>
     </plurals>
-    <string name="noGiftCardsGroup">카드를 몇 장 만든 다음 여기에서 그룹에 할당합니다.</string>
+    <string name="noGiftCardsGroup">카드를 몇 장 만든 다음 이곳에서 그룹에 할당합니다</string>
     <string name="noCardsMessage">먼저 카드 추가</string>
     <string name="leaveWithoutSaveConfirmation">저장하지 않고 나가시겠습니까\?</string>
     <string name="intent_import_card_from_url_share_text">카드를 공유하고 싶습니다</string>
@@ -147,7 +147,7 @@
     </plurals>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">저작권 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os 및 기여자</string>
     <string name="noCameraPermissionDirectToSystemSetting">바코드를 스캔하려면 Catima가 카메라에 접근해야 합니다. 권한 설정을 변경하려면 여기를 탭하세요.</string>
-    <string name="exportOptionExplanation">데이터는 선택한 위치에 기록됩니다.</string>
+    <string name="exportOptionExplanation">데이터는 선택한 위치에 기록됩니다</string>
     <string name="app_license">GPL v3+로 라이선스된 카피레프트 자유 소프트웨어</string>
     <string name="failedOpeningFileManager">먼저 파일 관리자를 설치하십시오.</string>
     <string name="importSuccessful">데이터 들여옴</string>
@@ -192,7 +192,7 @@
     <string name="barcodeImageDescriptionWithType">이미지 <xliff:g>%s</xliff:g> 바코드</string>
     <string name="photos">사진</string>
     <string name="storageReadPermissionRequired">이 작업에 필요한 저장소를 읽을 수 있는 권한…</string>
-    <string name="app_libraries">자유 타사 라이브러리: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">서드파티 라이브러리: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="cameraPermissionRequired">이 작업에 필요한 카메라 액세스 권한…</string>
     <string name="cameraPermissionDeniedTitle">카메라 접근 실패</string>
     <string name="importOptionFilesystemButton">파일 시스템에서</string>

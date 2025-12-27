@@ -1,0 +1,1 @@
+- Přidána možnost duplikace na hlavní stránku, mírně reorganizovány možnosti

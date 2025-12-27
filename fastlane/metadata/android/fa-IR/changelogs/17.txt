@@ -1,2 +1,2 @@
-- پشتیبانی از افزودن میانبرهای کارت وفاداری از لانچر/صفحه اصلی را اضافه کنید. (pull #161 (https://github.com/braarcher/loyalty-card-locker/pull/161))
-- پشتیبانی از افزودن میانبرهای کارت وفاداری را از خود برنامه حذف کنید. این کار نیاز به مجوز میانبر را از بین می‌برد. (pull #163 (https://github.com/braarcher/loyalty-card-locker/pull/163))
+- پشتیبانی از افزودن میانبرهای کارت وفاداری از لانچر/صفحه اصلی را اضافه کنید. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- پشتیبانی از افزودن میانبرهای کارت وفاداری را از خود برنامه حذف کنید. این کار نیاز به مجوز میانبر را از بین می‌برد. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

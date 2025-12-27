@@ -5,6 +5,7 @@
 - Add support for UTF-8 barcodes
 - Add duplicate option to main screen and reorder options slightly
 - Fix column count setting not being applied to group card list
+- Remove theme colour support
 - Reduce max photo size to reduce storage use (only for newly added photos)
 - Migrate About activity from Android XML to Jetpack Compose
 

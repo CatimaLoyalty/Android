@@ -1,0 +1,2 @@
+- طرح‌بندی بهبود یافته برای لیست کارت‌ها. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- طرح‌بندی بهبود یافته هنگام مشاهده کارت. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

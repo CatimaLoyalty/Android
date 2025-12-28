@@ -167,4 +167,56 @@
     <string name="settings_locale">زبون</string>
     <string name="settings_oled_dark">پس‌زمینه‌ی یه‌دست سیاه برای حالت تاریک</string>
     <string name="settings_oled_dark_summary">استفاده‌ی باتری رو برای نمایشگرهای OLED کاهش می‌دهد</string>
+    <string name="editCardTitle">عوض کردن کارت</string>
+    <string name="app_libraries">کتابخانه-تصادفات رانندگی: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">منابع-تصادفات رانندگی: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="share">اشتراک گزاری</string>
+    <string name="settings_system_locale">سیستم</string>
+    <string name="selectColor">رنگ انتخاب کن</string>
+    <string name="setIcon">قالب پیش‌نمایه رو نشون‌بده</string>
+    <string name="app_contributors">ساخته شده توسط: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">تمیزکردن</string>
+    <string name="showMoreInfo">دیدن اطلاعات</string>
+    <string name="updateBalance">به‌روزرسانی موجودی</string>
+    <string name="failedToRetrieveImageFile">فایل تصویر بازیابی نشد</string>
+    <string name="barcodeLongPressMessage">فقط عکس میتونه تو گالری برنامه باز بشه</string>
+    <string name="sort_by_name">اسم</string>
+    <string name="sort_by_most_recently_used">جدیدا استفاده شده</string>
+    <string name="sort_by_valid_from">معتبر از</string>
+    <string name="sort_by_expiry">انقضا</string>
+    <string name="reverse">…به ترتیب برعکس</string>
+    <string name="sort_by">مرتب کردن بر اساس</string>
+    <string name="version_history">تاریخچه نسخه</string>
+    <string name="credits">اعتبارات</string>
+    <string name="help_translate_this_app">به ترجمه این برنامه کمک کن</string>
+    <string name="license">مجوز</string>
+    <string name="source_repository">مخزن منبع</string>
+    <string name="on_github">تو گیت‌هاب</string>
+    <string name="and_data_usage">و مصرف داده</string>
+    <string name="rate_this_app">به این برنامه امتیاز بده</string>
+    <string name="on_google_play">تو گوگل پلی</string>
+    <string name="report_error">گزارش خطا</string>
+    <string name="translate_platform">تو سایت</string>
+    <string name="shortcutSelectCard">یه کارت انتخاب کن</string>
+    <string name="options">گزینه‌ها</string>
+    <string name="starred">ستاره دار</string>
+    <string name="include_if_asking_support">اگه میخای درخاست کن، اطلاعات زیر رو پر کن:</string>
+    <string name="duplicateCard">تکراری</string>
+    <string name="archive">بایگانی</string>
+    <string name="unarchive">خارج کردن از بایگانی</string>
+    <string name="archived">کارت بایگانی شد</string>
+    <string name="unarchived">گارت از بایگانی خارج شد</string>
+    <string name="failedLaunchingPhotoPicker">پشتیبانی از انتخابگر تصویر پیدا نشد</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> کارت (<xliff:g id="بایگانی شد">%2$d</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> کات‌ها (<xliff:g id="بایگانی شدن">%2$d</xliff:g> archived)</item>
+    </plurals>
+    <string name="previousCard">قبلی</string>
+    <string name="nextCard">بعدی</string>
+    <string name="failedToOpenUrl">اول یه مرورگر وب نصب کن</string>
+    <string name="welcome">به کاتیما خوش اومدی</string>
+    <string name="importCards">کارت‌های وارداتی</string>
+    <string name="updateBalanceTitle">چقدر هزینه کردی یا گرفتی؟</string>
+    <string name="updateBalanceHint">مبلغ رو وارد کن</string>
+    <string name="currentBalanceSentence">موجودی فعلی: <xliff:g>%s</xliff:g></string>
 </resources>

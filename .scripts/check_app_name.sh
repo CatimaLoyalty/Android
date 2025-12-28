@@ -12,7 +12,7 @@ NC='\033[0m'    # No Color
 # Vars
 SUCCESS=1
 CANONICAL_TITLE="Catima"
-ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mr" "ta" "ta-IN" "zh-rTW" "zh-TW")  # TODO: Link values and fastlane with different codes together
+ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mr" "peo", "ta" "ta-IN" "zh-rTW" "zh-TW")  # TODO: Link values and fastlane with different codes together
 
 function get_lang() {
     LANG_DIRNAME=$(dirname "$FILE" | xargs basename)

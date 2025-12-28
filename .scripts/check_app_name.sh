@@ -12,6 +12,7 @@ NC='\033[0m'    # No Color
 # Vars
 SUCCESS=1
 CANONICAL_TITLE="Catima"
+# peo is only temporarily allowed due to https://github.com/WeblateOrg/weblate/issues/17455
 ALLOWLIST=("ar" "bn" "fa" "fa-IR" "he-IL" "hi" "hi-IN" "kn" "kn-IN" "ml" "mr" "peo", "ta" "ta-IN" "zh-rTW" "zh-TW")  # TODO: Link values and fastlane with different codes together
 
 function get_lang() {

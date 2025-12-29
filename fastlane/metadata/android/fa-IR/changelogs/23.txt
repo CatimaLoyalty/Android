@@ -1,3 +1,3 @@
-- اضافه کردن فضای خالی در ابتدا/انتهای بارکدها. (pull #200 (https://github.com/braarcher/loyalty-card-locker/pull/200))
-- اضافه کردن گزینه‌هایی برای پیکربندی رنگ‌های استفاده شده برای فونت و پس‌زمینه نام فروشگاه. (pull #203 (https://github.com/braarcher/loyalty-card-locker/pull/203))
-- اضافه کردن گزینه‌هایی برای تنظیم اندازه فونت در صفحه فهرست کارت‌ها و صفحه تک کارت. (pull #204 (https://github.com/braarcher/loyalty-card-locker/pull/204))
+- اضافه کردن فضای خالی در ابتدا/انتهای بارکدها. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- اضافه کردن گزینه‌هایی برای پیکربندی رنگ‌های استفاده شده برای فونت و پس‌زمینه نام فروشگاه. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- اضافه کردن گزینه‌هایی برای تنظیم اندازه فونت در صفحه فهرست کارت‌ها و صفحه تک کارت. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

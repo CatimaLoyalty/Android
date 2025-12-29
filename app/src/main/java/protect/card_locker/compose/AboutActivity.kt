@@ -17,6 +17,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.hideFromAccessibility
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import protect.card_locker.OpenWebLinkHandler
@@ -44,6 +46,7 @@ fun CatimaAboutSection(
                     OpenWebLinkHandler().openBrowser(activity, onClickUrl)
                 }
             }
+            .semantics(mergeDescendants = true) {}
     ) {
         Column(modifier = Modifier.weight(1F)) {
             Text(
@@ -52,7 +55,7 @@ fun CatimaAboutSection(
             )
             Text(text = message)
         }
-        Text(modifier = Modifier.align(Alignment.CenterVertically),
+        Text(modifier = Modifier.align(Alignment.CenterVertically).semantics() { hideFromAccessibility() },
             text = ">",
             style = MaterialTheme.typography.bodyMedium
         )

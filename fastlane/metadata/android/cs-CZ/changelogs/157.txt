@@ -1,1 +1,6 @@
-- Přidána možnost duplikace na hlavní stránku, mírně reorganizovány možnosti
+- Přidána podpora pro čárové kódy UTF-8
+- Přidána možnost duplikování na hlavní obrazovku a mírně upraveno pořadí možností
+- Opravena chyba, kdy se nastavení počtu sloupců neaplikovalo na seznam karet ve skupině
+- Odstraněna podpora barevných motivů
+- Snížena maximální velikost fotografií, aby se snížila spotřeba úložného prostoru (platí pouze pro nově přidané fotografie)
+- Přesunuta aktivita „O aplikaci“ z Android XML do Jetpack Compose

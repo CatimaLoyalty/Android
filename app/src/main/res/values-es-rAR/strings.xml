@@ -51,7 +51,7 @@
         <item quantity="many">Borrar estas <xliff:g>%d</xliff:g> tarjetas de forma permanente\?</item>
         <item quantity="other"/>
     </plurals>
-    <string name="failedOpeningFileManager">Primero instale un administrador de archivos.</string>
+    <string name="failedOpeningFileManager">No se pudo abrir el explorador de archivos</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quiero compartirte algunas tarjetas</string>
     <string name="points">Puntos</string>
     <string name="balanceParsingFailed">Balance inválido</string>
@@ -197,4 +197,34 @@
     <string name="settings_use_volume_keys_navigation_summary">Usá los botones de volumen para cambiar la tarjeta que se muestra</string>
     <string name="cardWithNumberAndLocale">Tarjeta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="cardWithNumber">Tarjeta <xliff:g>%d</xliff:g></string>
+    <string name="version_history">Historial de versiones</string>
+    <string name="credits">Créditos</string>
+    <string name="help_translate_this_app">Ayúdanos a traducir esta app</string>
+    <string name="license">Licencia</string>
+    <string name="on_github">en GitHub</string>
+    <string name="rate_this_app">Califica esta app</string>
+    <string name="on_google_play">En Google Play</string>
+    <string name="report_error">Reportar error</string>
+    <string name="translate_platform">en Weblate</string>
+    <string name="shortcutSelectCard">Selecciona una tarjeta</string>
+    <string name="options">Opciones</string>
+    <string name="duplicateCard">Duplicar</string>
+    <string name="archive">Archivo</string>
+    <string name="archived">Tarjeta archivada</string>
+    <string name="failedLaunchingPhotoPicker">No se pudo encontrar un selector de imagen soportado</string>
+    <string name="previousCard">Anterior</string>
+    <string name="nextCard">Siguiente</string>
+    <string name="failedToOpenUrl">Primero instala un navegador web</string>
+    <string name="welcome">Bienvenido/a a Catima</string>
+    <string name="importCards">Importar tarjetas</string>
+    <string name="updateBalanceHint">Ingrese monto</string>
+    <string name="validFromDate">Valido desde</string>
+    <string name="height">Altura</string>
+    <string name="donate">Donar</string>
+    <string name="icon_header_click_text">Manten presionado para editar la miniatura</string>
+    <string name="show_note">Mostrar nota</string>
+    <string name="back">Atrás</string>
+    <string name="source_repository">Fuente de repositorio</string>
+    <string name="and_data_usage">y uso de datos</string>
+    <string name="include_if_asking_support">Si queres solicitar soporte, incluya la siguiente información:</string>
 </resources>

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 157
+## v2.41.0 - 157 (2025-12-30)
 
 - Add support for UTF-8 barcodes
 - Add duplicate option to main screen and reorder options slightly

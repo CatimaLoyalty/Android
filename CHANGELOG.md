@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 158
+## v2.41.1 - 158 (2025-12-31)
 
 - Fix status and navigation bar colour in new About activity
 

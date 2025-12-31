@@ -33,8 +33,8 @@
     <string name="exportFailed">Export konnte nicht durchgeführt werden</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
-    <string name="importOptionFilesystemTitle">Aus Dateisystem importieren</string>
-    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem aus</string>
+    <string name="importOptionFilesystemTitle">Import vom Dateisystem</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine bestimmte Datei aus dem Dateisystem</string>
     <string name="importOptionFilesystemButton">vom Dateisystem</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>

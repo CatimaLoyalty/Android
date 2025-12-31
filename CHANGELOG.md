@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 158
+
+- Fix status and navigation bar colour in new About activity
+
 ## v2.41.0 - 157 (2025-12-30)
 
 - Add support for UTF-8 barcodes

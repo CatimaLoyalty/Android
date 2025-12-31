@@ -1,7 +1,6 @@
 package protect.card_locker
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -26,12 +25,15 @@ import protect.card_locker.compose.CatimaAboutSection
 import protect.card_locker.compose.CatimaTopAppBar
 import protect.card_locker.compose.theme.CatimaTheme
 
-class AboutActivity : ComponentActivity() {
+class AboutActivity : CatimaComponentActivity() {
     private lateinit var content: AboutContent
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        fixedEdgeToEdge()
+
         content = AboutContent(this)
         title = content.pageTitle
 

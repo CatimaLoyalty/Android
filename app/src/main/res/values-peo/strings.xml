@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">کاتیما</string>
     <string name="action_search">گشتن</string>
     <string name="action_add">اضافه کردن</string>
@@ -7,7 +7,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> انتخاب شد</item>
         <item quantity="other"><xliff:g>%d</xliff:g> انتخاب شد</item>
     </plurals>
-    <string name="noGiftCards">برای اضافه کردن کارت، روی دکمه + به علاوه بزنید ، یا از منوی ⋮ توش کنید</string>
+    <string name="noGiftCards">برای اضافه کردن کارت، روی دکمه + به علاوه بزنید ، یا از منوی ⋮ وارد کنید</string>
     <string name="noMatchingGiftCards">بدون نتیجه. سعی کن گشتن تون رو عوض کنید</string>
     <string name="storeName">اسم</string>
     <string name="note">نسخه برداری</string>
@@ -55,7 +55,7 @@
     <string name="permissionReadCardsLabel">کارت های کاتیما رو بخونید</string>
     <string name="permissionReadCardsDescription">کارتای کاتیما و تمام جزئیاتشون از جمله یادداشت‌ها و عکس‌ها رو بخون</string>
     <string name="cameraPermissionDeniedTitle">دسترسی به دوربین گرفته نشد</string>
-    <string name="noCameraPermissionDirectToSystemSetting">"برای اسکن بارکدای کاتیما ،  دسترسی به دوربین نیازه. برای تغییر تنظیمات مجوز، اینجا رو لمس کن"</string>
+    <string name="noCameraPermissionDirectToSystemSetting">برای اسکن بارکد ها، کاتیما نیاز داره به دوربین شما دسترسی داشته باشه. اینجا بزنید تا تنظیمات دسترسی خود را تغییر دهید.</string>
     <string name="exportOptionExplanation">داده‌ها تو جای دلخواه خودت نوشته میشه</string>
     <string name="importOptionFilesystemTitle">ورود از فایل سیستم</string>
     <string name="importOptionFilesystemExplanation">یه فایل خاص رو از سیستم انتخاب کن</string>
@@ -219,4 +219,82 @@
     <string name="updateBalanceTitle">چقدر هزینه کردی یا گرفتی؟</string>
     <string name="updateBalanceHint">مبلغ رو وارد کن</string>
     <string name="currentBalanceSentence">موجودی فعلی: <xliff:g>%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> ترجمه گر AMIR.BAX</string>
+    <string name="newBalanceSentence">موجودی جدید: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">معتبر از</string>
+    <string name="anyDate">هر وقتی</string>
+    <string name="chooseValidFromDate">معتبر از تاریخ رو انتخاب کن</string>
+    <string name="validFromSentence">معتبر از: <xliff:g>%s</xliff:g></string>
+    <string name="height">ارتفاع</string>
+    <string name="switchToFrontImage">تغییر به عکس جلو</string>
+    <string name="switchToBackImage">تغییر به عکس عقب</string>
+    <string name="switchToBarcode">به بارکد تغییر بده</string>
+    <string name="openFrontImageInGalleryApp">عکس جلویی رو تو image viewer app باز کن</string>
+    <string name="openBackImageInGalleryApp">باز کردن عکس تو image viewer app</string>
+    <string name="setBarcodeHeight">تنظیم ارتفاع بارکد</string>
+    <string name="donate">کمک مالی کن</string>
+    <string name="icon_header_click_text">برای ویرایش عکس کوچیک، فشار طولانی بده</string>
+    <string name="show_name_below_image_thumbnail">نمایش اسم زیر عکس بندانگشتی</string>
+    <string name="show_note">دیدن یادداشت</string>
+    <string name="show_balance">دیدن موجودی</string>
+    <string name="show_validity">دیدن دارایی</string>
+    <string name="settings_category_title_cards">نمای کارت</string>
+    <string name="settings_category_title_cards_overview">نمای کلی به کارت‌ها</string>
+    <string name="settings_column_count_portrait">سطون ها تو حالت عمودی</string>
+    <string name="settings_column_count_landscape">سطون ها تو حالت افقی</string>
+    <string name="settings_automatic_column_count">خودکار</string>
+    <string name="settings_column_count_1">۱</string>
+    <string name="settings_column_count_2">۲</string>
+    <string name="settings_column_count_3">۳</string>
+    <string name="settings_column_count_4">۴</string>
+    <string name="settings_column_count_5">۵</string>
+    <string name="settings_column_count_6">۶</string>
+    <string name="settings_column_count_7">۷</string>
+    <string name="settings_category_title_general">عمومی</string>
+    <string name="settings_category_title_privacy">حریم شخصی</string>
+    <string name="action_display_options">گزینه های نمایش</string>
+    <string name="show_archived_cards">دیدن کارت‌های بایگانی شده</string>
+    <string name="view_online">دیدن انلاین</string>
+    <string name="action_more_options">گزینه‌های بیشتر</string>
+    <string name="addWithoutBarcode">اضافه کردن کارت بدون بارکد</string>
+    <string name="enter_card_id">شماره شناسایی یا متن روی کارت خودتو وارد کن</string>
+    <string name="card_id_must_not_be_empty">شناسه کارت نباید خالی باشه</string>
+    <string name="add_a_card_in_a_different_way">یه کارت با روش‌دیگه اضاف کن</string>
+    <string name="field_must_not_be_empty">فیلد نباید خالی باشه</string>
+    <string name="manually_enter_barcode_instructions">شماره شناسایی یا متن روی کارت خودتو وارد‌کن و بارکدی رو که شبیه بارکد روی کارت خودته، فشار بده.</string>
+    <string name="add_manually_warning_title">اسکن توصیه میشه</string>
+    <string name="add_manually_warning_message">برای بعضی از کارت‌ها، اندازه بارکد با عدد نوشته شده روی کارت متفاوته. به همین دلیل، وارد کردن دستی بارکد ممکنه همیشه کار نکنه. توصیه میشه به جای این، بارکد رو با دوربین خودت اسکن کنی. میخای هنوز ادامه بدی؟</string>
+    <string name="continue_">ادامه</string>
+    <string name="spend">خرج کردن</string>
+    <string name="receive">گرفتن</string>
+    <string name="amountParsingFailed">اندازه نامعتبر</string>
+    <string name="addFromPdfFile">یه فایل PDF انتخاب کن</string>
+    <string name="errorReadingFile">نتونستم فایل رو بخونم</string>
+    <string name="failedLaunchingFileManager">نتونستم یه مدیر فایل پشتیبانی شده پیدا کنم</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">از کدوم بارکد‌های پیدا شده میخای استفاده کنی ؟</string>
+    <string name="pageWithNumber">صفحه <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">به نظر نمیرسه دستگاهت دوربین داشته باشه. اگه داره، دستگاه رو دوباره راه‌اندازی کن. در غیر این صورت، از دکمه گزینه‌های بیشتر زیر برای اضاف‌کردن بارکد به روش دیگه‌ای استفاده کن.</string>
+    <string name="importCancelled">واردات لغو شد</string>
+    <string name="exportCancelled">خروجی گرفتن لغو شد</string>
+    <string name="useFrontImage">از عکس جلو استفاده کن</string>
+    <string name="useBackImage">از عکس عقب استفاده کنید</string>
+    <string name="addFromPkpass">یه فایل دفترچه‌ حساب انتخاب‌کن(.pkpass / .pkpasses)</string>
+    <string name="unsupportedFile">این فایل پشتیبانی نمیشه</string>
+    <string name="generic_error_please_retry">مشکلی رخ داد</string>
+    <string name="width">عرض</string>
+    <string name="card_list_widget_name">لیست کارت‌ها</string>
+    <string name="setBarcodeWidth">تنظیم عرض بارکد</string>
+    <string name="card_list_widget_empty">بعد از اینکه چندتا کارت وفاداری تو کاتیما اضافه کردی، اونها اینجا ظاهر میشن. اگه کارت داری، مطمئن شو که همه اونها بایگانی نشدن.</string>
+    <string name="cardWithNumber">کارت <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">کارت <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">لطفاً دستگاه رو نچرخون، چون اینکار عملکرد رو لغو میکنه</string>
+    <string name="acra_catima_has_crashed">متاسفیم، اما <xliff:g id="app_name"> %s </xliff:g> از کار افتاده است. لطفاً با ارسال گزارش خطا، به ما در رفع این مشکل کمک کنید.</string>
+    <string name="acra_explain_crash">اگه امکانش هست، لطفاً جزئیات بیشتری از کاری که انجام میدادی رو اینجا اضافه کن:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> گزارش مشکل</string>
+    <string name="pref_enable_acra">درخاست ارسال گزارش‌های خرابی</string>
+    <string name="pref_enable_acra_summary">وقتی فعال باشه، از شما خواسته می‌شه که در صورت بروز خرابی، اون رو گزارش بدی. گزارش‌های خرابی هرگز به طور خودکار ارسال نمیشن.</string>
+    <string name="copy_value">مقدار کپی</string>
+    <string name="copied_to_clipboard">کپی تو کیبورد</string>
+    <string name="nothing_to_copy">ارزشی پیدا نشد</string>
+    <string name="noGiftCardsGroup">چند کارت ایجاد کنید و سپس آنها را به گروه اینجا اختصاص دهید</string>
 </resources>

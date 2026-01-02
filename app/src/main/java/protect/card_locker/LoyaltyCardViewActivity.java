@@ -794,7 +794,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         invalidateOptionsMenu();
 
-        ShortcutHelper.updateShortcuts(this, loyaltyCard);
+        ShortcutHelper.updateShortcuts(this);
     }
 
     private void setStateBasedOnImageTypes() {

@@ -466,6 +466,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         ListWidget().updateAll(mAdapter.mContext)
+        ShortcutHelper.updateShortcuts(mAdapter.mContext)
     }
 
     private fun processParseResultList(

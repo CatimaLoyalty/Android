@@ -2,31 +2,26 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.IconCompat;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.List;
 
 class ShortcutHelper {
-    // Android documentation says that no more than 5 shortcuts
-    // are supported. However, that may be too many, as not all
-    // launcher will show all 5. Instead, the number is limited
-    // to 3 here, so that the most recent shortcut has a good
-    // chance of being shown.
-    private static final int MAX_SHORTCUTS = 3;
+    @VisibleForTesting
+    public static int maxShortcuts = -1;
 
     // https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable.html
     private static final int ADAPTIVE_BITMAP_SCALE = 1;
@@ -35,73 +30,37 @@ class ShortcutHelper {
     private static final int ADAPTIVE_BITMAP_IMAGE_SIZE = ADAPTIVE_BITMAP_VISIBLE_SIZE + 5 * ADAPTIVE_BITMAP_SCALE;
 
     /**
-     * Add a card to the app shortcuts, and maintain a list of the most
-     * recently used cards. If there is already a shortcut for the card,
-     * the card is marked as the most recently used card. If adding this
-     * card exceeds the max number of shortcuts, then the least recently
-     * used card shortcut is discarded.
+     * Update the dynamic shortcut list with the most recently viewed cards
+     * based on the lastUsed field. Archived cards are excluded from the shortcuts
+     * list. The list keeps at most MAX_SHORTCUTS number of elements.
      */
-    static void updateShortcuts(Context context, LoyaltyCard card) {
-        if (card.archiveStatus == 1) {
-            // Don't add archived card to menu
-            return;
+    static void updateShortcuts(Context context) {
+        if (maxShortcuts == -1) {
+            maxShortcuts = ShortcutManagerCompat.getMaxShortcutCountPerActivity(context);
         }
-
-        LinkedList<ShortcutInfoCompat> list = new LinkedList<>(ShortcutManagerCompat.getDynamicShortcuts(context));
-
-        SQLiteDatabase database = new DBHelper(context).getReadableDatabase();
-
-        String shortcutId = Integer.toString(card.id);
-
-        // Sort the shortcuts by rank, so working with the relative order will be easier.
-        // This sorts so that the lowest rank is first.
-        Collections.sort(list, Comparator.comparingInt(ShortcutInfoCompat::getRank));
-
-        Integer foundIndex = null;
-
-        for (int index = 0; index < list.size(); index++) {
-            if (list.get(index).getId().equals(shortcutId)) {
-                // Found the item already
-                foundIndex = index;
-                break;
-            }
-        }
-
-        if (foundIndex != null) {
-            // If the item is already found, then the list needs to be
-            // reordered, so that the selected item now has the lowest
-            // rank, thus letting it survive longer.
-            ShortcutInfoCompat found = list.remove(foundIndex.intValue());
-            list.addFirst(found);
-        } else {
-            // The item is new to the list. We add it and trim the list later.
-            ShortcutInfoCompat shortcut = createShortcutBuilder(context, card).build();
-            list.addFirst(shortcut);
-        }
-
         LinkedList<ShortcutInfoCompat> finalList = new LinkedList<>();
+        SQLiteDatabase database = new DBHelper(context).getReadableDatabase();
+        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
+                database,
+                "",
+                null,
+                DBHelper.LoyaltyCardOrder.LastUsed,
+                DBHelper.LoyaltyCardOrderDirection.Ascending,
+                DBHelper.LoyaltyCardArchiveFilter.Unarchived
+        );
+
         int rank = 0;
 
-        // The ranks are now updated; the order in the list is the rank.
-        for (int index = 0; index < list.size(); index++) {
-            ShortcutInfoCompat prevShortcut = list.get(index);
+        while (rank < maxShortcuts && loyaltyCardCursor.moveToNext()) {
+            int id = loyaltyCardCursor.getInt(loyaltyCardCursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, id);
 
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, Integer.parseInt(prevShortcut.getId()));
+            ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
+                    .setRank(rank)
+                    .build();
 
-            // skip outdated cards that no longer exist
-            if (loyaltyCard != null) {
-                ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
-                        .setRank(rank)
-                        .build();
-
-                finalList.addLast(updatedShortcut);
-                rank++;
-
-                // trim the list
-                if (rank >= MAX_SHORTCUTS) {
-                    break;
-                }
-            }
+            finalList.addLast(updatedShortcut);
+            rank++;
         }
 
         ShortcutManagerCompat.setDynamicShortcuts(context, finalList);

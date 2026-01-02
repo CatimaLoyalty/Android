@@ -1,5 +1,5 @@
-- ATTENZIONE: cambiato il formato del backup, vedi https://github.com/TheLastProject/Catima/wiki/Export-format
-- ATTENZIONE: cambiato il formato di condivisione URL, vedi https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format.
+- ATTENZIONE: cambiato il formato del backup
+- ATTENZIONE: cambiato il formato di condivisione URL
 - Utilizzo della torcia nella scansione
 - Aggiunto il supporto UPC-E
 - Foto fronte/retro delle carte

@@ -3,3 +3,4 @@
 - Corretto un caso limite che causava uno stato non valido dell'interfaccia attivando la visualizzazione dell'archivio
 - Usato il tema o il colore della carta per la barra di navigazione (Android 8.1+)
 - Aggiornato il selettore della validità e delle date di scadenza
+- Aggiunta opzione per forzare la rotazione (ignorando impostazione generale del sistema)

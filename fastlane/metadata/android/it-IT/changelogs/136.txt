@@ -1,0 +1,4 @@
+- Supporto per la creazione di una scheda a partire dalla condivisione di testo semplice
+- Visualizzazione del tipo di immagine invece del codice a barre sotto le immagini
+- Sistemato potenziale crash quando si cerca di importare un backup dall'app Nextcloud
+- Supporto migliorato per dispositivi senza fotocamera

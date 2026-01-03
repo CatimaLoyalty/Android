@@ -1,0 +1,1 @@
+- Corretta potenziale interruzione anomala in caso di carte prive di informazioni sul colore nella base dati

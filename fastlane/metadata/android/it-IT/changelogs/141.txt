@@ -1,0 +1,4 @@
+- Cambiata larghezza colonne preimpostata a 4 per schermi larghi
+- Si può ora modificare la configurazione del numero di colonne in modalità verticale e orizzontale
+- Mantenuto filtro di ricerca quando si ruota lo schermo o si apre una carta
+- Limitata lunghezza massima delle note sulla schermata principale

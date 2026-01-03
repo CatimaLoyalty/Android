@@ -1,0 +1,3 @@
+- Opzione per navigare le carte con i tasti volume
+- Sistemata importazione Stocard
+- Sistemato messaggio "Import annullato" che appare dopo un'importazione riuscita

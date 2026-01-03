@@ -1,0 +1,4 @@
+- Consentire nomi di negozio lunghi di andare a capo in anteprima
+- Opzione per usare l'immagine anteriore del retro nel menu delle miniature
+- Correzioni minori su importazione/esportazione
+- Correzioni minori dell'interfaccia utente

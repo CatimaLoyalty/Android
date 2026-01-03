@@ -1,0 +1,3 @@
+- Põhivaate täheikoonide hägusus on parandatud
+- Parandasime olukorra, kus ikoonid mõnel juhul peale valimist kadusid
+- Parandasime olukorra, kus olekuriba ikoonid võisid Android 5 puhul muutuda nähtamatuks

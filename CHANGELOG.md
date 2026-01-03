@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 159
+
+Android 5.0 and 5.1 are no longer supported starting with this release. If you want to use Catima on these versions, please use version 2.41.1.
+
 ## v2.41.1 - 158 (2025-12-31)
 
 - Fix status and navigation bar colour in new About activity

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 159
+## v2.41.2 - 159 (2026-01-03)
 
 - Fix change introduced in 2.41.0 that broke support for some scanners for non-UTF-8 barcodes
 

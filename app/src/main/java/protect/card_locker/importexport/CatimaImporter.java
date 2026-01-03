@@ -459,6 +459,7 @@ public class CatimaImporter implements Importer {
             barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
         }
 
+        // This field did not exist in version 2.40.0 and before
         Charset barcodeEncoding = null;
         String unparsedBarcodeEncoding = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING, record, "");
         if (!unparsedBarcodeEncoding.isEmpty()) {

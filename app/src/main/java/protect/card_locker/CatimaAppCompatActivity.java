@@ -38,15 +38,10 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         Window window = getWindow();
         if (window != null) {
             boolean darkMode = Utils.isDarkModeEnabled(this);
-            if (Build.VERSION.SDK_INT >= 23) {
-                View decorView = window.getDecorView();
-                WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, decorView);
-                wic.setAppearanceLightStatusBars(!darkMode);
-                window.setStatusBarColor(Color.TRANSPARENT);
-            } else {
-                // icons are always white back then
-                window.setStatusBarColor(darkMode ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));
-            }
+            View decorView = window.getDecorView();
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, decorView);
+            wic.setAppearanceLightStatusBars(!darkMode);
+            window.setStatusBarColor(Color.TRANSPARENT);
         }
         // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
         Utils.postPatchColors(this);
@@ -65,8 +60,5 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-    }
-
-    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     }
 }

@@ -100,7 +100,7 @@
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
     <string name="importFidmeMessage">Wähle deinen „FidMe-Export“ zum Importieren und anschließend manuell die Barcodetypen aus.\nErstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Wähle deinen „Catima-Export“ zum Importieren aus.\nErstelle diesen durch das Drücken auf Export im Import/Export-Menü in einer anderen Catima-Anwendung.</string>
+    <string name="importCatimaMessage">Wähle deinen „Catima-Export“ zum Importieren aus.\nExportiere diesen zuvor im Import/Export-Menü einer anderen Catima-Anwendung.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Barcodewert festlegen</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>

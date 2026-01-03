@@ -192,7 +192,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
             String guessedEncoding = StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>());
             Log.d(TAG, "Guessed encoding: " + guessedEncoding);
 
-            // We don't want to pass the gussed encoding as an encoding hint unless it is UTF-8 as
+            // We don't want to pass the guessed encoding as an encoding hint unless it is UTF-8 as
             // zxing is likely to add the mentioned encoding hint as ECI inside the barcode.
             //
             // Due to many barcode scanners in the wild being badly coded they may trip over ECI

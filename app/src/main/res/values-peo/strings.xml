@@ -219,7 +219,7 @@
     <string name="updateBalanceTitle">چقدر هزینه کردی یا گرفتی؟</string>
     <string name="updateBalanceHint">مبلغ رو وارد کن</string>
     <string name="currentBalanceSentence">موجودی فعلی: <xliff:g>%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> ترجمه گر AMIR.BAX</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate"></string>
     <string name="newBalanceSentence">موجودی جدید: <xliff:g>%s</xliff:g></string>
     <string name="validFromDate">معتبر از</string>
     <string name="anyDate">هر وقتی</string>

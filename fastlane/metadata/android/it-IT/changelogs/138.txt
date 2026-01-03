@@ -1,0 +1,1 @@
+- Sistemata gesture indietro che chiude la tastiera in schermata principale e ricerca su Android 13+

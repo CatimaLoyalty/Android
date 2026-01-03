@@ -1,0 +1,4 @@
+- Compatibilità Android 16
+- Sistemato un possibile crash in caso di rimozione dell'immagine dalla carta
+- Rimossa funzionalità "Orientazione schermo" (Google impedisce alle app la possibiltà di controllare la rotazione dello schermo se si sviluppa per Android 16)
+- Aggiunto segnalatore di interruzioni anomale nella versione FOSS (non usato nella versione Google Play, ma soltanto per quelle di altri negozi di applicazioni)

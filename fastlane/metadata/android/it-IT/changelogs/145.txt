@@ -1,0 +1,3 @@
+- Compatibilità Android 15
+- Sistemata tastiera che copre tasto salva in schermata di modifica
+- Sistemati alcuni file pkpass non rilevati come tali (supporto tipo MIME application/vnd-com.apple.pkpass)

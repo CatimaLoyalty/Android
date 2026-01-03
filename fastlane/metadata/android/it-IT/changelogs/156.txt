@@ -1,0 +1,2 @@
+- Copia l'ID della carta negli appunti dalla finestra di dialogo o con pressione prolungata
+- Scambiati campi saldo e divisa per evitare si spera arrotondamenti non voluti

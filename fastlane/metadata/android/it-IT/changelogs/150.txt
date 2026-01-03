@@ -1,0 +1,2 @@
+- Aggiunto un widget che mostra tutte le carte non archiviate
+- Impedito che la tastiera copra il tasto salva in schermate di modifica e dei gruppi

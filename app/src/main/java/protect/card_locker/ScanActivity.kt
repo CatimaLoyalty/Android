@@ -543,6 +543,14 @@ class ScanActivity : CatimaAppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onMockedRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         val granted =
             grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
 

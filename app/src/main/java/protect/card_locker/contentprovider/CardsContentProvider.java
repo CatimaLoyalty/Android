@@ -77,6 +77,13 @@ public class CardsContentProvider extends ContentProvider {
                         @Nullable final String selection,
                         @Nullable final String[] selectionArgs,
                         @Nullable final String sortOrder) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            // Disable the content provider on SDK < 23 since it grants dangerous
+            // permissions at install-time
+            Log.w(TAG, "Content provider read is only available for SDK >= 23");
+            return null;
+        }
+
         final Settings settings = new Settings(getContext());
         if (!settings.getAllowContentProviderRead()) {
             Log.w(TAG, "Content provider read is disabled");

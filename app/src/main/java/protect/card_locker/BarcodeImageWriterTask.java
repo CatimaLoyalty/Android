@@ -22,6 +22,7 @@ import com.google.zxing.common.StringUtils;
 import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 import java.util.Map;
+import java.util.Objects;
 
 import protect.card_locker.async.CompatCallable;
 
@@ -190,7 +191,16 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         } else {
             String guessedEncoding = StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>());
             Log.d(TAG, "Guessed encoding: " + guessedEncoding);
-            encodeHints.put(EncodeHintType.CHARACTER_SET, Charset.forName(guessedEncoding));
+
+            // We don't want to pass the gussed encoding as an encoding hint unless it is UTF-8 as
+            // zxing is likely to add the mentioned encoding hint as ECI inside the barcode.
+            //
+            // Due to many barcode scanners in the wild being badly coded they may trip over ECI
+            // info existing and fail to scan, such as in https://github.com/CatimaLoyalty/Android/issues/2921
+            if (Objects.equals(guessedEncoding, "UTF8")) {
+                Log.d(TAG, "Guessed encoding is UTF8, so passing as encoding hint");
+                encodeHints.put(EncodeHintType.CHARACTER_SET, Charset.forName(guessedEncoding));
+            }
         }
 
         BitMatrix bitMatrix;

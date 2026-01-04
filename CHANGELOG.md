@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 160
+## v2.41.3 - 160 (2026-01-04)
 
 - Follow-up for fix in 2.41.2 for cards explicitly set to ISO-8859-1
 - Migrate old cards to ISO-8859-1 to fix sudden behaviour differences for existing cards

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 160
+
+- Follow-up for fix in 2.41.2 for cards explicitly set to ISO-8859-1
+
 ## v2.41.2 - 159 (2026-01-03)
 
 - Fix change introduced in 2.41.0 that broke support for some scanners for non-UTF-8 barcodes

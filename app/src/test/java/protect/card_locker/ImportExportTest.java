@@ -669,7 +669,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -696,7 +696,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -735,7 +735,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(null, card.barcodeType);
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -762,7 +762,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, card.starStatus);
 
@@ -789,7 +789,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -823,7 +823,7 @@ public class ImportExportTest {
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 

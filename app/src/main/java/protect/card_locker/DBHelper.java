@@ -26,7 +26,7 @@ import java.util.Set;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 18;
+    public static final int DATABASE_VERSION = 19;
 
     // NB: changing these values requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
@@ -344,6 +344,17 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 18 && newVersion >= 18) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.BARCODE_ENCODING + " TEXT");
+        }
+
+        // On upgrade to 2.41.3, force all existing "Automatic" cards to ISO-8859-1.
+        // UTF-8 support was only added in 2.42.0, before that, all barcodes were saved without
+        // any encoding info. As many scanners deal badly with ECI info, automatically guessing
+        // UTF-8 for old barcodes may break them.
+        //
+        // New cards will be saved using either "Automatic" encoding to guess or, for pkpass files,
+        // whatever encoding is specified.
+        if (oldVersion < 19 && newVersion >= 19) {
+            db.execSQL("UPDATE " + LoyaltyCardDbIds.TABLE + " SET " + LoyaltyCardDbIds.BARCODE_ENCODING + " = 'ISO-8859-1' WHERE " + LoyaltyCardDbIds.BARCODE_ENCODING + " IS NULL");
         }
     }
 

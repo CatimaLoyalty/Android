@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 161
+
+- Disable automatic barcode encoding detection for now (breaks too many cards)
+
 ## v2.41.3 - 160 (2026-01-04)
 
 - Follow-up for fix in 2.41.2 for cards explicitly set to ISO-8859-1

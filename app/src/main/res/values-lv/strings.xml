@@ -145,7 +145,7 @@
     <string name="privacy_policy">Privātuma politika</string>
     <string name="accept">Pieņemt</string>
     <string name="editGroup">Kopas labošana: <xliff:g>%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autortiesības © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autortiesības © 2019–<xliff:g>%d</xliff:g> Sylvia van Os un līdzdalībnieki</string>
     <string name="app_copyright_old">Balstīta uz Loyalty Card Keychain
 \nautortiesības © 2016–2020 Branden Archer</string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>

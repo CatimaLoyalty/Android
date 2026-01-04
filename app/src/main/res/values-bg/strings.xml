@@ -299,4 +299,7 @@
     <string name="copy_value">Копиране на стойността</string>
     <string name="copied_to_clipboard">Копирано</string>
     <string name="nothing_to_copy">Няма стойност</string>
+    <string name="back">Назад</string>
+    <string name="automatic">Автоматично</string>
+    <string name="barcodeEncoding">Кодиране на щрихкода</string>
 </resources>

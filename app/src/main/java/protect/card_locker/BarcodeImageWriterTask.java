@@ -21,6 +21,7 @@ import com.google.zxing.common.StringUtils;
 
 import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Objects;
 
@@ -184,23 +185,33 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         MultiFormatWriter writer = new MultiFormatWriter();
 
         Map<EncodeHintType, Object> encodeHints = new ArrayMap<>();
+        Charset chosenEncoding = encoding;
         // Use charset if defined or guess otherwise
-        if (encoding != null) {
-            Log.d(TAG, "Encoding explicitly set, " + encoding.name());
-            encodeHints.put(EncodeHintType.CHARACTER_SET, encoding);
+        if (chosenEncoding != null) {
+            Log.d(TAG, "Encoding explicitly set, " + chosenEncoding.name());
         } else {
-            String guessedEncoding = StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>());
-            Log.d(TAG, "Guessed encoding: " + guessedEncoding);
+            chosenEncoding = Charset.forName(StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>()));
+            Log.d(TAG, "Guessed encoding: " + chosenEncoding.name());
+        }
 
-            // We don't want to pass the guessed encoding as an encoding hint unless it is UTF-8 as
-            // zxing is likely to add the mentioned encoding hint as ECI inside the barcode.
-            //
-            // Due to many barcode scanners in the wild being badly coded they may trip over ECI
-            // info existing and fail to scan, such as in https://github.com/CatimaLoyalty/Android/issues/2921
-            if (Objects.equals(guessedEncoding, "UTF8")) {
-                Log.d(TAG, "Guessed encoding is UTF8, so passing as encoding hint");
-                encodeHints.put(EncodeHintType.CHARACTER_SET, Charset.forName(guessedEncoding));
-            }
+        // We don't want to pass the ISO-8859-1 as an encoding hint as zxing may add this as ECI
+        // inside the barcode.
+        //
+        // Due to many barcode scanners in the wild being badly coded they may trip over ECI
+        // info existing and fail to scan.
+        // See:
+        // - https://github.com/CatimaLoyalty/Android/issues/2921
+        // - https://github.com/CatimaLoyalty/Android/issues/2932
+        //
+        // Just not always passing the encoding hint is slightly hacky, but in 5+ years of Catima
+        // cards without encode hints have never caused any issues (unless they were UTF-8), yet
+        // just days after passing ISO-8859-1 as CHARACTER_SET in the encode hints already 2
+        // scan failures were reported (one for QR, one for Aztec).
+        if (!Objects.equals(chosenEncoding.name(), StandardCharsets.ISO_8859_1.name())) {
+            Log.d(TAG, "Chosen encoding is not ISO_8859_1, so passing as encoding hint");
+            encodeHints.put(EncodeHintType.CHARACTER_SET, chosenEncoding);
+        } else {
+            Log.d(TAG, "Not passing encoding as encoding hint");
         }
 
         BitMatrix bitMatrix;

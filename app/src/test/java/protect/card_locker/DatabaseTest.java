@@ -497,7 +497,7 @@ public class DatabaseTest {
         assertEquals("cardId", card.cardId);
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.UPC_A, card.barcodeType.format());
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(null, card.headerColor);
         assertEquals(0, card.starStatus);
         assertEquals(0, card.lastUsed);
@@ -515,7 +515,7 @@ public class DatabaseTest {
         assertEquals("cardId", card2.cardId);
         assertEquals(null, card2.barcodeId);
         assertEquals(null, card2.barcodeType); // Empty string should've become null
-        assertEquals(null, card.barcodeEncoding);
+        assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding); // Old cards are assumed to be ISO-8859-1
         assertEquals(null, card2.headerColor);
         assertEquals(0, card2.starStatus);
         assertEquals(0, card2.lastUsed);

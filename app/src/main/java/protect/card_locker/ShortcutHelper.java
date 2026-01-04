@@ -20,6 +20,15 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 class ShortcutHelper {
+    /**
+     * This variable controls the maximum number of shortcuts available.
+     * It is made public only to make testing easier and should not be
+     * manually modified. We use -1 here as a default value to check if
+     * the value has been set either manually by the test scenario or
+     * automatically in the `updateShortcuts` function.
+     * It's actual value will be set based on the maximum amount of shortcuts
+     * declared by the launcher via `getMaxShortcutCountPerActivity`.
+     */
     @VisibleForTesting
     public static int maxShortcuts = -1;
 
@@ -32,7 +41,7 @@ class ShortcutHelper {
     /**
      * Update the dynamic shortcut list with the most recently viewed cards
      * based on the lastUsed field. Archived cards are excluded from the shortcuts
-     * list. The list keeps at most MAX_SHORTCUTS number of elements.
+     * list. The list keeps at most maxShortcuts number of elements.
      */
     static void updateShortcuts(Context context) {
         if (maxShortcuts == -1) {

@@ -66,14 +66,6 @@ class ShortcutHelper {
         ShortcutManagerCompat.setDynamicShortcuts(context, finalList);
     }
 
-    /**
-     * Remove the given card id from the app shortcuts, if such a
-     * shortcut exists.
-     */
-    static void removeShortcut(Context context, int cardId) {
-        ShortcutManagerCompat.removeDynamicShortcuts(context, Collections.singletonList(Integer.toString(cardId)));
-    }
-
     static @NotNull
     Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor) {
         Bitmap ret = Bitmap.createBitmap(ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE, Bitmap.Config.ARGB_8888);

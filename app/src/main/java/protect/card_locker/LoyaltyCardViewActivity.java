@@ -896,7 +896,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
-            ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
             new ListWidget().updateAll(LoyaltyCardViewActivity.this);
 
             // Re-init loyaltyCard with new data from DB
@@ -922,7 +921,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
                 DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
 
-                ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
                 new ListWidget().updateAll(LoyaltyCardViewActivity.this);
 
                 finish();

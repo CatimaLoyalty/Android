@@ -1,0 +1,1 @@
+- Disable automatic barcode encoding detection for now (breaks too many cards)

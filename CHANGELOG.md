@@ -3,6 +3,7 @@
 ## Unreleased - 160
 
 - Follow-up for fix in 2.41.2 for cards explicitly set to ISO-8859-1
+- Migrate old cards to ISO-8859-1 to fix sudden behaviour differences for existing cards
 
 ## v2.41.2 - 159 (2026-01-03)
 

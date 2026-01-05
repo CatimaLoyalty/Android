@@ -10,7 +10,7 @@
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
-    <string name="ok">De acuerdo</string>
+    <string name="ok">Aceptar</string>
     <string name="sendLabel">Enviar…</string>
     <string name="editCardTitle">Editar tarjeta</string>
     <string name="addCardTitle">Añadir tarjeta</string>
@@ -134,7 +134,7 @@
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionadas</item>
         <item quantity="other"><xliff:g>%d</xliff:g> seleccionadas</item>
     </plurals>
-    <string name="deleteTitle">Eliminar la tarjeta</string>
+    <string name="deleteTitle">Eliminar tarjeta</string>
     <string name="deleteConfirmation">¿Quiere eliminar permanentemente esta tarjeta\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">¿Borrar esta tarjeta <xliff:g>%d</xliff:g> permanentemente\?</item>
@@ -305,4 +305,7 @@
     <string name="copy_value">Copia valor</string>
     <string name="copied_to_clipboard">Copiado al portapapeles</string>
     <string name="nothing_to_copy">Ningún valor encontrado</string>
+    <string name="barcodeEncoding">Codificación de barra de código</string>
+    <string name="automatic">Automático</string>
+    <string name="back">Atrás</string>
 </resources>

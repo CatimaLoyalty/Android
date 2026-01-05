@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 162
+
+- Fix list widget sometimes opening wrong card
+
 ## v2.41.4 - 161 (2026-01-04)
 
 - Disable automatic barcode encoding detection for now (breaks too many cards)

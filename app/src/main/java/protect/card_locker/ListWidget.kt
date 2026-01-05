@@ -69,7 +69,9 @@ class ListWidget : AppWidgetProvider() {
             if (hasCards) {
                 // If we have cards, create the list
                 views = RemoteViews(context.packageName, R.layout.list_widget)
-                val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java)
+                val templateIntent = Intent(context, LoyaltyCardViewActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
                 val pendingIntent = PendingIntent.getActivity(
                     context,
                     0,

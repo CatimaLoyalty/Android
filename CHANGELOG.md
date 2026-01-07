@@ -3,6 +3,7 @@
 ## Unreleased - 162
 
 - Fix list widget sometimes opening wrong card
+- Fix About activity not using pure black title bar in OLED mode
 
 ## v2.41.4 - 161 (2026-01-04)
 

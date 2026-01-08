@@ -3,4 +3,4 @@
 - Einstellung für die Spaltenanzahl funktioniert nun auch in der Kartenansicht für Gruppen
 - Unterstützung für Designfarben entfernt
 - Maximale Fotogröße reduziert, um Speicherplatz zu sparen (gilt nur für neu hinzugefügte Fotos)
-- AboutActivity von Android XML zu Jetpack Compose migriert
+- About Activity von Android XML zu Jetpack Compose migriert

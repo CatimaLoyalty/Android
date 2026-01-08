@@ -26,7 +26,7 @@ class ShortcutHelper {
      * manually modified. We use -1 here as a default value to check if
      * the value has been set either manually by the test scenario or
      * automatically in the `updateShortcuts` function.
-     * It's actual value will be set based on the maximum amount of shortcuts
+     * Its actual value will be set based on the maximum amount of shortcuts
      * declared by the launcher via `getMaxShortcutCountPerActivity`.
      */
     @VisibleForTesting

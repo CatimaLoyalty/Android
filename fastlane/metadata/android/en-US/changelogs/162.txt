@@ -1,2 +1,3 @@
 - Fix list widget sometimes opening wrong card
+- Fix several bugs with shortcut handling
 - Fix About activity not using pure black title bar in OLED mode

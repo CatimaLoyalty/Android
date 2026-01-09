@@ -1532,7 +1532,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         DBHelper.setLoyaltyCardGroups(mDatabase, viewModel.getLoyaltyCardId(), selectedGroups);
 
-        ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(this, mDatabase, viewModel.getLoyaltyCardId()));
+        ShortcutHelper.updateShortcuts(this);
 
         if (viewModel.getDuplicateFromLoyaltyCardId()) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);

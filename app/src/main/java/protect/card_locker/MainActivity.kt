@@ -156,8 +156,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                                 Log.d(TAG, "Deleting card: " + loyaltyCard.id)
 
                                 DBHelper.deleteLoyaltyCard(mDatabase, this@MainActivity, loyaltyCard.id)
-
-                                ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
                             }
                             val tab = groupsTabLayout.getTabAt(selectedTab)
                             mGroup = tab?.tag
@@ -177,7 +175,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     for (loyaltyCard in mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Archiving card: " + loyaltyCard.id)
                         DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1)
-                        ShortcutHelper.removeShortcut(this@MainActivity, loyaltyCard.id)
                         updateLoyaltyCardList(false)
                         inputMode.finish()
                         invalidateOptionsMenu()
@@ -466,6 +463,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         ListWidget().updateAll(mAdapter.mContext)
+        ShortcutHelper.updateShortcuts(mAdapter.mContext)
     }
 
     private fun processParseResultList(

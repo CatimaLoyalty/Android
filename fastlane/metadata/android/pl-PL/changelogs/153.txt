@@ -1,0 +1,4 @@
+- Obsługa systemu Android 16
+- Naprawiono potencjalną awarię po usunięciu obrazu z karty
+- Usunięto funkcję „Orientacja ekranu” (Google usunęło możliwość sterowania obrotem ekranu przez aplikacje w systemie Android 16)
+- Dodano narzędzie do zgłaszania awarii do kompilacji FOSS (nie jest używane w wersji Google Play, tylko w innych sklepach z aplikacjami)

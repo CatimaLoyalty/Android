@@ -1,0 +1,1 @@
+- Naprawiono potencjalną awarię, która mogła wystąpić w przypadku kart bez informacji o kolorze w bazie danych

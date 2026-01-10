@@ -22,7 +22,7 @@
     <string name="noCardsMessage">Najpierw dodaj kartę</string>
     <string name="noCardExistsError">Nie można znaleźć tej karty</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URL</string>
-    <string name="importExport">Importuj/Eksportuj</string>
+    <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie danych na inne urządzenie.</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
@@ -51,7 +51,7 @@
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     <string name="deleteConfirmationGroup">Usunąć grupę\?</string>
     <string name="all">Wszystko</string>
-    <string name="noGroups">Kliknij przycisk + plus, aby dodać grupy do kategoryzacji.</string>
+    <string name="noGroups">Kliknij przycisk +, aby dodać grupy do kategoryzacji</string>
     <string name="groups">Grupy</string>
     <string name="enter_group_name">Wpisz nazwę grupy</string>
     <string name="exportSuccessful">Dane zostały wyeksportowane</string>
@@ -71,8 +71,8 @@
     <string name="settings_locale">Język</string>
     <string name="turn_flashlight_off">Wyłącz latarkę</string>
     <string name="turn_flashlight_on">Włącz latarkę</string>
-    <string name="failedGeneratingShareURL">Nie można wygenerować adresu URL do udostępnienia. Proszę to zgłosić.</string>
-    <string name="passwordRequired">Proszę wpisać hasło</string>
+    <string name="failedGeneratingShareURL">Nie można wygenerować adresu URL do udostępnienia</string>
+    <string name="passwordRequired">Wprowadź hasło</string>
     <string name="no">Nie</string>
     <string name="yes">Tak</string>
     <string name="updateBarcodeQuestionText">Zmieniłeś ID. Czy chcesz zaktualizować kod kreskowy, aby używał tej samej wartości\?</string>
@@ -90,17 +90,13 @@
     <string name="setBarcodeId">Ustaw wartość kodu kreskowego</string>
     <string name="sameAsCardId">Taki sam jak ID</string>
     <string name="barcodeId">Wartość kodu kreskowego</string>
-    <string name="importVoucherVaultMessage">Wybierz swój <i>vouchervault.json</i> z Voucher Vault, aby zaimportować.
-\nUtwórz go wpierw klikając Eksportuj w Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Wybierz swój plik eksportu z Voucher Vault, aby zaimportować. \nUtwórz go wybierając Eksportuj w Voucher Vault.</string>
     <string name="importVoucherVault">Importuj z Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Wybierz swój <i>LoyaltyCardKeychain.csv</i> z Loyalty Card Keychain, aby zaimportować.
-\nUtwórz go z menu Importuj/Eksportuj w Loyalty Card Keychain, wpierw klikając tam Eksportuj.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wybierz swój plik eksportu z Loyalty Card Keychain, aby zaimportować. \nUtwórz go z menu Import/eksport w Loyalty Card Keychain, wybierając opcję Eksportuj.</string>
     <string name="importLoyaltyCardKeychain">Importuj z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Wybierz swój <i>fidme-export-request-xxxxxx.zip</i> z FidMe, aby zaimportować, po czym wybierz typy kodów kreskowych.
-\nStwórz go ze swojego profilu FidMe, wybierając wpierw Ochrona Danych, a następnie naciskając Wyodrębnij moje dane.</string>
+    <string name="importFidmeMessage">Wybierz swój plik eksportu z FidMe, aby zaimportować, po czym wybierz typy kodów kreskowych. \nStwórz go ze swojego profilu FidMe, wybierając Ochrona Danych, a następnie Wyodrębnij moje dane.</string>
     <string name="importFidme">Importuj z FidMe</string>
-    <string name="importCatimaMessage">Wybierz swój <i>catima.zip</i> z Catima, aby zaimportować.
-\nUtwórz go z menu Importuj/Eksportuj innej aplikacji Catima, wpierw klikając tam Eksportuj.</string>
+    <string name="importCatimaMessage">Wybierz swój plik eksportu z Catima, aby zaimportować. \nUtwórz go z menu Import/eksport innej aplikacji Catima poprzez wybór opcji Eksport.</string>
     <string name="importCatima">Importuj z Catima</string>
     <string name="accept">Zaakceptuj</string>
     <string name="privacy_policy">Polityka prywatności</string>
@@ -109,7 +105,7 @@
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
     <string name="balance">Saldo</string>
-    <string name="errorReadingImage">Nie udało się odczytać zdjęcia</string>
+    <string name="errorReadingImage">Odczytanie zdjęcia nie powiodło się</string>
     <string name="noBarcodeFound">Nie znaleziono kodu kreskowego</string>
     <string name="moveBarcodeToTopOfScreen">Przenieś kod kreskowy na górę ekranu</string>
     <string name="chooseExpiryDate">Wybierz datę wygaśnięcia</string>
@@ -137,8 +133,8 @@
     <string name="noGroupCards">Ta grupa jest pusta</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Zapobiegaj wyłączeniu ekranu</string>
     <string name="settings_keep_screen_on">Nie wygaszaj ekranu</string>
-    <string name="app_resources">Otwarte zewnętrzne zasoby: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Otwarte zewnętrzne biblioteki: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Zasoby zewnętrzne: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Biblioteki zewnętrzne: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Wszelkie prawa zastrzeżone © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i współtwórcy</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Usunąć tą <xliff:g>%d</xliff:g> kartę permamentnie\?</item>
@@ -184,7 +180,7 @@
     <string name="group_name_already_in_use">Ta nazwa jest już w użytku</string>
     <string name="group_name_is_empty">Nazwa grupy nie może być pusta</string>
     <string name="group_updated">Zaktualizowano grupę</string>
-    <string name="editGroup">Edytowanie grupy: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Edycja grupy: <xliff:g>%s</xliff:g></string>
     <string name="exportPassword">Ustaw hasło, aby zabezpieczyć twoje wyeksportowane dane (opcjonalne)</string>
     <string name="exportPasswordHint">Wpisz hasło</string>
     <string name="options">Opcje</string>
@@ -243,7 +239,7 @@
     <string name="show_balance">Pokaż balans</string>
     <string name="show_validity">Pokaż ważność</string>
     <string name="show_note">Pokaż notatkę</string>
-    <string name="permissionReadCardsLabel">Odczytaj Karty Catima</string>
+    <string name="permissionReadCardsLabel">Odczytaj karty Catima</string>
     <string name="permissionReadCardsDescription">odczytywanie swoich kart Catima i ich szczegółów, włącznie z notatkami i obrazkami</string>
     <string name="settings_allow_content_provider_read_title">Pozwól innym aplikacjom na dostęp do moich danych</string>
     <string name="settings_display_barcode_max_brightness_summary">Potrzebne aby niektóre skanery działały</string>
@@ -275,9 +271,9 @@
     <string name="receive">Otrzymaj</string>
     <string name="amountParsingFailed">Nieprawidłowa ilość</string>
     <string name="add_manually_warning_title">Skanowanie jest zalecane</string>
-    <string name="failedLaunchingFileManager">Nie można znaleźć obsługiwanego menedżera plików</string>
+    <string name="failedLaunchingFileManager">Nie można znaleźć wspieranego menedżera plików</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Którego ze znalezionych kodów kreskowych chciałbyś użyć?</string>
-    <string name="add_manually_warning_message">W przypadku niektórych sklepów wartość kodu kreskowego różni się od liczby zapisanej na karcie. Z tego powodu ręczne wprowadzanie kodu kreskowego może nie zawsze działać. Zdecydowanie zaleca się zeskanowanie kodu kreskowego za pomocą aparatu. Czy nadal chcesz kontynuować?</string>
+    <string name="add_manually_warning_message">W przypadku niektórych kart wartość kodu kreskowego różni się od liczby zapisanej na karcie. Z tego powodu ręczne wprowadzanie kodu kreskowego może nie zawsze działać. Zaleca się zeskanowanie kodu kreskowego za pomocą aparatu. Czy nadal chcesz kontynuować?</string>
     <string name="noCameraFoundGuideText">Nie wykryto kamery. Jeśli twoje urządzenie posiada kamerę, spróbuj uruchomić je ponownie. W innym wypadku wybierz Więcej opcji i dodaj kartę w inny sposób.</string>
     <string name="importCancelled">Import anulowany</string>
     <string name="exportCancelled">Eksport anulowany</string>
@@ -298,17 +294,21 @@
     <string name="settings_column_count_1">1</string>
     <string name="addFromPkpass">Wybierz plik Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Ten plik nie jest obsługiwany</string>
-    <string name="generic_error_please_retry">Coś poszło nie tak, spróbuj ponownie później...</string>
-    <string name="sort_by_valid_from">Poprawna forma</string>
+    <string name="generic_error_please_retry">Wystąpił błąd</string>
+    <string name="sort_by_valid_from">Ważne od</string>
     <string name="setBarcodeWidth">Ustaw szerokość kodu kreskowego</string>
     <string name="width">Szerokość</string>
     <string name="card_list_widget_empty">Karty lojalnościowe dodane w aplikacji Catima pokażą się tutaj. Jeżeli masz jakieś karty, upewnij się że nie są one zarchiwizowane.</string>
     <string name="card_list_widget_name">Lista kart</string>
     <string name="cardWithNumber">Karta <xliff:g>%d</xliff:g></string>
-    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (%s)</string>
+    <string name="cardWithNumberAndLocale">Karta <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Proszę nie obracać urządzenia, gdyż anuluje to obecne zadanie</string>
     <string name="acra_explain_crash">Jeśli możliwe, dodaj więcej szczegółów na temat co robiłeś/aś tutaj:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> raport błędu</string>
     <string name="pref_enable_acra">Zapytaj o wysłanie raportu błędu</string>
     <string name="pref_enable_acra_summary">Kiedy zaznaczone, będziesz proszony/a o zgłoszenie raportu błędu, gdyby zaistniał. Raporty błędu nigdy nie są wysyłane automatycznie.</string>
+    <string name="acra_catima_has_crashed">Przepraszamy, ale aplikacja <xliff:g id="app_name">%s</xliff:g> uległa awarii. Prosimy o pomoc w rozwiązaniu tego problemu poprzez przesłanie nam raportu o błędzie.</string>
+    <string name="copy_value">Kopiuj wartość</string>
+    <string name="copied_to_clipboard">Skopiowano do schowka</string>
+    <string name="nothing_to_copy">Nie znaleziono wartości</string>
 </resources>

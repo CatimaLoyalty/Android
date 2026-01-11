@@ -14,8 +14,8 @@ Katharine Chui
 mondstern
 IllusiveMan196
 Silvério Santos
-Altonss
 Edgars Andersons
+Altonss
 Joel A
 Michael Moroni
 Priit Jõerüüt
@@ -68,6 +68,7 @@ aradxxx
 StellarSand
 Quentin PAGÈS
 Projjal Moitra
+Traductor
 Aliaksandr Trush
 e-michalak
 JungHee Lee
@@ -78,7 +79,6 @@ Robin Liu
 Ricky Tigg
 Renko
 Gideon
-Traductor
 Denis Shilin
 しいたけ
 Alexander Ivanov
@@ -96,6 +96,7 @@ Augustin LAVILLE
 Freddo espresso
 Vasudev R.
 Kim Seohyun
+echo r"0xX4H" | rev
 rudy3
 Michael Gangolf
 PRATHAMESH BHAGAT 

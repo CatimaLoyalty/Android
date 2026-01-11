@@ -73,7 +73,7 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.ISO_8859_1, null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, 1);
@@ -187,7 +187,7 @@ public class ImportURITest {
             assertEquals("12345", parsedCard.cardId);
             assertEquals(null, parsedCard.barcodeId);
             assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType.format());
-            assertEquals(null, parsedCard.barcodeEncoding);
+            assertEquals(StandardCharsets.ISO_8859_1, parsedCard.barcodeEncoding);
             assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
             assertEquals(0, parsedCard.starStatus);
         }

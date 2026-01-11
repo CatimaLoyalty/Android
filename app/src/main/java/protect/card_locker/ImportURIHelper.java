@@ -70,7 +70,7 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             CatimaBarcode barcodeType = null;
-            Charset barcodeEncoding = null;
+            Charset barcodeEncoding = StandardCharsets.ISO_8859_1;
             Date validFrom = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
@@ -206,9 +206,7 @@ public class ImportURIHelper {
         if (loyaltyCard.barcodeType != null) {
             fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.name());
         }
-        if (loyaltyCard.barcodeEncoding != null) {
-            fragment = appendFragment(fragment, BARCODE_ENCODING, loyaltyCard.barcodeEncoding.name());
-        }
+        fragment = appendFragment(fragment, BARCODE_ENCODING, loyaltyCard.barcodeEncoding.name());
         if (loyaltyCard.headerColor != null) {
             fragment = appendFragment(fragment, HEADER_COLOR, loyaltyCard.headerColor.toString());
         }

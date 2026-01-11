@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.zxing.EncodeHintType;
@@ -58,7 +59,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
-            CatimaBarcode barcodeFormat, @Nullable Charset barcodeEncoding, TextView textView,
+            CatimaBarcode barcodeFormat, @NonNull Charset barcodeEncoding, TextView textView,
             boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding, boolean isFullscreen
     ) {
         mContext = context;
@@ -185,26 +186,6 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         MultiFormatWriter writer = new MultiFormatWriter();
 
         Map<EncodeHintType, Object> encodeHints = new ArrayMap<>();
-        Charset chosenEncoding = encoding;
-        // Use charset if defined or guess otherwise
-        if (chosenEncoding != null) {
-            Log.d(TAG, "Encoding explicitly set, " + chosenEncoding.name());
-        } else {
-            // FIXME: Guessing encoding using zxing causes too many false positives and breaks the Deutschlandticket, a common public transport ticket in Germany
-            // See https://github.com/CatimaLoyalty/Android/issues/2932
-            //
-            // So, for now, we just force ISO in the "guessing" path until we figure out a better way to guess
-            // The previous code is commented before, DO NOT UNCOMMENT, IT IS BROKEN
-            //
-            // chosenEncoding = Charset.forName(StringUtils.guessEncoding(cardId.getBytes(), new ArrayMap<>()));
-            // Log.d(TAG, "Guessed encoding: " + chosenEncoding.name());
-
-            // FIXME: Figure out a good way to automatically determine the best format to use, to not break UTF-8 barcodes
-            // However, make sure to NOT break the Deutschlandticket!
-            chosenEncoding = StandardCharsets.ISO_8859_1;
-            Log.w(TAG, "The encoding guessing code path is temporarily disabled due to it breaking Deutschlandticket. Forcing ISO-8859-1...");
-        }
-
         // We don't want to pass the ISO-8859-1 as an encoding hint as zxing may add this as ECI
         // inside the barcode.
         //
@@ -218,9 +199,9 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         // cards without encode hints have never caused any issues (unless they were UTF-8), yet
         // just days after passing ISO-8859-1 as CHARACTER_SET in the encode hints already 2
         // scan failures were reported (one for QR, one for Aztec).
-        if (!Objects.equals(chosenEncoding.name(), StandardCharsets.ISO_8859_1.name())) {
+        if (!Objects.equals(encoding.name(), StandardCharsets.ISO_8859_1.name())) {
             Log.d(TAG, "Chosen encoding is not ISO_8859_1, so passing as encoding hint");
-            encodeHints.put(EncodeHintType.CHARACTER_SET, chosenEncoding);
+            encodeHints.put(EncodeHintType.CHARACTER_SET, encoding);
         } else {
             Log.d(TAG, "Not passing encoding as encoding hint");
         }

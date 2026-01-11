@@ -462,8 +462,8 @@ public class CatimaImporter implements Importer {
         // Barcode encoding information is only supported since Catima 2.41.0, so old exports will lack this field
         // Database migration 19 forcing ISO-8859-1 on all cards, so we should treat imports from old Catima versions the same and force ISO-8859-1 there too
         // This limits the risk of breaking cards when importing an old database backup
-        Charset barcodeEncoding = null;
-        String unparsedBarcodeEncoding = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING, record, "ISO-8859-1");
+        Charset barcodeEncoding = StandardCharsets.ISO_8859_1;
+        String unparsedBarcodeEncoding = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING, record, "");
         if (!unparsedBarcodeEncoding.isEmpty()) {
             barcodeEncoding = Charset.forName(unparsedBarcodeEncoding);
         }

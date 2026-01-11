@@ -89,7 +89,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     String cardIdString;
     String barcodeIdString;
     CatimaBarcode format;
-    @Nullable
     Charset barcodeEncoding;
 
     Bitmap frontImageBitmap;

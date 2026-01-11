@@ -344,6 +344,5 @@
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="nothing_to_copy">No value found</string>
     <string name="barcodeEncoding">Barcode encoding</string>
-    <string name="automatic">Automatic</string>
     <string name="back">Back</string>
 </resources>

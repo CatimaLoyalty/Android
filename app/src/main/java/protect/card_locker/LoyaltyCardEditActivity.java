@@ -232,7 +232,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         viewModel.setHasChanged(true);
     }
 
-    protected void setLoyaltyCardBarcodeEncoding(@Nullable Charset barcodeEncoding) {
+    protected void setLoyaltyCardBarcodeEncoding(@NonNull Charset barcodeEncoding) {
         viewModel.getLoyaltyCard().setBarcodeEncoding(barcodeEncoding);
 
         generateBarcode();
@@ -594,18 +594,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.toString().isEmpty()) {
                     Log.d(TAG, "Setting barcode encoding to " + s.toString());
-                    if (s.toString().equals(getString(R.string.automatic))) {
-                        setLoyaltyCardBarcodeEncoding(null);
-                    } else {
-                        setLoyaltyCardBarcodeEncoding(Charset.forName(s.toString()));
-                    }
+                    setLoyaltyCardBarcodeEncoding(Charset.forName(s.toString()));
                 }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 ArrayList<String> barcodeEncodingList = new ArrayList<>();
-                barcodeEncodingList.add(getString(R.string.automatic));
                 barcodeEncodingList.add(StandardCharsets.ISO_8859_1.name());
                 barcodeEncodingList.add(StandardCharsets.UTF_8.name());
                 ArrayAdapter<String> barcodeEncodingAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeEncodingList);
@@ -810,7 +805,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         CatimaBarcode barcodeType = viewModel.getLoyaltyCard().barcodeType;
         barcodeTypeField.setText(barcodeType != null ? barcodeType.prettyName() : getString(R.string.noBarcode));
         Charset barcodeEncoding = viewModel.getLoyaltyCard().barcodeEncoding;
-        barcodeEncodingField.setText(barcodeEncoding != null ? barcodeEncoding.name() : getString(R.string.automatic));
+        barcodeEncodingField.setText(barcodeEncoding.name());
 
         // We set the balance here (with onResuming/onRestoring == true) to prevent formatBalanceCurrencyField() from setting it (via onTextChanged),
         // which can cause issues when switching locale because it parses the balance and e.g. the decimal separator may have changed.

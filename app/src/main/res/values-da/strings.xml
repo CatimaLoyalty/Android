@@ -25,7 +25,7 @@
     <string name="note">Bemærk</string>
     <string name="storeName">Navn</string>
     <string name="noMatchingGiftCards">Ingen resultater. Prøv at ændre din søgning.</string>
-    <string name="noGiftCards">Klik på + plus-knappen for at tilføje et kort, eller importer kort fra ⋮ menuen.</string>
+    <string name="noGiftCards">Klik på + plus-knappen for at tilføje et kort, eller importer kort fra ⋮ menuen</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valgt kort</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valgte kort</item>

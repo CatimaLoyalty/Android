@@ -1,0 +1,3 @@
+- Listen-Widget öffnet nun immer die richtige Karte
+- Mehrere Fehler bzgl. der Handhabung von Tastenkombinationen korrigiert
+- Menüpunkt „Über“ nutzt im OLED Mode (Dunkel) nun reines Schwarz in der Titelleiste

@@ -1,0 +1,1 @@
+- Korrektur der in 2.41.0 eingeführten Änderung, die für einige Scanner die Unterstützung für Nicht-UTF-8-Barcodes beeinträchtigt

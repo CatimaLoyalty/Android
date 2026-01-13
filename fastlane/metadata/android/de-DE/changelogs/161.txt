@@ -1,0 +1,1 @@
+- Automatische Erkennung der Barcode-Kodierung vorerst abgeschaltet (erzeugt Fehler bei zu vielen Karten)

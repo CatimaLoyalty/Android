@@ -312,4 +312,6 @@
     <string name="copied_to_clipboard">Скопійовано в буфер обміну</string>
     <string name="nothing_to_copy">Значення не знайдено</string>
     <string name="barcodeEncoding">Кодування штрих-кодів</string>
+    <string name="automatic">Автоматичний</string>
+    <string name="back">Назад</string>
 </resources>

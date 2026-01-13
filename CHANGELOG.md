@@ -5,6 +5,7 @@
 - Fix list widget sometimes opening wrong card
 - Fix several bugs with shortcut handling
 - Fix About activity not using pure black title bar in OLED mode
+- Fully remove automatic barcode encoding detection
 
 ## v2.41.4 - 161 (2026-01-04)
 

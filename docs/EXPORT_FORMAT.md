@@ -37,10 +37,10 @@ Food
 Fashion
 
 _id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,barcodetype,barcodeencoding,headercolor,starstatus,lastused,archive
-1,Clothing Store,Note about store,,,0,,qw,,,,-45147,1,1730493938,0
-2,Department Store,,,,0,,A,,,,-1499549,0,1730493491,0
-3,Grocery Store,,,1453633200000,50,,dhd,,,,-11751600,0,1730493369,0
-4,Pharmacy,,,,0,,dhshsvshs,,,,-16766866,0,1684347330,1
+1,Clothing Store,Note about store,,,0,,qw,,,ISO-8859-1,-45147,1,1730493938,0
+2,Department Store,,,,0,,A,,,ISO-8859-1,-1499549,0,1730493491,0
+3,Grocery Store,,,1453633200000,50,,dhd,,,UTF-8,-11751600,0,1730493369,0
+4,Pharmacy,,,,0,,dhshsvshs,,,ISO-8859-1,-16766866,0,1684347330,1
 5,Restaurant,Note about restaurant here,,,0,,98765432,,CODE_128,UTF-8,-10902850,0,1730493357,0
 6,Shoe Store,,,,0,,zhxbx,,AZTEC,ISO-8859-1,-6543440,0,1684347744,0
 

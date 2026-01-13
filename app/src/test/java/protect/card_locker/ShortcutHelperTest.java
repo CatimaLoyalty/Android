@@ -21,6 +21,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
 
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 
 @RunWith(RobolectricTestRunner.class)
@@ -38,10 +39,10 @@ public class ShortcutHelperTest {
         mDatabase = TestHelpers.getEmptyDb(mActivity).getWritableDatabase();
 
         long now = System.currentTimeMillis();
-        id1 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), null, Color.BLACK, 0, now,0);
-        id2 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store2", "note2", null, null, new BigDecimal("0"), null, "cardId2", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), null, Color.BLACK, 0, now + 10,0);
-        id3 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store3", "note3", null, null, new BigDecimal("0"), null, "cardId3", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), null, Color.BLACK, 0, now + 20,0);
-        id4 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store4", "note4", null, null, new BigDecimal("0"), null, "cardId4", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), null, Color.BLACK, 0, now + 30,0);
+        id1 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now,0);
+        id2 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store2", "note2", null, null, new BigDecimal("0"), null, "cardId2", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 10,0);
+        id3 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store3", "note3", null, null, new BigDecimal("0"), null, "cardId3", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 20,0);
+        id4 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store4", "note4", null, null, new BigDecimal("0"), null, "cardId4", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 30,0);
 
         ShortcutHelper.maxShortcuts = 3;
     }

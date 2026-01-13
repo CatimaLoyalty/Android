@@ -15,6 +15,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.math.BigDecimal
 import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets
 import java.text.DateFormat
 import java.text.ParseException
 import java.time.ZonedDateTime
@@ -41,7 +42,7 @@ class PkpassParser(context: Context, uri: Uri?) {
     private var cardId: String = context.getString(R.string.noBarcode)
     private var barcodeId: String? = null
     private var barcodeType: CatimaBarcode? = null
-    private var barcodeEncoding: Charset? = null
+    private var barcodeEncoding: Charset = StandardCharsets.ISO_8859_1
     private var headerColor: Int? = null
     private val starStatus = 0
     private val lastUsed: Long = 0
@@ -348,12 +349,12 @@ class PkpassParser(context: Context, uri: Uri?) {
         try {
             cardId = barcodeInfo.getString("altText")
             barcodeId = barcodeInfo.getString("message")
-            barcodeEncoding = Charset.forName(barcodeInfo.getString("messageEncoding"))
         } catch (ignored: JSONException) {
             cardId = barcodeInfo.getString("message")
             barcodeId = null
-            barcodeEncoding = Charset.forName(barcodeInfo.getString("messageEncoding"))
         }
+
+        barcodeEncoding = Charset.forName(barcodeInfo.getString("messageEncoding"))
 
         // Don't set barcodeId if it's the same as cardId
         if (cardId == barcodeId) {

@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +32,6 @@ public class LoyaltyCard {
     public String barcodeId;
     @Nullable
     public CatimaBarcode barcodeType;
-    @Nullable
     public Charset barcodeEncoding;
     @Nullable
     public Integer headerColor;
@@ -94,7 +94,7 @@ public class LoyaltyCard {
         setCardId("");
         setBarcodeId(null);
         setBarcodeType(null);
-        setBarcodeEncoding(null);
+        setBarcodeEncoding(StandardCharsets.ISO_8859_1);
         setHeaderColor(null);
         setStarStatus(0);
         setLastUsed(Utils.getUnixTime());
@@ -129,7 +129,7 @@ public class LoyaltyCard {
     public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
                        @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
                        final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Charset barcodeEncoding, @Nullable final Integer headerColor, final int starStatus,
+                       @NonNull final Charset barcodeEncoding, @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int zoomLevelWidth, final int archiveStatus,
                        @Nullable Bitmap imageThumbnail, @Nullable String imageThumbnailPath,
                        @Nullable Bitmap imageFront, @Nullable String imageFrontPath,
@@ -250,7 +250,7 @@ public class LoyaltyCard {
         this.barcodeType = barcodeType;
     }
 
-    public void setBarcodeEncoding(@Nullable Charset barcodeEncoding) {
+    public void setBarcodeEncoding(@NonNull Charset barcodeEncoding) {
         this.barcodeEncoding = barcodeEncoding;
     }
 
@@ -478,7 +478,7 @@ public class LoyaltyCard {
             bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING)) {
-            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING, barcodeEncoding != null ? barcodeEncoding.name() : null);
+            bundle.putString(BUNDLE_LOYALTY_CARD_BARCODE_ENCODING, barcodeEncoding.name());
         }
         if (!exportIsLimited || exportLimit.contains(BUNDLE_LOYALTY_CARD_HEADER_COLOR)) {
             bundle.putInt(BUNDLE_LOYALTY_CARD_HEADER_COLOR, headerColor != null ? headerColor : -1);
@@ -558,8 +558,7 @@ public class LoyaltyCard {
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         CatimaBarcode barcodeType = !cursor.isNull(barcodeTypeColumn) ? CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn)) : null;
         // barcodeEncoding
-        int barcodeEncodingColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING);
-        Charset barcodeEncoding = !cursor.isNull(barcodeEncodingColumn) ? Charset.forName(cursor.getString(barcodeEncodingColumn)) : null;
+        Charset barcodeEncoding = Charset.forName(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING)));
         // headerColor
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
         Integer headerColor = !cursor.isNull(headerColorColumn) ? cursor.getInt(headerColorColumn) : null;
@@ -615,7 +614,7 @@ public class LoyaltyCard {
                 Utils.equals(a.barcodeId, b.barcodeId) && // nullable String
                 Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(),
                         b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
-                Utils.equals(a.barcodeEncoding, b.barcodeEncoding) && // nullable String
+                a.barcodeEncoding.name().equals(b.barcodeEncoding.name()) && // non-nullable String
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
                 a.archiveStatus == b.archiveStatus && // non-nullable int
@@ -655,7 +654,7 @@ public class LoyaltyCard {
                 this.cardId,
                 this.barcodeId,
                 this.barcodeType != null ? this.barcodeType.format() : null,
-                this.barcodeEncoding != null ? this.barcodeEncoding.name() : null,
+                this.barcodeEncoding.name(),
                 this.headerColor,
                 this.starStatus,
                 this.lastUsed,

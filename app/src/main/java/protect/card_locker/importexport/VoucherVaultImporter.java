@@ -162,7 +162,7 @@ public class VoucherVaultImporter implements Importer {
                     cardId,
                     null,
                     barcodeType,
-                    null,
+                    StandardCharsets.ISO_8859_1,
                     headerColor,
                     0,
                     Utils.getUnixTime(),

@@ -155,7 +155,7 @@ public class CatimaExporter implements Exporter {
                     card.cardId,
                     card.barcodeId,
                     card.barcodeType != null ? card.barcodeType.name() : "",
-                    card.barcodeEncoding != null ? card.barcodeEncoding.name() : "",
+                    card.barcodeEncoding.name(),
                     card.headerColor,
                     card.starStatus,
                     card.lastUsed,

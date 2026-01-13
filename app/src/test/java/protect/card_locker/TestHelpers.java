@@ -11,6 +11,7 @@ import com.google.zxing.BarcodeFormat;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 
 public class TestHelpers {
     private static final String BARCODE_DATA = "428311627547";
@@ -55,7 +56,7 @@ public class TestHelpers {
         for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, null, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, index, 0, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }

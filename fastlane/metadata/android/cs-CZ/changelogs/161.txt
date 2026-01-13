@@ -1,0 +1,1 @@
+- Dočasně zakázána automatická detekce kódování čárových kódů (rozbíjí příliš mnoho karet)

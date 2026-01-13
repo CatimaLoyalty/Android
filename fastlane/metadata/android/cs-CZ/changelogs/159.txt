@@ -1,0 +1,1 @@
+- Opravena změna vzniknuvší ve verzi 2.41.0, která rozbila podpo

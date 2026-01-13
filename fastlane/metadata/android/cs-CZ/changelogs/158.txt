@@ -1,0 +1,1 @@
+- Opravena barva navigační a stavové lišty v nové aktivitě O aplikaci

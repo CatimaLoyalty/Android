@@ -75,7 +75,7 @@ public class CardsContentProviderTest {
             assertArrayEquals("column names", new String[]{"major", "minor"}, cursor.getColumnNames());
             cursor.moveToNext();
             assertEquals("major version", 1, cursor.getInt(cursor.getColumnIndexOrThrow("major")));
-            assertEquals("minor version", 0, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
+            assertEquals("minor version", 1, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
         }
     }
 
@@ -114,7 +114,7 @@ public class CardsContentProviderTest {
             final String[] expectedColumns = new String[]{
                     "_id", "store", "validfrom", "expiry", "balance", "balancetype",
                     "note", "headercolor", "cardid", "barcodeid",
-                    "barcodetype", "starstatus", "lastused", "archive"
+                    "barcodetype", "barcodeencoding", "starstatus", "lastused", "archive"
             };
 
             assertEquals("number of columns", expectedColumns.length, cursor.getColumnCount());
@@ -136,6 +136,7 @@ public class CardsContentProviderTest {
             final String actualCardId = cursor.getString(cursor.getColumnIndexOrThrow("cardid"));
             final String actualBarcodeId = cursor.getString(cursor.getColumnIndexOrThrow("barcodeid"));
             final String actualBarcodeType = cursor.getString(cursor.getColumnIndexOrThrow("barcodetype"));
+            final String actualBarcodeEncoding = cursor.getString(cursor.getColumnIndexOrThrow("barcodeencoding"));
             final int actualHeaderColor = cursor.getInt(cursor.getColumnIndexOrThrow("headercolor"));
             final int actualStarred = cursor.getInt(cursor.getColumnIndexOrThrow("starstatus"));
             final long actualLastUsed = cursor.getLong(cursor.getColumnIndexOrThrow("lastused"));
@@ -151,6 +152,7 @@ public class CardsContentProviderTest {
             assertEquals("CardId", cardId, actualCardId);
             assertEquals("BarcodeId", barcodeId, actualBarcodeId);
             assertEquals("BarcodeType", barcodeType.format().name(), actualBarcodeType);
+            assertEquals("barcodeEncoding", barcodeEncoding.name(), actualBarcodeEncoding);
             assertEquals("HeaderColorColumn", headerColor, actualHeaderColor);
             assertEquals("Starred", starStatus, actualStarred);
             assertEquals("LastUsed", lastUsed, actualLastUsed);

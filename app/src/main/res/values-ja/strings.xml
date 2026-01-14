@@ -292,4 +292,5 @@
     <string name="copy_value">値をコピー</string>
     <string name="copied_to_clipboard">クリップボードへコピー</string>
     <string name="nothing_to_copy">値が見つかりません</string>
+    <string name="barcodeEncoding">バーコードの符号化</string>
 </resources>

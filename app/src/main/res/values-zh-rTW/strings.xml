@@ -292,4 +292,7 @@
     <string name="copy_value">複製值</string>
     <string name="copied_to_clipboard">已複製到剪貼簿</string>
     <string name="nothing_to_copy">未找到值</string>
+    <string name="barcodeEncoding">條碼編碼</string>
+    <string name="automatic">自動</string>
+    <string name="back">返回</string>
 </resources>

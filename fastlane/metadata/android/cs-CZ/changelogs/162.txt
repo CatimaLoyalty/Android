@@ -1,3 +1,5 @@
 - Opraven widget seznamu, který někdy otevřel špatnou kartu
 - Opraveno několik chyb v práci se zkratkami
 - Opravena aktivita O aplikaci nepoužívající černou lištu s názvem v režimu OLED
+- Plně odstraněna automatická detekce kódování čárových kódů
+- Zobrazení kódování čárového kódu skrze ContentProvider (používáno aplikací Gadgetbridge)

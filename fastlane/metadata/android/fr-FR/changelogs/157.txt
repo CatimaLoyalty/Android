@@ -1,0 +1,6 @@
+- Ajout du support pour les codes-barres UTF-8
+- Ajout de l'option de duplication vers l'écran principal et petit ré-ordonnancement des options
+- Correction du paramètre de comptage des colonnes non appliqué à la liste des groupes de cartes
+- Suppression du support des couleurs de thème
+- Réduction de la taille maximale des photos pour réduite l'usage du stockage (seulement pour les nouvelles photos ajoutées)
+- Migration de l'activité "A propos" (About) de Android XML vers Jetpack Compose

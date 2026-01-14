@@ -1,0 +1,3 @@
+- Correction de la liste des widgets qui ouvre parfois la mauvaise carte
+- Correction de plusieurs bugs avec la gestion des raccourcis
+- Correction de l'activité "A propos" qui n'utilise pas la barre de titre entièrement noire dans le mode OLED

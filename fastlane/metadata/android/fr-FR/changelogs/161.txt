@@ -1,0 +1,1 @@
+- Désactivation de la détection automatique DD l'encodage des codes-barres pour le moment (bloque trop de cartes)

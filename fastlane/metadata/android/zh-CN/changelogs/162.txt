@@ -1,0 +1,5 @@
+- 修复列表小部件有时打开错误的卡片的问题
+- 修复数个快捷方式处理相关的问题
+- 修复 About activity 在 OLED 模式下不使用纯黑标题栏的问题
+- 完全删除自动条码编码检测
+- 通过 ContentProvider 暴露条形码编码（被 Gadgetbridge 使用）

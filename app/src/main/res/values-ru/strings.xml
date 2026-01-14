@@ -311,4 +311,6 @@
     <string name="copy_value">Скопировать значение</string>
     <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
     <string name="nothing_to_copy">Значение не найдено</string>
+    <string name="barcodeEncoding">Кодировка штрих-кода</string>
+    <string name="back">Назад</string>
 </resources>

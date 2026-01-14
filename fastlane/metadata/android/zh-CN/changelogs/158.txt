@@ -1,0 +1,1 @@
+- 修复新 About activity 中的状态和导航栏颜色

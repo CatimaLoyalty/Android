@@ -1,0 +1,2 @@
+- Überprüfung der Korrektur in 2.41.2 für explizit auf ISO-8859-1 eingestellte Karten
+- Umstellung alter Karten auf ISO-8859-1 zur Vermeidung plötzlich auftretender Fehler bei bestehenden Karten

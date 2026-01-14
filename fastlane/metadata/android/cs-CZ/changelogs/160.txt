@@ -1,0 +1,2 @@
+- Doplněk opravy v 2.41.2 pro karty explicitně nastavené na ISO-8859-1
+- Migrace starých karet na ISO-8859-1 pro opravení rozdílů v chování u existujících karet

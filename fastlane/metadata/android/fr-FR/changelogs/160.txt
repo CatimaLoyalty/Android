@@ -1,0 +1,2 @@
+- Suivi pour correction fans la 2.41.2 pour les cartes explicitement définies en ISO-8859-1
+- Migration Fès anciennes cartes en ISO-8859-1 pour corriger les différences soudaines de comportement pour les cartes existantes

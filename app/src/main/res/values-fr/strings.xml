@@ -305,4 +305,6 @@
     <string name="copy_value">Copier la valeur</string>
     <string name="copied_to_clipboard">Copié dans le presse-papier</string>
     <string name="nothing_to_copy">Aucune valeur trouvée</string>
+    <string name="barcodeEncoding">Encodage du code-barres</string>
+    <string name="back">Retour</string>
 </resources>

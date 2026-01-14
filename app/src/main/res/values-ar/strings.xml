@@ -29,12 +29,12 @@
     <string name="noCardExistsError">لا يمكن العثور على هذه البطاقة</string>
     <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
-    <string name="importExportHelp">انشاء نسخة احتياطية من بياناتك يسمح بنقلها إلى جهاز آخر.</string>
+    <string name="importExportHelp">إنشاء نسخة احتياطية من بياناتك لكي تستطيع نقلها إلى جهاز آخر</string>
     <string name="importFailed">تعذر إجراء الاستيراد</string>
     <string name="exportSuccessfulTitle">متصدر</string>
     <string name="exportFailedTitle">فشل التصدير</string>
     <string name="exportFailed">لا يمكن عمل التصدير</string>
-    <string name="exportOptionExplanation">ستتم كتابة البيانات في الموقع الذي تختاره.</string>
+    <string name="exportOptionExplanation">ستكون البيانات مكتوبة في المسار الذي تختاره</string>
     <string name="importOptionFilesystemButton">من نظام الملفات</string>
     <string name="about">حول</string>
     <string name="app_copyright_old">بناء على Loyalty Card Keychain
@@ -53,7 +53,7 @@
     <string name="exportSuccessful">تم تصدير البيانات</string>
     <string name="enter_group_name">أدخل اسم المجموعة</string>
     <string name="group_edit">تعديل المجموعة</string>
-    <string name="noGroups">اضغط زر + لإضافة مجموعات للتصنيف.</string>
+    <string name="noGroups">اضغط زر + لإضافة مجموعات للتصنيف</string>
     <string name="noGroupCards">هذه المجموعة فارغة</string>
     <string name="group_name_already_in_use">اسم المجموعة قيد الاستخدام بالفعل</string>
     <string name="group_name_is_empty">لا يمكن أن يكون اسم المجموعة فارغًا</string>
@@ -73,7 +73,7 @@
     <string name="importCatima">الاستيراد من Catima</string>
     <string name="importCatimaMessage">حدّد ملفك تصدير من Catima للاستيراد.\nإنشئها من قائمة الاستيراد / التصدير لتطبيق Catima آخر بالضغط على تصدير .</string>
     <string name="importFidme">الاستيراد من FidMe</string>
-    <string name="importFidmeMessage">حدّد ملفك <i>fidme-export-request-xxxxxx.zip</i> تصدير من FidMe للاستيراد، ثم حدد أنواع الباركود يدويًا بعد ذلك. \nإنشئها من ملف تعريف FidMe الخاص بك عن طريق اختيار حماية البيانات ثم الضغط على استخراج بياناتي أولاً.</string>
+    <string name="importFidmeMessage">"حدّد ملفك للتصدير من FidMe  لكي تستورده، ثم حدد أنواع الباركود يدويًا بعد ذلك. \nقم بإنشاءها من ملف التعريف في  FidMe الخاص بك عن طريق اختيار \"حماية البيانات\" ثم النقر على \"استخراج بياناتي\"."</string>
     <string name="importVoucherVault">الاستيراد من Voucher Vault</string>
     <string name="importVoucherVaultMessage">حدّد ملفك <i>vouchervault.json</i> تصدير من Voucher Vault للاستيراد. \nإنشئها بالضغط على تصدير في Voucher Vault أولاً.</string>
     <string name="barcodeId">قيمة الباركود</string>
@@ -122,7 +122,7 @@
     <string name="archived">تمت أرشفة البطاقة</string>
     <string name="unarchived">البطاقة غير مؤرشفة</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
-    <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة.</string>
+    <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة</string>
     <string name="deleteTitle">مسح بطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
@@ -166,7 +166,7 @@
         <item quantity="other">مسح هذه <xliff:g>%d</xliff:g> البطاقات نهائيا؟</item>
     </plurals>
     <string name="importOptionFilesystemTitle">الاستيراد من نظام الملفات</string>
-    <string name="importOptionFilesystemExplanation">اختر ملفًا محددًا من نظام الملفات.</string>
+    <string name="importOptionFilesystemExplanation">اختر ملفًا محددًا من نظام الملفات</string>
     <string name="about_title_fmt">حول <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">نسخة: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings_system_theme">النظام</string>
@@ -313,4 +313,15 @@
     <string name="card_list_widget_name">قائمة البطاقات</string>
     <string name="cardWithNumber">البطاقة <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">البطاقة <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="card_list_widget_empty">بعد أن تضيف بطاقات الولاء في كاتيما، ستظهر هنا. وإذا كنت تملك البطاقات، تأكد من عدم وجودهن جميعا في الأرشفة.</string>
+    <string name="pleaseDoNotRotateTheDevice">نرجو منك عدم تدوير الجهاز، أو سيُلغى هذا الإجراء</string>
+    <string name="acra_catima_has_crashed">نأسف، لقد توقف <xliff:g id="app_name">%s</xliff:g>. ساعدنا في إصلاح هذه المشكلة من خلال إرسال تقرير للأخطاء.</string>
+    <string name="acra_explain_crash">بقدر الإمكان، نرجو منك أن تضيف مزيدا من المعلومات عمَّ كنت تفعل هنا:</string>
+    <string name="acra_crash_email_subject">تقرير الأخطاء لـ<xliff:g id="app_name">%s</xliff:g></string>
+    <string name="copy_value">قيمة النسخ</string>
+    <string name="copied_to_clipboard">تم النسخ إلى الحافظة</string>
+    <string name="nothing_to_copy">لم يتم العثور على قيمة</string>
+    <string name="barcodeEncoding">طريقة ترميز الرمز الشريطي \"الباركود\"</string>
+    <string name="back">رجوع</string>
+    <string name="pref_enable_acra">إخطار بإرسال تقارير الأخطاء</string>
 </resources>

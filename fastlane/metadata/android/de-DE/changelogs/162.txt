@@ -1,0 +1,5 @@
+- Listen-Widget öffnet nun immer die richtige Karte
+- Mehrere Fehler bzgl. der Handhabung von Tastenkombinationen korrigiert
+- Menüpunkt „Über“ nutzt im OLED Mode (Dunkel) nun reines Schwarz in der Titelleiste
+- Automatische Erkennung der Barcode-Kodierung vollständig entfernt
+- Barcode-Kodierung vom ContentProvider offenlegen (wird von Gadgetbridge verwendet)

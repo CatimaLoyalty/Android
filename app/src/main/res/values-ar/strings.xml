@@ -322,7 +322,6 @@
     <string name="copied_to_clipboard">تم النسخ إلى الحافظة</string>
     <string name="nothing_to_copy">لم يتم العثور على قيمة</string>
     <string name="barcodeEncoding">طريقة ترميز الرمز الشريطي \"الباركود\"</string>
-    <string name="automatic">تلقائي</string>
     <string name="back">رجوع</string>
     <string name="pref_enable_acra">إخطار بإرسال تقارير الأخطاء</string>
 </resources>

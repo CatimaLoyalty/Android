@@ -311,6 +311,5 @@
     <string name="copied_to_clipboard">Kopirano v odložišče</string>
     <string name="nothing_to_copy">Nobena vrednost ni najdena</string>
     <string name="barcodeEncoding">Kodiranje črtne kode</string>
-    <string name="automatic">Samodejno</string>
     <string name="back">Nazaj</string>
 </resources>

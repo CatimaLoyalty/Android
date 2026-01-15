@@ -305,4 +305,6 @@
     <string name="copy_value">Ievietot vērtību starpliktuvē</string>
     <string name="copied_to_clipboard">Ievietots starpliktuvē</string>
     <string name="nothing_to_copy">Nav atrasta vērtība</string>
+    <string name="barcodeEncoding">Svītrkoda šifrēšana</string>
+    <string name="back">Atpakaļ</string>
 </resources>

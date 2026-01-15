@@ -354,7 +354,11 @@ class PkpassParser(context: Context, uri: Uri?) {
             barcodeId = null
         }
 
-        barcodeEncoding = Charset.forName(barcodeInfo.getString("messageEncoding"))
+        try {
+            barcodeEncoding = Charset.forName(barcodeInfo.getString("messageEncoding"))
+        } catch (ignored: Exception) {
+            // If encoding is not defined, null or otherwise invalid, stick to the default
+        }
 
         // Don't set barcodeId if it's the same as cardId
         if (cardId == barcodeId) {

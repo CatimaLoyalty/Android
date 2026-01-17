@@ -299,4 +299,6 @@
     <string name="copy_value">Kopiera värde</string>
     <string name="copied_to_clipboard">Kopierade till urklipp</string>
     <string name="nothing_to_copy">Inget värde hittades</string>
+    <string name="barcodeEncoding">Streckkods-kodning</string>
+    <string name="back">Tillbaka</string>
 </resources>

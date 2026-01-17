@@ -126,11 +126,11 @@
     <string name="deleteTitle">حذف البطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="one"><xliff:g>%d</xliff:g> محددة</item>
-        <item quantity="two"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="few"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="many"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> محدد</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> المحدد</item>
+        <item quantity="two"><xliff:g>%d</xliff:g> المحددة</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> المحددين</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> المحددين</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> المحدد</item>
     </plurals>
     <string name="importing">جارٍ الاستيراد…</string>
     <string name="exportName">تصدير</string>

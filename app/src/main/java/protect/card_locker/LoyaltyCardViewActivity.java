@@ -701,6 +701,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             TextView cardIdView = new TextView(LoyaltyCardViewActivity.this);
+            cardIdView.setAutoLinkMask(Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
             cardIdView.setText(loyaltyCard.cardId);
             cardIdView.setTextIsSelectable(true);
             int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);

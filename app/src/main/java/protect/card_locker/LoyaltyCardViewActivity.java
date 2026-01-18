@@ -406,7 +406,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 dialogContentPadding,
                 0
         );
-        infoTextview.setAutoLinkMask(Linkify.ALL);
+        infoTextview.setAutoLinkMask(Linkify.EMAIL_ADDRESSES | Linkify.PHONE_NUMBERS | Linkify.WEB_URLS);
         infoTextview.setTextIsSelectable(true);
 
         SpannableStringBuilder infoText = new SpannableStringBuilder();

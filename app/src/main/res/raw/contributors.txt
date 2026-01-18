@@ -6,8 +6,8 @@ Allan Nordhøy
 Heimen Stoffels
 Oğuz Ersen
 FC (Fay) Stegerman
-StoyanDimitrov
 B o d o
+StoyanDimitrov
 大王叫我来巡山
 SlavekB
 Katharine Chui
@@ -18,17 +18,18 @@ Edgars Andersons
 Altonss
 Joel A
 Michael Moroni
-Priit Jõerüüt
 Liner Seven
-Eric
+Priit Jõerüüt
 Fjuro
-Максим Горпиніч
 GitSpoon
+Eric
+Максим Горпиніч
 GM
 Petr Novák
 laralem
 Taco
 nadiafekihahmed
+Горпиніч Максим Олександрович
 pfaffenrodt
 Aayush Gupta
 Scrambled777
@@ -40,7 +41,6 @@ Kachelkaiser
 Giovanni Donisi
 Milo Ivir
 HudobniVolk
-Горпиніч Максим Олександрович
 Jiri Grönroos
 Warder
 Samantaz Fox
@@ -52,6 +52,7 @@ Ankit Tiwari
 Cliff Heraldo
 Sergio Paredes
 Jose Delvani
+damjang
 mdvhimself
 Milan Šalka
 AMIR-G98
@@ -60,7 +61,6 @@ Robin
 huuhaa
 Skrripy
 Govindgopalyadav
-damjang
 waffshappen
 Marnick L'Eau
 ngocanhtve
@@ -90,7 +90,7 @@ Virginie
 Tim Trek
 Peter Dave Hello
 Alì Mortacci
-MisterCosta96
+Andre Costa
 arshbeerSingh
 Augustin LAVILLE
 Freddo espresso

@@ -325,4 +325,5 @@
     <string name="back">رجوع</string>
     <string name="pref_enable_acra">إخطار بإرسال تقارير الأخطاء</string>
     <string name="pref_enable_acra_summary">عند التفعيل, سيتم سؤالك للابلاغ بالاعطال عندما تحدث. لا ولن يتم الابلاغ بالاعطال تلفائيا.</string>
+    <string name="settings_default_currency">العملة الافتراضية</string>
 </resources>

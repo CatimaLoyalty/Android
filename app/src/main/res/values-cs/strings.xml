@@ -307,4 +307,5 @@
     <string name="nothing_to_copy">Nenalezena žádná hodnota</string>
     <string name="barcodeEncoding">Kódování čárového kódu</string>
     <string name="back">Zpět</string>
+    <string name="settings_default_currency">Výchozí měna</string>
 </resources>

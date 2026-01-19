@@ -346,5 +346,5 @@
     <string name="barcodeEncoding">Barcode encoding</string>
     <string name="back">Back</string>
     <string name="settings_default_currency">Default Currency</string>
-    <string name="settings_key_default_currency">pref_currency</string>
+    <string name="settings_key_default_currency" translatable="false">pref_currency</string>
 </resources>

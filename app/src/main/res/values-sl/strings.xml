@@ -312,4 +312,5 @@
     <string name="nothing_to_copy">Nobena vrednost ni najdena</string>
     <string name="barcodeEncoding">Kodiranje črtne kode</string>
     <string name="back">Nazaj</string>
+    <string name="settings_default_currency">Privzeta Valuta</string>
 </resources>

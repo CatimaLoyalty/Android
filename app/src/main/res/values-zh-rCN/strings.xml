@@ -295,4 +295,5 @@
     <string name="nothing_to_copy">没找到值</string>
     <string name="barcodeEncoding">条形码编码</string>
     <string name="back">返回</string>
+    <string name="settings_default_currency">預設貨幣</string>
 </resources>

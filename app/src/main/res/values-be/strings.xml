@@ -308,4 +308,5 @@
     <string name="card_list_widget_empty">Пасля таго, як вы дадасце некалькі картак лаяльнасці ў Catima, яны з\'явяцца тут. Калі ў вас ёсць карты, пераканайцеся, што яны не ўсе заархіваваны.</string>
     <string name="acra_catima_has_crashed">Прабачце, але ў праграме <xliff:g id="app_name">%s</xliff:g> адбыўся збой. Калі ласка, дапамажыце нам выправіць гэту праблему, даслаўшы нам справаздачу аб памылцы.</string>
     <string name="back">Назад</string>
+    <string name="settings_default_currency">Валюта па змаўчанні</string>
 </resources>

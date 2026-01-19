@@ -304,4 +304,5 @@
     <string name="copy_value">Copiar valor</string>
     <string name="copied_to_clipboard">Copiado para a área de transferência</string>
     <string name="nothing_to_copy">Nenhum valor encontrado</string>
+    <string name="settings_default_currency">Moeda Padrão</string>
 </resources>

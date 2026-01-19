@@ -299,4 +299,5 @@
     <string name="copy_value">Değeri kopyala</string>
     <string name="copied_to_clipboard">Panoya kopyalandı</string>
     <string name="nothing_to_copy">Değer bulunamadı</string>
+    <string name="settings_default_currency">Varsayılan Para Birimi</string>
 </resources>

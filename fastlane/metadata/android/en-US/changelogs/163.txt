@@ -1,0 +1,1 @@
+- Auto-detect URLs in card ID and make the clickable in card ID details pop-up

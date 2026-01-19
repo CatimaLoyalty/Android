@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 163
+
+- Auto-detect URLs in card ID and make the clickable in card ID details pop-up
+
 ## v2.41.5 - 162 (2026-01-15)
 
 - Fix list widget sometimes opening wrong card

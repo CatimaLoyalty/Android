@@ -35,6 +35,14 @@
             app:singleLineTitle="false"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            android:defaultValue=""
+            android:key="@string/settings_key_default_currency"
+            android:title="@string/settings_default_currency"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
+
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"

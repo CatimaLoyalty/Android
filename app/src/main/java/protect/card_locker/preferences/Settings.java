@@ -12,6 +12,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
+import java.util.Currency;
 import java.util.Locale;
 
 import protect.card_locker.R;
@@ -56,6 +57,17 @@ public class Settings {
         }
 
         return Utils.stringToLocale(value);
+    }
+
+    public Currency getCurrency() {
+        String points = getResString(R.string.points);
+        String value = getString(R.string.settings_key_default_currency, points);
+
+        if(value.equals(points)){
+            return null;
+        }
+
+        return Currency.getInstance(value);
     }
 
     public int getTheme() {

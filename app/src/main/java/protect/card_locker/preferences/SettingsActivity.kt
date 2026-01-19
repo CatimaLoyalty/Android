@@ -1,6 +1,5 @@
 package protect.card_locker.preferences
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -17,6 +16,15 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import java.util.Collections
+import java.util.Currency
+import kotlin.Any
+import kotlin.Boolean
+import kotlin.CharSequence
+import kotlin.Comparator
+import kotlin.String
+import kotlin.toString
+
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -101,6 +109,39 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
                 true
             }
+
+            // setting up currency preferences options
+            val currencyPreference = findPreference<ListPreference>(getString(R.string.settings_key_default_currency))!!
+
+            val currencies = Currency.getAvailableCurrencies().stream().sorted { a, b ->
+                val aIsSymbol = a.symbol.matches("^[^a-zA-Z]*$".toRegex())
+                val bIsSymbol = b.symbol.matches("^[^a-zA-Z]*$".toRegex())
+                when {
+                    !aIsSymbol && bIsSymbol -> 1
+                    aIsSymbol && !bIsSymbol -> -1
+                    else -> a.symbol.compareTo(b.symbol)
+                }
+            }.toList()
+
+            val symbols = mutableListOf<String>()
+            val codes = mutableListOf<String?>()
+
+            for(currency in currencies){
+                symbols.add(currency.symbol)
+                codes.add(currency.currencyCode)
+            }
+
+            val points = getString(R.string.points)
+
+            symbols.add(0, points)
+            codes.add(0, points)
+
+            val entries = symbols.map { it as CharSequence }.toTypedArray()
+            val entryValues = codes.map { it as CharSequence }.toTypedArray()
+
+            // set the currencies options
+            currencyPreference.entryValues = entryValues
+            currencyPreference.entries = entries
 
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))
             oledDarkPreference!!.setOnPreferenceChangeListener { _, _ ->

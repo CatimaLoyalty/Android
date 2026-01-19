@@ -292,4 +292,5 @@
     <string name="pref_enable_acra_summary">Ketika diaktifkan, Anda akan diminta untuk melaporkan crash saat terjadi. Laporan crash tidak pernah dikirim secara otomatis.</string>
     <string name="copy_value">Salin nilai</string>
     <string name="copied_to_clipboard">Disalin ke papan klip</string>
+    <string name="settings_default_currency">Mata Uang Default</string>
 </resources>

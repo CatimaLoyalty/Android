@@ -292,4 +292,5 @@
     <string name="setBarcodeWidth">Aseta viivakoodin leveys</string>
     <string name="card_list_widget_name">Korttiluettelo</string>
     <string name="card_list_widget_empty">Kun olet lisännyt kanta-asiakaskortteja Catimaan, ne näkyvät täällä. Jos sinulla on kortteja, varmista, etteivät ne kaikki ole arkistoituja.</string>
+    <string name="settings_default_currency">Oletusvaluutta</string>
 </resources>

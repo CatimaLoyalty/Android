@@ -60,6 +60,7 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.jaredrummler.android.colorpicker.BuildConfig;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 import com.yalantis.ucrop.UCrop;
@@ -91,6 +92,7 @@ import java.util.concurrent.Callable;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
+import protect.card_locker.preferences.Settings;
 import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
@@ -1014,7 +1016,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     private void formatBalanceCurrencyField(Currency balanceType) {
         if (balanceType == null) {
-            balanceCurrencyField.setText(getString(R.string.points));
+            Currency defaultCurrency = new Settings(getApplicationContext()).getCurrency();
+            if(defaultCurrency != null && storeFieldEdit.getText().toString().isEmpty()){
+                balanceCurrencyField.setText(getCurrencySymbol(defaultCurrency));
+            } else {
+                balanceCurrencyField.setText(getString(R.string.points));
+            }
         } else {
             balanceCurrencyField.setText(getCurrencySymbol(balanceType));
         }

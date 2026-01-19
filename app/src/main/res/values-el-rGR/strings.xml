@@ -301,4 +301,5 @@
     <string name="nothing_to_copy">Δεν βρέθηκε τιμή</string>
     <string name="barcodeEncoding">Κωδικοποίηση γραμμωτού κώδικα</string>
     <string name="back">Πίσω</string>
+    <string name="settings_default_currency">Προεπιλεγμένο νόμισμα</string>
 </resources>

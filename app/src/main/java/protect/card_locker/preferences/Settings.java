@@ -60,9 +60,10 @@ public class Settings {
     }
 
     public Currency getCurrency() {
-        String value = getString(R.string.settings_key_default_currency, "Points");
+        String points = getResString(R.string.points);
+        String value = getString(R.string.settings_key_default_currency, points);
 
-        if(value.equals("Points")){
+        if(value.equals(points)){
             return null;
         }
 

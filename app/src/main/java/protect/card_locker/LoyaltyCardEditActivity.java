@@ -1017,8 +1017,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     private void formatBalanceCurrencyField(Currency balanceType) {
         if (balanceType == null) {
             Currency defaultCurrency = new Settings(getApplicationContext()).getCurrency();
-            String symbol = defaultCurrency == null ? getString(R.string.points) : defaultCurrency.getSymbol();
-            balanceCurrencyField.setText(symbol);
+            if(defaultCurrency != null && storeFieldEdit.getText().toString().isEmpty()){
+                balanceCurrencyField.setText(getCurrencySymbol(defaultCurrency));
+            } else {
+                balanceCurrencyField.setText(getString(R.string.points));
+            }
         } else {
             balanceCurrencyField.setText(getCurrencySymbol(balanceType));
         }

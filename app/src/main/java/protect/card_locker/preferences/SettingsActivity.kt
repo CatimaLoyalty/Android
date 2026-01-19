@@ -1,6 +1,5 @@
 package protect.card_locker.preferences
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -17,6 +16,15 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import java.util.Collections
+import java.util.Currency
+import kotlin.Any
+import kotlin.Boolean
+import kotlin.CharSequence
+import kotlin.Comparator
+import kotlin.String
+import kotlin.toString
+
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -101,6 +109,33 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
                 true
             }
+
+            // setting up currency preferences options
+            val currencyPreference = findPreference<ListPreference>(getString(R.string.settings_key_default_currency))!!
+            val symbols = mutableListOf<String>()
+
+            Currency.getAvailableCurrencies().forEach { currency ->
+                symbols.add(currency.symbol)
+            }
+
+            // sort maintaining symbols and points on top
+            val sortedSymbols = symbols.sortedWith { a, b ->
+                val aIsSymbol = a.matches("^[^a-zA-Z]*$".toRegex())
+                val bIsSymbol = b.matches("^[^a-zA-Z]*$".toRegex())
+
+                when {
+                    !aIsSymbol && bIsSymbol -> 1
+                    aIsSymbol && !bIsSymbol -> -1
+                    else -> a.compareTo(b)
+                }
+            }.toMutableList()
+
+            sortedSymbols.add(0, "Points")
+            val arr = sortedSymbols.map { it as CharSequence }.toTypedArray()
+
+            // set the currencies options
+            currencyPreference.entryValues = arr
+            currencyPreference.entries = arr
 
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))
             oledDarkPreference!!.setOnPreferenceChangeListener { _, _ ->

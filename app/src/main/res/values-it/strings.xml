@@ -305,4 +305,6 @@
     <string name="copy_value">Copia valore</string>
     <string name="copied_to_clipboard">Copiato negli appunti</string>
     <string name="nothing_to_copy">Nessun valore trovato</string>
+    <string name="barcodeEncoding">Codifica codici a barre</string>
+    <string name="back">Indietro</string>
 </resources>

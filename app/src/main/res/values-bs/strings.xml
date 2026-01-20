@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="save">Snimi</string>
     <string name="cancel">Odustani</string>
     <string name="unstar">Ukloni iz omiljenih</string>
@@ -8,15 +8,15 @@
     <string name="note">Zabilješka</string>
     <string name="storeName">Ime</string>
     <string name="noMatchingGiftCards">Nema rezultata. Pokušaj promijeniti pretragu.</string>
-    <string name="noGiftCards">Kliknite + Plus dugme da dodate kartu ili uvezete nešto iz menija prvo.</string>
+    <string name="noGiftCards">Kliknite na dugme + plus da biste dodali karticu ili je uvezite iz ⋮ menija</string>
     <string name="action_add">Dodaj</string>
     <string name="all">Sve</string>
-    <string name="noGroupCards">Ova grupa ne sadrži nikakve karte</string>
-    <string name="noGroups">Kliknite + Plus dugme da dodate grupe za kategorizaciju prvo.</string>
+    <string name="noGroupCards">Ova grupa je prazna</string>
+    <string name="noGroups">Kliknite na dugme + plus da biste dodali grupe za kategorizaciju</string>
     <string name="groups">Grupe</string>
     <string name="enter_group_name">Unesite ime grupe</string>
-    <string name="exportSuccessful">Podaci o kartama izvožen</string>
-    <string name="importSuccessful">Uvezeni podaci o kartama</string>
+    <string name="exportSuccessful">Izvezeni podaci</string>
+    <string name="importSuccessful">Uvezeni podaci</string>
     <string name="intent_import_card_from_url_share_text">Želim podijeliti čestitku s tobom</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spriječi zaključavanje ekrana</string>
     <string name="settings_keep_screen_on">Zadrži ekran</string>
@@ -28,38 +28,38 @@
     <string name="importLoyaltyCardKeychain">Uvezi iz Loyalty Card Keychain</string>
     <string name="importVoucherVault">Uvezi iz trezora vaučer</string>
     <string name="barcodeId">Barcode vrijednost</string>
-    <string name="sameAsCardId">Isto kao i kartica</string>
+    <string name="sameAsCardId">Isto kao i ID</string>
     <string name="setBarcodeId">Postavi vrijednost za bar kod</string>
     <string name="unsupportedBarcodeType">Ovaj bar kod još nije prikazan. Ona može biti podržana u kasnijoj verziji app.</string>
-    <string name="wrongValueForBarcodeType">Izabrana vrijednost nije izvršna</string>
+    <string name="wrongValueForBarcodeType">Vrijednost nije važeća za odabrani tip barkoda</string>
     <string name="intent_import_card_from_url_share_multiple_text">Želim podijeliti karte s tobom</string>
-    <string name="frontImageDescription">Slika kartice</string>
-    <string name="backImageDescription">Slika pozadine kartice</string>
+    <string name="frontImageDescription">Prednja slika</string>
+    <string name="backImageDescription">Stražnja slika</string>
     <string name="photos">Slike</string>
     <string name="setFrontImage">Postavi naslovnu sliku</string>
     <string name="setBackImage">Vrati sliku</string>
     <string name="removeImage">Ukloni sliku</string>
     <string name="takePhoto">Slikaj</string>
     <string name="updateBarcodeQuestionTitle">Ažurirati bar kod vrijednost\?</string>
-    <string name="updateBarcodeQuestionText">Promijenio si auto. Da li želite ažurirati bar kod koristiti istu vrijednost\?</string>
+    <string name="updateBarcodeQuestionText">Promijenili ste ID. Želite li ažurirati i barkod da koristi istu vrijednost?</string>
     <string name="yes">Da</string>
     <string name="no">Ne.</string>
-    <string name="passwordRequired">Upišite šifru</string>
-    <string name="failedGeneratingShareURL">Ne mogu generisati oštriji URL. Molim vas, prijavite ovo.</string>
+    <string name="passwordRequired">Unesite lozinku</string>
+    <string name="failedGeneratingShareURL">Nije moguće generirati URL za dijeljenje</string>
     <string name="turn_flashlight_on">Upali lampu</string>
     <string name="turn_flashlight_off">Ugasi lampu</string>
     <string name="settings_locale">Jezik</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="sort">Poništi sortiranje</string>
     <string name="sort_by_name">Ime</string>
-    <string name="sort_by_most_recently_used">Nedavno Korišten</string>
+    <string name="sort_by_most_recently_used">Najnovije korišteno</string>
     <string name="sort_by_expiry">Sajam</string>
-    <string name="reverse">Rikverc</string>
+    <string name="reverse">...obrnutim redoslijedom</string>
     <string name="sort_by">Sortiraj</string>
-    <string name="noCardExistsError">Nisam mogao pronaći tu karticu</string>
+    <string name="noCardExistsError">Nisam mogao/la pronaći tu karticu</string>
     <string name="noCardsMessage">Dodaj prvo kartu</string>
-    <string name="addCardTitle">Dodaj Kartu</string>
-    <string name="editCardTitle">Izmijeni Karticu</string>
+    <string name="addCardTitle">Dodaj karticu</string>
+    <string name="editCardTitle">Uredi karticu</string>
     <string name="sendLabel">Pošalji…</string>
     <string name="share">Podijeli</string>
     <string name="deleteConfirmation">Izbriši trajno ovu karticu\?</string>
@@ -72,25 +72,57 @@
     <string name="exportFailed">Nisam uspio izvršiti izvoz</string>
     <string name="app_copyright_old">Bazirano na Loyalty Card privjesku
 \ncopyright © 2016-2020 Branden Archer</string>
-    <string name="noGiftCardsGroup">Kreirajte kartice, i dodajte ih ovdje u grupu.</string>
-    <string name="importExportHelp">Backupovanje vaših podataka omogućava njihov prenos na drugi uređaj.</string>
+    <string name="noGiftCardsGroup">Napravite nekoliko kartica, a zatim ih dodijelite grupi ovdje</string>
+    <string name="importExportHelp">Pravljenje sigurnosne kopije podataka omogućava njihovo premještanje na drugi uređaj</string>
     <string name="importSuccessfulTitle">Uvezeno</string>
     <string name="exportFailedTitle">Izvoz neuspješan</string>
     <string name="scanCardBarcode">Skeniraj barkod</string>
     <string name="cardShortcut">Prečica kartice</string>
-    <string name="failedParsingImportUriError">Nisam uspio parsirati URI za uvoz</string>
-    <string name="importExport">Uvoz/Izvoz</string>
+    <string name="failedParsingImportUriError">Nemogu analizirati URI za uvoz</string>
+    <string name="importExport">Uvoz/izvoz</string>
     <string name="exportName">Izvoz</string>
     <string name="importFailedTitle">Uvoz neuspješan</string>
     <string name="importFailed">Nisam uspio odraditi uvoz</string>
     <string name="exportSuccessfulTitle">Izvezeno</string>
     <string name="importing">Uvozim…</string>
     <string name="exporting">Izvozim…</string>
-    <string name="exportOptionExplanation">Ovi podaci će biti zapisani na lokaciju po Vašoj želji.</string>
+    <string name="exportOptionExplanation">Podaci će biti zapisani na lokaciju po vašem izboru</string>
     <string name="importOptionFilesystemTitle">Uvoz iz file sistema</string>
-    <string name="importOptionFilesystemExplanation">Izaberite specifični file iz file sistema.</string>
+    <string name="importOptionFilesystemExplanation">Odaberite određenu datoteku iz datotečnog sistema</string>
     <string name="importOptionFilesystemButton">Iz file sistema</string>
     <string name="about">O</string>
     <string name="noBarcode">Nema barkoda</string>
     <string name="deleteTitle">Obriši karticu</string>
+    <string name="app_name">Catima</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> odabran</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> odabranih</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> odabrano</item>
+    </plurals>
+    <string name="cameraPermissionRequired">Za ovu radnju potrebna je dozvola za pristup kameri…</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Obriši <xliff:g>%d</xliff:g> karticu</item>
+        <item quantity="few">Obriši <xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other">Obriši <xliff:g>%d</xliff:g> kartica</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Trajno izbrisati ovu <xliff:g>%d</xliff:g> karticu?</item>
+        <item quantity="few">Trajno izbrisati ove <xliff:g>%d</xliff:g> kartice?</item>
+        <item quantity="other">Trajno izbrisati ovih <xliff:g>%d</xliff:g> kartica?</item>
+    </plurals>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kartica</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartica</item>
+    </plurals>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> poen</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> poena</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> poena</item>
+    </plurals>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+    </plurals>
 </resources>

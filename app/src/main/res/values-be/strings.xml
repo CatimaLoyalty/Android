@@ -10,7 +10,7 @@
     <string name="action_add">Дадаць</string>
     <string name="app_name">Catima</string>
     <string name="action_search">Пошук</string>
-    <string name="noGiftCards">Націсніце кнопку + плюс, каб дадаць картку, або імпартуйце праз меню ⋮.</string>
+    <string name="noGiftCards">Націсніце кнопку + плюс, каб дадаць картку, або імпартуйце праз меню ⋮</string>
     <string name="storeName">Назва</string>
     <string name="star">Дадаць у абраныя</string>
     <string name="unstar">Выдаліць з абраных</string>
@@ -37,7 +37,7 @@
     <string name="storageReadPermissionRequired">Для гэтага дзеяння патрабуецца дазвол на чытанне сховішча…</string>
     <string name="cameraPermissionRequired">Для гэтага дзеяння патрабуецца дазвол на доступ да камеры…</string>
     <string name="permissionReadCardsLabel">Чытаць карты Catima</string>
-    <string name="exportOptionExplanation">Даныя будуць запісаны ў выбранае вамі месца.</string>
+    <string name="exportOptionExplanation">Даныя будуць запісаны ў выбранае вамі месца</string>
     <string name="importOptionFilesystemExplanation">Выберыце пэўны файл з файлавай сістэмы.</string>
     <string name="importOptionFilesystemButton">З файлавай сістэмы</string>
     <string name="about">Аб праграме</string>
@@ -65,7 +65,7 @@
     <string name="importExport">Імпарт/Экспарт</string>
     <string name="importOptionFilesystemTitle">Імпарт з файлавай сістэмы</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Аўтарскае права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os і суаўтары</string>
-    <string name="importExportHelp">Рэзервовае капіяванне даных дазваляе перанесці іх на іншую прыладу.</string>
+    <string name="importExportHelp">Рэзервовае капіяванне даных дазваляе перанесці іх на іншую прыладу</string>
     <string name="failedParsingImportUriError">Не атрымалася разабраць URI імпарту</string>
     <string name="exportFailedTitle">Не ўдалося экспартаваць</string>
     <string name="exportFailed">Немагчыма выканаць экспарт</string>
@@ -308,4 +308,8 @@
     <string name="card_list_widget_empty">Пасля таго, як вы дадасце некалькі картак лаяльнасці ў Catima, яны з\'явяцца тут. Калі ў вас ёсць карты, пераканайцеся, што яны не ўсе заархіваваны.</string>
     <string name="acra_catima_has_crashed">Прабачце, але ў праграме <xliff:g id="app_name">%s</xliff:g> адбыўся збой. Калі ласка, дапамажыце нам выправіць гэту праблему, даслаўшы нам справаздачу аб памылцы.</string>
     <string name="back">Назад</string>
+    <string name="copy_value">Скапіяваць значэнне</string>
+    <string name="copied_to_clipboard">Скапіявана ў буфер абмену</string>
+    <string name="nothing_to_copy">Значэнне не знойдзенае</string>
+    <string name="barcodeEncoding">Кадыяванне штрых-кодаў</string>
 </resources>

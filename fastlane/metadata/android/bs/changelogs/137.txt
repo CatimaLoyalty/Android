@@ -1,0 +1,4 @@
+- Omogućeno dijeljenje dugih naziva trgovina u pregledu na više redova
+- Mogućnost korištenja slike prednje i zadnje strane u meniju sličica
+- Manje ispravke uvoza/izvoza
+- Manje ispravke korisničkog interfejsa

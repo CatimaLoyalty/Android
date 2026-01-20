@@ -1,0 +1,1 @@
+- Ispravljena je gesta za povratak na glavnom ekranu prilikom odbacivanja tastature i pretrage na Androidu 13+

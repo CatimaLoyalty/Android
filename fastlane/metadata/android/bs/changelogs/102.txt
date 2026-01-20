@@ -1,0 +1,2 @@
+- Razne manje ispravke
+- Ispravljen pad programa prilikom korištenja norveškog prijevoda

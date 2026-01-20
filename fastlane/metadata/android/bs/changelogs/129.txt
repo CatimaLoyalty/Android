@@ -1,0 +1,3 @@
+- Poboljšan Catima uvoznik (ispravljeni nedostaci kartica prilikom uvoza)
+- Ispravljen pad sistema prilikom rotiranja ekrana prilikom podešavanja datuma važenja/isteka
+- Manje izmjene korisničkog interfejsa

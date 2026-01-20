@@ -1,0 +1,22 @@
+Zaustavite potragu za plastičnim karticama za nagrađivanje tokom plaćanja u trgovini ili web trgovini.
+<b>Skenirajte barkodove na svoj uređaj pomoću kamere, zaboravite na kartice.</b>
+
+Zaboravite novčanik ili ga držite ultralaganim za dragocjenosti.
+
+S ovim osnovnim alatom za svakodnevno nošenje (EDC) možete zamijeniti beskorisnu plastiku gotovinom.
+
+- Izbjegavajte špijuniranje uz vrlo malo dozvola. Bez pristupa internetu i bez reklama.
+- Dodajte kartice ili kodove s imenima i prilagodljivim bojama.
+- Ručni unos koda ako nema barkoda za pohranu ili se ne može koristiti.
+- Uvezite kartice i kodove iz datoteka, Catima, FidMe, privjeska za ključeve s karticama vjernosti i trezora vaučera.
+- Napravite sigurnosnu kopiju svih svojih kartica i prenesite ih na novi uređaj ako želite.
+- Dijelite kupone, ekskluzivne ponude, promotivne kodove ili kartice i kodove pomoću bilo koje aplikacije.
+- Tamna tema i opcije pristupačnosti za korisnike s oštećenim vidom.
+- Napravljeno za sve od strane zajednice libre softvera.
+- Lokalizirani ručno rađeni prijevodi za više od 40 jezika.
+- Besplatno, uz podršku doprinosa zajednice.
+- Koristite, proučavajte, mijenjajte i dijelite kako želite; <i>sa svim</i>.
+- Ne samo besplatni softver / otvoreni kod. <i>Zaštićeno autorskim pravom</i> (GPLv3+) upravljanje karticama.
+
+Pojednostavite svoj život i kupovinu i nikada više ne izgubite papirni račun, poklon karticu za plaćanje u trgovini ili avionsku kartu.
+Ponesite sve svoje nagrade i bonuse sa sobom i uštedite usput.

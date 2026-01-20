@@ -1,0 +1,3 @@
+- Dugo pritisnite ikonu kartice u prikazu aktivnosti da biste je promijenili
+- Poboljšan stil dugmadi na ekranu Grupa
+- Ispravljene su dugačke vrijednosti barkoda koje su uzrokovale da se barkod smanji na nulu

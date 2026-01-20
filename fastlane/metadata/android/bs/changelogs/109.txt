@@ -1,0 +1,1 @@
+- Ispravljena je netačna boja teksta na dugmetu "Bez barkoda"

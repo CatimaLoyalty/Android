@@ -1,0 +1,3 @@
+- Dodata podrška za Passbook (.pkpass)
+- Ispravljen uvoz prozirnih PDF datoteka
+- Poboljšan prikaz prozirnih sličica

@@ -1,0 +1,4 @@
+- Promijenite zadanu kolonu na širokim ekranima na 4
+- Omogućite prepisivanje broja kolona za portretni i pejzažni format u postavkama
+- Zadržite filter za pretragu na glavnom ekranu prilikom rotiranja ekrana ili otvaranja kartice
+- Ograničite maksimalnu dužinu prikaza bilješke na glavnom ekranu

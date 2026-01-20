@@ -1,0 +1,2 @@
+- Ispravljeno je da se ručni odabir jezika nije primjenjivao svugdje
+- Ispravljeno rušenje programa u prikazu za uređivanje na lokacijama bez regije

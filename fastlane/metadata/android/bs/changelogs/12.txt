@@ -1,0 +1,1 @@
+- Spriječen pad sistema prilikom rotiranja ekrana u prvom pokretanju uvodnog čarobnjaka.

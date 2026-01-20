@@ -1,0 +1,3 @@
+- Ciljano za Android 15
+- Ispravljen pad sistema prilikom čitanja nepodržanih pkpass datoteka
+- Poboljšana podrška za pkpass

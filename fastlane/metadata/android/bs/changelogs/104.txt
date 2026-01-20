@@ -1,0 +1,2 @@
+- Sačuvaj stanje proširenja detalja kartice
+- Manje ispravke korisničkog interfejsa

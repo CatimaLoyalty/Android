@@ -1,0 +1,3 @@
+- Premjestite "Način arhiviranja" u meni "Opcije prikaza" (ranije "Prikaži detalje")
+- Podrška za jezike po aplikaciji za Android 13
+- Ugradite politiku privatnosti, dnevnik promjena i licencu u aplikaciju

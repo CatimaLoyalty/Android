@@ -1,0 +1,2 @@
+- Uklonite nepotrebne dozvole
+- Ciljajte na Android 13

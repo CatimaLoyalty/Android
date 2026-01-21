@@ -1,0 +1,4 @@
+- Otvaranje slike u galeriji dugim pritiskom
+- Primjena Material stila na dijaloge
+- Podrška za kreiranje kartice dijeljenjem slike na Catima
+- Dodavanje dugmeta za brzo trošenje na ekran kartice

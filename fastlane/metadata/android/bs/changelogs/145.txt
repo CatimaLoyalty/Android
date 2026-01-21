@@ -1,0 +1,3 @@
+- Ciljani Android 15
+- Ispravljeno dugme za spremanje koje prekriva tastaturu na ekranu za uređivanje
+- Ispravljeno zbog čega se neke pkpass datoteke nisu prepoznavale kao pkpass (podrška za mime tip aplikacije/vnd-com.apple.pkpass)

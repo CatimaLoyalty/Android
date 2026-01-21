@@ -1,0 +1,4 @@
+- Ciljano za Android 14
+- Ikona otvaranja kartice u galeriji na dodir
+- Poboljšan dizajn kartice Fotografije u prikazu za uređivanje
+- Ažuriran ekran za trošenje kako bi se podržalo i primanje

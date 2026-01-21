@@ -1,0 +1,4 @@
+- Poboljšanja renderiranja barkodova
+- Osnovna interoperabilnost s vanjskim aplikacijama (Android 6.0+)
+- Reorganizirani ekran postavki
+- Ispravljen uvoz iz nekih preglednika koji dodaju završnu oznaku / URL-u za dijeljenje

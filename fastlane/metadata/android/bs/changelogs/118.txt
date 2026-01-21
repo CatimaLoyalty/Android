@@ -1,0 +1,2 @@
+- Podrška za podešavanje početka važenja kartice
+- Ispravljen uvoz Stocard-a (promijenjen je format izvoza Stocard-a)

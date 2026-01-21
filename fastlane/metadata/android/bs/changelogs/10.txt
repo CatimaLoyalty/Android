@@ -1,0 +1,3 @@
+- Promijenjen je zadani naziv datoteke za uvoz/izvoz. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Ispravljen je niz znakova na stranici za uvoz/izvoz. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Poboljšan je izgled stranice za pregled kartice. Tekst bi trebao biti lakše čitljiv i moguće ga je odabrati dugim klikom. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

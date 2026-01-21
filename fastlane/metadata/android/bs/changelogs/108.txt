@@ -1,0 +1,5 @@
+- Dodana funkcija dupliranja kartica
+- Ne dozvoliti odabir isteka prije 1970. (ionako nikada nisu radili)
+- Dodana podrška za arhiviranje kartica
+- Premjestiti brisanje iz uređivanja u pregled
+- Ukloniti ikonu zaključavanja rotacije u korist nove postavke zaključavanja rotacije

@@ -1,0 +1,3 @@
+- Ispravljen problem sa rezačem koji ne koristi boju teme
+- Ispravljeni manji problemi sa temama
+- Dodata čisto crna tamna tema za OLED ekrane

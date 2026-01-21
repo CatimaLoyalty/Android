@@ -1,0 +1,6 @@
+- Poboljšanje toka rada "Dodaj karticu"
+- Poboljšanja toka validacije
+- Ispravljen granični slučaj koji je uzrokovao nevažeće stanje korisničkog interfejsa prilikom prebacivanja/isključivanja prikaza arhive
+- Korištenje teme ili boje kartice za navigacijsku traku (Android 8.1+)
+- Ažuriran birač datuma važenja i isteka
+- Dodata opcija za stalno rotiranje (ignorišući postavke sistema)

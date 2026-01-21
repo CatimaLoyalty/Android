@@ -1,0 +1,1 @@
+- Poboljšan prikaz ikona arhive/označenih zvjezdicom

@@ -1,0 +1,3 @@
+- Podrška za skeniranje PDF datoteka za barkodove
+- Podrška za slikovne datoteke s više barkodova
+- Manje ispravke korisničkog interfejsa

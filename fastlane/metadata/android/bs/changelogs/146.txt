@@ -1,0 +1,2 @@
+- Mogućnost sortiranja kartica po početku važenja
+- Privremeno vraćanje na ciljanje Androida 14 radi rješavanja nekih problema s korisničkim interfejsom

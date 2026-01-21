@@ -302,4 +302,7 @@
     <string name="acra_crash_email_subject">Izvještaj o prekidu rada aplikacije <xliff:g id="app_name">%s</xliff:g></string>
     <string name="pref_enable_acra">Pitaj da li poslati izvještaj o prekidu rada aplikacije</string>
     <string name="pref_enable_acra_summary">Kada je uključeno, zamolit ćemo te da prijaviš prekid rada aplikacije kada se dogodi. Izvještaji o prekidu rada se nikada ne šalju automatski.</string>
+    <string name="copied_to_clipboard">Kopirano u međuspremnik</string>
+    <string name="back">Natrag</string>
+    <string name="copy_value">Kopiraj vrijednost</string>
 </resources>

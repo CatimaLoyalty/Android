@@ -1,0 +1,4 @@
+- Manje ispravke korisničkog interfejsa
+- Ispravljeno resetovanje datuma važenja i isteka prilikom rotiranja ekrana za uređivanje kartice
+- Ispravljen pad sistema prilikom rotiranja ekrana dok je prikazan birač boja
+- Ispravke uvoza Stocard-a

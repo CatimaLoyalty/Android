@@ -1,0 +1,3 @@
+- Potpuni redizajn glavnog ekrana i ekrana za pregled kartica vjernosti
+- Materijal koji vi dizajnirate za ekran postavki
+- Ispravljen pad aplikacije prilikom korištenja opcije "Snimi fotografiju" s onemogućenom aplikacijom kamere

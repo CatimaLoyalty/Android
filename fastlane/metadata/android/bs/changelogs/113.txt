@@ -1,0 +1,3 @@
+- Dodavanje dugmadi "prethodna" i "sljedeća" u prikaz kartice vjernosti
+- Ispravljanje boje prednjeg plana na dugmetu za uređivanje
+- Zamjena ikone za spremanje na disketi kvačicom

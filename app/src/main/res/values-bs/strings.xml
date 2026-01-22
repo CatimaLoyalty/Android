@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="save">Snimi</string>
     <string name="cancel">Odustani</string>
     <string name="unstar">Ukloni iz omiljenih</string>
@@ -125,4 +125,52 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
     </plurals>
+    <string name="barcodeImageDescriptionWithType">Slika <xliff:g>%s</xliff:g> barkoda</string>
+    <string name="storageReadPermissionRequired">Za ovu radnju potrebna je dozvola za čitanje pohrane…</string>
+    <string name="permissionReadCardsLabel">Čitajte Catima kartice</string>
+    <string name="permissionReadCardsDescription">da pročita vaše Catima kartice i sve njihove detalje, uključujući bilješke i slike</string>
+    <string name="cameraPermissionDeniedTitle">Nije bilo moguće pristupiti kameri</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Za skeniranje barkodova, Catima će trebati pristup vašoj kameri. Dodirnite ovdje da promijenite postavke dozvola.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorska prava © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i saradnici</string>
+    <string name="app_copyright_short">Autorska prava © Sylvia van Os i saradnici</string>
+    <string name="app_license">Slobodni softver zaštićen autorskim pravom, licenciran pod GPLv3+</string>
+    <string name="about_title_fmt">O aplikaciji <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_libraries">Biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Resursi trećih strana: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Odaberite barkod</string>
+    <string name="thumbnailDescription">Sličica</string>
+    <string name="settings">Postavke</string>
+    <string name="failedOpeningFileManager">Nije moguće otvoriti upravitelj datoteka</string>
+    <string name="moveUp">Pomakni se prema gore</string>
+    <string name="moveDown">Pomakni se prema dolje</string>
+    <string name="leaveWithoutSaveTitle">Izlaz</string>
+    <string name="leaveWithoutSaveConfirmation">Napustiti bez spremanja?</string>
+    <string name="addManually">Ručno unesite barkod</string>
+    <string name="addFromImage">Odaberite sliku iz galerije</string>
+    <string name="groupsList">Grupe: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Grupa za uređivanje: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Ističe: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Isteklo: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Stanje: <xliff:g>%s</xliff:g></string>
+    <string name="card">Kartica</string>
+    <string name="editBarcode">Uredi barkod</string>
+    <string name="expiryDate">Datum isteka</string>
+    <string name="never">Nikad</string>
+    <string name="chooseExpiryDate">Odaberite datum isteka</string>
+    <string name="moveBarcodeToTopOfScreen">Pomaknite barkod na vrh ekrana</string>
+    <string name="noBarcodeFound">Nije pronađen barkod</string>
+    <string name="errorReadingImage">Nisam mogao/la pročitati sliku</string>
+    <string name="balance">Stanje</string>
+    <string name="currency">Valuta</string>
+    <string name="points">Bodovi</string>
+    <string name="balanceParsingFailed">Nevažeći saldo</string>
+    <string name="chooseImportType">Uvoz podataka iz</string>
+    <string name="app_loyalty_card_keychain">Privjesak za ključeve s karticom vjernosti</string>
+    <string name="privacy_policy">Politika privatnosti</string>
+    <string name="accept">Prihvati</string>
+    <string name="importFidme">Uvoz iz FidMe-a</string>
+    <string name="importFidmeMessage">Odaberite izvoz iz FidMe-a za uvoz i nakon toga ručno odaberite vrste barkodova. \nKreirajte ga iz svog FidMe profila odabirom Zaštita podataka, a zatim pritiskom na Izdvoji moje podatke.</string>
+    <string name="importLoyaltyCardKeychainMessage">Odaberite svoj izvoz iz Privjeska za ključeve s karticom vjernosti za uvoz.\nKreirajte ga iz menija Uvoz/Izvoz u Privjesku za ključeve s karticom vjernosti pritiskom na Izvoz.</string>
+    <string name="importVoucherVaultMessage">Odaberite izvoz iz Voucher Vaulta za uvoz. \nKreirajte ga pritiskom na Izvoz u Voucher Vaultu.</string>
 </resources>

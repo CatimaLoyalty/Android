@@ -1,0 +1,4 @@
+- Dodata mogućnost odabira širine barkoda u prikazu preko cijelog ekrana
+- Uklonjen zbunjujući uvoz iz funkcije aplikacije
+- Razne ispravke skeniranja
+- Ispravljen pad sistema prilikom učitavanja pkpass datoteke bez barkoda

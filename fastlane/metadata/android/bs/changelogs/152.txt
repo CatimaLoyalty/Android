@@ -1,0 +1,3 @@
+- Dodata podrška za .pkpasses datoteke
+- Uklonjen uvoznik Stocarda (Stocard više ne postoji)
+- Privremeno onemogućene slike widgeta ispod Androida 12L (zaobilazno rješenje za problem rušenja sistema)

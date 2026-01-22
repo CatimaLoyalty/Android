@@ -1,6 +1,6 @@
 [versions]
 # AndroidX
-compose = "2025.12.01"
+compose = "2026.01.00"
 
 # Third-party
 acra = "5.13.1"

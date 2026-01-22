@@ -1,0 +1,1 @@
+- Automātiska URL noteikšana karšu identifikatora un to padarīšana par klikšķināmiem kartes identifikatora informācijas uznirstošajā logā

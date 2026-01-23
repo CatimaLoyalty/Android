@@ -75,6 +75,9 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
         return viewHolder.image.getTag() != null && (boolean) viewHolder.image.getTag();
     }
 
+    // FIXME: The examples in the selector activity are always rendering using ISO-8859-1, even if UTF-8 is the selected type
+    // This needs some refactoring to properly retrieve the barcode encoding when rendering an active barcode
+    // This is the case for example when editing an active card, pressing the "Edit barcode" button, then "More options" and then "Enter the barcode manually"
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text) {
         final CatimaBarcode format = CatimaBarcode.fromName(formatType);
 

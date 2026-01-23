@@ -1,0 +1,1 @@
+- Ispravljene razne greške povezane s TalkBackom

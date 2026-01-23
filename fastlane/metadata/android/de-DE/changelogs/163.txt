@@ -1,1 +1,2 @@
 - Automatische Erkennung von Internetadressen (URLs) in der Karten-ID, um diese im Popup der Karten-ID Detailansicht „anklickbar“ zu machen
+- Fehler korrigiert, wodurch die manuelle Barcode-Auswahl weiße Quadrate anstelle der Barcodes anzeigte

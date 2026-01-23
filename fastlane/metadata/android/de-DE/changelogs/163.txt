@@ -1,2 +1,1 @@
-- Android 5.0 und 5.1 wird ab dieser Version nicht mehr unterstützt. Wer Catima auf diesen Versionen verwenden möchte, nutzt bitte Catima v2.41.5.
 - Automatische Erkennung von Internetadressen (URLs) in der Karten-ID, um diese im Popup der Karten-ID Detailansicht „anklickbar“ zu machen

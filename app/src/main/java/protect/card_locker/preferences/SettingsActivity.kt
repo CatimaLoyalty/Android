@@ -157,6 +157,12 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 true
             }
 
+            // Disable content provider on SDK < 23 since dangerous permissions
+            // are granted at install-time
+            val contentProviderReadPreference = findPreference<Preference>(getString(R.string.settings_key_allow_content_provider_read))
+            contentProviderReadPreference!!.isVisible =
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter

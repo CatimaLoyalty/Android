@@ -1,6 +1,6 @@
 [versions]
 # AndroidX
-compose = "2025.11.01"
+compose = "2026.01.00"
 
 # Third-party
 acra = "5.13.1"
@@ -22,7 +22,7 @@ com-google-android-material-material = { group = "com.google.android.material", 
 com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
 
 # Compose
-androidx-activity-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.10.1" }
+androidx-activity-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.12.2" }
 androidx-compose-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose" }
 androidx-compose-foundation-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidx-compose-material3-material3 = { group = "androidx.compose.material3", name = "material3"}

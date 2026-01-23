@@ -5,6 +5,7 @@
 Android 5.0 and 5.1 are no longer supported starting with this release. If you want to use Catima on these versions, please use version 2.41.5.
 
 - Auto-detect URLs in card ID and make the clickable in card ID details pop-up
+- Fix barcode selector activity showing white squares instead of barcodes
 
 ## v2.41.5 - 162 (2026-01-15)
 

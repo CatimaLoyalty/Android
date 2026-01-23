@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId = "me.hackerchick.catima"
-        minSdk = 23
+        minSdk = 21
         targetSdk = 36
         versionCode = 162
         versionName = "2.41.5"

@@ -40,9 +40,16 @@ class UCropWrapper : UCropActivity() {
             return
         }
 
-        val decorView = window.decorView
-        val wic = WindowInsetsControllerCompat(window, decorView)
-        wic.isAppearanceLightStatusBars = !darkMode
+        if (Build.VERSION.SDK_INT >= 23) {
+            val decorView = window.decorView
+            val wic = WindowInsetsControllerCompat(window, decorView)
+            wic.isAppearanceLightStatusBars = !darkMode
+        } else if (!darkMode) {
+            window.statusBarColor = ColorUtils.compositeColors(
+                Color.argb(127, 0, 0, 0),
+                window.statusBarColor
+            )
+        }
     }
 
     private fun checkViews(darkMode: Boolean) {

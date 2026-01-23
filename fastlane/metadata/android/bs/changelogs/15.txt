@@ -1,0 +1,2 @@
+- Dodana je podrška za prečice aplikacija (Android 7.1+), gdje će se nedavno korištene kartice prikazivati kao prečice. (povlačenje #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Dodan je widget koji funkcionira kao zakačena prečica aplikacije, kako bi se podržali uređaji koji rade na Androidu 7.1 i starijim verzijama. (povlačenje #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

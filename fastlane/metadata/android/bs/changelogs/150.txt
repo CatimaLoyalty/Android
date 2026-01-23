@@ -1,0 +1,2 @@
+- Dodan je widget koji prikazuje sve nearhivirane kartice
+- Spriječeno je preklapanje tastature s dugmetom za spremanje na ekranima za uređivanje i grupiranje

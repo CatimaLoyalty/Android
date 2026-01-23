@@ -1,0 +1,6 @@
+- Dodana podrška za UTF-8 barkodove
+- Dodata opcija dupliciranja na glavni ekran i malo preuređene opcije
+- Ispravljena postavka broja kolona koja se ne primjenjuje na listu grupnih kartica
+- Uklonjena podrška za boju teme
+- Smanjite maksimalnu veličinu fotografije kako biste smanjili korištenje prostora za pohranu (samo za novododane fotografije)
+- Migrirajte aktivnost "O nama" iz Android XML-a u Jetpack Compose

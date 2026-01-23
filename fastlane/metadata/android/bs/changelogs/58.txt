@@ -1,0 +1,1 @@
+- Ispravljen pad sistema na verzijama prije Androida 7

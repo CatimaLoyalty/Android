@@ -1,0 +1,2 @@
+- Kopirajte ID kartice u međuspremnik iz dijaloga za prikaz ili dugim pritiskom
+- Zamijenite polja za stanje i valutu kako biste, nadamo se, smanjili nenamjerno zaokruživanje

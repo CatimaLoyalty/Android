@@ -1,0 +1,1 @@
+- Ispravljena je promjena uvedena u verziji 2.41.0 koja je prekidala podršku za neke skenere za barkodove koji nisu UTF-8

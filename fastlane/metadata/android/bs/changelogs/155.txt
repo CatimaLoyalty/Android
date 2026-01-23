@@ -1,0 +1,1 @@
+- Pripreme za buduća poboljšanja (prepisivanje mnogih klasa u Kotlin)

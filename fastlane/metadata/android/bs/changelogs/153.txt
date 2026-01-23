@@ -1,0 +1,4 @@
+- Ciljano za Android 16
+- Ispravljen mogući pad sistema nakon uklanjanja slike sa kartice
+- Uklonjena funkcija "Orijentacija ekrana" (Google je uklonio mogućnost da aplikacije kontrolišu rotaciju ekrana kada je ciljan Android 16)
+- Dodat izvještaj o padu sistema u FOSS verziju (ne koristi se u verziji za Google Play, samo u drugim prodavnicama aplikacija)

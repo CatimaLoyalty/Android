@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 163
+## v2.41.6 - 163 (2026-01-23)
 
 - Auto-detect URLs in card ID and make the clickable in card ID details pop-up
 - Fix barcode selector activity showing white squares instead of barcodes

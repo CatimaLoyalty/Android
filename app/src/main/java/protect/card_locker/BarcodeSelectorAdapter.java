@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import protect.card_locker.async.TaskHandler;
@@ -92,13 +93,13 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
 
                             Log.d(TAG, "Generating barcode for type " + formatType);
 
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, null, text, true, null, true, false);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, StandardCharsets.ISO_8859_1, text, true, null, true, false);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, null, text, true, null, true, false);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getContext(), image, cardId, format, StandardCharsets.ISO_8859_1, text, true, null, true, false);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }

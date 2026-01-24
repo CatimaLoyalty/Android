@@ -1,1 +1,2 @@
 - Automatická detekce adres v ID karty a umožnění klepnutí na ně v podrobnostech o ID karty
+- Opravena aktivita výběru čárového kódu zobrazující čtverce namísto čárových kódů

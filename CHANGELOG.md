@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 164
+
+Android 5.0 and 5.1 are no longer supported starting with this release. If you want to use Catima on these versions, please use version 2.41.6.
+
 ## v2.41.6 - 163 (2026-01-23)
 
 - Auto-detect URLs in card ID and make the clickable in card ID details pop-up

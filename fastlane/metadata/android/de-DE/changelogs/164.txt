@@ -1,0 +1,1 @@
+Android 5.0 und 5.1 wird ab dieser Ausgabe nicht mehr unterstützt. Wer weiterhin Catima mit diesen Versionen nutzen möchte, greift bitte zu Catima v2.41.6.

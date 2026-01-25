@@ -1,0 +1,2 @@
+- Détection automatique des URL dans l'ID des cartes et mise en avant des détails cliquable dans les ID de carte
+- Correction du sélecteur d'activités pour le code-barres qui affichait des carrés blancs au lieu des codes-barres

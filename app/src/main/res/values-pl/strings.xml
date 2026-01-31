@@ -24,7 +24,7 @@
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URL</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksportuj</string>
-    <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie danych na inne urządzenie.</string>
+    <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie danych na inne urządzenie</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
     <string name="importFailedTitle">Importowanie nie powiodło się</string>
     <string name="importFailed">Nie udało się zaimportować</string>
@@ -59,7 +59,7 @@
     <string name="starImage">Gwiazdka ulubionych</string>
     <string name="app_copyright_old">Na podstawie Loyalty Card Keychain
 \nWszelkie prawa zastrzeżone © 2016–2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez ciebie miejscu.</string>
+    <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez ciebie miejscu</string>
     <string name="unstar">Usuń z ulubionych</string>
     <string name="star">Dodaj do ulubionych</string>
     <string name="noBarcode">Brak kodu kreskowego</string>
@@ -123,7 +123,7 @@
     <string name="leaveWithoutSaveTitle">Wyjdź</string>
     <string name="moveDown">Przesuń w dół</string>
     <string name="moveUp">Przesuń w górę</string>
-    <string name="failedOpeningFileManager">Nie można otworzyć menadżera plików.</string>
+    <string name="failedOpeningFileManager">Nie można otworzyć menadżera plików</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> karta</item>
         <item quantity="few"><xliff:g>%d</xliff:g> karty</item>
@@ -199,7 +199,7 @@
     <string name="unarchive">Cofnij archiwizację</string>
     <string name="archived">Karta zarchiwizowana</string>
     <string name="unarchived">Karta niezarchiwizowana</string>
-    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć obsługiwanej galerii.</string>
+    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć obsługiwanej galerii</string>
     <string name="previousCard">Poprzedni</string>
     <string name="nextCard">Następny</string>
     <plurals name="groupCardCountWithArchived">
@@ -311,4 +311,5 @@
     <string name="copy_value">Kopiuj wartość</string>
     <string name="copied_to_clipboard">Skopiowano do schowka</string>
     <string name="nothing_to_copy">Nie znaleziono wartości</string>
+    <string name="back">Wstecz</string>
 </resources>

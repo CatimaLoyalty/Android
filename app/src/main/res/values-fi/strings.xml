@@ -19,8 +19,7 @@
     <string name="importFidmeMessage">Valitse tuotava <i>fidme-export-request-xxxxxxxx.zip</i>-vientitiedostosi FidMe:stä ja valitse viivakoodityypit manuaalisesti sen jälkeen.
 \nLuo se FidMe-profiilistasi valitsemalla Tietosuoja ja painamalla ensin Extract my data.</string>
     <string name="importFidme">Tuo FidMe-varmuuskopiotiedostosta</string>
-    <string name="importCatimaMessage">Valitse tuotava <i>catima.zip</i>-vientitiedostosi Catimasta.
-\nLuo se Catima-sovelluksen Tuo/vie-valikosta painamalla siellä ensin Vie.</string>
+    <string name="importCatimaMessage">Valitse tuotava vientitiedosto Catimasta. \nLuo se Catima-sovelluksen Tuo/vie-valikosta painamalla siellä ensin Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
     <string name="accept">Hyväksy</string>
     <string name="privacy_policy">Tietosuojakäytäntö</string>
@@ -47,14 +46,14 @@
     <string name="leaveWithoutSaveTitle">Poistu</string>
     <string name="moveDown">Siirrä alaspäin</string>
     <string name="moveUp">Siirrä ylöspäin</string>
-    <string name="failedOpeningFileManager">Asenna ensin tiedostonhallintaohjelma.</string>
+    <string name="failedOpeningFileManager">Tiedostonhallintaohjelman avaaminen epäonnistui</string>
     <string name="deleteConfirmationGroup">Poistetaanko ryhmä\?</string>
     <string name="all">Kaikki</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kortti</item>
         <item quantity="other"><xliff:g>%d</xliff:g> korttia</item>
     </plurals>
-    <string name="noGroups">Napsauta plus-painiketta (+) lisätäksesi ryhmät luokittelua varten.</string>
+    <string name="noGroups">Napsauta plus-painiketta (+) lisätäksesi ryhmät luokittelua varten</string>
     <string name="groups">Ryhmät</string>
     <string name="enter_group_name">Anna ryhmän nimi</string>
     <string name="exportSuccessful">Tiedot viety</string>
@@ -71,8 +70,8 @@
     <string name="starImage">Suosikkitähti</string>
     <string name="thumbnailDescription">Pienoiskuva</string>
     <string name="selectBarcodeTitle">Valitse viivakoodi</string>
-    <string name="app_resources">Vapaat kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Vapaat kolmannen osapuolen kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Kolmannen osapuolen kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Tietoja <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_license">Copyleft (käyttäjänoikeus) - vapaa ohjelmisto, lisenssi GPLv3+</string>
@@ -81,9 +80,9 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Tekijänoikeus © 2019–<xliff:g>%d</xliff:g> Sylvia van Os ja avustajat</string>
     <string name="about">Tietoja</string>
     <string name="importOptionFilesystemButton">Tiedostojärjestelmästä</string>
-    <string name="importOptionFilesystemExplanation">Valitse tietty tiedosto tiedostojärjestelmästä.</string>
+    <string name="importOptionFilesystemExplanation">Valitse tietty tiedosto tiedostojärjestelmästä</string>
     <string name="importOptionFilesystemTitle">Tuo tiedostojärjestelmästä</string>
-    <string name="exportOptionExplanation">Tiedot kirjoitetaan valitsemaasi sijaintiin.</string>
+    <string name="exportOptionExplanation">Tiedot kirjoitetaan valitsemaasi sijaintiin</string>
     <string name="exporting">Viedään…</string>
     <string name="importing">Tuodaan…</string>
     <string name="exportFailed">Vienti epäonnistui</string>
@@ -92,10 +91,10 @@
     <string name="importFailed">Tuonti epäonnistui</string>
     <string name="importFailedTitle">Tuonti epäonnistui</string>
     <string name="importSuccessfulTitle">Tuonti valmis</string>
-    <string name="importExportHelp">Tietojesi varmuuskopiointi mahdollistaa niiden siirtämisen toiseen laitteeseen.</string>
+    <string name="importExportHelp">Tietojesi varmuuskopiointi mahdollistaa niiden siirtämisen toiseen laitteeseen</string>
     <string name="exportName">Vie</string>
     <string name="importExport">Tuo/vie</string>
-    <string name="failedParsingImportUriError">Tuonnin URI: n jäsentäminen epäonnistui</string>
+    <string name="failedParsingImportUriError">Tuonnin URI:n jäsentäminen epäonnistui</string>
     <string name="noCardExistsError">Tätä korttia ei löytynyt</string>
     <string name="noCardsMessage">Lisää ensin kortti</string>
     <string name="cardShortcut">Kortin pikakuvake</string>
@@ -118,7 +117,7 @@
     <string name="note">Lisätieto</string>
     <string name="storeName">Nimi</string>
     <string name="noMatchingGiftCards">Ei hakutuloksia, kokeile toisella hakutermillä.</string>
-    <string name="noGiftCards">Lisää kortti napsauttamalla plus-painiketta (+), tai mene ⋮-valikkoon tuodaksesi.</string>
+    <string name="noGiftCards">Lisää kortti napsauttamalla plus-painiketta (+), tai mene ⋮-valikkoon tuodaksesi</string>
     <string name="action_add">Lisää</string>
     <string name="action_search">Hae</string>
     <string name="takePhoto">Ota valokuva</string>
@@ -142,8 +141,8 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valittu</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valitut</item>
     </plurals>
-    <string name="passwordRequired">Ole hyvä ja syötä salasana</string>
-    <string name="failedGeneratingShareURL">Jaettavaa URL-osoitetta ei voitu luoda. Ilmoita tästä.</string>
+    <string name="passwordRequired">Syötä salasana</string>
+    <string name="failedGeneratingShareURL">Jaettavaa URL-osoitetta ei voitu luoda</string>
     <string name="turn_flashlight_on">Käytä taskulamppua</string>
     <string name="turn_flashlight_off">Sammuta salamavalo</string>
     <string name="app_contributors">Mahdollistanut: <xliff:g id="app_contributors">%s</xliff:g></string>
@@ -173,7 +172,7 @@
     <string name="on_github">GitHubissa</string>
     <string name="and_data_usage">ja datan käyttö</string>
     <string name="on_google_play">Google Playssa</string>
-    <string name="report_error">Ilmoita virheestä</string>
+    <string name="report_error">Ilmoita ongelmasta</string>
     <string name="shortcutSelectCard">Valitse kortti</string>
     <string name="starred">Tähdellä merkityt</string>
     <string name="options">Vaihtoehdot</string>
@@ -186,12 +185,12 @@
     <string name="translate_platform">Weblatessa</string>
     <string name="selectColor">Valitse väri</string>
     <string name="rate_this_app">Arvostele tämä sovellus</string>
-    <string name="noGiftCardsGroup">Lisää kortteja ja lisää ne ryhmään täällä.</string>
+    <string name="noGiftCardsGroup">Lisää kortteja ja lisää ne ryhmään täällä</string>
     <string name="barcodeImageDescriptionWithType">Kuva <xliff:g>%s</xliff:g> viivakoodi</string>
     <string name="unarchived">Kortti on poistettu arkistosta</string>
     <string name="unarchive">Poista arkistosta</string>
     <string name="archived">Kortti arkistoitu</string>
-    <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
+    <string name="failedLaunchingPhotoPicker">Tuettua kuvavalitsinta ei löytynyt</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
@@ -284,12 +283,23 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
     <string name="settings_column_count_7">7</string>
-    <string name="addFromPkpass">Valitse Passbook-tiedosto (.pkpass)</string>
+    <string name="addFromPkpass">Valitse Passbook-tiedosto (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Tämä tiedosto ei ole tuettu</string>
-    <string name="generic_error_please_retry">Pahoittelut, jokin meni pieleen. Yritä uudelleen...</string>
+    <string name="generic_error_please_retry">Tapahtui virhe</string>
     <string name="sort_by_valid_from">Voimassa alkaen</string>
     <string name="width">Leveys</string>
     <string name="setBarcodeWidth">Aseta viivakoodin leveys</string>
     <string name="card_list_widget_name">Korttiluettelo</string>
     <string name="card_list_widget_empty">Kun olet lisännyt kanta-asiakaskortteja Catimaan, ne näkyvät täällä. Jos sinulla on kortteja, varmista, etteivät ne kaikki ole arkistoituja.</string>
+    <string name="cardWithNumber">Kortti <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Kortti <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Älä kierrä laitetta, koska se peruu toiminnon</string>
+    <string name="acra_catima_has_crashed">Valitettavasti <xliff:g id="app_name">%s</xliff:g> kaatui. Auta korjaamaan ongelma lähettämällä virheraportti.</string>
+    <string name="pref_enable_acra">Kysy kaatumisraporttien lähettämisestä</string>
+    <string name="pref_enable_acra_summary">Kun käytössä, sinulta kysytään lupa lähettää raportti kaatumisen yhteydessä. Kaatumisraportteja ei koskaan lähetetä automaattisesti.</string>
+    <string name="copy_value">Kopioi arvo</string>
+    <string name="copied_to_clipboard">Kopioitu leikepöydälle</string>
+    <string name="nothing_to_copy">Arvoa ei löytynyt</string>
+    <string name="barcodeEncoding">Viivakoodin koodaus</string>
+    <string name="back">Takaisin</string>
 </resources>

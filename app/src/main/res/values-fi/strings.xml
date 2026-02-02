@@ -10,14 +10,12 @@
     <string name="setBarcodeId">Aseta viivakoodin arvo</string>
     <string name="sameAsCardId">Sama kuin ID-tunnus</string>
     <string name="barcodeId">Viivakoodin arvo</string>
-    <string name="importVoucherVaultMessage">Valitse tuotava <i>vouchervault.json</i>-vienti Voucher Vaultista.
-\nLuo se painamalla ensin Vie Voucher Vaultissa.</string>
+    <string name="importVoucherVaultMessage">Valitse vienti Voucher Vaultista tuotavaksi. \nLuo se painamalla \"Export\" Voucher Vaultissa.</string>
     <string name="importVoucherVault">Tuo Voucher Vault -varmuuskopiotiedostosta</string>
     <string name="importLoyaltyCardKeychainMessage">Valitse tuotava <i>LoyaltyCardKeychain.csv</i>-vientitiedostosi Loyalty Card Keychainista.
 \nTai luo se Loyalty Card Keychainin Import/Export-valikosta painamalla ensin Export (Vie).</string>
     <string name="importLoyaltyCardKeychain">Tuo Loyalty Card Keychain varmuuskopiotiedostosta</string>
-    <string name="importFidmeMessage">Valitse tuotava <i>fidme-export-request-xxxxxxxx.zip</i>-vientitiedostosi FidMe:stä ja valitse viivakoodityypit manuaalisesti sen jälkeen.
-\nLuo se FidMe-profiilistasi valitsemalla Tietosuoja ja painamalla ensin Extract my data.</string>
+    <string name="importFidmeMessage">Valitse vienti FidMe:stä tuotavaksi ja valitse viivakoodityypit manuaalisesti sen jälkeen. \nLuo se FidMe-profiilistasi valitsemalla \"Data Protection\" ja painamalla \"Extract my data\".</string>
     <string name="importFidme">Tuo FidMe-varmuuskopiotiedostosta</string>
     <string name="importCatimaMessage">Valitse tuotava vientitiedosto Catimasta. \nLuo se Catima-sovelluksen Tuo/vie-valikosta painamalla siellä ensin Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
@@ -225,14 +223,14 @@
     <string name="height">Korkeus</string>
     <string name="switchToFrontImage">Vaihda etukuvaan</string>
     <string name="switchToBarcode">Vaihda viivakoodiin</string>
-    <string name="openFrontImageInGalleryApp">Avaa etukuva galleriasovelluksessa</string>
+    <string name="openFrontImageInGalleryApp">Avaa etukuva kuvankatselusovelluksessa</string>
     <string name="settings_display_barcode_max_brightness_summary">Välttämätön, jotta jotkin skannerit toimivat</string>
     <string name="settings_keep_screen_on_summary">Poistaa näytön aikakatkaisun korttia katsellessa</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Poistaa näyttölukituksen käytöstä korttia katsellessa</string>
     <string name="settings_allow_content_provider_read_title">Salli muiden sovellusten käyttää omaa dataa</string>
     <string name="settings_oled_dark_summary">Vähentää akun käyttöä OLED-näytöillä</string>
     <string name="switchToBackImage">Vaihda takakuvaan</string>
-    <string name="openBackImageInGalleryApp">Avaa takakuva galleriasovelluksessa</string>
+    <string name="openBackImageInGalleryApp">Avaa takakuva kuvankatselusovelluksessa</string>
     <string name="setBarcodeHeight">Aseta viivakoodin korkeus</string>
     <string name="icon_header_click_text">Pitkä painallus pikkukuvan muokkaamiseksi</string>
     <string name="show_name_below_image_thumbnail">Näytä nimi pikkukuvan alapuolella</string>

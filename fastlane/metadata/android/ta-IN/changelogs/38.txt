@@ -1,0 +1,3 @@
+- இப்போது பார்கோடைத் தட்டினால் அது திரையின் மேல்பகுதிக்கு நகர்த்தப்படும் (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348)) 
+- இருண்ட பயன்முறையில் ச்கேனிங்கை மேம்படுத்த பார்கோடுகளைச் சுற்றி வெள்ளை இடத்தைச் சேர்க்கவும் (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328)) 
+- மாற்றப்பட்ட இறக்குமதி பொத்தான்களை சரிசெய்யவும். (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

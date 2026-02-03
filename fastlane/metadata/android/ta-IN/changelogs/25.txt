@@ -1,0 +1,2 @@
+- கார்டைப் பார்க்கும்போது தலைப்பில் இடத்தைக் குறைக்கவும். (இழு #213 (https://github.com/brarcher/loyalty-card-locker/pull/213)) 
+- பார்கோடு வருடு செய்யும் போது பீப் ஒலியை முடக்கு. (#216ஐ இழுக்கவும் (https://github.com/brarcher/loyalty-card-locker/pull/216))

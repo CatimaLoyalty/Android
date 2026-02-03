@@ -1,0 +1,3 @@
+- முழுத் திரையில் இருந்து வெளியேறும் போது பார்கோடு மையப்படுத்துதலைச் சரிசெய்யவும் (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351)) 
+- காப்புப் பிரதி ஏற்றுமதி இடத்தைத் தேர்ந்தெடுக்க அனுமதிக்கவும் (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352)) 
+- மொழிபெயர்ப்புகளைப் புதுப்பிக்கவும் (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

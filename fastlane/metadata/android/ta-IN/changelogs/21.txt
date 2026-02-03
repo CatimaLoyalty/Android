@@ -1,0 +1,2 @@
+- அட்டை பட்டியலுக்கான மேம்படுத்தப்பட்ட தளவமைப்பு. (இழு #188 (https://github.com/brarcher/loyalty-card-locker/pull/188)) 
+- கார்டைப் பார்க்கும் போது மேம்படுத்தப்பட்ட தளவமைப்பு. (இழு #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

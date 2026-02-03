@@ -1,0 +1,5 @@
+- மொழிபெயர்ப்பு சேர்க்கப்பட்டது 
+- போலிச் (புல் #232 (https://github.com/brarcher/loyalty-card-locker/pull/232)) 
+- ச்பானிச் (இழு #232 (https://github.com/brarcher/loyalty-card-locker/pull/232)) 
+- ச்லோவாக் (இழு #232 (https://github.com/brarcher/loyalty-card-locker/pull/232)) 
+- புதுப்பிக்கப்பட்ட மொழிபெயர்ப்புகள் (புல் #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

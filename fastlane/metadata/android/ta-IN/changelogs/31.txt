@@ -1,0 +1,2 @@
+- உணர்ச்சியற்ற அட்டைப் பட்டியலை வரிசைப்படுத்து (இழு #266 (https://github.com/brarcher/loyalty-card-locker/pull/266)) 
+- அனைத்து கார்டுகளுக்கும் பூட்டு நோக்குநிலைக்கு அமைப்பைச் சேர்க்கவும் (இழு #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

@@ -1,0 +1,3 @@
+- Промяна на импорт/експорт по подразбиране. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Корекция на низ на страница импорт/експорт. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Подобрение на оформлението на тип⁃карти. Текстът би следвало да е по-лесен за прочитане, и вече е избираем за прочит, и избираем с дълго кликване. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

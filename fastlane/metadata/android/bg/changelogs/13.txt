@@ -1,0 +1,2 @@
+- Промяна във в.0.11 доведе до намаляване потреблението на паметта при чертане на баркод, но засегна размера на баркода. Сега това е коригирано за запазване на размерите му. (pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- Обновени немски и френски преводи. (pull #122 (https://github.com/brarcher/loyalty-card-locker/pull/122), pull #124 (https://github.com/brarcher/loyalty-card-locker/pull/124), pull #125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

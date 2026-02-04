@@ -1,0 +1,2 @@
+- Добавена поддръжка за преки пътища (Android 7.1+), където най-скорошно използваните карти ще се появят като преки пътища. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Добавена притурка която функционира като закачен пряк път, за поддръжка на устройства под Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

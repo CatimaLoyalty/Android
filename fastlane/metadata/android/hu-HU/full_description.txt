@@ -8,7 +8,7 @@ Ezzel a mindennapi kellékkel felszabadul a pénztárcájában a plasztikkárty�
 - A minimális engedélyeknek köszönhetően csökkentheti a kémkedés esélyét. Nem igényel internetet, és nincsenek reklámok.
 - Adjon hozzá kártyákat, vagy sima kódokat, majd szabja személyre színezéssel.
 - Kézileg is hozzáadhat kódot, ha nincs a kártyán vonalkód, vagy valamiért nem olvasható be.
-- Importáljon kártyákat más appokból: Catima, FidMe, Loyalty Card Keychain, Stocard és Voucher Vault.
+- Importáljon kártyákat más appokból: Catima, FidMe, Loyalty Card Keychain és Voucher Vault.
 - Készítsen biztonsági mentést kártyáiról, vagy hordozza át másik eszközre.
 - Osszon meg kuponokat, exkluzív ajánlatokat, promóciós kódokat, vagy kártyákat és kódokat bármely appal.
 - Sötét téma és akadálymentesítés a gyengén látó felhasználóinknak.

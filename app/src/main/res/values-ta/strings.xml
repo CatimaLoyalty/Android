@@ -79,7 +79,7 @@
     <string name="settings_column_count_7">7</string>
     <string name="spend">செலவு</string>
     <string name="unsupportedFile">இந்த கோப்பு ஆதரிக்கப்படவில்லை</string>
-    <string name="generic_error_please_retry">மன்னிக்கவும், ஏதோ தவறு நடந்தது, தயவுசெய்து மீண்டும் முயற்சிக்கவும் ...</string>
+    <string name="generic_error_please_retry">பிழை ஏற்பட்டது</string>
     <string name="noMatchingGiftCards">முடிவுகள் இல்லை. உங்கள் தேடலை மாற்ற முயற்சிக்கவும்.</string>
     <string name="edit">தொகு</string>
     <string name="deleteTitle">அட்டையை நீக்கு</string>
@@ -145,7 +145,7 @@
     <string name="unsupportedBarcodeType">இந்த பார்கோடு வகையை இன்னும் காட்ட முடியாது. பயன்பாட்டின் பின்னர் பதிப்பில் இது ஆதரிக்கப்படலாம்.</string>
     <string name="wrongValueForBarcodeType">தேர்ந்தெடுக்கப்பட்ட பார்கோடு வகைக்கு மதிப்பு செல்லுபடியாகாது</string>
     <string name="intent_import_card_from_url_share_multiple_text">சில அட்டைகளை உங்களுடன் பகிர்ந்து கொள்ள விரும்புகிறேன்</string>
-    <string name="importVoucherVaultMessage">உங்கள் <i> vouchervault.json </i> வவுச்சர் பெட்டகத்திலிருந்து இறக்குமதி செய்ய ஏற்றுமதி என்பதைத் தேர்ந்தெடுக்கவும்.\n முதலில் வவுச்சர் வால்ட்டில் ஏற்றுமதியை அழுத்துவதன் மூலம் அதை உருவாக்கவும்.</string>
+    <string name="importVoucherVaultMessage">இறக்குமதி செய்ய வவுச்சர் வால்ட்டிலிருந்து உங்கள் ஏற்றுமதியைத் தேர்ந்தெடுக்கவும். \nவவுச்சர் வால்ட்டில் ஏற்றுமதி என்பதை அழுத்தி உருவாக்கவும்.</string>
     <string name="frontImageDescription">முன் படம்</string>
     <string name="updateBarcodeQuestionTitle">பார்கோடு மதிப்பைப் புதுப்பிக்கவா?</string>
     <string name="updateBarcodeQuestionText">நீங்கள் ஐடியை மாற்றினீர்கள். அதே மதிப்பைப் பயன்படுத்த பார்கோடு புதுப்பிக்க விரும்புகிறீர்களா?</string>
@@ -154,7 +154,7 @@
     <string name="passwordRequired">கடவுச்சொல்லை உள்ளிடவும்</string>
     <string name="exportPassword">உங்கள் ஏற்றுமதியைப் பாதுகாக்க கடவுச்சொல்லை அமைக்கவும் (விரும்பினால்)</string>
     <string name="exportPasswordHint">கடவுச்சொல்லை உள்ளிடவும்</string>
-    <string name="failedGeneratingShareURL">பகிரக்கூடிய முகவரி ஐ உருவாக்க முடியவில்லை. இதை புகாரளிக்கவும்.</string>
+    <string name="failedGeneratingShareURL">பகிரக்கூடிய முகவரி ஐ உருவாக்க முடியவில்லை</string>
     <string name="turn_flashlight_on">ஒளிரும் விளக்கை இயக்கவும்</string>
     <string name="turn_flashlight_off">ஒளிரும் விளக்கை அணைக்கவும்</string>
     <string name="settings_locale">மொழி</string>
@@ -187,7 +187,7 @@
     <string name="unarchive">அன்கான்</string>
     <string name="archived">அட்டை காப்பகப்படுத்தப்பட்டது</string>
     <string name="unarchived">அட்டை பதிக்கப்படாதது</string>
-    <string name="failedLaunchingPhotoPicker">உதவி கேலரி பயன்பாட்டைக் கண்டுபிடிக்க முடியவில்லை</string>
+    <string name="failedLaunchingPhotoPicker">ஆதரிக்கப்படும் படத் தேர்வியைக் கண்டறிய முடியவில்லை</string>
     <string name="previousCard">முந்தைய</string>
     <string name="failedToOpenUrl">முதலில் ஒரு வலை உலாவியை நிறுவவும்</string>
     <string name="welcome">கேட்டிமாவுக்கு வருக</string>
@@ -201,8 +201,8 @@
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
     <string name="switchToBarcode">பார்கோடு மாறவும்</string>
-    <string name="openFrontImageInGalleryApp">கேலரி பயன்பாட்டில் முன் படத்தைத் திறக்கவும்</string>
-    <string name="openBackImageInGalleryApp">கேலரி பயன்பாட்டில் படத்தைத் திறக்கவும்</string>
+    <string name="openFrontImageInGalleryApp">இமேச் வியூவர் ஆப்சில் முன் படத்தைத் திறக்கவும்</string>
+    <string name="openBackImageInGalleryApp">இமேச் வியூவர் ஆப்சில் மீண்டும் படத்தைத் திறக்கவும்</string>
     <string name="setBarcodeHeight">பார்கோடு உயரத்தை அமைக்கவும்</string>
     <string name="donate">நன்கொடை</string>
     <string name="icon_header_click_text">சிறுபடத்தைத் திருத்த நீண்ட அழுத்தவும்</string>
@@ -234,16 +234,16 @@
     <string name="continue_">தொடரவும்</string>
     <string name="receive">பெறுங்கள்</string>
     <string name="amountParsingFailed">தவறான தொகை</string>
-    <string name="add_manually_warning_message">சில கடைகளுக்கு, பார்கோடு மதிப்பு அட்டையில் எழுதப்பட்ட எண்ணிலிருந்து வேறுபடுகிறது. இதன் காரணமாக, ஒரு பார்கோடு கைமுறையாக நுழைவது எப்போதும் வேலை செய்யாது. அதற்கு பதிலாக உங்கள் கேமராவுடன் பார்கோடு ச்கேன் செய்ய கடுமையாக பரிந்துரைக்கப்படுகிறது. நீங்கள் இன்னும் தொடர விரும்புகிறீர்களா?</string>
+    <string name="add_manually_warning_message">சில கார்டுகளுக்கு, கார்டில் எழுதப்பட்ட எண்ணிலிருந்து பார்கோடு மதிப்பு வேறுபடும். இதன் காரணமாக, பார்கோடு கைமுறையாக உள்ளிடுவது எப்போதும் வேலை செய்யாது. அதற்கு பதிலாக உங்கள் கேமரா மூலம் பார்கோடை வருடு செய்ய பரிந்துரைக்கப்படுகிறது. நீங்கள் இன்னும் தொடர விரும்புகிறீர்களா?</string>
     <string name="addFromPdfFile">PDF கோப்பைத் தேர்ந்தெடுக்கவும்</string>
     <string name="errorReadingFile">கோப்பைப் படிக்க முடியவில்லை</string>
-    <string name="failedLaunchingFileManager">உதவி கோப்பு மேலாளரைக் கண்டுபிடிக்க முடியவில்லை</string>
+    <string name="failedLaunchingFileManager">ஆதரிக்கப்படும் கோப்பு மேலாளரைக் கண்டுபிடிக்க முடியவில்லை</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">கண்டுபிடிக்கப்பட்ட பார்கோடுகளில் எது நீங்கள் பயன்படுத்த விரும்புகிறீர்கள்?</string>
     <string name="noCameraFoundGuideText">உங்கள் சாதனத்தில் கேமரா இருப்பதாகத் தெரியவில்லை. அவ்வாறு இருந்தால், சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும். இல்லையெனில், பார்கோடை மற்றொரு வழியில் சேர்க்க கீழே உள்ள கூடுதல் விருப்பங்கள் பொத்தானைப் பயன்படுத்தவும்.</string>
     <string name="importCancelled">இறக்குமதி ரத்து செய்யப்பட்டது</string>
     <string name="exportCancelled">ஏற்றுமதி ரத்து செய்யப்பட்டது</string>
     <string name="useBackImage">பின் படத்தைப் பயன்படுத்தவும்</string>
-    <string name="addFromPkpass">பாச் புக் கோப்பைத் தேர்ந்தெடுக்கவும் (.pkpass)</string>
+    <string name="addFromPkpass">பாச்புக் கோப்பைத் தேர்ந்தெடுக்கவும் (.pkpass / .pkpasses)</string>
     <string name="useFrontImage">முன் படத்தைப் பயன்படுத்தவும்</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one"><xliff:g>%d</xliff:g> அட்டை நீக்கு</item>
@@ -283,11 +283,11 @@
     <string name="app_resources">மூன்றாம் தரப்பு வளங்கள்: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="groupsList">குழுக்கள்: <xliff:g>%s</xliff:g></string>
     <string name="sort_by_valid_from">இருந்து செல்லுபடியாகும்</string>
-    <string name="setBarcodeWidth">பட்டைகுறி அகலம் அமை</string>
+    <string name="setBarcodeWidth">பார்கோடு அகலத்தை அமைக்கவும்</string>
     <string name="width">அகலம்</string>
     <string name="card_list_widget_name">அட்டை பட்டியல்</string>
     <string name="card_list_widget_empty">கேட்டிமாவில் நீங்கள் விசுவாச அட்டைகளை சேர்த்த பிறகு, அவை இங்கு தோன்றும். அட்டைகள் காப்பகப்படுத்த படவில்லை என உறுதி செய்க.</string>
-    <string name="cardWithNumber">அட்டை<xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumber">அட்டை <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">அட்டை<xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">தயவுசெய்து சாதனத்தை சுழற்றாதீர்கள், இது செயலை ரத்து செய்யும்.</string>
     <string name="acra_catima_has_crashed">மன்னிக்கவும், <xliff:g id="app_name">%s</xliff:g> செயலி செயலிழந்துள்ளது. தயவுசெய்து பிழை அறிக்கையை அனுப்பி, இந்த பிரச்சினையை சரிசெய்ய எங்களுக்கு உதவுங்கள்.</string>
@@ -295,4 +295,9 @@
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> செயலிழப்பு அறிக்கை</string>
     <string name="pref_enable_acra">செயலிழப்பு அறிக்கைகளை அனுப்ப வேண்டுமா</string>
     <string name="pref_enable_acra_summary">இது இயக்கப்பட்டால், செயலி செயலிழக்கும் போது அதைப் பற்றிய அறிக்கையை அனுப்பும்படி உங்களிடம் கேட்கப்படும். செயலிழப்பு அறிக்கைகள் ஒருபோதும் தானாக அனுப்பப்படமாட்டாது.</string>
+    <string name="copy_value">நகல் மதிப்பு</string>
+    <string name="copied_to_clipboard">இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது</string>
+    <string name="nothing_to_copy">மதிப்பு இல்லை</string>
+    <string name="barcodeEncoding">பார்கோடு குறியாக்கம்</string>
+    <string name="back">பின்</string>
 </resources>

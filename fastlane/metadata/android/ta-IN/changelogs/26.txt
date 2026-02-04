@@ -1,0 +1,1 @@
+- பார்கோடு வழங்குதல் செய்யும் போது செயலிழப்பதைத் தடுக்கவும். (இழு #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

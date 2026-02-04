@@ -1,0 +1,3 @@
+- Добави запор за екран‐ротация при показ на карта. Ако е заключен, екрана ще премине към "вродената" си ориентация и последваща ротация ще бъде заключена. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Ако карта бъде избрана от главен екран неуспешно, следва » послание. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Корекция‐случай…оформлението на ИД-та не бяха откривани. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

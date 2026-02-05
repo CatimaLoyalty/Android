@@ -1,0 +1,3 @@
+- Цел Android 15
+- Корекция при случаите при които бутон запис покрива екран-редакция
+- Корекция на pkpass файлове които не бяха засичани като pkpass (application/vnd-com.apple.pkpass mime type support)

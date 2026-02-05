@@ -1,0 +1,5 @@
+- Старт откъм настоящ ИД. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Лимит за шир. на щрих кодове с умисъл‐RAM, +грешки. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- ± "Въведи"‑"Промени" за ИД-а. (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Цв.схема (pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- +увод‐гид(1-ви старт). (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

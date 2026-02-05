@@ -3,8 +3,8 @@
     <string name="app_name">کاتیما</string>
     <string name="action_search">جستجو</string>
     <string name="action_add">افزودن</string>
-    <string name="noGiftCards">برای افزودن کارت دکمه + پلاس را بزنید, یا از ⋮ منو ایمپورت کنید.</string>
-    <string name="noGiftCardsGroup">تعدادی کارت ایجاد کنید، و سپس آنها را اینجا به گروه بیافزایید.</string>
+    <string name="noGiftCards">برای افزودن کارت، روی دکمه + کلیک کنید یا از منوی ⋮ کارت‌ها را وارد کنید.</string>
+    <string name="noGiftCardsGroup">چند کارت ایجاد کنید و سپس آن‌ها را در اینجا به این گروه اختصاص دهید.</string>
     <string name="noMatchingGiftCards">بدون نتیجه. سعی کنید جستجویتان را تغییر دهید.</string>
     <string name="storeName">نام</string>
     <string name="note">یادداشت</string>

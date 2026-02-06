@@ -1,0 +1,2 @@
+- Корекция на проблем при Android SDK 24+ където ползвайки файловия вносител /опция/ водеше до срив. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Нова икона&цветова схема. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

@@ -1,0 +1,5 @@
+- ++поддр за ⁺преки пътища към "хоум" за ±карта. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- -- уиджет, ≡блед заместител… (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- @ експорт на рез. × при Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- По‐точни mime тип (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- ‼Bug* (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

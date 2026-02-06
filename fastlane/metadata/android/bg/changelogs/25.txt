@@ -1,0 +1,2 @@
+- Ограничаване на наличното пространство в заглавната лента при преглед на карта. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Деактивиране на звуков сигнал при сканиране на щрих код. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

@@ -1,0 +1,2 @@
+- Позволи потребител да въвежда щрих‐код ръчно. Ако той избере да го стори, списък с всички валидни и поддържани щрих изображения биват показани. И тъй, следва избор на щрих снимка която да съвпадне с това което потребителя иска. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- Разрешен е проблем при който някои щрих‐кода бяха неясни. (issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

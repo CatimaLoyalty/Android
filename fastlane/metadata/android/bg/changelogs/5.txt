@@ -1,0 +1,2 @@
+- Диалогов прозорец ‚За‘ може да бъде отворен от основния екран, което дава детайли за приложението и проекта в GitHub (issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Позволи карти за лоялност да бъдат внасяни/изнасяни към CSV файл на външното хранилище (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

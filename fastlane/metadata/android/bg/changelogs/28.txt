@@ -1,0 +1,5 @@
+- Добавени преводи
+  - полски (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - испански (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+  - словашки (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- Обновени преводи (pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

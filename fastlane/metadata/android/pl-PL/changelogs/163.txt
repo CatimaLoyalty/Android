@@ -1,0 +1,2 @@
+- Automatyczne wykrywanie adresów URL w identyfikatorze karty i umożliwienie kliknięcia w wyskakującym okienku szczegółów identyfikatora karty
+- Naprawiono działanie selektora kodów kreskowych, który zamiast kodów kreskowych wyświetlał białe kwadraty

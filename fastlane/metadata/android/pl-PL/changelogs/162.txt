@@ -1,0 +1,5 @@
+- Naprawiono błąd powodujący czasami otwieranie niewłaściwej karty przez widżet listy
+- Naprawiono kilka błędów związanych z obsługą skrótów
+- Naprawiono błąd powodujący, że okno „O aplikacji” nie wyświetlało czarnego paska tytułu w trybie OLED
+- Całkowicie usunięto automatyczne wykrywanie kodowania kodów kreskowych
+- Udostępniono kodowanie kodów kreskowych poprzez ContentProvider (używane przez Gadgetbridge)

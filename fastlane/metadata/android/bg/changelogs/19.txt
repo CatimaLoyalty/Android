@@ -1,0 +1,3 @@
+- Поправка на срив при импортиране на някои типове повредени CSV файлове. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Поправка внасяне на резервни копия директно от файловата с-ма. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Поправка внасяне на резервни копия от някои доставчици на съдържание. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

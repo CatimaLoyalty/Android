@@ -1,0 +1,3 @@
+- Корекция при центровка на щрих-код при вход към ‚Цял екран‘ (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Позволи локация за резервно копие\износ да бъде селективна (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Обновени преводи (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

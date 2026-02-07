@@ -1,0 +1,2 @@
+- Ограничаване на мин.SDK от 17 на 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Отстраняване на употреба на наследена /legacy/ системна библиотека, използвана единствено за тестове на апликацията — и тъй вече е ненужна. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

@@ -1,0 +1,7 @@
+ꗃКлючът от името не бе интуитивен. И тъй, за повече яснота, нова икона се роди от betsythefc. Тя е в унисон с гл. мисия на апликацията‐ баркод пропуски. Loyalty Card Keychain
+
+Още. ∫/подобрения:
+
+- Внос/Износ карти бе ± към по гъвкав вариант. (pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- Преводи за литовски +⁺. (pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- Преводи по Френски +⁺. (pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

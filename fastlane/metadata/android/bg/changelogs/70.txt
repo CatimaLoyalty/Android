@@ -1,0 +1,11 @@
+- ВАЖНО±: Обрат»рез.копие, вижте https://github.com/TheLastProject/Catima/wiki/Export-format
+- ВАЖНО±: Обрат»url-низ, вижте https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Възможност за вкл.\изкл. на фенерчето при сканиране
+- ⁺Поддръжка UPC-E
+- @@Снимка лице\гръб за в-ка карта
+- @@Внос на zip защитени с парола файлове
+- @@внасяне от Stocard (Бета)
+- Кор. ненужно пространство в бел.↬Fidme
+- ⁺Поддръжка↬експорт формат Voucher Vault (ново)
+- плаване при Android 4
+- горен марж

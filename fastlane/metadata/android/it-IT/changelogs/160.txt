@@ -1,0 +1,2 @@
+- Seguito alla correzione nella 2.41.2 per impostare esplicitamente le carte a ISO-8859-1
+- Migrate vecchie carte a ISO-8859-1 per correggere improvvise differenze di comportamento per le carte esistenti

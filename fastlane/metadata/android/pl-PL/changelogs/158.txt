@@ -1,0 +1,1 @@
+- Poprawiono kolor paska stanu i nawigacji w nowej aktywności „O programie”

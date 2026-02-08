@@ -1,0 +1,6 @@
+- Dodano obsługę kodów kreskowych UTF-8
+- Dodano opcję duplikowania do ekranu głównego i nieznacznie zmieniono kolejność opcji
+- Naprawiono błąd, który powodował, że ustawienie liczby kolumn nie było stosowane do listy kart grupowych
+- Usunięto obsługę kolorów motywów
+- Zmniejszono maksymalny rozmiar zdjęć, aby zmniejszyć zużycie pamięci (tylko w przypadku nowo dodanych zdjęć)
+- Przeniesiono aktywność „O aplikacji” z Android XML do Jetpack Compose

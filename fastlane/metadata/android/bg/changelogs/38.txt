@@ -1,0 +1,3 @@
+- Потупване по щрих-код вече го придвижва към най-горната част на екрана (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Добавено празно пространство около щрих кодовете с цел сканиране в тъмен режим (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Корекция на сменени бутони за внос. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

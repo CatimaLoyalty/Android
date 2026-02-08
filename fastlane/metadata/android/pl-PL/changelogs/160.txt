@@ -1,0 +1,2 @@
+- Kontynuacja naprawy w wersji 2.41.2 dla kart wyraźnie ustawionych na ISO-8859-1
+- Migracja starych kart do ISO-8859-1 w celu naprawienia nagłych różnic w zachowaniu istniejących kart

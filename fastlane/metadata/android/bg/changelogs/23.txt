@@ -1,0 +1,3 @@
+- ⁺Мек интервал в началото/края на щрих кодовете. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- ⁺Опции за конфигуриране на цветове, използвани да съхраняват име на шрифт и фон. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- ⁺Опции за контрол на размер на шрифт на карти (списък и индивидуален) екран. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

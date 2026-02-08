@@ -1,0 +1,4 @@
+- Яркост‐екрана бе +⁺;спомага за по-ясно заснемане на щрих кодове. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Одобрение при ⌫ на карта. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- ⁺Преводи↬ немски (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) и чешки (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
+- Подбор при италианския превод. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

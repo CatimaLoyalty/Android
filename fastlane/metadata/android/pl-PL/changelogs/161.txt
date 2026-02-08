@@ -1,0 +1,1 @@
+- Wyłącz na razie automatyczne wykrywanie kodowania kodów kreskowych (powoduje to uszkodzenie zbyt wielu kart)

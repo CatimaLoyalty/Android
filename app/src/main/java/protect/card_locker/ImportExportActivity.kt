@@ -107,7 +107,7 @@ class ImportExportActivity : CatimaComponentActivity() {
                     onDialogStateChange = { newState -> dialogState = newState },
                     onExportWithPassword = { password -> startExportFlow(password) },
                     onImportSelected = { option -> handleImportSelection(option) },
-                    onImportWithPassword = { dataFormat, password ->
+                    onImportWithPassword = { _, password ->
                         pendingImportUri?.let { uri ->
                             openFileForImport(uri, password.toCharArray())
                         }
@@ -205,7 +205,7 @@ class ImportExportActivity : CatimaComponentActivity() {
                     ImportExportResult(
                         ImportExportResultType.GenericFailure,
                         e.toString()
-                    ), uri, currentImportDataFormat
+                    ), currentImportDataFormat
                 )
             }
         }.start()
@@ -220,7 +220,7 @@ class ImportExportActivity : CatimaComponentActivity() {
     ) {
         mTasks.flushTaskList(TaskHandler.TYPE.IMPORT, true, false, false)
         val listener = ImportExportTask.TaskCompleteListener { result, format ->
-            onImportComplete(result, targetUri, format)
+            onImportComplete(result, format)
             if (closeWhenDone) {
                 try {
                     target?.close()
@@ -268,7 +268,7 @@ class ImportExportActivity : CatimaComponentActivity() {
         super.onDestroy()
     }
 
-    private fun onImportComplete(result: ImportExportResult, path: Uri, dataFormat: DataFormat?) {
+    private fun onImportComplete(result: ImportExportResult, dataFormat: DataFormat?) {
         val resultType = result.resultType()
 
         if (resultType == ImportExportResultType.BadPassword) {

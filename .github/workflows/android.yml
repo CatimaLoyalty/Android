@@ -55,12 +55,14 @@ jobs:
         with:
           api-level: 23
           arch: x86_64
+          disk-size: 1G
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
       - name: Run instrumented tests (API 35)
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 35
           arch: x86_64
+          disk-size: 1G
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
       - name: Archive test results
         if: always()

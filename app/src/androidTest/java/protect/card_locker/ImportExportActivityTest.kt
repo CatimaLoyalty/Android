@@ -1,5 +1,6 @@
 package protect.card_locker
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.ApplicationInfo
@@ -55,7 +56,7 @@ class ImportExportActivityTest {
         registerIntentHandler(Intent.ACTION_PICK)
         registerIntentHandler(Intent.ACTION_GET_CONTENT)
 
-        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val context = ApplicationProvider.getApplicationContext<Context>()
         val importOptions = listOf(
             ImportOption(
                 title = context.getString(R.string.importCatima),
@@ -102,7 +103,7 @@ class ImportExportActivityTest {
 
     @Test
     fun testImportTypeSelectionDialogDisplaysOptions() {
-        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val context = ApplicationProvider.getApplicationContext<Context>()
         val importOptions = listOf(
             ImportOption(
                 title = "Catima",
@@ -149,7 +150,7 @@ class ImportExportActivityTest {
 
     @Test
     fun testExportPasswordDialogDisplayed() {
-        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val context = ApplicationProvider.getApplicationContext<Context>()
         val importOptions = emptyList<ImportOption>()
 
         composeTestRule.setContent {

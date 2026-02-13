@@ -47,7 +47,8 @@
         <!-- Required for Compose UI testing with Robolectric -->
         <activity
             android:name="androidx.activity.ComponentActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:replace="android:exported" />
 
         <activity
             android:name=".MainActivity"

@@ -165,7 +165,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.test.uiautomator.uiautomator)
     androidTestImplementation(libs.androidx.test.espresso.espresso.core)
-    androidTestImplementation(libs.org.robolectric.robolectric)
 }
 
 tasks.register("copyRawResFiles", Copy::class) {

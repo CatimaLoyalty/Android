@@ -16,7 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import org.robolectric.Shadows.shadowOf
+import org.robolectric.Shadows
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.importexport.DataFormat
 
@@ -48,7 +48,7 @@ class ImportExportActivityTest {
             intent.type = "*/*"
         }
 
-        shadowOf(packageManager).addResolveInfoForIntent(intent, info)
+        Shadows.shadowOf(packageManager).addResolveInfoForIntent(intent, info)
     }
 
     @Test

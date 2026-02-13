@@ -1,0 +1,16 @@
+# <type>: <short summary>, refs #issue / fixes #issue
+#
+# Types:
+# feat     : new feature
+# fix      : bug fix
+# docs     : documentation
+# refactor : code restructuring
+# chore    : maintenance
+#
+# Body:
+# - What changed?
+# - Why was it changed?
+#
+# Footer:
+# - Breaking changes
+# - Related issues (e.g. Fixes #123)

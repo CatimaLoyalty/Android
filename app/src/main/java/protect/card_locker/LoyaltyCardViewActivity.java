@@ -583,6 +583,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void prevNextCard(boolean next) {
+        // If there are no other cards, don't bother switching
+        if (cardList == null || cardList.size() == 1) {
+            return;
+        }
+
         // If we're in RTL layout, we want the "left" button to be "next" instead of "previous"
         // So we swap next around
         boolean transitionRight = next;

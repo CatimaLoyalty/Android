@@ -72,6 +72,8 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
+import protect.card_locker.coverage.CoverageTool;
+
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
@@ -643,6 +645,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Window window = getWindow();
         if (window != null) {
+            CoverageTool.setFunc1Flag(0);
             // Hide the keyboard if still shown (could be the case when returning from edit activity
             window.setSoftInputMode(
                     WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
@@ -654,30 +657,51 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // '1' is the brightest. We attempt to maximize the brightness
             // to help barcode readers scan the barcode.
             if (settings.useMaxBrightnessDisplayingBarcode()) {
+                CoverageTool.setFunc1Flag(1);
                 attributes.screenBrightness = 1F;
+            }
+            else {
+                CoverageTool.setFunc1Flag(2);
             }
 
             if (settings.getKeepScreenOn()) {
+                CoverageTool.setFunc1Flag(3);
                 window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+            else {
+                CoverageTool.setFunc1Flag(4);
             }
 
             if (settings.getDisableLockscreenWhileViewingCard()) {
+                CoverageTool.setFunc1Flag(5);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                    CoverageTool.setFunc1Flag(6);
                     setShowWhenLocked(true);
                 } else {
+                    CoverageTool.setFunc1Flag(7);
                     showWhenLockedSdkLessThan27(window);
                 }
+            }
+            else {
+                CoverageTool.setFunc1Flag(8);
             }
 
             window.setAttributes(attributes);
         }
+        else {
+            CoverageTool.setFunc1Flag(9);
+        }
 
         loyaltyCard = DBHelper.getLoyaltyCard(this, database, loyaltyCardId);
         if (loyaltyCard == null) {
+            CoverageTool.setFunc1Flag(10);
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
             Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
             finish();
             return;
+        }
+        else {
+            CoverageTool.setFunc1Flag(11);
         }
 
         setTitle(loyaltyCard.store);
@@ -696,8 +720,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Display full text on click in case it doesn't fit in a single line
         binding.mainImageDescription.setOnClickListener(v -> {
             if (mainImageIndex != 0) {
+                CoverageTool.setFunc1Flag(12);
                 // Don't show cardId dialog, we're displaying something else
                 return;
+            }
+            else {
+                CoverageTool.setFunc1Flag(13);
             }
 
             TextView cardIdView = new TextView(LoyaltyCardViewActivity.this);
@@ -719,8 +747,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         });
         binding.mainImageDescription.setOnLongClickListener(view -> {
             if (mainImageIndex != 0) {
+                CoverageTool.setFunc1Flag(14);
                 // Don't copy to clipboard, we're showing something else
                 return false;
+            }
+            else {
+                CoverageTool.setFunc1Flag(15);
             }
 
             copyCardIdToClipboard();
@@ -744,6 +776,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.fabEdit.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = binding.fabEdit.getDrawable();
         editButtonIcon.mutate();
+        if (Utils.needsDarkForeground(complementaryColor)) { // For ternary operator below
+            CoverageTool.setFunc1Flag(16);
+        }
+        else {
+            CoverageTool.setFunc1Flag(17);
+        }
         editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
@@ -761,29 +799,44 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         boolean isBarcodeSupported;
         if (format != null && !format.isSupported()) {
+            CoverageTool.setFunc1Flag(18);
             isBarcodeSupported = false;
 
             Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
         } else if (format == null) {
+            CoverageTool.setFunc1Flag(19);
             isBarcodeSupported = false;
         } else {
+            CoverageTool.setFunc1Flag(20);
             isBarcodeSupported = true;
         }
 
         imageTypes = new ArrayList<>();
 
         if (isBarcodeSupported) {
+            CoverageTool.setFunc1Flag(21);
             imageTypes.add(ImageType.BARCODE);
+        }
+        else {
+            CoverageTool.setFunc1Flag(22);
         }
 
         frontImageBitmap = loyaltyCard.getImageFront(this);
         if (frontImageBitmap != null) {
+            CoverageTool.setFunc1Flag(23);
             imageTypes.add(ImageType.IMAGE_FRONT);
+        }
+        else {
+            CoverageTool.setFunc1Flag(24);
         }
 
         backImageBitmap = loyaltyCard.getImageBack(this);
         if (backImageBitmap != null) {
+            CoverageTool.setFunc1Flag(25);
             imageTypes.add(ImageType.IMAGE_BACK);
+        }
+        else {
+            CoverageTool.setFunc1Flag(26);
         }
 
         setStateBasedOnImageTypes();
@@ -795,6 +848,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         invalidateOptionsMenu();
 
         ShortcutHelper.updateShortcuts(this);
+        CoverageTool.setFunc1Flag(27); // Flag to signal that there are no more branches
     }
 
     private void setStateBasedOnImageTypes() {

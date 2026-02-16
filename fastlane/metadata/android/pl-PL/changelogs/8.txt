@@ -1,4 +1,4 @@
-- Zwiększono jasność ekranu do maksimum podczas wyświetlania karty, aby pomóc skanerom kodów kreskowych w prawidłowym przechwyceniu kodu kreskowego. (zmiana #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
-- Dodano potwierdzenie usunięcia podczas usuwania karty. (zmiana #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
-- Dodano tłumaczenia na język niemiecki (zmiana #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) i czeski (pobierz #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
-- Dokładniejsze wyjaśnienie dla tłumaczenia włoskiego. (zmiana #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))
+- Jasność ekranu została zwiększona do maksimum podczas wyświetlania karty, aby ułatwić skanerom kodów kreskowych prawidłowe odczytanie kodu kreskowego. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Dodano potwierdzenie usunięcia podczas usuwania karty. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Dodano tłumaczenia na język niemiecki (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) i czeski (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
+- Zmiana wyjaśnienia w tłumaczeniu na język włoski. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

@@ -1286,8 +1286,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_ICON;
                 } else {
                     CoverageTool.setFunc2Flag(17);
-                    throw new IllegalArgument
-                    Exception("Unknown ID type " + v.getId());
+                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
                 PermissionUtils.requestStorageReadPermission(LoyaltyCardEditActivity.this, permissionRequestType);
@@ -1349,12 +1348,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                         for (int i = 0; i < which; i++) {
                             callable = callables.next();
                         }
+                        CoverageTool.setFunc2Flag(28);
 
                         try {
-                            CoverageTool.setFunc2Flag(28);
+                            CoverageTool.setFunc2Flag(29);
                             callable.call();
                         } catch (Exception e) {
-                            CoverageTool.setFunc2Flag(29);
+                            CoverageTool.setFunc2Flag(30);
                             e.printStackTrace();
 
                             // Rethrow as NoSuchElementException
@@ -1363,7 +1363,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                         }
                     })
                     .show();
-            CoverageTool.setFunc2Flag(30);       
+            CoverageTool.setFunc2Flag(31);//the last one        
         }
     }
 

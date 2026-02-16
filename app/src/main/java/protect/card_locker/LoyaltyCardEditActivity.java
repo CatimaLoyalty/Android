@@ -92,7 +92,7 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
-import protect.card_locker.CoverageTool;
+import protect.card_locker.coverage.CoverageTool;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
     private static final String TAG = "Catima";

@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.org.jetbrains.kotlin.plugin.compose)
+    jacoco
 }
 
 kotlin {
@@ -15,6 +16,12 @@ android {
     namespace = "protect.card_locker"
     compileSdk = 36
 
+    tasks.withType<Test>().configureEach {
+        configure<JacocoTaskExtension> {
+            isIncludeNoLocationClasses = true
+            excludes = listOf("jdk.internal.*")
+        }
+    }
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 23
@@ -44,6 +51,7 @@ android {
         }
         debug {
             applicationIdSuffix = ".debug"
+            enableUnitTestCoverage = true
         }
     }
 
@@ -179,4 +187,35 @@ tasks.register("copyRawResFiles", Copy::class) {
             delete(layout.projectDirectory.file("src/main/res/raw/${fileName.lowercase()}.md"))
         }
     }
+}
+val jacocoTestReport by tasks.registering(JacocoReport::class) {
+    dependsOn("testFossDebugUnitTest") // Adjust based on your flavor/build type
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for the fossDebug build."
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val fileFilter = listOf(
+        "**/R.class", "**/R$*.class", "**/BuildConfig.*", "**/Manifest*.*",
+        "**/*Test*.*", "android/**/*.*", "**/androidx/**/*.*"
+    )
+
+    // Path to your compiled Java and Kotlin classes
+    val javaClasses = fileTree("${project.layout.buildDirectory.get()}/intermediates/javac/fossDebug/classes") {
+        exclude(fileFilter)
+    }
+    val kotlinClasses = fileTree("${project.layout.buildDirectory.get()}/tmp/kotlin-classes/fossDebug") {
+        exclude(fileFilter)
+    }
+
+    classDirectories.setFrom(files(javaClasses, kotlinClasses))
+    sourceDirectories.setFrom(files("${project.projectDir}/src/main/java", "${project.projectDir}/src/main/kotlin"))
+    
+    // Path to the .exec file generated during test execution
+    executionData.setFrom(fileTree(project.layout.buildDirectory) {
+        include("outputs/unit_test_code_coverage/fossDebugUnitTest/testFossDebugUnitTest.exec")
+    })
 }

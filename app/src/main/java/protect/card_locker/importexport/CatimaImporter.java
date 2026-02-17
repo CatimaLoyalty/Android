@@ -39,6 +39,8 @@ import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
 
+import protect.card_locker.coverage.CoverageTool; 
+
 /**
  * Class for importing a database from CSV (Comma Separate Values)
  * formatted data.
@@ -399,7 +401,10 @@ public class CatimaImporter implements Importer {
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
         if (store.isEmpty()) {
+            CoverageTool.setFunc3Flag(0);
             throw new FormatException("No store listed, but is required");
+        } else {
+            CoverageTool.setFunc3Flag(1);
         }
 
         String note = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
@@ -409,10 +414,14 @@ public class CatimaImporter implements Importer {
         try {
             validFromLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record);
         } catch (FormatException ignored) {
+            CoverageTool.setFunc3Flag(2);
             validFromLong = null;
         }
         if (validFromLong != null) {
+            CoverageTool.setFunc3Flag(3);
             validFrom = new Date(validFromLong);
+        } else {
+            CoverageTool.setFunc3Flag(4);
         }
 
         Date expiry = null;
@@ -420,10 +429,14 @@ public class CatimaImporter implements Importer {
         try {
             expiryLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record);
         } catch (FormatException ignored) {
+            CoverageTool.setFunc3Flag(5);
             expiryLong = null;
         }
         if (expiryLong != null) {
+            CoverageTool.setFunc3Flag(6);
             expiry = new Date(expiryLong);
+        } else {
+            CoverageTool.setFunc3Flag(7);
         }
 
         // These fields did not exist in versions 1.8.1 and before
@@ -431,32 +444,49 @@ public class CatimaImporter implements Importer {
         BigDecimal balance = new BigDecimal("0");
         String balanceString = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null);
         if (balanceString != null) {
+            CoverageTool.setFunc3Flag(8);
             try {
                 balance = new BigDecimal(CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null));
             } catch (NumberFormatException ignored) {
+                CoverageTool.setFunc3Flag(9);
+
             }
+        } else {
+            CoverageTool.setFunc3Flag(10);
         }
 
         Currency balanceType = null;
         String unparsedBalanceType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE, record, "");
         if (!unparsedBalanceType.isEmpty()) {
+            CoverageTool.setFunc3Flag(11);
             balanceType = Currency.getInstance(unparsedBalanceType);
+        } else {
+            CoverageTool.setFunc3Flag(12);
         }
 
         String cardId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.CARD_ID, record, "");
         if (cardId.isEmpty()) {
+            CoverageTool.setFunc3Flag(13);
             throw new FormatException("No card ID listed, but is required");
+        } else {
+            CoverageTool.setFunc3Flag(14);
         }
 
         String barcodeId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ID, record, "");
         if (barcodeId.isEmpty()) {
+            CoverageTool.setFunc3Flag(15);
             barcodeId = null;
+        } else {
+            CoverageTool.setFunc3Flag(16);
         }
 
         CatimaBarcode barcodeType = null;
         String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
         if (!unparsedBarcodeType.isEmpty()) {
+            CoverageTool.setFunc3Flag(17);
             barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
+        } else {
+            CoverageTool.setFunc3Flag(18);
         }
 
         // Barcode encoding information is only supported since Catima 2.41.0, so old exports will lack this field
@@ -465,40 +495,59 @@ public class CatimaImporter implements Importer {
         Charset barcodeEncoding = StandardCharsets.ISO_8859_1;
         String unparsedBarcodeEncoding = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ENCODING, record, "");
         if (!unparsedBarcodeEncoding.isEmpty()) {
+            CoverageTool.setFunc3Flag(19);
             barcodeEncoding = Charset.forName(unparsedBarcodeEncoding);
+        } else {
+            CoverageTool.setFunc3Flag(20);
         }
 
         Integer headerColor = null;
         try {
             headerColor = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record);
         } catch (FormatException ignored) {
+            CoverageTool.setFunc3Flag(21);
         }
 
         int starStatus = 0;
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record);
         } catch (FormatException _e) {
+            CoverageTool.setFunc3Flag(22);
             // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
         }
-        if (starStatus != 1) starStatus = 0;
+        if (starStatus != 1) {
+            CoverageTool.setFunc3Flag(23);
+            starStatus = 0;
+        } else {
+            CoverageTool.setFunc3Flag(24);
+        }
 
         int archiveStatus = 0;
         try {
             archiveStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS, record);
         } catch (FormatException _e) {
+            CoverageTool.setFunc3Flag(25);
             // This field did not exist in versions 2.16.3 and before
             // We catch this exception so we can still import old backups
         }
-        if (archiveStatus != 1) archiveStatus = 0;
+        if (archiveStatus != 1) {
+            CoverageTool.setFunc3Flag(26);
+            archiveStatus = 0;
+        } else {
+            CoverageTool.setFunc3Flag(27);
+        }
 
         Long lastUsed = 0L;
         try {
             lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record);
         } catch (FormatException _e) {
+            CoverageTool.setFunc3Flag(28);
             // This field did not exist in versions 2.5.0 and before
             // We catch this exception so we can still import old backups
         }
+
+        CoverageTool.setFunc3Flag(29);      // Flag to signal that there are no more branches
 
         return new LoyaltyCard(
                 id,

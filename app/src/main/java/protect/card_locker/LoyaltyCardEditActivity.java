@@ -1347,8 +1347,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
                         for (int i = 0; i < which; i++) {
                             callable = callables.next();
-                        }
-                        CoverageTool.setFunc2Flag(28);
+                            if(i==0)
+                                CoverageTool.setFunc2Flag(28);
+                        }                      
 
                         try {
                             CoverageTool.setFunc2Flag(29);

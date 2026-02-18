@@ -92,6 +92,7 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
+import protect.card_locker.coverage.CoverageTool;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
     private static final String TAG = "Catima";
@@ -1198,53 +1199,71 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             ImageView targetView;
 
             if (v.getId() == R.id.frontImageHolder) {
+                CoverageTool.setFunc2Flag(0);
                 currentImage = viewModel.getLoyaltyCard().getImageFront(LoyaltyCardEditActivity.this);
                 imageLocationType = ImageLocationType.front;
                 targetView = cardImageFront;
             } else if (v.getId() == R.id.backImageHolder) {
+                CoverageTool.setFunc2Flag(1);
                 currentImage = viewModel.getLoyaltyCard().getImageBack(LoyaltyCardEditActivity.this);
                 imageLocationType = ImageLocationType.back;
                 targetView = cardImageBack;
             } else if (v.getId() == R.id.thumbnail) {
+                CoverageTool.setFunc2Flag(2);
                 currentImage = viewModel.getLoyaltyCard().getImageThumbnail(LoyaltyCardEditActivity.this);
                 imageLocationType = ImageLocationType.icon;
                 targetView = thumbnail;
             } else {
+                CoverageTool.setFunc2Flag(3);
                 throw new IllegalArgumentException("Invalid IMAGE ID " + v.getId());
             }
 
             LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
             if (currentImage != null && v.getId() != R.id.thumbnail) {
+                CoverageTool.setFunc2Flag(4);
                 cardOptions.put(getString(R.string.removeImage), () -> {
                     setCardImage(imageLocationType, targetView, null, true);
                     return null;
                 });
             }
+            else
+                CoverageTool.setFunc2Flag(5);
+            
 
             if (v.getId() == R.id.thumbnail) {
+                CoverageTool.setFunc2Flag(6);
                 cardOptions.put(getString(R.string.selectColor), () -> {
                     ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
 
                     if (viewModel.getLoyaltyCard().headerColor != null) {
+                        CoverageTool.setFunc2Flag(7);
                         dialogBuilder.setColor(viewModel.getLoyaltyCard().headerColor);
                     }
+                    else
+                        CoverageTool.setFunc2Flag(8);
 
                     ColorPickerDialog dialog = dialogBuilder.create();
                     dialog.show(getSupportFragmentManager(), "color-picker-dialog");
                     return null;
                 });
             }
+            else
+                CoverageTool.setFunc2Flag(9);
 
             cardOptions.put(getString(R.string.takePhoto), () -> {
                 int permissionRequestType;
 
                 if (v.getId() == R.id.frontImageHolder) {
+                    CoverageTool.setFunc2Flag(10);
                     permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
                 } else if (v.getId() == R.id.backImageHolder) {
+                    CoverageTool.setFunc2Flag(11);
                     permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
                 } else if (v.getId() == R.id.thumbnail) {
+                    CoverageTool.setFunc2Flag(12);
                     permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
                 } else {
+                    CoverageTool.setFunc2Flag(13);
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
@@ -1257,12 +1276,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 int permissionRequestType;
 
                 if (v.getId() == R.id.frontImageHolder) {
+                    CoverageTool.setFunc2Flag(14);
                     permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_FRONT;
                 } else if (v.getId() == R.id.backImageHolder) {
+                    CoverageTool.setFunc2Flag(15);
                     permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_BACK;
                 } else if (v.getId() == R.id.thumbnail) {
+                    CoverageTool.setFunc2Flag(16);
                     permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_ICON;
                 } else {
+                    CoverageTool.setFunc2Flag(17);
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
@@ -1272,34 +1295,47 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             });
 
             if (v.getId() == R.id.thumbnail) {
+                CoverageTool.setFunc2Flag(18);
                 Bitmap imageFront = viewModel.getLoyaltyCard().getImageFront(LoyaltyCardEditActivity.this);
                 if (imageFront != null) {
+                    CoverageTool.setFunc2Flag(19);
                     cardOptions.put(getString(R.string.useFrontImage), () -> {
                         setThumbnailImage(Utils.resizeBitmap(imageFront, Utils.BITMAP_SIZE_SMALL));
 
                         return null;
                     });
                 }
+                else
+                    CoverageTool.setFunc2Flag(20);
 
                 Bitmap imageBack = viewModel.getLoyaltyCard().getImageBack(LoyaltyCardEditActivity.this);
                 if (imageBack != null) {
+                    CoverageTool.setFunc2Flag(21);
                     cardOptions.put(getString(R.string.useBackImage), () -> {
                         setThumbnailImage(Utils.resizeBitmap(imageBack, Utils.BITMAP_SIZE_SMALL));
 
                         return null;
                     });
                 }
+                else
+                    CoverageTool.setFunc2Flag(22);
             }
+            else
+                CoverageTool.setFunc2Flag(23);
 
             int titleResource;
 
             if (v.getId() == R.id.frontImageHolder) {
+                CoverageTool.setFunc2Flag(24);
                 titleResource = R.string.setFrontImage;
             } else if (v.getId() == R.id.backImageHolder) {
+                CoverageTool.setFunc2Flag(25);
                 titleResource = R.string.setBackImage;
             } else if (v.getId() == R.id.thumbnail) {
+                CoverageTool.setFunc2Flag(26);
                 titleResource = R.string.setIcon;
             } else {
+                CoverageTool.setFunc2Flag(27);
                 throw new IllegalArgumentException("Unknown ID type " + v.getId());
             }
 
@@ -1311,11 +1347,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
                         for (int i = 0; i < which; i++) {
                             callable = callables.next();
-                        }
+                            if(i==0)
+                                CoverageTool.setFunc2Flag(28);
+                        }                      
 
                         try {
+                            CoverageTool.setFunc2Flag(29);
                             callable.call();
                         } catch (Exception e) {
+                            CoverageTool.setFunc2Flag(30);
                             e.printStackTrace();
 
                             // Rethrow as NoSuchElementException
@@ -1324,6 +1364,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                         }
                     })
                     .show();
+            CoverageTool.setFunc2Flag(31);//the last one        
         }
     }
 

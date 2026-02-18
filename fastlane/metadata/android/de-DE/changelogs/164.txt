@@ -1,1 +1,3 @@
 Android 5.0 und 5.1 wird ab dieser Ausgabe nicht mehr unterstützt. Wer weiterhin Catima mit diesen Versionen nutzen möchte, greift bitte zu Catima v2.41.6.
+
+- Fehler korrigiert, der beim Wechsel der Karten mit den Lautstärketasten zum Absturz führt, wenn nur eine Karte vorhanden ist

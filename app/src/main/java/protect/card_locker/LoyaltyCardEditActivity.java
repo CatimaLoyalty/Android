@@ -788,9 +788,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         onResuming = true;
 
+        // Branches 0, 1
         if (viewModel.getUpdateLoyaltyCard()) {
+            CoverageTool.setFunc5Flag(0);
             setTitle(R.string.editCardTitle);
         } else {
+            CoverageTool.setFunc5Flag(1);
             setTitle(R.string.addCardTitle);
         }
 
@@ -802,75 +805,140 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         formatDateField(this, expiryField, viewModel.getLoyaltyCard().expiry);
         cardIdFieldView.setText(viewModel.getLoyaltyCard().cardId);
         String barcodeId = viewModel.getLoyaltyCard().barcodeId;
+
+        // Ternary operation branch check
+        // Branches 2, 3
+        boolean barcodeNotEmpty = barcodeId != null && !barcodeId.isEmpty(); // barcodeId != null to avoid NullPointerException
         barcodeIdField.setText(barcodeId != null && !barcodeId.isEmpty() ? barcodeId : getString(R.string.sameAsCardId));
+        if (barcodeNotEmpty) {
+            CoverageTool.setFunc5Flag(2);
+        }
+        else CoverageTool.setFunc5Flag(3);
+
         CatimaBarcode barcodeType = viewModel.getLoyaltyCard().barcodeType;
+
+        // Ternary operation branch check
+        // Branches 4, 5
+        boolean barcodeTypeNotNull = barcodeType != null;
         barcodeTypeField.setText(barcodeType != null ? barcodeType.prettyName() : getString(R.string.noBarcode));
+        if (barcodeTypeNotNull) {
+            CoverageTool.setFunc5Flag(4);
+        }
+        else CoverageTool.setFunc5Flag(5);
+
         Charset barcodeEncoding = viewModel.getLoyaltyCard().barcodeEncoding;
         barcodeEncodingField.setText(barcodeEncoding.name());
 
         // We set the balance here (with onResuming/onRestoring == true) to prevent formatBalanceCurrencyField() from setting it (via onTextChanged),
         // which can cause issues when switching locale because it parses the balance and e.g. the decimal separator may have changed.
         formatBalanceCurrencyField(viewModel.getLoyaltyCard().balanceType);
+
+        // Ternary operation branch check
+        // Branches 6, 7
+        boolean balanceNotNull = viewModel.getLoyaltyCard().balance == null;
         BigDecimal balance = viewModel.getLoyaltyCard().balance == null ? new BigDecimal("0") : viewModel.getLoyaltyCard().balance;
+        if (balanceNotNull) {
+            CoverageTool.setFunc5Flag(6);
+        }
+        else CoverageTool.setFunc5Flag(7);
+
         setLoyaltyCardBalance(balance);
         balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
         validBalance = true;
         Log.d(TAG, "Setting balance to " + balance);
 
+        // Branches 8, 19
         if (groupsChips.getChildCount() == 0) {
+            CoverageTool.setFunc5Flag(8);
             List<Group> existingGroups = DBHelper.getGroups(mDatabase);
 
             List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, viewModel.getLoyaltyCardId());
 
+            // Branches 9, 10
             if (existingGroups.isEmpty()) {
+                CoverageTool.setFunc5Flag(9);
                 groupsChips.setVisibility(View.GONE);
             } else {
+                CoverageTool.setFunc5Flag(10);
                 groupsChips.setVisibility(View.VISIBLE);
             }
 
-            for (Group group : DBHelper.getGroups(mDatabase)) {
-                LayoutChipChoiceBinding chipChoiceBinding = LayoutChipChoiceBinding
-                        .inflate(LayoutInflater.from(groupsChips.getContext()), groupsChips, false);
-                Chip chip = chipChoiceBinding.getRoot();
-                chip.setText(group._id);
-                chip.setTag(group);
+            // Encapsulate for-loop to check its loop condition
+            // Branches 11, 18
+            if (!DBHelper.getGroups(mDatabase).isEmpty()) {
+                CoverageTool.setFunc5Flag(11);
+                for (Group group : DBHelper.getGroups(mDatabase)) {
+                    LayoutChipChoiceBinding chipChoiceBinding = LayoutChipChoiceBinding
+                            .inflate(LayoutInflater.from(groupsChips.getContext()), groupsChips, false);
+                    Chip chip = chipChoiceBinding.getRoot();
+                    chip.setText(group._id);
+                    chip.setTag(group);
 
-                if (group._id.equals(viewModel.getAddGroup())) {
-                    chip.setChecked(true);
-                } else {
-                    chip.setChecked(false);
-                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                        if (loyaltyCardGroup._id.equals(group._id)) {
-                            chip.setChecked(true);
-                            break;
+                    // Branches 12, 13
+                    if (group._id.equals(viewModel.getAddGroup())) {
+                        CoverageTool.setFunc5Flag(12);
+                        chip.setChecked(true);
+                    } else {
+                        CoverageTool.setFunc5Flag(13);
+                        chip.setChecked(false);
+
+                        // Branches 14, 17
+                        if (!loyaltyCardGroups.isEmpty()) {
+                            CoverageTool.setFunc5Flag(14);
+                            for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                                // Branches 15, 16
+                                if (loyaltyCardGroup._id.equals(group._id)) {
+                                    CoverageTool.setFunc5Flag(15);
+                                    chip.setChecked(true);
+                                    break;
+                                }
+                                else CoverageTool.setFunc5Flag(16);
+                            }
                         }
+                        else CoverageTool.setFunc5Flag(17);
                     }
+
+                    chip.setOnTouchListener((v, event) -> {
+                        viewModel.setHasChanged(true);
+
+                        return false;
+                    });
+
+                    groupsChips.addView(chip);
                 }
-
-                chip.setOnTouchListener((v, event) -> {
-                    viewModel.setHasChanged(true);
-
-                    return false;
-                });
-
-                groupsChips.addView(chip);
             }
+            else CoverageTool.setFunc5Flag(18);
         }
+        else CoverageTool.setFunc5Flag(19);
 
+        // Branches 20, 23
         if (viewModel.getLoyaltyCard().headerColor == null) {
+            CoverageTool.setFunc5Flag(20);
+
+            // Ternary operation branch check
+            // Branches 21, 22
+            boolean storeIsEmpty = viewModel.getLoyaltyCard().store.isEmpty();
             // If name is set, pick colour relevant for name. Otherwise pick randomly
             setLoyaltyCardHeaderColor(viewModel.getLoyaltyCard().store.isEmpty() ? Utils.getRandomHeaderColor(this) : Utils.getHeaderColor(this, viewModel.getLoyaltyCard()));
+            if (storeIsEmpty) {
+                CoverageTool.setFunc5Flag(21);
+            }
+            else CoverageTool.setFunc5Flag(22);
         }
+        else CoverageTool.setFunc5Flag(23);
 
         setThumbnailImage(viewModel.getLoyaltyCard().getImageThumbnail(this));
         setCardImage(ImageLocationType.front, cardImageFront, viewModel.getLoyaltyCard().getImageFront(this), true);
         setCardImage(ImageLocationType.back, cardImageBack, viewModel.getLoyaltyCard().getImageBack(this), true);
 
+        // Branches 24, 25
         // Initialization has finished
         if (!initDone) {
+            CoverageTool.setFunc5Flag(24);
             initDone = true;
             viewModel.setHasChanged(hadChanges);
         }
+        else CoverageTool.setFunc5Flag(25);
 
         generateBarcode();
 
@@ -887,21 +955,47 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         generateIcon(storeFieldEdit.getText().toString().trim());
 
         Integer headerColor = viewModel.getLoyaltyCard().headerColor;
+
+        // Branches 26, 31
         if (headerColor != null) {
+            CoverageTool.setFunc5Flag(26);
             thumbnail.setOnClickListener(new ChooseCardImage());
+
+            // Ternary operation branch check
+            // Branches 27, 28
+            boolean needsDarkForeground = Utils.needsDarkForeground(headerColor);
             thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            if (needsDarkForeground) {
+                CoverageTool.setFunc5Flag(27);
+            }
+            else CoverageTool.setFunc5Flag(28);
+
+            // Ternary operation branch check
+            // Branches 31, 32
+            boolean needsDarkForeground2 = Utils.needsDarkForeground(headerColor);
             thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            if (needsDarkForeground2) {
+                CoverageTool.setFunc5Flag(29);
+            }
+            else CoverageTool.setFunc5Flag(30);
         }
+        else CoverageTool.setFunc5Flag(31);
 
         onResuming = false;
         onRestoring = false;
 
+        // Branches 32, 33
         // Fake click on the edit icon to cause the set icon option to pop up if the icon was
         // long-pressed in the view activity
         if (viewModel.getOpenSetIconMenu()) {
+            CoverageTool.setFunc5Flag(32);
             viewModel.setOpenSetIconMenu(false);
             thumbnail.callOnClick();
         }
+        else CoverageTool.setFunc5Flag(33);
+
+        // Indicate method end
+        CoverageTool.setFunc5Flag(34);
     }
 
     protected void setThumbnailImage(@Nullable Bitmap bitmap) {

@@ -37,7 +37,7 @@ com-github-yalantis-ucrop = { group = "com.github.yalantis", name = "ucrop", ver
 com-google-zxing-core = { group = "com.google.zxing", name = "core", version = "3.5.4" }
 org-apache-commons-commons_csv = { group = "org.apache.commons", name = "commons-csv", version = "1.9.0" }
 com-jaredrummler-colorpicker = { group = "com.jaredrummler", name = "colorpicker", version = "1.1.0" }
-net-lingala-zip4j-zip4j = { group = "net.lingala.zip4j", name = "zip4j", version = "2.11.5" }
+net-lingala-zip4j-zip4j = { group = "net.lingala.zip4j", name = "zip4j", version = "2.11.6" }
 ch-acra-acra-mail = { group = "ch.acra", name = "acra-mail", version.ref = "acra" }
 ch-acra-acra-dialog = { group = "ch.acra", name = "acra-dialog", version.ref = "acra" }
 

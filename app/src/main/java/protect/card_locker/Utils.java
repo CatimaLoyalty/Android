@@ -798,13 +798,13 @@ public class Utils {
     static public Locale stringToLocale(String localeString) {
         String[] localeParts = localeString.split("-");
         if (localeParts.length == 1) {
-            return new Locale(localeParts[0]);
+            return new Locale.Builder().setLanguage(localeParts[0]).build();
         }
 
         if (localeParts[1].startsWith("r")) {
             localeParts[1] = localeParts[1].substring(1);
         }
-        return new Locale(localeParts[0], localeParts[1]);
+        return new Locale.Builder().setLanguage(localeParts[0]).setRegion(localeParts[1]).build();
     }
 
     static public Context updateBaseContextLocale(Context context) {

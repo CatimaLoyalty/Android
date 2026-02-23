@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="translate_platform">trên Weblate</string>
-    <string name="failedOpeningFileManager">Cài đặt trình quản lý tập tin trước đã.</string>
+    <string name="failedOpeningFileManager">Không thể mở trình quản lý tập tin</string>
     <string name="intent_import_card_from_url_share_multiple_text">Tôi muốn chia sẻ vài cái thẻ với bạn</string>
     <string name="card_id_must_not_be_empty">ID thẻ không thể bỏ trống</string>
     <string name="duplicateCard">Tạo bản sao</string>
@@ -140,7 +140,7 @@
     <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
     <string name="selectColor">Chọn màu</string>
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
-    <string name="privacy_policy">Chính Sách Quyền Riêng Tư</string>
+    <string name="privacy_policy">Chính sách quyền riêng tư</string>
     <string name="enter_group_name">Nhập tên nhóm</string>
     <string name="addCardTitle">Thêm Thẻ</string>
     <string name="exportFailed">Không thể xuất dữ liệu</string>
@@ -204,7 +204,7 @@
     <string name="importSuccessful">Nhập dữ liệu xong</string>
     <string name="app_libraries">Thư viện mở từ bên thứ 3: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Bạn đã chi tiêu hoặc nhận được bao nhiêu?</string>
-    <string name="editCardTitle">Sửa Thẻ</string>
+    <string name="editCardTitle">Sửa thẻ</string>
     <string name="archive">Lưu trữ</string>
     <string name="app_resources">Tài nguyên mở từ bên thứ 3: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="shortcutSelectCard">Chọn một thẻ</string>

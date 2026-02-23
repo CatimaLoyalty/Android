@@ -30,10 +30,10 @@
     <string name="failedParsingImportUriError">لا يمكن تحليل عنوان URL المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
     <string name="importExportHelp">تتيح لك عملية النسخ الاحتياطي لبياناتك نقلها إلى جهاز آخر</string>
-    <string name="importFailed">تعذر إجراء الاستيراد</string>
-    <string name="exportSuccessfulTitle">مصدّر</string>
+    <string name="importFailed">تعذّر إجراء عملية الاستيراد</string>
+    <string name="exportSuccessfulTitle">تمّ التصدير</string>
     <string name="exportFailedTitle">فشل التصدير</string>
-    <string name="exportFailed">تعذر التصدير</string>
+    <string name="exportFailed">تعذّر إجراء عملية التصدير</string>
     <string name="exportOptionExplanation">ستكون البيانات مكتوبة في المسار الذي تختاره</string>
     <string name="importOptionFilesystemButton">من نظام الملفات</string>
     <string name="about">حول</string>
@@ -132,7 +132,7 @@
         <item quantity="many"><xliff:g>%d</xliff:g> محدد</item>
         <item quantity="other"><xliff:g>%d</xliff:g> محدد</item>
     </plurals>
-    <string name="importing">جار الاستيراد…</string>
+    <string name="importing">جارٍ الاستيراد…</string>
     <string name="exportName">تصدير</string>
     <string name="exporting">جار التصدير…</string>
     <string name="importSuccessfulTitle">تمّ الاستيراد</string>

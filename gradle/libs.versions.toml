@@ -53,7 +53,6 @@ org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric",
 
 [plugins]
 com-android-application = { id = "com.android.application", version = "9.0.1" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.3.10" }
 org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version = "2.3.10" }
 
 [bundles]

@@ -29,13 +29,13 @@
     <string name="exportFailedTitle">Kunne ikke eksportere</string>
     <string name="exportFailed">Kunne ikke utføre eksport</string>
     <string name="importing">Importerer…</string>
-    <string name="exporting">Exporterer…</string>
+    <string name="exporting">Eksporterer…</string>
     <string name="exportOptionExplanation">Data skrives dit du ønsker det.</string>
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
-    <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
+    <string name="importOptionFilesystemExplanation">Velg en bestemt fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
     <string name="about">Om</string>
-    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+</string>
+    <string name="app_license">Opphavsrettslig fri programvare, lisensiert GPLv3+</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
@@ -48,7 +48,7 @@
     <string name="settings_dark_theme">Mørk</string>
     <string name="settings_light_theme">Lys</string>
     <string name="settings_system_theme">System</string>
-    <string name="settings_theme">Drakt</string>
+    <string name="settings_theme">Tema</string>
     <string name="app_copyright_old">Basert på Kundekortknippe
 \nopphavsrett 2016–2020 Branden Archer</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
@@ -132,10 +132,10 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valgt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valgt</item>
     </plurals>
-    <string name="deleteConfirmation">Slett dette kortet for godt?</string>
+    <string name="deleteConfirmation">Slette dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Slett dette <xliff:g>%d</xliff:g> kortet for godt\?</item>
-        <item quantity="other">Slett disse <xliff:g>%d</xliff:g> kortene for godt\?</item>
+        <item quantity="one">Slette dette <xliff:g>%d</xliff:g> kortet for godt?</item>
+        <item quantity="other">Slette disse <xliff:g>%d</xliff:g> kortene for godt?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>

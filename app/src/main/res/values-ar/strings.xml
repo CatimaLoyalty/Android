@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
-    <string name="action_add">أضف</string>
-    <string name="noGiftCards">اضغط على زر الإضافة + لإضافة بطاقة، أو استورد من خلال⋮ القائمة</string>
-    <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
+    <string name="action_add">إضافة</string>
+    <string name="noGiftCards">اضغط على زر + لإضافة بطاقة، أو استورد من خلال قائمة ⋮</string>
+    <string name="noMatchingGiftCards">لا توجد نتائج. حاول تغيير بحثك.</string>
     <string name="storeName">اسم</string>
-    <string name="note">مذكرة</string>
+    <string name="note">ملاحظة</string>
     <string name="cardId">معرّف البطاقة</string>
     <string name="barcodeType">نوع الباركود</string>
     <string name="noBarcode">لا يوجد باركود</string>
-    <string name="star">أضف الى المفضلة</string>
-    <string name="unstar">حذف من المفضلة</string>
+    <string name="star">إضافة إلى المفضّلة</string>
+    <string name="unstar">حذف من المفضّلة</string>
     <string name="cancel">إلغاء</string>
     <string name="save">حفظ</string>
     <string name="edit">تعديل</string>
-    <string name="delete">إحذف</string>
+    <string name="delete">حذف</string>
     <string name="confirm">تأكيد</string>
-    <string name="deleteConfirmation">إحذف هذه البطاقة نهائيا؟</string>
-    <string name="ok">حسنا</string>
-    <string name="share">شارك</string>
-    <string name="sendLabel">ارسل…</string>
-    <string name="editCardTitle">عدل البطاقة</string>
-    <string name="addCardTitle">اضف بطاقة</string>
-    <string name="scanCardBarcode">مسح باركود</string>
+    <string name="deleteConfirmation">حذف هذه البطاقة نهائيًا؟</string>
+    <string name="ok">حسنًا</string>
+    <string name="share">مشاركة</string>
+    <string name="sendLabel">إرسال…</string>
+    <string name="editCardTitle">تعديل البطاقة</string>
+    <string name="addCardTitle">إضافة بطاقة</string>
+    <string name="scanCardBarcode">مسح الباركود</string>
     <string name="cardShortcut">اختصار البطاقة</string>
-    <string name="noCardsMessage">أضف بطاقة أولا</string>
+    <string name="noCardsMessage">أضف بطاقة أولًا</string>
     <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> الباركود</string>
-    <string name="noCardExistsError">لم يعثر على هذه البطاقة</string>
-    <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
+    <string name="noCardExistsError">لم يتمّ العثور على تلك البطاقة</string>
+    <string name="failedParsingImportUriError">لا يمكن تحليل عنوان URL المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
-    <string name="importExportHelp">إنشاء نسخة احتياطية من بياناتك تمكنك من نقلها إلى جهاز آخر</string>
-    <string name="importFailed">تعذر إجراء الاستيراد</string>
-    <string name="exportSuccessfulTitle">مصدّر</string>
+    <string name="importExportHelp">تتيح لك عملية النسخ الاحتياطي لبياناتك نقلها إلى جهاز آخر</string>
+    <string name="importFailed">تعذّر إجراء عملية الاستيراد</string>
+    <string name="exportSuccessfulTitle">تمّ التصدير</string>
     <string name="exportFailedTitle">فشل التصدير</string>
-    <string name="exportFailed">تعذر التصدير</string>
+    <string name="exportFailed">تعذّر إجراء عملية التصدير</string>
     <string name="exportOptionExplanation">ستكون البيانات مكتوبة في المسار الذي تختاره</string>
     <string name="importOptionFilesystemButton">من نظام الملفات</string>
     <string name="about">حول</string>
@@ -123,7 +123,7 @@
     <string name="unarchived">البطاقة غير مؤرشفة</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
     <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة</string>
-    <string name="deleteTitle">إحذف بطاقة</string>
+    <string name="deleteTitle">حذف البطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
         <item quantity="one"><xliff:g>%d</xliff:g> محددة</item>
@@ -132,11 +132,11 @@
         <item quantity="many"><xliff:g>%d</xliff:g> محدد</item>
         <item quantity="other"><xliff:g>%d</xliff:g> محدد</item>
     </plurals>
-    <string name="importing">جار الاستيراد…</string>
+    <string name="importing">جارٍ الاستيراد…</string>
     <string name="exportName">تصدير</string>
     <string name="exporting">جار التصدير…</string>
-    <string name="importSuccessfulTitle">مستورد</string>
-    <string name="importFailedTitle">فشل بالاستيراد</string>
+    <string name="importSuccessfulTitle">تمّ الاستيراد</string>
+    <string name="importFailedTitle">فشل الاستيراد</string>
     <string name="sort_by_most_recently_used">الأكثر أستعمالا مؤخرا</string>
     <string name="license">رخصة</string>
     <string name="sort_by_name">اسم</string>
@@ -150,20 +150,20 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> بطاقات ( <xliff:g id="archivedCount">%2$d</xliff:g> مؤرشفة)</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="zero">إحذف <xliff:g>%d</xliff:g> بطاقة</item>
-        <item quantity="one">إحذف <xliff:g>%d</xliff:g> بطاقة</item>
-        <item quantity="two">إحذف <xliff:g>%d</xliff:g> بطاقتين</item>
-        <item quantity="few">إحذف <xliff:g>%d</xliff:g> بطائق</item>
-        <item quantity="many">إحذف <xliff:g>%d</xliff:g> بطاقة</item>
-        <item quantity="other">إحذف <xliff:g>%d</xliff:g> بطاقة</item>
+        <item quantity="zero">حذف <xliff:g>%d</xliff:g> بطاقة</item>
+        <item quantity="one">حذف <xliff:g>%d</xliff:g> بطاقة</item>
+        <item quantity="two">حذف <xliff:g>%d</xliff:g> بطاقتَين</item>
+        <item quantity="few">حذف <xliff:g>%d</xliff:g> من البطاقات</item>
+        <item quantity="many">حذف <xliff:g>%d</xliff:g> من البطاقات</item>
+        <item quantity="other">حذف <xliff:g>%d</xliff:g> من البطاقات</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="zero">إحذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيا؟</item>
-        <item quantity="one">إحذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيا؟</item>
-        <item quantity="two">إحذف هذه <xliff:g>%d</xliff:g> البطاقتين نهائيا؟</item>
-        <item quantity="few">إحذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيا؟</item>
-        <item quantity="many">إحذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيا؟</item>
-        <item quantity="other">إحذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيا؟</item>
+        <item quantity="zero">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
+        <item quantity="one">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
+        <item quantity="two">حذف هذه <xliff:g>%d</xliff:g> البطاقتين نهائيًا؟</item>
+        <item quantity="few">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
+        <item quantity="many">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
+        <item quantity="other">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
     </plurals>
     <string name="importOptionFilesystemTitle">الاستيراد من نظام الملفات</string>
     <string name="importOptionFilesystemExplanation">اختر ملفًا محددًا من نظام الملفات</string>

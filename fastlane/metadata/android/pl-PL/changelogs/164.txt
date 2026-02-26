@@ -1,1 +1,3 @@
 Od tej wersji nie są już obsługiwane systemy Android 5.0 i 5.1. Jeśli chcesz korzystać z Catima na tych wersjach, użyj wersji 2.41.6.
+
+- Naprawiono awarię podczas przełączania kart za pomocą przycisków głośności, jeśli dostępna jest tylko jedna karta

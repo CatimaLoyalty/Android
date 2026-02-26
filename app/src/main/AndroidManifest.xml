@@ -44,6 +44,12 @@
                 android:resource="@xml/list_widget_info" />
          </receiver>
 
+        <!-- Required for Compose UI testing with Robolectric -->
+        <activity
+            android:name="androidx.activity.ComponentActivity"
+            android:exported="false"
+            tools:replace="android:exported" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -90,7 +90,7 @@ class ShortcutHelper {
         intent.setAction(Intent.ACTION_MAIN);
         // Prevent instances of the view activity from piling up; if one exists let this
         // one replace it.
-        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         final Bundle bundle = new Bundle();
         bundle.putInt(LoyaltyCardViewActivity.BUNDLE_ID, loyaltyCard.id);
         intent.putExtras(bundle);

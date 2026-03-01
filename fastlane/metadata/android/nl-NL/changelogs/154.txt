@@ -1,0 +1,1 @@
+- Mogelijk probleem verholpen dat kan optreden bij kaarten waarvan de kleurinformatie in de database ontbreekt

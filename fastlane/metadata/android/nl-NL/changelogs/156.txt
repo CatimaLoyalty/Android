@@ -1,0 +1,2 @@
+- Kopieer de kaart-ID naar het klembord vanuit het weergavedialoogvenster of door lang ingedrukt te houden.
+- Wissel de velden voor saldo en valuta om om onbedoelde afronding te verminderen.

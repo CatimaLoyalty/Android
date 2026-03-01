@@ -1,0 +1,1 @@
+- De kleur van de statusbalk en de navigatiebalk in de nieuwe 'Over'-activiteit gecorrigeerd

@@ -1,0 +1,2 @@
+- Vervolgactie voor de oplossing in 2.41.2 voor kaarten die expliciet zijn ingesteld op ISO-8859-1 uitgevoerd
+- Oude kaarten gemigreerd naar ISO-8859-1 om plotselinge gedragsverschillen voor bestaande kaarten te verhelpen

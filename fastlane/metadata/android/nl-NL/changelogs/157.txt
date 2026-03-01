@@ -1,0 +1,6 @@
+- Ondersteuning voor UTF-8 barcodes toegevoegd
+- Duplicatieoptie toegevoegd aan het hoofdscherm en de volgorde van de opties iets aangepast
+- Probleem opgelost waarbij de instelling voor het aantal kolommen niet werd toegepast op de groepskaartlijst
+- Ondersteuning voor themakleuren verwijderd
+- Maximale fotogrootte verkleind om het opslaggebruik te verminderen (alleen voor nieuw toegevoegde foto's)
+- De 'Over'-activiteit gemigreerd van Android XML naar Jetpack Compose

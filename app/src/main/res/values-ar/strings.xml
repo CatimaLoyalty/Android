@@ -125,12 +125,12 @@
     <string name="noGiftCardsGroup">أنشئ بعض البطاقات، ثم عيّنهم لهذه المجموعة</string>
     <string name="deleteTitle">حذف البطاقة</string>
     <plurals name="selectedCardCount">
-        <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="one"><xliff:g>%d</xliff:g> محددة</item>
-        <item quantity="two"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="few"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="many"><xliff:g>%d</xliff:g> محدد</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> محدد</item>
+        <item quantity="zero">لم يتم تحديد أي عنصر</item>
+        <item quantity="one">تم تحديد عنصر واحد</item>
+        <item quantity="two">تم تحديد عنصرين</item>
+        <item quantity="few">تم تحديد xliff:g%d&lt;/xliff:g&gt; عناصر</item>
+        <item quantity="many">تم تحديد xliff:g%d&lt;/xliff:g&gt; عنصراً</item>
+        <item quantity="other">تم تحديد xliff:g%d&lt;/xliff:g&gt; عنصر</item>
     </plurals>
     <string name="importing">جارٍ الاستيراد…</string>
     <string name="exportName">تصدير</string>

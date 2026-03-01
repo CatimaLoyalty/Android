@@ -1,0 +1,4 @@
+- Gericht op Android 16
+- Mogelijke crash na het verwijderen van een afbeelding van de geheugenkaart opgelost
+- Functie "Schermoriëntatie" verwijderd (Google heeft de mogelijkheid voor apps om schermrotatie te beheren verwijderd in Android 16)
+- Crashreporter toegevoegd aan de FOSS-build (niet gebruikt in de Google Play-versie, alleen in andere appwinkels)

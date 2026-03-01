@@ -1,0 +1,3 @@
+- .pkpasses 파일에 대한 지원 추가
+- Stocard importer 제거 (더 이상 존재하지 않음)
+- 안드로이드 12L 이하의 Temporarily disable 위젯 이미지 (크래프트 문제를위한 작업)

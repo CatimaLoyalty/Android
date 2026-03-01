@@ -1,0 +1,1 @@
+- Oplossing voor een wijziging in versie 2.41.0 die de ondersteuning voor niet-UTF-8-barcodes door sommige scanners onbruikbaar maakte.

@@ -244,7 +244,7 @@
     <string name="manually_enter_barcode_instructions">카드에 ID 번호 또는 텍스트를 입력하고 카드에 하나처럼 보이는 바코드를 누릅니다.</string>
     <string name="enter_card_id">카드에 ID 번호 또는 텍스트 입력</string>
     <string name="addWithoutBarcode">바코드 없이 카드를 추가</string>
-    <string name="app_name">카테고리</string>
+    <string name="app_name">Catima</string>
     <string name="add_manually_warning_title">Scanning는 추천합니다</string>
     <string name="continue_">계속하기</string>
     <string name="addFromPdfFile">PDF 파일 선택</string>

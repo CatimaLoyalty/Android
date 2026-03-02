@@ -18,6 +18,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -41,6 +42,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.preference.PreferenceManager;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -1400,4 +1402,26 @@ public class LoyaltyCardViewActivityTest {
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), "Aztec", "ISO-8859-1", null, null);
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
+
+
+    @Test
+    public void verifyDefaultCurrencyPreferenceInitiallySetToPoints(){
+        final Context context = ApplicationProvider.getApplicationContext();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().clear().commit();
+
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        Activity activity = (Activity) activityController.get();
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), "ISO-8859-1", null, null);
+    }
+
 }

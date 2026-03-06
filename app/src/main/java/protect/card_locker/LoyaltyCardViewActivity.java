@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -675,6 +676,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             window.setAttributes(attributes);
+        }
+
+        // Pause NFC to prevent interference with barcode scanners
+        if (settings.getDisableNfcWhileViewingCard()) {
+            NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+            if (nfcAdapter != null) {
+                nfcAdapter.enableReaderMode(this, tag -> {
+                    // Intentionally empty: pause all NFC tag discoveries
+                }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                        | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                        | NfcAdapter.FLAG_READER_NFC_BARCODE
+                        | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                        | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+            }
         }
 
         loyaltyCard = DBHelper.getLoyaltyCard(this, database, loyaltyCardId);

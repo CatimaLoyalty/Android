@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 164
+## v2.41.7 - 164 (2026-03-06)
 
 Android 5.0 and 5.1 are no longer supported starting with this release. If you want to use Catima on these versions, please use version 2.41.6.
 

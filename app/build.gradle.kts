@@ -134,6 +134,7 @@ dependencies {
     implementation(libs.androidx.compose.material3.material3)
     implementation(libs.androidx.compose.material.material.icons.extended)
     implementation(libs.androidx.compose.ui.ui.tooling.preview.android)
+    debugImplementation(libs.androidx.compose.ui.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.ui.test.manifest)
 
     androidTestImplementation(composeBom)
@@ -154,6 +155,8 @@ dependencies {
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.junit.junit)
     testImplementation(libs.org.robolectric.robolectric)
+    testImplementation(composeBom)
+    testImplementation(libs.androidx.compose.ui.ui.test.junit4)
 
     androidTestImplementation(libs.bundles.androidx.test)
     androidTestImplementation(libs.junit.junit)

@@ -1,0 +1,2 @@
+- Sakrivena pretraga i ikonice za pretragu i proširenje dok bar 1 kartica nije dodata.
+- Razne ispravke grešaka

@@ -3,7 +3,7 @@
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
     <string name="noGiftCards">Premi il pulsante + per aggiungere una carta oppure importala dal menù ⋮</string>
-    <string name="noMatchingGiftCards">Nessun risultato. Prova a cambiare la tua ricerca.</string>
+    <string name="noMatchingGiftCards">Nessun risultato. Prova a modificare la ricerca.</string>
     <string name="storeName">Nome</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>

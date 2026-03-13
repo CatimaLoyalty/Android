@@ -1,0 +1,1 @@
+- Persiapan untuk peningkatan di masa mendatang (menulis ulang banyak kelas ke Kotlin)

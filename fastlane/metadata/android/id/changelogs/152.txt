@@ -1,0 +1,3 @@
+- Tambahkan dukungan untuk berkas .pkpasses
+- Hapus pengimpor Stocard (Stocard sudah tidak ada lagi)
+- Nonaktifkan sementara gambar widget di bawah Android 12L (solusi sementara untuk masalah crash)

@@ -1,0 +1,4 @@
+- Ubah kolom bawaan pada layar lebar menjadi 4
+- Izinkan penggantian jumlah kolom untuk mode potret dan lanskap di pengaturan
+- Pertahankan filter pencarian layar utama saat memutar layar atau membuka kartu
+- Batasi panjang maksimum tampilan catatan pada layar utama

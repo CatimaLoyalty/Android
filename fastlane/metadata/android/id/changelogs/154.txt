@@ -1,0 +1,1 @@
+- Perbaiki kemungkinan crash yang dapat terjadi pada kartu yang tidak memiliki informasi warna di basis data

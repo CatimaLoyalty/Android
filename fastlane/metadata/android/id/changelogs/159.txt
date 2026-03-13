@@ -1,0 +1,1 @@
+- Perbaiki perubahan yang diperkenalkan pada 2.41.0 yang merusak dukungan untuk beberapa pemindai pada barcode non-UTF-8

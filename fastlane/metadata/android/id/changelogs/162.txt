@@ -1,0 +1,5 @@
+- Perbaiki widget daftar yang terkadang membuka kartu yang salah
+- Perbaiki beberapa bug pada penanganan shortcut
+- Perbaiki aktivitas Tentang yang tidak menggunakan bilah judul hitam pekat dalam mode OLED
+- Hapus sepenuhnya deteksi pengodean barcode otomatis
+- Ekspos pengodean barcode melalui ContentProvider (digunakan oleh Gadgetbridge)

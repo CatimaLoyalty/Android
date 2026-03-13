@@ -1,0 +1,2 @@
+- Salin ID kartu ke clipboard dari dialog tampilan atau melalui tekan lama
+- Tukar posisi kolom saldo dan mata uang untuk mengurangi pembulatan yang tidak disengaja

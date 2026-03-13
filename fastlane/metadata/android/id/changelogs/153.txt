@@ -1,0 +1,4 @@
+- Targetkan Android 16
+- Perbaiki kemungkinan crash setelah menghapus gambar dari kartu
+- Hapus fitur "Orientasi layar" (Google menghapus kemampuan aplikasi untuk mengontrol rotasi layar saat menargetkan Android 16)
+- Tambahkan pelapor crash ke build FOSS (tidak digunakan pada versi Google Play, hanya di toko aplikasi lain)

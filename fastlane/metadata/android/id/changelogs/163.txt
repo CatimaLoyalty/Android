@@ -1,0 +1,2 @@
+- Deteksi URL secara otomatis pada ID kartu dan jadikan dapat diklik di pop-up detail ID kartu
+- Perbaiki aktivitas pemilih barcode yang menampilkan kotak putih alih-alih barcode

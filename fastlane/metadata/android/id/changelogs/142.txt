@@ -1,0 +1,3 @@
+- Tambahkan dukungan Passbook (.pkpass)
+- Perbaiki impor berkas PDF transparan
+- Tingkatkan tampilan thumbnail transparan

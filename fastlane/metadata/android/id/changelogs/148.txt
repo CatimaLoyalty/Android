@@ -1,0 +1,4 @@
+- Tambahkan kemampuan untuk memilih lebar barcode dalam tampilan layar penuh
+- Hapus fungsi impor dari aplikasi yang membingungkan
+- Berbagai perbaikan pemindaian
+- Perbaiki crash saat memuat berkas pkpass tanpa barcode

@@ -285,4 +285,18 @@
     <string name="width">Chiều rộng</string>
     <string name="setBarcodeWidth">Đặt chiều rộng mã vạch</string>
     <string name="card_list_widget_name">Danh sách thẻ</string>
+    <string name="card_list_widget_empty">Sau khi được nhập vào Catima, thẻ hội viên của bạn sẽ xuất hiện ở đây. Hãy đảm bảo tất cả các thẻ không ở trạng thái đã lưu trữ.</string>
+    <string name="cardWithNumber">Thẻ <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Thẻ <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Vui lòng không quay thiết bị, thao tác này sẽ huỷ hành động</string>
+    <string name="acra_catima_has_crashed">Rất tiếc, <xliff:g id="app_name">%s</xliff:g> đã bị lỗi. Vui lòng giúp chúng tôi sửa vấn đề này bằng cách gửi báo cáo lỗi.</string>
+    <string name="acra_explain_crash">Nếu được, bạn vui lòng mô tả rõ hơn về thao tác đã thực hiện tại đây:</string>
+    <string name="acra_crash_email_subject">Báo cáo lỗi <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="pref_enable_acra">Yêu cầu gửi báo cáo lỗi</string>
+    <string name="pref_enable_acra_summary">Khi nhấn cho phép, bạn sẽ được yêu cầu gửi báo cáo khi lỗi xảy ra. Báo cáo lỗi sẽ không bao giờ được tự động gửi đi.</string>
+    <string name="copy_value">Sao chép giá trị</string>
+    <string name="copied_to_clipboard">Sao chép vào bộ nhớ tạm</string>
+    <string name="nothing_to_copy">Không tìm thấy giá trị</string>
+    <string name="barcodeEncoding">Mã hoá mã vạch</string>
+    <string name="back">Quay lại</string>
 </resources>

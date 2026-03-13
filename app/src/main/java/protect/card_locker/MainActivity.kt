@@ -518,7 +518,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     intent.data
                 }
                 Intent.ACTION_SEND -> {
-                    intent.getParcelableExtra(Intent.EXTRA_STREAM)
+                    @Suppress("DEPRECATION") intent.getParcelableExtra(Intent.EXTRA_STREAM)
                 }
                 else -> {
                     Log.e(TAG, "Wrong action type to parse intent")
@@ -815,7 +815,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
     private fun scaleScreen() {
         val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        @Suppress("DEPRECATION") windowManager.defaultDisplay.getMetrics(displayMetrics)
         val screenHeight = displayMetrics.heightPixels
         val mediumSizePx = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

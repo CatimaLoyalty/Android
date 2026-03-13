@@ -1,0 +1,4 @@
+Android 5.0 dan 5.1 tidak lagi didukung mulai rilis ini. Jika Anda ingin menggunakan Catima pada versi ini, silakan gunakan versi 2.41.6.
+
+- Perbaiki crash saat berpindah kartu menggunakan tombol volume jika hanya satu kartu yang tersedia
+- Perbaiki shortcut yang kembali ke kartu sebelumnya setelah rotasi

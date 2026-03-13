@@ -1,0 +1,1 @@
+- Perbaiki pembungkusan teks pada dialog tambah

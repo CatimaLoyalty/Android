@@ -1,0 +1,2 @@
+- Tindak lanjut untuk perbaikan pada 2.41.2 untuk kartu yang secara eksplisit disetel ke ISO-8859-1
+- Migrasikan kartu lama ke ISO-8859-1 untuk memperbaiki perbedaan perilaku mendadak pada kartu yang sudah ada

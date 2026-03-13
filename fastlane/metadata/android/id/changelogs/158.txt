@@ -1,0 +1,1 @@
+- Perbaiki warna bilah status dan navigasi pada aktivitas Tentang yang baru

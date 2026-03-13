@@ -1,0 +1,6 @@
+- Tambahkan dukungan untuk barcode UTF-8
+- Tambahkan opsi duplikasi ke layar utama dan sedikit ubah urutan opsi
+- Perbaiki pengaturan jumlah kolom yang tidak diterapkan pada daftar kartu grup
+- Hapus dukungan warna tema
+- Kurangi ukuran maksimum foto untuk mengurangi penggunaan penyimpanan (hanya untuk foto yang baru ditambahkan)
+- Migrasikan aktivitas Tentang dari Android XML ke Jetpack Compose

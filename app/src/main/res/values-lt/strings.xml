@@ -280,4 +280,8 @@
     <string name="sort_by_valid_from">Teisinga forma</string>
     <string name="settings_use_volume_keys_navigation">Keisti korteles su garso mygtukais</string>
     <string name="settings_use_volume_keys_navigation_summary">Naudokite garso mygtukus kortelių pakeitimui</string>
+    <string name="settings_category_title_cards_overview">Kortelių apžvalga</string>
+    <string name="settings_column_count_portrait">Stulpeliai vertikaliame režime</string>
+    <string name="settings_column_count_landscape">Stulpeliai horizontaliame režime</string>
+    <string name="settings_automatic_column_count">Automatiškai</string>
 </resources>

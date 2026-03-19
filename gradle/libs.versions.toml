@@ -12,7 +12,7 @@ androidXTest = "1.7.0"
 # AndroidX
 androidx-appcompat-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.7.1" }
 androidx-constraintlayout-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.2.1" }
-androidx-core-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.17.0" }
+androidx-core-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.18.0" }
 androidx-core-core-remoteviews = { group = "androidx.core", name = "core-remoteviews", version = "1.1.0" }
 androidx-core-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version = "1.2.0" }
 androidx-exifinterface-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version = "1.4.2" }

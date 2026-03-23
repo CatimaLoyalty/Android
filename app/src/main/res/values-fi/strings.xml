@@ -300,4 +300,6 @@
     <string name="nothing_to_copy">Arvoa ei löytynyt</string>
     <string name="barcodeEncoding">Viivakoodin koodaus</string>
     <string name="back">Takaisin</string>
+    <string name="acra_explain_crash">Jos mahdollista lisää tietoja toiminnastasi täällä:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> pysähtymisraportti</string>
 </resources>

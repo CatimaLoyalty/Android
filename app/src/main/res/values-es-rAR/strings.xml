@@ -252,4 +252,15 @@
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_5">5</string>
+    <string name="currentBalanceSentence">Balance actual: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Nuevo balance: <xliff:g>%s</xliff:g></string>
+    <string name="validFromSentence">Válido desde <xliff:g>%s</xliff:g></string>
+    <string name="settings_column_count_6">6</string>
+    <string name="settings_column_count_7">7</string>
+    <string name="settings_category_title_general">General</string>
+    <string name="settings_category_title_privacy">Privacidad</string>
+    <string name="action_display_options">Mostrar Opciones</string>
+    <string name="show_archived_cards">Mostrar tarjetas archivadas</string>
+    <string name="view_online">Ver Online</string>
+    <string name="action_more_options">Más Opciones</string>
 </resources>

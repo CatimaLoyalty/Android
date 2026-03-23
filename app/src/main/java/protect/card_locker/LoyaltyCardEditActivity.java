@@ -719,6 +719,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        if (mDatabase != null && mDatabase.isOpen()) {
+            mDatabase.close();
+        }
+        super.onDestroy();
+    }
+
     private void selectTab(int index) {
         binding.tabs.selectTab(binding.tabs.getTabAt(index));
         viewModel.setTabIndex(index);

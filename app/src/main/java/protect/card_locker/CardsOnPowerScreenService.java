@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.concurrent.Flow;
 import java.util.function.Consumer;
 
+import protect.card_locker.cardview.LoyaltyCardViewActivity;
+
 @RequiresApi(Build.VERSION_CODES.R)
 public class CardsOnPowerScreenService extends ControlsProviderService {
 

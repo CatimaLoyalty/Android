@@ -57,7 +57,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private final boolean showFallback;
     private final BarcodeImageWriterResultCallback callback;
 
-    BarcodeImageWriterTask(
+    public BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
             CatimaBarcode barcodeFormat, @NonNull Charset barcodeEncoding, TextView textView,
             boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding, boolean isFullscreen

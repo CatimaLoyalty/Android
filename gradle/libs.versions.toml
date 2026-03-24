@@ -1,6 +1,7 @@
 [versions]
 # AndroidX
 compose = "2026.03.00"
+kotlin = "2.3.20"
 
 # Third-party
 acra = "5.13.1"
@@ -52,8 +53,9 @@ junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.16.1" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version = "9.0.1" }
-org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version = "2.3.10" }
+com-android-application = { id = "com.android.application", version = "9.1.0" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [bundles]
 acra = ["ch-acra-acra-mail", "ch-acra-acra-dialog"]

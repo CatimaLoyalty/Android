@@ -109,7 +109,8 @@
                             android:id="@+id/storeNameEdit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            android:inputType="textCapWords" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

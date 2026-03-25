@@ -123,6 +123,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         LoyaltyCardImageType imageType = cardNavigator.getCurrent();
 
+        // Fullscreen exists mainly to make barcodes easier to scan, not as a separate screen flow.
         if (imageType == LoyaltyCardImageType.BARCODE) {
             setFullscreen(true);
 
@@ -170,6 +171,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     public void onBarcodeImageWriterResult(boolean success) {
         if (!success) {
+            // If barcode rendering fails, drop that slot so the user falls back to working content.
             cardNavigator.remove(LoyaltyCardImageType.BARCODE);
             pendingImageIndex = cardNavigator.getCurrentIndex();
 
@@ -296,6 +298,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         });
 
         binding.mainImage.setOnClickListener(view -> onMainImageTap());
+        // This shortcut started as a TalkBack aid, but it is still useful as a quick way to cycle images.
         binding.mainImage.setOnLongClickListener(view -> {
             setMainImage(true, true);
             return true;
@@ -469,6 +472,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         WindowManager.LayoutParams attributes = window.getAttributes();
 
+        // Brightening the screen improves scan reliability when the barcode is displayed on-device.
         if (settings.useMaxBrightnessDisplayingBarcode()) {
             attributes.screenBrightness = 1F;
         }
@@ -477,6 +481,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 
+        // Some users scan cards directly from the lock screen, so keep the historical unlock behavior.
         if (settings.getDisableLockscreenWhileViewingCard()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
                 setShowWhenLocked(true);
@@ -512,6 +517,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void bindCardIdDescriptionInteractions() {
         binding.mainImageDescription.setOnClickListener(v -> {
+            // Only the barcode/card-id state exposes the full value and copy action.
             if (!isShowingCardIdDescription()) {
                 return;
             }
@@ -591,6 +597,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void setStateBasedOnImageTypes() {
         ViewGroup.LayoutParams cardHolderLayoutParams = binding.cardHolder.getLayoutParams();
+        // A card without barcode/front/back media should shrink to its text fallback instead of filling the screen.
         if (cardNavigator.isEmpty()) {
             cardHolderLayoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         } else {
@@ -618,6 +625,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             availableImageTypes.add(LoyaltyCardImageType.IMAGE_BACK);
         }
 
+        // Card edits may remove barcode/front/back images, so keep the previously selected index in range.
         LoyaltyCardImageNavigator navigator =
                 new LoyaltyCardImageNavigator(availableImageTypes, cardNavigator.isEmpty() ? pendingImageIndex : cardNavigator.getCurrentIndex());
         pendingImageIndex = navigator.getCurrentIndex();
@@ -650,6 +658,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @SuppressWarnings("deprecation")
     private void showWhenLockedSdkLessThan27(Window window) {
+        // Pre-O_MR1 devices still need the legacy window flags because setShowWhenLocked(true) is unavailable.
         window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
     }
@@ -764,6 +773,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
     private void showHideElementsForScreenSize() {
         int orientation = getResources().getConfiguration().orientation;
+        // Treat square-ish devices such as the Unihertz Titan like landscape to avoid a cramped header layout.
         boolean isSmallHeight = getResources().getDisplayMetrics().heightPixels < (getResources().getDisplayMetrics().widthPixels * 1.5);
 
         if (orientation == Configuration.ORIENTATION_LANDSCAPE || isSmallHeight) {
@@ -799,6 +809,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void updateMainImageAccessibility() {
+        // The same image view can represent barcode/front/back states, so accessibility actions must track that role.
         int accessibilityClickAction;
         LoyaltyCardImageType currentImageType = cardNavigator.getCurrent();
         if (currentImageType == LoyaltyCardImageType.IMAGE_FRONT) {
@@ -845,6 +856,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         final ImageButton previousButton;
         final ImageButton nextButton;
+        // In RTL, the visual left/right buttons map to opposite logical navigation directions.
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             previousButton = binding.mainRightButton;
             nextButton = binding.mainLeftButton;
@@ -869,6 +881,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             nextButton.setOnClickListener(null);
         }
     }
+    /**
+     * Fullscreen hides system chrome and moves the barcode higher on screen so scanners can read
+     * it even when the whole device does not fit cleanly in front of the reader.
+     */
     private void setFullscreen(boolean enabled) {
         isFullscreen = enabled;
         ActionBar actionBar = getSupportActionBar();
@@ -877,6 +893,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             barcodeRenderTarget = binding.fullscreenImage;
             binding.container.setVisibility(View.GONE);
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
+            // Square barcodes resize uniformly, and Data Matrix behaves similarly, so width-only scaling adds no value.
             binding.setWidthLayout.setVisibility(
                     format == null || format.isSquare() || format.format() == com.google.zxing.BarcodeFormat.DATA_MATRIX
                             ? View.GONE

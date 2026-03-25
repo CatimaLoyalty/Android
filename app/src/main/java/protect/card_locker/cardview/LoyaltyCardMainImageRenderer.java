@@ -46,6 +46,7 @@ final class LoyaltyCardMainImageRenderer {
             boolean waitForResize
     ) {
         if (imageType == LoyaltyCardImageType.NONE) {
+            // With no renderable media left, show the raw card ID instead of an empty card area.
             barcodeRenderTarget.setVisibility(View.GONE);
             mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
             mainImageDescription.setTextColor(
@@ -133,6 +134,7 @@ final class LoyaltyCardMainImageRenderer {
             return;
         }
 
+        // Barcode dimensions depend on the final ImageView size, so wait for layout before rendering.
         barcodeRenderTarget.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
@@ -160,6 +162,7 @@ final class LoyaltyCardMainImageRenderer {
             boolean addPadding,
             boolean isFullscreen
     ) {
+        // Barcodes are regenerated eagerly because zoom/fullscreen changes affect the output bitmap.
         tasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
         if (format == null) {
             return;

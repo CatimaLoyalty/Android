@@ -174,6 +174,7 @@ final class LoyaltyCardViewDialogs {
         builder.setNeutralButton(context.getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
 
+        // Button state depends on the parsed input, so listeners must be bound after the dialog exists.
         input.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -196,12 +197,14 @@ final class LoyaltyCardViewDialogs {
         });
 
         dialog.show();
+        // Touching dialog buttons before show() can crash because they are not created yet.
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
 
         if (dialog.getWindow() != null) {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
+        // Focus immediately so the keyboard opens on the amount field.
         input.requestFocus();
     }
 

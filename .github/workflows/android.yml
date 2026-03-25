@@ -44,7 +44,7 @@ jobs:
       - name: Check lint
         run: ./gradlew lint${{ matrix.flavor }}Release
       - name: Run unit tests
-        run: timeout 5m ./gradlew test${{ matrix.flavor }}ReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew test${{ matrix.flavor }}ReleaseUnitTest; }
+        run: timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest || { ./gradlew --stop && timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest; }
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

@@ -178,7 +178,7 @@
     <string name="scanCardBarcode">Quét Mã Vạch</string>
     <string name="updateBalanceHint">Nhập số lượng</string>
     <string name="action_search">Tìm kiếm</string>
-    <string name="noGiftCardsGroup">Tạo vài thẻ, và phân công chúng vào nhóm này.</string>
+    <string name="noGiftCardsGroup">Tạo vài thẻ, và sắp xếp chúng vào nhóm này:</string>
     <string name="on_github">trên Github</string>
     <string name="sort">Sắp Xếp</string>
     <string name="permissionReadCardsLabel">Đọc thẻ Catima</string>

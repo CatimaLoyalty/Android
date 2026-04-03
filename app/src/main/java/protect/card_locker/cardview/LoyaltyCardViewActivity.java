@@ -83,7 +83,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     LoyaltyCardImageNavigator cardNavigator = new LoyaltyCardImageNavigator(new ArrayList<>(), 0);
     private LoyaltyCardMainImageRenderer mainImageRenderer;
     private final LoyaltyCardViewDialogs dialogs = new LoyaltyCardViewDialogs();
-    private int pendingImageIndex = 0;
+    // Used only to seed the first navigator after recreation, before card data has been reloaded.
+    private Integer restoredImageIndex = null;
 
     public static final String STATE_IMAGEINDEX = "imageIndex";
     public static final String STATE_FULLSCREEN = "isFullscreen";
@@ -93,21 +94,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public static final String BUNDLE_TRANSITION_RIGHT = "transition_right";
 
     final private TaskHandler mTasks = new TaskHandler();
-    Runnable barcodeImageGenerationFinishedCallback;
 
     private long initTime = System.currentTimeMillis();
+
+    private enum AdjacentCardDirection {
+        PREVIOUS,
+        NEXT
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (settings.useVolumeKeysForNavigation()) {
             if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                 if (initTime < (System.currentTimeMillis() - 1000)) {
-                    prevNextCard(false);
+                    navigateToAdjacentCard(AdjacentCardDirection.PREVIOUS);
                 }
                 return true;
             } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                 if (initTime < (System.currentTimeMillis() - 1000)) {
-                    prevNextCard(true);
+                    navigateToAdjacentCard(AdjacentCardDirection.NEXT);
                 }
                 return true;
             }
@@ -137,6 +142,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         File file = null;
 
         switch (imageType) {
+            case NONE:
+                return;
             case ICON:
                 file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.icon);
                 break;
@@ -150,6 +157,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
                 return;
             default:
+                throw new IllegalArgumentException("Unknown image type: " + imageType);
         }
 
         if (file == null) {
@@ -173,7 +181,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (!success) {
             // If barcode rendering fails, drop that slot so the user falls back to working content.
             cardNavigator.remove(LoyaltyCardImageType.BARCODE);
-            pendingImageIndex = cardNavigator.getCurrentIndex();
 
             setStateBasedOnImageTypes();
 
@@ -238,7 +245,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         settings = new Settings(this);
 
         if (savedInstanceState != null) {
-            pendingImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX, 0);
+            restoredImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX, 0);
             isFullscreen = savedInstanceState.getBoolean(STATE_FULLSCREEN);
         }
 
@@ -268,8 +275,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarInfoButton.setOnClickListener(view ->
                 dialogs.showInfoDialog(this, loyaltyCard, loyaltyCardGroups)
         );
-        binding.bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
-        binding.bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
+        binding.bottomAppBarPreviousButton.setOnClickListener(view ->
+                navigateToAdjacentCard(AdjacentCardDirection.PREVIOUS)
+        );
+        binding.bottomAppBarNextButton.setOnClickListener(view ->
+                navigateToAdjacentCard(AdjacentCardDirection.NEXT)
+        );
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view ->
                 dialogs.showBalanceUpdateDialog(this, loyaltyCard, newBalance -> {
                     DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
@@ -379,11 +390,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarUpdateBalanceButton.setVisibility(hasBalance(loyaltyCard) ? View.VISIBLE : View.GONE);
     }
 
-    private void prevNextCard(boolean next) {
+    private void navigateToAdjacentCard(AdjacentCardDirection direction) {
         if (cardList == null || cardList.size() == 1) {
             return;
         }
 
+        boolean next = direction == AdjacentCardDirection.NEXT;
         boolean transitionRight = next;
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             next = !next;
@@ -626,9 +638,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         // Card edits may remove barcode/front/back images, so keep the previously selected index in range.
+        int initialIndex = cardNavigator.isEmpty()
+                ? (restoredImageIndex != null ? restoredImageIndex : 0)
+                : cardNavigator.getCurrentIndex();
         LoyaltyCardImageNavigator navigator =
-                new LoyaltyCardImageNavigator(availableImageTypes, cardNavigator.isEmpty() ? pendingImageIndex : cardNavigator.getCurrentIndex());
-        pendingImageIndex = navigator.getCurrentIndex();
+                new LoyaltyCardImageNavigator(availableImageTypes, initialIndex);
+        restoredImageIndex = null;
         return navigator;
     }
 
@@ -791,8 +806,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (!moved) {
             return;
         }
-
-        pendingImageIndex = cardNavigator.getCurrentIndex();
 
         renderCurrentMainImage(false);
 

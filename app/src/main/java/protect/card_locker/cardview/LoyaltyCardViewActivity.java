@@ -156,8 +156,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             case BARCODE:
                 Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
                 return;
-            default:
-                throw new IllegalArgumentException("Unknown image type: " + imageType);
         }
 
         if (file == null) {

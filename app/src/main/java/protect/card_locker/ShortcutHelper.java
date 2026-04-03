@@ -15,8 +15,6 @@ import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Collections;
 import java.util.LinkedList;
 
 import protect.card_locker.cardview.LoyaltyCardViewActivity;

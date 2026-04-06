@@ -306,4 +306,5 @@
     <string name="pref_enable_acra_summary">Kada je omogućeno, bit ćete upitani da prijavite pad sistema kada se dogodi. Izvještaji o padu sistema se nikada ne šalju automatski.</string>
     <string name="copy_value">Kopiraj vrijednost</string>
     <string name="copied_to_clipboard">Kopirano u međuspremnik</string>
+    <string name="importCatimaMessage">Odaberite izvoz iz Catime za uvoz. \nKreirajte ga iz menija Uvoz/izvoz druge Catima aplikacije pritiskom na Izvoz.</string>
 </resources>

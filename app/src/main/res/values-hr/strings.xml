@@ -305,4 +305,6 @@
     <string name="copied_to_clipboard">Kopirano u međuspremnik</string>
     <string name="back">Natrag</string>
     <string name="copy_value">Kopiraj vrijednost</string>
+    <string name="nothing_to_copy">Nije pronađena vrijednost</string>
+    <string name="barcodeEncoding">Kodiranje barkoda</string>
 </resources>

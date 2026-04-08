@@ -15,11 +15,11 @@ import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Collections;
 import java.util.LinkedList;
 
-class ShortcutHelper {
+import protect.card_locker.cardview.LoyaltyCardViewActivity;
+
+public class ShortcutHelper {
     /**
      * This variable controls the maximum number of shortcuts available.
      * It is made public only to make testing easier and should not be
@@ -43,33 +43,36 @@ class ShortcutHelper {
      * based on the lastUsed field. Archived cards are excluded from the shortcuts
      * list. The list keeps at most maxShortcuts number of elements.
      */
-    static void updateShortcuts(Context context) {
+    public static void updateShortcuts(Context context) {
         if (maxShortcuts == -1) {
             maxShortcuts = ShortcutManagerCompat.getMaxShortcutCountPerActivity(context);
         }
         LinkedList<ShortcutInfoCompat> finalList = new LinkedList<>();
-        SQLiteDatabase database = new DBHelper(context).getReadableDatabase();
-        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
+        DBHelper dbHelper = new DBHelper(context);
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        try (Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(
                 database,
                 "",
                 null,
                 DBHelper.LoyaltyCardOrder.LastUsed,
                 DBHelper.LoyaltyCardOrderDirection.Ascending,
                 DBHelper.LoyaltyCardArchiveFilter.Unarchived
-        );
+        )) {
+            int rank = 0;
 
-        int rank = 0;
+            while (rank < maxShortcuts && loyaltyCardCursor.moveToNext()) {
+                int id = loyaltyCardCursor.getInt(loyaltyCardCursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, id);
 
-        while (rank < maxShortcuts && loyaltyCardCursor.moveToNext()) {
-            int id = loyaltyCardCursor.getInt(loyaltyCardCursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(context, database, id);
+                ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
+                        .setRank(rank)
+                        .build();
 
-            ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
-                    .setRank(rank)
-                    .build();
-
-            finalList.addLast(updatedShortcut);
-            rank++;
+                finalList.addLast(updatedShortcut);
+                rank++;
+            }
+        } finally {
+            dbHelper.close();
         }
 
         ShortcutManagerCompat.setDynamicShortcuts(context, finalList);

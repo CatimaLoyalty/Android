@@ -101,6 +101,9 @@
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Disables screen lock while viewing a card</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pause NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pauses NFC to prevent interference with scanners while viewing a card</string>
+    <string name="settings_key_disable_nfc_while_viewing_card" translatable="false">pref_disable_nfc_while_viewing_card</string>
     <string name="settings_allow_content_provider_read_title">Allow other apps to access my data</string>
     <string name="settings_allow_content_provider_read_summary">Apps will still have to request permission to be granted access</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>

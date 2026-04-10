@@ -298,4 +298,6 @@
     <string name="copy_value">मान कॉपी करें</string>
     <string name="copied_to_clipboard">क्लिपबोर्ड पर कॉपी किया गया</string>
     <string name="nothing_to_copy">कोई मूल्य नहीं मिला</string>
+    <string name="barcodeEncoding">बारकोड एन्कोडिंग</string>
+    <string name="back">वापस</string>
 </resources>

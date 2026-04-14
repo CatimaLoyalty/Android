@@ -3,6 +3,7 @@
 ## Unreleased - 165
 
 - Ask keyboard to capitalize each word in store name in edit screen
+- Put date in export file name
 
 ## v2.41.7 - 164 (2026-03-06)
 

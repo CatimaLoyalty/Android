@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.ResolveInfo
 import android.view.View
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -59,6 +60,12 @@ class ImportExportActivityTest {
         assertEquals(state, titleView.visibility)
         assertEquals(state, messageView.visibility)
         assertEquals(state, buttonView.visibility)
+    }
+
+    @Test
+    fun testExportFilenameHasTimestamp() {
+        val filename = ImportExportActivity.getExportFilename()
+        assertTrue(filename.matches(Regex("catima_\\d{8}\\.zip")))
     }
 
     @Test

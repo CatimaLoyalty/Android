@@ -31,6 +31,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import protect.card_locker.DBHelper.LoyaltyCardOrder
 import protect.card_locker.DBHelper.LoyaltyCardOrderDirection
 import protect.card_locker.LoyaltyCardCursorAdapter.CardAdapterListener
+import protect.card_locker.cardview.LoyaltyCardViewActivity
 import protect.card_locker.databinding.ContentMainBinding
 import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding

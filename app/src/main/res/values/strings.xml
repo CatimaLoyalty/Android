@@ -284,8 +284,11 @@
     <string name="sharedpreference_card_details_show_archived_cards" translatable="false">sharedpreference_card_details_show_archived_cards</string>
     <string name="settings_category_title_cards">Card view</string>
     <string name="settings_category_title_cards_overview">Cards overview</string>
+    <string name="settings_category_title_card_creation">Card creation</string>
     <string name="settings_column_count_portrait">Columns in portrait mode</string>
     <string name="settings_column_count_landscape">Columns in landscape mode</string>
+    <string name="settings_default_currency">Default currency type</string>
+    <string name="settings_key_default_currency">Preferred currency</string>
     <string name="settings_automatic_column_count">Automatic</string>
     <string name="settings_key_automatic_column_count" translatable="false">default</string>
     <string name="settings_column_count_1">1</string>

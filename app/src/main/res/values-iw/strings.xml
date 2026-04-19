@@ -8,4 +8,9 @@
     </plurals>
     <string name="action_add">הוסף</string>
     <string name="noGiftCards">לחץ על כפתור הפלוס (+) כדי להוסיף כרטיס, או ייבא מתפריט ⋮.</string>
+    <string name="noMatchingGiftCards">אין תוצאות. נסה לשנות את החיפוש.</string>
+    <string name="storeName">שם החנות</string>
+    <string name="note">הערות</string>
+    <string name="barcodeType">סוג ברקוד</string>
+    <string name="noBarcode">אין ברקוד</string>
 </resources>

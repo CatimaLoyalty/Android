@@ -671,12 +671,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1) {
                     showWhenLockedSdkLessThan27(window);
                 }
-            } else if (isLockScreenShowing()) {
-                Log.d(TAG, "Finish activity due to disabled lock screen viewing");
-                // If the user disabled lock screen viewing and lock the device with this activity open
-                // this will finish it and the user will go to the previous activity in the stack or none
-                // Unfortunately we don't have a better way to handle this yet
-                finish();
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                setShowWhenLocked(false);
             }
 
             window.setAttributes(attributes);

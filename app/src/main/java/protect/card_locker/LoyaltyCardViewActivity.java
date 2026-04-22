@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;

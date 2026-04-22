@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -667,11 +668,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (settings.getDisableLockscreenWhileViewingCard()) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-                    setShowWhenLocked(true);
-                } else {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1) {
                     showWhenLockedSdkLessThan27(window);
                 }
+            } else if (isLockScreenShowing()) {
+                Log.d(TAG, "Finish activity due to disabled lock screen viewing");
+                // If the user disabled lock screen viewing and lock the device with this activity open
+                // this will finish it and the user will go to the previous activity in the stack or none
+                // Unfortunately we don't have a better way to handle this yet
+                finish();
             }
 
             window.setAttributes(attributes);
@@ -1284,5 +1289,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         cm.setPrimaryClip(clip);
 
         Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean isLockScreenShowing() {
+        KeyguardManager km = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+        return km.isKeyguardLocked();
     }
 }

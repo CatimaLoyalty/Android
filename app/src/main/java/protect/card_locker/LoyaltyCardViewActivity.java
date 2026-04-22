@@ -1286,9 +1286,4 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Toast.makeText(this, R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
     }
-
-    private boolean isLockScreenShowing() {
-        KeyguardManager km = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
-        return km.isKeyguardLocked();
-    }
 }

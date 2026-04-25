@@ -2,6 +2,7 @@
 
 ## Unreleased - 165
 
+- Disable NFC while showing a card by default
 - Ask keyboard to capitalize each word in store name in edit screen
 - Put date in export file name
 

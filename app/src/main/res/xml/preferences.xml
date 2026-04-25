@@ -112,7 +112,7 @@
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/settings_key_disable_nfc_while_viewing_card"
             android:summary="@string/settings_disable_nfc_while_viewing_card_summary"
             android:title="@string/settings_disable_nfc_while_viewing_card"

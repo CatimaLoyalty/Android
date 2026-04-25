@@ -83,7 +83,7 @@ public class Settings {
     }
 
     public boolean getDisableNfcWhileViewingCard() {
-        return getBoolean(R.string.settings_key_disable_nfc_while_viewing_card, false);
+        return getBoolean(R.string.settings_key_disable_nfc_while_viewing_card, true);
     }
 
     public boolean getAllowContentProviderRead() {

@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -53,6 +54,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.BarcodeFormat;
 
@@ -71,6 +73,7 @@ import java.util.function.Predicate;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.preferences.SettingsActivity;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
@@ -675,6 +678,27 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             window.setAttributes(attributes);
+        }
+
+        // Pause NFC to prevent NFC payments from triggering while showing a barcode
+        if (settings.getDisableNfcWhileViewingCard()) {
+            NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+            if (nfcAdapter != null) {
+                nfcAdapter.enableReaderMode(this, tag -> {
+                    Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
+                        .setAnchorView(binding.fabEdit)
+                        .setAction(R.string.change_settings, view -> {
+                            // Open settings activity
+                            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                            startActivity(intent);
+                        });
+                        snackbar.show();
+                }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                        | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                        | NfcAdapter.FLAG_READER_NFC_BARCODE
+                        | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                        | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+            }
         }
 
         loyaltyCard = DBHelper.getLoyaltyCard(this, database, loyaltyCardId);

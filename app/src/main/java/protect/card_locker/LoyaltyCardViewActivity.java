@@ -680,7 +680,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             window.setAttributes(attributes);
         }
 
-        // Pause NFC to prevent interference with barcode scanners
+        // Pause NFC to prevent NFC payments from triggering while showing a barcode
         if (settings.getDisableNfcWhileViewingCard()) {
             NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
             if (nfcAdapter != null) {

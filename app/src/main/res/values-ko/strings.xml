@@ -280,4 +280,5 @@
     <string name="sort_by_valid_from">유효 기간</string>
     <string name="width">너비</string>
     <string name="setBarcodeWidth">바코드 너비를 설정하세요</string>
+    <string name="card_list_widget_name">카드 목록</string>
 </resources>

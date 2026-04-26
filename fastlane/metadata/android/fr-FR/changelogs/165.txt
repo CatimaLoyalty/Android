@@ -1,0 +1,3 @@
+- Désactive le NFC par défaut lors de l'affichage d'une carte
+- Demande au clavier de mettre en majuscule chaque mot du nom du magasin dans l'écran de modifications
+- Ajout de la date dans le nom du fichier d'export

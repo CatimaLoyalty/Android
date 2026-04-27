@@ -301,4 +301,8 @@
     <string name="copy_value">Kopieer waarde</string>
     <string name="back">Terug</string>
     <string name="barcodeEncoding">Barcodecodering</string>
+    <string name="change_settings">Verander instellingen</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pauzeer NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pauzeert NFC om te voorkomen dat NFC-betalingen activeren tijdens het bekijken van een kaart</string>
+    <string name="nfc_blocked_while_viewing_card">NFC is gepauzeerd</string>
 </resources>

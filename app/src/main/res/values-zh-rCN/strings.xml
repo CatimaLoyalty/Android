@@ -282,7 +282,7 @@
     <string name="setBarcodeWidth">设置条码宽度</string>
     <string name="card_list_widget_name">卡片列表</string>
     <string name="card_list_widget_empty">在 Catima 中添加了一些会员卡后，它们会出现在这里。如果你有卡片，确保不是所有都已归档。</string>
-    <string name="cardWithNumber">卡<xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumber"><xliff:g>%d</xliff:g> 卡</string>
     <string name="cardWithNumberAndLocale">卡 <xliff:g>%d</xliff:g> （<xliff:g>%s</xliff:g>）</string>
     <string name="pleaseDoNotRotateTheDevice">请不要旋转设备，这样做会取消操作</string>
     <string name="acra_catima_has_crashed">抱歉，但 <xliff:g id="app_name">%s</xliff:g>崩溃了。请发送错误报告帮助修复这个问题。</string>
@@ -295,4 +295,8 @@
     <string name="nothing_to_copy">没找到值</string>
     <string name="barcodeEncoding">条形码编码</string>
     <string name="back">返回</string>
+    <string name="settings_disable_nfc_while_viewing_card">暂停 NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">暂停 NFC 防止在查看卡片时触发 NFC 支付</string>
+    <string name="nfc_blocked_while_viewing_card">NFC 已暂停</string>
+    <string name="change_settings">更改设置</string>
 </resources>

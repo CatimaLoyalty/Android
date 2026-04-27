@@ -1,0 +1,3 @@
+- Zakázání NFC ve výchozím nastavení během zobrazování karty
+- Požádání klávesnice o velké písmeno na začátku každého slova při úpravě názvu
+- Do názvu souboru s exportem umístěno datum

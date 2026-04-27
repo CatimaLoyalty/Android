@@ -313,4 +313,8 @@
     <string name="nothing_to_copy">Значение не найдено</string>
     <string name="barcodeEncoding">Кодировка штрих-кода</string>
     <string name="back">Назад</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Приостанавливать работу NFC для предотвращения срабатывание NFC-платежей при просмотре карты</string>
+    <string name="settings_disable_nfc_while_viewing_card">Отключать NFC</string>
+    <string name="nfc_blocked_while_viewing_card">NFC приостановлен</string>
+    <string name="change_settings">Изменить настройки</string>
 </resources>

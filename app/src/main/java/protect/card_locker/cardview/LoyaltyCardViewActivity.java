@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -47,6 +48,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -57,9 +59,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.*;
-import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.preferences.SettingsActivity;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
@@ -98,8 +100,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public static final String BUNDLE_ID = "id";
     public static final String BUNDLE_CARDLIST = "cardList";
     public static final String BUNDLE_TRANSITION_RIGHT = "transition_right";
-
-    final private TaskHandler mTasks = new TaskHandler();
 
     private long initTime = System.currentTimeMillis();
 
@@ -199,8 +199,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
     }
 
-
-
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
@@ -262,7 +260,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
-        mainImageRenderer = new LoyaltyCardMainImageRenderer(this, mTasks, this);
+        mainImageRenderer = new LoyaltyCardMainImageRenderer(this, this);
 
         binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
         binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
@@ -405,6 +403,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         boolean next = direction == AdjacentCardDirection.NEXT;
+        // If we're in RTL layout, we want the "left" button to be "next" instead of "previous"
+        // So we swap next around
         boolean transitionRight = next;
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             next = !next;
@@ -452,6 +452,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         savedInstanceState.putBoolean(STATE_FULLSCREEN, isFullscreen);
         super.onSaveInstanceState(savedInstanceState);
     }
+
     @Override
     protected void onResume() {
         activityOverridesNavBarColor = true;
@@ -461,7 +462,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Window window = getWindow();
         applyWindowPreferences(window);
+        enablePausedNfcIfConfigured();
+
         if (!loadCurrentCardFromDatabase()) {
+            finish();
             return;
         }
 
@@ -515,6 +519,33 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         window.setAttributes(attributes);
     }
 
+    private void enablePausedNfcIfConfigured() {
+        // Pause NFC to prevent NFC payments from triggering while showing a barcode
+        if (!settings.getDisableNfcWhileViewingCard()) {
+            return;
+        }
+
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (nfcAdapter == null) {
+            return;
+        }
+
+        nfcAdapter.enableReaderMode(this, tag -> {
+            Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
+                    .setAnchorView(binding.fabEdit)
+                    .setAction(R.string.change_settings, view -> {
+                        // Open settings activity
+                        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                        startActivity(intent);
+                    });
+            snackbar.show();
+        }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                | NfcAdapter.FLAG_READER_NFC_BARCODE
+                | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+    }
+
     private boolean loadCurrentCardFromDatabase() {
         loyaltyCard = DBHelper.getLoyaltyCard(this, database, loyaltyCardId);
         if (loyaltyCard != null) {
@@ -523,7 +554,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
         Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
-        finish();
         return false;
     }
 
@@ -701,6 +731,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
@@ -725,6 +756,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -802,6 +834,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         return super.onOptionsItemSelected(item);
     }
+
     private void showHideElementsForScreenSize() {
         int orientation = getResources().getConfiguration().orientation;
         // Treat square-ish devices such as the Unihertz Titan like landscape to avoid a cramped header layout.
@@ -817,6 +850,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         enableToolbarBackButton();
     }
+
     private void setMainImage(boolean next, boolean overflow) {
         boolean moved = next ? cardNavigator.moveNext(overflow) : cardNavigator.movePrevious();
         if (!moved) {
@@ -910,6 +944,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             nextButton.setOnClickListener(null);
         }
     }
+
     /**
      * Fullscreen hides system chrome and moves the barcode higher on screen so scanners can read
      * it even when the whole device does not fit cleanly in front of the reader.
@@ -1002,6 +1037,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                         & ~View.SYSTEM_UI_FLAG_FULLSCREEN
         );
     }
+
     private void copyCardIdToClipboard() {
         String value = loyaltyCard.cardId;
 

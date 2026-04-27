@@ -18,16 +18,14 @@ import protect.card_locker.async.TaskHandler;
 
 final class LoyaltyCardMainImageRenderer {
     private final Context context;
-    private final TaskHandler tasks;
+    private final TaskHandler tasks = new TaskHandler();
     private final BarcodeImageWriterResultCallback barcodeCallback;
 
     LoyaltyCardMainImageRenderer(
             Context context,
-            TaskHandler tasks,
             BarcodeImageWriterResultCallback barcodeCallback
     ) {
         this.context = context;
-        this.tasks = tasks;
         this.barcodeCallback = barcodeCallback;
     }
 

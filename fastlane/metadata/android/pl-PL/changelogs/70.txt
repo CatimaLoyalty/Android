@@ -1,11 +1,10 @@
-- POWAŻNA ZMIANA: Zmieniono format kopii zapasowej, patrz https://github.com/TheLastProject/Catima/wiki/Export-format
-- POWAŻNA ZMIANA: Zmieniono format udostępniania adresów URL, patrz https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Umożliwiono włączanie i wyłączanie latarki podczas skanowania
-- Dodano obsługę UPC-E
-- Obsługa dodawania zdjęcia z przodu i z tyłu do każdej karty
-- Obsługa importowania plików zip chronionych hasłem
-- Obsługa importowania ze Stocard (wersja beta)
-- Naprawiono bezużyteczne odstępy w notatkach z importu Fidme
+- WAŻNA ZMIANA: Zmieniono format kopii zapasowej oraz sposób udostępniania adresów URL, zapoznaj się z wiki Export-format oraz Card-sharing-URL-format
+- Dodano możliwość zarządzania latarką podczas skanowania
+- Dodano obsługę kodów UPC-E
+- Umożliwiono dodawanie zdjęć obu stron każdej karty
+- Obsługa importowania plików ZIP chronionych hasłem
+- Dodano opcję importu z aplikacji Stocard (beta)
+- Naprawiono niepotrzebne spacje w notatkach po zaimportowaniu z aplikacji Fidme
 - Obsługa nowego formatu eksportu Voucher Vault
-- Naprawiono pływające przyciski akcji znajdujące się za innymi elementami interfejsu użytkownika w systemie Android 4
-- Naprawiono górny margines paska aplikacji przeglądarki kart lojalnościowych
+- Poprawiono problem z przyciskami akcji, które na systemie Android 4 były zakryte przez inne elementy interfejsu
+- Skorygowano górny margines paska aplikacji przeglądarki kart lojalnościowych

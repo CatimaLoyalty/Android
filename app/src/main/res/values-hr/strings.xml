@@ -307,4 +307,8 @@
     <string name="copy_value">Kopiraj vrijednost</string>
     <string name="nothing_to_copy">Nije pronađena vrijednost</string>
     <string name="barcodeEncoding">Kodiranje barkoda</string>
+    <string name="change_settings">Promijeni postavke</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pauziraj NFC</string>
+    <string name="nfc_blocked_while_viewing_card">NFC je pauziran</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pauzira NFC kako bi se spriječilo aktiviranje NFC plaćanja tijekom prikazivanja kartice</string>
 </resources>

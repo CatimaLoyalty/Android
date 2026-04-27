@@ -27,6 +27,9 @@ import protect.card_locker.importexport.ImportExportResultType
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class ImportExportActivity : CatimaAppCompatActivity() {
     private lateinit var binding: ImportExportActivityBinding
@@ -45,6 +48,11 @@ class ImportExportActivity : CatimaAppCompatActivity() {
 
     companion object {
         private const val TAG = "Catima"
+
+        internal fun getExportFilename(): String {
+            val sdf = SimpleDateFormat("yyyyMMdd", Locale.US)
+            return "catima_${sdf.format(Date())}.zip"
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +115,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         val intentCreateDocumentAction = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
             type = "application/zip"
-            putExtra(Intent.EXTRA_TITLE, "catima.zip")
+            putExtra(Intent.EXTRA_TITLE, getExportFilename())
         }
 
         val exportButton: Button = binding.exportButton

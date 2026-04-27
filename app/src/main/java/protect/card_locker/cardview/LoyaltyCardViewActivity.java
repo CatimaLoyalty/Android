@@ -12,6 +12,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.method.DigitsKeyListener;
+import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -121,6 +127,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     public void onMainImageTap() {
+        // If we're in fullscreen, leave fullscreen
         if (isFullscreen) {
             setFullscreen(false);
             return;
@@ -135,6 +142,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        // If this is an image, open it in the gallery.
         openImageInGallery(imageType);
     }
 
@@ -158,6 +166,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 return;
         }
 
+        // Do nothing if there is no file
         if (file == null) {
             Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
             return;
@@ -169,6 +178,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
+            // Display a toast message if an image viewer is not installed on device
             Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
@@ -182,6 +192,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             setStateBasedOnImageTypes();
 
+            // Call correct drawMainImage
             setFullscreen(isFullscreen);
 
             Toast.makeText(LoyaltyCardViewActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
@@ -417,6 +428,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         loyaltyCardId = cardList.get(cardListPosition);
 
+        // Restart activity with new card id and index
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         b.putInt(BUNDLE_ID, loyaltyCardId);
@@ -565,6 +577,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.barcodeWidthscaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
         binding.barcodeWidthscaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
 
+        // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
         Utils.setNavigationBarColor(null, window, darkenedColor, Utils.needsDarkForeground(darkenedColor));
 
@@ -578,7 +591,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Bitmap icon = loyaltyCard.getImageThumbnail(this);
         Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText, 1);
 
+        // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
+
         fixBottomAppBarImageButtonColor(binding.bottomAppBarInfoButton);
         fixBottomAppBarImageButtonColor(binding.bottomAppBarPreviousButton);
         fixBottomAppBarImageButtonColor(binding.bottomAppBarNextButton);
@@ -739,6 +754,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             new ListWidget().updateAll(LoyaltyCardViewActivity.this);
 
+            // Re-init loyaltyCard with new data from DB
             onResume();
             invalidateOptionsMenu();
 
@@ -749,6 +765,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             new ListWidget().updateAll(LoyaltyCardViewActivity.this);
 
+            // Re-init loyaltyCard with new data from DB
             onResume();
             invalidateOptionsMenu();
 
@@ -757,6 +774,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
 
+            // Re-init loyaltyCard with new data from DB
             onResume();
             invalidateOptionsMenu();
 

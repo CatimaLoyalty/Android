@@ -21,12 +21,12 @@
     <string name="takePhoto">Chụp ảnh</string>
     <string name="storeName">Tên</string>
     <string name="validFromDate">Có hiệu lực từ</string>
-    <string name="cameraPermissionDeniedTitle">Không sử dụng được camera</string>
-    <string name="wrongValueForBarcodeType">Giá trị cho loại mã vạch này không hợp lệ</string>
+    <string name="cameraPermissionDeniedTitle">Không thể truy cập camera</string>
+    <string name="wrongValueForBarcodeType">Giá trị không hợp lệ cho loại mã vạch đã chọn</string>
     <string name="expiryDate">Ngày hết hạn</string>
     <string name="currency">Tiền tệ</string>
     <string name="welcome">Chào mừng tới Catima</string>
-    <string name="failedParsingImportUriError">Không thể phân tích URI được cung cấp</string>
+    <string name="failedParsingImportUriError">Không thể phân tích URI đã nhập</string>
     <string name="exporting">Đang xuất dữ liệu…</string>
     <string name="group_edit">Sửa nhóm</string>
     <string name="debug_version_fmt">Phiên bản: <xliff:g id="version">%s</xliff:g></string>
@@ -54,11 +54,10 @@
     <string name="cardId">ID thẻ</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Tắt tính năng khóa màng hình khi đang xem thẻ</string>
     <string name="action_more_options">Tùy chọn mở rộng</string>
-    <string name="exportOptionExplanation">Dữ liệu sẽ được ghi vào vị trí mà bạn chọn.</string>
+    <string name="exportOptionExplanation">Dữ liệu sẽ được ghi vào vị trí mà bạn chọn</string>
     <string name="app_copyright_old">Dựa trên Loyalty Card Keychain
 \nbản quyền © 2016–2020 Branden Archer</string>
-    <string name="importVoucherVaultMessage">Chọn <i>vouchervault.json</i> được xuất từ Voucher Vault để nhập liệu.
-\nTập tin này có thể tạo bằng cách bấm Export trong ứng dụng Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Chọn tập tin đã xuất từ Voucher Vault để nhập liệu. \nTạo tập tin này bằng cách bấm Export trong ứng dụng Voucher Vault.</string>
     <string name="importFailed">Không thể nhập dữ liệu</string>
     <string name="chooseImportType">Nhập dữ liệu từ</string>
     <string name="frontImageDescription">Ảnh mặt trước</string>
@@ -106,18 +105,18 @@
     <string name="on_google_play">trên CH Play</string>
     <string name="turn_flashlight_off">Tắt đèn pin</string>
     <string name="show_note">Hiện ghi chú</string>
-    <string name="report_error">Báo Lỗi</string>
+    <string name="report_error">Báo lỗi</string>
     <string name="passwordRequired">Xin mời nhập mật khẩu</string>
     <string name="intent_import_card_from_url_share_text">Tôi muốn chia sẻ thẻ với bạn</string>
     <string name="star">Đánh dấu ưa thích</string>
     <string name="addFromImage">Chọn ảnh từ thư viện ảnh</string>
     <string name="reverse">...theo trật tự đảo ngược</string>
     <string name="app_copyright_short">Bản quyền © Sylvia van Os và các cộng sự</string>
-    <string name="importExportHelp">Sao lưu cho phép bạn chuyển dữ liệu của mình đến thiết bị khác.</string>
+    <string name="importExportHelp">Sao lưu cho phép bạn chuyển dữ liệu của mình đến thiết bị khác</string>
     <string name="settings_oled_dark">Nền đen tuyền cho chủ đề tối</string>
     <string name="starred">Ưa thích</string>
     <string name="field_must_not_be_empty">Không được để ô trống</string>
-    <string name="importOptionFilesystemExplanation">Chọn 1 tập tin cụ thể từ hệ thống (filesystem).</string>
+    <string name="importOptionFilesystemExplanation">Chọn 1 tập tin cụ thể từ hệ thống (filesystem)</string>
     <string name="validFromSentence">Hợp lệ từ: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Xuất dữ liệu xong</string>
     <string name="previousCard">Trước</string>
@@ -125,7 +124,7 @@
     <string name="license">Giấy phép</string>
     <string name="newBalanceSentence">Số dư mới: <xliff:g>%s</xliff:g></string>
     <string name="editGroup">Sửa nhóm: <xliff:g>%s</xliff:g></string>
-    <string name="noGroups">Bấm vào dấu cộng + để thêm nhóm cho việc phân loại.</string>
+    <string name="noGroups">Bấm vào dấu cộng + để thêm nhóm cho việc phân loại</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="other"><xliff:g>%1$d</xliff:g> thẻ (lưu trữ <xliff:g id="archivedCount">%2$d</xliff:g>)</item>
     </plurals>
@@ -137,7 +136,7 @@
     <string name="options">Tùy chọn</string>
     <string name="sendLabel">Gửi…</string>
     <string name="importOptionFilesystemButton">Lấy từ hệ thống</string>
-    <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
+    <string name="failedGeneratingShareURL">Không tạo được URL để chia sẻ</string>
     <string name="selectColor">Chọn màu</string>
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
     <string name="privacy_policy">Chính sách quyền riêng tư</string>
@@ -149,7 +148,7 @@
     <string name="addManually">Nhập mã vạch thủ công</string>
     <string name="updateBalance">Cập nhật số dư</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Bản quyền © 2019–<xliff:g>%d</xliff:g> Sylvia van Os và các cộng sự</string>
-    <string name="sort_by_most_recently_used">Sửa dụng gần đây nhất</string>
+    <string name="sort_by_most_recently_used">Sử dụng gần đây nhất</string>
     <string name="noGiftCards">Bấm nút dấu cộng + để thêm thẻ, hoặc nhập dữ liệu từ ⋮ menu</string>
     <string name="importVoucherVault">Nhập dữ liệu từ Voucher Vault</string>
     <string name="barcodeId">Giá trị mã vạch</string>
@@ -164,8 +163,7 @@
     <string name="cameraPermissionRequired">Tác vụ này cần được cấp quyền sử dụng camera…</string>
     <string name="settings_allow_content_provider_read_title">Cho phép ứng dụng khác truy cập vào dữ liệu của tôi</string>
     <string name="updateBarcodeQuestionText">Bạn đã thay đổi ID. Bạn có muốn cập nhật mã vạch dùng chung giá trị này\?</string>
-    <string name="importLoyaltyCardKeychainMessage">Chọn <i>LoyaltyCardKeychain.csv</i> được xuất từ Loyalty Card Keychain để nhập liệu.
-\nTập tin này có thể tạo bằng cách vào menu Import/Export của Loyalty Card Keychain → bấm Export.</string>
+    <string name="importLoyaltyCardKeychainMessage">Chọn tập tin được xuất từ Loyalty Card Keychain để nhập liệu. \nTạo tập tin này bằng cách vào menu Import/Export của Loyalty Card Keychain và bấm Export.</string>
     <string name="settings_light_theme">Sáng</string>
     <string name="moveDown">Kéo xuống</string>
     <string name="importSuccessfulTitle">Nhập dữ liệu xong</string>
@@ -178,7 +176,7 @@
     <string name="scanCardBarcode">Quét Mã Vạch</string>
     <string name="updateBalanceHint">Nhập số lượng</string>
     <string name="action_search">Tìm kiếm</string>
-    <string name="noGiftCardsGroup">Tạo vài thẻ, và phân công chúng vào nhóm này.</string>
+    <string name="noGiftCardsGroup">Tạo vài thẻ, và sắp xếp chúng vào nhóm này</string>
     <string name="on_github">trên Github</string>
     <string name="sort">Sắp Xếp</string>
     <string name="permissionReadCardsLabel">Đọc thẻ Catima</string>
@@ -202,11 +200,11 @@
     <string name="show_archived_cards">Hiện thẻ lưu trữ</string>
     <string name="selectBarcodeTitle">Chọn Mã Vạch</string>
     <string name="importSuccessful">Nhập dữ liệu xong</string>
-    <string name="app_libraries">Thư viện mở từ bên thứ 3: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Thư viện mở từ bên thứ ba: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Bạn đã chi tiêu hoặc nhận được bao nhiêu?</string>
     <string name="editCardTitle">Sửa thẻ</string>
     <string name="archive">Lưu trữ</string>
-    <string name="app_resources">Tài nguyên mở từ bên thứ 3: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Tài nguyên mở từ bên thứ ba: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="shortcutSelectCard">Chọn một thẻ</string>
     <string name="accept">Đồng ý</string>
     <string name="noCardsMessage">Thêm danh sách thẻ</string>
@@ -220,15 +218,13 @@
     <plurals name="selectedCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> đã được chọn</item>
     </plurals>
-    <string name="version_history">Lịch Sử Phiên Bản</string>
+    <string name="version_history">Lịch sử phiên bản</string>
     <string name="note">Ghi chú</string>
-    <string name="importCatimaMessage">Chọn <i>catima.zip</i> được xuất từ Catima để nhập liệu.
-\nTập tin này có thể tạo bằng cách vào menu Nhập/Xuất dữ liệu → bấm Xuất dữ liệu ở ứng dụng Catima khác.</string>
+    <string name="importCatimaMessage">Chọn tập tin được xuất từ Catima để nhập liệu.\nTạo tập tin từ menu Nhập/Xuất dữ liệu ở ứng dụng Catima khác và bấm Xuất dữ liệu.</string>
     <plurals name="balancePoints">
         <item quantity="other"><xliff:g>%s</xliff:g> điểm</item>
     </plurals>
-    <string name="importFidmeMessage">Chọn <i>fidme-export-request-xxxxxx.zip</i> được xuất từ FidMe để nhập liệu, sau đó chọn mã vạch thủ công.
-\nTập tin này có thể tạo bằng cách vào FidMe profile → Data Protection → bấm Extract my data.</string>
+    <string name="importFidmeMessage">Chọn tập tin được xuất từ FidMe để nhập liệu, sau đó chọn thủ công loại mã vạch. \nTạo tập tin này bằng cách vào tài khoản FidMe, chọn Data Protection, rồi bấm Extract my data.</string>
     <string name="action_add">Thêm</string>
     <string name="updateBarcodeQuestionTitle">Cập nhật giá trị cho mã vạch chứ\?</string>
     <string name="deleteTitle">Xóa thẻ</string>
@@ -238,14 +234,14 @@
     <string name="rate_this_app">Đánh giá ứng dụng</string>
     <string name="credits">Ghi nhận</string>
     <string name="app_name">Catima</string>
-    <string name="openFrontImageInGalleryApp">Mở hình ảnh phía trước trong ứng dụng thư viện</string>
+    <string name="openFrontImageInGalleryApp">Mở hình ảnh mặt trước trong ứng dụng thư viện ảnh</string>
     <string name="and_data_usage">và sử dụng dữ liệu</string>
     <string name="show_validity">Hiển thị tính hợp lệ</string>
     <string name="barcodeLongPressMessage">Chỉ có thể mở hình ảnh trong ứng dụng thư viện</string>
     <string name="source_repository">Kho lưu trữ nguồn</string>
     <string name="switchToBackImage">Chuyển sang hình ảnh phía sau</string>
     <string name="switchToFrontImage">Chuyển sang hình ảnh phía trước</string>
-    <string name="openBackImageInGalleryApp">Mở lại hình ảnh trong ứng dụng thư viện</string>
+    <string name="openBackImageInGalleryApp">Mở hình ảnh mặt sau trong ứng dụng thư viện ảnh</string>
     <string name="failedToRetrieveImageFile">Không thể truy xuất tệp hình ảnh</string>
     <string name="app_contributors">Được thực hiện bởi: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="app_license">Phần mềm miễn phí có bản quyền theo giấy phép GPLv3+</string>
@@ -254,12 +250,12 @@
     <string name="spend">Tiêu</string>
     <string name="receive">Nhận được</string>
     <string name="amountParsingFailed">Số tiền không hợp lệ</string>
-    <string name="add_manually_warning_message">Đối với một số cửa hàng, giá trị mã vạch khác với số ghi trên thẻ. Vì lý do này, việc nhập mã vạch theo cách thủ công không phải lúc nào cũng hiệu quả. Thay vào đó, bạn nên quét mã vạch bằng máy ảnh của mình. Bạn vẫn muốn tiếp tục chứ?</string>
+    <string name="add_manually_warning_message">Đối với một số thẻ, giá trị mã vạch khác với số ghi trên thẻ. Vì lý do này, việc nhập mã vạch theo cách thủ công không phải lúc nào cũng hiệu quả. Thay vào đó, bạn nên quét mã vạch bằng máy ảnh của mình. Bạn vẫn muốn tiếp tục chứ?</string>
     <string name="addFromPdfFile">Chọn tệp PDF</string>
-    <string name="errorReadingFile">Không thể đọc tệp</string>
+    <string name="errorReadingFile">Không thể đọc tập tin</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Bạn muốn sử dụng mã vạch nào được tìm thấy?</string>
-    <string name="failedLaunchingFileManager">Không thể tìm thấy trình quản lý tệp được hỗ trợ</string>
+    <string name="failedLaunchingFileManager">Không thể tìm thấy trình quản lý tập tin được hỗ trợ</string>
     <string name="noCameraFoundGuideText">Có vẻ như thiết bị của bạn không có camera. Nếu có, hãy thử khởi động lại thiết bị. Nếu không, hãy sử dụng nút Tùy chọn khác bên dưới để thêm mã vạch theo cách khác.</string>
     <string name="useFrontImage">Sử dụng hình ảnh phía trước</string>
     <string name="useBackImage">Sử dụng hình ảnh phía sau</string>
@@ -279,9 +275,9 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_7">7</string>
     <string name="sort_by_valid_from">Có hiệu lực từ</string>
-    <string name="addFromPkpass">Chọn tệp Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Chọn tập tin Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Tập tin này không được hỗ trợ</string>
-    <string name="generic_error_please_retry">Xin lỗi, có gì đó không ổn, vui lòng thử lại...</string>
+    <string name="generic_error_please_retry">Có lỗi xảy ra</string>
     <string name="width">Chiều rộng</string>
     <string name="setBarcodeWidth">Đặt chiều rộng mã vạch</string>
     <string name="card_list_widget_name">Danh sách thẻ</string>

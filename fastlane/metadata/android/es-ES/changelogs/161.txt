@@ -1,0 +1,1 @@
+– Desactive temporalmente la detección automática de codificación de códigos de barras (provoca fallos en demasiadas tarjetas)

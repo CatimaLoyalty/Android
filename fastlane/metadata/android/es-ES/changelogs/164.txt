@@ -1,0 +1,4 @@
+A partir de esta versión, Android 5.0 y 5.1 ya no son compatibles. Si desea usar Catima en estas versiones, utilice la versión 2.41.6.
+
+- Se corrigió un error que provocaba un cierre inesperado al cambiar de tarjeta con los botones de volumen si solo había una tarjeta disponible.
+- Se corrigió un error que provocaba que el acceso directo volviera a la tarjeta anterior después de rotarla.

@@ -1,0 +1,1 @@
+– Se corrigió un cambio introducido en la versión 2.41.0 que provocó que algunos escáneres dejaran de ser compatibles con códigos de barras que no son UTF-8

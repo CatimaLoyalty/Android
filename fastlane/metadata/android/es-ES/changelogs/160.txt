@@ -1,0 +1,2 @@
+– Seguimiento de la corrección en la versión 2.41.2 para tarjetas configuradas explícitamente en ISO-8859-1
+– Migrar tarjetas antiguas a ISO-8859-1 para corregir cambios repentinos de comportamiento en las tarjetas existentes

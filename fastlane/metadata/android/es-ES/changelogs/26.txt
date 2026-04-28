@@ -1,0 +1,1 @@
+- Evita que la aplicación se bloquee cuando la renderización de un código de barras agota su memoria. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

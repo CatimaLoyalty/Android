@@ -1,0 +1,3 @@
+- Desactivar NFC al mostrar una tarjeta por defecto
+- Solicitar al teclado que ponga en mayúscula cada palabra del nombre de la tienda en la pantalla de edición
+- Incluir la fecha en el nombre del archivo de exportación

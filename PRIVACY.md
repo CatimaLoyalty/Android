@@ -1,5 +1,5 @@
 **Last updated**  
-April 29 2025
+April 29 2026
 
 # Privacy Policy
 Catima does not collect or transmit any personal information.

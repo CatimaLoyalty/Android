@@ -13,12 +13,6 @@ import android.graphics.drawable.Drawable;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.method.DigitsKeyListener;
-import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -469,7 +463,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
-        updateCurrentCardFields();
+        populateStateFromCurrentCard();
         showHideElementsForScreenSize();
         bindCardIdDescriptionInteractions();
         applyCardStyling(window);
@@ -557,7 +551,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return false;
     }
 
-    private void updateCurrentCardFields() {
+    private void populateStateFromCurrentCard() {
         setTitle(loyaltyCard.store);
         loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
         format = loyaltyCard.barcodeType;
@@ -634,6 +628,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void refreshDisplayedCardMedia() {
         cardNavigator = createCardNavigator(isBarcodeSupported());
         setStateBasedOnImageTypes();
+        // Call correct drawMainImage
         setFullscreen(isFullscreen);
     }
 

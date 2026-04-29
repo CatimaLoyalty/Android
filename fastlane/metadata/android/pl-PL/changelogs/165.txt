@@ -1,0 +1,3 @@
+- Domyślnie wyłączaj funkcję NFC podczas wyświetlania karty
+- Na ekranie edycji ustaw klawiaturę tak, aby pierwsze litery słów w nazwie sklepu były wielkie
+- Dodaj datę do nazwy pliku eksportu

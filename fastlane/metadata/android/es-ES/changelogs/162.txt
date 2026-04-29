@@ -1,0 +1,5 @@
+– Se corrigió un error que provocaba que el widget de lista abriera a veces la tarjeta incorrecta
+– Se corrigieron varios errores relacionados con el manejo de accesos directos
+– Se corrigió un error que impedía que la actividad "Acerca de" utilizara una barra de título en negra en modo OLED
+– Se eliminó por completo la detección automática de codificación de códigos de barras
+– Se expuso la codificación de códigos de barras a través de ContentProvider (utilizado por Gadgetbridge)

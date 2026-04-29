@@ -1,0 +1,3 @@
+- Standardno isključi NFC prilikom prikazivanjw kartice
+- Zatraži od tipkovnice da u ekranu za uređivanje zapiše svaku riječ velikim slovima u imenu trgovine
+- Upiši datum u ime izvozne datoteke

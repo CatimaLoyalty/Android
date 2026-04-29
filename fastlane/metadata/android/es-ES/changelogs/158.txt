@@ -1,0 +1,1 @@
+– Corregir el estado y el color de la barra de navegación en la nueva actividad Acerca de

@@ -301,4 +301,8 @@
     <string name="nothing_to_copy">Δεν βρέθηκε τιμή</string>
     <string name="barcodeEncoding">Κωδικοποίηση γραμμωτού κώδικα</string>
     <string name="back">Πίσω</string>
+    <string name="settings_disable_nfc_while_viewing_card">Παύση NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Παύση του NFC για την αποτροπή ενεργοποίησης πληρωμών NFC κατά την προβολή μιας κάρτας</string>
+    <string name="nfc_blocked_while_viewing_card">Το NFC είναι σε παύση</string>
+    <string name="change_settings">Αλλαγή ρυθμίσεων</string>
 </resources>

@@ -1,0 +1,2 @@
+– Copia el ID de la tarjeta al portapapeles desde el cuadro de diálogo de visualización o mantén pulsado
+– Intercambia los campos de saldo y moneda para intentar reducir el redondeo no deseado

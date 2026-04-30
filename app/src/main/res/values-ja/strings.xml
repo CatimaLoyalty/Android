@@ -294,4 +294,8 @@
     <string name="nothing_to_copy">値が見つかりません</string>
     <string name="barcodeEncoding">バーコードの符号化</string>
     <string name="back">戻る</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFCを一時停止</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">カードの表示中にNFC決済が誤って実行されないようにNFCを一時停止します</string>
+    <string name="nfc_blocked_while_viewing_card">NFCは停止中です</string>
+    <string name="change_settings">設定を変更する</string>
 </resources>

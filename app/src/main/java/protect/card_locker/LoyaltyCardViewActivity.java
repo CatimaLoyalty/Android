@@ -670,11 +670,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (settings.getDisableLockscreenWhileViewingCard()) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-                    setShowWhenLocked(true);
-                } else {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O_MR1) {
                     showWhenLockedSdkLessThan27(window);
                 }
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                setShowWhenLocked(false);
             }
 
             window.setAttributes(attributes);

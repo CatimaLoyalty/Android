@@ -100,7 +100,8 @@
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:showWhenLocked="true" />
         <activity
             android:name=".LoyaltyCardEditActivity"
             android:exported="true"

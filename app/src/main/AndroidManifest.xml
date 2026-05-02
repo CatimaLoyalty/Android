@@ -98,7 +98,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".LoyaltyCardViewActivity"
+            android:name=".cardview.LoyaltyCardViewActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

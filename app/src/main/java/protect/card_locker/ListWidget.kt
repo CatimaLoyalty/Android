@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.RemoteViews
 import androidx.core.widget.RemoteViewsCompat
 import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
+import protect.card_locker.cardview.LoyaltyCardViewActivity
 
 class ListWidget : AppWidgetProvider() {
     fun updateAll(context: Context) {

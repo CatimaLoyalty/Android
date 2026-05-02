@@ -515,29 +515,29 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void enablePausedNfcIfConfigured() {
         // Pause NFC to prevent NFC payments from triggering while showing a barcode
-        if (!settings.getDisableNfcWhileViewingCard()) {
-            return;
-        }
-
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
             return;
         }
 
-        nfcAdapter.enableReaderMode(this, tag -> {
-            Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
-                    .setAnchorView(binding.fabEdit)
-                    .setAction(R.string.change_settings, view -> {
-                        // Open settings activity
-                        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                        startActivity(intent);
-                    });
-            snackbar.show();
-        }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
-                | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
-                | NfcAdapter.FLAG_READER_NFC_BARCODE
-                | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
-                | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+        if (settings.getDisableNfcWhileViewingCard()) {
+            nfcAdapter.enableReaderMode(this, tag -> {
+                Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
+                        .setAnchorView(binding.fabEdit)
+                        .setAction(R.string.change_settings, view -> {
+                            // Open settings activity
+                            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                            startActivity(intent);
+                        });
+                snackbar.show();
+            }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                    | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                    | NfcAdapter.FLAG_READER_NFC_BARCODE
+                    | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                    | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+        } else {
+            nfcAdapter.disableReaderMode(this);
+        }
     }
 
     private boolean loadCurrentCardFromDatabase() {

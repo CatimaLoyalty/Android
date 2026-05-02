@@ -87,7 +87,7 @@
     <string name="settings_locale">언어</string>
     <string name="settings_system_locale">시스템</string>
     <string name="selectColor">색상 선택</string>
-    <string name="app_contributors">기여자: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="app_contributors">제작 지원: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">정보 보기</string>
     <string name="updateBalance">잔액 업데이트</string>
     <string name="failedToRetrieveImageFile">이미지 파일을 검색하지 못했습니다</string>

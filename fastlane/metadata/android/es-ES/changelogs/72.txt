@@ -1,0 +1,1 @@
+- Fijar la imposibilidad de configurar las fotos en la nueva tarjeta de fidelidad

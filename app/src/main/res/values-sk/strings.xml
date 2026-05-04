@@ -307,4 +307,8 @@
     <string name="nothing_to_copy">Nenašla sa žiadna hodnota</string>
     <string name="barcodeEncoding">Kódovanie čiarového kódu</string>
     <string name="back">Späť</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pozastaviť NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pozastaví NFC pre zabránenie spustenia NFC platieb pri zobrazovaní karty</string>
+    <string name="nfc_blocked_while_viewing_card">NFC je pozastavené</string>
+    <string name="change_settings">Zmenit nastavenie</string>
 </resources>

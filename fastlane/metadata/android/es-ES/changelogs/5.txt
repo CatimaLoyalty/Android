@@ -1,0 +1,2 @@
+- Un aproximadamente el diálogo puede ser abierto de la pantalla principal, el cual da detalles sobre la aplicación y proyecto encima GitHub
+- Dejar información de carta de la lealtad para ser importado de/exportado a un archivo CSV en almacenamiento externo

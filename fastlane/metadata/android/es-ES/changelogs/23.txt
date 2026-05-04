@@ -1,0 +1,3 @@
+– Agregar un espacio en blanco al principio/final de los códigos de barras.
+– Agregar opciones para configurar los colores utilizados para la fuente y el fondo del nombre de la tienda.
+– Agregar opciones para ajustar el tamaño de la fuente en la página de listado de tarjetas y en la página de cada tarjeta individual

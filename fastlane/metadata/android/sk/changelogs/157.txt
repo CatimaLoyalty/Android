@@ -1,0 +1,6 @@
+- Pridaná podpora pre čiarové kódy UTF-8
+- Pridaná možnosť duplikovania na hlavnú obrazovku a mierne upravené poradie možností
+- Opravená chyba, kedy sa nastavenie počtu stĺpcov neaplikovalo na zoznam kariet v skupine
+- Odstránená podpora farebných motívov
+- Znížená maximálna veľkosť fotografií, aby sa znížila spotreba úložného priestoru (platí iba pre novo pridané fotografie)
+- Presunutá aktivita „O aplikácii“ z Android XML do Jetpack Compose

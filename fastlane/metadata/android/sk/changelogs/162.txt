@@ -1,0 +1,5 @@
+- Oprava chyby, pri ktorej sa widget zoznamu niekedy otvoril s nesprávnou kartou
+- Oprava viacerých chýb pri spracovaní skratiek
+- Oprava aktivity O aplikácii , ktorá v režime OLED nepoužívala čisto čierny titulný riadok
+- Úplné odstránenie automatickej detekcie kódovania čiarových kódov
+- Zobrazenie kódovania čiarových kódov prostredníctvom ContentProvider (využíva Gadgetbridge)

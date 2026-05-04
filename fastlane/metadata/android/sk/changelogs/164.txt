@@ -1,0 +1,4 @@
+Od tejto verzie už nie sú podporované systémy Android 5.0 a 5.1. Ak chcete používať aplikáciu Catima na týchto verziách, použite prosím verziu 2.41.6.
+
+- Oprava pádu aplikácie pri prepínaní kariet pomocou tlačidiel hlasitosti, ak je k dispozícii len jedna karta
+- Oprava skratky, ktorá po otočení obrazovky vracala na predchádzajúcu kartu

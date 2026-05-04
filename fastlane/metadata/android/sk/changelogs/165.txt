@@ -1,0 +1,3 @@
+- Vypnúť NFC pri zobrazení karty (predvolené nastavenie)
+- Požiadať klávesnicu, aby na obrazovke na úpravu písala každé slovo v názve obchodu veľkými písmenami
+- Do názvu exportovaného súboru vložiť dátum

@@ -1,0 +1,2 @@
+- Detectar automáticamente las URL en el ID de la tarjeta y hacerlas pulsables en la ventana emergente de detalles del ID de la tarjeta
+- Corregir la actividad del selector de códigos de barras que mostraba cuadrados blancos en lugar de códigos de barras

@@ -1,0 +1,2 @@
+- Asistencia para cambiar la ordenación de clasificación
+- Prevent Out Of Memory en escanear grandes imágenes para códigos de barras

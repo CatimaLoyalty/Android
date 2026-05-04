@@ -1,0 +1,4 @@
+- Soporte mejorada para lectores de pantalla
+- No choca cuándo intentando abrir un vídeo de galería
+- Soporte de golpe encima pantalla de vista de carta de lealtad
+- No restablece grupo de reinicialización en prensa de botón posterior

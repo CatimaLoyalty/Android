@@ -1,0 +1,3 @@
+- Apoyar Bóveda de Vale importador (https://github.com/tim-smart/vouchervault/) exportaciones
+- Opción para mantener la pantalla encima mientras viendo una carta de lealtad
+- Opción para suspender la pantalla de cerradura mientras viendo una carta de lealtad

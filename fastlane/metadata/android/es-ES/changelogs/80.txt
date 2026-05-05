@@ -1,0 +1,2 @@
+- Corrige las imágenes no importadas de copia de respaldo
+- Opción de anular el idioma

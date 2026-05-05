@@ -1,0 +1,4 @@
+- Mejorar el importador de tarjetas Stocard
+- Fijación de la exportación de Catima con nota multi‐línea
+- Título de la tarjeta de escala en rango aceptable
+- Mejoras de la animación

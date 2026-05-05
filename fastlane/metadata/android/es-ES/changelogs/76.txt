@@ -1,0 +1,4 @@
+- Hacer enlaces en notas pulsable
+- Grupo de preselección el usuario está actualmente en la creación de una nueva tarjeta
+- Nombres de grupo separados en la vista de la tarjeta de fidelidad
+- Soluciona el botón maximizar que aparece en ningún código de barras

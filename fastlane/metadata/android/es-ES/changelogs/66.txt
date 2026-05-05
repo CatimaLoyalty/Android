@@ -1,0 +1,4 @@
+- Apoya importar Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme) exportaciones
+- Dejar importando una carta de un cuadro almacenado en la galería de Androide del usuario
+- Fijar multi‐linea nota cutoff
+- Cambio "Gracias" texto encima diálogo de intimidad para "Aceptar" porque Huawei es demasiado pedante

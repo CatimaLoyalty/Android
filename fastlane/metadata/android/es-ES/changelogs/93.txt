@@ -1,0 +1,2 @@
+- Se agregó Catima a los controles de acceso rápido del dispositivo (https://developer.android.com/guide/topics/ui/device-control)
+- Se corrigió un error que impedía que algunos grupos se mostraran correctamente en la pantalla de administración de grupos

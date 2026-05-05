@@ -1,0 +1,1 @@
+- Solucionar el error de regresión que impedía la importación/exportación

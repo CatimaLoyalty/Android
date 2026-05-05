@@ -1,0 +1,1 @@
+- Corrige el fallo en la rotación en la actividad de edición de tarjetas de fidelidad

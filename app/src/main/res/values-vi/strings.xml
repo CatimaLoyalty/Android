@@ -295,4 +295,8 @@
     <string name="nothing_to_copy">Không tìm thấy giá trị</string>
     <string name="barcodeEncoding">Mã hoá mã vạch</string>
     <string name="back">Quay lại</string>
+    <string name="settings_disable_nfc_while_viewing_card">Tạm dừng NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Tạm dừng NFC để tránh tự động kích hoạt thanh toán NFC khi đang xem một thẻ</string>
+    <string name="nfc_blocked_while_viewing_card">Đã tạm dừng NFC</string>
+    <string name="change_settings">Thay đổi cài đặt</string>
 </resources>

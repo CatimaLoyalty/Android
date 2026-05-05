@@ -1,0 +1,3 @@
+- Agregue el ID de código de barras que falta para exportar
+- No muestre la actualización del diálogo de códigos de barras si el valor es igual al ID de tarjeta
+- Añadir traducción finlandesa

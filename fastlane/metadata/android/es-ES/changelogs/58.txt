@@ -1,0 +1,1 @@
+- Reparado Cuelgue en versiones antes de que Androide 7

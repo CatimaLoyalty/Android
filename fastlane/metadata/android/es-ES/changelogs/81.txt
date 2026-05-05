@@ -1,0 +1,4 @@
+- Mejorar lista de carta para paisaje y exposición de pastilla
+- Añadir theming apoyo de color (da las gracias a, Subhashish Anand!)
+- No cierra actividad de escáner encima error de cámara (así que la entrada manual es todavía posible)
+- Añadir todos los colaboradores al aproximadamente diálogo

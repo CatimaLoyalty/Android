@@ -1,0 +1,5 @@
+- Arreglar el intercambio entre grupos que no trabajan en un grupo vacío
+- Permitir las exportaciones de protección de contraseñas
+- Mejorar el uso del espacio para códigos QR
+- Guardar el último nivel de zoom usado por tarjeta
+- Arregla un accidente cuando gira justo después de un grifo

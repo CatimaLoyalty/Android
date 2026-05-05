@@ -1,0 +1,4 @@
+- Corrige el color seleccionado en el diálogo de cambio de color
+- Soporte para eliminar varias tarjetas a la vez
+- Corrige posible ArithmeticException al cambiar la imagen
+- Corrige cierre de pantalla completa cuando el dispositivo giratorio

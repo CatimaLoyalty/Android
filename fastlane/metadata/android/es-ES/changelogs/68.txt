@@ -1,0 +1,4 @@
+- Apoyo a la nueva exportación PDF417 de Voucher Vault
+- Soporte copiando múltiples códigos de barras a la vez
+- Apoyo compartir múltiples tarjetas de fidelidad a la vez
+- Solicitar actualizar el valor de código de barras si cambia el ID de tarjeta

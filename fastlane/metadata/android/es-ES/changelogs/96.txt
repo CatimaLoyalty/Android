@@ -1,0 +1,2 @@
+- Se agregó compatibilidad con CODE 93
+- Varias correcciones de errores menores y mejoras

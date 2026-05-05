@@ -1,0 +1,4 @@
+- Se corrigió el color incorrecto de los puntos en la vista de tarjetas al cambiar el tema manualmente
+- Se corrigió el bloqueo en la vista de tarjetas al girar o cambiar el tema
+- Se corrigió el parpadeo de la lista de tarjetas
+- Se corrigió el texto que se superponía al icono de estrella

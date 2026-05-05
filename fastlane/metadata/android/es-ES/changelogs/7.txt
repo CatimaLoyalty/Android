@@ -1,0 +1,2 @@
+- Pulsación larga de una carta trae arriba opción para copiar carta ID al portapapeles. (atracción #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Botón Posterior encima vista/de Exportación de la Importación ahora obras, moviendo usuario a vista principal

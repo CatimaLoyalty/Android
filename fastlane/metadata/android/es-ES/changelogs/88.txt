@@ -1,0 +1,1 @@
+- Se corrige una migración incorrecta que hacía que la primera tarjeta se volviera invisible

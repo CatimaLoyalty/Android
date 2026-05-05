@@ -1,0 +1,2 @@
+- Nuevo diseño de pantalla principal
+- Arreglar los problemas de tamaño de la hoja inferior al entrar y salir de la pantalla completa

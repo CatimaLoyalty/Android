@@ -1,0 +1,3 @@
+- Fijar el borroso de los iconos de las letras principales
+- Fijar iconos que a veces desaparecen después de la selección
+- Fijar iconos de barras de estado posiblemente siendo invisible en Android 5

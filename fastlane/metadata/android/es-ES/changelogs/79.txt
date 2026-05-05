@@ -1,0 +1,2 @@
+- Corrige el widget creando atajos diferentes que atajos de aplicaciones
+- Reemplazar la pantalla negra Android predeterminada con pantalla de salpicadura

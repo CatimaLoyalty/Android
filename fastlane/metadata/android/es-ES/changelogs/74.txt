@@ -1,0 +1,3 @@
+- Repara la creación de atajos
+- Generar un icono de acceso directo específico para tarjetas
+- Posibilidad de cambiar el color de la tarjeta de fidelidad

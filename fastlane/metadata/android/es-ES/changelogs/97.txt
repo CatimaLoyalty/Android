@@ -1,0 +1,4 @@
+- Arreglado presionando el botón de ahorro varias veces creando múltiples entradas
+- tamaño inferior de la cabecera de la tarjeta al ocultar detalles para caber aún más tarjetas
+- Pantalla de edición de reestructuración
+- Mejorar el contraste de icono estrella en la vista principal

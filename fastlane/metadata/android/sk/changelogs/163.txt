@@ -1,0 +1,2 @@
+- Automatická detekcia URL adries v ID karty a sprístupnenie odkazu v pop-up okne s podrobnosťami ID karty
+- Oprava chyby vo funkcii výberu čiarových kódov, ktorá zobrazovala biele štvorce namiesto čiarových kódov

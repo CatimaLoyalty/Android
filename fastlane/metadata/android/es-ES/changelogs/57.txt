@@ -1,0 +1,4 @@
+- Agrega mantenimiento para escalada de la barra de código cuando se mueva a la cima que quepa aún más escáneres pequeños
+- Corrige la capa inferior que salta después de cambiar a pantalla completa
+- Encabezamiento de Marca en vista pequeña de tarjeta de la lealtad en modo de paisaje
+- Corrige cartas no quedándose en agrupar cuando el grupo obtiene renombrado

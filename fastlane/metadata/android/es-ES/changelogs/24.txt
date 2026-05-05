@@ -1,0 +1,4 @@
+– Actualizar las traducciones. (pull #208 
+– Actualizaciones de presentación de códigos de barras: 
+  – Recargar la actividad de vista de la tarjeta cuando la pantalla está rota, por lo que la imagen de código de barras es el tamaño correcto.
+  – Render códigos de barras 1D en un espacio más grande, permitiéndoles rellenar mejor la pantalla.

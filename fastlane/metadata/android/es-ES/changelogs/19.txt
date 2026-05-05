@@ -1,0 +1,3 @@
+– Se corrigió un error que provocaba el cierre inesperado de la aplicación al importar ciertos tipos de archivos CSV dañados.
+– Se corrigió la importación de copias de seguridad directamente desde el sistema de archivos.
+– Se corrigió la importación de copias de seguridad desde ciertos proveedores de contenido

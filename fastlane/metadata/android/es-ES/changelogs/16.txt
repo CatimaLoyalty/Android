@@ -1,0 +1,5 @@
+– Se agregó compatibilidad para añadir accesos directos a la pantalla de inicio al añadir o editar una tarjeta.
+– Se eliminó el widget, ya que no era un buen sustituto de los accesos directos.
+– Se corrigió la exportación de respaldos en Android 7+.
+– Se informó un tipo mime más preciso al exportar datos de respaldo.
+– Se corrigió un error que impedía editar una tarjeta

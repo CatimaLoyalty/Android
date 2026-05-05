@@ -1,0 +1,1 @@
+- Dočasne vypnúť automatickú detekciu kódovania čiarových kódov (spôsobuje chyby pri príliš veľa kartách)

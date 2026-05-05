@@ -1,0 +1,1 @@
+- Oprava zmeny zavedenej vo verzii 2.41.0, ktorá narušila podporu niektorých snímačov pri čiarových kódoch v iných formátoch ako UTF-8

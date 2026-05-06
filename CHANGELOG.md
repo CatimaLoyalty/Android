@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 165
+## v2.42.0 - 165 (2026-05-06)
 
 - Disable NFC while showing a card by default
 - Ask keyboard to capitalize each word in store name in edit screen

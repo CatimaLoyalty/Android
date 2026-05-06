@@ -24,7 +24,7 @@ permissions:
   security-events: none
   statuses: none
 env:
-  JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
+  JAVA_HOME: /usr/lib/jvm/java-25-openjdk-amd64
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,10 +34,10 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: gradle/actions/wrapper-validation@v5
-      - name: set up OpenJDK 21
+      - name: set up OpenJDK 25
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-21-jdk-headless
+          sudo apt-get install -y openjdk-25-jdk-headless
           sudo update-alternatives --auto java
       - name: Build
         run: ./gradlew assemble${{ matrix.flavor }}Release

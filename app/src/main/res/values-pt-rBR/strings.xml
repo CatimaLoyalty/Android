@@ -307,4 +307,8 @@
     <string name="nothing_to_copy">Nenhum valor encontrado</string>
     <string name="barcodeEncoding">codificação de código de barras</string>
     <string name="back">Voltar</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pausar NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Suspende a tecnologia NFC para impedir que pagamentos NFC sejam acionados enquanto o cartão estiver sendo visualizado</string>
+    <string name="nfc_blocked_while_viewing_card">NFC está pausado</string>
+    <string name="change_settings">Alterar configurações</string>
 </resources>

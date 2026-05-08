@@ -290,4 +290,23 @@
     <string name="sort_by_valid_from">Érvényesség kezdete</string>
     <string name="width">Szélesség</string>
     <string name="setBarcodeWidth">Vonalkód szélességének beállítása</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC leállítása</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Az NFC leállítása a kártya megtekintés erejéig, hogy ne indítsa be az NFC fizetést</string>
+    <string name="card_list_widget_name">Kártya lista</string>
+    <string name="card_list_widget_empty">Miután hozzáadja a kártyákat a Catima-hoz, itt fognak megjelenni. Ha vannak kártyái, győződjön meg, hogy nincsenek e archiválva.</string>
+    <string name="cardWithNumber"><xliff:g>%d</xliff:g> kártya</string>
+    <string name="cardWithNumberAndLocale"><xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>) kártya</string>
+    <string name="pleaseDoNotRotateTheDevice">Kérem ne forgassa el az eszközt, mert az megszakítja a műveletet</string>
+    <string name="acra_catima_has_crashed">Sajnos a <xliff:g id="app_name">%s</xliff:g> összeomlott. Segítsen ezt a hibát megoldani, azzal, hogy elküldi a jelentést számunkra.</string>
+    <string name="acra_explain_crash">Ha lehetséges adja meg, hogy éppen milyen műveletet végzett:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> összeomlási jelentés</string>
+    <string name="pref_enable_acra">Kérje az összeomlási jelentéseket</string>
+    <string name="pref_enable_acra_summary">Bekapcsolása esetén mindig kéri az összeomlási jelentés küldését. A jelentések sosem kerülnek küldésre automatikusan.</string>
+    <string name="copy_value">Érték másolása</string>
+    <string name="copied_to_clipboard">Vágólapra másolva</string>
+    <string name="nothing_to_copy">Nem található érték</string>
+    <string name="barcodeEncoding">Vonalkód kódolás</string>
+    <string name="back">Vissza</string>
+    <string name="nfc_blocked_while_viewing_card">NFC leállítva</string>
+    <string name="change_settings">Beállítások változtatása</string>
 </resources>

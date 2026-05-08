@@ -27,4 +27,8 @@
 /lib/bundler/man/
 
 # Catima-specific
+
 SHA256SUMS
+# Local Android SDK
+Sdk/
+/Sdk/

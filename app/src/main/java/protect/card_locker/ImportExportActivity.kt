@@ -172,21 +172,25 @@ class ImportExportActivity : CatimaAppCompatActivity() {
     private fun openFileForImport(uri: Uri, password: CharArray?) {
         // Running this in a thread prevents Android from throwing a NetworkOnMainThreadException for large files
         // FIXME: This is still suboptimal, because showing that the import started is delayed until the network request finishes
-        Thread {
+        lifecycleScope.launch(Dispatchers.IO) {
             try {
                 val reader = contentResolver.openInputStream(uri)
                 Log.d(TAG, "Starting file import with: $uri")
-                startImport(reader, uri, importDataFormat, password, true)
+                withContext(Dispatchers.Main) {
+                    startImport(reader, uri, importDataFormat, password, true)
+                }
             } catch (e: IOException) {
                 Log.e(TAG, "Failed to import file: $uri", e)
-                onImportComplete(
-                    ImportExportResult(
-                        ImportExportResultType.GenericFailure,
-                        e.toString()
-                    ), uri, importDataFormat
-                )
+                withContext(Dispatchers.Main) {
+                    onImportComplete(
+                        ImportExportResult(
+                            ImportExportResultType.GenericFailure,
+                            e.toString()
+                        ), uri, importDataFormat
+                    )
+                }
             }
-        }.start()
+        }
     }
 
     private fun chooseImportType(fileData: Uri?) {

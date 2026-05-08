@@ -2,6 +2,7 @@
 # AndroidX
 compose = "2026.04.01"
 kotlin = "2.3.21"
+agp = "8.12.0"
 
 # Third-party
 acra = "5.13.1"
@@ -21,6 +22,7 @@ androidx-palette-palette = { group = "androidx.palette", name = "palette", versi
 androidx-preference-preference = { group = "androidx.preference", name = "preference", version = "1.2.1" }
 com-google-android-material-material = { group = "com.google.android.material", name = "material", version = "1.13.0" }
 com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
 
 # Compose
 androidx-activity-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.13.0" }
@@ -53,9 +55,9 @@ junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.16.1" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version = "9.1.0" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version = "8.12.0" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [bundles]
 acra = ["ch-acra-acra-mail", "ch-acra-acra-dialog"]

@@ -1,14 +1,7 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
-    alias(libs.plugins.org.jetbrains.kotlin.plugin.compose)
-}
-
-kotlin {
-    jvmToolchain(21)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -19,8 +12,8 @@ android {
         applicationId = "me.hackerchick.catima"
         minSdk = 23
         targetSdk = 36
-        versionCode = 164
-        versionName = "2.41.7"
+        versionCode = 165
+        versionName = "2.42.0"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
@@ -61,12 +54,8 @@ android {
         }
         create("gplay") {
             dimension = "type"
-
-            // Google doesn't allow donation links
             buildConfigField("boolean", "showDonate", "false")
             buildConfigField("boolean", "showRateOnGooglePlay", "true")
-
-            // Google Play already sends crashes to the Google Play Console
             buildConfigField("boolean", "useAcraCrashReporter", "false")
         }
     }
@@ -83,8 +72,6 @@ android {
         }
     }
 
-    // Starting with Android Studio 3 Robolectric is unable to find resources.
-    // The following allows it to find the resources.
     testOptions.unitTests.isIncludeAndroidResources = true
     tasks.withType<Test>().configureEach {
         testLogging {
@@ -96,24 +83,15 @@ android {
         lintConfig = file("lint.xml")
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_21
-        }
-    }
     compileOptions {
         encoding = "UTF-8"
-
-        // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
-
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
 dependencies {
-    // AndroidX
     implementation(libs.androidx.appcompat.appcompat)
     implementation(libs.androidx.constraintlayout.constraintlayout)
     implementation(libs.androidx.core.core.ktx)
@@ -123,9 +101,10 @@ dependencies {
     implementation(libs.androidx.palette.palette)
     implementation(libs.androidx.preference.preference)
     implementation(libs.com.google.android.material.material)
-    coreLibraryDesugaring(libs.com.android.tools.desugar.jdk.libs)
 
-    // Compose
+    // Matches the key in your libs.versions.toml
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
     implementation(libs.androidx.activity.activity.compose)
     val composeBom = platform(libs.androidx.compose.compose.bom)
     implementation(composeBom)
@@ -138,7 +117,6 @@ dependencies {
     androidTestImplementation(composeBom)
     androidTestImplementation(libs.androidx.compose.ui.ui.test.junit4)
 
-    // Third-party
     implementation(libs.com.journeyapps.zxing.android.embedded)
     implementation(libs.com.github.yalantis.ucrop)
     implementation(libs.com.google.zxing.core)
@@ -146,10 +124,8 @@ dependencies {
     implementation(libs.com.jaredrummler.colorpicker)
     implementation(libs.net.lingala.zip4j.zip4j)
 
-    // Crash reporting
     implementation(libs.bundles.acra)
 
-    // Testing
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.junit.junit)
     testImplementation(libs.org.robolectric.robolectric)
@@ -170,8 +146,11 @@ tasks.register("copyRawResFiles", Copy::class) {
     )
     into(layout.projectDirectory.dir("src/main/res/raw"))
     rename { it.lowercase() }
-}.also {
-    tasks.preBuild.dependsOn(it)
+}.also { taskProvider ->
+    tasks.named("preBuild") {
+        dependsOn(taskProvider)
+    }
+
     tasks.getByName<Delete>("clean") {
         val filesNamesToDelete = listOf("CHANGELOG", "PRIVACY")
         filesNamesToDelete.forEach { fileName ->

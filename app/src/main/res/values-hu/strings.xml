@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="noGiftCards">Kattintson a + plusz gombra egy kártya hozzáadásához, vagy importáljon a ⋮ menüből.</string>
+    <string name="noGiftCards">Koppintson a + plusz gombra egy kártya hozzáadásához, vagy importáljon a ⋮ menüből</string>
     <string name="action_add">Hozzáadás</string>
     <string name="action_search">Keresés</string>
     <plurals name="selectedCardCount">
@@ -8,7 +8,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kiválasztva</item>
     </plurals>
     <string name="noCardsMessage">Először adjon hozzá egy kártyát</string>
-    <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz.</string>
+    <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz</string>
     <string name="noMatchingGiftCards">Nincs találat. Próbálja módosítani a keresést.</string>
     <string name="storeName">Név</string>
     <string name="note">Feljegyzés</string>
@@ -32,12 +32,12 @@
     <string name="sendLabel">Küldés…</string>
     <string name="editCardTitle">Kártya szerkesztése</string>
     <string name="addCardTitle">Kártya hozzáadása</string>
-    <string name="scanCardBarcode">Vonalkód leolvasása</string>
+    <string name="scanCardBarcode">Vonalkód beolvasása</string>
     <string name="cardShortcut">Kártya parancsikon</string>
     <string name="failedParsingImportUriError">Az importálási URI nem értelmezhető</string>
-    <string name="importExport">Importálás/exportálás</string>
+    <string name="importExport">Importálás/Exportálás</string>
     <string name="exportName">Exportálás</string>
-    <string name="importExportHelp">Az adatok mentése lehetővé teszi, hogy egy másik eszközre helyezze át.</string>
+    <string name="importExportHelp">Az adatok mentése lehetővé teszi, hogy egy másik eszközre helyezze át</string>
     <string name="importSuccessfulTitle">Importálva</string>
     <string name="importFailedTitle">Az importálás sikertelen</string>
     <string name="importFailed">Nem sikerült az importálás végrehajtása</string>
@@ -49,14 +49,14 @@
     </plurals>
     <string name="deleteTitle">Kártya törlése</string>
     <string name="barcodeImageDescriptionWithType">A(z) <xliff:g>%s</xliff:g> vonalkód képe</string>
-    <string name="noCardExistsError">A kártya nem található</string>
+    <string name="noCardExistsError">Kártya nem található</string>
     <string name="importVoucherVault">Importálás a Voucher Vaultból</string>
     <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a kiválasztott vonalkódtípushoz</string>
     <string name="setBackImage">Hátlapi kép beállítása</string>
     <string name="no">Nem</string>
     <string name="passwordRequired">Adja meg a jelszót</string>
     <string name="exportPasswordHint">Kód beírása</string>
-    <string name="failedGeneratingShareURL">Nem lehetett megosztható webcímet előállítani. Kérjük, ezt jelentse.</string>
+    <string name="failedGeneratingShareURL">Nem lehetett megosztható webcímet előállítani</string>
     <string name="sort">Rendezés</string>
     <string name="on_google_play">a Google Playen</string>
     <string name="and_data_usage">és adathasználat</string>
@@ -68,7 +68,7 @@
     <string name="exportFailed">Nem sikerült az exportálás végrehajtása</string>
     <string name="importing">Importálás…</string>
     <string name="exporting">Exportálás…</string>
-    <string name="exportOptionExplanation">Az adatok a kiválasztott helyre lesznek mentve.</string>
+    <string name="exportOptionExplanation">Az adatok a kiválasztott helyre kerülnek mentésre</string>
     <string name="importOptionFilesystemTitle">Importálás fájlrendszerből</string>
     <string name="importOptionFilesystemButton">A fájlrendszerből</string>
     <string name="app_license">Copyleft licencű szabad szoftver, GPLv3+ alatt közzétéve</string>
@@ -91,7 +91,7 @@
     <string name="groups">Csoportok</string>
     <string name="group_edit">Csoport szerkesztése</string>
     <string name="group_name_is_empty">A csoportnév nem lehet üres</string>
-    <string name="failedOpeningFileManager">Előbb telepítsen egy fájlkezelőt.</string>
+    <string name="failedOpeningFileManager">Fájl böngésző nem elérhető</string>
     <string name="moveUp">Mozgatás felfelé</string>
     <string name="moveDown">Mozgatás lefelé</string>
     <string name="leaveWithoutSaveTitle">Kilépés</string>
@@ -108,7 +108,7 @@
     <string name="chooseExpiryDate">Lejárati dátum kiválasztása</string>
     <string name="moveBarcodeToTopOfScreen">Vonalkód feltolása a képernyő tetejére</string>
     <string name="noBarcodeFound">Nem található vonalkód</string>
-    <string name="errorReadingImage">Nem lehet olvasni a képet</string>
+    <string name="errorReadingImage">Kép nem olvasható</string>
     <string name="balance">Egyenleg</string>
     <string name="currency">Pénznem</string>
     <string name="points">Pontok</string>
@@ -118,10 +118,8 @@
     <string name="importCatima">Importálás a Catimából</string>
     <string name="importFidme">Importálás a FidMeből</string>
     <string name="importLoyaltyCardKeychain">Importálás a Loyalty Card Keychainből</string>
-    <string name="importLoyaltyCardKeychainMessage">Válassza ki a Loyalty Card Keychainből importálandó <i>LoyaltyCardKeychain.csv</i> export fájlt.
-\nEzt hozza létre a Loyalty Card Keychainben az Importálás/exportálás menüben, az Exportálás megnyomásával.</string>
-    <string name="importVoucherVaultMessage">Válassza ki az importálandó <i>vouchervault.json</i> Voucher Vault export fájlt.
-\nEzt hozza létre a Voucher Vaultban az Exportálás megnyomásával.</string>
+    <string name="importLoyaltyCardKeychainMessage">Jelölje ki az importálandó Loyalty Card Keychain exportot. \nLétre tudja hozni a Loyalty Card Keychain Importálás/Exportálás menün belül az Exportálásra koppintva.</string>
+    <string name="importVoucherVaultMessage">Jelölje ki az importálandó Voucher Vault exportot. \nLétre tudja hozni a Voucher Vault-on belüli Exportálás menüben.</string>
     <string name="barcodeId">Vonalkód értéke</string>
     <string name="sameAsCardId">Ugyanaz, mint az azonosító</string>
     <string name="setBarcodeId">Vonalkód értékének beállítása</string>
@@ -167,30 +165,28 @@
     </plurals>
     <string name="chooseImportType">Adatok importálása innen</string>
     <string name="thumbnailDescription">Előkép</string>
-    <string name="importOptionFilesystemExplanation">Válassza ki a kívánt fájlt a fájlrendszerből.</string>
+    <string name="importOptionFilesystemExplanation">Válassza ki a kívánt fájlt a fájlrendszerből</string>
     <string name="about">Névjegy</string>
     <string name="app_copyright_old">Készült a Loyalty Card Keychain alapján
 \nCopyright © 2016–2020 Branden Archer</string>
     <string name="app_libraries">Szabad külső programkönyvtárak: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="settings_dark_theme">Sötét</string>
     <string name="deleteConfirmationGroup">Csoport törlése\?</string>
-    <string name="noGroups">Nyomja meg a + gombot a csoportok kategorizálásához.</string>
+    <string name="noGroups">Koppintson a + gombra a csoportok kategorizálásához</string>
     <string name="group_name_already_in_use">A csoportnév már létezik</string>
     <string name="all">Összes</string>
     <string name="noGroupCards">Ez a csoport üres</string>
     <string name="group_updated">Csoport frissítve</string>
     <string name="expiryStateSentenceExpired">Lejárt: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Csoportok: <xliff:g>%s</xliff:g></string>
-    <string name="importCatimaMessage">Válassza ki az exportált <i>catima.zip</i> fájlt az importáláshoz.
-\nLétrehozhatja az Importálás/exportálás menüből az Exportálást megnyomva egy másik Catima alkalmazásban.</string>
-    <string name="importFidmeMessage">Válassza ki a FidMeből exportált <i>fidme-export-request-xxxxxx.zip</i> fájl majd importálja be, és utána válassza a kézi vonalkódbeírást.
-\nEzt hozza létre a FidMe-profiljában az Adatvédelem rész választásával, majd a Saját adatok kinyerése megnyomásával.</string>
+    <string name="importCatimaMessage">Válassza ki a megfelelő exportált Catima elemet importálásra. \nA menüben található Importálás/Exportálásból importálhat egy korábbi Catima exportot.</string>
+    <string name="importFidmeMessage">Jelölje ki az importálandó FidMe exportot, ezt követően adja meg kézileg a vonalkód típust. \nLétre tudja hozni a FidMe profiljából az Adatvédelmen belül a Adatom kinyerése opcióval.</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
     </plurals>
     <string name="failedToOpenUrl">Először telepítsen egy webböngészőt</string>
-    <string name="failedLaunchingPhotoPicker">Nem található támogatott galéria alkalmazás</string>
+    <string name="failedLaunchingPhotoPicker">Nem található támogatott képválasztó</string>
     <string name="previousCard">Előző</string>
     <string name="nextCard">Következő</string>
     <string name="settings_oled_dark">Teljesen fekete háttér a sötét témánál</string>
@@ -228,7 +224,7 @@
     <string name="icon_header_click_text">Hosszan nyomja meg a miniatűr szerkesztéséhez</string>
     <string name="show_note">Megjegyzés megjelenítése</string>
     <string name="show_balance">Egyenleg megjelenítése</string>
-    <string name="permissionReadCardsLabel">Catima kártyák olvasása</string>
+    <string name="permissionReadCardsLabel">Catima kártyák beolvasása</string>
     <string name="permissionReadCardsDescription">olvassa el a Catima-kártyáit, és annak minden részletét, beleértve a jegyzeteket és a képeket is</string>
     <string name="show_validity">Érvényesség megjelenítése</string>
     <string name="show_name_below_image_thumbnail">Név megjelenítése a kép miniatűrje alatt</string>
@@ -257,7 +253,7 @@
     <string name="app_name">Catima</string>
     <string name="amountParsingFailed">Hibás érték</string>
     <string name="add_manually_warning_title">Szkennelés ajánlott</string>
-    <string name="add_manually_warning_message">Egyes boltoknál a kártyán levő számsor különbözik a vonalkódtól. Emiatt a manuális szám beírás nem minden esetben fog működni. Erősen ajánlott inkább a vonalkód szkennelése kamerával. Biztosan folytatja?</string>
+    <string name="add_manually_warning_message">Egyes kártyákon levő számsor különbözik a vonalkód számától. Emiatt a manuális szám beírás nem minden esetben működni. Ajánlott tehát a vonalkód beolvasása kamerával. Biztosan folytatja?</string>
     <string name="continue_">Tovább</string>
     <string name="spend">Költött</string>
     <string name="receive">Megkapott</string>
@@ -282,14 +278,14 @@
     <string name="settings_column_count_6">6</string>
     <string name="settings_column_count_3">3</string>
     <string name="settings_column_count_1">1</string>
-    <string name="addFromPkpass">Válassz egy Passbook fájlt (.pkpass)</string>
+    <string name="addFromPkpass">Válasszon egy Passbook fájlt (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Ez a fájl nem támogatott</string>
-    <string name="generic_error_please_retry">Sajnálom, valami rosszul ment, próbálkozz újra...</string>
+    <string name="generic_error_please_retry">Hiba lépett fel</string>
     <string name="settings_column_count_4">4</string>
     <string name="settings_column_count_7">7</string>
     <string name="sort_by_valid_from">Érvényesség kezdete</string>
     <string name="width">Szélesség</string>
-    <string name="setBarcodeWidth">Vonalkód szélességének beállítása</string>
+    <string name="setBarcodeWidth">Vonalkód szélesség beállítása</string>
     <string name="settings_disable_nfc_while_viewing_card">NFC leállítása</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Az NFC leállítása a kártya megtekintés erejéig, hogy ne indítsa be az NFC fizetést</string>
     <string name="card_list_widget_name">Kártya lista</string>

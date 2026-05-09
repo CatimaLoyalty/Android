@@ -1,0 +1,2 @@
+- URLs de deteção automática no ID do cartão e fazer o clique em detalhes do ID do cartão pop-up
+- Corrigir a atividade do seletor de código de barras mostrando quadrados brancos em vez de códigos de barras

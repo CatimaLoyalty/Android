@@ -1,0 +1,5 @@
+- Corrigir widget de lista às vezes abrindo o cartão errado
+- Corrigir vários erros com manuseio de atalho
+- Corrigir Sobre a atividade não usando barra de título preto puro no modo OLED
+- Remova totalmente a deteção automática de codificação de código de barras
+- Expor codificação de código de barras através do ContentProvider (usado por Gadgetbridge)

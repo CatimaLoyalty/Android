@@ -1,0 +1,1 @@
+- Desativar a deteção automática de codificação de código de barras para agora (quebra demais cartas)

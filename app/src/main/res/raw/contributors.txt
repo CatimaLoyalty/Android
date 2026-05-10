@@ -25,43 +25,43 @@ Michael Moroni
 Priit Jõerüüt
 Eric
 GM
-Petr Novák
 laralem
+Petr Novák
 Taco
 Milo Ivir
 nadiafekihahmed
 pfaffenrodt
-Aayush Gupta
-Scrambled777
-josé m
 Vasilis
-ikanakova
-Nyatsuki
+josé m
+Scrambled777
+Aayush Gupta
 Giovanni Donisi
+Nyatsuki
+ikanakova
 Kachelkaiser
 Jiri Grönroos
 HudobniVolk
 Warder
 109247019824
-Samantaz Fox
-AMIR-G98
-Balázs Meskó
-Sergio Paredes
-Cliff Heraldo
-Ankit Tiwari
-Arno-github
-Feike
-Jose Delvani
-damjang
 Traductor
+Samantaz Fox
+Balázs Meskó
 mdvhimself
-Milan Šalka
+AMIR-G98
+Feike
+Arno-github
+Cliff Heraldo
+Sergio Paredes
+Ankit Tiwari
+Jose Delvani
 Robin
-தமிழ்நேரம்
-huuhaa
-Skrripy
-Govindgopalyadav
+Milan Šalka
+damjang
 Gideon
+Govindgopalyadav
+Skrripy
+huuhaa
+தமிழ்நேரம்
 waffshappen
 Marnick L'Eau
 JungHee Lee
@@ -102,3 +102,4 @@ Michael Gangolf
 PRATHAMESH BHAGAT 
 Peter Dave Hello
 Thomas Bertels
+Patrik

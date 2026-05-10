@@ -1,0 +1,4 @@
+O Android 5.0 e 5.1 já não são apoiados a partir desta versão. Se quiser usar Catima nessas versões, use a versão 2.41.6.
+
+- Corrigir travar ao alternar cartões usando botões de volume se apenas uma placa estiver disponível
+- Corrigir atalho retornando ao cartão anterior após a rotação

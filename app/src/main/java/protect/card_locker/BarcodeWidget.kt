@@ -12,6 +12,7 @@ import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import protect.card_locker.preferences.Settings
 import java.nio.charset.Charset
 
 class BarcodeWidget : AppWidgetProvider() {
@@ -52,18 +53,9 @@ class BarcodeWidget : AppWidgetProvider() {
             return
         }
 
-        val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
-        val minWidth = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 250)
-        val minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, 120)
+        val showFormat = Settings(context).showBarcodeWidgetFormat()
 
-        val barcodeBitmap = generateBarcode(
-            context,
-            cardIdStr,
-            barcodeType,
-            card.barcodeEncoding,
-            minWidth,
-            minHeight
-        )
+        val barcodeBitmap = generateBarcode(cardIdStr, barcodeType, card.barcodeEncoding)
 
         val views = RemoteViews(context.packageName, R.layout.barcode_widget)
         views.setTextViewText(R.id.store_name, card.store)
@@ -75,10 +67,12 @@ class BarcodeWidget : AppWidgetProvider() {
             views.setViewVisibility(R.id.barcode_image, View.GONE)
         }
 
-        views.setTextViewText(
-            R.id.barcode_format,
-            barcodeType.prettyName()
-        )
+        if (showFormat) {
+            views.setTextViewText(R.id.barcode_format, barcodeType.prettyName())
+            views.setViewVisibility(R.id.barcode_format, View.VISIBLE)
+        } else {
+            views.setViewVisibility(R.id.barcode_format, View.GONE)
+        }
 
         appWidgetManager.updateAppWidget(appWidgetId, views)
     }
@@ -90,52 +84,34 @@ class BarcodeWidget : AppWidgetProvider() {
             context.getString(R.string.barcode_widget_not_configured)
         )
         views.setViewVisibility(R.id.barcode_image, View.GONE)
-        views.setTextViewText(R.id.barcode_format, "")
+        views.setViewVisibility(R.id.barcode_format, View.GONE)
         return views
     }
 
     private fun generateBarcode(
-        context: Context,
         cardId: String,
         format: CatimaBarcode,
-        encoding: Charset,
-        widgetWidthDp: Int,
-        widgetHeightDp: Int
+        encoding: Charset
     ): Bitmap? {
         if (cardId.isEmpty()) return null
 
-        val metrics = context.resources.displayMetrics
-        val density = metrics.density
-
-        val widthPx = (widgetWidthDp * density).toInt()
-        val heightPx = (widgetHeightDp * density).toInt()
-
-        val textAreaPx = (40 * density).toInt()
-        val paddingPx = (16 * density).toInt()
-
-        val barcodeWidth = widthPx - paddingPx
-        val barcodeHeight = heightPx - textAreaPx
-
-        if (barcodeWidth <= 0 || barcodeHeight <= 0) return null
-
-        val maxWidth = if (format.isSquare()) 500 else 1500
-        val finalWidth = minOf(barcodeWidth, maxWidth)
-        val finalHeight = if (format.isSquare()) finalWidth else minOf(barcodeHeight, 500)
+        val isSquare = format.isSquare()
+        val genWidth = if (isSquare) 500 else 1000
+        val genHeight = if (isSquare) 500 else 300
 
         return try {
             val writer = MultiFormatWriter()
 
             val encodeHints = mutableMapOf<EncodeHintType, Any>()
-            // Only pass encoding hint if not ISO-8859-1, to avoid ECI issues
             if (encoding.name() != "ISO-8859-1") {
                 encodeHints[EncodeHintType.CHARACTER_SET] = encoding.name()
             }
 
             val bitMatrix = try {
                 if (encodeHints.isNotEmpty()) {
-                    writer.encode(cardId, format.format(), finalWidth, finalHeight, encodeHints)
+                    writer.encode(cardId, format.format(), genWidth, genHeight, encodeHints)
                 } else {
-                    writer.encode(cardId, format.format(), finalWidth, finalHeight)
+                    writer.encode(cardId, format.format(), genWidth, genHeight)
                 }
             } catch (e: WriterException) {
                 return null

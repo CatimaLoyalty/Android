@@ -112,4 +112,8 @@ public class Settings {
     public boolean useVolumeKeysForNavigation() {
         return getBoolean(R.string.settings_key_use_volume_keys_navigation, false);
     }
+
+    public boolean showBarcodeWidgetFormat() {
+        return getBoolean(R.string.settings_key_barcode_widget_show_format, false);
+    }
 }

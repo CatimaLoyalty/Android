@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="8dp">
+    android:padding="4dp">
 
     <TextView
         android:id="@+id/store_name"
@@ -29,6 +29,7 @@
         android:id="@+id/barcode_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:gravity="center" />
+        android:textSize="11sp"
+        android:gravity="center"
+        android:visibility="gone" />
 </LinearLayout>

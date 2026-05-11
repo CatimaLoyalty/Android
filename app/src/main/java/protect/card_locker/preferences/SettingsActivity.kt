@@ -11,6 +11,7 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import protect.card_locker.BarcodeWidget
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
@@ -163,8 +164,14 @@ class SettingsActivity : CatimaAppCompatActivity() {
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
 
             val barcodeFormatPreference = findPreference<Preference>(getString(R.string.settings_key_barcode_widget_show_format))
-            barcodeFormatPreference?.setOnPreferenceChangeListener { _, _ ->
-                activity?.let { BarcodeWidget.triggerUpdate(it) }
+            barcodeFormatPreference?.setOnPreferenceChangeListener { _, newValue ->
+                activity?.let { activity ->
+                    PreferenceManager.getDefaultSharedPreferences(activity)
+                        .edit()
+                        .putBoolean(activity.getString(R.string.settings_key_barcode_widget_show_format), newValue as Boolean)
+                        .apply()
+                    BarcodeWidget.triggerUpdate(activity)
+                }
                 true
             }
         }

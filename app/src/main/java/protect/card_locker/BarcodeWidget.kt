@@ -1,36 +1,49 @@
 package protect.card_locker
 
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.Matrix
+import android.os.Bundle
 import android.view.View
 import android.widget.RemoteViews
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import protect.card_locker.cardview.LoyaltyCardViewActivity
 import protect.card_locker.preferences.Settings
 import java.nio.charset.Charset
 
 class BarcodeWidget : AppWidgetProvider() {
-
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
+        appWidgetIds: IntArray,
     ) {
         for (appWidgetId in appWidgetIds) {
             updateWidget(context, appWidgetManager, appWidgetId)
         }
     }
 
+    override fun onAppWidgetOptionsChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int,
+        newOptions: Bundle?,
+    ) {
+        updateWidget(context, appWidgetManager, appWidgetId)
+    }
+
     private fun updateWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetId: Int
+        appWidgetId: Int,
     ) {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         val cardId = prefs.getInt(PREFS_CARD_ID_PREFIX + appWidgetId, -1)
@@ -55,7 +68,16 @@ class BarcodeWidget : AppWidgetProvider() {
 
         val showFormat = Settings(context).showBarcodeWidgetFormat()
 
-        val barcodeBitmap = generateBarcode(cardIdStr, barcodeType, card.barcodeEncoding)
+        val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
+        val isVertical =
+            options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, 0) >
+                options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH, 0)
+
+        var barcodeBitmap = generateBarcode(cardIdStr, barcodeType, card.barcodeEncoding)
+
+        if (barcodeBitmap != null && isVertical && !barcodeType.isSquare()) {
+            barcodeBitmap = rotateBitmap(barcodeBitmap, 90f)
+        }
 
         val views = RemoteViews(context.packageName, R.layout.barcode_widget)
         views.setTextViewText(R.id.store_name, card.store)
@@ -74,6 +96,20 @@ class BarcodeWidget : AppWidgetProvider() {
             views.setViewVisibility(R.id.barcode_format, View.GONE)
         }
 
+        val cardIntent =
+            Intent(context, LoyaltyCardViewActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtra(LoyaltyCardViewActivity.BUNDLE_ID, card.id)
+            }
+        val pendingIntent =
+            PendingIntent.getActivity(
+                context,
+                0,
+                cardIntent,
+                PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+            )
+        views.setOnClickPendingIntent(R.id.widget_layout, pendingIntent)
+
         appWidgetManager.updateAppWidget(appWidgetId, views)
     }
 
@@ -81,7 +117,7 @@ class BarcodeWidget : AppWidgetProvider() {
         val views = RemoteViews(context.packageName, R.layout.barcode_widget)
         views.setTextViewText(
             R.id.store_name,
-            context.getString(R.string.barcode_widget_not_configured)
+            context.getString(R.string.barcode_widget_not_configured),
         )
         views.setViewVisibility(R.id.barcode_image, View.GONE)
         views.setViewVisibility(R.id.barcode_format, View.GONE)
@@ -91,7 +127,7 @@ class BarcodeWidget : AppWidgetProvider() {
     private fun generateBarcode(
         cardId: String,
         format: CatimaBarcode,
-        encoding: Charset
+        encoding: Charset,
     ): Bitmap? {
         if (cardId.isEmpty()) return null
 
@@ -107,22 +143,32 @@ class BarcodeWidget : AppWidgetProvider() {
                 encodeHints[EncodeHintType.CHARACTER_SET] = encoding.name()
             }
 
-            val bitMatrix = try {
-                if (encodeHints.isNotEmpty()) {
-                    writer.encode(cardId, format.format(), genWidth, genHeight, encodeHints)
-                } else {
-                    writer.encode(cardId, format.format(), genWidth, genHeight)
+            val bitMatrix =
+                try {
+                    if (encodeHints.isNotEmpty()) {
+                        writer.encode(cardId, format.format(), genWidth, genHeight, encodeHints)
+                    } else {
+                        writer.encode(cardId, format.format(), genWidth, genHeight)
+                    }
+                } catch (e: WriterException) {
+                    return null
+                } catch (e: Exception) {
+                    return null
                 }
-            } catch (e: WriterException) {
-                return null
-            } catch (e: Exception) {
-                return null
-            }
 
             bitmapFromBitMatrix(bitMatrix)
         } catch (e: OutOfMemoryError) {
             null
         }
+    }
+
+    private fun rotateBitmap(
+        bitmap: Bitmap,
+        degrees: Float,
+    ): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degrees)
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
 
     private fun bitmapFromBitMatrix(bitMatrix: BitMatrix): Bitmap {
@@ -146,8 +192,13 @@ class BarcodeWidget : AppWidgetProvider() {
         private const val PREFS_NAME = "barcode_widget_prefs"
         private const val PREFS_CARD_ID_PREFIX = "card_id_"
 
-        fun saveCardPref(context: Context, appWidgetId: Int, cardId: Int) {
-            context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        fun saveCardPref(
+            context: Context,
+            appWidgetId: Int,
+            cardId: Int,
+        ) {
+            context
+                .getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
                 .edit()
                 .putInt(PREFS_CARD_ID_PREFIX + appWidgetId, cardId)
                 .apply()

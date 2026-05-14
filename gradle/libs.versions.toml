@@ -1,6 +1,6 @@
 [versions]
 # AndroidX
-compose = "2026.04.01"
+compose = "2026.05.00"
 kotlin = "2.3.21"
 
 # Third-party

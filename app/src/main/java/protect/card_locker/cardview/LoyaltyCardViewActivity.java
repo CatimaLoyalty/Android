@@ -456,7 +456,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Window window = getWindow();
         applyWindowPreferences(window);
-        enablePausedNfcIfConfigured();
+        configurePausedNfc(settings.getDisableNfcWhileViewingCard());
 
         if (!loadCurrentCardFromDatabase()) {
             finish();
@@ -474,6 +474,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         invalidateOptionsMenu();
 
         ShortcutHelper.updateShortcuts(this);
+    }
+
+    @Override
+    protected void onPause() {
+        configurePausedNfc(false);
+        super.onPause();
     }
 
     @Override
@@ -513,14 +519,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         window.setAttributes(attributes);
     }
 
-    private void enablePausedNfcIfConfigured() {
+    private void configurePausedNfc(boolean pause) {
         // Pause NFC to prevent NFC payments from triggering while showing a barcode
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
             return;
         }
 
-        if (settings.getDisableNfcWhileViewingCard()) {
+        if (pause) {
             try {
                 nfcAdapter.enableReaderMode(this, tag -> {
                     Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
@@ -537,7 +543,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                         | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
                         | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
             } catch (Exception e) {
-                Toast.makeText(this, "Failed to disable NFC: {e}", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Failed to disable NFC: " + e, Toast.LENGTH_LONG).show();
             }
         } else {
             nfcAdapter.disableReaderMode(this);

@@ -456,7 +456,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Window window = getWindow();
         applyWindowPreferences(window);
-        enablePausedNfcIfConfigured();
+        configurePausedNfc(settings.getDisableNfcWhileViewingCard());
 
         if (!loadCurrentCardFromDatabase()) {
             finish();
@@ -474,6 +474,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         invalidateOptionsMenu();
 
         ShortcutHelper.updateShortcuts(this);
+    }
+
+    @Override
+    protected void onPause() {
+        // Some devices have broken NFC, which will cause a crash if reader mode is enabled
+        // So ensure we disable it explicitly before letting Android "save" the NFC state
+        configurePausedNfc(false);
+        super.onPause();
     }
 
     @Override
@@ -513,28 +521,36 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         window.setAttributes(attributes);
     }
 
-    private void enablePausedNfcIfConfigured() {
+    private void configurePausedNfc(boolean pause) {
         // Pause NFC to prevent NFC payments from triggering while showing a barcode
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
             return;
         }
 
-        if (settings.getDisableNfcWhileViewingCard()) {
-            nfcAdapter.enableReaderMode(this, tag -> {
-                Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.fabEdit)
-                        .setAction(R.string.change_settings, view -> {
-                            // Open settings activity
-                            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                            startActivity(intent);
-                        });
-                snackbar.show();
-            }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
-                    | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
-                    | NfcAdapter.FLAG_READER_NFC_BARCODE
-                    | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
-                    | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+        if (pause) {
+            try {
+                nfcAdapter.enableReaderMode(this, tag -> {
+                    Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
+                            .setAnchorView(binding.fabEdit)
+                            .setAction(R.string.change_settings, view -> {
+                                // Open settings activity
+                                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                                startActivity(intent);
+                            });
+                    snackbar.show();
+                }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                        | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                        | NfcAdapter.FLAG_READER_NFC_BARCODE
+                        | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                        | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+            } catch (Exception e) {
+                // For some unknown reason, this can throw a DeadObjectException.
+                // Mostly got reports from FOSS users, which implies it may be more common with custom ROMs? Uncertain.
+                Toast.makeText(this, R.string.nfc_block_system_error, Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed to pause NFC: " + e);
+                e.printStackTrace();
+            }
         } else {
             nfcAdapter.disableReaderMode(this);
         }

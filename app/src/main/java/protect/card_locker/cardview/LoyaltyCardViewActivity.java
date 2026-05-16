@@ -478,6 +478,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onPause() {
+        // Some devices have broken NFC, which will cause a crash if reader mode is enabled
+        // So ensure we disable it explicitly before letting Android "save" the NFC state
         configurePausedNfc(false);
         super.onPause();
     }
@@ -543,7 +545,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                         | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
                         | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
             } catch (Exception e) {
-                Toast.makeText(this, "Failed to disable NFC: " + e, Toast.LENGTH_LONG).show();
+                // For some unknown reason, this can throw a DeadObjectException.
+                // Mostly got reports from FOSS users, which implies it may be more common with custom ROMs? Uncertain.
+                Toast.makeText(this, R.string.nfc_block_system_error, Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed to pause NFC: " + e);
+                e.printStackTrace();
             }
         } else {
             nfcAdapter.disableReaderMode(this);

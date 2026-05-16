@@ -350,4 +350,5 @@
     <string name="back">Back</string>
     <string name="nfc_blocked_while_viewing_card">NFC is paused</string>
     <string name="change_settings">Change settings</string>
+    <string name="nfc_block_system_error">Failed to pause NFC</string>
 </resources>

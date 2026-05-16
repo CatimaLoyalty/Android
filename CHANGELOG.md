@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 166
+
+- Prevent crash on devices with misbehaving NFC
+
 ## v2.42.0 - 165 (2026-05-06)
 
 - Disable NFC while showing a card by default

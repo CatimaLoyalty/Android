@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 166
+## v2.42.1 - 166 (2026-05-16)
 
 - Prevent crash on devices with misbehaving NFC
 

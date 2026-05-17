@@ -112,6 +112,7 @@
     <string name="settings_use_volume_keys_navigation">Switch cards using volume buttons</string>
     <string name="settings_use_volume_keys_navigation_summary">Use the volume buttons to change which card is displayed</string>
     <string name="settings_key_use_volume_keys_navigation" translatable="false">pref_use_volume_keys_navigation</string>
+    <string name="settings_key_barcode_widget_show_format" translatable="false">pref_barcode_widget_show_format</string>
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
@@ -335,6 +336,9 @@
     <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set barcode width</string>
     <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
+    <string name="barcode_widget_name">Barcode</string>
+    <string name="barcode_widget_configure_title">Select a card for the barcode widget</string>
+    <string name="barcode_widget_not_configured">Configure barcode widget</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
@@ -347,6 +351,8 @@
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="nothing_to_copy">No value found</string>
     <string name="barcodeEncoding">Barcode encoding</string>
+    <string name="settings_barcode_widget_show_format">Show barcode type on widget</string>
+    <string name="settings_barcode_widget_show_format_summary">Display the barcode format name below the barcode on the home screen widget</string>
     <string name="back">Back</string>
     <string name="nfc_blocked_while_viewing_card">NFC is paused</string>
     <string name="change_settings">Change settings</string>

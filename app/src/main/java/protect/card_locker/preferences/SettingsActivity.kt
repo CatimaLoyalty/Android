@@ -11,6 +11,8 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
+import protect.card_locker.BarcodeWidget
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
 import protect.card_locker.MainActivity
@@ -160,6 +162,18 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+
+            val barcodeFormatPreference = findPreference<Preference>(getString(R.string.settings_key_barcode_widget_show_format))
+            barcodeFormatPreference?.setOnPreferenceChangeListener { _, newValue ->
+                activity?.let { activity ->
+                    PreferenceManager.getDefaultSharedPreferences(activity)
+                        .edit()
+                        .putBoolean(activity.getString(R.string.settings_key_barcode_widget_show_format), newValue as Boolean)
+                        .apply()
+                    BarcodeWidget.triggerUpdate(activity)
+                }
+                true
+            }
         }
 
         private fun refreshActivity(reloadMain: Boolean) {

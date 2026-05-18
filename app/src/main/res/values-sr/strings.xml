@@ -307,4 +307,8 @@
     <string name="nothing_to_copy">Nije pronađena vrednost</string>
     <string name="barcodeEncoding">Enkodiranje bar-koda</string>
     <string name="back">Nazad</string>
+    <string name="settings_disable_nfc_while_viewing_card">Застани НФЦ</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Застани НФЦ ради спречавања окидања плаћања НФЦ-ом приликом прегледа картице</string>
+    <string name="nfc_blocked_while_viewing_card">НФЦ је заустављен</string>
+    <string name="change_settings">Измени поставке</string>
 </resources>

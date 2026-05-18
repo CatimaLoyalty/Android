@@ -1,0 +1,1 @@
+- Absturz verhindern auf Geräten mit fehlerhaftem NFC-Modul

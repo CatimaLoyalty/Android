@@ -311,4 +311,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Mettre en pause le NFC pour éviter le déclenchement de paiements NFC lors de la consultation d\'une carte</string>
     <string name="nfc_blocked_while_viewing_card">Le NFC est en pause</string>
     <string name="change_settings">Modifier les paramètres</string>
+    <string name="nfc_block_system_error">Erreur lors de la mise en pause du NFC</string>
 </resources>

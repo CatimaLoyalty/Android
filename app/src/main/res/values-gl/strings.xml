@@ -304,4 +304,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Detén o NFC para evitar a activación de pago con NFC cando se mira unha tarxeta</string>
     <string name="nfc_blocked_while_viewing_card">NFC está en pausa</string>
     <string name="change_settings">Cambiar axustes</string>
+    <string name="nfc_block_system_error">Non se detivo NFC</string>
 </resources>

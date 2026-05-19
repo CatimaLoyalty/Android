@@ -307,4 +307,9 @@
     <string name="nothing_to_copy">Nav atrasta vērtība</string>
     <string name="barcodeEncoding">Svītrkoda šifrēšana</string>
     <string name="back">Atpakaļ</string>
+    <string name="nfc_block_system_error">Neizdevās apturēt NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card">Apturēt NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Aptur NFC, lai novērstu NFC maksājumu izsaukšanu kartes apskatīšanas laikā</string>
+    <string name="nfc_blocked_while_viewing_card">NFC ir apturēts</string>
+    <string name="change_settings">Mainīt iestatījumus</string>
 </resources>

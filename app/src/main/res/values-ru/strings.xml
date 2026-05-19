@@ -317,4 +317,5 @@
     <string name="settings_disable_nfc_while_viewing_card">Отключать NFC</string>
     <string name="nfc_blocked_while_viewing_card">NFC приостановлен</string>
     <string name="change_settings">Изменить настройки</string>
+    <string name="nfc_block_system_error">Приостановка NFC невозможна</string>
 </resources>

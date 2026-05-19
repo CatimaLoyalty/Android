@@ -299,4 +299,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">暂停 NFC 防止在查看卡片时触发 NFC 支付</string>
     <string name="nfc_blocked_while_viewing_card">NFC 已暂停</string>
     <string name="change_settings">更改设置</string>
+    <string name="nfc_block_system_error">暂停 NFC 失败</string>
 </resources>

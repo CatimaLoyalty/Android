@@ -305,4 +305,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Спира NFC, за да бъдат предотвратени безконтактни плащания при преглед на карта</string>
     <string name="nfc_blocked_while_viewing_card">NFC е на пауза</string>
     <string name="change_settings">Настройки</string>
+    <string name="nfc_block_system_error">Грешка при спиране на NFC</string>
 </resources>

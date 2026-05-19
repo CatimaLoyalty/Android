@@ -1,0 +1,1 @@
+- Evitar travar em dispositivos com NFC com mau comportamento

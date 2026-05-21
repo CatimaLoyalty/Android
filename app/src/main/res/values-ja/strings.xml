@@ -298,4 +298,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">カードの表示中にNFC決済が誤って実行されないようにNFCを一時停止します</string>
     <string name="nfc_blocked_while_viewing_card">NFCは停止中です</string>
     <string name="change_settings">設定を変更する</string>
+    <string name="nfc_block_system_error">NFCの一時停止に失敗</string>
 </resources>

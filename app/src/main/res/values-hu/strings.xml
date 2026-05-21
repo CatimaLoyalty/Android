@@ -305,4 +305,5 @@
     <string name="back">Vissza</string>
     <string name="nfc_blocked_while_viewing_card">NFC leállítva</string>
     <string name="change_settings">Beállítások változtatása</string>
+    <string name="nfc_block_system_error">Nem sikerült szüneteltetni az NFC-t</string>
 </resources>

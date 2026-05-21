@@ -19,7 +19,7 @@ androidx-core-core-splashscreen = { group = "androidx.core", name = "core-splash
 androidx-exifinterface-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version = "1.4.2" }
 androidx-palette-palette = { group = "androidx.palette", name = "palette", version = "1.0.0" }
 androidx-preference-preference = { group = "androidx.preference", name = "preference", version = "1.2.1" }
-com-google-android-material-material = { group = "com.google.android.material", name = "material", version = "1.13.0" }
+com-google-android-material-material = { group = "com.google.android.material", name = "material", version = "1.14.0" }
 com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
 
 # Compose

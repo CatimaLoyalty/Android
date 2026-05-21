@@ -1,0 +1,1 @@
+- Voorkomt crash op apparaten met misdragende NFC

@@ -2,4 +2,4 @@
 - Beperk de breedte van barcodes om geheugenfouten te verminderen.
 - Bij het bewerken van een kaart verandert "Kaart invoeren" in "Kaart bewerken" als er al een ID is.
 - Zachter kleurenschema en schonere lay-out bij kaartweergave.
-- Introductiewizard toegevoegd bij eerste app-start.
+- Introductiewizard toegevoegd bij eerste app-start

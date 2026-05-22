@@ -299,4 +299,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Tạm dừng NFC để tránh tự động kích hoạt thanh toán NFC khi đang xem một thẻ</string>
     <string name="nfc_blocked_while_viewing_card">Đã tạm dừng NFC</string>
     <string name="change_settings">Thay đổi cài đặt</string>
+    <string name="nfc_block_system_error">Không thể tạm dừng NFC</string>
 </resources>

@@ -1,0 +1,4 @@
+Adroid 5.0 en 5.1 zijn vanaf deze uitgave niet meer ondersteund. Als u Catima wilt gebruiken op deze versies, gebruik alstublieft versie 2.41.6.
+
+- Crash als kaarten gewisseld worden met de volumeknop maar er slechts één kaart beschikbaar is opgelost
+- Opgelost dat een snelkoppeling terukeert op de vorige kaart na rotatie

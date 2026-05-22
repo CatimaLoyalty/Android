@@ -1,12 +1,12 @@
-- Voeg functie toe om een kaart te zoeken (#320)
-- Voeg functie toe om kaarten te delen en te ontvangen (#321)
-- Ondersteuning voor donkere modus (#322)
-- Kaarten kunnen nu zonder streepjescode worden gemaakt (nuttig als ze geen streepjescode hebben) (#324)
-- Notities kunnen nu over meerdere regels worden verspreid (#326)
-- Verbeteringen met betrekking tot de grootte van notities (#319)
-- Verbeteringen van meldingen en app-icoon zichtbaarheid (#330)
+- Nieuwe zoekfunctie voor kaarten (#320)
+- Nieuwe deel- en ontvangfunctie voor kaarten (#321)
+- Ondersteuning van donkere modus (#322)
+- Kaarten kunnen streepjescodeloos worden gemaakt (als ze die niet hebben) (#324)
+- Notities kunnen over meerdere regels worden verspreid (#326)
+- De maat van notities verbeterd (#319)
+- Meldingen en app-pictogram zijn zichtbaarder (#330)
 - Update doel-SDK naar Android 10
-- Verbeter de volgende vertalingen:
+- Verbeter deze vertalingen:
   - Duits
   - Italiaans
   - Nederlands

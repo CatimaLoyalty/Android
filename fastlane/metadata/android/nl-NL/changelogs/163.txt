@@ -1,0 +1,2 @@
+- Detecteer automatisch URLs in kaart-IDs en laat klikbare details in kaart-IDs eruit springen
+- Opgelost dat de barcode selector activiteit witte blokken toont in plaats van barcodes

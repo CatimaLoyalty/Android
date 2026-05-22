@@ -33,9 +33,9 @@
     <string name="editCardTitle">Kártya szerkesztése</string>
     <string name="addCardTitle">Kártya hozzáadása</string>
     <string name="scanCardBarcode">Vonalkód beolvasása</string>
-    <string name="cardShortcut">Kártya parancsikon</string>
+    <string name="cardShortcut">Kártya indítóikon</string>
     <string name="failedParsingImportUriError">Az importálási URI nem értelmezhető</string>
-    <string name="importExport">Importálás/Exportálás</string>
+    <string name="importExport">Importálás/exportálás</string>
     <string name="exportName">Exportálás</string>
     <string name="importExportHelp">Az adatok mentése lehetővé teszi, hogy egy másik eszközre helyezze át</string>
     <string name="importSuccessfulTitle">Importálva</string>
@@ -49,9 +49,9 @@
     </plurals>
     <string name="deleteTitle">Kártya törlése</string>
     <string name="barcodeImageDescriptionWithType">A(z) <xliff:g>%s</xliff:g> vonalkód képe</string>
-    <string name="noCardExistsError">Kártya nem található</string>
+    <string name="noCardExistsError">Ez a kártya nem található</string>
     <string name="importVoucherVault">Importálás a Voucher Vaultból</string>
-    <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a kiválasztott vonalkódtípushoz</string>
+    <string name="wrongValueForBarcodeType">Ez az érték nem felel meg a kiválasztott vonalkódtípushoz</string>
     <string name="setBackImage">Hátlapi kép beállítása</string>
     <string name="no">Nem</string>
     <string name="passwordRequired">Adja meg a jelszót</string>
@@ -74,7 +74,7 @@
     <string name="app_license">Copyleft licencű szabad szoftver, GPLv3+ alatt közzétéve</string>
     <string name="about_title_fmt">A <xliff:g id="app_name">%s</xliff:g> névjegye</string>
     <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_resources">Szabad külső erőforrások: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Külső erőforrások: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vonalkód kiválasztása</string>
     <string name="starImage">Kedvencek csillag</string>
     <string name="settings">Beállítások</string>
@@ -91,14 +91,14 @@
     <string name="groups">Csoportok</string>
     <string name="group_edit">Csoport szerkesztése</string>
     <string name="group_name_is_empty">A csoportnév nem lehet üres</string>
-    <string name="failedOpeningFileManager">Fájl böngésző nem elérhető</string>
+    <string name="failedOpeningFileManager">Nem sikerült a fájlkezelő megnyitása</string>
     <string name="moveUp">Mozgatás felfelé</string>
     <string name="moveDown">Mozgatás lefelé</string>
     <string name="leaveWithoutSaveTitle">Kilépés</string>
     <string name="leaveWithoutSaveConfirmation">Kilépés mentés nélkül\?</string>
     <string name="addManually">A vonalkód kézi beírása</string>
     <string name="addFromImage">Kép kiválasztása a galériából</string>
-    <string name="editGroup">Csoportok szerkesztése: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Csoport szerkesztése: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Lejárat: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="card">Kártya</string>
@@ -108,7 +108,7 @@
     <string name="chooseExpiryDate">Lejárati dátum kiválasztása</string>
     <string name="moveBarcodeToTopOfScreen">Vonalkód feltolása a képernyő tetejére</string>
     <string name="noBarcodeFound">Nem található vonalkód</string>
-    <string name="errorReadingImage">Kép nem olvasható</string>
+    <string name="errorReadingImage">A kép nem olvasható</string>
     <string name="balance">Egyenleg</string>
     <string name="currency">Pénznem</string>
     <string name="points">Pontok</string>
@@ -118,8 +118,8 @@
     <string name="importCatima">Importálás a Catimából</string>
     <string name="importFidme">Importálás a FidMeből</string>
     <string name="importLoyaltyCardKeychain">Importálás a Loyalty Card Keychainből</string>
-    <string name="importLoyaltyCardKeychainMessage">Jelölje ki az importálandó Loyalty Card Keychain exportot. \nLétre tudja hozni a Loyalty Card Keychain Importálás/Exportálás menün belül az Exportálásra koppintva.</string>
-    <string name="importVoucherVaultMessage">Jelölje ki az importálandó Voucher Vault exportot. \nLétre tudja hozni a Voucher Vault-on belüli Exportálás menüben.</string>
+    <string name="importLoyaltyCardKeychainMessage">Jelölje ki az importálandó Loyalty Card Keychain exportot. \nA Loyalty Card Keychain Importálás/Exportálás menüjéből hozhatja létre, az Exportálásra koppintva.</string>
+    <string name="importVoucherVaultMessage">Jelölje ki az importálandó Voucher Vault exportot. \nA Voucher Vault-on belül az Exportálás gombra koppintva hozhatja létre.</string>
     <string name="barcodeId">Vonalkód értéke</string>
     <string name="sameAsCardId">Ugyanaz, mint az azonosító</string>
     <string name="setBarcodeId">Vonalkód értékének beállítása</string>
@@ -169,7 +169,7 @@
     <string name="about">Névjegy</string>
     <string name="app_copyright_old">Készült a Loyalty Card Keychain alapján
 \nCopyright © 2016–2020 Branden Archer</string>
-    <string name="app_libraries">Szabad külső programkönyvtárak: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Külső programkönyvtárak: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="settings_dark_theme">Sötét</string>
     <string name="deleteConfirmationGroup">Csoport törlése\?</string>
     <string name="noGroups">Koppintson a + gombra a csoportok kategorizálásához</string>
@@ -179,8 +179,8 @@
     <string name="group_updated">Csoport frissítve</string>
     <string name="expiryStateSentenceExpired">Lejárt: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Csoportok: <xliff:g>%s</xliff:g></string>
-    <string name="importCatimaMessage">Válassza ki a megfelelő exportált Catima elemet importálásra. \nA menüben található Importálás/Exportálásból importálhat egy korábbi Catima exportot.</string>
-    <string name="importFidmeMessage">Jelölje ki az importálandó FidMe exportot, ezt követően adja meg kézileg a vonalkód típust. \nLétre tudja hozni a FidMe profiljából az Adatvédelmen belül a Adatom kinyerése opcióval.</string>
+    <string name="importCatimaMessage">Válassza ki a megfelelő exportált Catima elemet importálásra. \nAz Importálás/exportálás menüelemmel importálhat egy korábbi Catima exportot.</string>
+    <string name="importFidmeMessage">Jelölje ki az importálandó FidMe exportot, ezt követően adja meg kézileg a vonalkód típusát. \nA FidMe profiljából tudja létrehozni, az Adatvédelem, majd a Saját adatok kinyerése lehetőséggel.</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
@@ -253,7 +253,7 @@
     <string name="app_name">Catima</string>
     <string name="amountParsingFailed">Hibás érték</string>
     <string name="add_manually_warning_title">Szkennelés ajánlott</string>
-    <string name="add_manually_warning_message">Egyes kártyákon levő számsor különbözik a vonalkód számától. Emiatt a manuális szám beírás nem minden esetben működni. Ajánlott tehát a vonalkód beolvasása kamerával. Biztosan folytatja?</string>
+    <string name="add_manually_warning_message">Az egyes kártyákon levő számsor különbözik a vonalkód számától. Emiatt a kézi számbeírás nem minden esetben fog működni. Ajánlott tehát a vonalkód kamerával történő beolvasása. Biztos, hogy folytatja?</string>
     <string name="continue_">Tovább</string>
     <string name="spend">Költött</string>
     <string name="receive">Megkapott</string>
@@ -285,24 +285,25 @@
     <string name="settings_column_count_7">7</string>
     <string name="sort_by_valid_from">Érvényesség kezdete</string>
     <string name="width">Szélesség</string>
-    <string name="setBarcodeWidth">Vonalkód szélesség beállítása</string>
-    <string name="settings_disable_nfc_while_viewing_card">NFC leállítása</string>
-    <string name="settings_disable_nfc_while_viewing_card_summary">Az NFC leállítása a kártya megtekintés erejéig, hogy ne indítsa be az NFC fizetést</string>
-    <string name="card_list_widget_name">Kártya lista</string>
-    <string name="card_list_widget_empty">Miután hozzáadja a kártyákat a Catima-hoz, itt fognak megjelenni. Ha vannak kártyái, győződjön meg, hogy nincsenek e archiválva.</string>
+    <string name="setBarcodeWidth">Vonalkódszélesség beállítása</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC szüneteltetése</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Az NFC szüneteltetése a kártya megtekintése idejére, hogy ne indítsa be az NFC-s fizetést</string>
+    <string name="card_list_widget_name">Kártyalista</string>
+    <string name="card_list_widget_empty">Miután hozzáadja a kártyákat a Catimához, itt fognak megjelenni. Ha vannak kártyái, győződjön meg arról, hogy nincsenek-e archiválva.</string>
     <string name="cardWithNumber"><xliff:g>%d</xliff:g> kártya</string>
     <string name="cardWithNumberAndLocale"><xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>) kártya</string>
-    <string name="pleaseDoNotRotateTheDevice">Kérem ne forgassa el az eszközt, mert az megszakítja a műveletet</string>
-    <string name="acra_catima_has_crashed">Sajnos a <xliff:g id="app_name">%s</xliff:g> összeomlott. Segítsen ezt a hibát megoldani, azzal, hogy elküldi a jelentést számunkra.</string>
-    <string name="acra_explain_crash">Ha lehetséges adja meg, hogy éppen milyen műveletet végzett:</string>
+    <string name="pleaseDoNotRotateTheDevice">Ne forgassa el az eszközt, mert az megszakítja a műveletet</string>
+    <string name="acra_catima_has_crashed">Sajnos a <xliff:g id="app_name">%s</xliff:g> összeomlott. Segítsen a hiba megoldásában azzal, hogy küld nekünk egy jelentést.</string>
+    <string name="acra_explain_crash">Ha lehetséges, adja meg, hogy éppen milyen műveletet végzett:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> összeomlási jelentés</string>
-    <string name="pref_enable_acra">Kérje az összeomlási jelentéseket</string>
-    <string name="pref_enable_acra_summary">Bekapcsolása esetén mindig kéri az összeomlási jelentés küldését. A jelentések sosem kerülnek küldésre automatikusan.</string>
+    <string name="pref_enable_acra">Rákérdezés az összeomlási jelentések elküldésére</string>
+    <string name="pref_enable_acra_summary">Ha be van kapcsolva, akkor mindig rákérdez az összeomlási jelentés elküldésére. A jelentések sosem kerülnek küldésre automatikusan.</string>
     <string name="copy_value">Érték másolása</string>
     <string name="copied_to_clipboard">Vágólapra másolva</string>
     <string name="nothing_to_copy">Nem található érték</string>
-    <string name="barcodeEncoding">Vonalkód kódolás</string>
+    <string name="barcodeEncoding">Vonalkód kódolása</string>
     <string name="back">Vissza</string>
-    <string name="nfc_blocked_while_viewing_card">NFC leállítva</string>
+    <string name="nfc_blocked_while_viewing_card">NFC szüneteltetve</string>
     <string name="change_settings">Beállítások változtatása</string>
+    <string name="nfc_block_system_error">Nem sikerült szüneteltetni az NFC-t</string>
 </resources>

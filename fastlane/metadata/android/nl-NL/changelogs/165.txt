@@ -1,0 +1,3 @@
+- Schakel NFC standaard uit wanneer een kaart getoond word
+- Vraag het toetsenbord om elk woord in de winkelnaam van het "edit" scherm te beginnen met een hoofdletter
+- Plaats datum in exportbestandnaam

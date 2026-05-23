@@ -1,0 +1,1 @@
+- Opgelost dat regressie ervoor zorgt dat handmatig ingevulde barcode niet wordt opgeslagen

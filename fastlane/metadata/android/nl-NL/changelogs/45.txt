@@ -1,0 +1,1 @@
+- Opgelost dat thuisschermslepen ook opstart voor verticale vegen

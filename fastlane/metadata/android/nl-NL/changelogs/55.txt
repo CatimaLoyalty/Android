@@ -1,0 +1,2 @@
+- Splits "wijzigen" UI in tabs om het ruimtelijker te laten aanvoelen
+- Ondersteuning voor een vervaldatum toegevoegd

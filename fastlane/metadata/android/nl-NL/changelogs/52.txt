@@ -1,0 +1,3 @@
+- Focus automatisch op tekstvelden tijdens het aanmaken of wijzigen van een groep
+- Vage pictogrammen opgelost (gebruikt SVG overal)
+- Opent altijd camera maar voegt handmatige "scan" knop toe aan cameraweergave

@@ -110,8 +110,8 @@
     <string name="addFromImage">Seleziona un\'immagine dalla galleria</string>
     <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
-    <string name="app_resources">Risorse di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
-    <string name="app_libraries">Librerie di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
+    <string name="app_resources">Risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Voglio condividere alcune carte con te</string>
     <string name="no">No</string>
     <string name="yes">Sì</string>
@@ -311,4 +311,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Sospende la funzione NFC per impedire che i pagamenti NFC vengano attivati durante la visualizzazione di una carta</string>
     <string name="nfc_blocked_while_viewing_card">La funzione NFC è disattivata</string>
     <string name="change_settings">Modifica impostazioni</string>
+    <string name="nfc_block_system_error">Impossibile mettere in pausa l\'NFC</string>
 </resources>

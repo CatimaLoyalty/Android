@@ -1,0 +1,2 @@
+- Rilevamento automatico degli URL nell'ID della carta e visualizzazione del pop-up cliccabile nei dettagli dell'ID della carta
+- Correzione dell'attività di selezione del codice a barre che mostra quadrati bianchi al posto dei codici a barre

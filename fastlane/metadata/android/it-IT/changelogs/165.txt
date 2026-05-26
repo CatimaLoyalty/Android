@@ -1,0 +1,3 @@
+- Disabilita l'NFC per impostazione predefinita quando viene visualizzata una carta
+- Richiedi alla tastiera di mettere in maiuscolo ogni parola del nome del negozio nella schermata di modifica
+- Inserisci la data nel nome del file esportato

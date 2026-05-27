@@ -296,7 +296,7 @@
     <string name="change_settings">설정 변경</string>
     <string name="nfc_block_system_error">NFC 일시 중지에 실패</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">카드를 보는 동안 NFC 결제가 실행되는 것을 방지하기 위해 NFC 기능을 일시 중지합니다</string>
-    <string name="cardWithNumber">xliff:g%d&lt;/xliff:g&gt;번 카드</string>
-    <string name="cardWithNumberAndLocale">\"xliff:g%d&lt;/xliff:g&gt;번 카드 (xliff:g%s&lt;/xliff:g&gt;)\"</string>
+    <string name="cardWithNumber"><xliff:g>%d</xliff:g>번 카드</string>
+    <string name="cardWithNumberAndLocale"><xliff:g>%d</xliff:g> 번 카드 (<xliff:g>%s</xliff:g>)</string>
     <string name="acra_explain_crash">가능하다면, 오류가 발생했을 때 어떤 작업을 하고 계셨는지 자세히 적어주세요:</string>
 </resources>

@@ -1,0 +1,4 @@
+- Geselecteerde kleur in kleurveranderingsdialoogvenster verbeterd
+- Ondersteuning voor het tegelijkertijd verwijderen van meerdere kaarten
+- Mogelijke ArithmeticException bij het aanpassen van de maat van afbeeldingen opgelost
+- Opgelost dat volledig scherm afsluit bij het draaien van het scherm

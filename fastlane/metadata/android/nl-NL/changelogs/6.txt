@@ -1,0 +1,2 @@
+- Staat gebruikers toe om barcodes handmatig in te voeren. Als de gebruiker kiest om een barcode handmatig in te voeren wordt een lijst van geldige en ondersteunde barcodeafbeeldingen getoond. De gebruiker mag dan de barcodeafbeelding selecteren die overeen komt met wat de gebruiker wenst. Probleem #33
+- Probleem opgelost waardoor sommige barcodes vaag getoond werden. (probleem #37)

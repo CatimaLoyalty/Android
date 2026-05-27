@@ -1,0 +1,4 @@
+- Ondersteuning voor importeren van Fidme exportbestanden (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Staat importeren van een kaart vanuit een foto die is opgeslagen in de Android gallerij van de gebruiker toe
+- Afsnijden van notities met meer dan één regel opgelost
+- "Dank u" tekst op privacy-dialoogvenster aangepast naar "Accepteren" omdat Huawei overdreven pietluttig is

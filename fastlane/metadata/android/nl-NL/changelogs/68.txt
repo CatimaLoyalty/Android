@@ -1,0 +1,4 @@
+- Ondersteuning voor nieuw PDF417 formaat export vanuit Voucher Vault
+- Ondersteuning voor het tegelijkertijd kopiëren van meerdere barcodes
+- Ondersteuning voor het tegelijkertijd delen van meerdere spaarkaarten
+- Vraagt om barcode waarde te updaten als kaart ID verandert

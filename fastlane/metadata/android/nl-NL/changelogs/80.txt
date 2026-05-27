@@ -1,0 +1,2 @@
+- Opgelost dat afbeeldingen niet werden geïmporteerd uit backup
+- Optie om taal te overschrijven

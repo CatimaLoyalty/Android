@@ -1,0 +1,3 @@
+- Ondersteuning voor importeren van Voucher Vault exportbestanden (https://github.com/tim-smart/vouchervault/)
+- Optie om het scherm aan te houden als een spaarkaart wordt bekeken
+- Optie om het vergrendelingsscherm op te heffen als een spaarkaart wordt bekeken

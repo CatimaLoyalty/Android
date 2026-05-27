@@ -281,4 +281,22 @@
     <string name="width">너비</string>
     <string name="setBarcodeWidth">바코드 너비를 설정하세요</string>
     <string name="card_list_widget_name">카드 목록</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC 일시 중지</string>
+    <string name="card_list_widget_empty">Catima에 멤버십 카드를 추가하면 여기에 표시됩니다. 카드가 있는데도 보이지 않는다면 모두 보관 처리되어 있지 않은지 확인해 보세요.</string>
+    <string name="pleaseDoNotRotateTheDevice">기기를 회전하지 마세요. 진행 중인 작업이 취소될 수 있습니다.</string>
+    <string name="acra_catima_has_crashed">죄송합니다. <xliff:g id="app_name">%s</xliff:g> 앱이 종료되었습니다. 문제 해결을 위해 오류 리포트를 보내주세요.</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> 크래시 리포트</string>
+    <string name="pref_enable_acra">오류 리포트 전송 요청</string>
+    <string name="pref_enable_acra_summary">이 기능을 켜면 오류가 발생했을 때 보고서 전송 여부를 확인합니다. 오류 리포트는 절대 자동으로 전송되지 않습니다.</string>
+    <string name="copy_value">값 복사</string>
+    <string name="copied_to_clipboard">클립보드에 복사됨</string>
+    <string name="nothing_to_copy">복사할 내용이 없습니다.</string>
+    <string name="back">돌아가기</string>
+    <string name="nfc_blocked_while_viewing_card">NFC 일시 중지됨</string>
+    <string name="change_settings">설정 변경</string>
+    <string name="nfc_block_system_error">NFC 일시 중지에 실패</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">카드를 보는 동안 NFC 결제가 실행되는 것을 방지하기 위해 NFC 기능을 일시 중지합니다</string>
+    <string name="cardWithNumber"><xliff:g>%d</xliff:g>번 카드</string>
+    <string name="cardWithNumberAndLocale"><xliff:g>%d</xliff:g> 번 카드 (<xliff:g>%s</xliff:g>)</string>
+    <string name="acra_explain_crash">가능하다면, 오류가 발생했을 때 어떤 작업을 하고 계셨는지 자세히 적어주세요:</string>
 </resources>

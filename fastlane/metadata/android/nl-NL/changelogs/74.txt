@@ -1,0 +1,3 @@
+- Snelkoppeling maken gerepareerd
+- Maak een kaart-specifiek snelkoppelingspictogram
+- Mogelijkheid om kleur van de spaarkaart te veranderen gerepareerd

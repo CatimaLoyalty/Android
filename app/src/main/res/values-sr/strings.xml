@@ -311,4 +311,5 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Застани НФЦ ради спречавања окидања плаћања НФЦ-ом приликом прегледа картице</string>
     <string name="nfc_blocked_while_viewing_card">НФЦ је заустављен</string>
     <string name="change_settings">Измени поставке</string>
+    <string name="nfc_block_system_error">Нисам успео застанути НФЦ</string>
 </resources>

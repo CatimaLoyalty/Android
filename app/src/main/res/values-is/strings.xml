@@ -86,7 +86,6 @@
     <string name="barcodeImageDescriptionWithType">Mynd <xliff:g>%s</xliff:g> strikamerki</string>
     <string name="importExport">Flytja inn/út</string>
     <string name="importFailed">Gat ekki flutt inn</string>
-    <string name="app_name"></string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eyða <xliff:g>%d</xliff:g> korti</item>
         <item quantity="other">Eyða <xliff:g>%d</xliff:g> kortum</item>

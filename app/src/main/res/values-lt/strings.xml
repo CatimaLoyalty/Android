@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridėti</string>
-    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + arba importuokite kortelę iš ⋮ meniu.</string>
+    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + arba importuokite iš ⋮ meniu</string>
     <string name="storeName">Pavadinimas</string>
     <string name="note">Užrašas</string>
     <string name="cardId">Kortelės ID</string>
@@ -46,7 +46,7 @@
     <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
     <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
     <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
-    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL. Praneškite apie tai.</string>
+    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL</string>
     <string name="passwordRequired">Įveskite slaptažodį</string>
     <string name="no">Ne</string>
     <string name="yes">Taip</string>
@@ -87,14 +87,14 @@
     <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>
-    <string name="groupsList">Grupės: <xliff:g> %s </xliff:g></string>
+    <string name="groupsList">Grupės: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Pasirinkti vaizdą iš galerijos</string>
-    <string name="addManually">Rankiniu būdu įvesti ID</string>
+    <string name="addManually">Įvesti barcodą rankiniu būdu</string>
     <string name="leaveWithoutSaveConfirmation">Išeiti neišsaugojus\?</string>
     <string name="leaveWithoutSaveTitle">Išeiti</string>
     <string name="moveDown">Judėti žemyn</string>
     <string name="moveUp">Judėti aukštyn</string>
-    <string name="failedOpeningFileManager">Pirmiausia įdiekite failų tvarkyklę.</string>
+    <string name="failedOpeningFileManager">Nepavyko atidaryti failų tvarkyklės</string>
     <string name="deleteConfirmationGroup">Ištrinti grupę\?</string>
     <string name="all">Visos</string>
     <plurals name="groupCardCount">
@@ -102,7 +102,7 @@
         <item quantity="few"><xliff:g>%d</xliff:g> kortelės</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
-    <string name="noGroups">Spustelėkite mygtuką +, kad pridėtumėte grupes kategorizavimui.</string>
+    <string name="noGroups">Spustelėkite mygtuką +, kad pridėtumėte grupes kategorizavimui</string>
     <string name="groups">Grupės</string>
     <string name="enter_group_name">Įvesti grupės pavadinimą</string>
     <string name="exportSuccessful">Duomenys eksportuoti</string>
@@ -123,14 +123,14 @@
 \nautorinės teisės © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importOptionFilesystemButton">Iš failų sistemos</string>
-    <string name="importOptionFilesystemExplanation">Pasirinkite konkretų failą iš failų sistemos.</string>
+    <string name="importOptionFilesystemExplanation">Pasirinkite konkretų failą iš failų sistemos</string>
     <string name="importOptionFilesystemTitle">Importuoti iš failų sistemos</string>
-    <string name="exportOptionExplanation">Duomenys bus įrašyti į jūsų pasirinktą vietą.</string>
+    <string name="exportOptionExplanation">Duomenys bus įrašyti į jūsų pasirinktą vietą</string>
     <string name="exportFailedTitle">Eksportuoti nepavyko</string>
     <string name="exportSuccessfulTitle">Eksportuota</string>
     <string name="importFailedTitle">Importuoti nepavyko</string>
     <string name="importSuccessfulTitle">Importuota</string>
-    <string name="importExportHelp">Duomenų atsarginių kopijų darymas leidžia perkelti juos į kitą įrenginį.</string>
+    <string name="importExportHelp">Duomenų atsarginių kopijų darymas leidžia perkelti juos į kitą įrenginį</string>
     <string name="noCardExistsError">Nepavyko rasti šios kortelės</string>
     <string name="share">Dalintis</string>
     <plurals name="selectedCardCount">
@@ -178,7 +178,7 @@
     <string name="editGroup">Redaguojama grupė: <xliff:g>%s</xliff:g></string>
     <string name="group_updated">Grupė atnaujinta</string>
     <string name="group_edit">Redaguoti grupę</string>
-    <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
+    <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>

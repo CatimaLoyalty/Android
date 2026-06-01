@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="barcodeType">Tip cod de bare</string>
-    <string name="cardId">Identificatorul cardului</string>
-    <string name="note">Notă</string>
+    <string name="cardId">ID-ul cardului</string>
+    <string name="note">Nota</string>
     <string name="storeName">Numele</string>
     <string name="noMatchingGiftCards">Nu au fost găsite rezultate. Încercați să schimbați termenii de căutare.</string>
-    <string name="noGiftCards">Faceți clic pe butonul + plus pentru a adăuga o carte sau mai întâi importați una din meniu.</string>
+    <string name="noGiftCards">Faceți clic pe butonul + plus pentru a adăuga un card sau importă din ⋮ meniu</string>
     <string name="action_add">Adăugați</string>
     <string name="action_search">Căutare</string>
     <string name="sendLabel">Trimiteți…</string>
@@ -25,17 +25,17 @@
     <string name="settings_theme">Tema</string>
     <string name="all">Toate</string>
     <string name="noCardsMessage">Adăugați mai întâi un card</string>
-    <string name="noCardExistsError">Cardul nu a putut fi găsit</string>
+    <string name="noCardExistsError">N-am găsit cardul respectiv</string>
     <string name="failedParsingImportUriError">Nu s-a putut analiza URI-ul de import</string>
-    <string name="importExport">Importă/Exportă</string>
+    <string name="importExport">Importă/exportă</string>
     <string name="exportName">Exportați</string>
     <string name="importSuccessfulTitle">Importat</string>
     <string name="importFailedTitle">Importul a eșuat</string>
     <string name="importFailed">Nu s-a putut efectua importarea</string>
     <string name="exportFailed">Nu s-a putut efectua exportarea</string>
-    <string name="importing">Importul…</string>
-    <string name="exporting">Exportul…</string>
-    <string name="exportOptionExplanation">Datele vor fi scrise într-o locație aleasă de dumneavoastră.</string>
+    <string name="importing">Importare…</string>
+    <string name="exporting">Exportare…</string>
+    <string name="exportOptionExplanation">Datele vor fi scrise într-o locație aleasă de dumneavoastră</string>
     <string name="importOptionFilesystemTitle">Import din sistemul de fișiere</string>
     <string name="starImage">Stea de preferintă</string>
     <string name="settings">Setări</string>
@@ -56,15 +56,15 @@
     <string name="balance">Balanță</string>
     <string name="importSuccessful">Date importate</string>
     <string name="exportSuccessful">Date exportate</string>
-    <string name="noGroups">Faceți clic pe butonul + plus pentru a adăuga grupuri pentru clasificare.</string>
+    <string name="noGroups">Faceți clic pe butonul + plus pentru a adăuga grupuri pentru clasificare</string>
     <string name="deleteConfirmationGroup">Ștergeți grupul\?</string>
-    <string name="failedOpeningFileManager">Instalați mai întâi un manager de fișiere.</string>
+    <string name="failedOpeningFileManager">Eșec în a deschide managerul de fișiere</string>
     <string name="leaveWithoutSaveTitle">Ieșire</string>
     <string name="addManually">Introduceți codul de bare manual</string>
     <string name="currency">Monedă</string>
     <string name="editBarcode">Editarea codului de bare</string>
     <string name="chooseExpiryDate">Alegeți data de expirare</string>
-    <string name="selectBarcodeTitle">Selectare cod de bare</string>
+    <string name="selectBarcodeTitle">Selectează codul de bare</string>
     <string name="noGroupCards">Acest grup este gol</string>
     <string name="addFromImage">Selectați o imagine din galerie</string>
     <string name="never">Niciodată</string>
@@ -74,21 +74,21 @@
     <string name="moveBarcodeToTopOfScreen">Mutați codul de bare în partea de sus a ecranului</string>
     <string name="errorReadingImage">Nu s-a putut citi imaginea</string>
     <string name="points">Puncte</string>
-    <string name="cardShortcut">Scurtătură de card</string>
+    <string name="cardShortcut">Comandă rapidă pentru card</string>
     <string name="scanCardBarcode">Scanați codul de bare</string>
-    <string name="importExportHelp">Copia de rezervă a datelor vă permite să le mutați pe un alt dispozitiv.</string>
+    <string name="importExportHelp">Copia de rezervă a datelor vă permite să le mutați pe un alt dispozitiv</string>
     <string name="exportSuccessfulTitle">Exportat</string>
     <string name="exportFailedTitle">Export eșuat</string>
-    <string name="importOptionFilesystemExplanation">Alegeți un anumit fișier din sistemul de fișiere.</string>
+    <string name="importOptionFilesystemExplanation">Alegeți un anumit fișier din sistemul de fișiere</string>
     <string name="thumbnailDescription">Miniatură</string>
     <string name="enter_group_name">Introduceți numele grupului</string>
     <string name="yes">Da</string>
     <string name="no">Nu</string>
     <string name="archive">Arhivare</string>
-    <string name="passwordRequired">Vă rugăm, introduceți parola</string>
+    <string name="passwordRequired">Introduceți parola</string>
     <string name="unsupportedBarcodeType">Acest tip de cod de bare nu poate fi afișat. Este posibil ca acesta să se poată afișa într-o versiune mai nouă a aplicației.</string>
     <string name="photos">Imagini</string>
-    <string name="noGiftCardsGroup">Creați câteva carduri, iar apoi atribuiți-le grupului de aici.</string>
+    <string name="noGiftCardsGroup">Creați câteva carduri, iar apoi atribuiți-le grupului de aici</string>
     <string name="importCatima">Importați din Catima</string>
     <string name="intent_import_card_from_url_share_multiple_text">Aș dori să partajez niște carduri cu tine</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Drepturi de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os și contribuitorii</string>
@@ -107,7 +107,7 @@
     <string name="add_a_card_in_a_different_way">Adăugați un card într-o altă modalitate</string>
     <string name="takePhoto">Faceți o poză</string>
     <string name="validFromDate">Valid de la data de</string>
-    <string name="cameraPermissionDeniedTitle">Camera nu a putut fi accesată</string>
+    <string name="cameraPermissionDeniedTitle">Camera n-a putut fi accesată</string>
     <string name="wrongValueForBarcodeType">Valoarea nu este validă pentru tipul de cod de bare selectat</string>
     <string name="welcome">Bine ați venit la Catima</string>
     <string name="and_data_usage">și utilizarea datelor</string>
@@ -132,7 +132,7 @@
     <string name="action_more_options">Mai multe opțiuni</string>
     <string name="app_copyright_old">Bazat pe Loyalty Card Keychain
 \ndrepturi de autor rezervate © 2016-2020 Branden Archer</string>
-    <string name="importVoucherVaultMessage">Selectați exportul dvs. <i>vouchervault.json</i> din Voucher Vault pentru a-l importa.\nCreați întâi fișierul prin apăsarea butonului Export în Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Selectați exportul dumneavoastră din Voucher Vault pentru import.\nCreați întâi fișierul prin apăsarea butonului Export în Voucher Vault.</string>
     <string name="chooseImportType">Importați date din</string>
     <string name="frontImageDescription">Imagine frontală</string>
     <string name="showMoreInfo">Afișați informații</string>
@@ -140,9 +140,9 @@
     <string name="setBackImage">Setați imaginea din spate</string>
     <string name="permissionReadCardsDescription">citiți cardurile dumneavoastră Catima și toate detaliile lor, inclusiv notițele și imaginile</string>
     <string name="anyDate">Orice dată</string>
-    <string name="failedLaunchingPhotoPicker">Nu a putut fi găsită o aplicație galerie suportată</string>
+    <string name="failedLaunchingPhotoPicker">N-a putut fi găsită o aplicație galerie suportată</string>
     <string name="expiryStateSentenceExpired">Expirat: <xliff:g>%s</xliff:g></string>
-    <string name="source_repository">Repozitor Sursă</string>
+    <string name="source_repository">Depozit sursă</string>
     <string name="groupsList">Grupuri: <xliff:g>%s</xliff:g></string>
     <string name="enter_card_id">Introduceți numărul de identificare sau textul de pe cardul dumneavoastră</string>
     <string name="unarchived">Card dezarhivat</string>
@@ -181,7 +181,7 @@
     <string name="settings_allow_content_provider_read_summary">Aplicațiile vor trebui totuși să solicite permisiunea pentru a primi acces</string>
     <string name="license">Licență</string>
     <string name="newBalanceSentence">Balanța nouă: <xliff:g>%s</xliff:g></string>
-    <string name="editGroup">Editarea grupului: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Grup de editare: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> arhivat)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> carduri (<xliff:g id="archivedCount">%2$d</xliff:g> arhivate)</item>
@@ -189,10 +189,10 @@
     </plurals>
     <string name="sameAsCardId">Acelașil cu identificatorul</string>
     <string name="options">Opțiuni</string>
-    <string name="failedGeneratingShareURL">Nu s-a putut genera un URL partajabil. Vă rugăm să raportați aceasta eroare.</string>
+    <string name="failedGeneratingShareURL">Nu s-a putut genera o adresă URL care poate fi partajată.</string>
     <string name="selectColor">Selectați o culoare</string>
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
-    <string name="privacy_policy">Politica de Confidențialitate</string>
+    <string name="privacy_policy">Politica de confidențialitate</string>
     <string name="openBackImageInGalleryApp">Deschideți imaginea din spate în aplicația galerie</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="updateBalance">Actualizați balanța</string>
@@ -202,10 +202,10 @@
     <string name="settings_locale">Limbă</string>
     <string name="sort_by_name">Nume</string>
     <string name="setFrontImage">Setați imaginea din față</string>
-    <string name="cameraPermissionRequired">Pentru această acțiune este necesară permisiunea de acces la camera …</string>
+    <string name="cameraPermissionRequired">Permisiunea de acces la cameră este necesară pentru această acțiune…</string>
     <string name="settings_allow_content_provider_read_title">Permiteți altor aplicații să acceseze datele mele</string>
     <string name="updateBarcodeQuestionText">Ați schimbat identificatorul. Doriți să actualizați și codul de bare pentru a utiliza aceeași valoare?</string>
-    <string name="importLoyaltyCardKeychainMessage">Selectați exportul dvs. <i>LoyaltyCardKeychain.csv</i> din Loyalty Card Keychain pentru a-l importa. \nCreați întâi fișierul din meniul Import/Export în Loyalty Card Keychain prin apăsarea butonului Export.</string>
+    <string name="importLoyaltyCardKeychainMessage">Selectați exportul dumneavoastră din Loyalty Card Keychain pentru import.\nCreați întâi fișierul din meniul Import/Export în Loyalty Card Keychain prin apăsarea butonului Export.</string>
     <string name="currentBalanceSentence">Balanța curentă: <xliff:g>%s</xliff:g></string>
     <string name="importLoyaltyCardKeychain">Importați din Loyalty Card Keychain</string>
     <string name="group_updated">Grup actualizat</string>
@@ -213,7 +213,7 @@
     <string name="on_github">pe GitHub</string>
     <string name="sort">Sortați</string>
     <string name="permissionReadCardsLabel">Citiți cardurile Catima</string>
-    <string name="storageReadPermissionRequired">Pentru această acțiune este necesară permisiunea de citire a mediului de stocare …</string>
+    <string name="storageReadPermissionRequired">Permisiunea de citire a spațiului de stocare este necesară pentru această acțiune…</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Ștergeți acest <xliff:g>%d</xliff:g> card permanent?</item>
         <item quantity="few">Ștergeți aceste <xliff:g>%d</xliff:g> carduri permanent?</item>
@@ -226,9 +226,9 @@
     <string name="group_name_already_in_use">Acest nume de grup este deja utilizat</string>
     <string name="include_if_asking_support">Dacă doriți să cereți ajutor, includeți informațiile următoare:</string>
     <string name="show_archived_cards">Afișați cardurile arhivate</string>
-    <string name="app_libraries">Listă de biblioteci libere de la terți: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Biblioteci terțe: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="updateBalanceTitle">Cât de mult ați cheltuit sau primit?</string>
-    <string name="app_resources">Listă de resurse gratuite de la terți: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Resurse terțe: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
     <string name="shortcutSelectCard">Selectați un card</string>
     <string name="accept">Acceptă</string>
@@ -245,26 +245,26 @@
         <item quantity="few"><xliff:g>%d</xliff:g> selectate</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selectate</item>
     </plurals>
-    <string name="version_history">Istoric versiuni</string>
-    <string name="importCatimaMessage">Selectați exportul dvs. <i>catima.zip</i> din Catima pentru a importa. \nCreați întâi fișierul din meniul Import/Export al unei alte aplicații Catima apăsând acolo butonul de Export.</string>
+    <string name="version_history">Istoricul versiunilor</string>
+    <string name="importCatimaMessage">Selectați exportul dumneavoastră din Catima pentru import.\nCreați întâi fișierul din meniul Import/Export al unei alte aplicații Catima apăsând butonul de Export.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punct</item>
         <item quantity="few"><xliff:g>%s</xliff:g> puncte</item>
         <item quantity="other"><xliff:g>%s</xliff:g> de puncte</item>
     </plurals>
-    <string name="importFidmeMessage">Selectați exportul dvs. <i>fidme-export-request-xxxxx.zip</i> din FidMe pentru a-l importa, și apoi selectați tipurile de cod de bare manual.\nCreați întâi fișierul din profilul dvs. FidMe prin alegerea Protecție Date și apoi apăsând Extrageți datele mele.</string>
+    <string name="importFidmeMessage">Selectați exportul dumneavoastră din FidMe pentru import si selectați manual tipurile de coduri de bare dupa.\nCreați întâi fișierul din profilul dvs. FidMe prin alegerea Protecție Date și apoi apăsând Extrageți datele mele.</string>
     <string name="updateBarcodeQuestionTitle">Actualizați valoarea codului de bare?</string>
     <string name="settings_keep_screen_on_summary">Dezactivează temporizatorul de ecran când vizualizați un card</string>
     <string name="rate_this_app">Acordați o recenzie acestei aplicații</string>
     <string name="credits">Contribuitori</string>
     <string name="continue_">Continua</string>
     <string name="add_manually_warning_title">Se recomandă scanarea</string>
-    <string name="add_manually_warning_message">Pentru unele magazine, valoarea codului de bare diferă de numărul scris pe card. Din acest motiv, este posibil ca introducerea manuală a unui cod de bare să nu funcționeze întotdeauna. În schimb, este recomandat să scanați codul de bare cu camera dvs. Mai vrei să continui?</string>
+    <string name="add_manually_warning_message">Pentru unele carduri, valoarea codului de bare diferă de numărul scris pe card. Din acest motiv, este posibil ca introducerea manuală a unui cod de bare să nu funcționeze întotdeauna. În schimb, este recomandat să scanați codul de bare cu camera dvs. Mai vrei să continui?</string>
     <string name="spend">Cheltuie</string>
     <string name="receive">Primește</string>
     <string name="amountParsingFailed">Sumă invalidă</string>
     <string name="addFromPdfFile">Selectați un fișier PDF</string>
-    <string name="errorReadingFile">Nu am putut citi fișierul</string>
+    <string name="errorReadingFile">N-am putut citi fișierul</string>
     <string name="failedLaunchingFileManager">Nu s-a găsit un manager de fișiere suportat</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Care dintre codurile de bare găsite dorești să-l folosești?</string>
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
@@ -285,12 +285,31 @@
     <string name="settings_column_count_7">7</string>
     <string name="settings_column_count_landscape">Coloane in mod orizontal</string>
     <string name="settings_category_title_cards_overview">Vedere de ansamblu al cardlui</string>
-    <string name="sort_by_valid_from">Forma validă</string>
+    <string name="sort_by_valid_from">Valabil de la</string>
     <string name="settings_column_count_portrait">Coloane in mod portret</string>
-    <string name="addFromPkpass">Selectează un fișier de tip Passbook (.pkpass)</string>
+    <string name="addFromPkpass">Selectează un fișier de tip Passbook (.pkpass / .pkpasses)</string>
     <string name="unsupportedFile">Acest fișier nu este suportat</string>
-    <string name="generic_error_please_retry">Scuze, ceva nu a funționat. Încearcă din nou ...</string>
+    <string name="generic_error_please_retry">A apărut o eroare</string>
     <string name="width">Lățime</string>
-    <string name="setBarcodeWidth">Setează Lățimea Codului de Bare</string>
+    <string name="setBarcodeWidth">Setează lățimea codului de bare</string>
     <string name="card_list_widget_name">Listă de carduri</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pauză NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pauză NFC pentru a preveni declanșarea plăților NFC în timpul vizualizării unui card</string>
+    <string name="card_list_widget_empty">După ce adăugați carduri de fidelitate în Catima, ele vor apărea aici. Dacă aveți carduri, fi-ți sigur că ele nu sunt arhivate.</string>
+    <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">Vă rog să nu rotiți dispozitivul, deoarece acest lucru va anula acțiunea</string>
+    <string name="acra_catima_has_crashed">Ne cerem scuze, dar <xliff:g id="app_name">%s</xliff:g> s-a oprit. Vă rog să ne ajutați să rezolvăm problema, trimițându-ne un raport de eroare.</string>
+    <string name="acra_explain_crash">Dacă este posibil, vă rog să adăugați mai multe detalii despre ce ați făcut aici:</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> raport de crash</string>
+    <string name="pref_enable_acra">Cere să trimiți rapoarte de crash</string>
+    <string name="pref_enable_acra_summary">Când este activat, veți fi întrebat să raportați crash-ul când se întâmpla. Raporturile de crash nu sunt niciodata trimise automat.</string>
+    <string name="copy_value">Copiază valoarea</string>
+    <string name="copied_to_clipboard">Copiat în clipboard</string>
+    <string name="nothing_to_copy">Nicio valoare găsită</string>
+    <string name="barcodeEncoding">Codarea codului de bare</string>
+    <string name="back">Înapoi</string>
+    <string name="nfc_blocked_while_viewing_card">NFC este pus pe pauza</string>
+    <string name="change_settings">Schimbă setările</string>
+    <string name="nfc_block_system_error">Nu s-a putut întrerupe NFC-ul</string>
 </resources>

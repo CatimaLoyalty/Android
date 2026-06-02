@@ -263,4 +263,5 @@
     <string name="show_archived_cards">Mostrar tarjetas archivadas</string>
     <string name="view_online">Ver Online</string>
     <string name="action_more_options">Más Opciones</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pause NFC</string>
 </resources>

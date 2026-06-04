@@ -17,7 +17,7 @@ jobs:
   generate-feature-graphic:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v6.0.2
     - name: Install requirements
       run: |
         sudo apt-get update

@@ -313,4 +313,9 @@
     <string name="nothing_to_copy">Значення не знайдено</string>
     <string name="barcodeEncoding">Кодування штрих-кодів</string>
     <string name="back">Назад</string>
+    <string name="settings_disable_nfc_while_viewing_card">Зупинити NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Зупиняє NFC щоб уникнути NFC платежів під час перегляду карти</string>
+    <string name="nfc_blocked_while_viewing_card">NFC зупинений</string>
+    <string name="change_settings">Змінити налаштування</string>
+    <string name="nfc_block_system_error">Не вдалось зупинити NFC</string>
 </resources>

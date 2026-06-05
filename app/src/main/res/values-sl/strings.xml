@@ -312,4 +312,9 @@
     <string name="nothing_to_copy">Nobena vrednost ni najdena</string>
     <string name="barcodeEncoding">Kodiranje črtne kode</string>
     <string name="back">Nazaj</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pavza NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Začasno ustavi NFC, da prepreči sprožitev plačil NFC med ogledovanjem kartice</string>
+    <string name="nfc_blocked_while_viewing_card">NFC je zaustavljen</string>
+    <string name="change_settings">Spremeni nastavitve</string>
+    <string name="nfc_block_system_error">ustavitev NFC-ja ni uspela</string>
 </resources>

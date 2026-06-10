@@ -240,6 +240,7 @@ public class ImportURIHelper {
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         sendIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
         sendIntent.setType("text/plain");
 

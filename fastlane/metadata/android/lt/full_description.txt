@@ -1,15 +1,15 @@
-Nustokite ieškoti plastikinių lojalumo kortelių parduotuvėje ar parduotuvėje internetinėje.
-<b> Nuskaitykite brūkšninius kodus į savo įrenginį naudodami jo kamerą ir pamirškite korteles.</b>
+Nustokite ieškoti plastikinių lojalumo kortelių fizinėje ar internetinėje parduotuvėje.
+<b>Nuskaitykite brūkšninius kodus į savo įrenginį naudodami jo kamerą ir pamirškite korteles.</b>
 
-Pamirškite piniginę arba laikykite ją itin lengvą tik vertingiems daiktams.
+Pamirškite piniginę arba laikykite ją tik vertingiems daiktams.
 
-Su šiuo būtinu kasdienio nešiojimo (EDC) įrankiu nenaudingą plastiką galite pakeisti grynaisiais pinigais.
+Su šiuo esminiu kasdienio nešiojimo (EKN) įrankiu nenaudingą plastiką galite pakeisti grynaisiais pinigais.
 
-- Išvenkite šnipinėjimo, programėlė prašo labai nedaug leidimų. Jokios prieigos prie interneto ir jokių reklamų.
+- Išvenkite šnipinėjimo, programėlė prašo minimaliai leidimų. Jokios prieigos prie interneto ir jokių reklamų.
 - Pridėkite korteles arba kodus su pavadinimais ir pasirenkamomis spalvomis.
 - Rankiniu būdu įveskite kodą, jei nėra saugotino brūkšninio kodo arba jei jis neįskaitomas.
-- Importuokite korteles ir kodus iš failų, "Catima", "FidMe", "Loyalty Card Keychain", "Stocard", "Voucher Vault".
-- Padarykite atsarginę kopiją visų kortelių ir, jei norite, perkelkite jas į naują įrenginį.
+- Importuokite korteles ir kodus iš failų, "Catima", "FidMe", "Loyalty Card Keychain", "Voucher Vault".
+- Padarykite visų kortelių atsarginę kopiją ir, jei norite, perkelkite jas į naują įrenginį.
 - Dalinkitės kuponais, išskirtiniais pasiūlymais, reklaminiais kodais arba kortelėmis ir kodais naudodami bet kurią programą.
 - Tamsi tema ir parinktys naudotojams su regos sutrikimais.
 - "Libre" programinės įrangos bendruomenės sukurta visiems.
@@ -19,4 +19,4 @@ Su šiuo būtinu kasdienio nešiojimo (EDC) įrankiu nenaudingą plastiką galit
 - Ne tik laisvoji programinė įranga / atvirasis kodas. <i>"Copylefted"</i> laisvosios programinės įrangos (GPLv3+) kortelių valdymas.
 
 Supaprastinkite savo gyvenimą ir apsipirkimą ir daugiau niekada nepraraskite popierinio kvito, parduotuvės dovanų kortelės ar lėktuvo bilieto.
-Pasiimkite su savimi visus nuolaidas ir premijas ir taupykite keliaudami.
+Pasiimkite su savimi visas nuolaidas ir premijas ir taupykite keliaudami.

@@ -33,7 +33,7 @@ jobs:
         flavor: [Foss, Gplay]
     steps:
       - uses: actions/checkout@v6.0.2
-      - uses: gradle/actions/wrapper-validation@v6
+      - uses: gradle/actions/wrapper-validation@v6.1.0
       - name: set up OpenJDK 25
         run: |
           sudo apt-get update

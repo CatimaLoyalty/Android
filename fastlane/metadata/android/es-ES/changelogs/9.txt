@@ -1,0 +1,3 @@
+El "Locker" parte del nombre no fue intuitivo. Para ayudar remedio esto un icono de aplicación nuevo estuvo creado por betsythefc qué mejor representa el propósito de la aplicación: para almacenar cartas de lealtad qué uso barcodes. Junto con este icono nuevo el nombre de la aplicación ha sido cambiado a "Carta de Lealtad Keychain".
+
+Mejoras de/características adicionales:

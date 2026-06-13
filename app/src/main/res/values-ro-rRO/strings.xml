@@ -187,7 +187,7 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> carduri (<xliff:g id="archivedCount">%2$d</xliff:g> arhivate)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> de carduri (<xliff:g id="archivedCount">%2$d</xliff:g> arhivate)</item>
     </plurals>
-    <string name="sameAsCardId">Acelașil cu identificatorul</string>
+    <string name="sameAsCardId">Același cu identificatorul</string>
     <string name="options">Opțiuni</string>
     <string name="failedGeneratingShareURL">Nu s-a putut genera o adresă URL care poate fi partajată.</string>
     <string name="selectColor">Selectați o culoare</string>

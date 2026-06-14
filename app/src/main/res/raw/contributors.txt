@@ -28,16 +28,16 @@ GM
 laralem
 Petr Novák
 Taco
-Vasilis
-pfaffenrodt
-nadiafekihahmed
 Milo Ivir
+nadiafekihahmed
+pfaffenrodt
+Vasilis
 Aayush Gupta
 Scrambled777
 josé m
-Giovanni Donisi
-Nyatsuki
 ikanakova
+Nyatsuki
+Giovanni Donisi
 Kachelkaiser
 Jiri Grönroos
 HudobniVolk
@@ -48,20 +48,20 @@ Traductor
 Samantaz Fox
 mdvhimself
 AMIR-G98
-Feike
-Arno-github
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
+Feike
+Arno-github
 Jose Delvani
-Robin
 Milan Šalka
 damjang
-Gideon
-Govindgopalyadav
-Skrripy
-huuhaa
+Robin
 தமிழ்நேரம்
+huuhaa
+Skrripy
+Govindgopalyadav
+Gideon
 waffshappen
 Marnick L'Eau
 JungHee Lee

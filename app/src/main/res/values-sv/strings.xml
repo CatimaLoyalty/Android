@@ -301,4 +301,5 @@
     <string name="nothing_to_copy">Inget värde hittades</string>
     <string name="barcodeEncoding">Streckkods-kodning</string>
     <string name="back">Tillbaka</string>
+    <string name="settings_disable_nfc_while_viewing_card">Pausa NFC</string>
 </resources>

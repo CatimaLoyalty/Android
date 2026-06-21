@@ -302,4 +302,8 @@
     <string name="barcodeEncoding">Streckkods-kodning</string>
     <string name="back">Tillbaka</string>
     <string name="settings_disable_nfc_while_viewing_card">Pausa NFC</string>
+    <string name="nfc_blocked_while_viewing_card">NFC är pausad</string>
+    <string name="change_settings">Ändra inställningar</string>
+    <string name="nfc_block_system_error">Lyckades inte pausa NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pausar NFC för att förhindra att NFC-betalningar genomförs av misstag medan du tittar på ett kort</string>
 </resources>

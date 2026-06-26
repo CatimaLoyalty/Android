@@ -13,12 +13,12 @@ kotlin {
 
 android {
     namespace = "protect.card_locker"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 23
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 166
         versionName = "2.42.1"
 

@@ -17,6 +17,7 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import java.util.Currency
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -160,6 +161,38 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+
+            // Set entries for preferred currency
+            val currencyPreference = findPreference<ListPreference>(getString(R.string.settings_key_default_currency))!!
+            currencyPreference.let { pref ->
+                val currencies = Currency.getAvailableCurrencies()
+                    .associateBy { it.symbol } // Deduplicates currencies by symbol to match behaviour in LoyaltyCardEditActivity
+                    .values
+                    .sortedWith { c1, c2 ->
+                        val s1 = c1.symbol
+                        val s2 = c2.symbol
+
+                        val s1Ascii = s1.matches("^[^a-zA-Z]*$".toRegex())
+                        val s2Ascii = s2.matches("^[^a-zA-Z]*$".toRegex())
+
+                        when {
+                            !s1Ascii && s2Ascii -> 1
+                            s1Ascii && !s2Ascii -> -1
+                            else -> s1.compareTo(s2)
+                        }
+                    }
+
+                val symbols = currencies.map { it.symbol }.toMutableList()
+                val codes = currencies.map { it.currencyCode }.toMutableList()
+
+                // Add points as an option
+                val points = getString(R.string.points)
+                symbols.add(0, points)
+                codes.add(0, points)
+
+                pref.entries = symbols.toTypedArray()
+                pref.entryValues = codes.toTypedArray()
+            }
         }
 
         private fun refreshActivity(reloadMain: Boolean) {

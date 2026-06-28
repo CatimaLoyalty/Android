@@ -24,12 +24,4 @@
         android:layout_weight="1"
         android:scaleType="fitCenter"
         android:importantForAccessibility="no" />
-
-    <TextView
-        android:id="@+id/barcode_format"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="11sp"
-        android:gravity="center"
-        android:visibility="gone" />
 </LinearLayout>

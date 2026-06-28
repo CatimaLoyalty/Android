@@ -17,7 +17,6 @@ import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import protect.card_locker.cardview.LoyaltyCardViewActivity
-import protect.card_locker.preferences.Settings
 import java.nio.charset.Charset
 
 class BarcodeWidget : AppWidgetProvider() {
@@ -66,8 +65,6 @@ class BarcodeWidget : AppWidgetProvider() {
             return
         }
 
-        val showFormat = Settings(context).showBarcodeWidgetFormat()
-
         val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
         val isVertical =
             options.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, 0) >
@@ -87,13 +84,6 @@ class BarcodeWidget : AppWidgetProvider() {
             views.setViewVisibility(R.id.barcode_image, View.VISIBLE)
         } else {
             views.setViewVisibility(R.id.barcode_image, View.GONE)
-        }
-
-        if (showFormat) {
-            views.setTextViewText(R.id.barcode_format, barcodeType.prettyName())
-            views.setViewVisibility(R.id.barcode_format, View.VISIBLE)
-        } else {
-            views.setViewVisibility(R.id.barcode_format, View.GONE)
         }
 
         val cardIntent =
@@ -120,7 +110,6 @@ class BarcodeWidget : AppWidgetProvider() {
             context.getString(R.string.barcode_widget_not_configured),
         )
         views.setViewVisibility(R.id.barcode_image, View.GONE)
-        views.setViewVisibility(R.id.barcode_format, View.GONE)
         return views
     }
 

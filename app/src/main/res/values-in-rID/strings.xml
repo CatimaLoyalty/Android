@@ -295,4 +295,9 @@
     <string name="nothing_to_copy">Tidak ditemukan nilai</string>
     <string name="barcodeEncoding">Pengkodean barcode</string>
     <string name="back">Kembali</string>
+    <string name="settings_disable_nfc_while_viewing_card">Jeda NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Menjeda NFC untuk mencegah pembayaran NFC terpicu saat melihat kartu</string>
+    <string name="nfc_blocked_while_viewing_card">NFC dijeda</string>
+    <string name="change_settings">Ubah pengaturan</string>
+    <string name="nfc_block_system_error">Gagal menjeda NFC</string>
 </resources>

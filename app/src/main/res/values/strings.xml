@@ -280,10 +280,12 @@
     <string name="show_note">Show note</string>
     <string name="show_balance">Show balance</string>
     <string name="show_validity">Show validity</string>
+    <string name="show_card_id">Show card ID</string>
     <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
     <string name="sharedpreference_card_details_show_note" translatable="false">sharedpreference_card_details_show_note</string>
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
+    <string name="sharedpreference_card_details_show_card_id" translatable="false">sharedpreference_card_details_show_card_id</string>
     <string name="sharedpreference_card_details_show_archived_cards" translatable="false">sharedpreference_card_details_show_archived_cards</string>
     <string name="settings_category_title_cards">Card view</string>
     <string name="settings_category_title_cards_overview">Cards overview</string>

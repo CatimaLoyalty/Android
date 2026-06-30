@@ -37,6 +37,7 @@ public class LoyaltyCardListDisplayOptionsManager {
     private boolean mShowNote;
     private boolean mShowBalance;
     private boolean mShowValidity;
+    private boolean mShowCardId;
     private boolean mShowArchivedCards;
 
     public LoyaltyCardListDisplayOptionsManager(Context context, @NonNull Runnable refreshCardsCallback, @Nullable Runnable swapCursorCallback) {
@@ -52,6 +53,7 @@ public class LoyaltyCardListDisplayOptionsManager {
         mShowNote = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_note), true);
         mShowBalance = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_balance), true);
         mShowValidity = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
+        mShowCardId = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_card_id), false);
         mShowArchivedCards = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_archived_cards), true);
     }
 
@@ -105,6 +107,17 @@ public class LoyaltyCardListDisplayOptionsManager {
         return mShowValidity;
     }
 
+    public void showCardId(boolean show) {
+        mShowCardId = show;
+        mRefreshCardsCallback.run();
+
+        saveDetailState(R.string.sharedpreference_card_details_show_card_id, show);
+    }
+
+    public boolean showingCardId() {
+        return mShowCardId;
+    }
+
     public void showArchivedCards(boolean show) {
         if (mSwapCursorCallback == null) {
             throw new IllegalStateException("No swap cursor callback is available, can not manage archive state");
@@ -146,6 +159,11 @@ public class LoyaltyCardListDisplayOptionsManager {
                 mContext.getString(R.string.show_validity),
                 showingValidity(),
                 this::showValidity
+        ));
+        displayOptions.add(new LoyaltyCardDisplayOption(
+                mContext.getString(R.string.show_card_id),
+                showingCardId(),
+                this::showCardId
         ));
 
         // Hide "Show archived cards" option unless the callback exists

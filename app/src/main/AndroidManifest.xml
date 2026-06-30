@@ -48,6 +48,19 @@
                 android:resource="@xml/list_widget_info" />
          </receiver>
 
+        <receiver
+            android:name=".BarcodeWidget"
+            android:label="@string/barcode_widget_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/barcode_widget_info" />
+         </receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -144,6 +157,15 @@
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BarcodeWidgetConfigureActivity"
+            android:label="@string/barcode_widget_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".preferences.SettingsActivity"
             android:label="@string/settings"

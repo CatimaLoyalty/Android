@@ -19,7 +19,6 @@ import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
 
 class SettingsActivity : CatimaAppCompatActivity() {
-
     private lateinit var binding: SettingsActivityBinding
     private lateinit var fragment: SettingsFragment
 
@@ -35,7 +34,8 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
         // Display the fragment as the main content.
         fragment = SettingsFragment()
-        supportFragmentManager.beginTransaction()
+        supportFragmentManager
+            .beginTransaction()
             .replace(R.id.settings_container, fragment)
             .commit()
 
@@ -44,11 +44,14 @@ class SettingsActivity : CatimaAppCompatActivity() {
             fragment.mReloadMain = savedInstanceState.getBoolean(RELOAD_MAIN_STATE)
         }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                finishSettingsActivity()
-            }
-        })
+        onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    finishSettingsActivity()
+                }
+            },
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -81,7 +84,10 @@ class SettingsActivity : CatimaAppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         var mReloadMain: Boolean = false
 
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        override fun onCreatePreferences(
+            savedInstanceState: Bundle?,
+            rootKey: String?,
+        ) {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences)
 
@@ -92,9 +98,11 @@ class SettingsActivity : CatimaAppCompatActivity() {
                     getString(R.string.settings_key_light_theme) -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     }
+
                     getString(R.string.settings_key_dark_theme) -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     }
+
                     else -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     }
@@ -112,14 +120,15 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 findPreference<ListPreference>(getString(R.string.settings_key_locale))!!
             localePreference.let {
                 val entryValues = it.entryValues
-                val entries = entryValues.map { entry ->
-                    if (entry.isEmpty()) {
-                        getString(R.string.settings_system_locale)
-                    } else {
-                        val entryLocale = Utils.stringToLocale(entry.toString())
-                        entryLocale.getDisplayName(entryLocale)
+                val entries =
+                    entryValues.map { entry ->
+                        if (entry.isEmpty()) {
+                            getString(R.string.settings_system_locale)
+                        } else {
+                            val entryLocale = Utils.stringToLocale(entry.toString())
+                            entryLocale.getDisplayName(entryLocale)
+                        }
                     }
-                }
                 it.entries = entries.toTypedArray()
 
                 // Make locale picker preference in sync with system settings
@@ -153,7 +162,15 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
                 val newLocale = newValue as String
                 // If newLocale is empty, that means "System" was selected
-                AppCompatDelegate.setApplicationLocales(if (newLocale.isEmpty()) LocaleListCompat.getEmptyLocaleList() else LocaleListCompat.create(Utils.stringToLocale(newLocale)))
+                AppCompatDelegate.setApplicationLocales(
+                    if (newLocale.isEmpty()) {
+                        LocaleListCompat.getEmptyLocaleList()
+                    } else {
+                        LocaleListCompat.create(
+                            Utils.stringToLocale(newLocale),
+                        )
+                    },
+                )
                 true
             }
 

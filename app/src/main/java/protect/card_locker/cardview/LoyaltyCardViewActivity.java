@@ -1,6 +1,5 @@
 package protect.card_locker.cardview;
 
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -34,7 +33,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -44,7 +42,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
@@ -76,8 +73,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     CatimaBarcode format;
     Charset barcodeEncoding;
 
+    Bitmap imageThumbnailBitmap;
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
+    LoyaltyCardImageType fullscreenImageType = null;
+    LoyaltyCardImageZoomHandler fullscreenImageZoomHandler;
 
     boolean backgroundNeedsDarkIcons;
     boolean isFullscreen = false;
@@ -129,53 +129,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         LoyaltyCardImageType imageType = cardNavigator.getCurrent();
 
-        // Fullscreen exists mainly to make barcodes easier to scan, not as a separate screen flow.
         if (imageType == LoyaltyCardImageType.BARCODE) {
             setFullscreen(true);
 
             return;
         }
 
-        // If this is an image, open it in the gallery.
-        openImageInGallery(imageType);
-    }
-
-    private void openImageInGallery(LoyaltyCardImageType imageType) {
-        File file = null;
-
-        switch (imageType) {
-            case NONE:
-                return;
-            case ICON:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.icon);
-                break;
-            case IMAGE_FRONT:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
-                break;
-            case IMAGE_BACK:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
-                break;
-            case BARCODE:
-                Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
-                return;
-        }
-
-        // Do nothing if there is no file
-        if (file == null) {
-            Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW)
-                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
-                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // Display a toast message if an image viewer is not installed on device
-            Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+        fullscreenImageType = imageType;
+        setFullscreen(true);
     }
 
     @Override
@@ -255,6 +216,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
         mainImageRenderer = new LoyaltyCardMainImageRenderer(this, this);
+        fullscreenImageZoomHandler = new LoyaltyCardImageZoomHandler(binding.fullscreenImage);
 
         binding.barcodeScaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
         binding.barcodeWidthscaler.setOnSeekBarChangeListener(setOnSeekBarChangeListenerUnifiedFunction());
@@ -290,8 +252,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         );
 
         binding.iconContainer.setOnClickListener(view -> {
-            if (loyaltyCard.getImageThumbnail(this) != null) {
-                openImageInGallery(LoyaltyCardImageType.ICON);
+            if (imageThumbnailBitmap != null) {
+                fullscreenImageType = LoyaltyCardImageType.ICON;
+                setFullscreen(true);
             } else {
                 Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
             }
@@ -629,6 +592,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
         Bitmap icon = loyaltyCard.getImageThumbnail(this);
+        imageThumbnailBitmap = icon;
         Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText, 1);
 
         // If the background is very bright, we should use dark icons
@@ -703,7 +667,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void renderCurrentMainImage(boolean waitForResize) {
         mainImageRenderer.renderCurrent(
-                cardNavigator.getCurrent(),
+                getCurrentImageType(),
+                imageThumbnailBitmap,
                 frontImageBitmap,
                 backImageBitmap,
                 format,
@@ -887,9 +852,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int accessibilityClickAction;
         LoyaltyCardImageType currentImageType = cardNavigator.getCurrent();
         if (currentImageType == LoyaltyCardImageType.IMAGE_FRONT) {
-            accessibilityClickAction = R.string.openFrontImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomFrontImage;
         } else if (currentImageType == LoyaltyCardImageType.IMAGE_BACK) {
-            accessibilityClickAction = R.string.openBackImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomBackImage;
         } else {
             accessibilityClickAction = R.string.moveBarcodeToTopOfScreen;
         }
@@ -964,18 +929,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         isFullscreen = enabled;
         ActionBar actionBar = getSupportActionBar();
 
-        if (enabled && !cardNavigator.isEmpty()) {
+        if (enabled && (!cardNavigator.isEmpty() || fullscreenImageType != null)) {
             barcodeRenderTarget = binding.fullscreenImage;
             binding.container.setVisibility(View.GONE);
             binding.fullscreenLayout.setVisibility(View.VISIBLE);
-            // Square barcodes resize uniformly, and Data Matrix behaves similarly, so width-only scaling adds no value.
-            binding.setWidthLayout.setVisibility(
-                    format == null || format.isSquare() || format.format() == com.google.zxing.BarcodeFormat.DATA_MATRIX
-                            ? View.GONE
-                            : View.VISIBLE
-            );
+            configureFullscreenControls();
             renderCurrentMainImage(true);
-            syncFullscreenScalers();
+            configureFullscreenImageZoom();
 
             if (actionBar != null) {
                 actionBar.hide();
@@ -985,6 +945,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.fabEdit.setVisibility(View.GONE);
             setFullscreenMode();
         } else {
+            fullscreenImageType = null;
+            fullscreenImageZoomHandler.setEnabled(false);
             barcodeRenderTarget = binding.mainImage;
             binding.container.setVisibility(View.VISIBLE);
             binding.fullscreenLayout.setVisibility(View.GONE);
@@ -999,6 +961,42 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             unsetFullscreenMode();
         }
         Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + binding.barcodeScaler.getProgress());
+    }
+
+    private LoyaltyCardImageType getCurrentImageType() {
+        if (isFullscreen && fullscreenImageType != null) {
+            return fullscreenImageType;
+        }
+
+        return cardNavigator.getCurrent();
+    }
+
+    private boolean isShowingFullscreenBarcode() {
+        return getCurrentImageType() == LoyaltyCardImageType.BARCODE;
+    }
+
+    private void configureFullscreenControls() {
+        if (!isShowingFullscreenBarcode()) {
+            ((View) binding.barcodeScaler.getParent()).setVisibility(View.GONE);
+            binding.setWidthLayout.setVisibility(View.GONE);
+            binding.scalerGuideline.setGuidelinePercent(1f);
+            binding.scalerStartwidthguideline.setGuidelinePercent(0f);
+            binding.scalerEndwidthguideline.setGuidelinePercent(1f);
+            return;
+        }
+
+        ((View) binding.barcodeScaler.getParent()).setVisibility(View.VISIBLE);
+        // Square barcodes resize uniformly, and Data Matrix behaves similarly, so width-only scaling adds no value.
+        binding.setWidthLayout.setVisibility(
+                format == null || format.isSquare() || format.format() == com.google.zxing.BarcodeFormat.DATA_MATRIX
+                        ? View.GONE
+                        : View.VISIBLE
+        );
+        syncFullscreenScalers();
+    }
+
+    private void configureFullscreenImageZoom() {
+        fullscreenImageZoomHandler.setEnabled(!isShowingFullscreenBarcode());
     }
 
     @SuppressWarnings("deprecation")

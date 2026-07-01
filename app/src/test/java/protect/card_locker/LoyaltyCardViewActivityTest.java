@@ -1375,6 +1375,99 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
+    public void checkImageFullscreenWorkflow() throws IOException {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+
+        int cardId = (int) DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, null, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        Bitmap frontBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_done);
+        Utils.saveCardImage(context, frontBitmap, cardId, ImageLocationType.front);
+        Utils.saveCardImage(context, backBitmap, cardId, ImageLocationType.back);
+
+        try {
+            ActivityController activityController = createActivityWithLoyaltyCard(false, cardId);
+            AppCompatActivity activity = (AppCompatActivity) activityController.get();
+
+            activityController.start();
+            activityController.visible();
+            activityController.resume();
+
+            ImageView mainImage = activity.findViewById(R.id.main_image);
+            ImageView fullscreenImage = activity.findViewById(R.id.fullscreen_image);
+            ConstraintLayout fullScreenLayout = activity.findViewById(R.id.fullscreen_layout);
+            LinearLayout container = activity.findViewById(R.id.container);
+            ImageButton nextButton = activity.findViewById(R.id.main_right_button);
+
+            assertEquals(context.getString(R.string.frontImageDescription), mainImage.getContentDescription());
+
+            mainImage.performClick();
+            shadowOf(getMainLooper()).idle();
+
+            assertEquals(View.GONE, container.getVisibility());
+            assertEquals(View.VISIBLE, fullScreenLayout.getVisibility());
+            assertEquals(context.getString(R.string.frontImageDescription), fullscreenImage.getContentDescription());
+            assertNull(shadowOf(activity).getNextStartedActivity());
+
+            activity.getOnBackPressedDispatcher().onBackPressed();
+            shadowOf(getMainLooper()).idle();
+
+            nextButton.performClick();
+            shadowOf(getMainLooper()).idle();
+            assertEquals(context.getString(R.string.backImageDescription), mainImage.getContentDescription());
+
+            mainImage.performClick();
+            shadowOf(getMainLooper()).idle();
+
+            assertEquals(View.GONE, container.getVisibility());
+            assertEquals(View.VISIBLE, fullScreenLayout.getVisibility());
+            assertEquals(context.getString(R.string.backImageDescription), fullscreenImage.getContentDescription());
+            assertNull(shadowOf(activity).getNextStartedActivity());
+        } finally {
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.front);
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.back);
+            database.close();
+        }
+    }
+
+    @Test
+    public void checkThumbnailFullscreenWorkflow() throws IOException {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+
+        int cardId = (int) DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, null, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        Bitmap thumbnailBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        Utils.saveCardImage(context, thumbnailBitmap, cardId, ImageLocationType.icon);
+
+        try {
+            ActivityController activityController = createActivityWithLoyaltyCard(false, cardId);
+            AppCompatActivity activity = (AppCompatActivity) activityController.get();
+
+            activityController.start();
+            activityController.visible();
+            activityController.resume();
+
+            LinearLayout iconContainer = activity.findViewById(R.id.icon_container);
+            ImageView fullscreenImage = activity.findViewById(R.id.fullscreen_image);
+            ConstraintLayout fullScreenLayout = activity.findViewById(R.id.fullscreen_layout);
+            LinearLayout container = activity.findViewById(R.id.container);
+
+            assertEquals(View.GONE, fullScreenLayout.getVisibility());
+
+            iconContainer.performClick();
+            shadowOf(getMainLooper()).idle();
+
+            assertEquals(View.GONE, container.getVisibility());
+            assertEquals(View.VISIBLE, fullScreenLayout.getVisibility());
+            assertEquals(context.getString(R.string.thumbnailDescription), fullscreenImage.getContentDescription());
+            assertNull(shadowOf(activity).getNextStartedActivity());
+        } finally {
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.icon);
+            database.close();
+        }
+    }
+
+    @Test
     public void checkNoBarcodeFullscreenWorkflow() {
         final Context context = ApplicationProvider.getApplicationContext();
         SQLiteDatabase database = getWritableEmptyDatabase(context);

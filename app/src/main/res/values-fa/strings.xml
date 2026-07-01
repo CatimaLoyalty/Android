@@ -174,7 +174,6 @@
     <string name="exportPassword">خروجی گرفته شده را بوسیله پسورد حفاظت کنید (غیر اجباری)</string>
     <string name="exportPasswordHint">پسورد فایل خروجی</string>
     <string name="importCancelled">واردات کنسل شد</string>
-    <string name="failedToRetrieveImageFile">بازیابی فایل تصویر ناموفق بود</string>
     <string name="help_translate_this_app">به ترجمه این برنامه کمک کنید</string>
     <string name="importCards">واردات کارت ها</string>
     <string name="height">ارتفاع</string>
@@ -213,7 +212,6 @@
     <string name="previousCard">پیشین</string>
     <string name="turn_flashlight_off">چراغ‌قوه را خاموش کنید</string>
     <string name="updateBalance">به‌روزرسانی موجودی</string>
-    <string name="barcodeLongPressMessage">تنها عکس می‌تواند در گالری برنامه باز شود</string>
     <string name="sort_by_name">نام</string>
     <string name="sort_by_most_recently_used">به‌تازگی استفاده‌شده</string>
     <string name="sort_by_expiry">انقضا</string>
@@ -221,7 +219,6 @@
     <string name="include_if_asking_support">اگر می‌خواهید پشتیبانی درخواست کنید، اطلاعات زیر را پر کنید:</string>
     <string name="unarchive">برچیدن بایگانی</string>
     <string name="switchToBackImage">به عکس پشتِ‌سر جابه‌جا کنید</string>
-    <string name="openBackImageInGalleryApp">عکس پشتِ‌سر را در برنامه‌ی گالری باز کنید</string>
     <string name="setBarcodeHeight">ارتفاع بارگد را بگمارید</string>
     <string name="donate">کمک مالی کنید</string>
     <string name="icon_header_click_text">برای ویرایش قاب پیش‌نمایه فشار داده و نگه‌دارید</string>
@@ -265,7 +262,6 @@
     <string name="failedToOpenUrl">نخست یک مرورگر وب نصب کنید</string>
     <string name="updateBalanceTitle">چقدر خرج یا دریافت کردید؟</string>
     <string name="switchToBarcode">به بارکد جابه‌جا کنید</string>
-    <string name="openFrontImageInGalleryApp">عکس روبه‌رو را در برنامه‌ی گالری باز کنید</string>
     <string name="add_a_card_in_a_different_way">یک کارت به روشی متفاوت بیافزایید</string>
     <string name="takePhoto">عکس بگیرید</string>
     <string name="settings_column_count_7">۷</string>

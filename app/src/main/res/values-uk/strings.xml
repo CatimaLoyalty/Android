@@ -210,8 +210,6 @@
     <string name="nextCard">Наступна</string>
     <string name="failedToOpenUrl">Спочатку встановіть браузер</string>
     <string name="welcome">Ласкаво просимо до Catima</string>
-    <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>
-    <string name="barcodeLongPressMessage">Галерея може відкривати лише зображення</string>
     <string name="importCards">Імпорт карток</string>
     <string name="updateBalanceTitle">Скільки ви витратили або отримали?</string>
     <string name="updateBalanceHint">Введіть суму</string>
@@ -229,8 +227,6 @@
     <string name="switchToFrontImage">Перемкнутися на лицьову сторону</string>
     <string name="switchToBackImage">Перемкнутися на зворотню сторону</string>
     <string name="switchToBarcode">Перемкнутися на штрих-код</string>
-    <string name="openFrontImageInGalleryApp">Відкрити зображення спереду в програмі для перегляду зображень</string>
-    <string name="openBackImageInGalleryApp">Відкрити зображення ззаду у програмі для перегляду зображень</string>
     <string name="setBarcodeHeight">Встановити висоту штрих-коду</string>
     <string name="height">Висота</string>
     <string name="donate">Пожертвувати</string>

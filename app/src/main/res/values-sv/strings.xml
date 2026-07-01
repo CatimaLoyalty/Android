@@ -208,12 +208,9 @@
     <string name="validFromDate">Giltig från</string>
     <string name="cameraPermissionRequired">Behörighet att komma åt kameran krävs för denna åtgärd…</string>
     <string name="updateBalance">Uppdatera balans</string>
-    <string name="failedToRetrieveImageFile">Misslyckades att hämta bildfil</string>
-    <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleriappen</string>
     <string name="updateBalanceTitle">Hur mycket spenderade du eller fick du?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
-    <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i bildvisningsappen</string>
     <string name="show_name_below_image_thumbnail">Visa namnet nedanför bildens miniatyr</string>
     <string name="show_validity">Visa giltighet</string>
     <string name="view_online">Visa på internet</string>
@@ -233,7 +230,6 @@
     <string name="switchToFrontImage">Byt till bilden på framsidan</string>
     <string name="settings_allow_content_provider_read_summary">Appar måste fortfarande begära åtkomst för att få tillgång</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
-    <string name="openBackImageInGalleryApp">Öppna bilden på baksidan i bildvisningsappen</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
     <string name="settings_allow_content_provider_read_title">Tillåt andra appar att komma åt min data</string>
     <string name="permissionReadCardsLabel">Läsa Catima-kort</string>

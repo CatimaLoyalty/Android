@@ -198,8 +198,6 @@
     <string name="nextCard">Следваща</string>
     <string name="failedToOpenUrl">Първо инсталирайте уеб браузър</string>
     <string name="welcome">Добре дошли при Катима</string>
-    <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
-    <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
     <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>
     <string name="updateBalanceTitle">Колко е похарчено или получено?</string>
     <string name="updateBalanceHint">Въведете стойност</string>
@@ -218,8 +216,6 @@
     <string name="switchToFrontImage">Показване на предната страна</string>
     <string name="switchToBackImage">Показване на задната страна</string>
     <string name="switchToBarcode">Показване на щрихкода</string>
-    <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложение за преглед за изображения</string>
-    <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложение за преглед за изображения</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
     <string name="donate">Даряване</string>
     <string name="icon_header_click_text">Задръжте, за да промените миниатюрата</string>

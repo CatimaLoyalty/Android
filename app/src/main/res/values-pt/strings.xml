@@ -193,8 +193,6 @@
     <string name="sort">Ordenar</string>
     <string name="showMoreInfo">Mostrar informações</string>
     <string name="updateBalance">Atualizar saldo</string>
-    <string name="failedToRetrieveImageFile">Falha ao recuperar o arquivo de imagem</string>
-    <string name="barcodeLongPressMessage">Apenas imagens podem ser abertas na galeria</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Usado mais recentemente</string>
     <string name="sort_by_valid_from">Válido a partir de</string>
@@ -244,8 +242,6 @@
     <string name="switchToFrontImage">Mudar para imagem frontal</string>
     <string name="switchToBackImage">Mudar para imagem traseira</string>
     <string name="switchToBarcode">Mudar para código de barras</string>
-    <string name="openFrontImageInGalleryApp">Abrir imagem frontal no visualizador de imagens</string>
-    <string name="openBackImageInGalleryApp">Abrir imagem traseira no visualizador de imagens</string>
     <string name="setBarcodeHeight">Definir altura do código de barras</string>
     <string name="donate">Doar</string>
     <string name="icon_header_click_text">Pressione e segure para editar a miniatura</string>

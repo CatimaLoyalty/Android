@@ -210,8 +210,6 @@
     <string name="previousCard">Предыдущая</string>
     <string name="welcome">Добро пожаловать в Catima</string>
     <string name="failedToOpenUrl">Сначала необходимо установить браузер</string>
-    <string name="failedToRetrieveImageFile">Невозможно получить файл изображения</string>
-    <string name="barcodeLongPressMessage">В приложении галереи можно открывать только изображения</string>
     <string name="noCameraPermissionDirectToSystemSetting">Для сканирования штрих-кодов Catima требуется доступ к камере устройства. Нажмите здесь, чтобы изменить настройки разрешений.</string>
     <string name="updateBalance">Обновить баланс</string>
     <string name="newBalanceSentence">Новый баланс: <xliff:g>%s</xliff:g></string>
@@ -231,8 +229,6 @@
     <string name="switchToBarcode">Переключить на штрих-код</string>
     <string name="switchToFrontImage">Переключить на лицевую сторону</string>
     <string name="switchToBackImage">Переключить на заднюю сторону</string>
-    <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении просмотра изображений</string>
-    <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении просмотра изображений</string>
     <string name="donate">Пожертвовать</string>
     <string name="icon_header_click_text">Долгое нажатие для редактирования</string>
     <string name="show_note">Показывать примечание</string>

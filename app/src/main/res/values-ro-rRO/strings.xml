@@ -99,7 +99,6 @@
     <string name="exportPasswordHint">Introduceți o parolă</string>
     <string name="about_title_fmt">Despre <xliff:g id="app_name">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Imagine <xliff:g>%s</xliff:g> cod de bare</string>
-    <string name="openFrontImageInGalleryApp">Deschideți imaginea frontală în aplicația galerie</string>
     <string name="show_name_below_image_thumbnail">Afișați numele sub imaginea miniaturii</string>
     <string name="removeImage">Ștergeți imaginea</string>
     <string name="help_translate_this_app">Ajutați la traducerea aplicației</string>
@@ -122,7 +121,6 @@
     <string name="height">Înălțime</string>
     <string name="expiryStateSentence">Expiră: <xliff:g>%s</xliff:g></string>
     <string name="setIcon">Setați miniatura</string>
-    <string name="barcodeLongPressMessage">Doar imagini pot fi deschise în aplicația galerie</string>
     <string name="settings_category_title_general">General</string>
     <string name="manually_enter_barcode_instructions">Introduceți numărul de identificare sau textul de pe cardul dumneavoastră iar apoi selectați codul de bare ce arată ca și cel de pe cardul dumneavoastră.</string>
     <string name="balanceSentence">Sold: <xliff:g>%s</xliff:g></string>
@@ -193,7 +191,6 @@
     <string name="selectColor">Selectați o culoare</string>
     <string name="setBarcodeHeight">Setați înălțimea codului de bare</string>
     <string name="privacy_policy">Politica de confidențialitate</string>
-    <string name="openBackImageInGalleryApp">Deschideți imaginea din spate în aplicația galerie</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="updateBalance">Actualizați balanța</string>
     <string name="sort_by_most_recently_used">Cele mai recent utilizate</string>
@@ -221,7 +218,6 @@
     </plurals>
     <string name="exportPassword">Setați o parolă pentru a vă proteja exportul (opțional)</string>
     <string name="archived">Card arhivat</string>
-    <string name="failedToRetrieveImageFile">Nu s-a putut recupera fișierul imaginii</string>
     <string name="donate">Donați</string>
     <string name="group_name_already_in_use">Acest nume de grup este deja utilizat</string>
     <string name="include_if_asking_support">Dacă doriți să cereți ajutor, includeți informațiile următoare:</string>

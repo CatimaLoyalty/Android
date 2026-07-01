@@ -198,8 +198,6 @@
     <string name="nextCard">Volgende</string>
     <string name="welcome">Welkom bij Catima</string>
     <string name="failedToOpenUrl">Installeer een webbrowser</string>
-    <string name="failedToRetrieveImageFile">De afbeelding kan niet worden opgehaald</string>
-    <string name="barcodeLongPressMessage">Alleen afbeeldingen kunnen worden geopend in de galerij-app</string>
     <string name="cameraPermissionDeniedTitle">Geen cameratoegang</string>
     <string name="updateBalanceTitle">Hoeveel heb je uitgegeven of ontvangen?</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima heeft toegang tot je camera nodig om barcodes te kunnen scannen. Druk hier om toegang te verlenen.</string>
@@ -219,8 +217,6 @@
     <string name="switchToFrontImage">Voorzijde tonen</string>
     <string name="switchToBackImage">Achterzijde tonen</string>
     <string name="switchToBarcode">Barcode tonen</string>
-    <string name="openFrontImageInGalleryApp">Voorzijde openen in afbeeldingsweergave-app</string>
-    <string name="openBackImageInGalleryApp">Achterzijde openen in afbeeldingsweergave-app</string>
     <string name="donate">Doneren</string>
     <string name="icon_header_click_text">Houd lang ingedrukt om miniatuur te bewerken</string>
     <string name="show_balance">Saldo tonen</string>

@@ -203,8 +203,6 @@
     <string name="nextCard">Successivo</string>
     <string name="welcome">Benvenuti su Catima</string>
     <string name="failedToOpenUrl">Installa prima un browser web</string>
-    <string name="failedToRetrieveImageFile">Impossibile ottenere il file dell\'immagine</string>
-    <string name="barcodeLongPressMessage">Si possono aprire solo immagini dell\'app della galleria</string>
     <string name="cameraPermissionDeniedTitle">Impossibile accedere alla fotocamera</string>
     <string name="noCameraPermissionDirectToSystemSetting">Per poter scansionare i codici a barre, Catima ha bisogno di accedere alla tua fotocamera. Premi qui per poter cambiare le impostazioni dei permessi.</string>
     <string name="updateBalance">Aggiorna bilancio</string>
@@ -223,9 +221,7 @@
     <string name="switchToFrontImage">Passa all\'immagine frontale</string>
     <string name="switchToBackImage">Passa all\'immagine dietro</string>
     <string name="switchToBarcode">Passa al codice a barre</string>
-    <string name="openFrontImageInGalleryApp">Apri immagine frontale nell\'app per la visualizzazione di immagini</string>
     <string name="donate">Dona</string>
-    <string name="openBackImageInGalleryApp">Apri l\'immagine retro nell\'app per la visualizzazione di immagini</string>
     <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
     <string name="icon_header_click_text">Premi a lungo per modificare l\'immagine</string>
     <string name="show_note">Mostra nota</string>

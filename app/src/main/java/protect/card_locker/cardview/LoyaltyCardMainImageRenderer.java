@@ -31,6 +31,7 @@ final class LoyaltyCardMainImageRenderer {
 
     void renderCurrent(
             LoyaltyCardImageType imageType,
+            Bitmap imageThumbnailBitmap,
             Bitmap frontImageBitmap,
             Bitmap backImageBitmap,
             CatimaBarcode format,
@@ -88,6 +89,18 @@ final class LoyaltyCardMainImageRenderer {
             barcodeRenderTarget.setContentDescription(
                     context.getString(R.string.barcodeImageDescriptionWithType, format.prettyName())
             );
+        } else if (imageType == LoyaltyCardImageType.ICON) {
+            barcodeRenderTarget.setImageBitmap(imageThumbnailBitmap);
+            barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);
+            mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
+            mainImageDescription.setTextColor(
+                    MaterialColors.getColor(
+                            mainImageDescription,
+                            com.google.android.material.R.attr.colorOnSurfaceVariant
+                    )
+            );
+            mainImageDescription.setText(context.getString(R.string.thumbnailDescription));
+            barcodeRenderTarget.setContentDescription(context.getString(R.string.thumbnailDescription));
         } else if (imageType == LoyaltyCardImageType.IMAGE_FRONT) {
             barcodeRenderTarget.setImageBitmap(frontImageBitmap);
             barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);

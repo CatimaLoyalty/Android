@@ -164,9 +164,7 @@
     <string name="sort_by_expiry">காலாவதியாகும்</string>
     <string name="reverse">… தலைகீழ் வரிசையில்</string>
     <string name="updateBalance">இருப்பு புதுப்பிக்கவும்</string>
-    <string name="failedToRetrieveImageFile">படக் கோப்பை மீட்டெடுப்பதில் தோல்வி</string>
     <string name="sort_by">வரிசைப்படுத்தவும்</string>
-    <string name="barcodeLongPressMessage">கேலரி பயன்பாட்டில் படங்களை மட்டுமே திறக்க முடியும்</string>
     <string name="version_history">பதிப்பு வரலாறு</string>
     <string name="credits">வரவு</string>
     <string name="on_google_play">கூகிள் பிளேயில்</string>
@@ -201,8 +199,6 @@
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
     <string name="switchToBarcode">பார்கோடு மாறவும்</string>
-    <string name="openFrontImageInGalleryApp">இமேச் வியூவர் ஆப்சில் முன் படத்தைத் திறக்கவும்</string>
-    <string name="openBackImageInGalleryApp">இமேச் வியூவர் ஆப்சில் மீண்டும் படத்தைத் திறக்கவும்</string>
     <string name="setBarcodeHeight">பார்கோடு உயரத்தை அமைக்கவும்</string>
     <string name="donate">நன்கொடை</string>
     <string name="icon_header_click_text">சிறுபடத்தைத் திருத்த நீண்ட அழுத்தவும்</string>

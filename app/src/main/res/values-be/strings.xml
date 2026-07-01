@@ -162,8 +162,6 @@
     <string name="sort">Сартаваць</string>
     <string name="showMoreInfo">Паказаць інфармацыю</string>
     <string name="updateBalance">Абнавіць баланс</string>
-    <string name="failedToRetrieveImageFile">Не ўдалося атрымаць файл відарысу</string>
-    <string name="barcodeLongPressMessage">У галерэі можна адкрываць толькі відарысы</string>
     <string name="sort_by_name">Назва</string>
     <string name="sort_by_most_recently_used">Частата выкарыстання</string>
     <string name="sort_by_valid_from">Дзейнічае ад</string>
@@ -203,7 +201,6 @@
     <string name="validFromSentence">Дзейнічае з: <xliff:g>%s</xliff:g></string>
     <string name="height">Вышыня</string>
     <string name="switchToFrontImage">Пераключыцца на пярэдні відарыс</string>
-    <string name="openBackImageInGalleryApp">Адкрыць задні відарыс у галерэі</string>
     <string name="setBarcodeHeight">Задаць вышыню штрыхкода</string>
     <string name="donate">Ахвяраваць</string>
     <string name="icon_header_click_text">Доўгі націск для рэдагавання мініяцюры</string>
@@ -288,7 +285,6 @@
     <string name="report_error">Паведаміць пра памылку</string>
     <string name="failedLaunchingPhotoPicker">Не атрымалася знайсці праграму для галерэі, якая падтрымліваецца</string>
     <string name="unsupportedFile">Гэты файл не падтрымліваецца</string>
-    <string name="openFrontImageInGalleryApp">Адкрыць пярэдні відарыс у галерэі</string>
     <string name="field_must_not_be_empty">Поле не павінна быць пустым</string>
     <string name="add_manually_warning_title">Рэкамендуецца сканаванне</string>
     <string name="errorReadingFile">Не атрымалася прачытаць файл</string>

@@ -174,7 +174,6 @@
     <string name="importLoyaltyCardKeychainMessage">Odaberite svoj izvoz iz Privjeska za ključeve s karticom vjernosti za uvoz.\nKreirajte ga iz menija Uvoz/Izvoz u Privjesku za ključeve s karticom vjernosti pritiskom na Izvoz.</string>
     <string name="importVoucherVaultMessage">Odaberite izvoz iz Voucher Vaulta za uvoz. \nKreirajte ga pritiskom na Izvoz u Voucher Vaultu.</string>
     <string name="switchToBarcode">Prebaci na barkod</string>
-    <string name="openFrontImageInGalleryApp">Otvorite prednju sliku u aplikaciji za pregled slika</string>
     <string name="switchToBackImage">Prebaci na sliku iz pozadine</string>
     <string name="switchToFrontImage">Prebaci na prednju sliku</string>
     <string name="height">Visina</string>
@@ -213,8 +212,6 @@
     <string name="credits">Zasluge</string>
     <string name="version_history">Historija verzija</string>
     <string name="sort_by_valid_from">Vrijedi od</string>
-    <string name="barcodeLongPressMessage">U aplikaciji galerija mogu se otvoriti samo slike</string>
-    <string name="failedToRetrieveImageFile">Neuspjevam preuzimanje slikovne datoteke</string>
     <string name="updateBalance">Ažuriraj stanje</string>
     <string name="showMoreInfo">Prikaži informacije</string>
     <string name="app_contributors">Omogućeno zahvaljujući: <xliff:g id="app_contributors">%s</xliff:g></string>
@@ -241,7 +238,6 @@
     <string name="group_name_is_empty">Naziv grupe ne smije biti prazan</string>
     <string name="group_updated">Grupa ažurirana</string>
     <string name="deleteConfirmationGroup">Izbrisati grupu?</string>
-    <string name="openBackImageInGalleryApp">Otvori sliku pozadi u aplikaciji za pregled slika</string>
     <string name="setBarcodeHeight">Postavi visinu barkoda</string>
     <string name="donate">Donirajte</string>
     <string name="icon_header_click_text">Dugo pritisnite za uređivanje sličice</string>

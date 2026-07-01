@@ -208,8 +208,6 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
     </plurals>
-    <string name="failedToRetrieveImageFile">Nie udało się pobrać pliku obrazu</string>
-    <string name="barcodeLongPressMessage">W galerii możesz otworzyć tylko obrazy</string>
     <string name="failedToOpenUrl">Najpierw zainstaluj przeglądarkę</string>
     <string name="welcome">Witaj w Catima</string>
     <string name="currentBalanceSentence">Bieżące saldo: <xliff:g>%s</xliff:g></string>
@@ -230,10 +228,8 @@
     <string name="switchToFrontImage">Przełącz na obraz z przodu</string>
     <string name="switchToBackImage">Przełącz na obraz z tyłu</string>
     <string name="switchToBarcode">Przełącz na kod kreskowy</string>
-    <string name="openFrontImageInGalleryApp">Otwórz obraz z przodu w galerii</string>
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>
-    <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w galerii</string>
     <string name="icon_header_click_text">Przytrzymaj, aby edytować miniaturę</string>
     <string name="show_name_below_image_thumbnail">Pokaż nazwę pod miniaturką zdjęcia</string>
     <string name="show_balance">Pokaż balans</string>

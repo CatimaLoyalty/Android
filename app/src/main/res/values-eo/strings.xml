@@ -143,7 +143,6 @@
     <string name="nextCard">Sekva</string>
     <string name="reverse">inversi la ordon</string>
     <string name="translate_platform">sur Weblate</string>
-    <string name="failedToRetrieveImageFile">Malsukcesis ricevi bildodosieron</string>
     <string name="help_translate_this_app">Helpi traduki ĉi tiun apon</string>
     <string name="welcome">Bonvenon al Catima</string>
     <string name="donate">Doni</string>
@@ -165,7 +164,6 @@
     <string name="chooseImportType">Importi datumojn de</string>
     <string name="importCatima">Importi el Catima</string>
     <string name="updateBalance">Ĝisdatigi saldon</string>
-    <string name="barcodeLongPressMessage">Nur bildoj povas esti malfermitaj en la galeria apo</string>
     <string name="sort_by_name">Nomo</string>
     <string name="sort_by_most_recently_used">Plej laste uzitaj</string>
     <string name="sort_by_expiry">Dato de eksvalidiĝo</string>
@@ -180,8 +178,6 @@
     <string name="newBalanceSentence">Nova saldo: <xliff:g>%s</xliff:g></string>
     <string name="anyDate">Iam ajn</string>
     <string name="switchToFrontImage">Ŝanĝi al antaŭa bildo</string>
-    <string name="openFrontImageInGalleryApp">Malfermi la antaŭan bildon en galeria apo</string>
-    <string name="openBackImageInGalleryApp">Malfermi la malantaŭan bildon en galeria apo</string>
     <string name="show_name_below_image_thumbnail">Montri nomon sub la bildeto</string>
     <string name="show_note">Montri noton</string>
     <string name="settings_category_title_cards">Kartoj</string>

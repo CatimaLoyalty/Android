@@ -129,7 +129,6 @@
     <string name="sort">Sortiranje</string>
     <string name="showMoreInfo">Prikaži informacije</string>
     <string name="updateBalance">Ažuriraj stanje</string>
-    <string name="failedToRetrieveImageFile">Preuzimanje fotografije nije uspelo</string>
     <string name="sort_by_name">Ime</string>
     <string name="sort_by_most_recently_used">Nedavno korišćeno</string>
     <string name="sort_by_expiry">Ističe</string>
@@ -169,7 +168,6 @@
     <string name="height">Visina</string>
     <string name="switchToFrontImage">Prebaci na prednju fotografiju</string>
     <string name="switchToBarcode">Prebaci na bar-kod</string>
-    <string name="openFrontImageInGalleryApp">Otvori prednju fotografiju u prikazivaču fotografija</string>
     <string name="setBarcodeHeight">Postavi visinu bar-koda</string>
     <string name="donate">Doniraj</string>
     <string name="icon_header_click_text">Dugi pritisak za izmenu naslovne fotografije</string>
@@ -239,7 +237,6 @@
     <string name="updateBarcodeQuestionText">Promenio si broj kartice. Da li želiš da ažuriraš i bar-kod da bude iste vrednosti?</string>
     <string name="no">Ne</string>
     <string name="app_contributors">Saradnici: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="barcodeLongPressMessage">Samo fotografije mogu da se otvore u galerija aplikaciji</string>
     <string name="translate_platform">na Weblate-u</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>
@@ -249,7 +246,6 @@
     <string name="include_if_asking_support">Ako želiš da zatražiš podršku, ubaci sledeće informacije:</string>
     <string name="newBalanceSentence">Novo stanje: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Prebaci na zadnju fotografiju</string>
-    <string name="openBackImageInGalleryApp">Otvori zadnju fotografiju u prikazivaču fotografija</string>
     <string name="settings_category_title_cards">Pregled kartica</string>
     <string name="addWithoutBarcode">Dodaj karticu bez bar-koda</string>
     <string name="enter_card_id">Unesite broj ili tekst sa kartice</string>

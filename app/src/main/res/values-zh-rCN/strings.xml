@@ -198,9 +198,7 @@
     <string name="updateBalance">更新余额</string>
     <string name="updateBalanceTitle">你支出或者收到了多少钱？</string>
     <string name="currentBalanceSentence">当前余额：<xliff:g>%s</xliff:g></string>
-    <string name="failedToRetrieveImageFile">无法检索图像文件</string>
     <string name="newBalanceSentence">新余额：<xliff:g>%s</xliff:g></string>
-    <string name="barcodeLongPressMessage">只能在图库应用程序中打开图像</string>
     <string name="storageReadPermissionRequired">此操作所需的读取存储空间的权限……</string>
     <string name="validFromDate">有效期自</string>
     <string name="anyDate">任何日期</string>
@@ -211,8 +209,6 @@
     <string name="switchToFrontImage">选择正面图像</string>
     <string name="switchToBackImage">选择背面图像</string>
     <string name="switchToBarcode">选择条形码</string>
-    <string name="openFrontImageInGalleryApp">使用图片查看软件打开正面图像</string>
-    <string name="openBackImageInGalleryApp">使用图片查看软件打开背面图像</string>
     <string name="setBarcodeHeight">设置条形码高度</string>
     <string name="donate">捐赠</string>
     <string name="icon_header_click_text">长按可编辑缩略图</string>

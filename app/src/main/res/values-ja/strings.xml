@@ -232,8 +232,6 @@
     <string name="balanceParsingFailed">残高が無効です</string>
     <string name="showMoreInfo">情報を確認</string>
     <string name="updateBalance">残高を更新</string>
-    <string name="failedToRetrieveImageFile">画像ファイルを取得できませんでした</string>
-    <string name="barcodeLongPressMessage">ギャラリーアプリは画像のみ開けます</string>
     <string name="sort_by_valid_from">有効期限</string>
     <string name="starred">スター付き</string>
     <string name="include_if_asking_support">サポートを依頼する場合、以下の情報を含めて下さい:</string>
@@ -250,8 +248,6 @@
     <string name="switchToFrontImage">前面画像へ切り替え</string>
     <string name="switchToBackImage">背面画像へ切り替え</string>
     <string name="switchToBarcode">バーコードへ切り替え</string>
-    <string name="openFrontImageInGalleryApp">前面画像を画像ビューワーアプリで開く</string>
-    <string name="openBackImageInGalleryApp">背面画像を画像ビューワーアプリで開く</string>
     <string name="setBarcodeHeight">バーコードの高さを設定</string>
     <string name="icon_header_click_text">サムネイルを長押しして編集</string>
     <string name="settings_category_title_cards_overview">カードの概要</string>

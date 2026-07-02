@@ -20,7 +20,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.core.content.ContextCompat
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -61,6 +63,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
+
+    private val mBtPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted ->
+        if (granted) startService(Intent(this, BluetoothServerService::class.java))
+    }
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -246,6 +254,17 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             }
         }.start()
+
+        // Request Bluetooth permission for Wear OS companion (Android 12+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
+                != android.content.pm.PackageManager.PERMISSION_GRANTED
+            ) {
+                mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
+            } else {
+                startService(Intent(this, BluetoothServerService::class.java))
+            }
+        }
 
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
         extractIntentFields(intent)

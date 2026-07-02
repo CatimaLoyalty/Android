@@ -1,9 +1,14 @@
 package me.hackerchick.catima.wear
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavType
@@ -22,10 +27,23 @@ class MainActivity : ComponentActivity() {
         private const val TAG = "CatimaWear"
     }
 
+    private val btPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) {
+        requestCardsFromPhone()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        requestCardsFromPhone()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            btPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
+        } else {
+            requestCardsFromPhone()
+        }
 
         setContent {
             CatimaWearTheme {
@@ -60,27 +78,38 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun requestCardsFromPhone() {
+        BluetoothCardClient.fetchCards(this) { json ->
+            if (json != null) {
+                Log.d(TAG, "Got cards via Bluetooth")
+                WearCardRepository.updateCards(json)
+            } else {
+                Log.d(TAG, "Bluetooth failed, trying GMS Wearable")
+                requestCardsViaGms()
+            }
+        }
+    }
+
+    private fun requestCardsViaGms() {
         val messageClient = Wearable.getMessageClient(this)
         Wearable.getNodeClient(this).connectedNodes
             .addOnSuccessListener { nodes ->
-                Log.d(TAG, "Connected nodes: ${nodes.map { it.displayName }}")
+                Log.d(TAG, "GMS connected nodes: ${nodes.map { it.displayName }}")
                 if (nodes.isEmpty()) {
-                    Log.w(TAG, "No connected nodes found - phone may not be paired or app not installed")
+                    Log.w(TAG, "No GMS nodes found")
                     WearCardRepository.setPhoneNotReachable()
                 } else {
                     nodes.forEach { node ->
-                        Log.d(TAG, "Sending card request to ${node.displayName} (${node.id})")
                         messageClient.sendMessage(node.id, WearProtocol.PATH_CARDS_REQUEST, ByteArray(0))
-                            .addOnSuccessListener { Log.d(TAG, "Request sent to ${node.displayName}") }
+                            .addOnSuccessListener { Log.d(TAG, "GMS request sent to ${node.displayName}") }
                             .addOnFailureListener { e ->
-                                Log.e(TAG, "Failed to send request to ${node.displayName}", e)
+                                Log.e(TAG, "GMS send failed to ${node.displayName}", e)
                                 WearCardRepository.setPhoneNotReachable()
                             }
                     }
                 }
             }
             .addOnFailureListener { e ->
-                Log.e(TAG, "Failed to get connected nodes", e)
+                Log.e(TAG, "Failed to get GMS nodes", e)
                 WearCardRepository.setPhoneNotReachable()
             }
     }

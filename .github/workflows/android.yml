@@ -43,8 +43,8 @@ jobs:
         run: ./gradlew assemble${{ matrix.flavor }}Release
       - name: Check for non-free libraries
         run: |
-          wget https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
-          java -jar apk-scanner_v0.0.7.jar scan-apk app/build/outputs/apk/{{ matrix.flavor }}/release/*.apk
+          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
+          java -jar apk-scanner_v0.0.7.jar scan-apk "app/build/outputs/apk/{{ matrix.flavor }}/release/"*.apk
         env:
           apktoolVersion: "2.9.3"
       - name: Check lint

@@ -14,6 +14,11 @@ object WearCardRepository {
     private val _phoneNotReachable = MutableStateFlow(false)
     val phoneNotReachable: StateFlow<Boolean> = _phoneNotReachable.asStateFlow()
 
+    fun reset() {
+        _cards.value = null
+        _phoneNotReachable.value = false
+    }
+
     fun setPhoneNotReachable() {
         if (_cards.value == null) _phoneNotReachable.value = true
     }

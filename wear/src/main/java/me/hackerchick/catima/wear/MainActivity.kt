@@ -27,6 +27,8 @@ class MainActivity : ComponentActivity() {
         private const val TAG = "CatimaWear"
     }
 
+    @Volatile private var fetchInFlight = false
+
     private val btPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) {
@@ -35,15 +37,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            btPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
-        } else {
-            requestCardsFromPhone()
-        }
 
         setContent {
             CatimaWearTheme {
@@ -77,8 +70,28 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        maybeRequestCards()
+    }
+
+    private fun maybeRequestCards() {
+        if (fetchInFlight) return
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            btPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
+        } else {
+            requestCardsFromPhone()
+        }
+    }
+
     private fun requestCardsFromPhone() {
+        fetchInFlight = true
+        WearCardRepository.reset()
         BluetoothCardClient.fetchCards(this) { json ->
+            fetchInFlight = false
             if (json != null) {
                 Log.d(TAG, "Got cards via Bluetooth")
                 WearCardRepository.updateCards(json)

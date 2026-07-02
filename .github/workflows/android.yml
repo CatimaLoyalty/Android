@@ -44,7 +44,7 @@ jobs:
       - name: Check for non-free libraries
         run: |
           wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
-          java -jar apk-scanner_v0.0.7.jar scan-apk "app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk"
+          java -jar apk-scanner_v0.0.7.jar scan-apk "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk' | tr '[:upper:]' '[:lower:]')"
       - name: Check lint
         run: ./gradlew lint${{ matrix.flavor }}Release
       - name: Run unit tests

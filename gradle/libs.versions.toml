@@ -49,7 +49,7 @@ ch-acra-acra-dialog = { group = "ch.acra", name = "acra-dialog", version.ref = "
 androidx-wear-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "wearCompose" }
 androidx-wear-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "wearCompose" }
 androidx-wear-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "wearCompose" }
-com-google-android-gms-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version = "18.2.0" }
+
 
 # Testing
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidXTest" }

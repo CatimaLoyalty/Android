@@ -233,16 +233,5 @@
             android:name=".BluetoothServerService"
             android:exported="false"
             android:foregroundServiceType="connectedDevice" />
-
-        <service
-            android:name=".WearDataService"
-            android:exported="true"
-            android:permission="com.google.android.PERMISSION_BIND_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.CAPABILITY_CHANGED" />
-                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
-                <data android:scheme="wear" android:host="*" />
-            </intent-filter>
-        </service>
     </application>
 </manifest>

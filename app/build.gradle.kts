@@ -145,9 +145,6 @@ dependencies {
     implementation(libs.com.jaredrummler.colorpicker)
     implementation(libs.net.lingala.zip4j.zip4j)
 
-    // Wearable Data Layer
-    implementation(libs.com.google.android.gms.play.services.wearable)
-
     // Crash reporting
     implementation(libs.bundles.acra)
 

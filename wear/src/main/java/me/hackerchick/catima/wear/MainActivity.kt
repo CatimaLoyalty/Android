@@ -16,7 +16,6 @@ import androidx.navigation.navArgument
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
-import com.google.android.gms.wearable.Wearable
 import me.hackerchick.catima.wear.ui.CardListScreen
 import me.hackerchick.catima.wear.ui.CardViewScreen
 import me.hackerchick.catima.wear.ui.theme.CatimaWearTheme
@@ -96,34 +95,10 @@ class MainActivity : ComponentActivity() {
                 Log.d(TAG, "Got cards via Bluetooth")
                 WearCardRepository.updateCards(json)
             } else {
-                Log.d(TAG, "Bluetooth failed, trying GMS Wearable")
-                requestCardsViaGms()
+                Log.w(TAG, "Bluetooth failed, phone not reachable")
+                WearCardRepository.setPhoneNotReachable()
             }
         }
     }
 
-    private fun requestCardsViaGms() {
-        val messageClient = Wearable.getMessageClient(this)
-        Wearable.getNodeClient(this).connectedNodes
-            .addOnSuccessListener { nodes ->
-                Log.d(TAG, "GMS connected nodes: ${nodes.map { it.displayName }}")
-                if (nodes.isEmpty()) {
-                    Log.w(TAG, "No GMS nodes found")
-                    WearCardRepository.setPhoneNotReachable()
-                } else {
-                    nodes.forEach { node ->
-                        messageClient.sendMessage(node.id, WearProtocol.PATH_CARDS_REQUEST, ByteArray(0))
-                            .addOnSuccessListener { Log.d(TAG, "GMS request sent to ${node.displayName}") }
-                            .addOnFailureListener { e ->
-                                Log.e(TAG, "GMS send failed to ${node.displayName}", e)
-                                WearCardRepository.setPhoneNotReachable()
-                            }
-                    }
-                }
-            }
-            .addOnFailureListener { e ->
-                Log.e(TAG, "Failed to get GMS nodes", e)
-                WearCardRepository.setPhoneNotReachable()
-            }
-    }
 }

@@ -49,9 +49,6 @@ dependencies {
     implementation(libs.androidx.wear.compose.foundation)
     implementation(libs.androidx.wear.compose.navigation)
 
-    // Wearable Data Layer API
-    implementation(libs.com.google.android.gms.play.services.wearable)
-
     // ZXing for barcode rendering
     implementation(libs.com.google.zxing.core)
 }

@@ -14,14 +14,6 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
 
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="false" />
-
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,16 +23,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".WearDataListenerService"
-            android:exported="true"
-            android:permission="com.google.android.PERMISSION_BIND_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
-                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
-                <data android:scheme="wear" android:host="*" />
-            </intent-filter>
-        </service>
     </application>
 </manifest>

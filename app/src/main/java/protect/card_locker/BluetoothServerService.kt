@@ -1,5 +1,7 @@
 package protect.card_locker
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.Service
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
@@ -7,8 +9,10 @@ import android.bluetooth.BluetoothServerSocket
 import android.bluetooth.BluetoothSocket
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.IBinder
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.json.JSONArray
 import org.json.JSONObject
@@ -24,6 +28,8 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val CMD_CARDS_REQUEST = "CARDS_REQUEST"
+        private const val NOTIFICATION_ID = 1001
+        private const val CHANNEL_ID = "catima_wear_bt"
     }
 
     private var serverThread: AcceptThread? = null
@@ -42,10 +48,34 @@ class BluetoothServerService : Service() {
             stopSelf()
             return START_NOT_STICKY
         }
+        startForegroundWithNotification()
         serverThread?.cancel()
         serverThread = AcceptThread(adapter).also { it.start() }
         Log.d(TAG, "Bluetooth server started")
         return START_STICKY
+    }
+
+    private fun startForegroundWithNotification() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                getString(R.string.wear_bt_channel_name),
+                NotificationManager.IMPORTANCE_MIN
+            ).apply { setShowBadge(false) }
+            getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
+        }
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle(getString(R.string.wear_bt_notification_title))
+            .setSmallIcon(R.drawable.ic_launcher_monochrome)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
+            .setSilent(true)
+            .build()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(NOTIFICATION_ID, notification,
+                android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE)
+        } else {
+            startForeground(NOTIFICATION_ID, notification)
+        }
     }
 
     override fun onDestroy() {
@@ -80,6 +110,10 @@ class BluetoothServerService : Service() {
                 handleConnection(socket)
             }
             Log.d(TAG, "Accept loop ended")
+            if (running) {
+                Log.w(TAG, "Accept loop exited unexpectedly, restarting service")
+                stopSelf()
+            }
         }
 
         private fun handleConnection(socket: BluetoothSocket) {

@@ -6,13 +6,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -49,62 +50,70 @@ private fun CardDetail(card: WearCard) {
     val barcodeValue = card.barcodeId ?: card.cardId
     val barcodeType = card.barcodeType
 
-    Column(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        contentAlignment = Alignment.Center,
     ) {
-        Text(
-            text = card.store,
-            textAlign = TextAlign.Center,
-            maxLines = 2,
-        )
+        val screenSize = minOf(maxWidth, maxHeight)
+        val roundInset = screenSize * 0.15f
+        val barcodeMaxSize = screenSize - roundInset * 2
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            Text(
+                text = card.store,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+            )
 
-        if (barcodeType != null) {
-            val barcodeBitmap = remember(barcodeValue, barcodeType) {
-                generateBarcode(barcodeValue, barcodeType)
-            }
+            Spacer(modifier = Modifier.height(8.dp))
 
-            if (barcodeBitmap != null) {
-                val format = runCatching { BarcodeFormat.valueOf(barcodeType) }.getOrNull()
-                val isSquare = format == BarcodeFormat.QR_CODE
-                        || format == BarcodeFormat.AZTEC
-                        || format == BarcodeFormat.DATA_MATRIX
+            if (barcodeType != null) {
+                val barcodeBitmap = remember(barcodeValue, barcodeType) {
+                    generateBarcode(barcodeValue, barcodeType)
+                }
 
-                Image(
-                    bitmap = barcodeBitmap.asImageBitmap(),
-                    contentDescription = card.cardId,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .then(
-                            if (isSquare) Modifier.aspectRatio(1f)
-                            else Modifier.height(60.dp)
-                        ),
-                )
+                if (barcodeBitmap != null) {
+                    val format = runCatching { BarcodeFormat.valueOf(barcodeType) }.getOrNull()
+                    val isSquare = format == BarcodeFormat.QR_CODE
+                            || format == BarcodeFormat.AZTEC
+                            || format == BarcodeFormat.DATA_MATRIX
+
+                    Image(
+                        bitmap = barcodeBitmap.asImageBitmap(),
+                        contentDescription = card.cardId,
+                        modifier = if (isSquare) {
+                            Modifier.size(barcodeMaxSize)
+                        } else {
+                            Modifier.fillMaxWidth(0.85f).height(60.dp)
+                        },
+                    )
+                } else {
+                    Text(
+                        text = stringResource(R.string.no_barcode),
+                        textAlign = TextAlign.Center,
+                    )
+                }
             } else {
                 Text(
                     text = stringResource(R.string.no_barcode),
                     textAlign = TextAlign.Center,
                 )
             }
-        } else {
+
+            Spacer(modifier = Modifier.height(4.dp))
+
             Text(
-                text = stringResource(R.string.no_barcode),
+                text = barcodeValue,
                 textAlign = TextAlign.Center,
+                maxLines = 2,
             )
         }
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            text = barcodeValue,
-            textAlign = TextAlign.Center,
-            maxLines = 2,
-        )
     }
 }
 

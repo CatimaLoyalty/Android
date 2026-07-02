@@ -25,8 +25,8 @@ data class WearCard(
             id = json.getInt("id"),
             store = json.getString("store"),
             cardId = json.getString("cardId"),
-            barcodeId = json.optString("barcodeId").takeIf { it.isNotEmpty() },
-            barcodeType = json.optString("barcodeType").takeIf { it.isNotEmpty() },
+            barcodeId = if (json.isNull("barcodeId")) null else json.optString("barcodeId").takeIf { it.isNotEmpty() },
+            barcodeType = if (json.isNull("barcodeType")) null else json.optString("barcodeType").takeIf { it.isNotEmpty() },
             headerColor = if (json.isNull("headerColor")) null else json.getInt("headerColor"),
         )
 

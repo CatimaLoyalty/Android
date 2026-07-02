@@ -20,7 +20,12 @@ object WearCardRepository {
 
     fun updateCards(json: String) {
         _phoneNotReachable.value = false
-        _cards.value = WearCard.listFromJson(json)
+        try {
+            _cards.value = WearCard.listFromJson(json)
+            android.util.Log.d("WearCardRepository", "Cards updated: ${_cards.value?.size} cards")
+        } catch (e: Exception) {
+            android.util.Log.e("WearCardRepository", "Failed to parse cards JSON", e)
+        }
     }
 
     fun updateCardDetail(json: String) {

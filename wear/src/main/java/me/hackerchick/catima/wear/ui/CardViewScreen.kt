@@ -1,7 +1,9 @@
 package me.hackerchick.catima.wear.ui
 
+import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.view.WindowManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,10 +17,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -46,13 +50,35 @@ fun CardViewScreen(card: WearCard?) {
 }
 
 @Composable
+private fun KeepScreenOnAtMaxBrightness() {
+    val activity = LocalContext.current as? Activity ?: return
+    DisposableEffect(Unit) {
+        val window = activity.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        val originalBrightness = window.attributes.screenBrightness
+        val params = window.attributes
+        params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL
+        window.attributes = params
+        onDispose {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            val restore = window.attributes
+            restore.screenBrightness = originalBrightness
+            window.attributes = restore
+        }
+    }
+}
+
+@Composable
 private fun CardDetail(card: WearCard) {
     val barcodeValue = card.barcodeId ?: card.cardId
     val barcodeType = card.barcodeType
 
+    KeepScreenOnAtMaxBrightness()
+
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
+            .background(androidx.compose.ui.graphics.Color.White)
             .padding(8.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -69,6 +95,7 @@ private fun CardDetail(card: WearCard) {
                 text = card.store,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
+                color = androidx.compose.ui.graphics.Color.Black,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -97,12 +124,14 @@ private fun CardDetail(card: WearCard) {
                     Text(
                         text = stringResource(R.string.no_barcode),
                         textAlign = TextAlign.Center,
+                        color = androidx.compose.ui.graphics.Color.Black,
                     )
                 }
             } else {
                 Text(
                     text = stringResource(R.string.no_barcode),
                     textAlign = TextAlign.Center,
+                    color = androidx.compose.ui.graphics.Color.Black,
                 )
             }
 
@@ -112,6 +141,7 @@ private fun CardDetail(card: WearCard) {
                 text = barcodeValue,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
+                color = androidx.compose.ui.graphics.Color.Black,
             )
         }
     }

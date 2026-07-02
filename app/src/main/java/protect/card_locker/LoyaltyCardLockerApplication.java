@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Application;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -41,5 +42,8 @@ public class LoyaltyCardLockerApplication extends Application {
         // Set theme
         Settings settings = new Settings(this);
         AppCompatDelegate.setDefaultNightMode(settings.getTheme());
+
+        // Start Bluetooth server for Wear OS companion
+        startService(new Intent(this, BluetoothServerService.class));
     }
 }

@@ -19,6 +19,7 @@
 /app/*.log
 /app/build
 /app/release
+/wear/build
 /.idea/*
 !/.idea/icon.svg
 # Bundle

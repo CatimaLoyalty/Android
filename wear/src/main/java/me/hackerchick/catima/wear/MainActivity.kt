@@ -37,10 +37,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        WearCardRepository.loadCache(this)
+
         setContent {
             CatimaWearTheme {
                 val navController = rememberSwipeDismissableNavController()
                 val cards by WearCardRepository.cards.collectAsState()
+                val syncing by WearCardRepository.syncing.collectAsState()
                 val phoneNotReachable by WearCardRepository.phoneNotReachable.collectAsState()
 
                 SwipeDismissableNavHost(
@@ -50,6 +53,7 @@ class MainActivity : ComponentActivity() {
                     composable("card_list") {
                         CardListScreen(
                             cards = cards,
+                            syncing = syncing,
                             phoneNotReachable = phoneNotReachable,
                             onCardClick = { card ->
                                 navController.navigate("card_view/${card.id}")
@@ -88,12 +92,12 @@ class MainActivity : ComponentActivity() {
 
     private fun requestCardsFromPhone() {
         fetchInFlight = true
-        WearCardRepository.reset()
+        WearCardRepository.setSyncing(true)
         BluetoothCardClient.fetchCards(this) { json ->
             fetchInFlight = false
             if (json != null) {
                 Log.d(TAG, "Got cards via Bluetooth")
-                WearCardRepository.updateCards(json)
+                WearCardRepository.updateCards(this, json)
             } else {
                 Log.w(TAG, "Bluetooth failed, phone not reachable")
                 WearCardRepository.setPhoneNotReachable()

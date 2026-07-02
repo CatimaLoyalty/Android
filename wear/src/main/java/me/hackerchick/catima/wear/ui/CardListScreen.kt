@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.material.Chip
@@ -26,6 +27,7 @@ import me.hackerchick.catima.wear.WearCard
 @Composable
 fun CardListScreen(
     cards: List<WearCard>?,
+    syncing: Boolean,
     phoneNotReachable: Boolean,
     onCardClick: (WearCard) -> Unit,
 ) {
@@ -46,7 +48,7 @@ fun CardListScreen(
             cards == null -> {
                 CircularProgressIndicator()
             }
-            cards.isEmpty() -> {
+            cards.isEmpty() && !syncing -> {
                 Text(
                     text = stringResource(R.string.no_cards),
                     textAlign = TextAlign.Center,
@@ -75,6 +77,27 @@ fun CardListScreen(
                                 ChipDefaults.primaryChipColors()
                             },
                         )
+                    }
+                    if (syncing) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.syncing),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (phoneNotReachable) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.sync_failed),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
                     }
                 }
             }

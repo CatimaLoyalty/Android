@@ -6,4 +6,6 @@
     <string name="loading_cards">Loading cards…</string>
     <string name="no_barcode">No barcode available for this card.</string>
     <string name="card_id_label">Card ID</string>
+    <string name="syncing">Syncing with phone…</string>
+    <string name="sync_failed">Offline – showing cached cards</string>
 </resources>

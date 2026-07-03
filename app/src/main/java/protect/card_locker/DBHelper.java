@@ -76,6 +76,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public enum LoyaltyCardOrder {
         Alpha,
+        LastAdded,
         LastUsed,
         ValidFrom,
         Expiry
@@ -1089,6 +1090,10 @@ public class DBHelper extends SQLiteOpenHelper {
             return LoyaltyCardDbIds.STORE;
         }
 
+        if (order == LoyaltyCardOrder.LastAdded) {
+            return LoyaltyCardDbIds.ID;
+        }
+
         if (order == LoyaltyCardOrder.LastUsed) {
             return LoyaltyCardDbIds.LAST_USED;
         }
@@ -1105,7 +1110,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private static String getDbDirection(LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
-        if (order == LoyaltyCardOrder.LastUsed) {
+        if (order == LoyaltyCardOrder.LastUsed || order == LoyaltyCardOrder.LastAdded) {
             // We want the default sorting to put the most recently used first
             return direction == LoyaltyCardOrderDirection.Descending ? "ASC" : "DESC";
         }

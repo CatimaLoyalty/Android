@@ -139,7 +139,7 @@
     <string name="group_updated">گروه به روز شد</string>
     <string name="all">همه</string>
     <string name="deleteConfirmationGroup">حذف گروه؟</string>
-    <string name="failedOpeningFileManager">ابتدا یک مدیریت فایل نصب کنید.</string>
+    <string name="failedOpeningFileManager">نمی توان مدیر پرونده را باز کرد</string>
     <string name="moveUp">به بالا حرکت کن</string>
     <string name="moveDown">به پایین حرکت کن</string>
     <string name="leaveWithoutSaveConfirmation">بدون ذخیره ترک می‌کنید؟</string>
@@ -179,7 +179,7 @@
     <string name="importCards">واردات کارت ها</string>
     <string name="height">ارتفاع</string>
     <string name="add_manually_warning_message">برای برخی از فروشگاه‌ها، مقدار بارکد با عدد نوشته شده روی کارت متفاوت است. به همین دلیل، وارد کردن دستی بارکد ممکن است همیشه کار نکند. اکیداً توصیه می‌شود که به جای آن، بارکد را با دوربین خود اسکن کنید. آیا هنوز می‌خواهید ادامه دهید؟</string>
-    <string name="generic_error_please_retry">ببخشید، مشکلی پیش آمده، لطفا دوباره امتحان کنید...</string>
+    <string name="generic_error_please_retry">مشکلی پیش آمده</string>
     <string name="welcome">یه کتیما خوش آمدید</string>
     <string name="chooseValidFromDate">مقداری درست از تاریخ برگزینید</string>
     <string name="intent_import_card_from_url_share_multiple_text">می‌خواهم چند کارت به شما بدهم</string>
@@ -191,7 +191,7 @@
     <string name="no">نه</string>
     <string name="updateBarcodeQuestionTitle">مقدار بارکد را به‌روز می‌کنید؟</string>
     <string name="updateBarcodeQuestionText">شما شناسه را تغییر دادید. می‌خواهید بارکد را هم به‌روز کنید تا همین مقدار را به‌کار ببرید؟</string>
-    <string name="failedGeneratingShareURL">نتوانستم آدرس هم‌رسانی‌پذیر بسازم. لطفن این را گزارش کنید.</string>
+    <string name="failedGeneratingShareURL">نتوانستم نشانی هم‌رسانی‌پذیر بسازم.</string>
     <string name="turn_flashlight_on">چراغ‌قوه را روشن کنید</string>
     <string name="settings_locale">زبان</string>
     <string name="settings_oled_dark">پس‌زمینه‌ی یک‌دست سیاه برای حالت تاریک</string>
@@ -209,7 +209,7 @@
     <string name="wrongValueForBarcodeType">مقدار برای نوع بارکد برگزیده درست نیست</string>
     <string name="setBackImage">عکس پشتِ‌سر را بگذارید</string>
     <string name="removeImage">عکس را برچینید</string>
-    <string name="passwordRequired">لطفا گذرواژه را وارد کنید</string>
+    <string name="passwordRequired">گذرواژه را وارد کنید</string>
     <string name="previousCard">پیشین</string>
     <string name="turn_flashlight_off">چراغ‌قوه را خاموش کنید</string>
     <string name="updateBalance">به‌روزرسانی موجودی</string>
@@ -221,7 +221,7 @@
     <string name="include_if_asking_support">اگر می‌خواهید پشتیبانی درخواست کنید، اطلاعات زیر را پر کنید:</string>
     <string name="unarchive">برچیدن بایگانی</string>
     <string name="switchToBackImage">به عکس پشتِ‌سر جابه‌جا کنید</string>
-    <string name="openBackImageInGalleryApp">عکس پشتِ‌سر را در برنامه‌ی گالری باز کنید</string>
+    <string name="openBackImageInGalleryApp">عکس پشتِ‌سر را در برنامه‌ی نمایشگر تصویر باز کنید</string>
     <string name="setBarcodeHeight">ارتفاع بارگد را بگمارید</string>
     <string name="donate">کمک مالی کنید</string>
     <string name="icon_header_click_text">برای ویرایش قاب پیش‌نمایه فشار داده و نگه‌دارید</string>
@@ -235,7 +235,7 @@
     <string name="settings_column_count_4">۴</string>
     <string name="settings_column_count_5">۵</string>
     <string name="settings_column_count_6">۶</string>
-    <string name="failedLaunchingPhotoPicker">نتوانستم یک برنامه‌ی گالری پشتیبانی‌شده بیابم</string>
+    <string name="failedLaunchingPhotoPicker">نتوانستم یک برنامه‌ی انتخاب تصویر پشتیبانی‌شده بیابم</string>
     <string name="show_balance">موجودی را نشان دهید</string>
     <string name="settings_column_count_landscape">ستون‌ها در حالت لنداسکیپ</string>
     <string name="settings_column_count_1">۱</string>
@@ -286,4 +286,8 @@
     <string name="addFromPkpass">یک فایل دفترچه حساب (.pkpass) انتخاب کنید</string>
     <string name="noCameraFoundGuideText">به نظر نمی‌رسد دستگاه شما دوربین داشته باشد. اگر دارد، دستگاه را مجدداً راه‌اندازی کنید. در غیر این صورت، از دکمه گزینه‌های بیشتر در زیر برای افزودن بارکد به روش دیگری استفاده کنید.</string>
     <string name="card_list_widget_empty">بعد از اینکه چند کارت وفاداری در کاتیما اضافه کردید، آنها اینجا ظاهر می‌شوند. اگر کارت دارید، مطمئن شوید که همه آنها بایگانی نشده‌اند.</string>
+    <string name="card_list_widget_name">فهرست کارت</string>
+    <string name="cardWithNumber">کارت <xliff:g>%d</xliff:g></string>
+    <string name="cardWithNumberAndLocale">کارت <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
+    <string name="pleaseDoNotRotateTheDevice">لطفا دستگاه‌تان را نچرخوانید، زیرا کار در حال انجام را لغو میکند</string>
 </resources>

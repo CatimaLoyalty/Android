@@ -29,6 +29,8 @@ fun CardListScreen(
     cards: List<WearCard>?,
     syncing: Boolean,
     phoneNotReachable: Boolean,
+    phoneOutdated: Boolean,
+    watchOutdated: Boolean,
     onCardClick: (WearCard) -> Unit,
 ) {
     Box(
@@ -41,6 +43,20 @@ fun CardListScreen(
             cards == null && phoneNotReachable -> {
                 Text(
                     text = stringResource(R.string.phone_not_connected),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+            cards == null && phoneOutdated -> {
+                Text(
+                    text = stringResource(R.string.phone_outdated),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+            cards == null && watchOutdated -> {
+                Text(
+                    text = stringResource(R.string.watch_outdated),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(16.dp),
                 )
@@ -92,6 +108,26 @@ fun CardListScreen(
                         item {
                             Text(
                                 text = stringResource(R.string.sync_failed),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (phoneOutdated) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.phone_outdated),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (watchOutdated) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.watch_outdated),
                                 textAlign = TextAlign.Center,
                                 fontSize = 11.sp,
                                 color = Color.Gray,

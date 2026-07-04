@@ -18,6 +18,12 @@ object WearCardRepository {
     private val _phoneNotReachable = MutableStateFlow(false)
     val phoneNotReachable: StateFlow<Boolean> = _phoneNotReachable.asStateFlow()
 
+    private val _phoneOutdated = MutableStateFlow(false)
+    val phoneOutdated: StateFlow<Boolean> = _phoneOutdated.asStateFlow()
+
+    private val _watchOutdated = MutableStateFlow(false)
+    val watchOutdated: StateFlow<Boolean> = _watchOutdated.asStateFlow()
+
     fun loadCache(context: Context) {
         val cached = WearCardStore.load(context)
         if (cached != null && _cards.value == null) {
@@ -28,17 +34,39 @@ object WearCardRepository {
 
     fun setSyncing(value: Boolean) {
         _syncing.value = value
-        if (value) _phoneNotReachable.value = false
+        if (value) {
+            _phoneNotReachable.value = false
+            _phoneOutdated.value = false
+            _watchOutdated.value = false
+        }
     }
 
     fun setPhoneNotReachable() {
         _syncing.value = false
         _phoneNotReachable.value = true
+        _phoneOutdated.value = false
+        _watchOutdated.value = false
+    }
+
+    fun setPhoneOutdated() {
+        _syncing.value = false
+        _phoneNotReachable.value = false
+        _phoneOutdated.value = true
+        _watchOutdated.value = false
+    }
+
+    fun setWatchOutdated() {
+        _syncing.value = false
+        _phoneNotReachable.value = false
+        _phoneOutdated.value = false
+        _watchOutdated.value = true
     }
 
     fun updateCards(context: Context, json: String) {
         _syncing.value = false
         _phoneNotReachable.value = false
+        _phoneOutdated.value = false
+        _watchOutdated.value = false
         try {
             val incoming = WearCard.listFromJson(json)
             _cards.value = incoming

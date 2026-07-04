@@ -28,7 +28,9 @@ class BluetoothServerService : Service() {
         private const val TAG = "CatimaBtServer"
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
+        private const val PROTOCOL_VERSION = 1
         private const val CMD_CARDS_REQUEST = "CARDS_REQUEST"
+        private const val CMD_CARDS_REQUEST_V1 = "V1/CARDS_REQUEST"
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
         private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
     }
@@ -136,11 +138,18 @@ class BluetoothServerService : Service() {
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
                 when (command) {
-                    CMD_CARDS_REQUEST -> {
+                    CMD_CARDS_REQUEST_V1 -> {
                         val json = buildCardsJson()
                         writer.println(json)
                         writer.flush()
                         Log.d(TAG, "Sent ${json.length} bytes to $deviceName")
+                    }
+                    CMD_CARDS_REQUEST -> {
+                        Log.w(TAG, "Wear companion app from $deviceName is using an old protocol; consider updating it")
+                        val json = buildCardsJsonLegacy()
+                        writer.println(json)
+                        writer.flush()
+                        Log.d(TAG, "Sent ${json.length} bytes (legacy format) to $deviceName")
                     }
                     else -> Log.w(TAG, "Unknown command: $command")
                 }
@@ -152,6 +161,15 @@ class BluetoothServerService : Service() {
         }
 
         private fun buildCardsJson(): String {
+            return JSONObject().apply {
+                put("version", PROTOCOL_VERSION)
+                put("cards", buildCardsArray())
+            }.toString()
+        }
+
+        private fun buildCardsJsonLegacy(): String = buildCardsArray().toString()
+
+        private fun buildCardsArray(): JSONArray {
             val dbHelper = DBHelper(this@BluetoothServerService)
             val db = dbHelper.readableDatabase
             val cursor = db.query(
@@ -188,7 +206,7 @@ class BluetoothServerService : Service() {
                     })
                 }
             }
-            return array.toString()
+            return array
         }
 
         fun cancel() {

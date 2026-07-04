@@ -45,6 +45,8 @@ class MainActivity : ComponentActivity() {
                 val cards by WearCardRepository.cards.collectAsState()
                 val syncing by WearCardRepository.syncing.collectAsState()
                 val phoneNotReachable by WearCardRepository.phoneNotReachable.collectAsState()
+                val phoneOutdated by WearCardRepository.phoneOutdated.collectAsState()
+                val watchOutdated by WearCardRepository.watchOutdated.collectAsState()
 
                 SwipeDismissableNavHost(
                     navController = navController,
@@ -55,6 +57,8 @@ class MainActivity : ComponentActivity() {
                             cards = cards,
                             syncing = syncing,
                             phoneNotReachable = phoneNotReachable,
+                            phoneOutdated = phoneOutdated,
+                            watchOutdated = watchOutdated,
                             onCardClick = { card ->
                                 navController.navigate("card_view/${card.id}")
                             }
@@ -93,14 +97,29 @@ class MainActivity : ComponentActivity() {
     private fun requestCardsFromPhone() {
         fetchInFlight = true
         WearCardRepository.setSyncing(true)
-        BluetoothCardClient.fetchCards(this) { json ->
+        BluetoothCardClient.fetchCards(this) { json, status ->
             fetchInFlight = false
-            if (json != null) {
-                Log.d(TAG, "Got cards via Bluetooth")
-                WearCardRepository.updateCards(this, json)
-            } else {
-                Log.w(TAG, "Bluetooth failed, phone not reachable")
-                WearCardRepository.setPhoneNotReachable()
+            when (status) {
+                BluetoothCardClient.FetchStatus.SUCCESS -> {
+                    if (json != null) {
+                        Log.d(TAG, "Got cards via Bluetooth")
+                        WearCardRepository.updateCards(this, json)
+                    } else {
+                        WearCardRepository.setPhoneNotReachable()
+                    }
+                }
+                BluetoothCardClient.FetchStatus.PHONE_OUTDATED -> {
+                    Log.w(TAG, "Phone app is outdated")
+                    WearCardRepository.setPhoneOutdated()
+                }
+                BluetoothCardClient.FetchStatus.WATCH_OUTDATED -> {
+                    Log.w(TAG, "Wear app is outdated")
+                    WearCardRepository.setWatchOutdated()
+                }
+                BluetoothCardClient.FetchStatus.NO_DEVICE -> {
+                    Log.w(TAG, "Bluetooth failed, phone not reachable")
+                    WearCardRepository.setPhoneNotReachable()
+                }
             }
         }
     }

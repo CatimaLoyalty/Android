@@ -217,7 +217,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mCardText, mStoreField, mNoteField, mBalanceField, mValidFromField, mExpiryField, mCardIdField;
+        public TextView mCardText, mStoreField, mNoteField, mCardIdField, mBalanceField, mValidFromField, mExpiryField;
         public ImageView mCardIcon, mTickIcon;
         public MaterialCardView mRow;
         public ConstraintLayout mStar, mArchived;
@@ -230,10 +230,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mDivider = loyaltyCardLayoutBinding.infoDivider;
             mStoreField = loyaltyCardLayoutBinding.store;
             mNoteField = loyaltyCardLayoutBinding.note;
+            mCardIdField = loyaltyCardLayoutBinding.cardId;
             mBalanceField = loyaltyCardLayoutBinding.balance;
             mValidFromField = loyaltyCardLayoutBinding.validFrom;
             mExpiryField = loyaltyCardLayoutBinding.expiry;
-            mCardIdField = loyaltyCardLayoutBinding.cardId;
             mCardIcon = loyaltyCardLayoutBinding.thumbnail;
             mCardText = loyaltyCardLayoutBinding.thumbnailText;
             mStar = loyaltyCardLayoutBinding.star;

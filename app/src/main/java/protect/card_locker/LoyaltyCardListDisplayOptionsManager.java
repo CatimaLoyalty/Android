@@ -35,9 +35,9 @@ public class LoyaltyCardListDisplayOptionsManager {
 
     private boolean mShowNameBelowThumbnail;
     private boolean mShowNote;
+    private boolean mShowCardId;
     private boolean mShowBalance;
     private boolean mShowValidity;
-    private boolean mShowCardId;
     private boolean mShowArchivedCards;
 
     public LoyaltyCardListDisplayOptionsManager(Context context, @NonNull Runnable refreshCardsCallback, @Nullable Runnable swapCursorCallback) {
@@ -51,9 +51,9 @@ public class LoyaltyCardListDisplayOptionsManager {
                 Context.MODE_PRIVATE);
         mShowNameBelowThumbnail = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_name_below_thumbnail), false);
         mShowNote = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_note), true);
+        mShowCardId = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_card_id), false);
         mShowBalance = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_balance), true);
         mShowValidity = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
-        mShowCardId = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_card_id), false);
         mShowArchivedCards = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_archived_cards), true);
     }
 
@@ -85,6 +85,17 @@ public class LoyaltyCardListDisplayOptionsManager {
         return mShowNote;
     }
 
+    public void showCardId(boolean show) {
+        mShowCardId = show;
+        mRefreshCardsCallback.run();
+
+        saveDetailState(R.string.sharedpreference_card_details_show_card_id, show);
+    }
+
+    public boolean showingCardId() {
+        return mShowCardId;
+    }
+
     public void showBalance(boolean show) {
         mShowBalance = show;
         mRefreshCardsCallback.run();
@@ -105,17 +116,6 @@ public class LoyaltyCardListDisplayOptionsManager {
 
     public boolean showingValidity() {
         return mShowValidity;
-    }
-
-    public void showCardId(boolean show) {
-        mShowCardId = show;
-        mRefreshCardsCallback.run();
-
-        saveDetailState(R.string.sharedpreference_card_details_show_card_id, show);
-    }
-
-    public boolean showingCardId() {
-        return mShowCardId;
     }
 
     public void showArchivedCards(boolean show) {
@@ -151,6 +151,11 @@ public class LoyaltyCardListDisplayOptionsManager {
                 this::showNote
         ));
         displayOptions.add(new LoyaltyCardDisplayOption(
+                mContext.getString(R.string.show_card_id),
+                showingCardId(),
+                this::showCardId
+        ));
+        displayOptions.add(new LoyaltyCardDisplayOption(
                 mContext.getString(R.string.show_balance),
                 showingBalance(),
                 this::showBalance
@@ -159,11 +164,6 @@ public class LoyaltyCardListDisplayOptionsManager {
                 mContext.getString(R.string.show_validity),
                 showingValidity(),
                 this::showValidity
-        ));
-        displayOptions.add(new LoyaltyCardDisplayOption(
-                mContext.getString(R.string.show_card_id),
-                showingCardId(),
-                this::showCardId
         ));
 
         // Hide "Show archived cards" option unless the callback exists

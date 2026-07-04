@@ -18,6 +18,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.io.PrintWriter
 import java.util.UUID
 
@@ -28,8 +29,8 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val CMD_CARDS_REQUEST = "CARDS_REQUEST"
-        private val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
-        private val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
+        private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
+        private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
     }
 
     private var serverThread: AcceptThread? = null
@@ -86,7 +87,7 @@ class BluetoothServerService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
-    private inner class AcceptThread(private val adapter: BluetoothAdapter) : Thread() {
+    private inner class AcceptThread(adapter: BluetoothAdapter) : Thread() {
         private var serverSocket: BluetoothServerSocket? = null
         @Volatile private var running = true
 
@@ -130,8 +131,8 @@ class BluetoothServerService : Service() {
             val deviceName = try { socket.remoteDevice.name } catch (_: SecurityException) { "unknown" }
             Log.d(TAG, "Connected to $deviceName")
             try {
-                val reader = BufferedReader(InputStreamReader(socket.inputStream, Charsets.UTF_8))
-                val writer = PrintWriter(socket.outputStream, false, Charsets.UTF_8)
+                val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
+                val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
                 when (command) {
@@ -146,7 +147,7 @@ class BluetoothServerService : Service() {
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)
             } finally {
-                try { socket.close() } catch (e: Exception) { }
+                try { socket.close() } catch (_: Exception) { }
             }
         }
 
@@ -192,7 +193,7 @@ class BluetoothServerService : Service() {
 
         fun cancel() {
             running = false
-            try { serverSocket?.close() } catch (e: Exception) { }
+            try { serverSocket?.close() } catch (_: Exception) { }
         }
     }
 }

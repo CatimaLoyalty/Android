@@ -219,7 +219,6 @@
     <string name="showMoreInfo">Show info</string>
     <string name="updateBalance">Update balance</string>
     <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
-    <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most recently used</string>
     <string name="sort_by_valid_from">Valid from</string>
@@ -271,8 +270,8 @@
     <string name="switchToFrontImage">Switch to front image</string>
     <string name="switchToBackImage">Switch to back image</string>
     <string name="switchToBarcode">Switch to barcode</string>
-    <string name="openFrontImageInGalleryApp">Open front image in image viewer app</string>
-    <string name="openBackImageInGalleryApp">Open back image in image viewer app</string>
+    <string name="zoomFrontImage">Zoom front image</string>
+    <string name="zoomBackImage">Zoom back image</string>
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
     <string name="icon_header_click_text">Long press to edit thumbnail</string>

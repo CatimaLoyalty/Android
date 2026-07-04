@@ -1110,8 +1110,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private static String getDbDirection(LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
-        if (order == LoyaltyCardOrder.LastUsed || order == LoyaltyCardOrder.LastAdded) {
-            // We want the default sorting to put the most recently used first
+        if (order == LoyaltyCardOrder.LastAdded || order == LoyaltyCardOrder.LastUsed) {
+            // We want the default sorting to put the most recently added/used first
             return direction == LoyaltyCardOrderDirection.Descending ? "ASC" : "DESC";
         }
 

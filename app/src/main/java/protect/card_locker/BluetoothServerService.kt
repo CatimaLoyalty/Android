@@ -92,9 +92,19 @@ class BluetoothServerService : Service() {
 
         init {
             try {
-                serverSocket = adapter.listenUsingRfcommWithServiceRecord(BT_SERVICE_NAME, BT_SERVICE_UUID)
+                if (ContextCompat.checkSelfPermission(
+                        this@BluetoothServerService,
+                        android.Manifest.permission.BLUETOOTH_CONNECT
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    serverSocket = adapter.listenUsingRfcommWithServiceRecord(BT_SERVICE_NAME, BT_SERVICE_UUID)
+                } else {
+                    Log.w(TAG, "BLUETOOTH_CONNECT permission missing, cannot open server socket")
+                    running = false
+                }
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to create server socket", e)
+                running = false
             }
         }
 

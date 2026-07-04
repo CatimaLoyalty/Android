@@ -158,9 +158,30 @@
             android:visibility="gone"
             tools:visibility="visible"
             app:layout_constraintTop_toBottomOf="@+id/note"
-            app:layout_constraintBottom_toTopOf="@+id/balance"
+            app:layout_constraintBottom_toTopOf="@+id/cardId"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/cardId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:drawableLeftCompat="@drawable/ic_card_id_24dp"
+            android:drawablePadding="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/info_divider"
+            app:layout_constraintBottom_toTopOf="@+id/balance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible"
+            tools:text="1234567890"/>
 
         <TextView
             android:id="@+id/balance"
@@ -174,7 +195,7 @@
             app:drawableLeftCompat="@drawable/ic_baseline_payments_24"
             android:drawablePadding="4dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/info_divider"
+            app:layout_constraintTop_toBottomOf="@+id/cardId"
             app:layout_constraintBottom_toTopOf="@+id/validFrom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

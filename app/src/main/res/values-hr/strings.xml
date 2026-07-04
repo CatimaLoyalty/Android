@@ -128,8 +128,6 @@
     <string name="switchToFrontImage">Prebaci na prednju sliku</string>
     <string name="switchToBackImage">Prebaci na stražnju sliku</string>
     <string name="switchToBarcode">Prebaci na crtični kod</string>
-    <string name="openFrontImageInGalleryApp">Otvori prednju sliku u aplikaciji prikazivača slika</string>
-    <string name="openBackImageInGalleryApp">Otvori stražnju sliku u aplikaciji prikazivača slika</string>
     <string name="setBarcodeHeight">Postavi visinu crtičnog koda</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> odabrana</item>
@@ -159,7 +157,6 @@
     <string name="importVoucherVaultMessage">Odaberi tvoj izvoz iz Voucher Vault za uvoz. \nStvori ga u aplikaciji Voucher Vault pritiskom na „Izvoz”.</string>
     <string name="failedToRetrieveImageFile">Neuspjelo dohvaćanje slikovne datoteke</string>
     <string name="license">Licenca</string>
-    <string name="barcodeLongPressMessage">U aplikaciji galerije se mogu otvoriiti samo slike</string>
     <string name="source_repository">Izvorni repozitorij</string>
     <string name="on_github">na GitHubu</string>
     <string name="on_google_play">na stranici Google Play</string>

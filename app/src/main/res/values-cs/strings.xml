@@ -203,7 +203,6 @@
     <string name="nextCard">Následující</string>
     <string name="failedToOpenUrl">Nejprve nainstalujte webový prohlížeč</string>
     <string name="welcome">Vítejte v Catima</string>
-    <string name="barcodeLongPressMessage">V aplikaci pro galerii mohou být otevírány pouze obrázky</string>
     <string name="failedToRetrieveImageFile">Nepodařilo se získat soubor obrázku</string>
     <string name="cameraPermissionDeniedTitle">Nepodařilo se získat přístup k fotoaparátu</string>
     <string name="importCards">Importovat karty</string>
@@ -223,8 +222,6 @@
     <string name="switchToFrontImage">Přepnout na přední obrázek</string>
     <string name="switchToBackImage">Přepnout na zadní obrázek</string>
     <string name="switchToBarcode">Přepnout na čárový kód</string>
-    <string name="openFrontImageInGalleryApp">Otevřít přední obrázek v aplikaci prohlížeče obrázků</string>
-    <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v aplikaci prohlížeče obrázků</string>
     <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
     <string name="donate">Přispět</string>
     <string name="icon_header_click_text">Dlouhým stisknutím miniaturu upravíte</string>

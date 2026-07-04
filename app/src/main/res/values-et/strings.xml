@@ -118,7 +118,6 @@
     <string name="updateBarcodeQuestionTitle">Kas uuendame triipkoodi väärtust?</string>
     <string name="yes">Jah</string>
     <string name="no">Ei</string>
-    <string name="barcodeLongPressMessage">Galeriirakenduses saad avada vaid pilte</string>
     <string name="sort_by_most_recently_used">Viimati kasutatud</string>
     <string name="sort_by_expiry">Aegumine</string>
     <string name="reverse">…tagurpidi järjekorras</string>
@@ -230,8 +229,6 @@
     <string name="switchToFrontImage">Vaata esikülje pilti</string>
     <string name="switchToBackImage">Vaata tagakülje pilti</string>
     <string name="switchToBarcode">Vaata triipkoodi</string>
-    <string name="openFrontImageInGalleryApp">Ava esikülje pilt pildivalijas</string>
-    <string name="openBackImageInGalleryApp">Ava tagakülje pilt pildivalijas</string>
     <string name="setBarcodeHeight">Määra triipkoodi kõrgus</string>
     <string name="donate">Toeta rahaliselt</string>
     <string name="icon_header_click_text">Pisipildi muutmiseks vajuta pikalt</string>

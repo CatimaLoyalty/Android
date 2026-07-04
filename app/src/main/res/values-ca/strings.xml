@@ -72,7 +72,6 @@
     <string name="no">No</string>
     <string name="sort">Ordenar</string>
     <string name="failedToRetrieveImageFile">Ha fallat l\'obtenció del fitxer d\'imatge</string>
-    <string name="barcodeLongPressMessage">Les imatges només es poden obrir desde la app galeria</string>
     <string name="settings_category_title_privacy">Privacitat</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eliminar <xliff:g>%d</xliff:g> targeta</item>
@@ -167,7 +166,6 @@
     <string name="noCardsMessage">Afegeix primer una targeta</string>
     <string name="noCardExistsError">No s\'ha pogut trobar aquesta targeta</string>
     <string name="failedParsingImportUriError">No s\'ha pogut analitzar l\'URI d\'importació</string>
-    <string name="openFrontImageInGalleryApp">Obrir la imatge frontal a l\'app de galeria</string>
     <string name="settings_use_volume_keys_navigation_summary">Utilitza els botons de volum per canviar la targeta que es mostra</string>
     <string name="updateBarcodeQuestionText">Ha canviat el valor ID. Vol actualitzar també el codi de barres per uter utilitzar el mateix valor?</string>
     <string name="starred">Preferides</string>
@@ -183,7 +181,6 @@
     <string name="on_github">al Github</string>
     <string name="include_if_asking_support">Si vol demanar suport tècnic, inclogui la següent informació:</string>
     <string name="newBalanceSentence">Nou balanç: <xliff:g>%s</xliff:g></string>
-    <string name="openBackImageInGalleryApp">Obrir la imatge posterior a l\'app de la galeria</string>
     <string name="generic_error_please_retry">Perdoni, alguna cosa ha anat malament, siusplau torni-ho a provar...</string>
     <string name="settings_column_count_6">6</string>
     <string name="useBackImage">Utilitzar la imatge posterior</string>

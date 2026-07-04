@@ -68,7 +68,9 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private val mBtPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
-        if (granted) startService(Intent(this, BluetoothServerService::class.java))
+        if (granted && Settings(this).wearSyncEnabled) {
+            startService(Intent(this, BluetoothServerService::class.java))
+        }
     }
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
@@ -257,14 +259,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }.start()
 
         // Request Bluetooth permission for Wear OS companion (Android 12+)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
-                != android.content.pm.PackageManager.PERMISSION_GRANTED
-            ) {
-                mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
-            } else {
-                startService(Intent(this, BluetoothServerService::class.java))
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+            Settings(this).wearSyncEnabled &&
+            ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
+            != android.content.pm.PackageManager.PERMISSION_GRANTED
+        ) {
+            mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
         }
 
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash

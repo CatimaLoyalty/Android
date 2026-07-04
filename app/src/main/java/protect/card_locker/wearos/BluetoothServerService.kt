@@ -1,4 +1,4 @@
-package protect.card_locker
+package protect.card_locker.wearos
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -16,6 +16,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.json.JSONArray
 import org.json.JSONObject
+import protect.card_locker.DBHelper
+import protect.card_locker.NotificationInfo
+import protect.card_locker.R
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter

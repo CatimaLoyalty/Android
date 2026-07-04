@@ -230,7 +230,7 @@
         </service>
 
         <service
-            android:name=".BluetoothServerService"
+            android:name=".wearos.BluetoothServerService"
             android:exported="false"
             android:foregroundServiceType="connectedDevice" />
     </application>

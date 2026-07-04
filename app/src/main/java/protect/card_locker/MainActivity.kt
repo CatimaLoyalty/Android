@@ -39,6 +39,7 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
+import protect.card_locker.wearos.BluetoothServerService
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
 import androidx.core.content.edit

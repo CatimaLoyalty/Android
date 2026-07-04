@@ -12,6 +12,7 @@ import org.acra.config.MailSenderConfigurationBuilder;
 import org.acra.data.StringFormat;
 
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.wearos.BluetoothServerService;
 
 public class LoyaltyCardLockerApplication extends Application {
 

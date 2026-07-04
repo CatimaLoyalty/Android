@@ -137,6 +137,7 @@ public class MainActivityTest {
 
         assertEquals(1, list.getAdapter().getItemCount());
 
+        // Make sure there is enough space to render all
         list.measure(0, 0);
         list.layout(0, 0, 100, 1000);
 
@@ -175,6 +176,7 @@ public class MainActivityTest {
 
         assertEquals(1, list.getAdapter().getItemCount());
 
+        // Make sure there is enough space to render all
         list.measure(0, 0);
         list.layout(0, 0, 100, 1000);
 

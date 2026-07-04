@@ -105,6 +105,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setNoteField(null);
         }
 
+        if (mLoyaltyCardListDisplayOptions.showingCardId() && !loyaltyCard.cardId.isEmpty()) {
+            inputHolder.setExtraField(inputHolder.mCardIdField, loyaltyCard.cardId, null, showDivider);
+        } else {
+            inputHolder.setExtraField(inputHolder.mCardIdField, null, null, false);
+        }
+
         if (mLoyaltyCardListDisplayOptions.showingBalance() && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
             inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null, showDivider);
         } else {
@@ -121,12 +127,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.MEDIUM).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
-        }
-
-        if (mLoyaltyCardListDisplayOptions.showingCardId() && !loyaltyCard.cardId.isEmpty()) {
-            inputHolder.setExtraField(inputHolder.mCardIdField, loyaltyCard.cardId, null, showDivider);
-        } else {
-            inputHolder.setExtraField(inputHolder.mCardIdField, null, null, false);
         }
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);

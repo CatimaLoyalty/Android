@@ -127,7 +127,7 @@ class BluetoothServerService : Service() {
         }
 
         private fun handleConnection(socket: BluetoothSocket) {
-            val deviceName = try { socket.remoteDevice.name } catch (e: Exception) { "unknown" }
+            val deviceName = try { socket.remoteDevice.name } catch (_: SecurityException) { "unknown" }
             Log.d(TAG, "Connected to $deviceName")
             try {
                 val reader = BufferedReader(InputStreamReader(socket.inputStream, Charsets.UTF_8))

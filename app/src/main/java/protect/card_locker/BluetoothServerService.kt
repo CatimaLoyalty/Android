@@ -28,8 +28,8 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val CMD_CARDS_REQUEST = "CARDS_REQUEST"
-        private const val NOTIFICATION_ID = 1001
-        private const val CHANNEL_ID = "catima_wear_bt"
+        private val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
+        private val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
     }
 
     private var serverThread: AcceptThread? = null

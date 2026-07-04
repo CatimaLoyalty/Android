@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 167
+
+- Add support for showing the card ID in the card list
+
 ## v2.42.1 - 166 (2026-05-16)
 
 - Prevent crash on devices with misbehaving NFC

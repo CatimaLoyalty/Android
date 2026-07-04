@@ -1,1 +1,2 @@
 - Add support for showing the card ID in the card list
+- Add support to sort by most recently added

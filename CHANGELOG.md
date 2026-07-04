@@ -3,6 +3,7 @@
 ## Unreleased - 167
 
 - Add support for showing the card ID in the card list
+- Add support to sort by most recently added
 
 ## v2.42.1 - 166 (2026-05-16)
 

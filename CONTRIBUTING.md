@@ -23,7 +23,9 @@ for good reason.
 
 ## Code Changes
 
-Note: submitting LLM ("AI") generated code is strongly discouraged, as such
+### LLM ("AI") and coding agents
+
+**Note:** submitting LLM ("AI") generated code is strongly discouraged, as such
 code is often (subtly) incorrect or overcomplicated (for example: unnecessarily
 pulling in extra libraries for functionality already covered by existing
 libraries). It also often makes unrelated changes that increase the risk of

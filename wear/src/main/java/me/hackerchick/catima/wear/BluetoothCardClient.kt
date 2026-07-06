@@ -21,7 +21,9 @@ object BluetoothCardClient {
         SUCCESS,
         PHONE_OUTDATED,
         WATCH_OUTDATED,
-        NO_DEVICE
+        NO_DEVICE,
+        PERMISSION_DENIED,
+        BLUETOOTH_DISABLED
     }
 
     fun fetchCards(context: Context, onResult: (cards: String?, status: FetchStatus) -> Unit) {
@@ -29,14 +31,14 @@ object BluetoothCardClient {
             != PackageManager.PERMISSION_GRANTED
         ) {
             Log.w(TAG, "BLUETOOTH_CONNECT permission not granted")
-            onResult(null, FetchStatus.NO_DEVICE)
+            onResult(null, FetchStatus.PERMISSION_DENIED)
             return
         }
 
         val adapter = (context.getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
         if (adapter == null || !adapter.isEnabled) {
             Log.w(TAG, "Bluetooth not available or disabled")
-            onResult(null, FetchStatus.NO_DEVICE)
+            onResult(null, FetchStatus.BLUETOOTH_DISABLED)
             return
         }
 

@@ -47,6 +47,8 @@ class MainActivity : ComponentActivity() {
                 val phoneNotReachable by WearCardRepository.phoneNotReachable.collectAsState()
                 val phoneOutdated by WearCardRepository.phoneOutdated.collectAsState()
                 val watchOutdated by WearCardRepository.watchOutdated.collectAsState()
+                val permissionDenied by WearCardRepository.permissionDenied.collectAsState()
+                val bluetoothDisabled by WearCardRepository.bluetoothDisabled.collectAsState()
 
                 SwipeDismissableNavHost(
                     navController = navController,
@@ -59,6 +61,8 @@ class MainActivity : ComponentActivity() {
                             phoneNotReachable = phoneNotReachable,
                             phoneOutdated = phoneOutdated,
                             watchOutdated = watchOutdated,
+                            permissionDenied = permissionDenied,
+                            bluetoothDisabled = bluetoothDisabled,
                             onCardClick = { card ->
                                 navController.navigate("card_view/${card.id}")
                             }
@@ -119,6 +123,14 @@ class MainActivity : ComponentActivity() {
                 BluetoothCardClient.FetchStatus.NO_DEVICE -> {
                     Log.w(TAG, "Bluetooth failed, phone not reachable")
                     WearCardRepository.setPhoneNotReachable()
+                }
+                BluetoothCardClient.FetchStatus.PERMISSION_DENIED -> {
+                    Log.w(TAG, "Bluetooth permission denied")
+                    WearCardRepository.setPermissionDenied()
+                }
+                BluetoothCardClient.FetchStatus.BLUETOOTH_DISABLED -> {
+                    Log.w(TAG, "Bluetooth is disabled")
+                    WearCardRepository.setBluetoothDisabled()
                 }
             }
         }

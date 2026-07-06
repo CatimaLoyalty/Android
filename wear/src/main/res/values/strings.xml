@@ -10,4 +10,6 @@
     <string name="sync_failed">Offline – showing cached cards</string>
     <string name="phone_outdated">Catima on your phone is outdated.\nPlease update it.</string>
     <string name="watch_outdated">This watch app is outdated.\nPlease update it.</string>
+    <string name="bluetooth_permission_denied">Bluetooth permission denied.\nGrant it in Settings to sync cards.</string>
+    <string name="bluetooth_disabled">Bluetooth is turned off.\nEnable it to sync cards from your phone.</string>
 </resources>

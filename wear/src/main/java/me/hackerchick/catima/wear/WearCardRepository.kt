@@ -24,6 +24,12 @@ object WearCardRepository {
     private val _watchOutdated = MutableStateFlow(false)
     val watchOutdated: StateFlow<Boolean> = _watchOutdated.asStateFlow()
 
+    private val _permissionDenied = MutableStateFlow(false)
+    val permissionDenied: StateFlow<Boolean> = _permissionDenied.asStateFlow()
+
+    private val _bluetoothDisabled = MutableStateFlow(false)
+    val bluetoothDisabled: StateFlow<Boolean> = _bluetoothDisabled.asStateFlow()
+
     fun loadCache(context: Context) {
         val cached = WearCardStore.load(context)
         if (cached != null && _cards.value == null) {
@@ -38,6 +44,8 @@ object WearCardRepository {
             _phoneNotReachable.value = false
             _phoneOutdated.value = false
             _watchOutdated.value = false
+            _permissionDenied.value = false
+            _bluetoothDisabled.value = false
         }
     }
 
@@ -46,6 +54,8 @@ object WearCardRepository {
         _phoneNotReachable.value = true
         _phoneOutdated.value = false
         _watchOutdated.value = false
+        _permissionDenied.value = false
+        _bluetoothDisabled.value = false
     }
 
     fun setPhoneOutdated() {
@@ -53,6 +63,8 @@ object WearCardRepository {
         _phoneNotReachable.value = false
         _phoneOutdated.value = true
         _watchOutdated.value = false
+        _permissionDenied.value = false
+        _bluetoothDisabled.value = false
     }
 
     fun setWatchOutdated() {
@@ -60,6 +72,26 @@ object WearCardRepository {
         _phoneNotReachable.value = false
         _phoneOutdated.value = false
         _watchOutdated.value = true
+        _permissionDenied.value = false
+        _bluetoothDisabled.value = false
+    }
+
+    fun setPermissionDenied() {
+        _syncing.value = false
+        _phoneNotReachable.value = false
+        _phoneOutdated.value = false
+        _watchOutdated.value = false
+        _permissionDenied.value = true
+        _bluetoothDisabled.value = false
+    }
+
+    fun setBluetoothDisabled() {
+        _syncing.value = false
+        _phoneNotReachable.value = false
+        _phoneOutdated.value = false
+        _watchOutdated.value = false
+        _permissionDenied.value = false
+        _bluetoothDisabled.value = true
     }
 
     fun updateCards(context: Context, json: String) {
@@ -67,6 +99,8 @@ object WearCardRepository {
         _phoneNotReachable.value = false
         _phoneOutdated.value = false
         _watchOutdated.value = false
+        _permissionDenied.value = false
+        _bluetoothDisabled.value = false
         try {
             val incoming = WearCard.listFromJson(json)
             _cards.value = incoming

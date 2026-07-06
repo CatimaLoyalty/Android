@@ -31,6 +31,8 @@ fun CardListScreen(
     phoneNotReachable: Boolean,
     phoneOutdated: Boolean,
     watchOutdated: Boolean,
+    permissionDenied: Boolean,
+    bluetoothDisabled: Boolean,
     onCardClick: (WearCard) -> Unit,
 ) {
     Box(
@@ -40,6 +42,20 @@ fun CardListScreen(
         contentAlignment = Alignment.Center,
     ) {
         when {
+            cards == null && permissionDenied -> {
+                Text(
+                    text = stringResource(R.string.bluetooth_permission_denied),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+            cards == null && bluetoothDisabled -> {
+                Text(
+                    text = stringResource(R.string.bluetooth_disabled),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
             cards == null && phoneNotReachable -> {
                 Text(
                     text = stringResource(R.string.phone_not_connected),
@@ -98,6 +114,26 @@ fun CardListScreen(
                         item {
                             Text(
                                 text = stringResource(R.string.syncing),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (permissionDenied) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.bluetooth_permission_denied),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (bluetoothDisabled) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.bluetooth_disabled),
                                 textAlign = TextAlign.Center,
                                 fontSize = 11.sp,
                                 color = Color.Gray,

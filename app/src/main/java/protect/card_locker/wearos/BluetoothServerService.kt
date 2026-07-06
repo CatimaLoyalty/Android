@@ -32,8 +32,7 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val PROTOCOL_VERSION = 1
-        private const val CMD_CARDS_REQUEST = "CARDS_REQUEST"
-        private const val CMD_CARDS_REQUEST_V1 = "V1/CARDS_REQUEST"
+        private const val CMD_V1_CARDS_REQUEST = "V1/CARDS_REQUEST"
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
         private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
     }
@@ -140,21 +139,18 @@ class BluetoothServerService : Service() {
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
-                when (command) {
-                    CMD_CARDS_REQUEST_V1 -> {
-                        val json = buildCardsJson()
-                        writer.println(json)
-                        writer.flush()
-                        Log.d(TAG, "Sent ${json.length} bytes to $deviceName")
+                if (command != null && command.startsWith("V1/")) {
+                    when (command) {
+                        CMD_V1_CARDS_REQUEST -> {
+                            val json = buildCardsJson()
+                            writer.println(json)
+                            writer.flush()
+                            Log.d(TAG, "Sent ${json.length} bytes to $deviceName")
+                        }
+                        else -> Log.w(TAG, "Unsupported V1 command: $command from $deviceName")
                     }
-                    CMD_CARDS_REQUEST -> {
-                        Log.w(TAG, "Wear companion app from $deviceName is using an old protocol; consider updating it")
-                        val json = buildCardsJsonLegacy()
-                        writer.println(json)
-                        writer.flush()
-                        Log.d(TAG, "Sent ${json.length} bytes (legacy format) to $deviceName")
-                    }
-                    else -> Log.w(TAG, "Unknown command: $command")
+                } else {
+                    Log.w(TAG, "Unsupported protocol version for command: $command from $deviceName")
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)
@@ -169,8 +165,6 @@ class BluetoothServerService : Service() {
                 put("cards", buildCardsArray())
             }.toString()
         }
-
-        private fun buildCardsJsonLegacy(): String = buildCardsArray().toString()
 
         private fun buildCardsArray(): JSONArray {
             val dbHelper = DBHelper(this@BluetoothServerService)

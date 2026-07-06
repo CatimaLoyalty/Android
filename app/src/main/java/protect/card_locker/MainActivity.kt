@@ -20,9 +20,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
-import androidx.core.content.ContextCompat
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -39,7 +37,6 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
-import protect.card_locker.wearos.BluetoothServerService
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
 import androidx.core.content.edit
@@ -64,14 +61,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
-
-    private val mBtPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        if (granted && Settings(this).wearSyncEnabled) {
-            startService(Intent(this, BluetoothServerService::class.java))
-        }
-    }
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -257,15 +246,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             }
         }.start()
-
-        // Request Bluetooth permission for Wear OS companion (Android 12+)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-            Settings(this).wearSyncEnabled &&
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
-            != android.content.pm.PackageManager.PERMISSION_GRANTED
-        ) {
-            mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
-        }
 
         // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
         extractIntentFields(intent)
@@ -487,11 +467,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         ShortcutHelper.updateShortcuts(mAdapter.mContext)
     }
 
-    private fun processParseResultList(
-        parseResultList: MutableList<ParseResult?>,
-        group: String?,
-        closeAppOnNoBarcode: Boolean
-    ) {
+    private fun processParseResultList(parseResultList: MutableList<ParseResult?>) {
         require(!parseResultList.isEmpty()) { "parseResultList may not be empty" }
 
         Utils.makeUserChooseParseResultFromList(
@@ -502,17 +478,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     val intent =
                         Intent(applicationContext, LoyaltyCardEditActivity::class.java)
                     val bundle = parseResult.toLoyaltyCardBundle(this@MainActivity)
-                    if (group != null) {
-                        bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group)
-                    }
                     intent.putExtras(bundle)
                     startActivity(intent)
                 }
 
                 override fun onUserDismissedSelector() {
-                    if (closeAppOnNoBarcode) {
-                        finish()
-                    }
+                    finish()
                 }
             })
     }
@@ -576,7 +547,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             return
         }
 
-        processParseResultList(parseResultList, null, true)
+        processParseResultList(parseResultList)
     }
 
     private fun extractIntentFields(intent: Intent) {

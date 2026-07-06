@@ -140,7 +140,7 @@
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="@string/settings_key_wear_sync"
             android:summary="@string/settings_wear_sync_summary"
             android:title="@string/settings_wear_sync"

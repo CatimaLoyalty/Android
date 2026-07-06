@@ -114,6 +114,6 @@ public class Settings {
     }
 
     public boolean getWearSyncEnabled() {
-        return getBoolean(R.string.settings_key_wear_sync, true);
+        return getBoolean(R.string.settings_key_wear_sync, false);
     }
 }

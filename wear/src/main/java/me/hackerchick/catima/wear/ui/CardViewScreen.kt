@@ -1,6 +1,5 @@
 package me.hackerchick.catima.wear.ui
 
-import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.view.WindowManager
@@ -22,7 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.platform.LocalContext
+import androidx.activity.compose.LocalActivity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -51,7 +50,7 @@ fun CardViewScreen(card: WearCard?) {
 
 @Composable
 private fun KeepScreenOnAtMaxBrightness() {
-    val activity = LocalContext.current as? Activity ?: return
+    val activity = LocalActivity.current ?: return
     DisposableEffect(Unit) {
         val window = activity.window
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -101,20 +100,15 @@ private fun CardDetail(card: WearCard) {
             Spacer(modifier = Modifier.height(8.dp))
 
             if (barcodeType != null) {
-                val barcodeBitmap = remember(barcodeValue, barcodeType) {
+                val barcodeResult = remember(barcodeValue, barcodeType) {
                     generateBarcode(barcodeValue, barcodeType)
                 }
 
-                if (barcodeBitmap != null) {
-                    val format = runCatching { BarcodeFormat.valueOf(barcodeType) }.getOrNull()
-                    val isSquare = format == BarcodeFormat.QR_CODE
-                            || format == BarcodeFormat.AZTEC
-                            || format == BarcodeFormat.DATA_MATRIX
-
+                if (barcodeResult != null) {
                     Image(
-                        bitmap = barcodeBitmap.asImageBitmap(),
+                        bitmap = barcodeResult.bitmap.asImageBitmap(),
                         contentDescription = card.cardId,
-                        modifier = if (isSquare) {
+                        modifier = if (barcodeResult.isSquare) {
                             Modifier.size(barcodeMaxSize)
                         } else {
                             Modifier.fillMaxWidth(0.85f).height(60.dp)
@@ -147,12 +141,17 @@ private fun CardDetail(card: WearCard) {
     }
 }
 
-private fun generateBarcode(value: String, formatName: String): Bitmap? {
+private data class BarcodeResult(val bitmap: Bitmap, val isSquare: Boolean)
+
+private fun isBarcodeSquare(format: BarcodeFormat): Boolean =
+    format == BarcodeFormat.QR_CODE
+            || format == BarcodeFormat.AZTEC
+            || format == BarcodeFormat.DATA_MATRIX
+
+private fun generateBarcode(value: String, formatName: String): BarcodeResult? {
     return try {
         val format = BarcodeFormat.valueOf(formatName)
-        val isSquare = format == BarcodeFormat.QR_CODE
-                || format == BarcodeFormat.AZTEC
-                || format == BarcodeFormat.DATA_MATRIX
+        val isSquare = isBarcodeSquare(format)
 
         val width = if (isSquare) 300 else 600
         val height = if (isSquare) 300 else 150
@@ -166,8 +165,8 @@ private fun generateBarcode(value: String, formatName: String): Bitmap? {
             if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
         }
 
-        Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888)
-    } catch (e: Exception) {
+        BarcodeResult(Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888), isSquare)
+    } catch (_: Exception) {
         null
     }
 }

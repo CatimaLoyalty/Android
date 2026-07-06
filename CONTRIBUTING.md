@@ -23,7 +23,9 @@ for good reason.
 
 ## Code Changes
 
-Note: submitting LLM ("AI") generated code is strongly discouraged, as such
+### LLM ("AI") and coding agents
+
+**Note:** submitting LLM ("AI") generated code is strongly discouraged, as such
 code is often (subtly) incorrect or overcomplicated (for example: unnecessarily
 pulling in extra libraries for functionality already covered by existing
 libraries). It also often makes unrelated changes that increase the risk of
@@ -46,6 +48,14 @@ and how you confirmed and refactored the code to fit the project and minimized
 risk.
 
 Please never submit LLM-generated code as-is.
+
+### Kotlin and Compose migration
+
+Catima uses a lot of "legacy" tech, Java, Android XML. This will be ported to Kotlin,
+then Jetpack Compose; for further details, see
+<https://github.com/CatimaLoyalty/Android/issues/2483>.
+
+Thus, prefer Kotlin and Jetpack Compose for new code/UI where practical, especially new files/features.
 
 ### Test Your Code
 

@@ -55,7 +55,7 @@ Catima uses a lot of "legacy" tech, Java, Android XML. This will be ported to Ko
 then Jetpack Compose; for further details, see
 <https://github.com/CatimaLoyalty/Android/issues/2483>.
 
-Thus, prefer Kotlin for new code where practical, especially new files/features.
+Thus, prefer Kotlin and Jetpack Compose for new code/UI where practical, especially new files/features.
 
 ### Test Your Code
 

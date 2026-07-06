@@ -15,6 +15,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import protect.card_locker.compose.AboutScreenContent
 import protect.card_locker.compose.theme.CatimaTheme
 
 @OptIn(ExperimentalTestApi::class)

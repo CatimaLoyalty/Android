@@ -30,6 +30,9 @@ object WearCardRepository {
     private val _bluetoothDisabled = MutableStateFlow(false)
     val bluetoothDisabled: StateFlow<Boolean> = _bluetoothDisabled.asStateFlow()
 
+    private val _syncError = MutableStateFlow(false)
+    val syncError: StateFlow<Boolean> = _syncError.asStateFlow()
+
     fun loadCache(context: Context) {
         val cached = WearCardStore.load(context)
         if (cached != null && _cards.value == null) {
@@ -46,6 +49,7 @@ object WearCardRepository {
             _watchOutdated.value = false
             _permissionDenied.value = false
             _bluetoothDisabled.value = false
+            _syncError.value = false
         }
     }
 
@@ -104,10 +108,12 @@ object WearCardRepository {
         try {
             val incoming = WearCard.listFromJson(json)
             _cards.value = incoming
+            _syncError.value = false
             WearCardStore.save(context, incoming)
             Log.d(TAG, "Cards updated: ${incoming.size} cards")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to parse cards JSON", e)
+            _syncError.value = true
         }
     }
 }

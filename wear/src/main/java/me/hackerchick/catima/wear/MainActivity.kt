@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
                 val watchOutdated by WearCardRepository.watchOutdated.collectAsState()
                 val permissionDenied by WearCardRepository.permissionDenied.collectAsState()
                 val bluetoothDisabled by WearCardRepository.bluetoothDisabled.collectAsState()
+                val syncError by WearCardRepository.syncError.collectAsState()
 
                 SwipeDismissableNavHost(
                     navController = navController,
@@ -63,6 +64,7 @@ class MainActivity : ComponentActivity() {
                             watchOutdated = watchOutdated,
                             permissionDenied = permissionDenied,
                             bluetoothDisabled = bluetoothDisabled,
+                            syncError = syncError,
                             onCardClick = { card ->
                                 navController.navigate("card_view/${card.id}")
                             }

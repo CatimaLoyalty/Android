@@ -33,6 +33,7 @@ fun CardListScreen(
     watchOutdated: Boolean,
     permissionDenied: Boolean,
     bluetoothDisabled: Boolean,
+    syncError: Boolean,
     onCardClick: (WearCard) -> Unit,
 ) {
     Box(
@@ -42,6 +43,13 @@ fun CardListScreen(
         contentAlignment = Alignment.Center,
     ) {
         when {
+            cards == null && syncError -> {
+                Text(
+                    text = stringResource(R.string.sync_error),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
             cards == null && permissionDenied -> {
                 Text(
                     text = stringResource(R.string.bluetooth_permission_denied),
@@ -154,6 +162,16 @@ fun CardListScreen(
                         item {
                             Text(
                                 text = stringResource(R.string.phone_outdated),
+                                textAlign = TextAlign.Center,
+                                fontSize = 11.sp,
+                                color = Color.Gray,
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            )
+                        }
+                    } else if (syncError) {
+                        item {
+                            Text(
+                                text = stringResource(R.string.sync_error),
                                 textAlign = TextAlign.Center,
                                 fontSize = 11.sp,
                                 color = Color.Gray,

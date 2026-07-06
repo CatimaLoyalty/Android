@@ -47,6 +47,14 @@ risk.
 
 Please never submit LLM-generated code as-is.
 
+### Kotlin and Compose migration
+
+Catima uses a lot of "legacy" tech, Java, Android XML. This will be ported to Kotlin,
+then Jetpack Compose; for further details, see
+<https://github.com/CatimaLoyalty/Android/issues/2483>.
+
+Thus, prefer Kotlin for new code where practical, especially new files/features.
+
 ### Test Your Code
 
 There are four possible tests you can run to verify your code.  The first

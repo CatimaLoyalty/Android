@@ -19,6 +19,7 @@ import org.json.JSONObject
 import protect.card_locker.DBHelper
 import protect.card_locker.NotificationInfo
 import protect.card_locker.R
+import protect.card_locker.Utils
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -169,20 +170,11 @@ class BluetoothServerService : Service() {
         private fun buildCardsArray(): JSONArray {
             val dbHelper = DBHelper(this@BluetoothServerService)
             val db = dbHelper.readableDatabase
-            val cursor = db.query(
-                DBHelper.LoyaltyCardDbIds.TABLE,
-                arrayOf(
-                    DBHelper.LoyaltyCardDbIds.ID,
-                    DBHelper.LoyaltyCardDbIds.STORE,
-                    DBHelper.LoyaltyCardDbIds.CARD_ID,
-                    DBHelper.LoyaltyCardDbIds.BARCODE_ID,
-                    DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
-                    DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
-                    DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS,
-                ),
-                "${DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS} = 0",
-                null, null, null,
-                "${DBHelper.LoyaltyCardDbIds.STORE} COLLATE NOCASE ASC"
+            val order = Utils.getLoyaltyCardOrder(this@BluetoothServerService)
+            val orderDirection = Utils.getLoyaltyCardOrderDirection(this@BluetoothServerService)
+            val cursor = DBHelper.getLoyaltyCardCursor(
+                db, "", null, order, orderDirection,
+                DBHelper.LoyaltyCardArchiveFilter.Unarchived
             )
             val array = JSONArray()
             cursor.use {

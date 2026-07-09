@@ -55,13 +55,13 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
       - name: Run instrumented tests (API 23)
-        uses: ReactiveCircus/android-emulator-runner@v2
+        uses: ReactiveCircus/android-emulator-runner@v2.37.0
         with:
           api-level: 23
           arch: x86_64
           script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
       - name: Run instrumented tests (API 35)
-        uses: ReactiveCircus/android-emulator-runner@v2
+        uses: ReactiveCircus/android-emulator-runner@v2.37.0
         with:
           api-level: 35
           arch: x86_64

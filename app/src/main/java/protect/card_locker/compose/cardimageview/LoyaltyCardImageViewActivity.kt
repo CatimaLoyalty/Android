@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.IntSize
 import protect.card_locker.compose.CatimaTopAppBar
 
 @Composable
-fun LoyaltyCardImageScreen(
+fun LoyaltyCardImageViewScreen(
     bitmap: Bitmap,
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher?,

@@ -4,6 +4,7 @@
 
 - Add support for showing the card ID in the card list
 - Add support to sort by most recently added
+- Add internal image viewer for zooming card front/back/icon images
 
 ## v2.42.1 - 166 (2026-05-16)
 

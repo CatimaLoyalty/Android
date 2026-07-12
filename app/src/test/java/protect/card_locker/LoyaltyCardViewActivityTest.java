@@ -77,6 +77,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
+import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.cardview.LoyaltyCardViewActivity;
 
 @RunWith(RobolectricTestRunner.class)
@@ -1372,6 +1373,92 @@ public class LoyaltyCardViewActivityTest {
         assertTrue(activity.isFinishing());
 
         database.close();
+    }
+
+    @Test
+    public void checkImageViewerWorkflow() throws IOException {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+
+        int cardId = (int) DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, null, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        Bitmap frontBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_done);
+        Utils.saveCardImage(context, frontBitmap, cardId, ImageLocationType.front);
+        Utils.saveCardImage(context, backBitmap, cardId, ImageLocationType.back);
+
+        try {
+            ActivityController activityController = createActivityWithLoyaltyCard(false, cardId);
+            AppCompatActivity activity = (AppCompatActivity) activityController.get();
+
+            activityController.start();
+            activityController.visible();
+            activityController.resume();
+
+            ImageView mainImage = activity.findViewById(R.id.main_image);
+            ImageButton nextButton = activity.findViewById(R.id.main_right_button);
+
+            assertEquals(context.getString(R.string.frontImageDescription), mainImage.getContentDescription());
+
+            mainImage.performClick();
+            shadowOf(getMainLooper()).idle();
+            assertStartedImageActivity(activity, cardId, ImageLocationType.front);
+
+            nextButton.performClick();
+            shadowOf(getMainLooper()).idle();
+            assertEquals(context.getString(R.string.backImageDescription), mainImage.getContentDescription());
+
+            mainImage.performClick();
+            shadowOf(getMainLooper()).idle();
+            assertStartedImageActivity(activity, cardId, ImageLocationType.back);
+        } finally {
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.front);
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.back);
+            database.close();
+        }
+    }
+
+    @Test
+    public void checkThumbnailImageViewerWorkflow() throws IOException {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+
+        int cardId = (int) DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, null, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        Bitmap thumbnailBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        Utils.saveCardImage(context, thumbnailBitmap, cardId, ImageLocationType.icon);
+
+        try {
+            ActivityController activityController = createActivityWithLoyaltyCard(false, cardId);
+            AppCompatActivity activity = (AppCompatActivity) activityController.get();
+
+            activityController.start();
+            activityController.visible();
+            activityController.resume();
+
+            LinearLayout iconContainer = activity.findViewById(R.id.icon_container);
+
+            iconContainer.performClick();
+            shadowOf(getMainLooper()).idle();
+            assertStartedImageActivity(activity, cardId, ImageLocationType.icon);
+        } finally {
+            Utils.saveCardImage(context, null, cardId, ImageLocationType.icon);
+            database.close();
+        }
+    }
+
+    private void assertStartedImageActivity(
+            AppCompatActivity activity,
+            int cardId,
+            ImageLocationType imageLocationType
+    ) {
+        Intent intent = shadowOf(activity).getNextStartedActivity();
+
+        assertNotNull(intent);
+        assertEquals(LoyaltyCardImageViewActivity.class.getName(), intent.getComponent().getClassName());
+        assertEquals(cardId, intent.getIntExtra(LoyaltyCardImageViewActivity.BUNDLE_ID, 0));
+        assertEquals(
+                imageLocationType.name(),
+                intent.getStringExtra(LoyaltyCardImageViewActivity.BUNDLE_IMAGE_LOCATION_TYPE)
+        );
     }
 
     @Test

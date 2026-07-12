@@ -212,7 +212,6 @@
     <string name="version_history">वर्जन तिहास</string>
     <string name="archive">पुरालेख/संग्रहित (Archive)</string>
     <string name="archived">कार्ड संग्रहीत (Archived)</string>
-    <string name="barcodeLongPressMessage">गैलरी ऐप में केवल छवियां ही खोली जा सकती हैं</string>
     <string name="license">अनुज्ञप्ति (लाइसेंस)</string>
     <string name="source_repository">स्रोत रिपोजिटरी</string>
     <string name="include_if_asking_support">यदि आप सहायता का अनुरोध करना चाहते हैं, तो निम्नलिखित जानकारी शामिल करें:</string>
@@ -245,8 +244,6 @@
     <string name="switchToFrontImage">सामने वाली छवि पर स्विच करें</string>
     <string name="switchToBackImage">पिछली छवि पर स्विच करें</string>
     <string name="switchToBarcode">बारकोड पर स्विच करें</string>
-    <string name="openFrontImageInGalleryApp">इमेज दर्शक सामने वाली इमेज खोलें</string>
-    <string name="openBackImageInGalleryApp">पिछली इमेज खोलें</string>
     <string name="setBarcodeHeight">बारकोड ऊंचाई सेट करें</string>
     <string name="icon_header_click_text">छोटी छवि (थंबनेल) संपादित करने के लिए देर तक दबाएँ</string>
     <string name="enter_card_id">अपने कार्ड पर आईडी नंबर या टेक्स्ट दर्ज करें</string>

@@ -189,7 +189,6 @@
     <string name="archive">Arsip</string>
     <string name="archived">Kartu diarsipkan</string>
     <string name="failedToRetrieveImageFile">Gagal mengambil file gambar</string>
-    <string name="barcodeLongPressMessage">Hanya gambar yang dapat dibuka di aplikasi galeri</string>
     <string name="unarchive">Ekstrak</string>
     <string name="unarchived">Kartu tidak diarsipkan</string>
     <string name="options">Opsi</string>
@@ -212,8 +211,6 @@
     <string name="switchToFrontImage">Ubah ke depan gambar</string>
     <string name="switchToBackImage">Ubah ke belakang gambar</string>
     <string name="switchToBarcode">Ubah ke kode batang</string>
-    <string name="openFrontImageInGalleryApp">Buka gambar depan di aplikasi penampil gambar</string>
-    <string name="openBackImageInGalleryApp">Buka gambar di aplikasi penampil gambar</string>
     <string name="setBarcodeHeight">Atur tinggi kode batang</string>
     <string name="donate">Donasi</string>
     <string name="show_validity">Tunjukkan validitas</string>

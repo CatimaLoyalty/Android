@@ -205,7 +205,6 @@
     <string name="failedToOpenUrl">Instale primeiro um navegador de Internet</string>
     <string name="welcome">Bem-vindo ao Catima</string>
     <string name="failedToRetrieveImageFile">Falha ao recuperar o ficheiro de imagem</string>
-    <string name="barcodeLongPressMessage">Só podem ser abertas imagens na aplicação da galeria</string>
     <string name="noCameraPermissionDirectToSystemSetting">Para digitalizar códigos de barras, o Catima tem de aceder à câmara. Clique aqui para mudar as configurações de permissão.</string>
     <string name="cameraPermissionDeniedTitle">Não foi possível aceder à câmara</string>
     <string name="importCards">Importar cartões</string>
@@ -224,8 +223,6 @@
     <string name="height">Altura</string>
     <string name="switchToBackImage">Mudar para a imagem de trás</string>
     <string name="switchToBarcode">Mudar para o código de barras</string>
-    <string name="openFrontImageInGalleryApp">Abrir imagem frontal na app visualizadora de imagens</string>
-    <string name="openBackImageInGalleryApp">Abrir imagem traseira na app visualizadora de imagens</string>
     <string name="setBarcodeHeight">Definir altura do código de barras</string>
     <string name="donate">Doar</string>
     <string name="show_validity">Mostrar validade</string>

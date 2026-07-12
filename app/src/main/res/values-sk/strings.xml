@@ -210,7 +210,6 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> archivované)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kariet (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaných)</item>
     </plurals>
-    <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>
     <string name="storageReadPermissionRequired">Pre túto akciu je potrebné oprávnenie na čítanie úložiska…</string>
     <string name="importFidmeMessage">Vyberte svoj export zo služby FidMe pre import a potom vyberte typy čiarových kódov ručne.\nVytvorte ho z profilu FidMe tak, že vyberiete položku Ochrana údajov a potom stlačíte tlačidlo Extrahovať moje údaje.</string>
@@ -226,8 +225,6 @@
     <string name="settings_keep_screen_on_summary">Ponechať obrazovku aktívnu počas prezerania karty</string>
     <string name="settings_display_barcode_max_brightness_summary">Pre zaistenie čitateľnosti pre niektoré skenery</string>
     <string name="settings_allow_content_provider_read_summary">Aplikácie budú musieť stále žiadať o povolenie, aby im bol udelený prístup</string>
-    <string name="openBackImageInGalleryApp">Otvorenie zadného obrázka v prehliadači obrázkov</string>
-    <string name="openFrontImageInGalleryApp">Otvorenie predného obrázka v prehliadači obrázkov</string>
     <string name="setBarcodeHeight">Nastavenie výšky čiarového kódu</string>
     <string name="show_balance">Ukážte zostatok</string>
     <string name="show_name_below_image_thumbnail">Zobraziť názov pod miniatúrou obrázka</string>

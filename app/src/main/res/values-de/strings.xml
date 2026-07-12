@@ -197,7 +197,6 @@
     <string name="nextCard">Nächste</string>
     <string name="failedToOpenUrl">Bitte installiere zuerst einen Webbrowser</string>
     <string name="welcome">Willkommen bei Catima</string>
-    <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
     <string name="updateBalanceTitle">Wie viel hast du ausgegeben oder erhalten?</string>
     <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera</string>
@@ -215,8 +214,6 @@
     <string name="anyDate">Beliebiges Datum</string>
     <string name="icon_header_click_text">Zum Bearbeiten des Vorschaubildes lang drücken</string>
     <string name="switchToBarcode">Zum Barcode wechseln</string>
-    <string name="openFrontImageInGalleryApp">Vorderseite in Bildbetrachter öffnen</string>
-    <string name="openBackImageInGalleryApp">Rückseite in Bildbetrachter öffnen</string>
     <string name="height">Höhe</string>
     <string name="switchToFrontImage">Zur Vorderseite wechseln</string>
     <string name="switchToBackImage">Zur Rückseite wechseln</string>

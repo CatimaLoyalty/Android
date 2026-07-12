@@ -179,7 +179,6 @@
     <string name="showMoreInfo">دیدن اطلاعات</string>
     <string name="updateBalance">به‌روزرسانی موجودی</string>
     <string name="failedToRetrieveImageFile">فایل تصویر بازیابی نشد</string>
-    <string name="barcodeLongPressMessage">فقط عکس میتونه تو گالری برنامه باز بشه</string>
     <string name="sort_by_name">اسم</string>
     <string name="sort_by_most_recently_used">جدیدا استفاده شده</string>
     <string name="sort_by_valid_from">معتبر از</string>
@@ -228,8 +227,6 @@
     <string name="switchToFrontImage">تغییر به عکس جلو</string>
     <string name="switchToBackImage">تغییر به عکس عقب</string>
     <string name="switchToBarcode">به بارکد تغییر بده</string>
-    <string name="openFrontImageInGalleryApp">عکس جلویی رو تو image viewer app باز کن</string>
-    <string name="openBackImageInGalleryApp">باز کردن عکس تو image viewer app</string>
     <string name="setBarcodeHeight">تنظیم ارتفاع بارکد</string>
     <string name="donate">کمک مالی کن</string>
     <string name="icon_header_click_text">برای ویرایش عکس کوچیک، فشار طولانی بده</string>

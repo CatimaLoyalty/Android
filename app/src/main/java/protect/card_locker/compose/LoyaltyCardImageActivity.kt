@@ -18,6 +18,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -41,7 +42,7 @@ fun LoyaltyCardImageScreen(
     @StringRes contentDescriptionRes: Int,
     onBack: () -> Unit,
 ) {
-    var scale by remember { mutableStateOf(1F) }
+    var scale by remember { mutableFloatStateOf(1F) }
     var offset by remember { mutableStateOf(Offset.Zero) }
     var size by remember { mutableStateOf(IntSize.Zero) }
     val zoomState = rememberTransformableState { _, zoomChange, panChange, _ ->

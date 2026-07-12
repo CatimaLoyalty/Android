@@ -138,18 +138,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void openImage(LoyaltyCardImageType imageType) {
         switch (imageType) {
-            case NONE:
-            case BARCODE:
-                return;
             case ICON:
                 startImageActivity(ImageLocationType.icon);
-                return;
+                break;
             case IMAGE_FRONT:
                 startImageActivity(ImageLocationType.front);
-                return;
+                break;
             case IMAGE_BACK:
                 startImageActivity(ImageLocationType.back);
-                return;
+                break;
+            default:
+                Log.w(TAG, "openImage called with unsupported image type!");
         }
     }
 

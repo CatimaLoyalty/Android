@@ -50,6 +50,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.*;
+import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
@@ -153,7 +154,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void startImageActivity(ImageLocationType imageLocationType) {
-        startActivity(LoyaltyCardImageActivity.createIntent(this, loyaltyCardId, imageLocationType));
+        startActivity(LoyaltyCardImageViewActivity.createIntent(this, loyaltyCardId, imageLocationType));
     }
 
     @Override

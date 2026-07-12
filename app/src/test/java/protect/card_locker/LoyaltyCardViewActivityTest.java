@@ -77,7 +77,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
-import protect.card_locker.cardview.LoyaltyCardImageActivity;
+import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.cardview.LoyaltyCardViewActivity;
 
 @RunWith(RobolectricTestRunner.class)
@@ -1453,11 +1453,11 @@ public class LoyaltyCardViewActivityTest {
         Intent intent = shadowOf(activity).getNextStartedActivity();
 
         assertNotNull(intent);
-        assertEquals(LoyaltyCardImageActivity.class.getName(), intent.getComponent().getClassName());
-        assertEquals(cardId, intent.getIntExtra(LoyaltyCardImageActivity.BUNDLE_ID, 0));
+        assertEquals(LoyaltyCardImageViewActivity.class.getName(), intent.getComponent().getClassName());
+        assertEquals(cardId, intent.getIntExtra(LoyaltyCardImageViewActivity.BUNDLE_ID, 0));
         assertEquals(
                 imageLocationType.name(),
-                intent.getStringExtra(LoyaltyCardImageActivity.BUNDLE_IMAGE_LOCATION_TYPE)
+                intent.getStringExtra(LoyaltyCardImageViewActivity.BUNDLE_IMAGE_LOCATION_TYPE)
         );
     }
 

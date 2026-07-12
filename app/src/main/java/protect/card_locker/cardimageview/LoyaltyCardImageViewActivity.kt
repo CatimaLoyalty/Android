@@ -1,4 +1,4 @@
-package protect.card_locker.cardview
+package protect.card_locker.cardimageview
 
 import android.content.Context
 import android.content.Intent
@@ -15,7 +15,7 @@ import protect.card_locker.compose.LoyaltyCardImageScreen
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.preferences.Settings
 
-class LoyaltyCardImageActivity : CatimaComponentActivity() {
+class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -86,7 +86,7 @@ class LoyaltyCardImageActivity : CatimaComponentActivity() {
             loyaltyCardId: Int,
             imageLocationType: ImageLocationType
         ): Intent {
-            return Intent(context, LoyaltyCardImageActivity::class.java)
+            return Intent(context, LoyaltyCardImageViewActivity::class.java)
                 .putExtra(BUNDLE_ID, loyaltyCardId)
                 .putExtra(BUNDLE_IMAGE_LOCATION_TYPE, imageLocationType.name)
         }

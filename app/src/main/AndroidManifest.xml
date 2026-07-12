@@ -102,7 +102,7 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".cardview.LoyaltyCardImageActivity"
+            android:name=".cardimageview.LoyaltyCardImageViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoyaltyCardEditActivity"

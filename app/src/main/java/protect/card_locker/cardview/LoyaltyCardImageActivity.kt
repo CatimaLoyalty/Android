@@ -51,8 +51,6 @@ class LoyaltyCardImageActivity : CatimaComponentActivity() {
         val settings = Settings(this)
         val currentWindow = window ?: return
 
-        currentWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-
         val attributes = currentWindow.attributes
         if (settings.useMaxBrightnessDisplayingBarcode()) {
             attributes.screenBrightness = 1F

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 167
+## v2.43.0 - 167 (2026-07-12)
 
 - Add support for showing the card ID in the card list
 - Add support to sort by most recently added

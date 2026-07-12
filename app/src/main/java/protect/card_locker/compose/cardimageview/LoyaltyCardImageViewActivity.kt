@@ -1,4 +1,4 @@
-package protect.card_locker.compose
+package protect.card_locker.compose.cardimageview
 
 import android.graphics.Bitmap
 import androidx.activity.OnBackPressedDispatcher
@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
+import protect.card_locker.compose.CatimaTopAppBar
 
 @Composable
 fun LoyaltyCardImageScreen(

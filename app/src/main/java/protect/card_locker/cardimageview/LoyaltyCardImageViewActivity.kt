@@ -11,7 +11,7 @@ import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
 import protect.card_locker.Utils
-import protect.card_locker.compose.LoyaltyCardImageScreen
+import protect.card_locker.compose.cardimageview.LoyaltyCardImageScreen
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.preferences.Settings
 

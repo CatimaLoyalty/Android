@@ -41,7 +41,7 @@ class LoyaltyCardImageActivity : CatimaComponentActivity() {
                 LoyaltyCardImageScreen(
                     bitmap = bitmap,
                     contentDescriptionRes = imageLocationType.descriptionRes(),
-                    onBack = { onBackPressedDispatcher.onBackPressed() }
+                    onBackPressedDispatcher = onBackPressedDispatcher
                 )
             }
         }

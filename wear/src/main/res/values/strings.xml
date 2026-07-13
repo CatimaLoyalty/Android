@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Catima</string>
     <string name="no_cards">No cards found.\nOpen Catima on your phone to add cards.</string>
-    <string name="phone_not_connected">Could not reach Catima on your phone.\nMake sure the app is installed and your watch is connected.</string>
+    <string name="phone_not_connected">Could not reach Catima on your phone.\nMake sure the app is installed, your watch is connected and WearOS is enabled in Catima settings.</string>
     <string name="loading_cards">Loading cards…</string>
     <string name="no_barcode">No barcode available for this card.</string>
     <string name="card_id_label">Card ID</string>

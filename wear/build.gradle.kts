@@ -13,7 +13,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "me.hackerchick.catima.wear"
+        applicationId = "me.hackerchick.catima"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

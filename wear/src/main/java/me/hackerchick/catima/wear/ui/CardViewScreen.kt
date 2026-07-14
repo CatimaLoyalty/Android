@@ -55,14 +55,13 @@ private fun KeepScreenOnAtMaxBrightness() {
     DisposableEffect(Unit) {
         val window = activity.window
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        val originalBrightness = window.attributes.screenBrightness
         val params = window.attributes
         params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL
         window.attributes = params
         onDispose {
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             val restore = window.attributes
-            restore.screenBrightness = originalBrightness
+            restore.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE
             window.attributes = restore
         }
     }

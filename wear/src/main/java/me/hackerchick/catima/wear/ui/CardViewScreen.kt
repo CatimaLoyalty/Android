@@ -21,11 +21,13 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.CircularProgressIndicator
+import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
@@ -38,7 +40,7 @@ fun CardViewScreen(card: WearCard?) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(androidx.compose.ui.graphics.Color.Black),
+            .background(MaterialTheme.colors.background),
         contentAlignment = Alignment.Center,
     ) {
         if (card == null) {
@@ -77,7 +79,7 @@ private fun CardDetail(card: WearCard) {
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
-            .background(androidx.compose.ui.graphics.Color.White)
+            .background(ComposeColor.White)
             .padding(8.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -94,7 +96,7 @@ private fun CardDetail(card: WearCard) {
                 text = card.store,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
-                color = androidx.compose.ui.graphics.Color.Black,
+                color = ComposeColor.Black,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -118,14 +120,14 @@ private fun CardDetail(card: WearCard) {
                     Text(
                         text = stringResource(R.string.no_barcode),
                         textAlign = TextAlign.Center,
-                        color = androidx.compose.ui.graphics.Color.Black,
+                        color = ComposeColor.Black,
                     )
                 }
             } else {
                 Text(
                     text = stringResource(R.string.no_barcode),
                     textAlign = TextAlign.Center,
-                    color = androidx.compose.ui.graphics.Color.Black,
+                    color = ComposeColor.Black,
                 )
             }
 
@@ -135,7 +137,7 @@ private fun CardDetail(card: WearCard) {
                 text = barcodeValue,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
-                color = androidx.compose.ui.graphics.Color.Black,
+                color = ComposeColor.Black,
             )
         }
     }

@@ -22,18 +22,13 @@ import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.CircularProgressIndicator
 import androidx.wear.compose.material.Text
 import me.hackerchick.catima.wear.R
+import me.hackerchick.catima.wear.SyncStatus
 import me.hackerchick.catima.wear.WearCard
 
 @Composable
 fun CardListScreen(
     cards: List<WearCard>?,
-    syncing: Boolean,
-    phoneNotReachable: Boolean,
-    phoneOutdated: Boolean,
-    watchOutdated: Boolean,
-    permissionDenied: Boolean,
-    bluetoothDisabled: Boolean,
-    syncError: Boolean,
+    syncStatus: SyncStatus,
     onCardClick: (WearCard) -> Unit,
 ) {
     Box(
@@ -43,44 +38,16 @@ fun CardListScreen(
         contentAlignment = Alignment.Center,
     ) {
         when {
-            cards == null && syncError -> {
-                Text(
-                    text = stringResource(R.string.sync_error),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(16.dp),
-                )
-            }
-            cards == null && permissionDenied -> {
-                Text(
-                    text = stringResource(R.string.bluetooth_permission_denied),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(16.dp),
-                )
-            }
-            cards == null && bluetoothDisabled -> {
-                Text(
-                    text = stringResource(R.string.bluetooth_disabled),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(16.dp),
-                )
-            }
-            cards == null && phoneNotReachable -> {
+            cards == null && syncStatus == SyncStatus.PHONE_NOT_REACHABLE -> {
                 Text(
                     text = stringResource(R.string.phone_not_connected),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(16.dp),
                 )
             }
-            cards == null && phoneOutdated -> {
+            cards == null && syncStatus.labelRes != null -> {
                 Text(
-                    text = stringResource(R.string.phone_outdated),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(16.dp),
-                )
-            }
-            cards == null && watchOutdated -> {
-                Text(
-                    text = stringResource(R.string.watch_outdated),
+                    text = stringResource(syncStatus.labelRes),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(16.dp),
                 )
@@ -88,7 +55,7 @@ fun CardListScreen(
             cards == null -> {
                 CircularProgressIndicator()
             }
-            cards.isEmpty() && !syncing -> {
+            cards.isEmpty() && syncStatus != SyncStatus.SYNCING -> {
                 Text(
                     text = stringResource(R.string.no_cards),
                     textAlign = TextAlign.Center,
@@ -118,70 +85,11 @@ fun CardListScreen(
                             },
                         )
                     }
-                    if (syncing) {
+                    val footerLabel = syncStatus.labelRes
+                    if (footerLabel != null) {
                         item {
                             Text(
-                                text = stringResource(R.string.syncing),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (permissionDenied) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.bluetooth_permission_denied),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (bluetoothDisabled) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.bluetooth_disabled),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (phoneNotReachable) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.sync_failed),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (phoneOutdated) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.phone_outdated),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (syncError) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.sync_error),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
-                    } else if (watchOutdated) {
-                        item {
-                            Text(
-                                text = stringResource(R.string.watch_outdated),
+                                text = stringResource(footerLabel),
                                 textAlign = TextAlign.Center,
                                 fontSize = 11.sp,
                                 color = Color.Gray,

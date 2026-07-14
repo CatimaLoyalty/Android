@@ -43,13 +43,7 @@ class MainActivity : ComponentActivity() {
             CatimaWearTheme {
                 val navController = rememberSwipeDismissableNavController()
                 val cards by WearCardRepository.cards.collectAsState()
-                val syncing by WearCardRepository.syncing.collectAsState()
-                val phoneNotReachable by WearCardRepository.phoneNotReachable.collectAsState()
-                val phoneOutdated by WearCardRepository.phoneOutdated.collectAsState()
-                val watchOutdated by WearCardRepository.watchOutdated.collectAsState()
-                val permissionDenied by WearCardRepository.permissionDenied.collectAsState()
-                val bluetoothDisabled by WearCardRepository.bluetoothDisabled.collectAsState()
-                val syncError by WearCardRepository.syncError.collectAsState()
+                val syncStatus by WearCardRepository.syncStatus.collectAsState()
 
                 SwipeDismissableNavHost(
                     navController = navController,
@@ -58,13 +52,7 @@ class MainActivity : ComponentActivity() {
                     composable("card_list") {
                         CardListScreen(
                             cards = cards,
-                            syncing = syncing,
-                            phoneNotReachable = phoneNotReachable,
-                            phoneOutdated = phoneOutdated,
-                            watchOutdated = watchOutdated,
-                            permissionDenied = permissionDenied,
-                            bluetoothDisabled = bluetoothDisabled,
-                            syncError = syncError,
+                            syncStatus = syncStatus,
                             onCardClick = { card ->
                                 navController.navigate("card_view/${card.id}")
                             }

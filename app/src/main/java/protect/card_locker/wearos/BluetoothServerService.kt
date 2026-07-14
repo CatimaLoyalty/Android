@@ -33,7 +33,6 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val PROTOCOL_VERSION = 1
-        private const val CMD_V1_CARDS_REQUEST = "V1/CARDS_REQUEST"
         private const val CMD_V1_CARDS_PAGE_PREFIX = "V1/CARDS_REQUEST_PAGE/"
         private const val PAGE_SIZE = 10
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
@@ -144,12 +143,6 @@ class BluetoothServerService : Service() {
                 Log.d(TAG, "Received command: $command from $deviceName")
                 if (command != null && command.startsWith("V1/")) {
                     when {
-                        command == CMD_V1_CARDS_REQUEST -> {
-                            val json = buildCardsJson()
-                            writer.println(json)
-                            writer.flush()
-                            Log.d(TAG, "Sent ${json.length} bytes to $deviceName")
-                        }
                         command.startsWith(CMD_V1_CARDS_PAGE_PREFIX) -> {
                             val pageIndex = command.removePrefix(CMD_V1_CARDS_PAGE_PREFIX).toIntOrNull()
                             if (pageIndex == null || pageIndex < 0) {
@@ -171,13 +164,6 @@ class BluetoothServerService : Service() {
             } finally {
                 try { socket.close() } catch (_: Exception) { }
             }
-        }
-
-        private fun buildCardsJson(): String {
-            return JSONObject().apply {
-                put("version", PROTOCOL_VERSION)
-                put("cards", buildCardsArray())
-            }.toString()
         }
 
         private fun buildCardsPageJson(pageIndex: Int): String {
@@ -221,37 +207,6 @@ class BluetoothServerService : Service() {
                 put("totalPages", totalPages)
                 put("cards", array)
             }.toString()
-        }
-
-        private fun buildCardsArray(): JSONArray {
-            val dbHelper = DBHelper(this@BluetoothServerService)
-            val db = dbHelper.readableDatabase
-            val order = Utils.getLoyaltyCardOrder(this@BluetoothServerService)
-            val orderDirection = Utils.getLoyaltyCardOrderDirection(this@BluetoothServerService)
-            val cursor = DBHelper.getLoyaltyCardCursor(
-                db, "", null, order, orderDirection,
-                DBHelper.LoyaltyCardArchiveFilter.Unarchived
-            )
-            val array = JSONArray()
-            cursor.use {
-                val idIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID)
-                val storeIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE)
-                val cardIdIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)
-                val barcodeIdIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID)
-                val barcodeTypeIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)
-                val headerColorIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)
-                while (it.moveToNext()) {
-                    array.put(JSONObject().apply {
-                        put("id", it.getInt(idIdx))
-                        put("store", it.getString(storeIdx) ?: "")
-                        put("cardId", it.getString(cardIdIdx) ?: "")
-                        put("barcodeId", if (it.isNull(barcodeIdIdx)) JSONObject.NULL else it.getString(barcodeIdIdx))
-                        put("barcodeType", if (it.isNull(barcodeTypeIdx)) JSONObject.NULL else it.getString(barcodeTypeIdx))
-                        put("headerColor", if (it.isNull(headerColorIdx)) JSONObject.NULL else it.getInt(headerColorIdx))
-                    })
-                }
-            }
-            return array
         }
 
         fun cancel() {

@@ -41,6 +41,6 @@ jobs:
       - name: Check for non-free libraries
         run: |
           wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
-          java -jar apk-scanner_v0.0.7.jar scan-apk "$(echo 'wear/build/outputs/apk/release/wear-release-unsigned.apk')"
+          java -jar apk-scanner_v0.0.7.jar scan-apk 'wear/build/outputs/apk/release/wear-release-unsigned.apk'
       - name: Check lint
         run: ./gradlew :wear:lintRelease

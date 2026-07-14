@@ -68,7 +68,7 @@ fun CardListScreen(
                     contentPadding = PaddingValues(horizontal = 8.dp, vertical = 32.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    items(cards) { card ->
+                    items(cards, key = { it.id }) { card ->
                         Chip(
                             modifier = Modifier.fillMaxWidth(),
                             label = {

@@ -7,6 +7,10 @@
 
     <uses-feature android:name="android.hardware.type.watch" />
 
+<meta-data
+    android:name="com.google.android.wearable.standalone"
+    android:value="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

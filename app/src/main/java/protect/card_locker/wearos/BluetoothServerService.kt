@@ -33,7 +33,8 @@ class BluetoothServerService : Service() {
         private const val BT_SERVICE_NAME = "CatimaWear"
         val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
         private const val PROTOCOL_VERSION = 1
-        private const val CMD_V1_CARDS_PAGE_PREFIX = "V1/CARDS_REQUEST_PAGE/"
+        private const val CMD_VERSIONS = "/VERSIONS"
+        private const val CMD_V1_CARDS_PAGE_PREFIX = "/V1/CARDS_REQUEST_PAGE/"
         private const val PAGE_SIZE = 10
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
         private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
@@ -141,7 +142,12 @@ class BluetoothServerService : Service() {
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
-                if (command != null && command.startsWith("V1/")) {
+                if (command == CMD_VERSIONS) {
+                    val versions = JSONArray().put(PROTOCOL_VERSION).toString()
+                    writer.println(versions)
+                    writer.flush()
+                    Log.d(TAG, "Sent supported versions to $deviceName")
+                } else if (command != null && command.startsWith("/V1/")) {
                     when {
                         command.startsWith(CMD_V1_CARDS_PAGE_PREFIX) -> {
                             val pageIndex = command.removePrefix(CMD_V1_CARDS_PAGE_PREFIX).toIntOrNull()
@@ -202,7 +208,6 @@ class BluetoothServerService : Service() {
                 }
             }
             return JSONObject().apply {
-                put("version", PROTOCOL_VERSION)
                 put("page", pageIndex)
                 put("totalPages", totalPages)
                 put("cards", array)

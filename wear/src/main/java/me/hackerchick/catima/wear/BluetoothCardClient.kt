@@ -80,21 +80,24 @@ object BluetoothCardClient {
         return try {
             socket = device.createRfcommSocketToServiceRecord(WearProtocol.BT_SERVICE_UUID)
             socket.connect()
-            Log.d(TAG, "Connected to $deviceName, fetching page 0 to discover total")
+            val supportedVersions = requestSupportedVersions(socket)
+                ?: return null to FetchStatus.NO_DEVICE
+            if (WearProtocol.API_VERSION !in supportedVersions) {
+                Log.w(TAG, "Phone does not support API version ${WearProtocol.API_VERSION}")
+                return null to FetchStatus.WATCH_OUTDATED
+            }
+            socket.close()
+            socket = null
+            Log.d(TAG, "Connected to $deviceName with API version ${WearProtocol.API_VERSION}")
 
             val allCards = JSONArray()
             var pageIndex = 0
             var totalPages = 1
 
             while (pageIndex < totalPages) {
-                if (pageIndex > 0) {
-                    try { socket?.close() } catch (_: Exception) { }
-                    socket = device.createRfcommSocketToServiceRecord(WearProtocol.BT_SERVICE_UUID)
-                    socket.connect()
-                    Log.d(TAG, "Reconnected to $deviceName for page $pageIndex")
-                }
-
-                val writer = PrintWriter(OutputStreamWriter(socket!!.outputStream, "UTF-8"), false)
+                socket = device.createRfcommSocketToServiceRecord(WearProtocol.BT_SERVICE_UUID)
+                socket.connect()
+                val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
 
                 writer.print("${WearProtocol.BT_CMD_CARDS_PAGE_PREFIX}$pageIndex\n")
@@ -107,22 +110,20 @@ object BluetoothCardClient {
                 }
 
                 val parsed = parsePageResponse(json, pageIndex)
-                when (parsed.second) {
-                    FetchStatus.SUCCESS -> {
-                        val pageCards = JSONArray(parsed.first!!)
-                        for (i in 0 until pageCards.length()) {
-                            allCards.put(pageCards.getJSONObject(i))
-                        }
-                        if (pageIndex == 0) {
-                            totalPages = parsed.third
-                            Log.d(TAG, "Total pages: $totalPages")
-                        }
-                        pageIndex++
-                    }
-                    FetchStatus.PHONE_OUTDATED -> return null to FetchStatus.PHONE_OUTDATED
-                    FetchStatus.WATCH_OUTDATED -> return null to FetchStatus.WATCH_OUTDATED
-                    else -> return null to FetchStatus.NO_DEVICE
+                if (parsed.second != FetchStatus.SUCCESS) {
+                    return null to parsed.second
                 }
+                val pageCards = JSONArray(parsed.first!!)
+                for (i in 0 until pageCards.length()) {
+                    allCards.put(pageCards.getJSONObject(i))
+                }
+                if (pageIndex == 0) {
+                    totalPages = parsed.third
+                    Log.d(TAG, "Total pages: $totalPages")
+                }
+                socket.close()
+                socket = null
+                pageIndex++
             }
 
             Log.d(TAG, "Fetched ${allCards.length()} cards in $totalPages page(s) from $deviceName")
@@ -135,27 +136,34 @@ object BluetoothCardClient {
         }
     }
 
+    private fun requestSupportedVersions(socket: BluetoothSocket): Set<Int>? {
+        val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
+        val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
+        writer.print("${WearProtocol.BT_CMD_VERSIONS}\n")
+        writer.flush()
+        val response = reader.readLine()?.trim() ?: return null
+        return try {
+            val versions = JSONArray(response)
+            buildSet {
+                for (index in 0 until versions.length()) {
+                    add(versions.getInt(index))
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Invalid versions response from phone", e)
+            null
+        }
+    }
+
     private fun parsePageResponse(json: String, expectedPage: Int): Triple<String?, FetchStatus, Int> {
         return try {
             val obj = JSONObject(json)
-            val version = obj.getInt("version")
-            if (version != WearProtocol.PROTOCOL_VERSION) {
-                Log.w(TAG, "Unsupported protocol version: $version")
-                Triple(null, FetchStatus.WATCH_OUTDATED, 1)
-            } else {
-                val cards = obj.getJSONArray("cards").toString()
-                val totalPages = obj.optInt("totalPages", 1)
-                Triple(cards, FetchStatus.SUCCESS, totalPages)
-            }
+            val cards = obj.getJSONArray("cards").toString()
+            val totalPages = obj.optInt("totalPages", 1)
+            Triple(cards, FetchStatus.SUCCESS, totalPages)
         } catch (_: Exception) {
-            try {
-                JSONArray(json)
-                Log.w(TAG, "Phone app returned a legacy response; update Catima on your phone")
-                Triple(null, FetchStatus.PHONE_OUTDATED, 1)
-            } catch (_: Exception) {
-                Log.w(TAG, "Unparseable response from phone for page $expectedPage")
-                Triple(null, FetchStatus.NO_DEVICE, 1)
-            }
+            Log.w(TAG, "Unparseable response from phone for page $expectedPage")
+            Triple(null, FetchStatus.NO_DEVICE, 1)
         }
     }
 }

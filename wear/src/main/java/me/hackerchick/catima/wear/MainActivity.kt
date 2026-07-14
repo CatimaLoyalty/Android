@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Volatile private var fetchInFlight = false
+    private var protocolIncompatible = false
 
     private val btPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -77,7 +78,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun maybeRequestCards() {
-        if (fetchInFlight) return
+        if (fetchInFlight || protocolIncompatible) return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
             ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
             != PackageManager.PERMISSION_GRANTED
@@ -108,6 +109,7 @@ class MainActivity : ComponentActivity() {
                 }
                 BluetoothCardClient.FetchStatus.WATCH_OUTDATED -> {
                     Log.w(TAG, "Wear app is outdated")
+                    protocolIncompatible = true
                     WearCardRepository.setWatchOutdated()
                 }
                 BluetoothCardClient.FetchStatus.NO_DEVICE -> {

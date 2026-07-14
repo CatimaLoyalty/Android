@@ -3,6 +3,7 @@ package me.hackerchick.catima.wear.ui
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.view.WindowManager
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,10 +22,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.activity.compose.LocalActivity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.wear.compose.material.CircularProgressIndicator
 import androidx.wear.compose.material.Text
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
@@ -41,7 +42,7 @@ fun CardViewScreen(card: WearCard?) {
         contentAlignment = Alignment.Center,
     ) {
         if (card == null) {
-            androidx.wear.compose.material.CircularProgressIndicator()
+            CircularProgressIndicator()
         } else {
             CardDetail(card = card)
         }

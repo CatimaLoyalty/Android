@@ -1,14 +1,10 @@
 package me.hackerchick.catima.wear
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavType
@@ -19,6 +15,7 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import me.hackerchick.catima.wear.ui.CardListScreen
 import me.hackerchick.catima.wear.ui.CardViewScreen
 import me.hackerchick.catima.wear.ui.theme.CatimaWearTheme
+import protect.card_locker.shared.BluetoothPermissionHelper
 
 class MainActivity : ComponentActivity() {
 
@@ -79,12 +76,10 @@ class MainActivity : ComponentActivity() {
 
     private fun maybeRequestCards() {
         if (fetchInFlight || protocolIncompatible) return
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
-            != PackageManager.PERMISSION_GRANTED
+        BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
+            this,
+            btPermissionLauncher
         ) {
-            btPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
-        } else {
             requestCardsFromPhone()
         }
     }
@@ -123,6 +118,10 @@ class MainActivity : ComponentActivity() {
                 BluetoothCardClient.FetchStatus.BLUETOOTH_DISABLED -> {
                     Log.w(TAG, "Bluetooth is disabled")
                     WearCardRepository.setBluetoothDisabled()
+                }
+                BluetoothCardClient.FetchStatus.SYNC_ERROR -> {
+                    Log.w(TAG, "Sync error from phone")
+                    WearCardRepository.setPhoneNotReachable()
                 }
             }
         }

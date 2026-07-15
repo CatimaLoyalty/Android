@@ -7,7 +7,6 @@ import android.database.CursorIndexOutOfBoundsException
 import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import android.os.Build
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -25,7 +24,6 @@ import androidx.activity.result.contract.ActivityResultContracts.RequestPermissi
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -40,6 +38,7 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
+import protect.card_locker.shared.BluetoothPermissionHelper
 import protect.card_locker.wearos.BluetoothServerService
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
@@ -410,13 +409,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
         // If Wear sync is enabled but BLUETOOTH_CONNECT was revoked (e.g. by Android
         // for an unused app), request it again when the UI resumes.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val settings = Settings(this)
-            if (settings.wearSyncEnabled &&
-                ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
+        BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
+            this,
+            mBtPermissionLauncher
+        ) {
+            if (Settings(this).wearSyncEnabled) {
+                startService(Intent(this, BluetoothServerService::class.java))
             }
         }
     }

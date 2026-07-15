@@ -1,14 +1,12 @@
 package protect.card_locker.preferences
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
 import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -20,6 +18,7 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import protect.card_locker.shared.BluetoothPermissionHelper
 import protect.card_locker.wearos.BluetoothServerService
 
 class SettingsActivity : CatimaAppCompatActivity() {
@@ -95,12 +94,13 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
         override fun onResume() {
             super.onResume()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                Settings(requireContext()).wearSyncEnabled &&
-                ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.BLUETOOTH_CONNECT)
-                    != PackageManager.PERMISSION_GRANTED
+            BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
+                requireContext(),
+                mBtPermissionLauncher
             ) {
-                mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
+                if (Settings(requireContext()).wearSyncEnabled) {
+                    requireContext().startService(Intent(requireContext(), BluetoothServerService::class.java))
+                }
             }
         }
 
@@ -185,12 +185,10 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 val enabled = newValue as Boolean
                 val ctx = requireContext()
                 if (enabled) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                        ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.BLUETOOTH_CONNECT)
-                            != PackageManager.PERMISSION_GRANTED
+                    BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
+                        ctx,
+                        mBtPermissionLauncher
                     ) {
-                        mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
-                    } else {
                         ctx.startService(Intent(ctx, BluetoothServerService::class.java))
                     }
                 } else {

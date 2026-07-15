@@ -8,34 +8,27 @@ import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothServerSocket
 import android.bluetooth.BluetoothSocket
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import org.json.JSONArray
 import org.json.JSONObject
 import protect.card_locker.DBHelper
 import protect.card_locker.NotificationInfo
 import protect.card_locker.R
 import protect.card_locker.Utils
+import protect.card_locker.shared.BluetoothPermissionHelper
+import protect.card_locker.shared.WearBluetoothProtocol
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
-import java.util.UUID
 
 class BluetoothServerService : Service() {
 
     companion object {
         private const val TAG = "CatimaBtServer"
-        private const val BT_SERVICE_NAME = "CatimaWear"
-        val BT_SERVICE_UUID: UUID = UUID.fromString("e5b4f020-3a7e-4b6d-9f2c-1a8c5d3e7f90")
-        private const val PROTOCOL_VERSION = 1
-        private const val CMD_VERSIONS = "/VERSIONS"
-        private const val CMD_V1_CARDS_PAGE_PREFIX = "/V1/CARDS_REQUEST_PAGE/"
-        private const val PAGE_SIZE = 10
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
         private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
     }
@@ -43,9 +36,7 @@ class BluetoothServerService : Service() {
     private var serverThread: AcceptThread? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (!BluetoothPermissionHelper.isBluetoothConnectGranted(this)) {
             Log.w(TAG, "BLUETOOTH_CONNECT permission not granted, stopping")
             stopSelf()
             return START_NOT_STICKY
@@ -100,16 +91,18 @@ class BluetoothServerService : Service() {
 
         init {
             try {
-                if (ContextCompat.checkSelfPermission(
-                        this@BluetoothServerService,
-                        android.Manifest.permission.BLUETOOTH_CONNECT
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    serverSocket = adapter.listenUsingRfcommWithServiceRecord(BT_SERVICE_NAME, BT_SERVICE_UUID)
+                if (BluetoothPermissionHelper.isBluetoothConnectGranted(this@BluetoothServerService)) {
+                    serverSocket = adapter.listenUsingRfcommWithServiceRecord(
+                        WearBluetoothProtocol.BT_SERVICE_NAME,
+                        WearBluetoothProtocol.BT_SERVICE_UUID
+                    )
                 } else {
                     Log.w(TAG, "BLUETOOTH_CONNECT permission missing, cannot open server socket")
                     running = false
                 }
+            } catch (e: SecurityException) {
+                Log.e(TAG, "BLUETOOTH_CONNECT permission missing, cannot create server socket", e)
+                running = false
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to create server socket", e)
                 running = false
@@ -142,15 +135,15 @@ class BluetoothServerService : Service() {
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
-                if (command == CMD_VERSIONS) {
-                    val versions = JSONArray().put(PROTOCOL_VERSION).toString()
+                if (command == WearBluetoothProtocol.BT_CMD_VERSIONS) {
+                    val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
                     writer.println(versions)
                     writer.flush()
                     Log.d(TAG, "Sent supported versions to $deviceName")
                 } else if (command != null && command.startsWith("/V1/")) {
                     when {
-                        command.startsWith(CMD_V1_CARDS_PAGE_PREFIX) -> {
-                            val pageIndex = command.removePrefix(CMD_V1_CARDS_PAGE_PREFIX).toIntOrNull()
+                        command.startsWith(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX) -> {
+                            val pageIndex = command.removePrefix(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX).toIntOrNull()
                             if (pageIndex == null || pageIndex < 0) {
                                 Log.w(TAG, "Invalid page index in command: $command from $deviceName")
                             } else {
@@ -182,8 +175,8 @@ class BluetoothServerService : Service() {
                 DBHelper.LoyaltyCardArchiveFilter.Unarchived
             )
             val totalCards = cursor.count
-            val totalPages = if (totalCards == 0) 1 else (totalCards + PAGE_SIZE - 1) / PAGE_SIZE
-            val offset = pageIndex * PAGE_SIZE
+            val totalPages = if (totalCards == 0) 1 else (totalCards + WearBluetoothProtocol.PAGE_SIZE - 1) / WearBluetoothProtocol.PAGE_SIZE
+            val offset = pageIndex * WearBluetoothProtocol.PAGE_SIZE
             val array = JSONArray()
             cursor.use {
                 if (it.move(offset + 1)) {
@@ -204,7 +197,7 @@ class BluetoothServerService : Service() {
                             put("headerColor", if (it.isNull(headerColorIdx)) JSONObject.NULL else it.getInt(headerColorIdx))
                         })
                         count++
-                    } while (count < PAGE_SIZE && it.moveToNext())
+                    } while (count < WearBluetoothProtocol.PAGE_SIZE && it.moveToNext())
                 }
             }
             return JSONObject().apply {

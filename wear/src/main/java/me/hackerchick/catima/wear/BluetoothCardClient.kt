@@ -3,11 +3,11 @@ package me.hackerchick.catima.wear
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
 import android.content.Context
-import android.content.pm.PackageManager
 import android.util.Log
-import androidx.core.content.ContextCompat
 import org.json.JSONArray
 import org.json.JSONObject
+import protect.card_locker.shared.BluetoothPermissionHelper
+import protect.card_locker.shared.WearBluetoothProtocol
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -28,9 +28,7 @@ object BluetoothCardClient {
     }
 
     fun fetchCards(context: Context, onResult: (cards: String?, status: FetchStatus) -> Unit) {
-        if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (!BluetoothPermissionHelper.isBluetoothConnectGranted(context)) {
             Log.w(TAG, "BLUETOOTH_CONNECT permission not granted")
             onResult(null, FetchStatus.PERMISSION_DENIED)
             return
@@ -82,29 +80,29 @@ object BluetoothCardClient {
     ): Pair<String?, FetchStatus> {
         var socket: BluetoothSocket? = null
         return try {
-            socket = device.createRfcommSocketToServiceRecord(WearProtocol.BT_SERVICE_UUID)
+            socket = device.createRfcommSocketToServiceRecord(WearBluetoothProtocol.BT_SERVICE_UUID)
             socket.connect()
             val supportedVersions = requestSupportedVersions(socket)
                 ?: return null to FetchStatus.NO_DEVICE
-            if (WearProtocol.API_VERSION !in supportedVersions) {
-                Log.w(TAG, "Phone does not support API version ${WearProtocol.API_VERSION}")
+            if (WearBluetoothProtocol.PROTOCOL_VERSION !in supportedVersions) {
+                Log.w(TAG, "Phone does not support API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
                 return null to FetchStatus.WATCH_OUTDATED
             }
             socket.close()
             socket = null
-            Log.d(TAG, "Connected to $deviceName with API version ${WearProtocol.API_VERSION}")
+            Log.d(TAG, "Connected to $deviceName with API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
 
             val allCards = JSONArray()
             var pageIndex = 0
             var totalPages = 1
 
             while (pageIndex < totalPages) {
-                socket = device.createRfcommSocketToServiceRecord(WearProtocol.BT_SERVICE_UUID)
+                socket = device.createRfcommSocketToServiceRecord(WearBluetoothProtocol.BT_SERVICE_UUID)
                 socket.connect()
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
 
-                writer.print("${WearProtocol.BT_CMD_CARDS_PAGE_PREFIX}$pageIndex\n")
+                writer.print("${WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX}$pageIndex\n")
                 writer.flush()
 
                 val json = reader.readLine()?.trim() ?: ""
@@ -143,7 +141,7 @@ object BluetoothCardClient {
     private fun requestSupportedVersions(socket: BluetoothSocket): Set<Int>? {
         val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
         val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
-        writer.print("${WearProtocol.BT_CMD_VERSIONS}\n")
+        writer.print("${WearBluetoothProtocol.BT_CMD_VERSIONS}\n")
         writer.flush()
         val response = reader.readLine()?.trim() ?: return null
         return try {

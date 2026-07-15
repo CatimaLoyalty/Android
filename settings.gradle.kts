@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Catima"
 include(":app")
 include(":wear")
+include(":shared")

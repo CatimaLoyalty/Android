@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
@@ -18,8 +17,7 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
-import protect.card_locker.shared.BluetoothPermissionHelper
-import protect.card_locker.wearos.BluetoothServerService
+import protect.card_locker.wearos.WearSyncPermissionRequester
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -84,27 +82,16 @@ class SettingsActivity : CatimaAppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         var mReloadMain: Boolean = false
 
-        private val mBtPermissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { granted ->
-            if (granted && Settings(requireContext()).wearSyncEnabled) {
-                requireContext().startService(Intent(requireContext(), BluetoothServerService::class.java))
-            }
-        }
+        private lateinit var wearSyncPermissionRequester: WearSyncPermissionRequester
 
         override fun onResume() {
             super.onResume()
-            BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
-                requireContext(),
-                mBtPermissionLauncher
-            ) {
-                if (Settings(requireContext()).wearSyncEnabled) {
-                    requireContext().startService(Intent(requireContext(), BluetoothServerService::class.java))
-                }
-            }
+            wearSyncPermissionRequester.synchronize()
         }
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            wearSyncPermissionRequester = WearSyncPermissionRequester(this, requireContext())
+
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences)
 
@@ -182,18 +169,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
             val wearSyncPreference = findPreference<SwitchPreferenceCompat>(getString(R.string.settings_key_wear_sync))
             wearSyncPreference!!.setOnPreferenceChangeListener { _, newValue ->
-                val enabled = newValue as Boolean
-                val ctx = requireContext()
-                if (enabled) {
-                    BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
-                        ctx,
-                        mBtPermissionLauncher
-                    ) {
-                        ctx.startService(Intent(ctx, BluetoothServerService::class.java))
-                    }
-                } else {
-                    ctx.stopService(Intent(ctx, BluetoothServerService::class.java))
-                }
+                wearSyncPermissionRequester.onWearSyncChanged(newValue as Boolean)
                 true
             }
 

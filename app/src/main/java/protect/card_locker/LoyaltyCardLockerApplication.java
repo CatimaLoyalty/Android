@@ -11,7 +11,7 @@ import org.acra.config.MailSenderConfigurationBuilder;
 import org.acra.data.StringFormat;
 
 import protect.card_locker.preferences.Settings;
-import protect.card_locker.wearos.BluetoothServerService;
+import protect.card_locker.wearos.WearSyncServiceManager;
 
 public class LoyaltyCardLockerApplication extends Application {
 
@@ -46,8 +46,6 @@ public class LoyaltyCardLockerApplication extends Application {
         // Start Bluetooth server for Wear OS companion if enabled.
         // The service checks BLUETOOTH_CONNECT itself and stops if the permission is missing.
         // The permission is requested from the launcher Activity when the UI resumes.
-        if (settings.getWearSyncEnabled()) {
-            startService(new Intent(this, BluetoothServerService.class));
-        }
+        WearSyncServiceManager.INSTANCE.synchronize(this, null);
     }
 }

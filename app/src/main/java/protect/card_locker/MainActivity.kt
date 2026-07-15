@@ -20,7 +20,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
@@ -38,8 +37,7 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
-import protect.card_locker.shared.BluetoothPermissionHelper
-import protect.card_locker.wearos.BluetoothServerService
+import protect.card_locker.wearos.WearSyncPermissionRequester
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
 import androidx.core.content.edit
@@ -64,7 +62,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
-    private lateinit var mBtPermissionLauncher: ActivityResultLauncher<String>
+    private lateinit var mWearSyncPermissionRequester: WearSyncPermissionRequester
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -322,13 +320,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             }
         }
 
-        mBtPermissionLauncher = registerForActivityResult(
-            RequestPermission()
-        ) { granted ->
-            if (granted && Settings(this@MainActivity).wearSyncEnabled) {
-                startService(Intent(this@MainActivity, BluetoothServerService::class.java))
-            }
-        }
+        mWearSyncPermissionRequester = WearSyncPermissionRequester(this, this)
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -407,16 +399,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             layoutManager.setSpanCount(settings.getPreferredColumnCount())
         }
 
-        // If Wear sync is enabled but BLUETOOTH_CONNECT was revoked (e.g. by Android
-        // for an unused app), request it again when the UI resumes.
-        BluetoothPermissionHelper.requestBluetoothConnectIfNeeded(
-            this,
-            mBtPermissionLauncher
-        ) {
-            if (Settings(this).wearSyncEnabled) {
-                startService(Intent(this, BluetoothServerService::class.java))
-            }
-        }
+        mWearSyncPermissionRequester.synchronize()
     }
 
     private fun displayCardSetupOptions(menu: Menu, shouldShow: Boolean) {

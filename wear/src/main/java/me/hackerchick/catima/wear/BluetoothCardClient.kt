@@ -23,7 +23,8 @@ object BluetoothCardClient {
         WATCH_OUTDATED,
         NO_DEVICE,
         PERMISSION_DENIED,
-        BLUETOOTH_DISABLED
+        BLUETOOTH_DISABLED,
+        SYNC_ERROR
     }
 
     fun fetchCards(context: Context, onResult: (cards: String?, status: FetchStatus) -> Unit) {
@@ -67,6 +68,9 @@ object BluetoothCardClient {
 
             if (status == FetchStatus.NO_DEVICE) {
                 Log.w(TAG, "No Catima phone found among bonded devices")
+            }
+            if (status == FetchStatus.SYNC_ERROR) {
+                Log.w(TAG, "Failed to sync cards from phone")
             }
             onResult(result, status)
         }.start()
@@ -163,7 +167,7 @@ object BluetoothCardClient {
             Triple(cards, FetchStatus.SUCCESS, totalPages)
         } catch (_: Exception) {
             Log.w(TAG, "Unparseable response from phone for page $expectedPage")
-            Triple(null, FetchStatus.NO_DEVICE, 1)
+            Triple(null, FetchStatus.SYNC_ERROR, 1)
         }
     }
 }

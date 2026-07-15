@@ -191,7 +191,6 @@
     </plurals>
     <string name="updateBalance">Atnaujinti balansą</string>
     <string name="failedToRetrieveImageFile">Nepavyko gauti vaizdo failo</string>
-    <string name="barcodeLongPressMessage">Galerijos programėlėje galima atidaryti tik vaizdus</string>
     <string name="translate_platform">Weblate svetainėje</string>
     <string name="shortcutSelectCard">Pasirinkti kortelę</string>
     <string name="options">Parinktys</string>
@@ -220,7 +219,6 @@
     <string name="importCards">Importuoti korteles</string>
     <string name="storageReadPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie saugyklos…</string>
     <string name="cameraPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie kameros…</string>
-    <string name="openBackImageInGalleryApp">Atidarykite galinį vaizdą galerijos programėlėje</string>
     <string name="setBarcodeHeight">Nustatyti brūkšninio kodo aukštį</string>
     <string name="validFromDate">Galioja nuo</string>
     <string name="anyDate">Bet kuri data</string>
@@ -230,7 +228,6 @@
     <string name="switchToBarcode">Perjungti į brūkšninį kodą</string>
     <string name="height">Aukštis</string>
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
-    <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>
     <string name="donate">Aukoti</string>
     <string name="settings_keep_screen_on_summary">Išjungti ekrano užmigdymą kol peržiūrite kortelę</string>
     <string name="manually_enter_barcode_instructions">Įveskite ID numerį arba tekstą ant jūsų kortelės ir paspauskite brūkšninį kodą, kuris atrodo kaip ant jūsų kortelės.</string>

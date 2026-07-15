@@ -182,7 +182,6 @@
     <string name="selectColor">Seleccionar color</string>
     <string name="sort">Ordenar</string>
     <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="barcodeLongPressMessage">Solo se puede abrir imágenes en la aplicación de galería</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="passwordRequired">Ingresa la contraseña</string>
@@ -236,8 +235,6 @@
     <string name="switchToFrontImage">Cambiar a imagen frontal</string>
     <string name="switchToBackImage">Cambiar a imagen trasera</string>
     <string name="switchToBarcode">Cambiar a código de barras</string>
-    <string name="openFrontImageInGalleryApp">Abrir imagen frontal en aplicación para ver imágenes</string>
-    <string name="openBackImageInGalleryApp">Abrir imagen trasera en galería de fotos</string>
     <string name="setBarcodeHeight">Definir altura de código de barras</string>
     <string name="show_name_below_image_thumbnail">Mostrar nombre de la imagen bajo su miniatura</string>
     <string name="show_balance">Mostrar saldo</string>

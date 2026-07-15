@@ -150,7 +150,6 @@
     <string name="showMoreInfo">Ver info</string>
     <string name="updateBalance">Actualizar saldo</string>
     <string name="failedToRetrieveImageFile">Fallou a obtención do ficheiro de imaxe</string>
-    <string name="barcodeLongPressMessage">Só imaxes que se abren na app de galería</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Usadas recentemente</string>
     <string name="sort_by_expiry">Caducidade</string>
@@ -194,8 +193,6 @@
     <string name="height">Altura</string>
     <string name="switchToFrontImage">Cambiar á imaxe frontal</string>
     <string name="switchToBackImage">Cambiar á imaxe posterior</string>
-    <string name="openFrontImageInGalleryApp">Abrir imaxe frontal no visor de imaxes</string>
-    <string name="openBackImageInGalleryApp">Abrir imaxe posterior no visor de imaxes</string>
     <string name="setBarcodeHeight">Establecer altura do código de barras</string>
     <string name="icon_header_click_text">Pulsación longa para editar a miniatura</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome debaixo da miniatura</string>

@@ -202,7 +202,6 @@
     <string name="newBalanceSentence">Új egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Nem sikerült hozzáférni a kamerához</string>
     <string name="failedToRetrieveImageFile">Nem sikerült lekérni a képfájlt</string>
-    <string name="barcodeLongPressMessage">Csak képek nyithatók meg a galéria alkalmazásban</string>
     <string name="unarchived">Kártya archiválása megszüntetve</string>
     <string name="welcome">Üdvözöljük a Catimában</string>
     <string name="updateBalance">Egyenleg frissítése</string>
@@ -218,8 +217,6 @@
     <string name="switchToBackImage">Hátulnézeti képre váltás</string>
     <string name="switchToBarcode">Vonalkódra váltás</string>
     <string name="donate">Adományozás</string>
-    <string name="openBackImageInGalleryApp">Hátulnézeti kép megnyitása a galéria alkalmazásban</string>
-    <string name="openFrontImageInGalleryApp">Elölnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="setBarcodeHeight">Vonalkód magasságának megadása</string>
     <string name="icon_header_click_text">Hosszan nyomja meg a miniatűr szerkesztéséhez</string>
     <string name="show_note">Megjegyzés megjelenítése</string>

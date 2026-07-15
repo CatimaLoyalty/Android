@@ -200,7 +200,6 @@
     <string name="previousCard">Προηγούμενη</string>
     <string name="nextCard">Επόμενη</string>
     <string name="updateBalance">Ενημέρωση υπολοίπου</string>
-    <string name="barcodeLongPressMessage">Μόνο εικόνες μπορούν να ανοιχτούν στην εφαρμογή φωτογραφιών</string>
     <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμωτούς κώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
     <string name="importCards">Εισαγωγή καρτών</string>
     <string name="updateBalanceHint">Εισάγετε ποσό</string>
@@ -219,11 +218,9 @@
     <string name="switchToBarcode">Μετάβαση σε γραμμωτό κώδικα</string>
     <string name="validFromSentence">Ισχύει από: <xliff:g>%s</xliff:g></string>
     <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
-    <string name="openBackImageInGalleryApp">Ανοίξτε την οπίσθια εικόνα στη συλλογή εικόνων</string>
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
     <string name="donate">Δωρεά</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
-    <string name="openFrontImageInGalleryApp">Ανοίξτε την εμπρόσθια εικόνα στη συλλογή εικόνων</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
     <string name="validFromDate">Ισχύει από</string>
     <string name="anyDate">Οποιαδήποτε ημερομηνία</string>

@@ -1,6 +1,5 @@
 package protect.card_locker.cardview;
 
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -34,7 +33,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -44,7 +42,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
@@ -53,6 +50,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.*;
+import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
@@ -136,46 +134,27 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
-        // If this is an image, open it in the gallery.
-        openImageInGallery(imageType);
+        openImage(imageType);
     }
 
-    private void openImageInGallery(LoyaltyCardImageType imageType) {
-        File file = null;
-
+    private void openImage(LoyaltyCardImageType imageType) {
         switch (imageType) {
-            case NONE:
-                return;
             case ICON:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.icon);
+                startImageActivity(ImageLocationType.icon);
                 break;
             case IMAGE_FRONT:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
+                startImageActivity(ImageLocationType.front);
                 break;
             case IMAGE_BACK:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+                startImageActivity(ImageLocationType.back);
                 break;
-            case BARCODE:
-                Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
-                return;
+            default:
+                Log.w(TAG, "openImage called with unsupported image type!");
         }
+    }
 
-        // Do nothing if there is no file
-        if (file == null) {
-            Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW)
-                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
-                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // Display a toast message if an image viewer is not installed on device
-            Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+    private void startImageActivity(ImageLocationType imageLocationType) {
+        startActivity(LoyaltyCardImageViewActivity.createIntent(this, loyaltyCardId, imageLocationType));
     }
 
     @Override
@@ -291,7 +270,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         binding.iconContainer.setOnClickListener(view -> {
             if (loyaltyCard.getImageThumbnail(this) != null) {
-                openImageInGallery(LoyaltyCardImageType.ICON);
+                openImage(LoyaltyCardImageType.ICON);
             } else {
                 Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
             }
@@ -887,9 +866,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int accessibilityClickAction;
         LoyaltyCardImageType currentImageType = cardNavigator.getCurrent();
         if (currentImageType == LoyaltyCardImageType.IMAGE_FRONT) {
-            accessibilityClickAction = R.string.openFrontImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomFrontImage;
         } else if (currentImageType == LoyaltyCardImageType.IMAGE_BACK) {
-            accessibilityClickAction = R.string.openBackImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomBackImage;
         } else {
             accessibilityClickAction = R.string.moveBarcodeToTopOfScreen;
         }

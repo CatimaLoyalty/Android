@@ -1,0 +1,2 @@
+- Concede al usuario introducir el código de barras manualmente. Si un usuario elige introducir manualmente un código de barras, se muestra una lista de todas las imágenes válidas y compatibles del código de barras. El usuario puede seleccionar la imagen de código de barras que coincida con lo que el usuario quiere. incidencia #33 
+- Problema resuelto donde algunos códigos de barras mostrados eran borrosos. (issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

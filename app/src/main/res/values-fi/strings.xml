@@ -200,7 +200,6 @@
     <string name="welcome">Tervetuloa Catimaan</string>
     <string name="updateBalanceTitle">Kuinka paljon kulutit tai tienasit?</string>
     <string name="updateBalanceHint">Syötä summa</string>
-    <string name="barcodeLongPressMessage">Vain kuvia on mahdollista avata galleriasovelluksessa</string>
     <string name="archive">Arkistoi</string>
     <string name="importCards">Tuo kortteja</string>
     <string name="failedToRetrieveImageFile">Kuvatiedoston noutaminen epäonnistui</string>
@@ -223,14 +222,12 @@
     <string name="height">Korkeus</string>
     <string name="switchToFrontImage">Vaihda etukuvaan</string>
     <string name="switchToBarcode">Vaihda viivakoodiin</string>
-    <string name="openFrontImageInGalleryApp">Avaa etukuva kuvankatselusovelluksessa</string>
     <string name="settings_display_barcode_max_brightness_summary">Välttämätön, jotta jotkin skannerit toimivat</string>
     <string name="settings_keep_screen_on_summary">Poistaa näytön aikakatkaisun korttia katsellessa</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Poistaa näyttölukituksen käytöstä korttia katsellessa</string>
     <string name="settings_allow_content_provider_read_title">Salli muiden sovellusten käyttää omaa dataa</string>
     <string name="settings_oled_dark_summary">Vähentää akun käyttöä OLED-näytöillä</string>
     <string name="switchToBackImage">Vaihda takakuvaan</string>
-    <string name="openBackImageInGalleryApp">Avaa takakuva kuvankatselusovelluksessa</string>
     <string name="setBarcodeHeight">Aseta viivakoodin korkeus</string>
     <string name="icon_header_click_text">Pitkä painallus pikkukuvan muokkaamiseksi</string>
     <string name="show_name_below_image_thumbnail">Näytä nimi pikkukuvan alapuolella</string>

@@ -179,7 +179,6 @@
     <string name="options">選項</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
     <string name="failedToRetrieveImageFile">無法擷取圖片檔案</string>
-    <string name="barcodeLongPressMessage">圖庫應用程式僅可開啟圖片</string>
     <string name="duplicateCard">重複</string>
     <string name="archive">封存</string>
     <string name="unarchive">解除封存</string>
@@ -208,7 +207,6 @@
     <string name="currentBalanceSentence">餘額：<xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">新的餘額：<xliff:g>%s</xliff:g></string>
     <string name="switchToBarcode">選擇條碼</string>
-    <string name="openFrontImageInGalleryApp">在圖片檢視應用程式中開啟正面圖片</string>
     <string name="show_note">顯示備註</string>
     <string name="show_balance">顯示餘額</string>
     <string name="show_validity">顯示有效性</string>
@@ -217,7 +215,6 @@
     <string name="height">高</string>
     <string name="donate">捐款</string>
     <string name="icon_header_click_text">長按以編輯縮圖</string>
-    <string name="openBackImageInGalleryApp">在圖片檢視應用程式中開啟背面圖片</string>
     <string name="show_name_below_image_thumbnail">在縮圖下方顯示名稱</string>
     <string name="setBarcodeHeight">設定條碼高度</string>
     <string name="app_copyright_short">著作權所有© Sylvia van Os與其他貢獻者</string>

@@ -80,7 +80,6 @@
     <string name="never">Nekad</string>
     <string name="chooseExpiryDate">Izvēlēties beigu datumu</string>
     <string name="failedToRetrieveImageFile">Neizdevās iegūt attēla datni</string>
-    <string name="barcodeLongPressMessage">Galerijas lietotnē var atvērt tikai attēlus</string>
     <string name="sort_by_expiry">Derīgums</string>
     <string name="reverse">...apgrieztā secībā</string>
     <string name="credits">Pateicības</string>
@@ -215,7 +214,6 @@
     <string name="icon_header_click_text">Ilgi piespiest, lai labotu sīktēlu</string>
     <string name="anyDate">Jebkurš datums</string>
     <string name="height">Augstums</string>
-    <string name="openBackImageInGalleryApp">Atvērt aizmugures attēlu attēlu skatītāja lietotnē</string>
     <string name="donate">Ziedot</string>
     <string name="field_must_not_be_empty">Lauks nedrīkst būt tukšs</string>
     <string name="card_id_must_not_be_empty">Kartes identifikators nedrīkst būt tukšs</string>
@@ -224,7 +222,6 @@
     <string name="noCameraFoundGuideText">Šķiet, ka ierīcei nav kameras. Ja tā tomēr ir, jāmēģina pārsāknēt ierīci. Pretējā gadījumā jāizmanto zemāk esošā poga \"Vairāk iespēju\", lai pievienot svītrkodu citā veidā.</string>
     <string name="settings_allow_content_provider_read_title">Ļaut citām lietotnēm piekļūt maniem datiem</string>
     <string name="settings_allow_content_provider_read_summary">Lietotnēm joprojām būs jāpieprasa atļauja, lai nodrošinātu piekļuvi</string>
-    <string name="openFrontImageInGalleryApp">Atvērt priekšpuses attēlu attēlu skatītāja lietotnē</string>
     <string name="show_note">Rādīt piezīmi</string>
     <string name="show_balance">Rādīt atlikumu</string>
     <string name="settings_category_title_privacy">Privātums</string>

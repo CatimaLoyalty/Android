@@ -50,7 +50,6 @@ androidx-wear-compose-material = { group = "androidx.wear.compose", name = "comp
 androidx-wear-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "wearCompose" }
 androidx-wear-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "wearCompose" }
 
-
 # Testing
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidXTest" }
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidXTest" }

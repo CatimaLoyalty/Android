@@ -35,6 +35,7 @@ public class LoyaltyCardListDisplayOptionsManager {
 
     private boolean mShowNameBelowThumbnail;
     private boolean mShowNote;
+    private boolean mShowCardId;
     private boolean mShowBalance;
     private boolean mShowValidity;
     private boolean mShowArchivedCards;
@@ -50,6 +51,7 @@ public class LoyaltyCardListDisplayOptionsManager {
                 Context.MODE_PRIVATE);
         mShowNameBelowThumbnail = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_name_below_thumbnail), false);
         mShowNote = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_note), true);
+        mShowCardId = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_card_id), false);
         mShowBalance = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_balance), true);
         mShowValidity = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
         mShowArchivedCards = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_archived_cards), true);
@@ -81,6 +83,17 @@ public class LoyaltyCardListDisplayOptionsManager {
 
     public boolean showingNote() {
         return mShowNote;
+    }
+
+    public void showCardId(boolean show) {
+        mShowCardId = show;
+        mRefreshCardsCallback.run();
+
+        saveDetailState(R.string.sharedpreference_card_details_show_card_id, show);
+    }
+
+    public boolean showingCardId() {
+        return mShowCardId;
     }
 
     public void showBalance(boolean show) {
@@ -136,6 +149,11 @@ public class LoyaltyCardListDisplayOptionsManager {
                 mContext.getString(R.string.show_note),
                 showingNote(),
                 this::showNote
+        ));
+        displayOptions.add(new LoyaltyCardDisplayOption(
+                mContext.getString(R.string.show_card_id),
+                showingCardId(),
+                this::showCardId
         ));
         displayOptions.add(new LoyaltyCardDisplayOption(
                 mContext.getString(R.string.show_balance),

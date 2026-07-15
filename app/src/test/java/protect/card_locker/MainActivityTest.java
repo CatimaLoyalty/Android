@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.test.core.app.ApplicationProvider;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
@@ -112,6 +113,76 @@ public class MainActivityTest {
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getAdapter().getItemCount());
+
+        database.close();
+    }
+
+    @Test
+    public void cardIdHiddenByDefault() {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity) activityController.get();
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        RecyclerView list = mainActivity.findViewById(R.id.list);
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "", null, null, new BigDecimal("0"), null, "1234567890", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+
+        activityController.pause();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Make sure there is enough space to render all
+        list.measure(0, 0);
+        list.layout(0, 0, 100, 1000);
+
+        // Card ID is hidden by default
+        TextView cardIdField = list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.cardId);
+        assertEquals(View.GONE, cardIdField.getVisibility());
+
+        database.close();
+    }
+
+    @Test
+    public void showCardIdDisplayOption() {
+        // The display option is read in the adapter's constructor (during onCreate), so the
+        // preference must be set before the activity is built.
+        SharedPreferences cardDetailsPref = ApplicationProvider.getApplicationContext().getSharedPreferences(
+                ApplicationProvider.getApplicationContext().getString(R.string.sharedpreference_card_details),
+                Activity.MODE_PRIVATE);
+        cardDetailsPref.edit().putBoolean(
+                ApplicationProvider.getApplicationContext().getString(R.string.sharedpreference_card_details_show_card_id), true).apply();
+
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity) activityController.get();
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        RecyclerView list = mainActivity.findViewById(R.id.list);
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "", null, null, new BigDecimal("0"), null, "1234567890", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+
+        activityController.pause();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Make sure there is enough space to render all
+        list.measure(0, 0);
+        list.layout(0, 0, 100, 1000);
+
+        TextView cardIdField = list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.cardId);
+        assertEquals(View.VISIBLE, cardIdField.getVisibility());
+        assertEquals("1234567890", cardIdField.getText().toString());
 
         database.close();
     }

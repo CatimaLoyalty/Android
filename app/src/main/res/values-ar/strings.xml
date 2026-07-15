@@ -220,7 +220,6 @@
     <string name="previousCard">السابق</string>
     <string name="nextCard">التالي</string>
     <string name="failedToRetrieveImageFile">فشل في استخراج ملف الصورة</string>
-    <string name="barcodeLongPressMessage">يمكن فتح صور فقط في تطبيق معرض الصور</string>
     <string name="failedToOpenUrl">ثبت متصفح ويب أولاً</string>
     <string name="welcome">مرحبًا بك في كاتيما</string>
     <string name="updateBalanceTitle">كم أنفقت أو استلمت؟</string>
@@ -243,7 +242,6 @@
     <string name="permissionReadCardsLabel">اقرأ بطاقات كاتيما</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حقوق النشر © 2019–<xliff:g>%d</xliff:g> Sylvia van Os والمساهمون</string>
     <string name="app_copyright_short">حقوق النشر © Sylvia van Os والمساهمون</string>
-    <string name="openFrontImageInGalleryApp">افتح الصورة الأمامية في تطبيق المعرض</string>
     <string name="show_name_below_image_thumbnail">إظهار الاسم أسفل الصورة المصغرة</string>
     <string name="show_validity">إظهار الصلاحية</string>
     <string name="view_online">مشاهدة حية</string>
@@ -259,7 +257,6 @@
     <string name="switchToFrontImage">التبديل إلى الصورة الأمامية</string>
     <string name="settings_allow_content_provider_read_summary">سيظل يتعين على التطبيقات طلب الإذن لمنحها حق الوصول</string>
     <string name="setBarcodeHeight">ضبط ارتفاع الباركود</string>
-    <string name="openBackImageInGalleryApp">فتح الصورة الخلفية في تطبيق المعرض</string>
     <string name="settings_allow_content_provider_read_title">السماح للتطبيقات الأخرى بالوصول إلى بياناتي</string>
     <string name="donate">تبرّع</string>
     <string name="show_archived_cards">عرض البطاقات المؤرشفة</string>

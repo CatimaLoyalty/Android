@@ -203,7 +203,6 @@
     <string name="failedToOpenUrl">Installer en nettleser først</string>
     <string name="welcome">Velkommen til Catima</string>
     <string name="failedToRetrieveImageFile">Kunne ikke hente bildefil</string>
-    <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriprogrammet</string>
     <string name="cameraPermissionDeniedTitle">Fikk ikke tilgang til kameraet</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima trenger kameratilgang for å skanne strekkoder. Trykk her for å endre tilgangsinnstillingene.</string>
     <string name="importCards">Importer kort</string>
@@ -227,8 +226,6 @@
     <string name="show_balance">Vis saldo</string>
     <string name="show_note">Vis notat</string>
     <string name="show_validity">Vis gyldighet</string>
-    <string name="openFrontImageInGalleryApp">Åpne frontbilde i galleriprogrammet</string>
-    <string name="openBackImageInGalleryApp">Åpne baksidebilde i galleriprogram</string>
     <string name="setBarcodeHeight">Sett strekkodehøyde</string>
     <string name="donate">Doner</string>
     <string name="permissionReadCardsLabel">Les Catima-kort</string>

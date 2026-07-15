@@ -16,7 +16,7 @@
     <string name="addCardTitle">Añadir tarjeta</string>
     <string name="scanCardBarcode">Escanear código de barras</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
-    <string name="noCardsMessage">Añada una tarjeta primero</string>
+    <string name="noCardsMessage">Añada una primera tarjeta</string>
     <string name="noCardExistsError">No se ha podido encontrar esa tarjeta</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
@@ -25,7 +25,7 @@
     <string name="importFailedTitle">Falló la importación</string>
     <string name="importFailed">No se ha podido realizar la importación</string>
     <string name="exportSuccessfulTitle">Exportado</string>
-    <string name="exportFailedTitle">Falló la exportación</string>
+    <string name="exportFailedTitle">Exportación incorrecta</string>
     <string name="exportFailed">No se han podido exportar</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
@@ -47,7 +47,7 @@
     <string name="settings_theme">Tema</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain
 \nderechos de autor © 2016-2020 de Branden Archer</string>
-    <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija</string>
+    <string name="exportOptionExplanation">Los datos serán escritos en el lugar que elija</string>
     <string name="failedParsingImportUriError">No se pudo procesar el URI de importación</string>
     <string name="share">Compartir</string>
     <string name="barcodeType">Tipo de código de barras</string>
@@ -205,13 +205,12 @@
     </plurals>
     <string name="starred">Estrellado</string>
     <string name="failedToRetrieveImageFile">No se pudo recuperar el archivo de imagen</string>
-    <string name="barcodeLongPressMessage">Solo se pueden abrir imágenes en la aplicación de galería</string>
     <string name="updateBalanceTitle">¿Cuánto has gastado o recibido?</string>
     <string name="currentBalanceSentence">Saldo actual: <xliff:g>%s</xliff:g></string>
-    <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barras, Catima necesitará acceso a su cámara. Toque aquí para cambiar la configuración de sus permisos.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barras, Catima necesitará acceso a su cámara. Toque aquí para cambiar los ajustes de su permiso.</string>
     <string name="updateBalanceHint">Introduzca el importe</string>
     <string name="newBalanceSentence">Nuevo balance: <xliff:g>%s</xliff:g></string>
-    <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
+    <string name="cameraPermissionDeniedTitle">No pudo acceder a la cámara</string>
     <string name="updateBalance">Actualizar el balance</string>
     <string name="importCards">Importar tarjetas</string>
     <string name="storageReadPermissionRequired">Se necesita permiso para leer el almacenamiento para esta acción…</string>
@@ -222,8 +221,6 @@
     <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
     <string name="height">Alto</string>
     <string name="switchToFrontImage">Cambiar a imagen frontal</string>
-    <string name="openFrontImageInGalleryApp">Abrir imagen frontal en la aplicación de la galería</string>
-    <string name="openBackImageInGalleryApp">Abrir imagen trasera en la aplicación de visor de imagen</string>
     <string name="setBarcodeHeight">Ajustar la altura del código de barras</string>
     <string name="donate">Donar</string>
     <string name="switchToBarcode">Cambiar a código de barras</string>
@@ -234,7 +231,7 @@
     <string name="show_validity">Mostrar la validez</string>
     <string name="show_balance">Mostrar el saldo</string>
     <string name="permissionReadCardsLabel">Leer Tarjetas Catima</string>
-    <string name="permissionReadCardsDescription">leer tus tarjetas Catima y todos sus detalles, incluidas notas e imágenes</string>
+    <string name="permissionReadCardsDescription">lea sus tarjetas Catima y todos sus detalles, incluyendo notas e imágenes</string>
     <string name="settings_allow_content_provider_read_title">Permite a otras aplicaciones acceder a mis datos</string>
     <string name="settings_display_barcode_max_brightness_summary">Necesario para que funcione en algunos escáneres</string>
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>

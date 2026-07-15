@@ -219,8 +219,8 @@
     <string name="showMoreInfo">Show info</string>
     <string name="updateBalance">Update balance</string>
     <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
-    <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
     <string name="sort_by_name">Name</string>
+    <string name="sort_by_most_recently_added">Most recently added</string>
     <string name="sort_by_most_recently_used">Most recently used</string>
     <string name="sort_by_valid_from">Valid from</string>
     <string name="sort_by_expiry">Expiry</string>
@@ -271,8 +271,8 @@
     <string name="switchToFrontImage">Switch to front image</string>
     <string name="switchToBackImage">Switch to back image</string>
     <string name="switchToBarcode">Switch to barcode</string>
-    <string name="openFrontImageInGalleryApp">Open front image in image viewer app</string>
-    <string name="openBackImageInGalleryApp">Open back image in image viewer app</string>
+    <string name="zoomFrontImage">Zoom front image</string>
+    <string name="zoomBackImage">Zoom back image</string>
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
     <string name="icon_header_click_text">Long press to edit thumbnail</string>
@@ -280,10 +280,12 @@
     <string name="show_note">Show note</string>
     <string name="show_balance">Show balance</string>
     <string name="show_validity">Show validity</string>
+    <string name="show_card_id">Show card ID</string>
     <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
     <string name="sharedpreference_card_details_show_note" translatable="false">sharedpreference_card_details_show_note</string>
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
+    <string name="sharedpreference_card_details_show_card_id" translatable="false">sharedpreference_card_details_show_card_id</string>
     <string name="sharedpreference_card_details_show_archived_cards" translatable="false">sharedpreference_card_details_show_archived_cards</string>
     <string name="settings_category_title_cards">Card view</string>
     <string name="settings_category_title_cards_overview">Cards overview</string>

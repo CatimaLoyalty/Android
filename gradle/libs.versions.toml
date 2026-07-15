@@ -56,13 +56,13 @@ androidx-test-core = { group = "androidx.test", name = "core", version.ref = "an
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidXTest" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidXTest" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version = "1.3.0" }
-androidx-test-uiautomator-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version = "2.3.0" }
+androidx-test-uiautomator-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version = "2.4.0" }
 androidx-test-espresso-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.7.0" }
 junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.16.1" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version = "9.2.1" }
+com-android-application = { id = "com.android.application", version = "9.3.0" }
 com-android-library = { id = "com.android.library", version = "9.2.1" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

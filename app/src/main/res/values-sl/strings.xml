@@ -211,7 +211,6 @@
     <string name="settings_oled_dark">Čisto črno ozadje za temno temo</string>
     <string name="selectColor">Izberi barvo</string>
     <string name="app_contributors">Omogočeno od: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="barcodeLongPressMessage">V aplikaciji za gledanje slik lahko odpremo samo slike</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>
         <item quantity="two"><xliff:g>%1$d</xliff:g> kartici (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirani)</item>
@@ -287,8 +286,6 @@
     <string name="switchToFrontImage">Preklopi na prednjo sliko</string>
     <string name="switchToBackImage">Preklopi na zadnjo sliko</string>
     <string name="switchToBarcode">Preklopi na črtno kodo</string>
-    <string name="openFrontImageInGalleryApp">Odpri sprednjo sliko v aplikaciji za slike</string>
-    <string name="openBackImageInGalleryApp">Odpri zadnjo sliko v aplikaciji za slike</string>
     <string name="setBarcodeHeight">Nastavi višino črtne kode</string>
     <string name="useFrontImage">Uporabi prednjo sliko</string>
     <string name="useBackImage">Uporabi zadnjo sliko</string>

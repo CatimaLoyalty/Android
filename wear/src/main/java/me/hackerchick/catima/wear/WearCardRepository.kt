@@ -23,28 +23,8 @@ object WearCardRepository {
         }
     }
 
-    fun setSyncing(value: Boolean) {
-        _syncStatus.value = if (value) SyncStatus.SYNCING else SyncStatus.OK
-    }
-
-    fun setPhoneNotReachable() {
-        _syncStatus.value = SyncStatus.PHONE_NOT_REACHABLE
-    }
-
-    fun setPhoneOutdated() {
-        _syncStatus.value = SyncStatus.PHONE_OUTDATED
-    }
-
-    fun setWatchOutdated() {
-        _syncStatus.value = SyncStatus.WATCH_OUTDATED
-    }
-
-    fun setPermissionDenied() {
-        _syncStatus.value = SyncStatus.PERMISSION_DENIED
-    }
-
-    fun setBluetoothDisabled() {
-        _syncStatus.value = SyncStatus.BLUETOOTH_DISABLED
+    fun setSyncStatus(status: SyncStatus) {
+        _syncStatus.value = status
     }
 
     fun updateCards(context: Context, json: String) {

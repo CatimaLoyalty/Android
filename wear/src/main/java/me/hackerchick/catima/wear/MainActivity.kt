@@ -86,43 +86,24 @@ class MainActivity : ComponentActivity() {
 
     private fun requestCardsFromPhone() {
         fetchInFlight = true
-        WearCardRepository.setSyncing(true)
+        WearCardRepository.setSyncStatus(SyncStatus.SYNCING)
         BluetoothCardClient.fetchCards(this) { json, status ->
             fetchInFlight = false
             when (status) {
-                BluetoothCardClient.FetchStatus.SUCCESS -> {
+                SyncStatus.OK -> {
                     if (json != null) {
                         Log.d(TAG, "Got cards via Bluetooth")
                         WearCardRepository.updateCards(this, json)
                     } else {
-                        WearCardRepository.setPhoneNotReachable()
+                        WearCardRepository.setSyncStatus(SyncStatus.PHONE_NOT_REACHABLE)
                     }
                 }
-                BluetoothCardClient.FetchStatus.PHONE_OUTDATED -> {
-                    Log.w(TAG, "Phone app is outdated")
-                    WearCardRepository.setPhoneOutdated()
-                }
-                BluetoothCardClient.FetchStatus.WATCH_OUTDATED -> {
+                SyncStatus.WATCH_OUTDATED -> {
                     Log.w(TAG, "Wear app is outdated")
                     protocolIncompatible = true
-                    WearCardRepository.setWatchOutdated()
+                    WearCardRepository.setSyncStatus(status)
                 }
-                BluetoothCardClient.FetchStatus.NO_DEVICE -> {
-                    Log.w(TAG, "Bluetooth failed, phone not reachable")
-                    WearCardRepository.setPhoneNotReachable()
-                }
-                BluetoothCardClient.FetchStatus.PERMISSION_DENIED -> {
-                    Log.w(TAG, "Bluetooth permission denied")
-                    WearCardRepository.setPermissionDenied()
-                }
-                BluetoothCardClient.FetchStatus.BLUETOOTH_DISABLED -> {
-                    Log.w(TAG, "Bluetooth is disabled")
-                    WearCardRepository.setBluetoothDisabled()
-                }
-                BluetoothCardClient.FetchStatus.SYNC_ERROR -> {
-                    Log.w(TAG, "Sync error from phone")
-                    WearCardRepository.setPhoneNotReachable()
-                }
+                else -> WearCardRepository.setSyncStatus(status)
             }
         }
     }

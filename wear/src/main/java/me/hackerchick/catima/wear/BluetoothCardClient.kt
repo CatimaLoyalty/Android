@@ -17,34 +17,29 @@ object BluetoothCardClient {
 
     private const val TAG = "CatimaBtClient"
 
-    enum class FetchStatus {
-        SUCCESS,
-        PHONE_OUTDATED,
-        WATCH_OUTDATED,
-        NO_DEVICE,
-        PERMISSION_DENIED,
-        BLUETOOTH_DISABLED,
-        SYNC_ERROR
-    }
-
-    fun fetchCards(context: Context, onResult: (cards: String?, status: FetchStatus) -> Unit) {
+    fun fetchCards(context: Context, onResult: (cards: String?, status: SyncStatus) -> Unit) {
         if (!BluetoothPermissionHelper.isBluetoothConnectGranted(context)) {
             Log.w(TAG, "BLUETOOTH_CONNECT permission not granted")
-            onResult(null, FetchStatus.PERMISSION_DENIED)
+            onResult(null, SyncStatus.PERMISSION_DENIED)
             return
         }
 
         val adapter = (context.getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
         if (adapter == null || !adapter.isEnabled) {
             Log.w(TAG, "Bluetooth not available or disabled")
-            onResult(null, FetchStatus.BLUETOOTH_DISABLED)
+            onResult(null, SyncStatus.BLUETOOTH_DISABLED)
             return
         }
 
-        val bondedDevices = adapter.bondedDevices
+        val bondedDevices = try {
+            adapter.bondedDevices
+        } catch (e: SecurityException) {
+            Log.w(TAG, "BLUETOOTH_CONNECT permission rejected", e)
+            emptySet<android.bluetooth.BluetoothDevice>()
+        }
         if (bondedDevices.isEmpty()) {
             Log.w(TAG, "No bonded devices found")
-            onResult(null, FetchStatus.NO_DEVICE)
+            onResult(null, SyncStatus.PHONE_NOT_REACHABLE)
             return
         }
 
@@ -52,23 +47,20 @@ object BluetoothCardClient {
 
         Thread {
             var result: String? = null
-            var status = FetchStatus.NO_DEVICE
+            var status = SyncStatus.PHONE_NOT_REACHABLE
             for (device in bondedDevices) {
-                val deviceName = try { device.name } catch (_: Exception) { "unknown" }
+                val deviceName = try { device.name } catch (_: SecurityException) { "unknown" }
                 Log.d(TAG, "Trying $deviceName")
                 val fetchResult = fetchCardsFromDevice(device, deviceName)
-                if (fetchResult.second != FetchStatus.NO_DEVICE) {
+                if (fetchResult.second != SyncStatus.PHONE_NOT_REACHABLE) {
                     result = fetchResult.first
                     status = fetchResult.second
                     break
                 }
             }
 
-            if (status == FetchStatus.NO_DEVICE) {
-                Log.w(TAG, "No Catima phone found among bonded devices")
-            }
-            if (status == FetchStatus.SYNC_ERROR) {
-                Log.w(TAG, "Failed to sync cards from phone")
+            if (status == SyncStatus.PHONE_NOT_REACHABLE) {
+                Log.w(TAG, "Bluetooth sync failed, phone not reachable")
             }
             onResult(result, status)
         }.start()
@@ -77,16 +69,16 @@ object BluetoothCardClient {
     private fun fetchCardsFromDevice(
         device: android.bluetooth.BluetoothDevice,
         deviceName: String
-    ): Pair<String?, FetchStatus> {
+    ): Pair<String?, SyncStatus> {
         var socket: BluetoothSocket? = null
         return try {
             socket = device.createRfcommSocketToServiceRecord(WearBluetoothProtocol.BT_SERVICE_UUID)
             socket.connect()
             val supportedVersions = requestSupportedVersions(socket)
-                ?: return null to FetchStatus.NO_DEVICE
+                ?: return null to SyncStatus.PHONE_NOT_REACHABLE
             if (WearBluetoothProtocol.PROTOCOL_VERSION !in supportedVersions) {
                 Log.w(TAG, "Phone does not support API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
-                return null to FetchStatus.WATCH_OUTDATED
+                return null to SyncStatus.WATCH_OUTDATED
             }
             socket.close()
             socket = null
@@ -108,11 +100,11 @@ object BluetoothCardClient {
                 val json = reader.readLine()?.trim() ?: ""
                 if (json.isEmpty()) {
                     Log.w(TAG, "Empty response for page $pageIndex from $deviceName")
-                    return null to FetchStatus.NO_DEVICE
+                    return null to SyncStatus.PHONE_NOT_REACHABLE
                 }
 
                 val parsed = parsePageResponse(json, pageIndex)
-                if (parsed.second != FetchStatus.SUCCESS) {
+                if (parsed.second != SyncStatus.OK) {
                     return null to parsed.second
                 }
                 val pageCards = JSONArray(parsed.first!!)
@@ -129,10 +121,10 @@ object BluetoothCardClient {
             }
 
             Log.d(TAG, "Fetched ${allCards.length()} cards in $totalPages page(s) from $deviceName")
-            allCards.toString() to FetchStatus.SUCCESS
+            allCards.toString() to SyncStatus.OK
         } catch (e: Exception) {
             Log.d(TAG, "Failed to connect to $deviceName: ${e.message}")
-            null to FetchStatus.NO_DEVICE
+            null to SyncStatus.PHONE_NOT_REACHABLE
         } finally {
             try { socket?.close() } catch (_: Exception) { }
         }
@@ -157,15 +149,15 @@ object BluetoothCardClient {
         }
     }
 
-    private fun parsePageResponse(json: String, expectedPage: Int): Triple<String?, FetchStatus, Int> {
+    private fun parsePageResponse(json: String, expectedPage: Int): Triple<String?, SyncStatus, Int> {
         return try {
             val obj = JSONObject(json)
             val cards = obj.getJSONArray("cards").toString()
             val totalPages = obj.optInt("totalPages", 1)
-            Triple(cards, FetchStatus.SUCCESS, totalPages)
+            Triple(cards, SyncStatus.OK, totalPages)
         } catch (_: Exception) {
             Log.w(TAG, "Unparseable response from phone for page $expectedPage")
-            Triple(null, FetchStatus.SYNC_ERROR, 1)
+            Triple(null, SyncStatus.PHONE_NOT_REACHABLE, 1)
         }
     }
 }

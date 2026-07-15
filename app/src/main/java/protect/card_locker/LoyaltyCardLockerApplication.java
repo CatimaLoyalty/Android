@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
-
 import org.acra.ACRA;
 import org.acra.config.CoreConfigurationBuilder;
 import org.acra.config.DialogConfigurationBuilder;
@@ -45,11 +43,10 @@ public class LoyaltyCardLockerApplication extends Application {
         Settings settings = new Settings(this);
         AppCompatDelegate.setDefaultNightMode(settings.getTheme());
 
-        // Start Bluetooth server for Wear OS companion if enabled
-        if (settings.getWearSyncEnabled() &&
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
-                == android.content.pm.PackageManager.PERMISSION_GRANTED
-        ) {
+        // Start Bluetooth server for Wear OS companion if enabled.
+        // The service checks BLUETOOTH_CONNECT itself and stops if the permission is missing.
+        // The permission is requested from the launcher Activity when the UI resumes.
+        if (settings.getWearSyncEnabled()) {
             startService(new Intent(this, BluetoothServerService.class));
         }
     }

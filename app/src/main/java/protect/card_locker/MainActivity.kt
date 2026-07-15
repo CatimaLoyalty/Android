@@ -7,6 +7,7 @@ import android.database.CursorIndexOutOfBoundsException
 import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import android.os.Build
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -20,9 +21,11 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -37,6 +40,7 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
+import protect.card_locker.wearos.BluetoothServerService
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
 import androidx.core.content.edit
@@ -61,6 +65,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mBtPermissionLauncher: ActivityResultLauncher<String>
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -318,6 +323,14 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             }
         }
 
+        mBtPermissionLauncher = registerForActivityResult(
+            RequestPermission()
+        ) { granted ->
+            if (granted && Settings(this@MainActivity).wearSyncEnabled) {
+                startService(Intent(this@MainActivity, BluetoothServerService::class.java))
+            }
+        }
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (mSearchView != null && !mSearchView!!.isIconified) {
@@ -393,6 +406,18 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         if (layoutManager != null) {
             val settings = Settings(this)
             layoutManager.setSpanCount(settings.getPreferredColumnCount())
+        }
+
+        // If Wear sync is enabled but BLUETOOTH_CONNECT was revoked (e.g. by Android
+        // for an unused app), request it again when the UI resumes.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val settings = Settings(this)
+            if (settings.wearSyncEnabled &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                mBtPermissionLauncher.launch(android.Manifest.permission.BLUETOOTH_CONNECT)
+            }
         }
     }
 

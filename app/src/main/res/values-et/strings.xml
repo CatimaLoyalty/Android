@@ -303,4 +303,8 @@
     <string name="change_settings">Muuda seadistusi</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Vältimaks, et lähiväljaside (NFC) abil toimiv makseliides käivitub, lülitatakse kaardi vaatamisel lähiväljaside (NFC) välja</string>
     <string name="nfc_block_system_error">Lähiväljaside (NFC) peatamine ei õnnestunud</string>
+    <string name="sort_by_most_recently_added">Viimasena lisatud</string>
+    <string name="zoomFrontImage">Suumi esikaane pilti</string>
+    <string name="zoomBackImage">Suumi tagakaane pilti</string>
+    <string name="show_card_id">Näita kaardi tunnust</string>
 </resources>

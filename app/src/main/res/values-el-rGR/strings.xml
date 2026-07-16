@@ -303,4 +303,8 @@
     <string name="nfc_blocked_while_viewing_card">Το NFC είναι σε παύση</string>
     <string name="change_settings">Αλλαγή ρυθμίσεων</string>
     <string name="nfc_block_system_error">Αποτυχία παύσης NFC</string>
+    <string name="sort_by_most_recently_added">Πρόσφατα προστεθέντα</string>
+    <string name="zoomFrontImage">Μεγέθυνση μπροστινής εικόνας</string>
+    <string name="zoomBackImage">Μεγέθυνση πίσω εικόνας</string>
+    <string name="show_card_id">Εμφάνιση ταυτότητας κάρτας</string>
 </resources>

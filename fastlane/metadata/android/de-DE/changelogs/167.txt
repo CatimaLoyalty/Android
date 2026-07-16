@@ -1,0 +1,3 @@
+- NEU: Anzeige der Karten-ID in der Kartenliste
+- NEU: Sortierung nach „zuletzt hinzugefügt“
+- NEU: Interner Bildbetrachter zum Zoomen der Vorder- und Rückseitenbilder sowie der Icons einer Karte

@@ -297,4 +297,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC 已暂停</string>
     <string name="change_settings">更改设置</string>
     <string name="nfc_block_system_error">暂停 NFC 失败</string>
+    <string name="sort_by_most_recently_added">最近添加</string>
+    <string name="zoomFrontImage">缩放正面图</string>
+    <string name="zoomBackImage">缩放反面图</string>
+    <string name="show_card_id">显示卡片 ID</string>
 </resources>

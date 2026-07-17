@@ -1,0 +1,5 @@
+- Adicionado suporte para criar atalhos na tela inicial ao adicionar ou editar um cartão.
+- Widget removido, pois era um substituto insatisfatório para os atalhos.
+- Corrigida a exportação de backups no Android 7+.
+- Informado um tipo mime mais preciso ao exportar dados de backup.
+- Corrigido um erro que impedia a edição de cartões.

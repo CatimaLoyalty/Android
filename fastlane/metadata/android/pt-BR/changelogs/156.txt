@@ -1,0 +1,2 @@
+- Copie o ID do cartão para a área de transferência a partir da tela de detalhes ou mantendo o item pressionado
+- Inverta os campos de saldo e moeda para tentar reduzir arredondamentos indesejados

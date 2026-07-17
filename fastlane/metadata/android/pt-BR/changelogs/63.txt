@@ -1,0 +1,3 @@
+- Suporte para importar arquivos exportados do Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Opção de manter a tela ligada ao visualizar um cartão de fidelidade
+- Opção de suspender a tela de bloqueio ao visualizar um cartão de fidelidade

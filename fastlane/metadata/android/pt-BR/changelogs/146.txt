@@ -1,0 +1,2 @@
+- Capacidade de ordenar cartões pela data de início de validade
+- Reverter temporariamente o alvo para o Android 14 para corrigir alguns problemas de interface

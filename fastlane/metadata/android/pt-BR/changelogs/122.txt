@@ -1,0 +1,3 @@
+- Pressione e segure o ícone do cartão na tela de visualização para alterá-lo
+- Melhore o estilo dos botões na tela de Grupos
+- Corrija valores de código de barras longos que faziam o código de barras encolher até desaparecer

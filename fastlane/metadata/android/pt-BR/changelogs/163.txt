@@ -1,0 +1,2 @@
+- Detectar automaticamente URLs no ID do cartão e torná-las clicáveis no pop-up de detalhes do ID
+- Corrigir a atividade de seleção de código de barras que exibia quadrados brancos em vez dos códigos de barras

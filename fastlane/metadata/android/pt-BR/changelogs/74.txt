@@ -1,0 +1,3 @@
+- Corrigir a criação de atalhos
+- Gerar ícone de atalho específico para o cartão
+- Corrigir a possibilidade de alterar a cor do cartão de fidelidade

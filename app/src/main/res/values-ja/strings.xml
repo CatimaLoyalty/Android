@@ -296,4 +296,8 @@
     <string name="nfc_blocked_while_viewing_card">NFCは停止中です</string>
     <string name="change_settings">設定を変更する</string>
     <string name="nfc_block_system_error">NFCの一時停止に失敗</string>
+    <string name="sort_by_most_recently_added">最近追加されたもの</string>
+    <string name="zoomFrontImage">券面を拡大</string>
+    <string name="zoomBackImage">背面を拡大</string>
+    <string name="show_card_id">カードIDを表示</string>
 </resources>

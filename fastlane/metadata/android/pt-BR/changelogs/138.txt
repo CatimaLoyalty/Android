@@ -1,0 +1,1 @@
+- Correção do gesto de voltar na tela principal, que fechava o teclado e a busca no Android 13+

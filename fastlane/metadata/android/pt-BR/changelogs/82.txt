@@ -1,0 +1,4 @@
+- Suporte aprimorado para leitores de tela
+- Correção de falha ao tentar abrir um vídeo da galeria
+- Suporte a gestos de deslizar na tela de visualização do cartão de fidelidade
+- O grupo não é mais redefinido ao pressionar o botão de voltar

@@ -1,0 +1,2 @@
+- Aprimorar a lógica de processamento do saldo
+- Corrigir a exibição de casas decimais de moeda na tela principal

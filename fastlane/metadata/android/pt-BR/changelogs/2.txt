@@ -1,0 +1,3 @@
+- Traduções para o italiano
+- Suporte para todos os tipos de código de barras 1D. (Originalmente, apenas códigos de barras 1D de produtos eram suportados)
+- Adição da permissão de câmera necessária, que estava ausente inicialmente.

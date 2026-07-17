@@ -1,0 +1,3 @@
+- Suporte à leitura de códigos de barras em arquivos PDF
+- Suporte a arquivos de imagem com múltiplos códigos de barras
+- Pequenas correções na interface do usuário

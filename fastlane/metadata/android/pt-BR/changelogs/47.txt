@@ -1,0 +1,2 @@
+- Sempre exibir todas as opções de importação/exportação e mostrar uma notificação (toast) em caso de problemas reais (melhora a compatibilidade com o XPrivacyLua)
+- Solicitar confirmação ao sair da tela de edição após realizar alterações sem salvar

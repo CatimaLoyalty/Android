@@ -1,0 +1,1 @@
+- Corrige falha ao abrir arquivos pkpass inválidos

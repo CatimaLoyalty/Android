@@ -1,0 +1,4 @@
+- Direcionar para o Android 14
+- Abrir o ícone do cartão na galeria ao tocar
+- Melhorar o design da aba Fotos na visualização de edição
+- Atualizar a tela de gastos para também oferecer suporte a recebimentos

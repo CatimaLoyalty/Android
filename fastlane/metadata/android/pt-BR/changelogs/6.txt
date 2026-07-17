@@ -1,0 +1,2 @@
+- Permitir que o usuário insira o código de barras manualmente. Se o usuário optar por inserir um código de barras manualmente, uma lista de todas as imagens de código de barras válidas e suportadas é exibida. O usuário pode então selecionar a imagem do código de barras correspondente ao que deseja.
+- Corrigir problema em que alguns códigos de barras exibidos ficavam borrados.

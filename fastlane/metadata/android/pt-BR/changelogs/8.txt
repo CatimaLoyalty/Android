@@ -1,0 +1,4 @@
+- O brilho da tela aumenta para o máximo ao exibir um cartão, para ajudar os leitores de código de barras a capturá-lo com sucesso.
+- Adição de confirmação ao excluir um cartão.
+- Adição de traduções para alemão e tcheco.
+- Alteração para maior clareza na tradução para italiano.

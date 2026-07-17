@@ -1,0 +1,6 @@
+- Adicionar suporte a códigos de barras UTF-8
+- Adicionar opção de duplicar à tela principal e reorganizar levemente as opções
+- Corrigir a configuração de contagem de colunas que não estava sendo aplicada à lista de cartões agrupados
+- Remover suporte a cores de tema
+- Reduzir o tamanho máximo da foto para diminuir o uso de armazenamento (apenas para fotos recém-adicionadas)
+- Migrar a tela "Sobre" de XML do Android para Jetpack Compose

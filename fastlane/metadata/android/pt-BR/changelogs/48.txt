@@ -1,0 +1,3 @@
+- Mover a tela "Sobre" para sua própria Activity
+- Perguntar ao usuário se deseja usar a câmera ou inserir o ID manualmente ao adicionar/editar um cartão
+- Tornar a ordenação de grupos manual, em vez de forçada por ordem alfabética

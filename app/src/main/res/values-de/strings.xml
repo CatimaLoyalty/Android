@@ -303,4 +303,8 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Deaktiviert vorübergehend NFC, sodass keine NFC-Zahlungen ausgelöst werden können, während eine Karte angezeigt wird</string>
     <string name="settings_disable_nfc_while_viewing_card">NFC vorübergehend deaktivieren</string>
     <string name="nfc_block_system_error">Pausieren von NFC ist fehlgeschlagen</string>
+    <string name="show_card_id">Karten-ID anzeigen</string>
+    <string name="zoomBackImage">Rückseite vergrößern</string>
+    <string name="zoomFrontImage">Vorderseite vergrößern</string>
+    <string name="sort_by_most_recently_added">Zuletzt hinzugefügt</string>
 </resources>

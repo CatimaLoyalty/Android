@@ -1,0 +1,1 @@
+- Corrigir o processamento do saldo para países que utilizam espaço como separador

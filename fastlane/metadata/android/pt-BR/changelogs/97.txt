@@ -1,0 +1,4 @@
+- Corrigido o problema em que pressionar o botão de salvar várias vezes criava múltiplos registros
+- Reduzido o tamanho do cabeçalho do cartão ao ocultar detalhes, para permitir exibir mais cartões
+- Reestruturada a tela de edição
+- Melhorado o contraste do ícone de estrela na visualização principal

@@ -1,0 +1,1 @@
+- Corrigida a impossibilidade de configurar fotos no novo cartão de fidelidade

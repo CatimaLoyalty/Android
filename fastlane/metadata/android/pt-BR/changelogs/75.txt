@@ -1,0 +1,4 @@
+- Correção da cor selecionada na caixa de diálogo de seleção de cores
+- Suporte para excluir vários cartões de uma só vez
+- Correção de uma possível ArithmeticException ao redimensionar a imagem
+- Correção do fechamento do modo de tela cheia ao girar o dispositivo

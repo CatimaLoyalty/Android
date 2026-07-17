@@ -1,0 +1,1 @@
+- Correção de migração incorreta que tornava o primeiro cartão invisível

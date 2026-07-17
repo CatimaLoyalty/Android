@@ -1,0 +1,1 @@
+- Lidar de forma mais elegante com a ausência de cores de cabeçalho

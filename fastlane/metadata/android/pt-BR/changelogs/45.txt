@@ -1,0 +1,1 @@
+- Correção: o gesto de deslizar na tela inicial também era acionado durante deslizes verticais

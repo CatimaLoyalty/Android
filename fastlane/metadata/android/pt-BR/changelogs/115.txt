@@ -1,0 +1,4 @@
+- Abrir imagem na galeria ao manter pressionado
+- Aplicar estilo Material às caixas de diálogo
+- Suporte para criar cartão ao compartilhar uma imagem com o Catima
+- Adicionar botão de registro rápido de gasto à tela do cartão

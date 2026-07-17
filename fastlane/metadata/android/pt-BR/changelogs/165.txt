@@ -1,0 +1,3 @@
+- Desativar o NFC por padrão ao exibir um cartão
+- Solicitar ao teclado que coloque em maiúsculas cada palavra do nome da loja na tela de edição
+- Incluir a data no nome do arquivo de exportação

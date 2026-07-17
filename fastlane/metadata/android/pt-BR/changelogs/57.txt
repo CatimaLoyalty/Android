@@ -1,0 +1,4 @@
+- Adicionado suporte para redimensionar o código de barras ao movê-lo para o topo, permitindo compatibilidade com mais leitores de pequeno porte
+- Corrigido o salto do painel inferior (bottom sheet) após alternar para tela cheia
+- Reduzido o tamanho do cabeçalho na visualização do cartão de fidelidade no modo paisagem
+- Corrigido o problema em que os cartões não permaneciam no grupo após a renomeação do mesmo

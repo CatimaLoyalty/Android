@@ -1,0 +1,2 @@
+- Remover permissões desnecessárias
+- Direcionar para o Android 13

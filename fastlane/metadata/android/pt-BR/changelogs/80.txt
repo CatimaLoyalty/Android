@@ -1,0 +1,2 @@
+- Correção de imagens não importadas do backup
+- Opção para substituir o idioma

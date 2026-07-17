@@ -1,0 +1,14 @@
+- Agora oferece suporte oficial à seguinte lista de códigos de barras 1D e 2D:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Os códigos de barras gerados são maiores e mais fáceis de ler com um dispositivo de leitura

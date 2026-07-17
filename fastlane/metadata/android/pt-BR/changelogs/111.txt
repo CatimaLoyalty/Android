@@ -1,0 +1,7 @@
+- Suporte ao idioma árabe
+- Mostra o total de cartões arquivados na visão geral do grupo
+- Corrige erro ao salvar cartões com números não ocidentais ou em árabe
+- Corrige aplicação de temas personalizados na tela principal.
+- Melhoria visual na exibição de cartões selecionados
+- Corrige travamento ao fechar cartões com saldo ou validade em layouts RTL
+- Corrige direção da seta de voltar em layouts RTL

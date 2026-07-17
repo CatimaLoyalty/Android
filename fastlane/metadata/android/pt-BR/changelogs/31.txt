@@ -1,0 +1,2 @@
+- Ordenar a lista de cartões ignorando maiúsculas e minúsculas (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Adicionar configuração para bloquear a orientação de todos os cartões (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269))

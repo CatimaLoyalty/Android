@@ -1,0 +1,11 @@
+- MUDANÇA: O formato de backup mudou
+- MUDANÇA: O formato de compartilhamento de URLs mudou
+- Opção de ligar/desligar lanterna ao escanear
+- Adicionado suporte a UPC-E
+- Permite adicionar fotos frente e verso a cada cartão
+- Permite importar arquivos ZIP com senha.
+- Permite importar do Stocard (Beta)
+- Corrige espaços extras em notas vindas do Fidme
+- Suporte à exportação do Voucher Vault
+- Corrige botões flutuantes (FABs) ocultos no Android 4
+- Corrige margem do topo na visualização de cartões

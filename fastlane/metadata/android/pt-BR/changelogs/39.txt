@@ -1,0 +1,3 @@
+- Corrigir centralização do código de barras ao sair da tela cheia (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Permitir selecionar o local de exportação do backup (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Atualizar traduções (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) e (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

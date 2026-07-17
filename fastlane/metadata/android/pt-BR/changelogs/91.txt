@@ -1,0 +1,4 @@
+- Suporte aprimorado para gerenciamento de grupos
+- Suporte para recorte de imagens
+- Correção de perda de dados da imagem ao salvar após rotação na visualização de edição
+- Possibilidade de definir uma imagem personalizada como ícone do cartão

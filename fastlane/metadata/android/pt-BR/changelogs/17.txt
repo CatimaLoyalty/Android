@@ -1,0 +1,2 @@
+- Adicionado suporte para criar atalhos de cartões de fidelidade a partir do launcher/tela inicial. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Removido o suporte para criar atalhos de cartões de fidelidade a partir do próprio aplicativo. Isso elimina a necessidade da permissão para criar atalhos. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

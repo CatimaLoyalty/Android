@@ -1,0 +1,1 @@
+- Alterações na visualização de cartão para exibir a observação, permitir que o ID do cartão ocupe várias linhas e mostrar o nome da loja. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

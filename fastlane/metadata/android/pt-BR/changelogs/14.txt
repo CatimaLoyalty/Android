@@ -1,0 +1,3 @@
+- Adicionada opção de menu para bloquear a rotação da tela ao exibir um cartão. Se bloqueada, a tela mudará para sua orientação "natural" e novas rotações serão impedidas. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Se um cartão for selecionado na tela principal, mas não puder ser carregado, o aplicativo trata a falha adequadamente e exibe uma mensagem
+- Corrigido um caso em que os IDs de layout do assistente de introdução não eram encontrados.

@@ -1,0 +1,2 @@
+- Adicionadas bordas arredondadas aos ícones de cartão na visão geral principal
+- Adicionado suporte para agrupamento de itens

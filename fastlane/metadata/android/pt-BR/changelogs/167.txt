@@ -1,0 +1,3 @@
+- Adicionar suporte para exibir o ID do cartão na lista de cartões
+- Adicionar suporte para ordenar pelos adicionados mais recentemente
+- Adicionar visualizador de imagens interno para ampliar as imagens da frente, do verso e do ícone do cartão

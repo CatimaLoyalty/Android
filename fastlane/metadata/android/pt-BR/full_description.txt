@@ -1,0 +1,22 @@
+Pare de procurar cartões de fidelidade de plástico na hora de pagar em lojas físicas ou virtuais.
+<b>Escaneie códigos de barras usando a câmera do seu dispositivo e esqueça os cartões físicos.</b>
+
+Esqueça a carteira ou mantenha-a leve, guardando apenas itens essenciais.
+
+Com esta ferramenta indispensável para o dia a dia (EDC), você pode substituir o plástico inútil por uma solução digital prática.
+
+- Privacidade garantida com o mínimo de permissões: sem acesso à internet e sem anúncios.
+- Adicione cartões ou códigos com nomes e cores personalizáveis.
+- Insira códigos manualmente caso não haja código de barras ou se ele não puder ser utilizado.
+- Importe cartões e códigos de arquivos e de aplicativos como Catima, FidMe, Loyalty Card Keychain e Voucher Vault.
+- Faça backup de todos os seus cartões e transfira-os para um novo dispositivo, se desejar.
+- Compartilhe cupons, ofertas exclusivas, códigos promocionais ou os próprios cartões e códigos usando qualquer aplicativo.
+- Inclui tema escuro e opções de acessibilidade para usuários com deficiência visual.
+- Criado para todos pela comunidade de software livre.
+- Traduções manuais e localizadas para mais de 40 idiomas.
+- Gratuito e mantido por contribuições da comunidade.
+- Use, estude, modifique e compartilhe como quiser; <i>com todos</i>.
+- Mais do que apenas Software Livre / Código Aberto: um gerenciador de cartões de software livre sob licença <i>copyleft</i> (GPLv3+).
+
+Simplifique sua vida e suas compras; nunca mais perca um recibo de papel, um cartão-presente ou uma passagem aérea.
+Leve todos os seus cartões de fidelidade e bônus com você e economize sempre.

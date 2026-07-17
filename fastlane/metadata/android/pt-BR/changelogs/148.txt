@@ -1,0 +1,4 @@
+- Adicionada a opção de escolher a largura do código de barras na visualização em tela cheia
+- Removida a função confusa de importação pelo aplicativo
+- Várias correções relacionadas à leitura de códigos
+- Corrigida falha ao carregar um arquivo pkpass sem código de barras

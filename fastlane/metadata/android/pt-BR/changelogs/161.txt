@@ -1,0 +1,1 @@
+- Desativar a detecção automática de codificação de código de barras por enquanto (causa problemas em muitos cartões)

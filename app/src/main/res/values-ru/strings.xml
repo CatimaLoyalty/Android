@@ -315,4 +315,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC приостановлен</string>
     <string name="change_settings">Изменить настройки</string>
     <string name="nfc_block_system_error">Приостановка NFC невозможна</string>
+    <string name="sort_by_most_recently_added">Порядок добавления</string>
+    <string name="show_card_id">Показывать номер карты</string>
+    <string name="zoomFrontImage">Масштабирование лицевого изображения</string>
+    <string name="zoomBackImage">Масштабирование заднего изображения</string>
 </resources>

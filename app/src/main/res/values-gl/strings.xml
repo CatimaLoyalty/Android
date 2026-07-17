@@ -302,4 +302,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC está en pausa</string>
     <string name="change_settings">Cambiar axustes</string>
     <string name="nfc_block_system_error">Non se detivo NFC</string>
+    <string name="sort_by_most_recently_added">Máis recentes</string>
+    <string name="zoomFrontImage">Zoom na imaxe frontal</string>
+    <string name="zoomBackImage">Zoom na imaxe posterior</string>
+    <string name="show_card_id">Mostrar ID da tarxeta</string>
 </resources>

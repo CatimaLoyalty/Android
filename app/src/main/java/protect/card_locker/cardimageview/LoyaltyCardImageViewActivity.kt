@@ -1,5 +1,6 @@
 package protect.card_locker.cardimageview
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -17,8 +18,15 @@ import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -35,6 +43,8 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
+import androidx.core.content.FileProvider
+import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
@@ -69,9 +79,24 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
                 LoyaltyCardImageViewScreen(
                     bitmap = bitmap,
                     contentDescriptionRes = imageLocationType.descriptionRes(),
-                    onBackPressedDispatcher = onBackPressedDispatcher
+                    onBackPressedDispatcher = onBackPressedDispatcher,
+                    onOpenInGallery = { openInGallery(loyaltyCardId, imageLocationType) }
                 )
             }
+        }
+    }
+
+    private fun openInGallery(loyaltyCardId: Int, imageLocationType: ImageLocationType) {
+        val imageFile = Utils.retrieveCardImageAsFile(this, loyaltyCardId, imageLocationType)
+        val imageUri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, imageFile)
+        val intent = Intent(Intent.ACTION_VIEW)
+            .setDataAndType(imageUri, IMAGE_MIME_TYPE)
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, R.string.failedToOpenGallery, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -126,6 +151,7 @@ fun LoyaltyCardImageViewScreen(
     bitmap: Bitmap,
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher,
+    onOpenInGallery: () -> Unit,
 ) {
     var scale by remember { mutableFloatStateOf(1F) }
     var offset by remember { mutableStateOf(Offset.Zero) }
@@ -144,7 +170,33 @@ fun LoyaltyCardImageViewScreen(
         topBar = {
             CatimaTopAppBar(
                 title = stringResource(contentDescriptionRes),
-                onBackPressedDispatcher = onBackPressedDispatcher
+                onBackPressedDispatcher = onBackPressedDispatcher,
+                actions = {
+                    var menuExpanded by remember { mutableStateOf(false) }
+
+                    IconButton(
+                        onClick = { menuExpanded = true },
+                        modifier = Modifier.testTag("card_image_overflow_menu")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.MoreVert,
+                            contentDescription = stringResource(R.string.overflowMenu)
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = menuExpanded,
+                        onDismissRequest = { menuExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.openInGallery)) },
+                            onClick = {
+                                menuExpanded = false
+                                onOpenInGallery()
+                            },
+                            modifier = Modifier.testTag("card_image_open_in_gallery")
+                        )
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -197,3 +249,4 @@ private fun Offset.clampTo(size: IntSize, scale: Float): Offset {
 }
 
 private const val MAX_IMAGE_SCALE = 5F
+private const val IMAGE_MIME_TYPE = "image/png"

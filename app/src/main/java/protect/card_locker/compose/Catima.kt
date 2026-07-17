@@ -3,6 +3,7 @@ package protect.card_locker.compose
 import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,7 +23,11 @@ import protect.card_locker.preferences.Settings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CatimaTopAppBar(title: String, onBackPressedDispatcher: OnBackPressedDispatcher?) {
+fun CatimaTopAppBar(
+    title: String,
+    onBackPressedDispatcher: OnBackPressedDispatcher?,
+    actions: @Composable RowScope.() -> Unit = {}
+) {
     // Use pure black in OLED theme
     val context = LocalContext.current
     val settings = Settings(context)
@@ -51,6 +56,7 @@ fun CatimaTopAppBar(title: String, onBackPressedDispatcher: OnBackPressedDispatc
                     )
                 }
             }
-        }
+        },
+        actions = actions
     )
 }

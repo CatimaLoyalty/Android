@@ -309,4 +309,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC está pausado</string>
     <string name="change_settings">Cambiar ajustes</string>
     <string name="nfc_block_system_error">Incorrecto al pausar NFC</string>
+    <string name="sort_by_most_recently_added">Más recientemente añadido</string>
+    <string name="zoomFrontImage">Imagen frontal de zoom</string>
+    <string name="zoomBackImage">Imagen trasera de zoom</string>
+    <string name="show_card_id">Mostrar ID de tarjeta</string>
 </resources>

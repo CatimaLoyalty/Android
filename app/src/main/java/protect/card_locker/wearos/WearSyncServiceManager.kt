@@ -5,6 +5,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.edit
+import androidx.preference.PreferenceManager
+import protect.card_locker.R
 import protect.card_locker.preferences.Settings
 import protect.card_locker.shared.BluetoothPermissionHelper
 
@@ -13,10 +16,14 @@ class WearSyncPermissionRequester(
     context: Context
 ) {
     private val context = context.applicationContext
+    private var pendingResultCallback: ((Boolean) -> Unit)? = null
+
     private val permissionLauncher = caller.registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
+        pendingResultCallback?.invoke(granted)
         WearSyncServiceManager.onPermissionResult(this.context, granted)
+        pendingResultCallback = null
     }
 
     fun synchronize() {
@@ -25,9 +32,13 @@ class WearSyncPermissionRequester(
         }
     }
 
-    fun onWearSyncChanged(enabled: Boolean) {
-        WearSyncServiceManager.onWearSyncChanged(context, enabled) {
+    fun onWearSyncChanged(enabled: Boolean, onPermissionResult: ((Boolean) -> Unit)? = null) {
+        val applied = WearSyncServiceManager.onWearSyncChanged(context, enabled) {
+            pendingResultCallback = onPermissionResult
             permissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT)
+        }
+        if (applied) {
+            onPermissionResult?.invoke(true)
         }
     }
 }
@@ -49,15 +60,18 @@ object WearSyncServiceManager {
         context: Context,
         enabled: Boolean,
         requestPermission: () -> Unit
-    ) {
-        if (enabled) {
+    ): Boolean {
+        return if (enabled) {
             if (BluetoothPermissionHelper.isBluetoothConnectGranted(context)) {
                 start(context)
+                true
             } else {
                 requestPermission()
+                false
             }
         } else {
             stop(context)
+            true
         }
     }
 
@@ -66,6 +80,11 @@ object WearSyncServiceManager {
             start(context)
         } else {
             stop(context)
+            if (!granted) {
+                PreferenceManager.getDefaultSharedPreferences(context).edit {
+                    putBoolean(context.getString(R.string.settings_key_wear_sync), false)
+                }
+            }
         }
     }
 

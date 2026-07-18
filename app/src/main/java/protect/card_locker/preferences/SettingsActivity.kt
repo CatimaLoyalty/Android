@@ -168,9 +168,19 @@ class SettingsActivity : CatimaAppCompatActivity() {
             }
 
             val wearSyncPreference = findPreference<SwitchPreferenceCompat>(getString(R.string.settings_key_wear_sync))
-            wearSyncPreference!!.setOnPreferenceChangeListener { _, newValue ->
-                wearSyncPermissionRequester.onWearSyncChanged(newValue as Boolean)
-                true
+            wearSyncPreference!!.setOnPreferenceChangeListener { preference, newValue ->
+                val enabled = newValue as Boolean
+                if (enabled) {
+                    wearSyncPermissionRequester.onWearSyncChanged(true) { granted ->
+                        if (granted) {
+                            (preference as? SwitchPreferenceCompat)?.isChecked = true
+                        }
+                    }
+                    false
+                } else {
+                    wearSyncPermissionRequester.onWearSyncChanged(false)
+                    true
+                }
             }
 
             // Hide crash reporter settings on builds it's not enabled on

@@ -1,8 +1,10 @@
 package protect.card_locker.preferences
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
@@ -11,6 +13,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import com.google.android.material.snackbar.Snackbar
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
 import protect.card_locker.MainActivity
@@ -174,6 +177,8 @@ class SettingsActivity : CatimaAppCompatActivity() {
                     wearSyncPermissionRequester.onWearSyncChanged(true) { granted ->
                         if (granted) {
                             (preference as? SwitchPreferenceCompat)?.isChecked = true
+                        } else {
+                            showWearSyncPermissionDeniedSnackbar()
                         }
                     }
                     false
@@ -186,6 +191,21 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+        }
+
+        private fun showWearSyncPermissionDeniedSnackbar() {
+            Snackbar.make(
+                requireView(),
+                R.string.wear_sync_permission_required,
+                Snackbar.LENGTH_LONG
+            ).setAction(R.string.open_settings) {
+                startActivity(
+                    Intent(
+                        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package", requireContext().packageName, null)
+                    )
+                )
+            }.show()
         }
 
         private fun refreshActivity() {

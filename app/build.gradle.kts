@@ -113,6 +113,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     // AndroidX
     implementation(libs.androidx.appcompat.appcompat)
     implementation(libs.androidx.constraintlayout.constraintlayout)

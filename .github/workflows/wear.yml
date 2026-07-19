@@ -1,0 +1,46 @@
+name: Android Wear CI
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - staging
+      - trying
+  pull_request:
+    branches:
+      - main
+permissions:
+  actions: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+env:
+  JAVA_HOME: /usr/lib/jvm/java-25-openjdk-amd64
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.0
+      - uses: gradle/actions/wrapper-validation@v6.2.0
+      - name: set up OpenJDK 25
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-25-jdk-headless
+          sudo update-alternatives --auto java
+      - name: Build
+        run: ./gradlew :wear:assembleRelease
+      - name: Check for non-free libraries
+        run: |
+          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
+          java -jar apk-scanner_v0.0.7.jar scan-apk 'wear/build/outputs/apk/release/wear-release-unsigned.apk'
+      - name: Check lint
+        run: ./gradlew :wear:lintRelease

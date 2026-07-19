@@ -170,6 +170,10 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 true
             }
 
+            // Hide crash reporter settings on builds it's not enabled on
+            val crashReporterPreference = findPreference<Preference>("acra.enable")
+            crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+
             val wearSyncPreference = findPreference<SwitchPreferenceCompat>(getString(R.string.settings_key_wear_sync))
             wearSyncPreference!!.setOnPreferenceChangeListener { preference, newValue ->
                 val enabled = newValue as Boolean
@@ -187,10 +191,6 @@ class SettingsActivity : CatimaAppCompatActivity() {
                     true
                 }
             }
-
-            // Hide crash reporter settings on builds it's not enabled on
-            val crashReporterPreference = findPreference<Preference>("acra.enable")
-            crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
         }
 
         private fun showWearSyncPermissionDeniedSnackbar() {

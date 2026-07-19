@@ -121,7 +121,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/settings_category_title_privacy"
+        android:title="@string/settings_category_title_smartwatch"
         app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
@@ -132,11 +132,6 @@
             android:title="@string/settings_allow_content_provider_read_title"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/settings_category_title_wear"
-        app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"

@@ -39,7 +39,7 @@ import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
 import protect.card_locker.Utils
-import protect.card_locker.compose.CatimaTopAppBar
+import protect.card_locker.compose.CatimaTopAppBarWithOverflowMenuToImageGallery
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.preferences.Settings
 
@@ -68,6 +68,7 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
             CatimaTheme {
                 LoyaltyCardImageViewScreen(
                     bitmap = bitmap,
+                    path = Utils.getCardImageFileName(loyaltyCardId, imageLocationType),
                     contentDescriptionRes = imageLocationType.descriptionRes(),
                     onBackPressedDispatcher = onBackPressedDispatcher
                 )
@@ -124,6 +125,7 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
 @Composable
 fun LoyaltyCardImageViewScreen(
     bitmap: Bitmap,
+    path: String,
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher,
 ) {
@@ -139,12 +141,12 @@ fun LoyaltyCardImageViewScreen(
             (offset + panChange).clampTo(size, nextScale)
         }
     }
-
     Scaffold(
         topBar = {
-            CatimaTopAppBar(
+            CatimaTopAppBarWithOverflowMenuToImageGallery(
                 title = stringResource(contentDescriptionRes),
-                onBackPressedDispatcher = onBackPressedDispatcher
+                onBackPressedDispatcher = onBackPressedDispatcher,
+                imagePath = path
             )
         }
     ) { innerPadding ->

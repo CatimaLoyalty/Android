@@ -309,4 +309,8 @@
     <string name="nfc_blocked_while_viewing_card">La funzione NFC è disattivata</string>
     <string name="change_settings">Modifica impostazioni</string>
     <string name="nfc_block_system_error">Impossibile mettere in pausa l\'NFC</string>
+    <string name="sort_by_most_recently_added">Aggiunte più di recente</string>
+    <string name="show_card_id">Mostra ID carta</string>
+    <string name="zoomFrontImage">Zoom immagine fronte</string>
+    <string name="zoomBackImage">Zoom immagine retro</string>
 </resources>

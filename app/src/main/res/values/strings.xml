@@ -104,8 +104,8 @@
     <string name="settings_disable_nfc_while_viewing_card">Pause NFC</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Pauses NFC to prevent NFC payments from triggering while viewing a card</string>
     <string name="settings_key_disable_nfc_while_viewing_card" translatable="false">pref_disable_nfc_while_viewing_card</string>
-    <string name="settings_allow_content_provider_read_title">Allow other apps to access my data</string>
-    <string name="settings_allow_content_provider_read_summary">Apps will still have to request permission to be granted access</string>
+    <string name="settings_allow_content_provider_read_title">Sync with Gadgetbridge</string>
+    <string name="settings_allow_content_provider_read_summary">Allows the Gadgetbridge app to sync your cards to supported watches</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
@@ -304,10 +304,9 @@
     <string name="setting_key_column_count_landscape" translatable="false">pref_column_count_landscape</string>
     <string name="settings_category_title_general">General</string>
     <string name="settings_category_title_privacy">Privacy</string>
-    <string name="settings_category_title_wear">Wear OS</string>
     <string name="settings_key_wear_sync" translatable="false">pref_wear_sync</string>
     <string name="settings_wear_sync">Sync with Wear OS</string>
-    <string name="settings_wear_sync_summary">Allow a Wear OS companion app to read your cards over Bluetooth</string>
+    <string name="settings_wear_sync_summary">Allows the Wear OS companion app to read your cards over Bluetooth</string>
     <string name="wear_sync_permission_required">Allow Catima access to nearby devices to sync with your smartwatch</string>
     <string name="open_settings">Open settings</string>
     <string name="action_display_options">Display options</string>
@@ -361,4 +360,5 @@
     <string name="nfc_block_system_error">Failed to pause NFC</string>
     <string name="wear_bt_channel_name">Wear OS companion</string>
     <string name="wear_bt_notification_title">Catima watch sync active</string>
+    <string name="settings_category_title_smartwatch">Smartwatch support</string>
 </resources>

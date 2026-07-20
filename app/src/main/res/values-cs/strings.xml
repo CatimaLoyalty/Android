@@ -309,4 +309,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC je pozastaveno</string>
     <string name="change_settings">Změnit nastavení</string>
     <string name="nfc_block_system_error">Nepodařilo se pozastavit NFC</string>
+    <string name="sort_by_most_recently_added">Nedávno přidáno</string>
+    <string name="zoomFrontImage">Přiblížit přední obrázek</string>
+    <string name="zoomBackImage">Přiblížit zadní obrázek</string>
+    <string name="show_card_id">Zobrazit ID karty</string>
 </resources>

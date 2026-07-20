@@ -314,4 +314,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC je zaustavljen</string>
     <string name="change_settings">Spremeni nastavitve</string>
     <string name="nfc_block_system_error">ustavitev NFC-ja ni uspela</string>
+    <string name="sort_by_most_recently_added">Nazadnje dodane</string>
+    <string name="zoomFrontImage">Povečaj sprednjo sliko</string>
+    <string name="zoomBackImage">Povečaj zadnjo sliko</string>
+    <string name="show_card_id">Prikaži ID kartice</string>
 </resources>

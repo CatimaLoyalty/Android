@@ -1,0 +1,1 @@
+- Prepreči sesutje sistema na napravah z nepravilno delujočim NFC-jem

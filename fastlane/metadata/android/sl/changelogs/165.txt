@@ -1,0 +1,3 @@
+- Privzeto onemogoči NFC med prikazovanjem kartice
+- Na zaslonu za urejanje zahteva, da tipkovnica vsako besedo v imenu trgovine zapiše z veliko začetnico
+- V ime izvozne datoteke vključi datum

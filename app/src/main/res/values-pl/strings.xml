@@ -315,4 +315,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC zostało zatrzymane</string>
     <string name="change_settings">Zmień ustawienia</string>
     <string name="nfc_block_system_error">Błąd podczas zatrzymania NFC</string>
+    <string name="sort_by_most_recently_added">Najnowsze dodane</string>
+    <string name="zoomFrontImage">Powiększ zdjęcie z przodu</string>
+    <string name="zoomBackImage">Powiększ zdjęcie z tyłu</string>
+    <string name="show_card_id">Pokaż ID karty</string>
 </resources>

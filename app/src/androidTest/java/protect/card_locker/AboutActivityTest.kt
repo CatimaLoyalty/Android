@@ -34,7 +34,6 @@ class AboutActivityTest {
         }
 
         onNodeWithTag("topbar_catima").assertIsDisplayed()
-        onNodeWithTag("topbar_with_overflow_menu_catima").assertIsDisplayed()
 
         onNodeWithTag("card_version_history").assertIsDisplayed()
         onNodeWithText(content.versionHistory).assertIsDisplayed()

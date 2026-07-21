@@ -39,7 +39,9 @@ import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
 import protect.card_locker.Utils
-import protect.card_locker.compose.CatimaTopAppBarWithOverflowMenuToImageGallery
+import protect.card_locker.compose.CatimaTopAppBar
+import protect.card_locker.compose.OverflowMenuEntry
+import protect.card_locker.compose.OverflowMenuParameter
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.preferences.Settings
 
@@ -68,7 +70,8 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
             CatimaTheme {
                 LoyaltyCardImageViewScreen(
                     bitmap = bitmap,
-                    path = Utils.getCardImageFileName(loyaltyCardId, imageLocationType),
+                    imageLocationType = imageLocationType,
+                    cardId = loyaltyCardId,
                     contentDescriptionRes = imageLocationType.descriptionRes(),
                     onBackPressedDispatcher = onBackPressedDispatcher
                 )
@@ -125,7 +128,8 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
 @Composable
 fun LoyaltyCardImageViewScreen(
     bitmap: Bitmap,
-    path: String,
+    imageLocationType: ImageLocationType,
+    cardId: Int,
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher,
 ) {
@@ -143,10 +147,15 @@ fun LoyaltyCardImageViewScreen(
     }
     Scaffold(
         topBar = {
-            CatimaTopAppBarWithOverflowMenuToImageGallery(
+            CatimaTopAppBar(
                 title = stringResource(contentDescriptionRes),
                 onBackPressedDispatcher = onBackPressedDispatcher,
-                imagePath = path
+                overflowMenuActions = mapOf(
+                    Pair(OverflowMenuEntry.IMAGE_GALLERY, mapOf(
+                        Pair(OverflowMenuParameter.LOYALTY_CARD_ID, cardId),
+                        Pair(OverflowMenuParameter.IMAGE_LOCATION_TYPE, imageLocationType))
+                    )
+                )
             )
         }
     ) { innerPadding ->

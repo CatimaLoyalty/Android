@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Volatile private var fetchInFlight = false
-    private var protocolIncompatible = false
+    @Volatile private var protocolIncompatible = false
 
     private val btPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()

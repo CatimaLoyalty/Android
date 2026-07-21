@@ -20,6 +20,13 @@ object BluetoothPermissionHelper {
                 Manifest.permission.BLUETOOTH_CONNECT
             ) == PackageManager.PERMISSION_GRANTED
 
+    fun isPostNotificationsGranted(context: Context): Boolean =
+        Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+            ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
+
     fun requestBluetoothConnectIfNeeded(
         context: Context,
         launcher: ActivityResultLauncher<String>,

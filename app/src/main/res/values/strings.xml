@@ -308,6 +308,22 @@
     <string name="settings_wear_sync">Sync with Wear OS</string>
     <string name="settings_wear_sync_summary">Allows the Wear OS companion app to read your cards over Bluetooth</string>
     <string name="wear_sync_permission_required">Allow Catima access to nearby devices to sync with your smartwatch</string>
+    <string name="settings_key_wear_sync_devices" translatable="false">pref_wear_sync_devices</string>
+    <string name="settings_wear_sync_devices">Paired Wear devices</string>
+    <string name="settings_wear_sync_devices_summary">Manage devices allowed to sync over Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">No paired devices</string>
+    <string name="settings_wear_sync_devices_summary_count">%d device(s) paired</string>
+    <string name="settings_wear_sync_unpair_title">Remove device?</string>
+    <string name="settings_wear_sync_unpair_message">Remove %1$s from Catima? It will no longer be able to sync your cards.</string>
+    <string name="settings_wear_sync_unpair">Remove</string>
+    <string name="settings_wear_sync_device_name">%1$s (%2$s)</string>
+    <string name="wear_bt_pairing_channel_name">Wear device pairing</string>
+    <string name="wear_bt_pairing_title">Wear device wants to sync</string>
+    <string name="wear_bt_pairing_message">Allow %1$s to access your cards?</string>
+    <string name="wear_bt_pairing_allow">Allow</string>
+    <string name="wear_bt_pairing_block">Block</string>
+    <string name="wear_bt_pairing_allowed">%1$s is now allowed to sync.</string>
+    <string name="wear_bt_pairing_blocked">%1$s has been blocked.</string>
     <string name="open_settings">Open settings</string>
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>

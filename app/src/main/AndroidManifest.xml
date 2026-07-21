@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="23" />
@@ -236,5 +237,21 @@
             android:name=".wearos.BluetoothServerService"
             android:exported="false"
             android:foregroundServiceType="connectedDevice" />
+
+        <activity
+            android:name=".wearos.BluetoothPairingActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <receiver
+            android:name=".wearos.BluetoothPairingReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="protect.card_locker.wearos.action.ALLOW_DEVICE" />
+                <action android:name="protect.card_locker.wearos.action.BLOCK_DEVICE" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

@@ -8,6 +8,7 @@ enum class SyncStatus(@StringRes val labelRes: Int?) {
     PHONE_NOT_REACHABLE(R.string.sync_failed),
     PHONE_OUTDATED(R.string.phone_outdated),
     WATCH_OUTDATED(R.string.watch_outdated),
+    UNAUTHORIZED(R.string.unauthorized),
     PERMISSION_DENIED(R.string.bluetooth_permission_denied),
     BLUETOOTH_DISABLED(R.string.bluetooth_disabled),
     SYNC_ERROR(R.string.sync_error),

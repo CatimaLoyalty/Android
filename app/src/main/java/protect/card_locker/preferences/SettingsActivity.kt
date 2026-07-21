@@ -1,18 +1,27 @@
 package protect.card_locker.preferences
 
+import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
@@ -20,6 +29,9 @@ import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import protect.card_locker.shared.BluetoothPermissionHelper
+import protect.card_locker.shared.WearBluetoothSecurity
+import protect.card_locker.wearos.BluetoothPairingNotificationManager
 import protect.card_locker.wearos.WearSyncPermissionRequester
 
 class SettingsActivity : CatimaAppCompatActivity() {
@@ -86,10 +98,35 @@ class SettingsActivity : CatimaAppCompatActivity() {
         var mReloadMain: Boolean = false
 
         private lateinit var wearSyncPermissionRequester: WearSyncPermissionRequester
+        private var currentDevicesDialog: AlertDialog? = null
+        private val devicesChangedReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                if (intent.action != BluetoothPairingNotificationManager.ACTION_DEVICES_CHANGED) {
+                    return
+                }
+                findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
+                currentDevicesDialog?.takeIf { it.isShowing }?.let { dialog ->
+                    dialog.dismiss()
+                    showWearSyncDevicesDialog()
+                }
+            }
+        }
 
         override fun onResume() {
             super.onResume()
             wearSyncPermissionRequester.synchronize()
+            findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
+            ContextCompat.registerReceiver(
+                requireContext(),
+                devicesChangedReceiver,
+                IntentFilter(BluetoothPairingNotificationManager.ACTION_DEVICES_CHANGED),
+                ContextCompat.RECEIVER_NOT_EXPORTED
+            )
+        }
+
+        override fun onPause() {
+            super.onPause()
+            requireContext().unregisterReceiver(devicesChangedReceiver)
         }
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -98,7 +135,15 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences)
 
-            // Show pretty names and summaries
+            setupThemePreference()
+            setupOledDarkPreference()
+            setupLocalePreference()
+            setupCrashReporterPreference()
+            setupWearSyncPreference()
+            setupWearSyncDevicesPreference()
+        }
+
+        private fun setupThemePreference() {
             val themePreference = findPreference<ListPreference>(getString(R.string.settings_key_theme))
             themePreference!!.setOnPreferenceChangeListener { _, o ->
                 when (o.toString()) {
@@ -114,13 +159,17 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
                 true
             }
+        }
 
+        private fun setupOledDarkPreference() {
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))
             oledDarkPreference!!.setOnPreferenceChangeListener { _, _ ->
                 refreshActivity()
                 true
             }
+        }
 
+        private fun setupLocalePreference() {
             val localePreference =
                 findPreference<ListPreference>(getString(R.string.settings_key_locale))!!
             localePreference.let {
@@ -169,11 +218,15 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 AppCompatDelegate.setApplicationLocales(if (newLocale.isEmpty()) LocaleListCompat.getEmptyLocaleList() else LocaleListCompat.create(Utils.stringToLocale(newLocale)))
                 true
             }
+        }
 
+        private fun setupCrashReporterPreference() {
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+        }
 
+        private fun setupWearSyncPreference() {
             val wearSyncPreference = findPreference<SwitchPreferenceCompat>(getString(R.string.settings_key_wear_sync))
             wearSyncPreference!!.setOnPreferenceChangeListener { preference, newValue ->
                 val enabled = newValue as Boolean
@@ -191,6 +244,93 @@ class SettingsActivity : CatimaAppCompatActivity() {
                     true
                 }
             }
+        }
+
+        private fun setupWearSyncDevicesPreference() {
+            val wearSyncDevicesPreference = findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))
+            wearSyncDevicesPreference!!.setOnPreferenceClickListener {
+                showWearSyncDevicesDialog()
+                true
+            }
+            updateWearSyncDevicesSummary(wearSyncDevicesPreference)
+        }
+
+        private fun updateWearSyncDevicesSummary(preference: Preference) {
+            val knownCount = (
+                WearBluetoothSecurity.listTrustedDevices(requireContext()) +
+                    WearBluetoothSecurity.listBlockedDevices(requireContext())
+            ).size
+            preference.summary = if (knownCount == 0) {
+                getString(R.string.settings_wear_sync_no_devices)
+            } else {
+                getString(R.string.settings_wear_sync_devices_summary_count, knownCount)
+            }
+        }
+
+        @SuppressLint("MissingPermission")
+        private fun showWearSyncDevicesDialog() {
+            val context = requireContext()
+            if (!BluetoothPermissionHelper.isBluetoothConnectGranted(context)) {
+                showWearSyncPermissionDeniedSnackbar()
+                return
+            }
+            val knownAddresses = (
+                WearBluetoothSecurity.listTrustedDevices(context) +
+                    WearBluetoothSecurity.listBlockedDevices(context)
+            ).toList()
+            if (knownAddresses.isEmpty()) {
+                currentDevicesDialog = MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.settings_wear_sync_devices)
+                    .setMessage(R.string.settings_wear_sync_no_devices)
+                    .setOnDismissListener { currentDevicesDialog = null }
+                    .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
+                    .show()
+                return
+            }
+
+            val adapter = context.getSystemService(BLUETOOTH_SERVICE) as? BluetoothManager
+            val bondedDevices = try {
+                adapter?.adapter?.bondedDevices ?: emptySet()
+            } catch (_: SecurityException) {
+                emptySet<BluetoothDevice>()
+            }
+            val deviceMap = bondedDevices.associateBy { it.address }
+
+            val entries = knownAddresses.map { address ->
+                val name = deviceName(deviceMap[address], address)
+                getString(R.string.settings_wear_sync_device_name, name, address)
+            }.toTypedArray()
+
+            currentDevicesDialog = MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.settings_wear_sync_devices)
+                .setItems(entries) { _, which ->
+                    val address = knownAddresses[which]
+                    val name = deviceName(deviceMap[address], address)
+                    confirmUnpairDevice(address, name)
+                }
+                .setOnDismissListener { currentDevicesDialog = null }
+                .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        private fun confirmUnpairDevice(address: String, name: String) {
+            val context = requireContext()
+            MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.settings_wear_sync_unpair_title)
+                .setMessage(getString(R.string.settings_wear_sync_unpair_message, name))
+                .setPositiveButton(R.string.settings_wear_sync_unpair) { dialog, _ ->
+                    WearBluetoothSecurity.forgetDevice(context, address)
+                    BluetoothPairingNotificationManager.cancel(context, address)
+                    BluetoothPairingNotificationManager.notifyDevicesChanged(context)
+                    findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
+                    dialog.dismiss()
+                }
+                .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        private fun deviceName(device: BluetoothDevice?, fallback: String): String {
+            return try { device?.name } catch (_: SecurityException) { null } ?: fallback
         }
 
         private fun showWearSyncPermissionDeniedSnackbar() {

@@ -13,4 +13,5 @@
     <string name="bluetooth_permission_denied">Bluetooth permission denied.\nGrant it in Settings to sync cards.</string>
     <string name="bluetooth_disabled">Bluetooth is turned off.\nEnable it to sync cards from your phone.</string>
     <string name="sync_error">Failed to read cards from your phone.\nTry syncing again.</string>
+    <string name="unauthorized">Catima on your phone needs permission.\nAllow this device in Catima settings.</string>
 </resources>

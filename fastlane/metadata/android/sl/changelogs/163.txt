@@ -1,0 +1,2 @@
+- Samodejno zaznavanje URL-jev v ID-ju kartice in omogočanje klikanja v pojavnem oknu s podrobnostmi o ID-ju kartice
+- Popravek dejavnosti za izbiro črtnih kod, ki je namesto črtnih kod prikazovala bele kvadratke

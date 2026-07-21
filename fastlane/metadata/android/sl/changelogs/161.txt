@@ -1,0 +1,1 @@
+- Zaenkrat onemogoči samodejno zaznavanje kodiranja črtnih kod (povzroča preveč napak pri karticah)

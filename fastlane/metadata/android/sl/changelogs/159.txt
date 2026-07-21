@@ -1,0 +1,1 @@
+- Popravek spremembe, uvedene v različici 2.41.0, ki je onemogočila podporo nekaterim skenerjem za črtne kode, ki niso v formatu UTF-8

@@ -1,0 +1,5 @@
+- Popravljeno: gradnik s seznamom včasih odpre napačno kartico
+- Popravljenih je več napak pri upravljanju bližnjic
+- Popravljeno: v načinu OLED se v dejavnosti »O aplikaciji« ne uporablja čisto črna naslovna vrstica
+- Popolnoma odstranjeno samodejno zaznavanje kodiranja črtne kode
+- Kodiranje črtne kode je zdaj dostopno prek ContentProviderja (ki ga uporablja Gadgetbridge)

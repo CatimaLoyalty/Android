@@ -1,0 +1,3 @@
+-Aggiunto supporto per mostrate l'ID carta nell'elenco carte
+-Aggiunta possibilità di ordinare per più recentemente aggiunte
+-Aggiunto visualizzatore immagine interno per zoomare le immagini fronte/retro/icona della carte

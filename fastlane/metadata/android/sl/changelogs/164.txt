@@ -1,0 +1,4 @@
+Od te različice naprej Android 5.0 in 5.1 nista več podprta. Če želiš uporabljati Catimo na teh različicah, uporabi različico 2.41.6.
+
+- Odpravljena je napaka, ki je povzročala sesutje aplikacije pri preklopu med karticami s pomočjo gumbov za glasnost, če je bila na voljo le ena kartica
+- Odpravljena je napaka, zaradi katere se je bližnjica po vrtenju zaslona vrnila na prejšnjo kartico

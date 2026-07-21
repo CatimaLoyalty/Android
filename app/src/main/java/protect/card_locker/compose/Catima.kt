@@ -72,12 +72,10 @@ fun CatimaTopAppBar(title: String,
         actions = {
             if(!overflowMenuActions.isNullOrEmpty()){
                 var showMenu by remember { mutableStateOf(false) }
-                var showIcon by remember { mutableStateOf(true) }
                 IconButton(onClick = {showMenu = !showMenu}){
                     Icon(
                         imageVector = Icons.Filled.MoreVert,
-                        contentDescription = "Overflow menu icon",
-                        modifier = Modifier.visible(showIcon)
+                        contentDescription = "Overflow menu icon"
                     )
                 }
                 DropdownMenu(
@@ -89,7 +87,6 @@ fun CatimaTopAppBar(title: String,
                             val cardId = imageGalleryParameters[OverflowMenuParameter.LOYALTY_CARD_ID] as? Int
                             val imageLocationType = imageGalleryParameters[OverflowMenuParameter.IMAGE_LOCATION_TYPE] as? ImageLocationType
                             if(cardId != null && imageLocationType != null) {
-                                showIcon = true
                                 DropdownMenuItem(onClick = {openInImageGallery(context, cardId, imageLocationType)},
                                     text = { Text(stringResource(R.string.open_in_gallery)) },
                                 )

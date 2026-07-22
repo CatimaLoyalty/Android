@@ -1,9 +1,10 @@
 package protect.card_locker.preferences
 
-import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
@@ -11,12 +12,15 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
+import com.google.android.material.snackbar.Snackbar
 import protect.card_locker.BuildConfig
 import protect.card_locker.CatimaAppCompatActivity
 import protect.card_locker.MainActivity
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.databinding.SettingsActivityBinding
+import protect.card_locker.wearos.WearSyncPermissionRequester
 
 class SettingsActivity : CatimaAppCompatActivity() {
 
@@ -81,7 +85,16 @@ class SettingsActivity : CatimaAppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         var mReloadMain: Boolean = false
 
+        private lateinit var wearSyncPermissionRequester: WearSyncPermissionRequester
+
+        override fun onResume() {
+            super.onResume()
+            wearSyncPermissionRequester.synchronize()
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            wearSyncPermissionRequester = WearSyncPermissionRequester(this, requireContext())
+
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences)
 
@@ -104,7 +117,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
             val oledDarkPreference = findPreference<Preference>(getString(R.string.settings_key_oled_dark))
             oledDarkPreference!!.setOnPreferenceChangeListener { _, _ ->
-                refreshActivity(true)
+                refreshActivity()
                 true
             }
 
@@ -148,7 +161,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             localePreference.setOnPreferenceChangeListener { _, newValue ->
                 // See corresponding comment in Utils.updateBaseContextLocale for Android 6- notes
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                    refreshActivity(true)
+                    refreshActivity()
                     return@setOnPreferenceChangeListener true
                 }
                 val newLocale = newValue as String
@@ -160,10 +173,43 @@ class SettingsActivity : CatimaAppCompatActivity() {
             // Hide crash reporter settings on builds it's not enabled on
             val crashReporterPreference = findPreference<Preference>("acra.enable")
             crashReporterPreference!!.isVisible = BuildConfig.useAcraCrashReporter
+
+            val wearSyncPreference = findPreference<SwitchPreferenceCompat>(getString(R.string.settings_key_wear_sync))
+            wearSyncPreference!!.setOnPreferenceChangeListener { preference, newValue ->
+                val enabled = newValue as Boolean
+                if (enabled) {
+                    wearSyncPermissionRequester.onWearSyncChanged(true) { granted ->
+                        if (granted) {
+                            (preference as? SwitchPreferenceCompat)?.isChecked = true
+                        } else {
+                            showWearSyncPermissionDeniedSnackbar()
+                        }
+                    }
+                    false
+                } else {
+                    wearSyncPermissionRequester.onWearSyncChanged(false)
+                    true
+                }
+            }
         }
 
-        private fun refreshActivity(reloadMain: Boolean) {
-            mReloadMain = reloadMain || mReloadMain
+        private fun showWearSyncPermissionDeniedSnackbar() {
+            Snackbar.make(
+                requireView(),
+                R.string.wear_sync_permission_required,
+                Snackbar.LENGTH_LONG
+            ).setAction(R.string.open_settings) {
+                startActivity(
+                    Intent(
+                        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package", requireContext().packageName, null)
+                    )
+                )
+            }.show()
+        }
+
+        private fun refreshActivity() {
+            mReloadMain = true
             activity?.recreate()
         }
     }

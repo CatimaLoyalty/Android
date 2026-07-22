@@ -121,7 +121,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/settings_category_title_privacy"
+        android:title="@string/settings_category_title_smartwatch"
         app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
@@ -130,6 +130,15 @@
             android:key="@string/settings_key_allow_content_provider_read"
             android:summary="@string/settings_allow_content_provider_read_summary"
             android:title="@string/settings_allow_content_provider_read_title"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+
+        <SwitchPreferenceCompat
+            android:widgetLayout="@layout/preference_material_switch"
+            android:defaultValue="false"
+            android:key="@string/settings_key_wear_sync"
+            android:summary="@string/settings_wear_sync_summary"
+            android:title="@string/settings_wear_sync"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
     </PreferenceCategory>

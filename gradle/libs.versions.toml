@@ -9,6 +9,9 @@ acra = "5.13.1"
 # Testing
 androidXTest = "1.7.0"
 
+# Wear OS
+wearCompose = "1.6.2"
+
 [libraries]
 # AndroidX
 androidx-appcompat-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.7.1" }
@@ -23,6 +26,7 @@ com-google-android-material-material = { group = "com.google.android.material", 
 com-android-tools-desugar_jdk_libs = { group = "com.android.tools", name = "desugar_jdk_libs", version = "2.1.5" }
 
 # Compose
+androidx-activity-activity = { group = "androidx.activity", name = "activity", version = "1.13.0" }
 androidx-activity-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.13.0" }
 androidx-compose-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose" }
 androidx-compose-foundation-foundation = { group = "androidx.compose.foundation", name = "foundation" }
@@ -42,6 +46,11 @@ net-lingala-zip4j-zip4j = { group = "net.lingala.zip4j", name = "zip4j", version
 ch-acra-acra-mail = { group = "ch.acra", name = "acra-mail", version.ref = "acra" }
 ch-acra-acra-dialog = { group = "ch.acra", name = "acra-dialog", version.ref = "acra" }
 
+# Wear OS
+androidx-wear-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "wearCompose" }
+androidx-wear-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "wearCompose" }
+androidx-wear-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "wearCompose" }
+
 # Testing
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidXTest" }
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidXTest" }
@@ -54,6 +63,7 @@ org-robolectric-robolectric = { group = "org.robolectric", name = "robolectric",
 
 [plugins]
 com-android-application = { id = "com.android.application", version = "9.3.0" }
+com-android-library = { id = "com.android.library", version = "9.2.1" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

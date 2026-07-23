@@ -127,7 +127,7 @@ object WearBluetoothSecurity {
             val cipher = Cipher.getInstance(TRANSFORMATION)
             cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(keyBytes, ALGORITHM), GCMParameterSpec(TAG_LENGTH, nonce))
             String(cipher.doFinal(encrypted), Charsets.UTF_8)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             null
         }
     }

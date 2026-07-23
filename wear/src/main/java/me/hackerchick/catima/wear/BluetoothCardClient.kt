@@ -99,7 +99,7 @@ object BluetoothCardClient {
                 ?: return null to SyncStatus.PHONE_NOT_REACHABLE
             if (WearBluetoothProtocol.PROTOCOL_VERSION !in supportedVersions) {
                 Log.w(TAG, "Phone does not support API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
-                return null to SyncStatus.PHONE_OUTDATED
+                return null to SyncStatus.VERSION_INCOMPATIBLE
             }
             socket.close()
             socket = null

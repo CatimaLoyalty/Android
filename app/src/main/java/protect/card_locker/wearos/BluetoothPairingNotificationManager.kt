@@ -74,7 +74,7 @@ object BluetoothPairingNotificationManager {
             .setContentIntent(contentIntent)
             .setAutoCancel(false)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setCategory(NotificationCompat.CATEGORY_CALL)
+            .setCategory(NotificationCompat.CATEGORY_STATUS)
             .build()
 
         notificationManager.notify(notificationId(address), notification)

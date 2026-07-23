@@ -297,4 +297,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC dijeda</string>
     <string name="change_settings">Ubah pengaturan</string>
     <string name="nfc_block_system_error">Gagal menjeda NFC</string>
+    <string name="show_card_id">Tampilkan ID Kartu</string>
+    <string name="sort_by_most_recently_added">Terakhir ditambahkan</string>
+    <string name="zoomFrontImage">Perbesar gambar depan</string>
+    <string name="zoomBackImage">Perbesar gambar belakang</string>
 </resources>

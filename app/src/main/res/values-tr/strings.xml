@@ -303,4 +303,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC duraklatıldı</string>
     <string name="change_settings">Ayarları değiştir</string>
     <string name="nfc_block_system_error">NFC duraklatılamadı</string>
+    <string name="sort_by_most_recently_added">En son eklenen</string>
+    <string name="zoomFrontImage">Ön görüntüyü yakınlaştır</string>
+    <string name="zoomBackImage">Arka görüntüyü yakınlaştır</string>
+    <string name="show_card_id">Kart numarasını göster</string>
 </resources>

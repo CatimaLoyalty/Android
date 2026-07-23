@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Volatile private var fetchInFlight = false
-    private var protocolIncompatible = false
+    @Volatile private var protocolIncompatible = false
 
     private val btPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -98,8 +98,8 @@ class MainActivity : ComponentActivity() {
                         WearCardRepository.setSyncStatus(SyncStatus.PHONE_NOT_REACHABLE)
                     }
                 }
-                SyncStatus.WATCH_OUTDATED -> {
-                    Log.w(TAG, "Wear app is outdated")
+                SyncStatus.VERSION_INCOMPATIBLE -> {
+                    Log.w(TAG, "Wear and phone protocol versions are incompatible")
                     protocolIncompatible = true
                     WearCardRepository.setSyncStatus(status)
                 }

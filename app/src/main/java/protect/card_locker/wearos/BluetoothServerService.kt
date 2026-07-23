@@ -20,6 +20,7 @@ import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.shared.BluetoothPermissionHelper
 import protect.card_locker.shared.WearBluetoothProtocol
+import protect.card_locker.shared.WearBluetoothSecurity
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -47,6 +48,13 @@ class BluetoothServerService : Service() {
             stopSelf()
             return START_NOT_STICKY
         }
+
+        // Avoid tearing down a working accept socket every time Settings is resumed.
+        if (serverThread?.isAlive == true) {
+            Log.d(TAG, "Bluetooth server already listening")
+            return START_STICKY
+        }
+
         startForegroundWithNotification()
         serverThread?.cancel()
         serverThread = AcceptThread(adapter).also { it.start() }
@@ -118,7 +126,9 @@ class BluetoothServerService : Service() {
                     if (running) Log.e(TAG, "Accept failed", e)
                     break
                 }
-                handleConnection(socket)
+                // Handle each client on its own thread so a slow/stuck client
+                // cannot block the accept loop.
+                Thread { handleConnection(socket) }.start()
             }
             Log.d(TAG, "Accept loop ended")
             if (running) {
@@ -128,40 +138,98 @@ class BluetoothServerService : Service() {
         }
 
         private fun handleConnection(socket: BluetoothSocket) {
-            val deviceName = try { socket.remoteDevice.name } catch (_: SecurityException) { "unknown" }
-            Log.d(TAG, "Connected to $deviceName")
+            val address = try { socket.remoteDevice.address } catch (_: SecurityException) { null } ?: return
+            val deviceName = try { socket.remoteDevice.name } catch (_: SecurityException) { address }
+            Log.d(TAG, "Connected to $deviceName ($address)")
             try {
                 val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
                 val command = reader.readLine()?.trim()
                 Log.d(TAG, "Received command: $command from $deviceName")
-                if (command == WearBluetoothProtocol.BT_CMD_VERSIONS) {
-                    val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
-                    writer.println(versions)
-                    writer.flush()
-                    Log.d(TAG, "Sent supported versions to $deviceName")
-                } else if (command != null && command.startsWith("/V1/")) {
-                    when {
-                        command.startsWith(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX) -> {
-                            val pageIndex = command.removePrefix(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX).toIntOrNull()
-                            if (pageIndex == null || pageIndex < 0) {
-                                Log.w(TAG, "Invalid page index in command: $command from $deviceName")
-                            } else {
-                                val json = buildCardsPageJson(pageIndex)
-                                writer.println(json)
-                                writer.flush()
-                                Log.d(TAG, "Sent page $pageIndex (${json.length} bytes) to $deviceName")
-                            }
-                        }
-                        else -> Log.w(TAG, "Unsupported V1 command: $command from $deviceName")
+                when (command) {
+                    WearBluetoothProtocol.BT_CMD_VERSIONS -> {
+                        val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
+                        writer.println(versions)
+                        writer.flush()
+                        Log.d(TAG, "Sent supported versions to $deviceName")
                     }
-                } else {
-                    Log.w(TAG, "Unsupported protocol version for command: $command from $deviceName")
+                    WearBluetoothProtocol.BT_CMD_AUTH,
+                    WearBluetoothProtocol.BT_CMD_AUTH_RESET -> {
+                        // Re-exchange the key on every auth so the watch can never use a stale key
+                        // after the phone has reset/trusted it again.
+                        handleAuthenticatedSession(reader, writer, address, deviceName)
+                    }
+                    else -> {
+                        writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
+                        writer.flush()
+                        Log.w(TAG, "Unauthorized first command: $command from $deviceName")
+                    }
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)
             } finally {
                 try { socket.close() } catch (_: Exception) { }
+            }
+        }
+
+        private fun handleAuthenticatedSession(
+            reader: BufferedReader,
+            writer: PrintWriter,
+            address: String,
+            deviceName: String
+        ) {
+            if (WearBluetoothSecurity.isDeviceBlocked(this@BluetoothServerService, address)) {
+                writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
+                writer.flush()
+                Log.w(TAG, "Rejected blocked device $deviceName")
+                return
+            }
+
+            if (!WearBluetoothSecurity.isDeviceTrusted(this@BluetoothServerService, address)) {
+                BluetoothPairingNotificationManager.showAuthorizationNotification(this@BluetoothServerService, deviceName, address)
+                writer.println(WearBluetoothProtocol.BT_RESPONSE_AUTH_REQUIRED)
+                writer.flush()
+                Log.d(TAG, "Requested authorization for $deviceName")
+                return
+            }
+
+            // Always generate a fresh key for this session. The watch stores it and uses it for
+            // the rest of the connection, which avoids stale-key mismatches.
+            val key = WearBluetoothSecurity.generateKey().also {
+                WearBluetoothSecurity.setDeviceKey(this@BluetoothServerService, address, it)
+            }
+            writer.println(WearBluetoothProtocol.BT_RESPONSE_KEY_PREFIX + key)
+            writer.flush()
+            Log.d(TAG, "Authenticated $deviceName, key exchanged")
+
+            try {
+                while (true) {
+                    val encryptedLine = reader.readLine() ?: break
+                    val line = WearBluetoothSecurity.decrypt(encryptedLine, key)
+                    if (line == null) {
+                        Log.w(TAG, "Failed to decrypt message from $deviceName, ending session")
+                        writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
+                        writer.flush()
+                        break
+                    }
+
+                    when {
+                        line.startsWith(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX) -> {
+                            val pageIndex = line.removePrefix(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX).toIntOrNull()
+                            if (pageIndex == null || pageIndex < 0) {
+                                Log.w(TAG, "Invalid page index from $deviceName: $line")
+                            } else {
+                                val json = buildCardsPageJson(pageIndex)
+                                writer.println(WearBluetoothSecurity.encrypt(json, key))
+                                writer.flush()
+                                Log.d(TAG, "Sent encrypted page $pageIndex to $deviceName")
+                            }
+                        }
+                        else -> Log.w(TAG, "Unsupported encrypted command from $deviceName: $line")
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d(TAG, "Session with $deviceName ended: ${e.message}")
             }
         }
 

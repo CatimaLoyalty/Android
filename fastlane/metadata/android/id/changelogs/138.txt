@@ -1,0 +1,1 @@
+- Perbaikan gestur kembali pada layar utama agar tidak langsung menutup keyboard dan pencarian di Android 13+

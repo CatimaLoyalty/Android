@@ -1,0 +1,4 @@
+- Mengizinkan nama toko yang panjang pada pratinjau untuk dibagi menjadi beberapa baris
+- Opsi untuk menggunakan bagian depan atau belakang gambar pada menu thumbnail
+- Perbaikan kecil pada fitur impor/ekspor
+- Perbaikan kecil pada UI

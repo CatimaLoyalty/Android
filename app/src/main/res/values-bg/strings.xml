@@ -303,4 +303,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC е на пауза</string>
     <string name="change_settings">Настройки</string>
     <string name="nfc_block_system_error">Грешка при спиране на NFC</string>
+    <string name="sort_by_most_recently_added">Поредност на добавяне</string>
+    <string name="zoomFrontImage">Увеличаване на предното изображение</string>
+    <string name="zoomBackImage">Увеличаване на задното изображение</string>
+    <string name="show_card_id">Показване номера на картата</string>
 </resources>

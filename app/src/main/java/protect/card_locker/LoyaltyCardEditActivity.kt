@@ -1,1738 +1,2041 @@
-package protect.card_locker;
+package protect.card_locker
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.LocaleList;
-import android.text.Editable;
-import android.text.InputType;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.database.sqlite.SQLiteDatabase
+import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.text.Editable
+import android.text.InputType
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.WindowManager
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.activity.result.contract.ActivityResultContracts.TakePicture
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.exifinterface.media.ExifInterface
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.DateValidatorPointForward
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.jaredrummler.android.colorpicker.BuildConfig
+import com.jaredrummler.android.colorpicker.ColorPickerDialog
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
+import com.yalantis.ucrop.UCrop
+import com.yalantis.ucrop.model.AspectRatio
+import protect.card_locker.async.TaskHandler
+import protect.card_locker.databinding.LayoutChipChoiceBinding
+import protect.card_locker.databinding.LoyaltyCardEditActivityBinding
+import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.InvalidObjectException
+import java.math.BigDecimal
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets
+import java.text.DateFormat
+import java.text.ParseException
+import java.util.Calendar
+import java.util.Currency
+import java.util.Date
+import java.util.Locale
+import java.util.concurrent.Callable
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.lifecycle.ViewModelProvider;
+open class LoyaltyCardEditActivity : CatimaAppCompatActivity(), BarcodeImageWriterResultCallback,
+    ColorPickerDialogListener {
 
-import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
-import com.google.android.material.color.MaterialColors;
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.DateValidatorPointBackward;
-import com.google.android.material.datepicker.DateValidatorPointForward;
-import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-import com.jaredrummler.android.colorpicker.BuildConfig;
-import com.jaredrummler.android.colorpicker.ColorPickerDialog;
-import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
-import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.model.AspectRatio;
+    private lateinit var viewModel: LoyaltyCardEditActivityViewModel
+    private lateinit var binding: LoyaltyCardEditActivityBinding
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InvalidObjectException;
-import java.math.BigDecimal;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Currency;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.concurrent.Callable;
+    private val TEMP_CAMERA_IMAGE_NAME =
+        LoyaltyCardEditActivity::class.java.simpleName + "_camera_image.jpg"
+    private val TEMP_CROP_IMAGE_NAME =
+        LoyaltyCardEditActivity::class.java.simpleName + "_crop_image.png"
+    private val TEMP_CROP_IMAGE_FORMAT = CompressFormat.PNG
 
-import protect.card_locker.async.TaskHandler;
-import protect.card_locker.databinding.LayoutChipChoiceBinding;
-import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
-import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
+    lateinit var thumbnail: ImageView
+    lateinit var thumbnailEditIcon: ImageView
+    lateinit var storeFieldEdit: EditText
+    lateinit var noteFieldEdit: EditText
+    lateinit var groupsChips: ChipGroup
+    lateinit var validFromField: AutoCompleteTextView
+    lateinit var expiryField: AutoCompleteTextView
+    lateinit var balanceCurrencyField: AutoCompleteTextView
+    lateinit var balanceField: EditText
+    lateinit var cardIdFieldView: TextView
+    lateinit var barcodeIdField: AutoCompleteTextView
+    lateinit var barcodeTypeField: AutoCompleteTextView
+    lateinit var barcodeEncodingField: AutoCompleteTextView
+    lateinit var barcodeImage: ImageView
+    lateinit var barcodeImageLayout: View
+    lateinit var barcodeCaptureLayout: View
+    lateinit var cardImageFrontHolder: View
+    lateinit var cardImageBackHolder: View
+    lateinit var cardImageFront: ImageView
+    lateinit var cardImageBack: ImageView
 
-public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
-    private static final String TAG = "Catima";
-    protected LoyaltyCardEditActivityViewModel viewModel;
-    private LoyaltyCardEditActivityBinding binding;
+    lateinit var enterButton: Button
 
-    private static final String PICK_DATE_REQUEST_KEY = "pick_date_request";
-    private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
+    lateinit var toolbar: Toolbar
 
-    private final String TEMP_CAMERA_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_camera_image.jpg";
-    private final String TEMP_CROP_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_crop_image.png";
-    private final Bitmap.CompressFormat TEMP_CROP_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
+    lateinit var mDatabase: SQLiteDatabase
 
-    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
-    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
-    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
-    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_FRONT = 103;
-    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_BACK = 104;
-    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_ICON = 105;
+    var tempStoredOldBarcodeValue: String? = null
+    var initDone: Boolean = false
+    var onResuming: Boolean = false
+    var onRestoring: Boolean = false
 
-    public static final String BUNDLE_ID = "id";
-    public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
-    public static final String BUNDLE_UPDATE = "update";
-    public static final String BUNDLE_OPEN_SET_ICON_MENU = "openSetIconMenu";
-    public static final String BUNDLE_ADDGROUP = "addGroup";
+    var confirmExitDialog: AlertDialog? = null
 
-    ImageView thumbnail;
-    ImageView thumbnailEditIcon;
-    EditText storeFieldEdit;
-    EditText noteFieldEdit;
-    ChipGroup groupsChips;
-    AutoCompleteTextView validFromField;
-    AutoCompleteTextView expiryField;
-    AutoCompleteTextView balanceCurrencyField;
-    EditText balanceField;
-    TextView cardIdFieldView;
-    AutoCompleteTextView barcodeIdField;
-    AutoCompleteTextView barcodeTypeField;
-    AutoCompleteTextView barcodeEncodingField;
-    ImageView barcodeImage;
-    View barcodeImageLayout;
-    View barcodeCaptureLayout;
-    View cardImageFrontHolder;
-    View cardImageBackHolder;
-    ImageView cardImageFront;
-    ImageView cardImageBack;
+    var currencies: HashMap<String, Currency> = HashMap()
+    var currencySymbols: HashMap<String, String> = HashMap()
+    var validBalance: Boolean = true
 
-    Button enterButton;
+    var mPhotoTakerLauncher: ActivityResultLauncher<Uri>? = null
+    var mPhotoPickerLauncher: ActivityResultLauncher<Intent>? = null
+    var mCardIdAndBarCodeEditorLauncher: ActivityResultLauncher<Intent>? = null
 
-    Toolbar toolbar;
-
-    SQLiteDatabase mDatabase;
-
-    String tempStoredOldBarcodeValue = null;
-    boolean initDone = false;
-    boolean onResuming = false;
-    boolean onRestoring = false;
-    AlertDialog confirmExitDialog = null;
-
-    HashMap<String, Currency> currencies = new HashMap<>();
-    HashMap<String, String> currencySymbols = new HashMap<>();
-    boolean validBalance = true;
-
-    ActivityResultLauncher<Uri> mPhotoTakerLauncher;
-    ActivityResultLauncher<Intent> mPhotoPickerLauncher;
-    ActivityResultLauncher<Intent> mCardIdAndBarCodeEditorLauncher;
-
-    ActivityResultLauncher<Intent> mCropperLauncher;
-    UCrop.Options mCropperOptions;
+    var mCropperLauncher: ActivityResultLauncher<Intent>? = null
+    var mCropperOptions: UCrop.Options? = null
 
     // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
-    private Locale mSystemLocale;
+    private lateinit var mSystemLocale: Locale
 
-    @Override
-    protected void attachBaseContext(Context base) {
+    override fun attachBaseContext(base: Context?) {
         // store system locale
-        mSystemLocale = Locale.getDefault();
-        super.attachBaseContext(base);
+        mSystemLocale = Locale.getDefault()
+        super.attachBaseContext(base)
     }
 
-    protected void setLoyaltyCardStore(@NonNull String store) {
-        viewModel.getLoyaltyCard().setStore(store);
+    protected fun setLoyaltyCardStore(store: String) {
+        viewModel.loyaltyCard.setStore(store)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardNote(@NonNull String note) {
-        viewModel.getLoyaltyCard().setNote(note);
+    protected fun setLoyaltyCardNote(note: String) {
+        viewModel.loyaltyCard.setNote(note)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardValidFrom(@Nullable Date validFrom) {
-        viewModel.getLoyaltyCard().setValidFrom(validFrom);
+    fun setLoyaltyCardValidFrom(validFrom: Date?) {
+        viewModel.loyaltyCard.setValidFrom(validFrom)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardExpiry(@Nullable Date expiry) {
-        viewModel.getLoyaltyCard().setExpiry(expiry);
+    fun setLoyaltyCardExpiry(expiry: Date?) {
+        viewModel.loyaltyCard.setExpiry(expiry)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardBalanceType(@Nullable Currency balanceType) {
-        viewModel.getLoyaltyCard().setBalanceType(balanceType);
+    protected fun setLoyaltyCardBalanceType(balanceType: Currency?) {
+        viewModel.loyaltyCard.setBalanceType(balanceType)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardBalance(@NonNull BigDecimal balance) {
-        viewModel.getLoyaltyCard().setBalance(balance);
+    protected fun setLoyaltyCardBalance(balance: BigDecimal) {
+        viewModel.loyaltyCard.setBalance(balance)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardCardId(@NonNull String cardId) {
-        viewModel.getLoyaltyCard().setCardId(cardId);
+    protected fun setLoyaltyCardCardId(cardId: String) {
+        viewModel.loyaltyCard.setCardId(cardId)
 
-        generateBarcode();
+        generateBarcode()
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardBarcodeId(@Nullable String barcodeId) {
-        viewModel.getLoyaltyCard().setBarcodeId(barcodeId);
+    protected fun setLoyaltyCardBarcodeId(barcodeId: String?) {
+        viewModel.loyaltyCard.setBarcodeId(barcodeId)
 
-        generateBarcode();
+        generateBarcode()
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardBarcodeType(@Nullable CatimaBarcode barcodeType) {
-        viewModel.getLoyaltyCard().setBarcodeType(barcodeType);
+    protected fun setLoyaltyCardBarcodeType(barcodeType: CatimaBarcode?) {
+        viewModel.loyaltyCard.setBarcodeType(barcodeType)
 
-        generateBarcode();
+        generateBarcode()
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardBarcodeEncoding(@NonNull Charset barcodeEncoding) {
-        viewModel.getLoyaltyCard().setBarcodeEncoding(barcodeEncoding);
+    protected fun setLoyaltyCardBarcodeEncoding(barcodeEncoding: Charset) {
+        viewModel.loyaltyCard.setBarcodeEncoding(barcodeEncoding)
 
-        generateBarcode();
+        generateBarcode()
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
-    protected void setLoyaltyCardHeaderColor(@Nullable Integer headerColor) {
-        viewModel.getLoyaltyCard().setHeaderColor(headerColor);
+    protected fun setLoyaltyCardHeaderColor(headerColor: Int?) {
+        viewModel.loyaltyCard.setHeaderColor(headerColor)
 
-        viewModel.setHasChanged(true);
+        viewModel.hasChanged = true
     }
 
     /* Extract intent fields and return if code should keep running */
-    private boolean extractIntentFields(Intent intent) {
-        final Bundle b = intent.getExtras();
+    private fun extractIntentFields(intent: Intent): Boolean {
+        val b = intent.extras
 
-        viewModel.setAddGroup(b != null ? b.getString(BUNDLE_ADDGROUP) : null);
-        viewModel.setOpenSetIconMenu(b != null && b.getBoolean(BUNDLE_OPEN_SET_ICON_MENU, false));
+        viewModel.addGroup = b?.getString(BUNDLE_ADDGROUP)
+        viewModel.openSetIconMenu = b != null && b.getBoolean(BUNDLE_OPEN_SET_ICON_MENU, false)
 
-        viewModel.setLoyaltyCardId(b != null ? b.getInt(BUNDLE_ID) : 0);
-        viewModel.setUpdateLoyaltyCard(b != null && b.getBoolean(BUNDLE_UPDATE, false));
-        viewModel.setDuplicateFromLoyaltyCardId(b != null && b.getBoolean(BUNDLE_DUPLICATE_ID, false));
-        viewModel.setImportLoyaltyCardUri(intent.getData());
+        viewModel.loyaltyCardId = b?.getInt(BUNDLE_ID) ?: 0
+        viewModel.updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false)
+        viewModel.duplicateFromLoyaltyCardId =
+            b != null && b.getBoolean(BUNDLE_DUPLICATE_ID, false)
+        viewModel.importLoyaltyCardUri = intent.data
 
-        Uri importLoyaltyCardUri = viewModel.getImportLoyaltyCardUri();
+        val importLoyaltyCardUri = viewModel.importLoyaltyCardUri
 
         // If we have to import a loyalty card, do so
-        if (viewModel.getUpdateLoyaltyCard() || viewModel.getDuplicateFromLoyaltyCardId()) {
+        if (viewModel.updateLoyaltyCard || viewModel.duplicateFromLoyaltyCardId) {
             // Retrieve from database
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(this, mDatabase, viewModel.getLoyaltyCardId());
+            val loyaltyCard = DBHelper.getLoyaltyCard(this, mDatabase, viewModel.loyaltyCardId)
             if (loyaltyCard == null) {
-                Log.w(TAG, "Could not lookup loyalty card " + viewModel.getLoyaltyCardId());
-                Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
-                finish();
-                return false;
+                Log.w(TAG, "Could not lookup loyalty card " + viewModel.loyaltyCardId)
+                Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show()
+                finish()
+                return false
             }
-            viewModel.setLoyaltyCard(loyaltyCard);
+            viewModel.loyaltyCard = loyaltyCard
         } else if (importLoyaltyCardUri != null) {
             // Load from URI
             try {
-                viewModel.setLoyaltyCard(new ImportURIHelper(this).parse(importLoyaltyCardUri));
-            } catch (InvalidObjectException ex) {
-                Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
-                finish();
-                return false;
+                viewModel.loyaltyCard = ImportURIHelper(this).parse(importLoyaltyCardUri)
+            } catch (_: InvalidObjectException) {
+                Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show()
+                finish()
+                return false
             }
         }
 
         // If the intent contains any loyalty card fields, override those fields in our current temp card
         if (b != null) {
-            LoyaltyCard loyaltyCard = viewModel.getLoyaltyCard();
-            loyaltyCard.updateFromBundle(b, false);
-            viewModel.setLoyaltyCard(loyaltyCard);
+            val loyaltyCard = viewModel.loyaltyCard
+            loyaltyCard.updateFromBundle(b, false)
+            viewModel.loyaltyCard = loyaltyCard
         }
 
-        Log.d(TAG, "Edit activity: id=" + viewModel.getLoyaltyCardId()
-                + ", updateLoyaltyCard=" + viewModel.getUpdateLoyaltyCard());
+        Log.d(
+            TAG, ("Edit activity: id=" + viewModel.loyaltyCardId
+                    + ", updateLoyaltyCard=" + viewModel.updateLoyaltyCard)
+        )
 
-        return true;
+        return true
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
+    public override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
     }
 
-    @Override
-    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        onRestoring = true;
-        super.onRestoreInstanceState(savedInstanceState);
+    public override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        onRestoring = true
+        super.onRestoreInstanceState(savedInstanceState)
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        Utils.applyWindowInsetsAndFabOffset(binding.getRoot(), binding.fabSave);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = LoyaltyCardEditActivityBinding.inflate(layoutInflater)
+        setContentView(binding.getRoot())
+        Utils.applyWindowInsetsAndFabOffset(binding.getRoot(), binding.fabSave)
 
-        viewModel = new ViewModelProvider(this).get(LoyaltyCardEditActivityViewModel.class);
+        viewModel = ViewModelProvider(this)[LoyaltyCardEditActivityViewModel::class.java]
 
-        toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
-        enableToolbarBackButton();
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        enableToolbarBackButton()
 
-        mDatabase = new DBHelper(this).getWritableDatabase();
+        mDatabase = DBHelper(this).writableDatabase
 
-        if (!viewModel.getInitialized()) {
-            if (!extractIntentFields(getIntent())) {
-                return;
+        if (!viewModel.initialized) {
+            if (!extractIntentFields(intent)) {
+                return
             }
-            viewModel.setInitialized(true);
+            viewModel.initialized = true
         }
 
-        for (Currency currency : Currency.getAvailableCurrencies()) {
-            currencies.put(currency.getSymbol(), currency);
-            currencySymbols.put(currency.getCurrencyCode(), currency.getSymbol());
+        for (currency in Currency.getAvailableCurrencies()) {
+            currencies[currency.getSymbol()] = currency
+            currencySymbols[currency.getCurrencyCode()] = currency.getSymbol()
         }
 
-        thumbnail = binding.thumbnail;
-        thumbnailEditIcon = binding.thumbnailEditIcon;
-        storeFieldEdit = binding.storeNameEdit;
-        noteFieldEdit = binding.noteEdit;
-        groupsChips = binding.groupChips;
-        validFromField = binding.validFromField;
-        expiryField = binding.expiryField;
-        balanceCurrencyField = binding.balanceCurrencyField;
-        balanceField = binding.balanceField;
-        cardIdFieldView = binding.cardIdView;
-        barcodeIdField = binding.barcodeIdField;
-        barcodeTypeField = binding.barcodeTypeField;
-        barcodeEncodingField = binding.barcodeEncodingField;
-        barcodeImage = binding.barcode;
-        barcodeImage.setClipToOutline(true);
-        barcodeImageLayout = binding.barcodeLayout;
-        barcodeCaptureLayout = binding.barcodeCaptureLayout;
-        cardImageFrontHolder = binding.frontImageHolder;
-        cardImageBackHolder = binding.backImageHolder;
-        cardImageFront = binding.frontImage;
-        cardImageBack = binding.backImage;
+        thumbnail = binding.thumbnail
+        thumbnailEditIcon = binding.thumbnailEditIcon
+        storeFieldEdit = binding.storeNameEdit
+        noteFieldEdit = binding.noteEdit
+        groupsChips = binding.groupChips
+        validFromField = binding.validFromField
+        expiryField = binding.expiryField
+        balanceCurrencyField = binding.balanceCurrencyField
+        balanceField = binding.balanceField
+        cardIdFieldView = binding.cardIdView
+        barcodeIdField = binding.barcodeIdField
+        barcodeTypeField = binding.barcodeTypeField
+        barcodeEncodingField = binding.barcodeEncodingField
+        barcodeImage = binding.barcode
+        barcodeImage.clipToOutline = true
+        barcodeImageLayout = binding.barcodeLayout
+        barcodeCaptureLayout = binding.barcodeCaptureLayout
+        cardImageFrontHolder = binding.frontImageHolder
+        cardImageBackHolder = binding.backImageHolder
+        cardImageFront = binding.frontImage
+        cardImageBack = binding.backImage
 
-        enterButton = binding.enterButton;
+        enterButton = binding.enterButton
 
-        storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String storeName = s.toString().trim();
-                setLoyaltyCardStore(storeName);
-                generateIcon(storeName);
+        storeFieldEdit.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                val storeName = s.toString().trim { it <= ' ' }
+                setLoyaltyCardStore(storeName)
+                generateIcon(storeName)
 
                 if (storeName.isEmpty()) {
-                    storeFieldEdit.setError(getString(R.string.field_must_not_be_empty));
+                    storeFieldEdit.error = getString(R.string.field_must_not_be_empty)
                 } else {
-                    storeFieldEdit.setError(null);
+                    storeFieldEdit.error = null
                 }
             }
-        });
+        })
 
-        noteFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setLoyaltyCardNote(s.toString());
+        noteFieldEdit.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                setLoyaltyCardNote(s.toString())
             }
-        });
+        })
 
-        addDateFieldTextChangedListener(validFromField, R.string.anyDate, R.string.chooseValidFromDate, LoyaltyCardField.validFrom);
+        addDateFieldTextChangedListener(
+            validFromField,
+            R.string.anyDate,
+            R.string.chooseValidFromDate,
+            LoyaltyCardField.validFrom
+        )
 
-        addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
+        addDateFieldTextChangedListener(
+            expiryField,
+            R.string.never,
+            R.string.chooseExpiryDate,
+            LoyaltyCardField.expiry
+        )
 
-        setMaterialDatePickerResultListener();
+        setMaterialDatePickerResultListener()
 
-        balanceCurrencyField.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Currency currency;
+        balanceCurrencyField.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                val currency: Currency? =
+                    if (s.toString() == getString(R.string.points)) null else currencies[s.toString()]
 
-                if (s.toString().equals(getString(R.string.points))) {
-                    currency = null;
-                } else {
-                    currency = currencies.get(s.toString());
-                }
-
-                setLoyaltyCardBalanceType(currency);
-
-                if (viewModel.getLoyaltyCard().balance != null && !onResuming && !onRestoring) {
-                    balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, currency));
+                setLoyaltyCardBalanceType(currency)
+                if (viewModel.loyaltyCard.balance != null && !onResuming && !onRestoring) {
+                    balanceField.setText(
+                        Utils.formatBalanceWithoutCurrencySymbol(
+                            viewModel.loyaltyCard.balance,
+                            currency
+                        )
+                    )
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> currencyList = new ArrayList<>(currencies.keySet());
-                Collections.sort(currencyList, (o1, o2) -> {
-                    boolean o1ascii = o1.matches("^[^a-zA-Z]*$");
-                    boolean o2ascii = o2.matches("^[^a-zA-Z]*$");
-
-                    if (!o1ascii && o2ascii) {
-                        return 1;
-                    } else if (o1ascii && !o2ascii) {
-                        return -1;
-                    }
-
-                    return o1.compareTo(o2);
-                });
+            override fun afterTextChanged(s: Editable?) {
+                val currencyList = currencies.keys.toMutableList()
+                currencyList.sortWith { o1, o2 ->
+                    val o1ascii = o1.matches("^[^a-zA-Z]*$".toRegex())
+                    val o2ascii = o2.matches("^[^a-zA-Z]*$".toRegex())
+                    if (!o1ascii && o2ascii)
+                        1
+                    else if (o1ascii && !o2ascii)
+                        -1
+                    else
+                        o1.compareTo(o2)
+                }
 
                 // Sort locale currencies on top
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    LocaleList locales = getApplicationContext().getResources().getConfiguration().getLocales();
+                    val locales =
+                        applicationContext.resources.configuration.locales
 
-                    for (int i = locales.size() - 1; i >= 0; i--) {
-                        Locale locale = locales.get(i);
-                        currencyPrioritizeLocaleSymbols(currencyList, locale);
+                    for (i in locales.size() - 1 downTo 0) {
+                        val locale = locales.get(i)
+                        currencyPrioritizeLocaleSymbols(currencyList, locale)
                     }
                 } else {
-                    currencyPrioritizeLocaleSymbols(currencyList, mSystemLocale);
+                    currencyPrioritizeLocaleSymbols(currencyList, mSystemLocale)
                 }
 
-                currencyList.add(0, getString(R.string.points));
-                ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
-                balanceCurrencyField.setAdapter(currencyAdapter);
+                currencyList.add(0, getString(R.string.points))
+                val currencyAdapter = ArrayAdapter(
+                    this@LoyaltyCardEditActivity,
+                    android.R.layout.select_dialog_item,
+                    currencyList
+                )
+                balanceCurrencyField.setAdapter(currencyAdapter)
             }
-        });
+        })
 
-        balanceField.setOnFocusChangeListener((v, hasFocus) -> {
+        balanceField.setOnFocusChangeListener { _: View, hasFocus: Boolean ->
             if (!hasFocus && !onResuming && !onRestoring) {
-                if (balanceField.getText().toString().isEmpty()) {
-                    setLoyaltyCardBalance(BigDecimal.valueOf(0));
+                if (balanceField.text.toString().isEmpty()) {
+                    setLoyaltyCardBalance(BigDecimal.valueOf(0))
                 }
 
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
+                balanceField.setText(
+                    Utils.formatBalanceWithoutCurrencySymbol(
+                        viewModel.loyaltyCard.balance,
+                        viewModel.loyaltyCard.balanceType
+                    )
+                )
             }
-        });
+        }
 
-        balanceField.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (onResuming || onRestoring) return;
+        balanceField.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (onResuming || onRestoring) return
                 try {
-                    BigDecimal balance = Utils.parseBalance(s.toString(), viewModel.getLoyaltyCard().balanceType);
-                    setLoyaltyCardBalance(balance);
-                    balanceField.setError(null);
-                    validBalance = true;
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    balanceField.setError(getString(R.string.balanceParsingFailed));
-                    validBalance = false;
+                    val balance =
+                        Utils.parseBalance(s.toString(), viewModel.loyaltyCard.balanceType)
+                    setLoyaltyCardBalance(balance)
+                    balanceField.error = null
+                    validBalance = true
+                } catch (e: ParseException) {
+                    e.printStackTrace()
+                    balanceField.error = getString(R.string.balanceParsingFailed)
+                    validBalance = false
                 }
             }
-        });
+        })
 
-        cardIdFieldView.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        cardIdFieldView.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 if (initDone && !onResuming) {
                     if (tempStoredOldBarcodeValue == null) {
                         // We changed the card ID, save the current barcode ID in a temp
                         // variable and make sure to ask the user later if they also want to
                         // update the barcode ID
-                        if (viewModel.getLoyaltyCard().barcodeId != null) {
+                        if (viewModel.loyaltyCard.barcodeId != null) {
                             // If it is not set to "same as Card ID", save as tempStoredOldBarcodeValue
-                            tempStoredOldBarcodeValue = barcodeIdField.getText().toString();
+                            tempStoredOldBarcodeValue = barcodeIdField.text.toString()
                         }
                     }
                 }
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setLoyaltyCardCardId(s.toString());
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                setLoyaltyCardCardId(s.toString())
 
-                if (s.length() == 0) {
-                    cardIdFieldView.setError(getString(R.string.field_must_not_be_empty));
+                if (s.isEmpty()) {
+                    cardIdFieldView.error = getString(R.string.field_must_not_be_empty)
                 } else {
-                    cardIdFieldView.setError(null);
+                    cardIdFieldView.error = null
                 }
             }
-        });
+        })
 
-        barcodeIdField.addTextChangedListener(new SimpleTextWatcher() {
-            CharSequence lastValue;
+        barcodeIdField.addTextChangedListener(object : SimpleTextWatcher() {
+            var lastValue: CharSequence? = null
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                lastValue = s;
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                lastValue = s
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().equals(getString(R.string.sameAsCardId))) {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.toString() == getString(R.string.sameAsCardId)) {
                     // If the user manually changes the barcode again make sure we disable the
                     // request to update it to match the card id (if changed)
-                    tempStoredOldBarcodeValue = null;
+                    tempStoredOldBarcodeValue = null
 
-                    setLoyaltyCardBarcodeId(null);
-                } else if (s.toString().equals(getString(R.string.setBarcodeId))) {
-                    if (!lastValue.toString().equals(getString(R.string.setBarcodeId))) {
-                        barcodeIdField.setText(lastValue);
+                    setLoyaltyCardBarcodeId(null)
+                } else if (s.toString() == getString(R.string.setBarcodeId)) {
+                    if (lastValue.toString() != getString(R.string.setBarcodeId)) {
+                        barcodeIdField.setText(lastValue)
                     }
 
-                    AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardEditActivity.this);
-                    builder.setTitle(R.string.setBarcodeId);
-                    final EditText input = new EditText(LoyaltyCardEditActivity.this);
-                    input.setInputType(InputType.TYPE_CLASS_TEXT);
+                    val builder: AlertDialog.Builder =
+                        MaterialAlertDialogBuilder(this@LoyaltyCardEditActivity)
+                    builder.setTitle(R.string.setBarcodeId)
+                    val input = EditText(this@LoyaltyCardEditActivity)
+                    input.inputType = InputType.TYPE_CLASS_TEXT
 
-                    FrameLayout container = new FrameLayout(LoyaltyCardEditActivity.this);
-                    FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-                    params.leftMargin = contentPadding;
-                    params.topMargin = contentPadding / 2;
-                    params.rightMargin = contentPadding;
+                    val container = FrameLayout(this@LoyaltyCardEditActivity)
+                    val params = FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    val contentPadding =
+                        getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding)
+                    params.leftMargin = contentPadding
+                    params.topMargin = contentPadding / 2
+                    params.rightMargin = contentPadding
 
-                    input.setLayoutParams(params);
-                    container.addView(input);
-                    if (viewModel.getLoyaltyCard().barcodeId != null) {
-                        input.setText(viewModel.getLoyaltyCard().barcodeId);
+                    input.layoutParams = params
+                    container.addView(input)
+                    if (viewModel.loyaltyCard.barcodeId != null) {
+                        input.setText(viewModel.loyaltyCard.barcodeId)
                     }
-                    builder.setView(container);
+                    builder.setView(container)
 
-                    builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+                    builder.setPositiveButton(
+                        getString(R.string.ok)
+                    ) { _: DialogInterface?, _: Int ->
                         // If the user manually changes the barcode again make sure we disable the
                         // request to update it to match the card id (if changed)
-                        tempStoredOldBarcodeValue = null;
-
-                        barcodeIdField.setText(input.getText());
-                    });
-                    builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                    input.requestFocus();
+                        tempStoredOldBarcodeValue = null
+                        barcodeIdField.setText(input.text)
+                    }
+                    builder.setNegativeButton(
+                        getString(R.string.cancel)
+                    ) { dialog: DialogInterface?, _: Int -> dialog?.cancel() }
+                    val dialog = builder.create()
+                    dialog.show()
+                    dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+                    input.requestFocus()
                 } else {
-                    setLoyaltyCardBarcodeId(s.toString());
+                    setLoyaltyCardBarcodeId(s.toString())
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> barcodeIdList = new ArrayList<>();
-                barcodeIdList.add(0, getString(R.string.sameAsCardId));
-                barcodeIdList.add(1, getString(R.string.setBarcodeId));
-                ArrayAdapter<String> barcodeIdAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeIdList);
-                barcodeIdField.setAdapter(barcodeIdAdapter);
+            override fun afterTextChanged(s: Editable?) {
+                val barcodeIdList = ArrayList<String?>()
+                barcodeIdList.add(0, getString(R.string.sameAsCardId))
+                barcodeIdList.add(1, getString(R.string.setBarcodeId))
+                val barcodeIdAdapter = ArrayAdapter<String>(
+                    this@LoyaltyCardEditActivity,
+                    android.R.layout.select_dialog_item,
+                    barcodeIdList
+                )
+                barcodeIdField.setAdapter(barcodeIdAdapter)
             }
-        });
+        })
 
-        barcodeTypeField.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+        barcodeTypeField.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (!s.toString().isEmpty()) {
-                    if (s.toString().equals(getString(R.string.noBarcode))) {
-                        setLoyaltyCardBarcodeType(null);
+                    if (s.toString() == getString(R.string.noBarcode)) {
+                        setLoyaltyCardBarcodeType(null)
                     } else {
                         try {
-                            CatimaBarcode barcodeFormat = CatimaBarcode.fromPrettyName(s.toString());
+                            val barcodeFormat = CatimaBarcode.fromPrettyName(s.toString())
 
-                            setLoyaltyCardBarcodeType(barcodeFormat);
+                            setLoyaltyCardBarcodeType(barcodeFormat)
 
-                            if (!barcodeFormat.isSupported()) {
-                                Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
+                            if (!barcodeFormat.isSupported) {
+                                Toast.makeText(
+                                    this@LoyaltyCardEditActivity,
+                                    getString(R.string.unsupportedBarcodeType),
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
-                        } catch (IllegalArgumentException e) {
+                        } catch (_: IllegalArgumentException) {
                         }
                     }
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> barcodeList = new ArrayList<>(CatimaBarcode.barcodePrettyNames);
-                barcodeList.add(0, getString(R.string.noBarcode));
-                ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeList);
-                barcodeTypeField.setAdapter(barcodeAdapter);
+            override fun afterTextChanged(s: Editable?) {
+                val barcodeList = ArrayList<String>(CatimaBarcode.barcodePrettyNames)
+                barcodeList.add(0, getString(R.string.noBarcode))
+                val barcodeAdapter = ArrayAdapter(
+                    this@LoyaltyCardEditActivity,
+                    android.R.layout.select_dialog_item,
+                    barcodeList
+                )
+                barcodeTypeField.setAdapter(barcodeAdapter)
             }
-        });
+        })
 
-        barcodeEncodingField.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+        barcodeEncodingField.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (!s.toString().isEmpty()) {
-                    Log.d(TAG, "Setting barcode encoding to " + s.toString());
-                    setLoyaltyCardBarcodeEncoding(Charset.forName(s.toString()));
+                    Log.d(TAG, "Setting barcode encoding to $s")
+                    setLoyaltyCardBarcodeEncoding(Charset.forName(s.toString()))
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> barcodeEncodingList = new ArrayList<>();
-                barcodeEncodingList.add(StandardCharsets.ISO_8859_1.name());
-                barcodeEncodingList.add(StandardCharsets.UTF_8.name());
-                ArrayAdapter<String> barcodeEncodingAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeEncodingList);
-                barcodeEncodingField.setAdapter(barcodeEncodingAdapter);
+            override fun afterTextChanged(s: Editable?) {
+                val barcodeEncodingList = ArrayList<String?>()
+                barcodeEncodingList.add(StandardCharsets.ISO_8859_1.name())
+                barcodeEncodingList.add(StandardCharsets.UTF_8.name())
+                val barcodeEncodingAdapter = ArrayAdapter<String?>(
+                    this@LoyaltyCardEditActivity,
+                    android.R.layout.select_dialog_item,
+                    barcodeEncodingList
+                )
+                barcodeEncodingField.setAdapter(barcodeEncodingAdapter)
             }
-        });
+        })
 
-        binding.tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewModel.setTabIndex(tab.getPosition());
-                showPart(tab.getText().toString());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
+        binding.tabs.addOnTabSelectedListener(object : OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewModel.tabIndex = tab.position
+                showPart(tab.text.toString())
             }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                viewModel.setTabIndex(tab.getPosition());
-                showPart(tab.getText().toString());
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
-        });
 
-        selectTab(viewModel.getTabIndex());
-
-        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), result -> {
-            if (result) {
-                startCropper(getCacheDir() + "/" + TEMP_CAMERA_IMAGE_NAME);
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                viewModel.tabIndex = tab.position
+                showPart(tab.text.toString())
             }
-        });
+        })
+
+        selectTab(viewModel.tabIndex)
+
+        mPhotoTakerLauncher = registerForActivityResult(
+            TakePicture()
+        ) { result: Boolean ->
+            if (result)
+                startCropper("$cacheDir/$TEMP_CAMERA_IMAGE_NAME")
+        }
 
         // android 11: wanted to swap it to ActivityResultContracts.GetContent but then it shows a file browsers that shows image mime types, offering gallery in the file browser
-        mPhotoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getResultCode() == RESULT_OK) {
-                Intent intent = result.getData();
+        mPhotoPickerLauncher = registerForActivityResult(
+            StartActivityForResult()
+        ) { result: ActivityResult ->
+            if (result.resultCode == RESULT_OK) {
+                val intent = result.data
                 if (intent == null) {
-                    Log.d("photo picker", "photo picker returned without an intent");
-                    return;
+                    Log.d("photo picker", "photo picker returned without an intent")
+                    return@registerForActivityResult
                 }
-                Uri uri = intent.getData();
-                startCropperUri(uri);
+                val uri = intent.data
+                startCropperUri(uri!!)
             }
-        });
+        }
 
-        mCardIdAndBarCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getResultCode() == RESULT_OK) {
-                Intent resultIntent = result.getData();
+        mCardIdAndBarCodeEditorLauncher = registerForActivityResult(
+            StartActivityForResult()
+        ) { result: ActivityResult ->
+            if (result.resultCode == RESULT_OK) {
+                val resultIntent = result.data
                 if (resultIntent == null) {
-                    Log.d(TAG, "barcode and card id editor picker returned without an intent");
-                    return;
+                    Log.d(TAG, "barcode and card id editor picker returned without an intent")
+                    return@registerForActivityResult
                 }
 
-                Bundle resultIntentBundle = resultIntent.getExtras();
+                val resultIntentBundle = resultIntent.extras
                 if (resultIntentBundle == null) {
-                    Log.d(TAG, "barcode and card id editor picker returned without a bundle");
-                    return;
+                    Log.d(TAG, "barcode and card id editor picker returned without a bundle")
+                    return@registerForActivityResult
                 }
 
-                LoyaltyCard loyaltyCard = viewModel.getLoyaltyCard();
-                loyaltyCard.updateFromBundle(resultIntentBundle, false);
-                viewModel.setLoyaltyCard(loyaltyCard);
-                generateBarcode();
-                viewModel.setHasChanged(true);
+                val loyaltyCard = viewModel.loyaltyCard
+                loyaltyCard.updateFromBundle(resultIntentBundle, false)
+                viewModel.loyaltyCard = loyaltyCard
+                generateBarcode()
+                viewModel.hasChanged = true
             }
-        });
+        }
 
-        mCropperLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            Intent intent = result.getData();
+        mCropperLauncher = registerForActivityResult(
+            StartActivityForResult()
+        ) { result: ActivityResult ->
+            val intent = result.data
             if (intent == null) {
-                Log.d("cropper", "ucrop returned a null intent");
-                return;
+                Log.d("cropper", "ucrop returned a null intent")
+                return@registerForActivityResult
             }
-            if (result.getResultCode() == Activity.RESULT_OK) {
-                Uri debugUri = UCrop.getOutput(intent);
-                if (debugUri == null) {
-                    throw new RuntimeException("ucrop returned success but not destination uri!");
-                }
-                Log.d("cropper", "ucrop produced image at " + debugUri);
-                Bitmap bitmap = BitmapFactory.decodeFile(getCacheDir() + "/" + TEMP_CROP_IMAGE_NAME);
+            if (result.resultCode == RESULT_OK) {
+                val debugUri = UCrop.getOutput(intent)
+                    ?: throw RuntimeException("ucrop returned success but not destination uri!")
+                Log.d("cropper", "ucrop produced image at $debugUri")
+                val bitmap =
+                    BitmapFactory.decodeFile("$cacheDir/$TEMP_CROP_IMAGE_NAME")
 
                 if (bitmap != null) {
                     if (requestedFrontImage()) {
-                        setCardImage(ImageLocationType.front, cardImageFront, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG), true);
+                        setCardImage(
+                            ImageLocationType.front,
+                            cardImageFront,
+                            Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG.toDouble()),
+                            true
+                        )
                     } else if (requestedBackImage()) {
-                        setCardImage(ImageLocationType.back, cardImageBack, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG), true);
+                        setCardImage(
+                            ImageLocationType.back,
+                            cardImageBack,
+                            Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG.toDouble()),
+                            true
+                        )
                     } else if (requestedIcon()) {
-                        setThumbnailImage(Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_SMALL));
+                        setThumbnailImage(
+                            Utils.resizeBitmap(
+                                bitmap,
+                                Utils.BITMAP_SIZE_SMALL.toDouble()
+                            )
+                        )
                     } else {
-                        Toast.makeText(this, R.string.generic_error_please_retry, Toast.LENGTH_LONG).show();
-                        return;
+                        Toast.makeText(
+                            this,
+                            R.string.generic_error_please_retry,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return@registerForActivityResult
                     }
-                    Log.d("cropper", "requestedImageType: " + viewModel.getRequestedImageType());
-                    viewModel.setHasChanged(true);
+                    Log.d("cropper", "requestedImageType: " + viewModel.requestedImageType)
+                    viewModel.hasChanged = true
                 } else {
-                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                        this@LoyaltyCardEditActivity,
+                        R.string.errorReadingImage,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
-            } else if (result.getResultCode() == UCrop.RESULT_ERROR) {
-                Throwable e = UCrop.getError(intent);
-                if (e == null) {
-                    throw new RuntimeException("ucrop returned error state but not an error!");
-                }
-                Log.e("cropper error", e.toString());
+            } else if (result.resultCode == UCrop.RESULT_ERROR) {
+                val e = UCrop.getError(intent)
+                    ?: throw RuntimeException("ucrop returned error state but not an error!")
+                Log.e("cropper error", e.toString())
             }
-        });
-
-        mCropperOptions = new UCrop.Options();
-
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                askBeforeQuitIfChanged();
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mDatabase != null && mDatabase.isOpen()) {
-            mDatabase.close();
         }
-        super.onDestroy();
+
+        mCropperOptions = UCrop.Options()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                askBeforeQuitIfChanged()
+            }
+        })
     }
 
-    private void selectTab(int index) {
-        binding.tabs.selectTab(binding.tabs.getTabAt(index));
-        viewModel.setTabIndex(index);
+    override fun onDestroy() {
+        if (mDatabase.isOpen()) {
+            mDatabase.close()
+        }
+        super.onDestroy()
+    }
+
+    private fun selectTab(index: Int) {
+        binding.tabs.selectTab(binding.tabs.getTabAt(index))
+        viewModel.tabIndex = index
     }
 
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
     // https://github.com/Yalantis/uCrop/blob/281c8e6438d81f464d836fc6b500517144af264a/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java#L264
     // so source width height has to be provided for now, depending on whether future versions of ucrop will support 0x0 as the default option
-    private void setCropperOptions(boolean cardShapeDefault, float sourceWidth, float sourceHeight) {
-        mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
-        mCropperOptions.setFreeStyleCropEnabled(true);
-        mCropperOptions.setHideBottomControls(false);
+    private fun setCropperOptions(
+        cardShapeDefault: Boolean,
+        sourceWidth: Float,
+        sourceHeight: Float
+    ) {
+        mCropperOptions?.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT)
+        mCropperOptions?.setFreeStyleCropEnabled(true)
+        mCropperOptions?.setHideBottomControls(false)
         // default aspect ratio workaround
-        int selectedByDefault = 1;
+        var selectedByDefault = 1
         if (cardShapeDefault) {
-            selectedByDefault = 2;
+            selectedByDefault = 2
         }
-        mCropperOptions.setAspectRatioOptions(selectedByDefault,
-                new AspectRatio(null, 1, 1),
-                new AspectRatio(getResources().getString(com.yalantis.ucrop.R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
-                new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
-        );
+        mCropperOptions?.setAspectRatioOptions(
+            selectedByDefault,
+            AspectRatio(null, 1f, 1f),
+            AspectRatio(
+                getResources().getString(com.yalantis.ucrop.R.string.ucrop_label_original)
+                    .uppercase(
+                        Locale.getDefault()
+                    ), sourceWidth, sourceHeight
+            ),
+            AspectRatio(
+                getResources().getString(R.string.card)
+                    .uppercase(Locale.getDefault()), 85.6f, 53.98f
+            )
+        )
 
         // Fix theming
-
-        int colorPrimary = MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
-        int colorOnPrimary = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
-        int colorSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
-        int colorOnSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
-        int colorBackground = MaterialColors.getColor(this, android.R.attr.colorBackground, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
-        mCropperOptions.setToolbarColor(colorSurface);
-        mCropperOptions.setToolbarWidgetColor(colorOnSurface);
-        mCropperOptions.setRootViewBackgroundColor(colorBackground);
+        val colorPrimary = MaterialColors.getColor(
+            this,
+            androidx.appcompat.R.attr.colorPrimary,
+            ContextCompat.getColor(this, R.color.md_theme_light_primary)
+        )
+        val colorOnPrimary = MaterialColors.getColor(
+            this,
+            com.google.android.material.R.attr.colorOnPrimary,
+            ContextCompat.getColor(this, R.color.md_theme_light_onPrimary)
+        )
+        val colorSurface = MaterialColors.getColor(
+            this,
+            com.google.android.material.R.attr.colorSurface,
+            ContextCompat.getColor(this, R.color.md_theme_light_surface)
+        )
+        val colorOnSurface = MaterialColors.getColor(
+            this,
+            com.google.android.material.R.attr.colorOnSurface,
+            ContextCompat.getColor(this, R.color.md_theme_light_onSurface)
+        )
+        val colorBackground = MaterialColors.getColor(
+            this,
+            android.R.attr.colorBackground,
+            ContextCompat.getColor(this, R.color.md_theme_light_onSurface)
+        )
+        mCropperOptions?.setToolbarColor(colorSurface)
+        mCropperOptions?.setToolbarWidgetColor(colorOnSurface)
+        mCropperOptions?.setRootViewBackgroundColor(colorBackground)
         // set tool tip to be the darker of primary color
         if (Utils.isDarkModeEnabled(this)) {
-            mCropperOptions.setActiveControlsWidgetColor(colorOnPrimary);
+            mCropperOptions?.setActiveControlsWidgetColor(colorOnPrimary)
         } else {
-            mCropperOptions.setActiveControlsWidgetColor(colorPrimary);
+            mCropperOptions?.setActiveControlsWidgetColor(colorPrimary)
         }
     }
 
-    private boolean requestedFrontImage() {
-        int requestedImageType = viewModel.getRequestedImageType();
+    private fun requestedFrontImage(): Boolean {
+        val requestedImageType = viewModel.requestedImageType
 
-        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_FRONT;
+        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_FRONT
     }
 
-    private boolean requestedBackImage() {
-        int requestedImageType = viewModel.getRequestedImageType();
+    private fun requestedBackImage(): Boolean {
+        val requestedImageType = viewModel.requestedImageType
 
-        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_BACK || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_BACK;
+        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_BACK || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_BACK
     }
 
-    private boolean requestedIcon() {
-        int requestedImageType = viewModel.getRequestedImageType();
+    private fun requestedIcon(): Boolean {
+        val requestedImageType = viewModel.requestedImageType
 
-        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_ICON || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_ICON;
+        return requestedImageType == Utils.CARD_IMAGE_FROM_CAMERA_ICON || requestedImageType == Utils.CARD_IMAGE_FROM_FILE_ICON
     }
 
     @SuppressLint("DefaultLocale")
-    @Override
-    protected void onResume() {
-        super.onResume();
+    override fun onResume() {
+        super.onResume()
 
-        Log.i(TAG, "To view card: " + viewModel.getLoyaltyCardId());
+        Log.i(TAG, "To view card: " + viewModel.loyaltyCardId)
 
-        onResuming = true;
+        onResuming = true
 
-        if (viewModel.getUpdateLoyaltyCard()) {
-            setTitle(R.string.editCardTitle);
+        if (viewModel.updateLoyaltyCard) {
+            setTitle(R.string.editCardTitle)
         } else {
-            setTitle(R.string.addCardTitle);
+            setTitle(R.string.addCardTitle)
         }
 
-        boolean hadChanges = viewModel.getHasChanged();
+        val hadChanges = viewModel.hasChanged
 
-        storeFieldEdit.setText(viewModel.getLoyaltyCard().store);
-        noteFieldEdit.setText(viewModel.getLoyaltyCard().note);
-        formatDateField(this, validFromField, viewModel.getLoyaltyCard().validFrom);
-        formatDateField(this, expiryField, viewModel.getLoyaltyCard().expiry);
-        cardIdFieldView.setText(viewModel.getLoyaltyCard().cardId);
-        String barcodeId = viewModel.getLoyaltyCard().barcodeId;
-        barcodeIdField.setText(barcodeId != null && !barcodeId.isEmpty() ? barcodeId : getString(R.string.sameAsCardId));
-        CatimaBarcode barcodeType = viewModel.getLoyaltyCard().barcodeType;
-        barcodeTypeField.setText(barcodeType != null ? barcodeType.prettyName() : getString(R.string.noBarcode));
-        Charset barcodeEncoding = viewModel.getLoyaltyCard().barcodeEncoding;
-        barcodeEncodingField.setText(barcodeEncoding.name());
+        storeFieldEdit.setText(viewModel.loyaltyCard.store)
+        noteFieldEdit.setText(viewModel.loyaltyCard.note)
+        formatDateField(this, validFromField, viewModel.loyaltyCard.validFrom)
+        formatDateField(this, expiryField, viewModel.loyaltyCard.expiry)
+        cardIdFieldView.setText(viewModel.loyaltyCard.cardId)
+        val barcodeId = viewModel.loyaltyCard.barcodeId
+        barcodeIdField.setText(
+            if (!barcodeId.isNullOrEmpty()) barcodeId else getString(
+                R.string.sameAsCardId
+            )
+        )
+        val barcodeType = viewModel.loyaltyCard.barcodeType
+        barcodeTypeField.setText(
+            if (barcodeType != null) barcodeType.prettyName() else getString(
+                R.string.noBarcode
+            )
+        )
+        val barcodeEncoding = viewModel.loyaltyCard.barcodeEncoding
+        barcodeEncodingField.setText(barcodeEncoding.name())
 
         // We set the balance here (with onResuming/onRestoring == true) to prevent formatBalanceCurrencyField() from setting it (via onTextChanged),
         // which can cause issues when switching locale because it parses the balance and e.g. the decimal separator may have changed.
-        formatBalanceCurrencyField(viewModel.getLoyaltyCard().balanceType);
-        BigDecimal balance = viewModel.getLoyaltyCard().balance == null ? new BigDecimal("0") : viewModel.getLoyaltyCard().balance;
-        setLoyaltyCardBalance(balance);
-        balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType));
-        validBalance = true;
-        Log.d(TAG, "Setting balance to " + balance);
+        formatBalanceCurrencyField(viewModel.loyaltyCard.balanceType)
+        val balance =
+            viewModel.loyaltyCard.balance ?: BigDecimal("0")
+        setLoyaltyCardBalance(balance)
+        balanceField.setText(
+            Utils.formatBalanceWithoutCurrencySymbol(
+                viewModel.loyaltyCard.balance,
+                viewModel.loyaltyCard.balanceType
+            )
+        )
+        validBalance = true
+        Log.d(TAG, "Setting balance to $balance")
 
-        if (groupsChips.getChildCount() == 0) {
-            List<Group> existingGroups = DBHelper.getGroups(mDatabase);
+        if (groupsChips.childCount == 0) {
+            val existingGroups = DBHelper.getGroups(mDatabase)
 
-            List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, viewModel.getLoyaltyCardId());
+            val loyaltyCardGroups =
+                DBHelper.getLoyaltyCardGroups(mDatabase, viewModel.loyaltyCardId)
 
             if (existingGroups.isEmpty()) {
-                groupsChips.setVisibility(View.GONE);
+                groupsChips.visibility = View.GONE
             } else {
-                groupsChips.setVisibility(View.VISIBLE);
+                groupsChips.visibility = View.VISIBLE
             }
 
-            for (Group group : DBHelper.getGroups(mDatabase)) {
-                LayoutChipChoiceBinding chipChoiceBinding = LayoutChipChoiceBinding
-                        .inflate(LayoutInflater.from(groupsChips.getContext()), groupsChips, false);
-                Chip chip = chipChoiceBinding.getRoot();
-                chip.setText(group._id);
-                chip.setTag(group);
+            for (group in DBHelper.getGroups(mDatabase)) {
+                val chipChoiceBinding = LayoutChipChoiceBinding
+                    .inflate(LayoutInflater.from(groupsChips.context), groupsChips, false)
+                val chip = chipChoiceBinding.getRoot()
+                chip.text = group._id
+                chip.tag = group
 
-                if (group._id.equals(viewModel.getAddGroup())) {
-                    chip.setChecked(true);
+                if (group._id == viewModel.addGroup) {
+                    chip.isChecked = true
                 } else {
-                    chip.setChecked(false);
-                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                        if (loyaltyCardGroup._id.equals(group._id)) {
-                            chip.setChecked(true);
-                            break;
+                    chip.isChecked = false
+                    for (loyaltyCardGroup in loyaltyCardGroups) {
+                        if (loyaltyCardGroup._id == group._id) {
+                            chip.isChecked = true
+                            break
                         }
                     }
                 }
 
-                chip.setOnTouchListener((v, event) -> {
-                    viewModel.setHasChanged(true);
+                chip.setOnClickListener {
+                    viewModel.hasChanged = true
+                }
 
-                    return false;
-                });
-
-                groupsChips.addView(chip);
+                groupsChips.addView(chip)
             }
         }
 
-        if (viewModel.getLoyaltyCard().headerColor == null) {
-            // If name is set, pick colour relevant for name. Otherwise pick randomly
-            setLoyaltyCardHeaderColor(viewModel.getLoyaltyCard().store.isEmpty() ? Utils.getRandomHeaderColor(this) : Utils.getHeaderColor(this, viewModel.getLoyaltyCard()));
+        if (viewModel.loyaltyCard.headerColor == null) {
+            // If name is set, pick colour relevant for name. Otherwise, pick randomly
+            setLoyaltyCardHeaderColor(
+                if (viewModel.loyaltyCard.store.isEmpty()) Utils.getRandomHeaderColor(
+                    this
+                ) else Utils.getHeaderColor(this, viewModel.loyaltyCard)
+            )
         }
 
-        setThumbnailImage(viewModel.getLoyaltyCard().getImageThumbnail(this));
-        setCardImage(ImageLocationType.front, cardImageFront, viewModel.getLoyaltyCard().getImageFront(this), true);
-        setCardImage(ImageLocationType.back, cardImageBack, viewModel.getLoyaltyCard().getImageBack(this), true);
+        setThumbnailImage(viewModel.loyaltyCard.getImageThumbnail(this))
+        setCardImage(
+            ImageLocationType.front,
+            cardImageFront,
+            viewModel.loyaltyCard.getImageFront(this),
+            true
+        )
+        setCardImage(
+            ImageLocationType.back,
+            cardImageBack,
+            viewModel.loyaltyCard.getImageBack(this),
+            true
+        )
 
         // Initialization has finished
         if (!initDone) {
-            initDone = true;
-            viewModel.setHasChanged(hadChanges);
+            initDone = true
+            viewModel.hasChanged = hadChanges
         }
 
-        generateBarcode();
+        generateBarcode()
 
-        enterButton.setOnClickListener(new EditCardIdAndBarcode());
-        barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
+        enterButton.setOnClickListener(EditCardIdAndBarcode())
+        barcodeImage.setOnClickListener(EditCardIdAndBarcode())
 
-        cardImageFrontHolder.setOnClickListener(new ChooseCardImage());
-        cardImageBackHolder.setOnClickListener(new ChooseCardImage());
+        cardImageFrontHolder.setOnClickListener(ChooseCardImage())
+        cardImageBackHolder.setOnClickListener(ChooseCardImage())
 
-        FloatingActionButton saveButton = binding.fabSave;
-        saveButton.setOnClickListener(v -> doSave());
-        saveButton.bringToFront();
+        val saveButton = binding.fabSave
+        saveButton.setOnClickListener { _: View? -> doSave() }
+        saveButton.bringToFront()
 
-        generateIcon(storeFieldEdit.getText().toString().trim());
+        generateIcon(storeFieldEdit.text.toString().trim { it <= ' ' })
 
-        Integer headerColor = viewModel.getLoyaltyCard().headerColor;
+        val headerColor = viewModel.loyaltyCard.headerColor
         if (headerColor != null) {
-            thumbnail.setOnClickListener(new ChooseCardImage());
-            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            thumbnail.setOnClickListener(ChooseCardImage())
+            thumbnailEditIcon.setBackgroundColor(if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE)
+            thumbnailEditIcon.setColorFilter(if (Utils.needsDarkForeground(headerColor)) Color.WHITE else Color.BLACK)
         }
 
-        onResuming = false;
-        onRestoring = false;
+        onResuming = false
+        onRestoring = false
 
         // Fake click on the edit icon to cause the set icon option to pop up if the icon was
         // long-pressed in the view activity
-        if (viewModel.getOpenSetIconMenu()) {
-            viewModel.setOpenSetIconMenu(false);
-            thumbnail.callOnClick();
+        if (viewModel.openSetIconMenu) {
+            viewModel.openSetIconMenu = false
+            thumbnail.callOnClick()
         }
     }
 
-    protected void setThumbnailImage(@Nullable Bitmap bitmap) {
-        setCardImage(ImageLocationType.icon, thumbnail, bitmap, false);
+    protected fun setThumbnailImage(bitmap: Bitmap?) {
+        setCardImage(ImageLocationType.icon, thumbnail, bitmap, false)
 
         if (bitmap != null) {
-            int headerColor = Utils.getHeaderColorFromImage(bitmap, Utils.getHeaderColor(this, viewModel.getLoyaltyCard()));
+            val headerColor = Utils.getHeaderColorFromImage(
+                bitmap,
+                Utils.getHeaderColor(this, viewModel.loyaltyCard)
+            )
 
-            setLoyaltyCardHeaderColor(headerColor);
+            setLoyaltyCardHeaderColor(headerColor)
 
-            thumbnail.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnail.setBackgroundColor(if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE)
 
-            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            thumbnailEditIcon.setBackgroundColor(if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE)
+            thumbnailEditIcon.setColorFilter(if (Utils.needsDarkForeground(headerColor)) Color.WHITE else Color.BLACK)
         } else {
-            generateIcon(storeFieldEdit.getText().toString().trim());
+            generateIcon(storeFieldEdit.getText().toString().trim { it <= ' ' })
 
-            Integer headerColor = viewModel.getLoyaltyCard().headerColor;
+            val headerColor = viewModel.loyaltyCard.headerColor
 
             if (headerColor != null) {
-                thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-                thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+                thumbnailEditIcon.setBackgroundColor(if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE)
+                thumbnailEditIcon.setColorFilter(if (Utils.needsDarkForeground(headerColor)) Color.WHITE else Color.BLACK)
             }
         }
     }
 
-    protected void setCardImage(ImageLocationType imageLocationType, ImageView imageView, Bitmap bitmap, boolean applyFallback) {
-        if (imageLocationType == ImageLocationType.icon) {
-            viewModel.getLoyaltyCard().setImageThumbnail(bitmap, null);
-        } else if (imageLocationType == ImageLocationType.front) {
-            viewModel.getLoyaltyCard().setImageFront(bitmap, null);
-        } else if (imageLocationType == ImageLocationType.back) {
-            viewModel.getLoyaltyCard().setImageBack(bitmap, null);
-        } else {
-            throw new IllegalArgumentException("Unknown image type");
+    fun setCardImage(
+        imageLocationType: ImageLocationType?,
+        imageView: ImageView,
+        bitmap: Bitmap?,
+        applyFallback: Boolean
+    ) {
+        when (imageLocationType) {
+            ImageLocationType.icon -> {
+                viewModel.loyaltyCard.setImageThumbnail(bitmap, null)
+            }
+
+            ImageLocationType.front -> {
+                viewModel.loyaltyCard.setImageFront(bitmap, null)
+            }
+
+            ImageLocationType.back -> {
+                viewModel.loyaltyCard.setImageBack(bitmap, null)
+            }
+
+            else -> {
+                throw IllegalArgumentException("Unknown image type")
+            }
         }
 
         if (bitmap != null) {
-            imageView.setImageBitmap(bitmap);
+            imageView.setImageBitmap(bitmap)
         } else if (applyFallback) {
-            imageView.setImageResource(R.drawable.ic_camera_white);
+            imageView.setImageResource(R.drawable.ic_camera_white)
         }
     }
 
-    protected void addDateFieldTextChangedListener(AutoCompleteTextView dateField, @StringRes int defaultOptionStringId, @StringRes int chooseDateOptionStringId, LoyaltyCardField loyaltyCardField) {
-        dateField.addTextChangedListener(new SimpleTextWatcher() {
-            CharSequence lastValue;
+    protected fun addDateFieldTextChangedListener(
+        dateField: AutoCompleteTextView,
+        @StringRes defaultOptionStringId: Int,
+        @StringRes chooseDateOptionStringId: Int,
+        loyaltyCardField: LoyaltyCardField
+    ) {
+        dateField.addTextChangedListener(object : SimpleTextWatcher() {
+            var lastValue: CharSequence? = null
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                lastValue = s;
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                lastValue = s
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().equals(getString(defaultOptionStringId))) {
-                    dateField.setTag(null);
-                    switch (loyaltyCardField) {
-                        case validFrom:
-                            setLoyaltyCardValidFrom(null);
-                            break;
-                        case expiry:
-                            setLoyaltyCardExpiry(null);
-                            break;
-                        default:
-                            throw new AssertionError("Unexpected field: " + loyaltyCardField);
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.toString() == getString(defaultOptionStringId)) {
+                    dateField.tag = null
+                    when (loyaltyCardField) {
+                        LoyaltyCardField.validFrom -> setLoyaltyCardValidFrom(null)
+                        LoyaltyCardField.expiry -> setLoyaltyCardExpiry(null)
+                        else -> throw AssertionError("Unexpected field: $loyaltyCardField")
                     }
-                } else if (s.toString().equals(getString(chooseDateOptionStringId))) {
-                    if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
-                        dateField.setText(lastValue);
+                } else if (s.toString() == getString(chooseDateOptionStringId)) {
+                    if (lastValue.toString() != getString(chooseDateOptionStringId)) {
+                        dateField.setText(lastValue)
                     }
                     showDatePicker(
-                            loyaltyCardField,
-                            (Date) dateField.getTag(),
-                            // if the expiry date is being set, set date picker's minDate to the 'valid from' date
-                            loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
-                            // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
-                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null
-                    );
+                        loyaltyCardField,
+                        dateField.tag as Date,  // if the expiry date is being set, set date picker's minDate to the 'valid from' date
+                        if (loyaltyCardField == LoyaltyCardField.expiry) validFromField.tag as Date else null,  // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
+                        if (loyaltyCardField == LoyaltyCardField.validFrom) expiryField.tag as Date else null
+                    )
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> dropdownOptions = new ArrayList<>();
-                dropdownOptions.add(0, getString(defaultOptionStringId));
-                dropdownOptions.add(1, getString(chooseDateOptionStringId));
-                ArrayAdapter<String> dropdownOptionsAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, dropdownOptions);
-                dateField.setAdapter(dropdownOptionsAdapter);
+            override fun afterTextChanged(s: Editable?) {
+                val dropdownOptions = ArrayList<String>()
+                dropdownOptions.add(0, getString(defaultOptionStringId))
+                dropdownOptions.add(1, getString(chooseDateOptionStringId))
+                val dropdownOptionsAdapter = ArrayAdapter(
+                    this@LoyaltyCardEditActivity,
+                    android.R.layout.select_dialog_item,
+                    dropdownOptions
+                )
+                dateField.setAdapter(dropdownOptionsAdapter)
             }
-        });
+        })
     }
 
-    protected static void formatDateField(Context context, EditText textField, Date date) {
-        textField.setTag(date);
-
-        if (date == null) {
-            String text;
-            if (textField.getId() == R.id.validFromField) {
-                text = context.getString(R.string.anyDate);
-            } else if (textField.getId() == R.id.expiryField) {
-                text = context.getString(R.string.never);
-            } else {
-                throw new IllegalArgumentException("Unknown textField Id " + textField.getId());
-            }
-            textField.setText(text);
-        } else {
-            textField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
-        }
-    }
-
-    private void formatBalanceCurrencyField(Currency balanceType) {
+    private fun formatBalanceCurrencyField(balanceType: Currency?) {
         if (balanceType == null) {
-            balanceCurrencyField.setText(getString(R.string.points));
+            balanceCurrencyField.setText(getString(R.string.points))
         } else {
-            balanceCurrencyField.setText(getCurrencySymbol(balanceType));
+            balanceCurrencyField.setText(getCurrencySymbol(balanceType))
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        onMockedRequestPermissionsResult(requestCode, permissions, grantResults);
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
-        Integer failureReason = null;
+    fun onMockedRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        val granted =
+            grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
+        var failureReason: Int? = null
 
-        if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
-            if (granted) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-                return;
+        when (requestCode) {
+            PERMISSION_REQUEST_CAMERA_IMAGE_FRONT -> {
+                if (granted) {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT)
+                    return
+                }
+
+                failureReason = R.string.cameraPermissionRequired
             }
 
-            failureReason = R.string.cameraPermissionRequired;
-        } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-            if (granted) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
-                return;
+            PERMISSION_REQUEST_CAMERA_IMAGE_BACK -> {
+                if (granted) {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK)
+                    return
+                }
+
+                failureReason = R.string.cameraPermissionRequired
             }
 
-            failureReason = R.string.cameraPermissionRequired;
-        } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-            if (granted) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
-                return;
+            PERMISSION_REQUEST_CAMERA_IMAGE_ICON -> {
+                if (granted) {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON)
+                    return
+                }
+
+                failureReason = R.string.cameraPermissionRequired
             }
 
-            failureReason = R.string.cameraPermissionRequired;
-        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_FRONT) {
-            if (granted) {
-                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_FRONT);
-                return;
+            PERMISSION_REQUEST_STORAGE_IMAGE_FRONT -> {
+                if (granted) {
+                    selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_FRONT)
+                    return
+                }
+
+                failureReason = R.string.storageReadPermissionRequired
             }
 
-            failureReason = R.string.storageReadPermissionRequired;
-        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_BACK) {
-            if (granted) {
-                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_BACK);
-                return;
+            PERMISSION_REQUEST_STORAGE_IMAGE_BACK -> {
+                if (granted) {
+                    selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_BACK)
+                    return
+                }
+
+                failureReason = R.string.storageReadPermissionRequired
             }
 
-            failureReason = R.string.storageReadPermissionRequired;
-        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_ICON) {
-            if (granted) {
-                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_ICON);
-                return;
-            }
+            PERMISSION_REQUEST_STORAGE_IMAGE_ICON -> {
+                if (granted) {
+                    selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_ICON)
+                    return
+                }
 
-            failureReason = R.string.storageReadPermissionRequired;
+                failureReason = R.string.storageReadPermissionRequired
+            }
         }
 
         if (failureReason != null) {
-            Toast.makeText(this, failureReason, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, failureReason, Toast.LENGTH_LONG).show()
         }
     }
 
-    private void askBarcodeChange(Runnable callback) {
-        if (tempStoredOldBarcodeValue.equals(cardIdFieldView.getText().toString())) {
+    private fun askBarcodeChange(callback: Runnable?) {
+        if (tempStoredOldBarcodeValue == cardIdFieldView.text.toString()) {
             // They are the same, don't ask
-            barcodeIdField.setText(R.string.sameAsCardId);
-            tempStoredOldBarcodeValue = null;
+            barcodeIdField.setText(R.string.sameAsCardId)
+            tempStoredOldBarcodeValue = null
 
-            if (callback != null) {
-                callback.run();
-            }
+            callback?.run()
 
-            return;
+            return
         }
 
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.updateBarcodeQuestionTitle)
-                .setMessage(R.string.updateBarcodeQuestionText)
-                .setPositiveButton(R.string.yes, (dialog, which) -> {
-                    barcodeIdField.setText(R.string.sameAsCardId);
-
-                    dialog.dismiss();
-                })
-                .setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss())
-                .setOnDismissListener(dialogInterface -> {
-                    if (tempStoredOldBarcodeValue != null) {
-                        barcodeIdField.setText(tempStoredOldBarcodeValue);
-                        tempStoredOldBarcodeValue = null;
-                    }
-
-                    if (callback != null) {
-                        callback.run();
-                    }
-                })
-                .show();
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.updateBarcodeQuestionTitle)
+            .setMessage(R.string.updateBarcodeQuestionText)
+            .setPositiveButton(
+                R.string.yes
+            ) { dialog: DialogInterface?, _: Int ->
+                barcodeIdField.setText(R.string.sameAsCardId)
+                dialog?.dismiss()
+            }
+            .setNegativeButton(
+                R.string.no
+            ) { dialog: DialogInterface?, _: Int -> dialog?.dismiss() }
+            .setOnDismissListener { _: DialogInterface? ->
+                if (tempStoredOldBarcodeValue != null) {
+                    barcodeIdField.setText(tempStoredOldBarcodeValue)
+                    tempStoredOldBarcodeValue = null
+                }
+                callback?.run()
+            }
+            .show()
     }
 
-    private void askBeforeQuitIfChanged() {
-        if (!viewModel.getHasChanged()) {
+    private fun askBeforeQuitIfChanged() {
+        if (!viewModel.hasChanged) {
             if (tempStoredOldBarcodeValue != null) {
-                askBarcodeChange(this::askBeforeQuitIfChanged);
-                return;
+                askBarcodeChange { this.askBeforeQuitIfChanged() }
+                return
             }
 
-            finish();
-            return;
+            finish()
+            return
         }
 
         if (confirmExitDialog == null) {
-            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-            builder.setTitle(R.string.leaveWithoutSaveTitle);
-            builder.setMessage(R.string.leaveWithoutSaveConfirmation);
-            builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                finish();
-                dialog.dismiss();
-            });
-            builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
-            confirmExitDialog = builder.create();
+            val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this)
+            builder.setTitle(R.string.leaveWithoutSaveTitle)
+            builder.setMessage(R.string.leaveWithoutSaveConfirmation)
+            builder.setPositiveButton(
+                R.string.confirm
+            ) { dialog: DialogInterface?, _: Int ->
+                finish()
+                dialog?.dismiss()
+            }
+            builder.setNegativeButton(
+                R.string.cancel
+            ) { dialog: DialogInterface?, _: Int -> dialog?.dismiss() }
+            confirmExitDialog = builder.create()
         }
-        confirmExitDialog.show();
+        confirmExitDialog?.show()
     }
 
 
-    private void takePhotoForCard(int type) {
-        Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME));
-        viewModel.setRequestedImageType(type);
+    private fun takePhotoForCard(type: Int) {
+        val photoURI = FileProvider.getUriForFile(
+            this@LoyaltyCardEditActivity,
+            BuildConfig.APPLICATION_ID,
+            Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME)
+        )
+        viewModel.requestedImageType = type
 
         try {
-            mPhotoTakerLauncher.launch(photoURI);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.cameraPermissionDeniedTitle, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+            mPhotoTakerLauncher?.launch(photoURI)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(
+                applicationContext,
+                R.string.cameraPermissionDeniedTitle,
+                Toast.LENGTH_LONG
+            ).show()
+            Log.e(TAG, "No activity found to handle intent", e)
         }
     }
 
-    private void selectImageFromGallery(int type) {
-        viewModel.setRequestedImageType(type);
+    private fun selectImageFromGallery(type: Int) {
+        viewModel.requestedImageType = type
 
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        contentIntent.setType("image/*");
-        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
+        val photoPickerIntent = Intent(Intent.ACTION_PICK)
+        photoPickerIntent.type = "image/*"
+        val contentIntent = Intent(Intent.ACTION_GET_CONTENT)
+        contentIntent.type = "image/*"
+        val chooserIntent = Intent.createChooser(
+            photoPickerIntent,
+            getString(R.string.addFromImage)
+        )
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(contentIntent))
 
         try {
-            mPhotoPickerLauncher.launch(chooserIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+            mPhotoPickerLauncher?.launch(chooserIntent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(
+                applicationContext,
+                R.string.failedLaunchingPhotoPicker,
+                Toast.LENGTH_LONG
+            ).show()
+            Log.e(TAG, "No activity found to handle intent", e)
         }
     }
 
-    @Override
-    public void onBarcodeImageWriterResult(boolean success) {
+    override fun onBarcodeImageWriterResult(success: Boolean) {
         if (!success) {
-            barcodeImageLayout.setVisibility(View.GONE);
-            Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+            barcodeImageLayout.visibility = View.GONE
+            Toast.makeText(
+                this@LoyaltyCardEditActivity,
+                getString(R.string.wrongValueForBarcodeType),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
-    class EditCardIdAndBarcode implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent i = new Intent(getApplicationContext(), ScanActivity.class);
-            final Bundle b = new Bundle();
-            b.putString(LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID, cardIdFieldView.getText().toString());
-            i.putExtras(b);
-            mCardIdAndBarCodeEditorLauncher.launch(i);
+    internal inner class EditCardIdAndBarcode : View.OnClickListener {
+        override fun onClick(v: View?) {
+            val i = Intent(applicationContext, ScanActivity::class.java)
+            val b = Bundle()
+            b.putString(
+                LoyaltyCard.BUNDLE_LOYALTY_CARD_CARD_ID,
+                cardIdFieldView.text.toString()
+            )
+            i.putExtras(b)
+            mCardIdAndBarCodeEditorLauncher?.launch(i)
         }
     }
 
-    class ChooseCardImage implements View.OnClickListener {
-        @Override
-        public void onClick(View v) throws NoSuchElementException {
-            Bitmap currentImage;
-            ImageLocationType imageLocationType;
-            ImageView targetView;
+    internal inner class ChooseCardImage : View.OnClickListener {
+        @Throws(NoSuchElementException::class)
+        override fun onClick(v: View) {
+            val currentImage: Bitmap?
+            val imageLocationType: ImageLocationType?
+            val targetView: ImageView
 
-            if (v.getId() == R.id.frontImageHolder) {
-                currentImage = viewModel.getLoyaltyCard().getImageFront(LoyaltyCardEditActivity.this);
-                imageLocationType = ImageLocationType.front;
-                targetView = cardImageFront;
-            } else if (v.getId() == R.id.backImageHolder) {
-                currentImage = viewModel.getLoyaltyCard().getImageBack(LoyaltyCardEditActivity.this);
-                imageLocationType = ImageLocationType.back;
-                targetView = cardImageBack;
-            } else if (v.getId() == R.id.thumbnail) {
-                currentImage = viewModel.getLoyaltyCard().getImageThumbnail(LoyaltyCardEditActivity.this);
-                imageLocationType = ImageLocationType.icon;
-                targetView = thumbnail;
-            } else {
-                throw new IllegalArgumentException("Invalid IMAGE ID " + v.getId());
+            when (v.id) {
+                R.id.frontImageHolder -> {
+                    currentImage = viewModel.loyaltyCard.getImageFront(this@LoyaltyCardEditActivity)
+                    imageLocationType = ImageLocationType.front
+                    targetView = cardImageFront
+                }
+
+                R.id.backImageHolder -> {
+                    currentImage = viewModel.loyaltyCard.getImageBack(this@LoyaltyCardEditActivity)
+                    imageLocationType = ImageLocationType.back
+                    targetView = cardImageBack
+                }
+
+                R.id.thumbnail -> {
+                    currentImage =
+                        viewModel.loyaltyCard.getImageThumbnail(this@LoyaltyCardEditActivity)
+                    imageLocationType = ImageLocationType.icon
+                    targetView = thumbnail
+                }
+
+                else -> {
+                    throw IllegalArgumentException("Invalid IMAGE ID " + v.id)
+                }
             }
 
-            LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
-            if (currentImage != null && v.getId() != R.id.thumbnail) {
-                cardOptions.put(getString(R.string.removeImage), () -> {
-                    setCardImage(imageLocationType, targetView, null, true);
-                    return null;
-                });
+            val cardOptions = LinkedHashMap<String, Callable<Unit>>()
+            if (currentImage != null && v.id != R.id.thumbnail) {
+                cardOptions[getString(R.string.removeImage)] = Callable {
+                    setCardImage(imageLocationType, targetView, null, true)
+                }
             }
 
-            if (v.getId() == R.id.thumbnail) {
-                cardOptions.put(getString(R.string.selectColor), () -> {
-                    ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
-
-                    if (viewModel.getLoyaltyCard().headerColor != null) {
-                        dialogBuilder.setColor(viewModel.getLoyaltyCard().headerColor);
+            if (v.id == R.id.thumbnail) {
+                cardOptions[getString(R.string.selectColor)] = Callable {
+                    val dialogBuilder = ColorPickerDialog.newBuilder()
+                    if (viewModel.loyaltyCard.headerColor != null) {
+                        dialogBuilder.setColor(viewModel.loyaltyCard.headerColor!!)
                     }
 
-                    ColorPickerDialog dialog = dialogBuilder.create();
-                    dialog.show(getSupportFragmentManager(), "color-picker-dialog");
-                    return null;
-                });
+                    val dialog = dialogBuilder.create()
+                    dialog.show(supportFragmentManager, "color-picker-dialog")
+                    null
+                }
             }
 
-            cardOptions.put(getString(R.string.takePhoto), () -> {
-                int permissionRequestType;
+            cardOptions[getString(R.string.takePhoto)] = Callable {
+                val permissionRequestType: Int = when (v.id) {
+                    R.id.frontImageHolder -> {
+                        PERMISSION_REQUEST_CAMERA_IMAGE_FRONT
+                    }
 
-                if (v.getId() == R.id.frontImageHolder) {
-                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
-                } else if (v.getId() == R.id.backImageHolder) {
-                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
-                } else if (v.getId() == R.id.thumbnail) {
-                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
-                } else {
-                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                    R.id.backImageHolder -> {
+                        PERMISSION_REQUEST_CAMERA_IMAGE_BACK
+                    }
+
+                    R.id.thumbnail -> {
+                        PERMISSION_REQUEST_CAMERA_IMAGE_ICON
+                    }
+
+                    else -> {
+                        throw IllegalArgumentException("Unknown ID type ${v.id}")
+                    }
                 }
 
-                PermissionUtils.requestCameraPermission(LoyaltyCardEditActivity.this, permissionRequestType);
+                PermissionUtils.requestCameraPermission(
+                    this@LoyaltyCardEditActivity,
+                    permissionRequestType
+                )
+            }
 
-                return null;
-            });
+            cardOptions[getString(R.string.addFromImage)] = Callable {
+                val permissionRequestType: Int = when (v.id) {
+                    R.id.frontImageHolder -> {
+                        PERMISSION_REQUEST_STORAGE_IMAGE_FRONT
+                    }
 
-            cardOptions.put(getString(R.string.addFromImage), () -> {
-                int permissionRequestType;
+                    R.id.backImageHolder -> {
+                        PERMISSION_REQUEST_STORAGE_IMAGE_BACK
+                    }
 
-                if (v.getId() == R.id.frontImageHolder) {
-                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_FRONT;
-                } else if (v.getId() == R.id.backImageHolder) {
-                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_BACK;
-                } else if (v.getId() == R.id.thumbnail) {
-                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_ICON;
-                } else {
-                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                    R.id.thumbnail -> {
+                        PERMISSION_REQUEST_STORAGE_IMAGE_ICON
+                    }
+
+                    else -> {
+                        throw IllegalArgumentException("Unknown ID type ${v.id}")
+                    }
                 }
 
-                PermissionUtils.requestStorageReadPermission(LoyaltyCardEditActivity.this, permissionRequestType);
+                PermissionUtils.requestStorageReadPermission(
+                    this@LoyaltyCardEditActivity,
+                    permissionRequestType
+                )
+                null
+            }
 
-                return null;
-            });
-
-            if (v.getId() == R.id.thumbnail) {
-                Bitmap imageFront = viewModel.getLoyaltyCard().getImageFront(LoyaltyCardEditActivity.this);
+            if (v.id == R.id.thumbnail) {
+                val imageFront = viewModel.loyaltyCard.getImageFront(this@LoyaltyCardEditActivity)
                 if (imageFront != null) {
-                    cardOptions.put(getString(R.string.useFrontImage), () -> {
-                        setThumbnailImage(Utils.resizeBitmap(imageFront, Utils.BITMAP_SIZE_SMALL));
-
-                        return null;
-                    });
+                    cardOptions[getString(R.string.useFrontImage)] = Callable {
+                        setThumbnailImage(
+                            Utils.resizeBitmap(
+                                imageFront,
+                                Utils.BITMAP_SIZE_SMALL.toDouble()
+                            )
+                        )
+                        null
+                    }
                 }
 
-                Bitmap imageBack = viewModel.getLoyaltyCard().getImageBack(LoyaltyCardEditActivity.this);
+                val imageBack = viewModel.loyaltyCard.getImageBack(this@LoyaltyCardEditActivity)
                 if (imageBack != null) {
-                    cardOptions.put(getString(R.string.useBackImage), () -> {
-                        setThumbnailImage(Utils.resizeBitmap(imageBack, Utils.BITMAP_SIZE_SMALL));
-
-                        return null;
-                    });
+                    cardOptions[getString(R.string.useBackImage)] = Callable {
+                        setThumbnailImage(
+                            Utils.resizeBitmap(
+                                imageBack,
+                                Utils.BITMAP_SIZE_SMALL.toDouble()
+                            )
+                        )
+                    }
                 }
             }
 
-            int titleResource;
+            val titleResource: Int = when (v.id) {
+                R.id.frontImageHolder -> {
+                    R.string.setFrontImage
+                }
 
-            if (v.getId() == R.id.frontImageHolder) {
-                titleResource = R.string.setFrontImage;
-            } else if (v.getId() == R.id.backImageHolder) {
-                titleResource = R.string.setBackImage;
-            } else if (v.getId() == R.id.thumbnail) {
-                titleResource = R.string.setIcon;
-            } else {
-                throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                R.id.backImageHolder -> {
+                    R.string.setBackImage
+                }
+
+                R.id.thumbnail -> {
+                    R.string.setIcon
+                }
+
+                else -> {
+                    throw IllegalArgumentException("Unknown ID type ${v.id}")
+                }
             }
 
-            new MaterialAlertDialogBuilder(LoyaltyCardEditActivity.this)
-                    .setTitle(getString(titleResource))
-                    .setItems(cardOptions.keySet().toArray(new CharSequence[cardOptions.size()]), (dialog, which) -> {
-                        Iterator<Callable<Void>> callables = cardOptions.values().iterator();
-                        Callable<Void> callable = callables.next();
+            MaterialAlertDialogBuilder(this@LoyaltyCardEditActivity)
+                .setTitle(getString(titleResource))
+                .setItems(
+                    cardOptions.keys.toTypedArray<CharSequence?>()
+                ) { _: DialogInterface?, which: Int ->
+                    val callables: MutableIterator<Callable<Unit>> =
+                        cardOptions.values.iterator()
+                    var callable = callables.next()
 
-                        for (int i = 0; i < which; i++) {
-                            callable = callables.next();
-                        }
+                    repeat(which) {
+                        callable = callables.next()
+                    }
+                    try {
+                        callable.call()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
 
-                        try {
-                            callable.call();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-
-                            // Rethrow as NoSuchElementException
-                            // This isn't really true, but a View.OnClickListener doesn't allow throwing other types
-                            throw new NoSuchElementException(e.getMessage());
-                        }
-                    })
-                    .show();
+                        // Rethrow as NoSuchElementException
+                        // This isn't really true, but a View.OnClickListener doesn't allow throwing other types
+                        throw NoSuchElementException(e.message)
+                    }
+                }
+                .show()
         }
     }
 
     // ColorPickerDialogListener callback used by the ColorPickerDialog created in ChooseCardImage to set the thumbnail color
     // We don't need to set or check the dialogId since it's only used for that single dialog
-    @Override
-    public void onColorSelected(int dialogId, int color) {
+    override fun onColorSelected(dialogId: Int, color: Int) {
         // Save new colour
-        setLoyaltyCardHeaderColor(color);
+        setLoyaltyCardHeaderColor(color)
 
         // Unset image if set
-        setThumbnailImage(null);
+        setThumbnailImage(null)
     }
 
     // ColorPickerDialogListener callback
-    @Override
-    public void onDialogDismissed(int dialogId) {
+    override fun onDialogDismissed(dialogId: Int) {
         // Nothing to do, no change made
     }
 
-    private void showDatePicker(
-            LoyaltyCardField loyaltyCardField,
-            @Nullable Date selectedDate,
-            @Nullable Date minDate,
-            @Nullable Date maxDate
+    private fun showDatePicker(
+        loyaltyCardField: LoyaltyCardField,
+        selectedDate: Date,
+        minDate: Date?,
+        maxDate: Date?
     ) {
         // Create a new instance of MaterialDatePicker and return it
-        long startDate = minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker();
-        long endDate = maxDate != null ? maxDate.getTime() : getDefaultMaxDateOfDatePicker();
+        val startDate = minDate?.time ?: this.defaultMinDateOfDatePicker
+        val endDate = maxDate?.time ?: this.defaultMaxDateOfDatePicker
 
-        CalendarConstraints.DateValidator dateValidator;
-        switch (loyaltyCardField) {
-            case validFrom:
-                dateValidator = DateValidatorPointBackward.before(endDate);
-                break;
-            case expiry:
-                dateValidator = DateValidatorPointForward.from(startDate);
-                break;
-            default:
-                throw new AssertionError("Unexpected field: " + loyaltyCardField);
+        val dateValidator = when (loyaltyCardField) {
+            LoyaltyCardField.validFrom -> DateValidatorPointBackward.before(endDate)
+            LoyaltyCardField.expiry -> DateValidatorPointForward.from(startDate)
+            else -> throw AssertionError("Unexpected field: $loyaltyCardField")
         }
 
-        CalendarConstraints calendarConstraints = new CalendarConstraints.Builder()
-                .setValidator(dateValidator)
-                .setStart(startDate)
-                .setEnd(endDate)
-                .build();
+        val calendarConstraints = CalendarConstraints.Builder()
+            .setValidator(dateValidator)
+            .setStart(startDate)
+            .setEnd(endDate)
+            .build()
 
         // Use the selected date as the default date in the picker
-        final Calendar calendar = Calendar.getInstance();
-        if (selectedDate != null) {
-            calendar.setTime(selectedDate);
-        }
+        val calendar = Calendar.getInstance()
+        calendar.setTime(selectedDate)
 
-        MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                .setSelection(calendar.getTimeInMillis())
-                .setCalendarConstraints(calendarConstraints)
-                .build();
+        val materialDatePicker = MaterialDatePicker.Builder.datePicker()
+            .setSelection(calendar.timeInMillis)
+            .setCalendarConstraints(calendarConstraints)
+            .build()
 
         // Required to handle configuration changes
         // See https://github.com/material-components/material-components-android/issues/1688
-        viewModel.setTempLoyaltyCardField(loyaltyCardField);
-        getSupportFragmentManager().addFragmentOnAttachListener((fragmentManager, fragment) -> {
-            if (fragment instanceof MaterialDatePicker && Objects.equals(fragment.getTag(), PICK_DATE_REQUEST_KEY)) {
-                ((MaterialDatePicker<Long>) fragment).addOnPositiveButtonClickListener(selection -> {
-                    Bundle args = new Bundle();
-                    args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection);
-                    getSupportFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, args);
-                });
+        viewModel.tempLoyaltyCardField = loyaltyCardField
+        supportFragmentManager.addFragmentOnAttachListener { _: FragmentManager?, fragment: Fragment? ->
+            if (fragment is MaterialDatePicker<*> && fragment.tag == PICK_DATE_REQUEST_KEY) {
+                (fragment as MaterialDatePicker<Long>).addOnPositiveButtonClickListener(
+                    MaterialPickerOnPositiveButtonClickListener { selection: Long ->
+                        val args = Bundle()
+                        args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection)
+                        supportFragmentManager.setFragmentResult(PICK_DATE_REQUEST_KEY, args)
+                    })
             }
-        });
+        }
 
-        materialDatePicker.show(getSupportFragmentManager(), PICK_DATE_REQUEST_KEY);
+        materialDatePicker.show(supportFragmentManager, PICK_DATE_REQUEST_KEY)
     }
 
     // Required to handle configuration changes
     // See https://github.com/material-components/material-components-android/issues/1688
-    private void setMaterialDatePickerResultListener() {
-        MaterialDatePicker<Long> fragment = (MaterialDatePicker<Long>) getSupportFragmentManager().findFragmentByTag(PICK_DATE_REQUEST_KEY);
-        if (fragment != null) {
-            fragment.addOnPositiveButtonClickListener(selection -> {
-                Bundle args = new Bundle();
-                args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection);
-                getSupportFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, args);
-            });
+    private fun setMaterialDatePickerResultListener() {
+        val fragment =
+            supportFragmentManager.findFragmentByTag(PICK_DATE_REQUEST_KEY) as MaterialDatePicker<Long>?
+        fragment?.addOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener { selection: Long ->
+            val args = Bundle()
+            args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection)
+            supportFragmentManager.setFragmentResult(PICK_DATE_REQUEST_KEY, args)
+        })
+
+        supportFragmentManager.setFragmentResultListener(
+            PICK_DATE_REQUEST_KEY,
+            this
+        ) { _: String, result: Bundle ->
+            val selection = result.getLong(
+                NEWLY_PICKED_DATE_ARGUMENT_KEY
+            )
+            val newDate = Date(selection)
+
+            val tempLoyaltyCardField = viewModel.tempLoyaltyCardField
+                ?: throw AssertionError("tempLoyaltyCardField is null unexpectedly!")
+            when (tempLoyaltyCardField) {
+                LoyaltyCardField.validFrom -> {
+                    formatDateField(
+                        this@LoyaltyCardEditActivity,
+                        validFromField,
+                        newDate
+                    )
+                    setLoyaltyCardValidFrom(newDate)
+                }
+
+                LoyaltyCardField.expiry -> {
+                    formatDateField(
+                        this@LoyaltyCardEditActivity,
+                        expiryField,
+                        newDate
+                    )
+                    setLoyaltyCardExpiry(newDate)
+                }
+
+                else -> throw AssertionError("Unexpected field: $tempLoyaltyCardField")
+            }
+        }
+    }
+
+    private val defaultMinDateOfDatePicker: Long
+        get() {
+            val minDateCalendar = Calendar.getInstance()
+            minDateCalendar.set(1970, 0, 1)
+            return minDateCalendar.timeInMillis
         }
 
-        getSupportFragmentManager().setFragmentResultListener(
-                PICK_DATE_REQUEST_KEY,
-                this,
-                (requestKey, result) -> {
-                    long selection = result.getLong(NEWLY_PICKED_DATE_ARGUMENT_KEY);
+    private val defaultMaxDateOfDatePicker: Long
+        get() {
+            val maxDateCalendar = Calendar.getInstance()
+            maxDateCalendar.set(2100, 11, 31)
+            return maxDateCalendar.timeInMillis
+        }
 
-                    Date newDate = new Date(selection);
-
-                    LoyaltyCardField tempLoyaltyCardField = viewModel.getTempLoyaltyCardField();
-                    if (tempLoyaltyCardField == null) {
-                        throw new AssertionError("tempLoyaltyCardField is null unexpectedly!");
-                    }
-
-                    switch (tempLoyaltyCardField) {
-                        case validFrom:
-                            formatDateField(LoyaltyCardEditActivity.this, validFromField, newDate);
-                            setLoyaltyCardValidFrom(newDate);
-                            break;
-                        case expiry:
-                            formatDateField(LoyaltyCardEditActivity.this, expiryField, newDate);
-                            setLoyaltyCardExpiry(newDate);
-                            break;
-                        default:
-                            throw new AssertionError("Unexpected field: " + tempLoyaltyCardField);
-                    }
-                }
-        );
-    }
-
-    private long getDefaultMinDateOfDatePicker() {
-        Calendar minDateCalendar = Calendar.getInstance();
-        minDateCalendar.set(1970, 0, 1);
-        return minDateCalendar.getTimeInMillis();
-    }
-
-    private long getDefaultMaxDateOfDatePicker() {
-        Calendar maxDateCalendar = Calendar.getInstance();
-        maxDateCalendar.set(2100, 11, 31);
-        return maxDateCalendar.getTimeInMillis();
-    }
-
-    private void doSave() {
-        if (isFinishing()) {
+    private fun doSave() {
+        if (isFinishing) {
             // If we are done saving, ignore any queued up save button presses
-            return;
+            return
         }
 
         if (tempStoredOldBarcodeValue != null) {
-            askBarcodeChange(this::doSave);
-            return;
+            askBarcodeChange { this.doSave() }
+            return
         }
 
-        boolean hasError = false;
+        var hasError = false
 
-        if (viewModel.getLoyaltyCard().store.isEmpty()) {
-            storeFieldEdit.setError(getString(R.string.field_must_not_be_empty));
+        if (viewModel.loyaltyCard.store.isEmpty()) {
+            storeFieldEdit.error = getString(R.string.field_must_not_be_empty)
 
             // Focus element
-            selectTab(0);
-            storeFieldEdit.requestFocus();
+            selectTab(0)
+            storeFieldEdit.requestFocus()
 
-            hasError = true;
+            hasError = true
         }
 
-        if (viewModel.getLoyaltyCard().cardId.isEmpty()) {
-            cardIdFieldView.setError(getString(R.string.field_must_not_be_empty));
+        if (viewModel.loyaltyCard.cardId.isEmpty()) {
+            cardIdFieldView.error = getString(R.string.field_must_not_be_empty)
 
             // Focus element if first error element
             if (!hasError) {
-                selectTab(0);
-                cardIdFieldView.requestFocus();
-                hasError = true;
+                selectTab(0)
+                cardIdFieldView.requestFocus()
+                hasError = true
             }
         }
 
         if (!validBalance) {
-            balanceField.setError(getString(R.string.balanceParsingFailed));
+            balanceField.error = getString(R.string.balanceParsingFailed)
 
             // Focus element if first error element
             if (!hasError) {
-                selectTab(1);
-                balanceField.requestFocus();
-                hasError = true;
+                selectTab(1)
+                balanceField.requestFocus()
+                hasError = true
             }
         }
 
         if (hasError) {
-            return;
+            return
         }
 
-        List<Group> selectedGroups = new ArrayList<>();
+        val selectedGroups: MutableList<Group?> = ArrayList()
 
-        for (Integer chipId : groupsChips.getCheckedChipIds()) {
-            Chip chip = groupsChips.findViewById(chipId);
-            selectedGroups.add((Group) chip.getTag());
+        for (chipId in groupsChips.checkedChipIds) {
+            val chip = groupsChips.findViewById<Chip>(chipId)
+            selectedGroups.add(chip.tag as Group?)
         }
 
         // Both update and new card save with lastUsed set to null
         // This makes the DBHelper set it to the current date
         // So that new and edited card are always on top when sorting by recently used
-        if (viewModel.getUpdateLoyaltyCard()) {
-            DBHelper.updateLoyaltyCard(mDatabase, viewModel.getLoyaltyCardId(), viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, viewModel.getLoyaltyCard().starStatus, null, viewModel.getLoyaltyCard().archiveStatus);
+        if (viewModel.updateLoyaltyCard) {
+            DBHelper.updateLoyaltyCard(
+                mDatabase,
+                viewModel.loyaltyCardId,
+                viewModel.loyaltyCard.store,
+                viewModel.loyaltyCard.note,
+                viewModel.loyaltyCard.validFrom,
+                viewModel.loyaltyCard.expiry,
+                viewModel.loyaltyCard.balance,
+                viewModel.loyaltyCard.balanceType,
+                viewModel.loyaltyCard.cardId,
+                viewModel.loyaltyCard.barcodeId,
+                viewModel.loyaltyCard.barcodeType,
+                viewModel.loyaltyCard.barcodeEncoding,
+                viewModel.loyaltyCard.headerColor,
+                viewModel.loyaltyCard.starStatus,
+                null,
+                viewModel.loyaltyCard.archiveStatus
+            )
         } else {
-            viewModel.setLoyaltyCardId((int) DBHelper.insertLoyaltyCard(mDatabase, viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, 0, null, 0));
+            viewModel.loyaltyCardId = DBHelper.insertLoyaltyCard(
+                mDatabase,
+                viewModel.loyaltyCard.store,
+                viewModel.loyaltyCard.note,
+                viewModel.loyaltyCard.validFrom,
+                viewModel.loyaltyCard.expiry,
+                viewModel.loyaltyCard.balance,
+                viewModel.loyaltyCard.balanceType,
+                viewModel.loyaltyCard.cardId,
+                viewModel.loyaltyCard.barcodeId,
+                viewModel.loyaltyCard.barcodeType,
+                viewModel.loyaltyCard.barcodeEncoding,
+                viewModel.loyaltyCard.headerColor,
+                0,
+                null,
+                0
+            ).toInt()
         }
 
         try {
-            Utils.saveCardImage(this, viewModel.getLoyaltyCard().getImageFront(this), viewModel.getLoyaltyCardId(), ImageLocationType.front);
-            Utils.saveCardImage(this, viewModel.getLoyaltyCard().getImageBack(this), viewModel.getLoyaltyCardId(), ImageLocationType.back);
-            Utils.saveCardImage(this, viewModel.getLoyaltyCard().getImageThumbnail(this), viewModel.getLoyaltyCardId(), ImageLocationType.icon);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Utils.saveCardImage(
+                this,
+                viewModel.loyaltyCard.getImageFront(this),
+                viewModel.loyaltyCardId,
+                ImageLocationType.front
+            )
+            Utils.saveCardImage(
+                this,
+                viewModel.loyaltyCard.getImageBack(this),
+                viewModel.loyaltyCardId,
+                ImageLocationType.back
+            )
+            Utils.saveCardImage(
+                this,
+                viewModel.loyaltyCard.getImageThumbnail(this),
+                viewModel.loyaltyCardId,
+                ImageLocationType.icon
+            )
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
         }
 
-        DBHelper.setLoyaltyCardGroups(mDatabase, viewModel.getLoyaltyCardId(), selectedGroups);
+        DBHelper.setLoyaltyCardGroups(mDatabase, viewModel.loyaltyCardId, selectedGroups)
 
-        ShortcutHelper.updateShortcuts(this);
+        ShortcutHelper.updateShortcuts(this)
 
-        if (viewModel.getDuplicateFromLoyaltyCardId()) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+        if (viewModel.duplicateFromLoyaltyCardId) {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
         }
 
-        finish();
+        finish()
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.card_add_menu, menu);
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.card_add_menu, menu)
 
-        return super.onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu(menu)
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
 
         if (id == android.R.id.home) {
-            askBeforeQuitIfChanged();
-            return true;
+            askBeforeQuitIfChanged()
+            return true
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item)
     }
 
-    public void startCropper(String sourceImagePath) {
-        startCropperUri(Uri.parse("file://" + sourceImagePath));
+    fun startCropper(sourceImagePath: String?) {
+        startCropperUri(Uri.parse("file://$sourceImagePath"))
     }
 
-    public void startCropperUri(Uri sourceUri) {
-        Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
-        File cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME);
-        Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
-        Log.d("cropper", "asking cropper to output to " + destUri.toString());
+    fun startCropperUri(sourceUri: Uri) {
+        Log.d("cropper", "launching cropper with image $sourceUri")
+        val cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME)
+        val destUri = Uri.parse("file://${cropOutput.absolutePath}")
+        Log.d("cropper", "asking cropper to output to $destUri")
 
         if (requestedFrontImage()) {
-            mCropperOptions.setToolbarTitle(getResources().getString(R.string.setFrontImage));
+            mCropperOptions?.setToolbarTitle(getResources().getString(R.string.setFrontImage))
         } else if (requestedBackImage()) {
-            mCropperOptions.setToolbarTitle(getResources().getString(R.string.setBackImage));
+            mCropperOptions?.setToolbarTitle(getResources().getString(R.string.setBackImage))
         } else if (requestedIcon()) {
-            mCropperOptions.setToolbarTitle(getResources().getString(R.string.setIcon));
+            mCropperOptions?.setToolbarTitle(getResources().getString(R.string.setIcon))
         } else {
-            Toast.makeText(this, R.string.generic_error_please_retry, Toast.LENGTH_LONG).show();
-            return;
+            Toast.makeText(
+                this,
+                R.string.generic_error_please_retry,
+                Toast.LENGTH_LONG
+            ).show()
+            return
         }
 
         if (requestedIcon()) {
-            setCropperOptions(true, 0f, 0f);
+            setCropperOptions(true, 0f, 0f)
         } else {
-            // sniff the input image for width and height to work around a ucrop bug
-            Bitmap image = null;
+            // sniff the input image for width and height to work around an ucrop bug
+            var image: Bitmap? = null
             try {
-                image = BitmapFactory.decodeStream(getContentResolver().openInputStream(sourceUri));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Log.d("cropper", "failed opening bitmap for initial width and height for ucrop " + sourceUri.toString());
+                image = BitmapFactory.decodeStream(contentResolver.openInputStream(sourceUri))
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+                Log.d(
+                    "cropper",
+                    "failed opening bitmap for initial width and height for ucrop $sourceUri"
+                )
             }
             if (image == null) {
-                Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
-                setCropperOptions(true, 0f, 0f);
+                Log.d(
+                    "cropper",
+                    "failed loading bitmap for initial width and height for ucrop $sourceUri"
+                )
+                setCropperOptions(true, 0f, 0f)
             } else {
                 try {
-                    Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));
-                    setCropperOptions(false, imageRotated.getWidth(), imageRotated.getHeight());
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    Log.d("cropper", "failed opening image for exif reading before setting initial width and height for ucrop");
-                    setCropperOptions(false, image.getWidth(), image.getHeight());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.d("cropper", "exif reading failed before setting initial width and height for ucrop");
-                    setCropperOptions(false, image.getWidth(), image.getHeight());
+                    val imageRotated = Utils.rotateBitmap(
+                        image,
+                        ExifInterface(contentResolver.openInputStream(sourceUri)!!)
+                    )
+                    setCropperOptions(
+                        false,
+                        imageRotated.width.toFloat(),
+                        imageRotated.height.toFloat()
+                    )
+                } catch (e: FileNotFoundException) {
+                    e.printStackTrace()
+                    Log.d(
+                        "cropper",
+                        "failed opening image for exif reading before setting initial width and height for ucrop"
+                    )
+                    setCropperOptions(
+                        false,
+                        image.width.toFloat(),
+                        image.height.toFloat()
+                    )
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                    Log.d(
+                        "cropper",
+                        "exif reading failed before setting initial width and height for ucrop"
+                    )
+                    setCropperOptions(
+                        false,
+                        image.width.toFloat(),
+                        image.height.toFloat()
+                    )
                 }
             }
         }
-        Intent ucropIntent = UCrop.of(
-                sourceUri,
-                destUri
-        ).withOptions(mCropperOptions)
-                .getIntent(this);
-        ucropIntent.setClass(this, UCropWrapper.class);
-        for (int i = 0; i < toolbar.getChildCount(); i++) {
+        val ucropIntent = UCrop.of(
+            sourceUri,
+            destUri
+        ).withOptions(mCropperOptions!!)
+            .getIntent(this)
+        ucropIntent.setClass(this, UCropWrapper::class.java)
+        for (i in 0..toolbar.childCount) {
             // send toolbar font details to ucrop wrapper
-            View child = toolbar.getChildAt(i);
-            if (child instanceof AppCompatTextView) {
-                AppCompatTextView childTextView = (AppCompatTextView) child;
-                ucropIntent.putExtra(UCropWrapper.UCROP_TOOLBAR_TYPEFACE_STYLE, childTextView.getTypeface().getStyle());
-                break;
+            val child = toolbar.getChildAt(i)
+            if (child is AppCompatTextView) {
+                ucropIntent.putExtra(
+                    UCropWrapper.UCROP_TOOLBAR_TYPEFACE_STYLE,
+                    child.typeface.style
+                )
+                break
             }
         }
-        mCropperLauncher.launch(ucropIntent);
+        mCropperLauncher?.launch(ucropIntent)
     }
 
-    private void generateBarcode() {
-        viewModel.getTaskHandler().flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
+    private fun generateBarcode() {
+        viewModel.taskHandler.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false)
 
-        String cardIdString = viewModel.getLoyaltyCard().barcodeId != null ? viewModel.getLoyaltyCard().barcodeId : viewModel.getLoyaltyCard().cardId;
-        CatimaBarcode barcodeFormat = viewModel.getLoyaltyCard().barcodeType;
-        Charset barcodeEncoding = viewModel.getLoyaltyCard().barcodeEncoding;
+        val cardIdString =
+            if (viewModel.loyaltyCard.barcodeId != null) viewModel.loyaltyCard.barcodeId else viewModel.loyaltyCard.cardId
+        val barcodeFormat = viewModel.loyaltyCard.barcodeType
+        val barcodeEncoding = viewModel.loyaltyCard.barcodeEncoding
 
-        if (cardIdString == null || cardIdString.isEmpty() || barcodeFormat == null) {
-            barcodeImageLayout.setVisibility(View.GONE);
-            return;
+        if (cardIdString.isNullOrEmpty() || barcodeFormat == null) {
+            barcodeImageLayout.visibility = View.GONE
+            return
         }
 
-        barcodeImageLayout.setVisibility(View.VISIBLE);
+        barcodeImageLayout.visibility = View.VISIBLE
 
-        if (barcodeImage.getHeight() == 0) {
-            Log.d(TAG, "ImageView size is not known known at start, waiting for load");
+        if (barcodeImage.height == 0) {
+            Log.d(TAG, "ImageView size is not known known at start, waiting for load")
             // The size of the ImageView is not yet available as it has not
             // yet been drawn. Wait for it to be drawn so the size is available.
-            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                    new ViewTreeObserver.OnGlobalLayoutListener() {
-                        @Override
-                        public void onGlobalLayout() {
-                            barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            barcodeImage.viewTreeObserver.addOnGlobalLayoutListener(
+                object : OnGlobalLayoutListener {
+                    override fun onGlobalLayout() {
+                        barcodeImage.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
-                            Log.d(TAG, "ImageView size now known");
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, barcodeEncoding, null, false, LoyaltyCardEditActivity.this, true, false);
-                            viewModel.getTaskHandler().executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
-                        }
-                    });
+                        Log.d(TAG, "ImageView size now known")
+                        val barcodeWriter = BarcodeImageWriterTask(
+                            applicationContext,
+                            barcodeImage,
+                            cardIdString,
+                            barcodeFormat,
+                            barcodeEncoding,
+                            null,
+                            false,
+                            this@LoyaltyCardEditActivity,
+                            true,
+                            false
+                        )
+                        viewModel.taskHandler.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter)
+                    }
+                })
         } else {
-            Log.d(TAG, "ImageView size known known, creating barcode");
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, barcodeEncoding, null, false, this, true, false);
-            viewModel.getTaskHandler().executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
+            Log.d(TAG, "ImageView size known known, creating barcode")
+            val barcodeWriter = BarcodeImageWriterTask(
+                getApplicationContext(),
+                barcodeImage,
+                cardIdString,
+                barcodeFormat,
+                barcodeEncoding,
+                null,
+                false,
+                this,
+                true,
+                false
+            )
+            viewModel.taskHandler.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter)
         }
     }
 
-    private void generateIcon(String store) {
-        Integer headerColor = viewModel.getLoyaltyCard().headerColor;
+    private fun generateIcon(store: String?) {
+        val headerColor = viewModel.loyaltyCard.headerColor ?: return
 
-        if (headerColor == null) {
-            return;
-        }
+        if (viewModel.loyaltyCard.getImageThumbnail(this) == null) {
+            thumbnail.setBackgroundColor(headerColor)
 
-        if (viewModel.getLoyaltyCard().getImageThumbnail(this) == null) {
-            thumbnail.setBackgroundColor(headerColor);
-
-            LetterBitmap letterBitmap = Utils.generateIcon(this, store, headerColor);
+            val letterBitmap = Utils.generateIcon(this, store, headerColor)
 
             if (letterBitmap != null) {
-                thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+                thumbnail.setImageBitmap(letterBitmap.getLetterTile())
             } else {
-                thumbnail.setImageBitmap(null);
+                thumbnail.setImageBitmap(null)
             }
         }
 
-        thumbnail.setMinimumWidth(thumbnail.getHeight());
+        thumbnail.minimumWidth = thumbnail.height
     }
 
-    private void showPart(String part) {
+    private fun showPart(part: String?) {
         if (tempStoredOldBarcodeValue != null) {
-            askBarcodeChange(() -> showPart(part));
-            return;
+            askBarcodeChange { showPart(part) }
+            return
         }
 
-        View cardPart = binding.cardPart;
-        View optionsPart = binding.optionsPart;
-        View picturesPart = binding.picturesPart;
+        val cardPart: View = binding.cardPart
+        val optionsPart: View = binding.optionsPart
+        val picturesPart: View = binding.picturesPart
 
-        if (getString(R.string.card).equals(part)) {
-            cardPart.setVisibility(View.VISIBLE);
-            optionsPart.setVisibility(View.GONE);
-            picturesPart.setVisibility(View.GONE);
+        when (part) {
+            getString(R.string.card) -> {
+                cardPart.visibility = View.VISIBLE
+                optionsPart.visibility = View.GONE
+                picturesPart.visibility = View.GONE
 
-            // Redraw barcode due to size change (Visibility.GONE sets it to 0)
-            generateBarcode();
-        } else if (getString(R.string.options).equals(part)) {
-            cardPart.setVisibility(View.GONE);
-            optionsPart.setVisibility(View.VISIBLE);
-            picturesPart.setVisibility(View.GONE);
-        } else if (getString(R.string.photos).equals(part)) {
-            cardPart.setVisibility(View.GONE);
-            optionsPart.setVisibility(View.GONE);
-            picturesPart.setVisibility(View.VISIBLE);
-        } else {
-            throw new UnsupportedOperationException();
+                // Redraw barcode due to size change (Visibility.GONE sets it to 0)
+                generateBarcode()
+            }
+
+            getString(R.string.options) -> {
+                cardPart.visibility = View.GONE
+                optionsPart.visibility = View.VISIBLE
+                picturesPart.visibility = View.GONE
+            }
+
+            getString(R.string.photos) -> {
+                cardPart.visibility = View.GONE
+                optionsPart.visibility = View.GONE
+                picturesPart.visibility = View.VISIBLE
+            }
+
+            else -> {
+                throw UnsupportedOperationException()
+            }
         }
     }
 
-    private void currencyPrioritizeLocaleSymbols(ArrayList<String> currencyList, Locale locale) {
+    private fun currencyPrioritizeLocaleSymbols(currencyList: MutableList<String>, locale: Locale) {
         try {
-            String currencySymbol = getCurrencySymbol(Currency.getInstance(locale));
-            currencyList.remove(currencySymbol);
-            currencyList.add(0, currencySymbol);
-        } catch (IllegalArgumentException e) {
-            Log.d(TAG, "Could not get currency data for locale info: " + e);
+            val currencySymbol = getCurrencySymbol(Currency.getInstance(locale))
+            currencySymbol?.let {
+                currencyList.remove(it)
+                currencyList.add(0, it)
+            }
+        } catch (e: IllegalArgumentException) {
+            Log.d(TAG, "Could not get currency data for locale info: $e")
         }
     }
 
-    private String getCurrencySymbol(final Currency currency) {
+    private fun getCurrencySymbol(currency: Currency): String? {
         // Workaround for Android bug where the output of Currency.getSymbol() changes.
-        return currencySymbols.get(currency.getCurrencyCode());
+        return currencySymbols[currency.getCurrencyCode()]
+    }
+
+    companion object {
+        private const val TAG = "Catima"
+        private const val PICK_DATE_REQUEST_KEY = "pick_date_request"
+        private const val NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date"
+
+        private const val PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100
+        private const val PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101
+        private const val PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102
+        private const val PERMISSION_REQUEST_STORAGE_IMAGE_FRONT = 103
+        private const val PERMISSION_REQUEST_STORAGE_IMAGE_BACK = 104
+        private const val PERMISSION_REQUEST_STORAGE_IMAGE_ICON = 105
+
+        const val BUNDLE_ID: String = "id"
+        const val BUNDLE_DUPLICATE_ID: String = "duplicateId"
+        const val BUNDLE_UPDATE: String = "update"
+        const val BUNDLE_OPEN_SET_ICON_MENU: String = "openSetIconMenu"
+        const val BUNDLE_ADDGROUP: String = "addGroup"
+
+        @JvmStatic
+        fun formatDateField(context: Context, textField: EditText, date: Date?) {
+            textField.tag = date
+
+            if (date == null) {
+                val text = when (textField.id) {
+                    R.id.validFromField -> {
+                        context.getString(R.string.anyDate)
+                    }
+                    R.id.expiryField -> {
+                        context.getString(R.string.never)
+                    }
+                    else -> {
+                        throw IllegalArgumentException("Unknown textField Id ${textField.id}")
+                    }
+                }
+                textField.setText(text)
+            } else {
+                textField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date))
+            }
+        }
     }
 }

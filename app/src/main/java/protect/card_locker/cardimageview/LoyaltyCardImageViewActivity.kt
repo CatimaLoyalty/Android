@@ -2,6 +2,7 @@ package protect.card_locker.cardimageview
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.WindowManager
@@ -17,8 +18,15 @@ import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -32,9 +40,11 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
+import androidx.core.content.FileProvider
 import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
@@ -68,6 +78,8 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
             CatimaTheme {
                 LoyaltyCardImageViewScreen(
                     bitmap = bitmap,
+                    imageLocationType = imageLocationType,
+                    cardId = loyaltyCardId,
                     contentDescriptionRes = imageLocationType.descriptionRes(),
                     onBackPressedDispatcher = onBackPressedDispatcher
                 )
@@ -124,9 +136,12 @@ class LoyaltyCardImageViewActivity : CatimaComponentActivity() {
 @Composable
 fun LoyaltyCardImageViewScreen(
     bitmap: Bitmap,
+    imageLocationType: ImageLocationType,
+    cardId: Int,
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher,
 ) {
+    val context = LocalContext.current
     var scale by remember { mutableFloatStateOf(1F) }
     var offset by remember { mutableStateOf(Offset.Zero) }
     var size by remember { mutableStateOf(IntSize.Zero) }
@@ -144,7 +159,24 @@ fun LoyaltyCardImageViewScreen(
         topBar = {
             CatimaTopAppBar(
                 title = stringResource(contentDescriptionRes),
-                onBackPressedDispatcher = onBackPressedDispatcher
+                onBackPressedDispatcher = onBackPressedDispatcher,
+                actions = {
+                    var expanded by remember { mutableStateOf(false) }
+                    IconButton(onClick = { expanded = !expanded }) {
+                        Icon(
+                            imageVector = Icons.Filled.MoreVert,
+                            contentDescription = stringResource(R.string.action_more_options)
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        DropdownMenuItem(onClick = { openInImageGallery(context, cardId, imageLocationType) },
+                            text = { Text(stringResource(R.string.open_in_gallery)) },
+                        )
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -194,6 +226,15 @@ private fun Offset.clampTo(size: IntSize, scale: Float): Offset {
         x = x.coerceIn(-maxX, maxX),
         y = y.coerceIn(-maxY, maxY)
     )
+}
+
+private fun openInImageGallery(context: Context, cardId: Int, imageLocationType: ImageLocationType){
+    val imagePath = Utils.getCardImageFileName(cardId, imageLocationType)
+    val viewInGalleryIntent = Intent(Intent.ACTION_VIEW).apply {
+        setDataAndType(FileProvider.getUriForFile(context, context.packageName, context.getFileStreamPath(imagePath)), "image/*")
+        flags = FLAG_GRANT_READ_URI_PERMISSION
+    }
+    context.startActivity(viewInGalleryIntent)
 }
 
 private const val MAX_IMAGE_SCALE = 5F

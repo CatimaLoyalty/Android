@@ -154,25 +154,26 @@ fun LoyaltyCardImageViewScreen(
             (offset + panChange).clampTo(size, nextScale)
         }
     }
+
     Scaffold(
         topBar = {
             CatimaTopAppBar(
                 title = stringResource(contentDescriptionRes),
                 onBackPressedDispatcher = onBackPressedDispatcher,
-                overflowMenuActions = {
-                    var showMenu by remember { mutableStateOf(false) }
-                    IconButton(onClick = {showMenu = !showMenu}){
+                actions = {
+                    var expanded by remember { mutableStateOf(false) }
+                    IconButton(onClick = { expanded = !expanded }) {
                         Icon(
                             imageVector = Icons.Filled.MoreVert,
-                            contentDescription = "Overflow menu icon"
+                            contentDescription = stringResource(R.string.action_more_options)
                         )
                     }
                     DropdownMenu(
-                        expanded = showMenu,
-                        onDismissRequest = { showMenu = false }
-                    ){
-                        DropdownMenuItem(onClick = {openInImageGallery(context, cardId, imageLocationType)},
-                                text = { Text(stringResource(R.string.open_in_gallery)) },
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        DropdownMenuItem(onClick = { openInImageGallery(context, cardId, imageLocationType) },
+                            text = { Text(stringResource(R.string.open_in_gallery)) },
                         )
                     }
                 }
@@ -227,13 +228,13 @@ private fun Offset.clampTo(size: IntSize, scale: Float): Offset {
     )
 }
 
-private const val MAX_IMAGE_SCALE = 5F
-
-
 private fun openInImageGallery(context: Context, cardId: Int, imageLocationType: ImageLocationType){
     val imagePath = Utils.getCardImageFileName(cardId, imageLocationType)
-    val viewInGalleryIntent = Intent(Intent.ACTION_VIEW)
-    viewInGalleryIntent.setDataAndType(FileProvider.getUriForFile(context, context.packageName, context.getFileStreamPath(imagePath)), "image/*")
-    viewInGalleryIntent.setFlags(FLAG_GRANT_READ_URI_PERMISSION)
+    val viewInGalleryIntent = Intent(Intent.ACTION_VIEW).apply {
+        setDataAndType(FileProvider.getUriForFile(context, context.packageName, context.getFileStreamPath(imagePath)), "image/*")
+        flags = FLAG_GRANT_READ_URI_PERMISSION
+    }
     context.startActivity(viewInGalleryIntent)
 }
+
+private const val MAX_IMAGE_SCALE = 5F

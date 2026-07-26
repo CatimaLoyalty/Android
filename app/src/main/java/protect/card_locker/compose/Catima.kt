@@ -25,7 +25,7 @@ import protect.card_locker.preferences.Settings
 @Composable
 fun CatimaTopAppBar(title: String,
                     onBackPressedDispatcher: OnBackPressedDispatcher?,
-                    overflowMenuActions : @Composable RowScope.() -> Unit = {}) {
+                    actions : @Composable RowScope.() -> Unit = {}) {
     // Use pure black in OLED theme
     val context = LocalContext.current
     val settings = Settings(context)
@@ -55,6 +55,6 @@ fun CatimaTopAppBar(title: String,
                 }
             }
         },
-        actions = overflowMenuActions
+        actions = actions
     )
 }

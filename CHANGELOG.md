@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 168
+
+- Add option to open image in internal image viewer in gallery
+
 ## v2.43.0 - 167 (2026-07-12)
 
 - Add support for showing the card ID in the card list

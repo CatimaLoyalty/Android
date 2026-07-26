@@ -125,7 +125,7 @@ open class LoyaltyCardEditActivity : CatimaAppCompatActivity(), BarcodeImageWrit
     var onResuming: Boolean = false
     var onRestoring: Boolean = false
 
-    protected var confirmExitDialog: AlertDialog? = null
+    public var confirmExitDialog: AlertDialog? = null
 
     var currencies: HashMap<String, Currency> = HashMap()
     var currencySymbols: HashMap<String, String> = HashMap()

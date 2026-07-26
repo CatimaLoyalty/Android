@@ -84,7 +84,7 @@ import java.util.concurrent.Callable
 open class LoyaltyCardEditActivity : CatimaAppCompatActivity(), BarcodeImageWriterResultCallback,
     ColorPickerDialogListener {
 
-    private lateinit var viewModel: LoyaltyCardEditActivityViewModel
+    protected lateinit var viewModel: LoyaltyCardEditActivityViewModel
     private lateinit var binding: LoyaltyCardEditActivityBinding
 
     private val TEMP_CAMERA_IMAGE_NAME =

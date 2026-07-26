@@ -2,6 +2,7 @@ package protect.card_locker.cardimageview
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.WindowManager
@@ -17,8 +18,15 @@ import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -32,16 +40,16 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
+import androidx.core.content.FileProvider
 import protect.card_locker.CatimaComponentActivity
 import protect.card_locker.ImageLocationType
 import protect.card_locker.R
 import protect.card_locker.Utils
 import protect.card_locker.compose.CatimaTopAppBar
-import protect.card_locker.compose.OverflowMenuEntry
-import protect.card_locker.compose.OverflowMenuParameter
 import protect.card_locker.compose.theme.CatimaTheme
 import protect.card_locker.preferences.Settings
 
@@ -133,6 +141,7 @@ fun LoyaltyCardImageViewScreen(
     @StringRes contentDescriptionRes: Int,
     onBackPressedDispatcher: OnBackPressedDispatcher,
 ) {
+    val context = LocalContext.current
     var scale by remember { mutableFloatStateOf(1F) }
     var offset by remember { mutableStateOf(Offset.Zero) }
     var size by remember { mutableStateOf(IntSize.Zero) }
@@ -150,12 +159,23 @@ fun LoyaltyCardImageViewScreen(
             CatimaTopAppBar(
                 title = stringResource(contentDescriptionRes),
                 onBackPressedDispatcher = onBackPressedDispatcher,
-                overflowMenuActions = mapOf(
-                    Pair(OverflowMenuEntry.IMAGE_GALLERY, mapOf(
-                        Pair(OverflowMenuParameter.LOYALTY_CARD_ID, cardId),
-                        Pair(OverflowMenuParameter.IMAGE_LOCATION_TYPE, imageLocationType))
-                    )
-                )
+                overflowMenuActions = {
+                    var showMenu by remember { mutableStateOf(false) }
+                    IconButton(onClick = {showMenu = !showMenu}){
+                        Icon(
+                            imageVector = Icons.Filled.MoreVert,
+                            contentDescription = "Overflow menu icon"
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false }
+                    ){
+                        DropdownMenuItem(onClick = {openInImageGallery(context, cardId, imageLocationType)},
+                                text = { Text(stringResource(R.string.open_in_gallery)) },
+                        )
+                    }
+                }
             )
         }
     ) { innerPadding ->
@@ -208,3 +228,12 @@ private fun Offset.clampTo(size: IntSize, scale: Float): Offset {
 }
 
 private const val MAX_IMAGE_SCALE = 5F
+
+
+private fun openInImageGallery(context: Context, cardId: Int, imageLocationType: ImageLocationType){
+    val imagePath = Utils.getCardImageFileName(cardId, imageLocationType)
+    val viewInGalleryIntent = Intent(Intent.ACTION_VIEW)
+    viewInGalleryIntent.setDataAndType(FileProvider.getUriForFile(context, context.packageName, context.getFileStreamPath(imagePath)), "image/*")
+    viewInGalleryIntent.setFlags(FLAG_GRANT_READ_URI_PERMISSION)
+    context.startActivity(viewInGalleryIntent)
+}

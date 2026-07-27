@@ -1,0 +1,7 @@
+Het "Locker" deel van de naam was niet duidelijk. Om dit te verhelpen heeft betsythefc een nieuw app pictogram ontworpen die de functie van de app beter aangeeft: om spaarkaarten met barcodes op te slaan. Samen met het nieuwe pictogram is de naam van de app veranderd naar "Loyalty Card Keychain".
+
+Toegevoegde functie/verbeteringen:
+
+- Importere/Exporteren van kaarten is veranderd om flexibeler te zijn. (pull #76)
+- Vertaling Litouws toegevoegd. (pull #62)
+- Vertaling Frans toegevoegd. (pull #80)

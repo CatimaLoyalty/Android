@@ -1,0 +1,2 @@
+- Ondersteuning voor het veranderen van de sorteervolgorde
+- Voorkomt Geen Geheugen bij het scannen van grote afbeeldingen voor een barcode

@@ -1,0 +1,3 @@
+- Over de App scherm verplaatst naar zijn eigen activiteit
+- Vraag gebruiker of ze de camera willen gebruiken of handmatig ID in willen voeren bij het toevoegen/aanpassen van een kaart
+- Groepsordening is handmatig in plaats van verplicht alfabetisch

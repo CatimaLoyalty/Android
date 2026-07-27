@@ -1,0 +1,5 @@
+- Opgelost dat de lijstwidget soms de verkeerde kaart opent
+- Meerdere problemen met snelkoppelingen opgelost
+- Opgelost dat de Over de App activiteit geen puur zwart gebruikt in de titelbalk in OLED modus
+- Automatische barcode-codering detectie volledig verwijderd
+- Onthul barcode-codering door ContentProvider (gebruikt door Gadgetbridge)

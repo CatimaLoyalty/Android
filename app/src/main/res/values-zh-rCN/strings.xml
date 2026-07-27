@@ -301,4 +301,5 @@
     <string name="zoomFrontImage">缩放正面图</string>
     <string name="zoomBackImage">缩放反面图</string>
     <string name="show_card_id">显示卡片 ID</string>
+    <string name="open_in_gallery">在图库中打开</string>
 </resources>

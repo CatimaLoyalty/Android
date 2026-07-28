@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 168
+## v2.44.0 - 168 (2026-07-28)
 
 - Add option to open image in internal image viewer in gallery
 

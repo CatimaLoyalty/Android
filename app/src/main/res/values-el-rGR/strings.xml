@@ -307,4 +307,5 @@
     <string name="zoomFrontImage">Μεγέθυνση μπροστινής εικόνας</string>
     <string name="zoomBackImage">Μεγέθυνση πίσω εικόνας</string>
     <string name="show_card_id">Εμφάνιση ταυτότητας κάρτας</string>
+    <string name="open_in_gallery">Άνοιγμα στη συλλογή εικόνων</string>
 </resources>

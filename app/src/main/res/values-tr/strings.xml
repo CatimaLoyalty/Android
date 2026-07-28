@@ -307,4 +307,5 @@
     <string name="zoomFrontImage">Ön görüntüyü yakınlaştır</string>
     <string name="zoomBackImage">Arka görüntüyü yakınlaştır</string>
     <string name="show_card_id">Kart numarasını göster</string>
+    <string name="open_in_gallery">Resim galerisinde aç</string>
 </resources>

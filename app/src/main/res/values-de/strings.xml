@@ -307,4 +307,5 @@
     <string name="zoomBackImage">Rückseite vergrößern</string>
     <string name="zoomFrontImage">Vorderseite vergrößern</string>
     <string name="sort_by_most_recently_added">Zuletzt hinzugefügt</string>
+    <string name="open_in_gallery">In Bildergalerie öffnen</string>
 </resources>

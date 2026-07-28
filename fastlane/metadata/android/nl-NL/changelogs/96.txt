@@ -1,0 +1,2 @@
+- CODE 93 ondersteuning toegevoegd
+- Verschillende kleine problemen opgelost en verbeteringen toegepast

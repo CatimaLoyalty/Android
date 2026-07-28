@@ -1,0 +1,3 @@
+- Vaagheid van letterpictogrammen op het hoofdscherm opgelost
+- Opgelost dat pictogrammen soms verdwijnen na geselecteerd te zijn
+- Opgelost dat statusbalkpictogrammen mogelijk onzichtbaar zijn op Android 5

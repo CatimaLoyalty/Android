@@ -1,0 +1,4 @@
+- Verbeterde ondersteuning voor schermlezers
+- Crasht niet als een video uit de gallerij wordt geopend
+- Sleep-ondersteuning op het weergavescherm voor spaarkaarten
+- Groep wordt niet hersteld bij het drukken op de terugtoets

@@ -1,0 +1,2 @@
+- Nieuwe hoofdschermindeling
+- Problemen met de maat van het onderveld tijdens het in- en uitschakelen van volledig scherm opgelost

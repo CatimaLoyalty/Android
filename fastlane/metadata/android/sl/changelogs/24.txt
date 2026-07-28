@@ -1,0 +1,4 @@
+- Posodobitev prevodov. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Posodobitve prikazovanja črtnih kod: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Ponovno naložite dejavnost prikaza kartice ob vrtenju zaslona, da bo slika črtne kode prave velikosti.
+  - Prikazujte enodimenzionalne črtne kode v večjem prostoru, da bolje zapolnijo zaslon.

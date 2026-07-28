@@ -1,0 +1,1 @@
+- Popravek pri ustvarjanju nove kartice z ročnim vnosom črtne kode (napaka št. 272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

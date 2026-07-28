@@ -1,0 +1,3 @@
+- Dodana je bila možnost v meniju za zaklepanje vrtenja zaslona pri prikazovanju kartice. Če je zaklenjeno, se zaslon preklopi v »naravno« usmeritev, nadaljnje vrtenje zaslona pa je blokirano. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Če je kartica izbrana na glavnem zaslonu, vendar je ni mogoče naložiti, se aplikacija pravilno zapre in prikaže sporočilo. (pull #132)
+- Popravljen je primer, ko ni bilo mogoče najti ID-jev postavitve za uvodni čarovnik. (pull #128)

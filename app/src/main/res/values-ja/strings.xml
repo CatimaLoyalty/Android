@@ -300,4 +300,5 @@
     <string name="zoomFrontImage">券面を拡大</string>
     <string name="zoomBackImage">背面を拡大</string>
     <string name="show_card_id">カードIDを表示</string>
+    <string name="open_in_gallery">ギャラリーを開く</string>
 </resources>

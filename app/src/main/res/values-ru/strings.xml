@@ -319,4 +319,5 @@
     <string name="show_card_id">Показывать номер карты</string>
     <string name="zoomFrontImage">Масштабирование лицевого изображения</string>
     <string name="zoomBackImage">Масштабирование заднего изображения</string>
+    <string name="open_in_gallery">Открыть в галерее</string>
 </resources>

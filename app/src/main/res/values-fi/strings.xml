@@ -299,4 +299,14 @@
     <string name="back">Takaisin</string>
     <string name="acra_explain_crash">Jos mahdollista lisää tietoja toiminnastasi täällä:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> pysähtymisraportti</string>
+    <string name="settings_disable_nfc_while_viewing_card">Keskeytä NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Keskeyttää NFC:n, jotta NFC-maksut eivät aktivoituisi korttia katsoessa</string>
+    <string name="sort_by_most_recently_added">Viimeksi lisätty</string>
+    <string name="zoomFrontImage">Suurenna etukuvaa</string>
+    <string name="zoomBackImage">Suurenna takakuvaa</string>
+    <string name="show_card_id">Näytä kortin tunniste</string>
+    <string name="nfc_blocked_while_viewing_card">NFC on keskeytetty</string>
+    <string name="change_settings">Muuta asetuksia</string>
+    <string name="nfc_block_system_error">NFC:n keskeyttäminen epäonnistui</string>
+    <string name="open_in_gallery">Avaa kuvagalleriassa</string>
 </resources>

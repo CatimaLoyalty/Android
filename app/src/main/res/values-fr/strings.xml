@@ -313,4 +313,5 @@
     <string name="zoomFrontImage">Grossir l\'image avant</string>
     <string name="zoomBackImage">Grossir l\'image arrière</string>
     <string name="show_card_id">Afficher l\'ID de carte</string>
+    <string name="open_in_gallery">Ouvrir dans la galerie d\'images</string>
 </resources>

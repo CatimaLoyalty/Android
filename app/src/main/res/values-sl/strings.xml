@@ -318,4 +318,5 @@
     <string name="zoomFrontImage">Povečaj sprednjo sliko</string>
     <string name="zoomBackImage">Povečaj zadnjo sliko</string>
     <string name="show_card_id">Prikaži ID kartice</string>
+    <string name="open_in_gallery">Odpri v galeriji slik</string>
 </resources>

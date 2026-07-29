@@ -307,7 +307,7 @@
     <string name="settings_key_wear_sync" translatable="false">pref_wear_sync</string>
     <string name="settings_wear_sync">Sync with Wear OS</string>
     <string name="settings_wear_sync_summary">Allows the Wear OS companion app to read your cards over Bluetooth</string>
-    <string name="wear_sync_permission_required">Allow Catima access to nearby devices to sync with your smartwatch</string>
+    <string name="wear_sync_permission_required">Catima needs the permissions you denied to sync with your smartwatch</string>
     <string name="settings_key_wear_sync_devices" translatable="false">pref_wear_sync_devices</string>
     <string name="settings_wear_sync_devices">Allowed Wear devices</string>
     <string name="settings_wear_sync_devices_summary">Manage devices allowed to sync over Bluetooth</string>

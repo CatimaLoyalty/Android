@@ -1,0 +1,1 @@
+- Ajout d'option dans le visualisateur interne d'images pour ouvrir l'image dans la galerie d'images

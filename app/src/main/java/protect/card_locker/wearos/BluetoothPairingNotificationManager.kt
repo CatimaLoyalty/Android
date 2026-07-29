@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import protect.card_locker.NotificationInfo
 import protect.card_locker.R
@@ -107,23 +108,14 @@ object BluetoothPairingNotificationManager {
     }
 
     fun updateResultNotification(context: Context, address: String, deviceName: String, allowed: Boolean) {
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
+        cancel(context, address)
         val message = if (allowed) {
             context.getString(R.string.wear_bt_pairing_allowed, deviceName)
         } else {
             context.getString(R.string.wear_bt_pairing_blocked, deviceName)
         }
 
-        val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.PAIRING_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_monochrome)
-            .setContentTitle(context.getString(R.string.wear_bt_pairing_title))
-            .setContentText(message)
-            .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .build()
-
-        notificationManager.notify(notificationId(address), notification)
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     fun notificationId(address: String): Int = address.hashCode()

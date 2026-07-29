@@ -307,4 +307,5 @@
     <string name="zoomFrontImage">Suumi esikaane pilti</string>
     <string name="zoomBackImage">Suumi tagakaane pilti</string>
     <string name="show_card_id">Näita kaardi tunnust</string>
+    <string name="open_in_gallery">Ava pildigaleriis</string>
 </resources>

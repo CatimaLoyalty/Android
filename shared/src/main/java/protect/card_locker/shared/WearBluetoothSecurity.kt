@@ -37,6 +37,9 @@ object WearBluetoothSecurity {
             val trusted = HashSet(prefs.getStringSet(PREF_TRUSTED_DEVICES, emptySet()) ?: emptySet())
             trusted.add(address)
             putStringSet(PREF_TRUSTED_DEVICES, trusted)
+            val blocked = HashSet(prefs.getStringSet(PREF_BLOCKED_DEVICES, emptySet()) ?: emptySet())
+            blocked.remove(address)
+            putStringSet(PREF_BLOCKED_DEVICES, blocked)
             putString(deviceKeyPref(address), deviceKey)
         }
         return deviceKey

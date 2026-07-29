@@ -99,15 +99,20 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
         private lateinit var wearSyncPermissionRequester: WearSyncPermissionRequester
         private var currentDevicesDialog: AlertDialog? = null
+        private var currentDevicesDialogIsBlocked: Boolean = false
         private val devicesChangedReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 if (intent.action != BluetoothPairingNotificationManager.ACTION_DEVICES_CHANGED) {
                     return
                 }
-                findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
-                currentDevicesDialog?.takeIf { it.isShowing }?.let { dialog ->
-                    dialog.dismiss()
-                    showWearSyncDevicesDialog()
+                findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncAllowedDevicesSummary(it) }
+                findPreference<Preference>(getString(R.string.settings_key_wear_sync_blocked_devices))?.let { updateWearSyncBlockedDevicesSummary(it) }
+                val isBlocked = currentDevicesDialogIsBlocked
+                currentDevicesDialog?.takeIf { it.isShowing }?.dismiss()
+                if (isBlocked) {
+                    showWearSyncBlockedDevicesDialog()
+                } else {
+                    showWearSyncAllowedDevicesDialog()
                 }
             }
         }
@@ -115,7 +120,8 @@ class SettingsActivity : CatimaAppCompatActivity() {
         override fun onResume() {
             super.onResume()
             wearSyncPermissionRequester.synchronize()
-            findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
+            findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncAllowedDevicesSummary(it) }
+            findPreference<Preference>(getString(R.string.settings_key_wear_sync_blocked_devices))?.let { updateWearSyncBlockedDevicesSummary(it) }
             ContextCompat.registerReceiver(
                 requireContext(),
                 devicesChangedReceiver,
@@ -140,7 +146,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             setupLocalePreference()
             setupCrashReporterPreference()
             setupWearSyncPreference()
-            setupWearSyncDevicesPreference()
+            setupWearSyncDevicePreferences()
         }
 
         private fun setupThemePreference() {
@@ -246,43 +252,64 @@ class SettingsActivity : CatimaAppCompatActivity() {
             }
         }
 
-        private fun setupWearSyncDevicesPreference() {
-            val wearSyncDevicesPreference = findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))
-            wearSyncDevicesPreference!!.setOnPreferenceClickListener {
-                showWearSyncDevicesDialog()
+        private fun setupWearSyncDevicePreferences() {
+            val allowedPreference = findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))
+            allowedPreference!!.setOnPreferenceClickListener {
+                showWearSyncAllowedDevicesDialog()
                 true
             }
-            updateWearSyncDevicesSummary(wearSyncDevicesPreference)
+            updateWearSyncAllowedDevicesSummary(allowedPreference)
+
+            val blockedPreference = findPreference<Preference>(getString(R.string.settings_key_wear_sync_blocked_devices))
+            blockedPreference!!.setOnPreferenceClickListener {
+                showWearSyncBlockedDevicesDialog()
+                true
+            }
+            updateWearSyncBlockedDevicesSummary(blockedPreference)
         }
 
-        private fun updateWearSyncDevicesSummary(preference: Preference) {
-            val knownCount = (
-                WearBluetoothSecurity.listTrustedDevices(requireContext()) +
-                    WearBluetoothSecurity.listBlockedDevices(requireContext())
-            ).size
-            preference.summary = if (knownCount == 0) {
+        private fun updateWearSyncAllowedDevicesSummary(preference: Preference) {
+            val count = WearBluetoothSecurity.listTrustedDevices(requireContext()).size
+            preference.summary = if (count == 0) {
                 getString(R.string.settings_wear_sync_no_devices)
             } else {
-                getString(R.string.settings_wear_sync_devices_summary_count, knownCount)
+                getString(R.string.settings_wear_sync_devices_summary_count, count)
+            }
+        }
+
+        private fun updateWearSyncBlockedDevicesSummary(preference: Preference) {
+            val count = WearBluetoothSecurity.listBlockedDevices(requireContext()).size
+            preference.summary = if (count == 0) {
+                getString(R.string.settings_wear_sync_no_blocked_devices)
+            } else {
+                getString(R.string.settings_wear_sync_blocked_devices_summary_count, count)
             }
         }
 
         @SuppressLint("MissingPermission")
-        private fun showWearSyncDevicesDialog() {
+        private fun showWearSyncDeviceListDialog(
+            titleRes: Int,
+            noDevicesRes: Int,
+            addresses: Set<String>,
+            isBlocked: Boolean,
+            onRemove: (String, String) -> Unit
+        ) {
             val context = requireContext()
             if (!BluetoothPermissionHelper.isBluetoothConnectGranted(context)) {
                 showWearSyncPermissionDeniedSnackbar()
                 return
             }
-            val knownAddresses = (
-                WearBluetoothSecurity.listTrustedDevices(context) +
-                    WearBluetoothSecurity.listBlockedDevices(context)
-            ).toList()
+            val knownAddresses = addresses.toList()
+            currentDevicesDialog?.dismiss()
+            currentDevicesDialogIsBlocked = isBlocked
             if (knownAddresses.isEmpty()) {
                 currentDevicesDialog = MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.settings_wear_sync_devices)
-                    .setMessage(R.string.settings_wear_sync_no_devices)
-                    .setOnDismissListener { currentDevicesDialog = null }
+                    .setTitle(titleRes)
+                    .setMessage(noDevicesRes)
+                    .setOnDismissListener {
+                        currentDevicesDialog = null
+                        currentDevicesDialogIsBlocked = false
+                    }
                     .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
                     .show()
                 return
@@ -302,27 +329,67 @@ class SettingsActivity : CatimaAppCompatActivity() {
             }.toTypedArray()
 
             currentDevicesDialog = MaterialAlertDialogBuilder(context)
-                .setTitle(R.string.settings_wear_sync_devices)
+                .setTitle(titleRes)
                 .setItems(entries) { _, which ->
                     val address = knownAddresses[which]
                     val name = deviceName(deviceMap[address], address)
-                    confirmUnpairDevice(address, name)
+                    onRemove(address, name)
                 }
-                .setOnDismissListener { currentDevicesDialog = null }
+                .setOnDismissListener {
+                    currentDevicesDialog = null
+                    currentDevicesDialogIsBlocked = false
+                }
                 .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }
                 .show()
         }
 
-        private fun confirmUnpairDevice(address: String, name: String) {
+        private fun showWearSyncAllowedDevicesDialog() {
+            showWearSyncDeviceListDialog(
+                R.string.settings_wear_sync_devices,
+                R.string.settings_wear_sync_no_devices,
+                WearBluetoothSecurity.listTrustedDevices(requireContext()),
+                isBlocked = false
+            ) { address, name -> confirmRemoveAllowedDevice(address, name) }
+        }
+
+        private fun showWearSyncBlockedDevicesDialog() {
+            showWearSyncDeviceListDialog(
+                R.string.settings_wear_sync_blocked_devices,
+                R.string.settings_wear_sync_no_blocked_devices,
+                WearBluetoothSecurity.listBlockedDevices(requireContext()),
+                isBlocked = true
+            ) { address, name -> confirmRemoveBlockedDevice(address, name) }
+        }
+
+        private fun confirmRemoveAllowedDevice(address: String, name: String) {
+            confirmRemoveDevice(
+                address,
+                name,
+                R.string.settings_wear_sync_unpair_message,
+                onRemove = { WearBluetoothSecurity.untrustDevice(requireContext(), address) }
+            )
+        }
+
+        private fun confirmRemoveBlockedDevice(address: String, name: String) {
+            confirmRemoveDevice(
+                address,
+                name,
+                R.string.settings_wear_sync_unblock_message,
+                onRemove = { WearBluetoothSecurity.unblockDevice(requireContext(), address) }
+            )
+        }
+
+        private fun confirmRemoveDevice(address: String, name: String, messageRes: Int, onRemove: () -> Unit) {
             val context = requireContext()
             MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.settings_wear_sync_unpair_title)
-                .setMessage(getString(R.string.settings_wear_sync_unpair_message, name))
+                .setMessage(getString(messageRes, name))
                 .setPositiveButton(R.string.settings_wear_sync_unpair) { dialog, _ ->
-                    WearBluetoothSecurity.forgetDevice(context, address)
+                    onRemove()
                     BluetoothPairingNotificationManager.cancel(context, address)
                     BluetoothPairingNotificationManager.notifyDevicesChanged(context)
-                    findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncDevicesSummary(it) }
+                    findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncAllowedDevicesSummary(it) }
+                    findPreference<Preference>(getString(R.string.settings_key_wear_sync_blocked_devices))?.let { updateWearSyncBlockedDevicesSummary(it) }
                     dialog.dismiss()
                 }
                 .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }

@@ -148,6 +148,13 @@
             android:summary="@string/settings_wear_sync_devices_summary"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
+
+        <Preference
+            android:key="@string/settings_key_wear_sync_blocked_devices"
+            android:title="@string/settings_wear_sync_blocked_devices"
+            android:summary="@string/settings_wear_sync_blocked_devices_summary"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>

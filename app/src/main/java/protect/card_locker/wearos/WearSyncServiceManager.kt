@@ -3,7 +3,6 @@ package protect.card_locker.wearos
 import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
@@ -49,7 +48,7 @@ class WearSyncPermissionRequester(
         if (BluetoothPermissionHelper.isBluetoothConnectRequired()) {
             add(Manifest.permission.BLUETOOTH_CONNECT)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (BluetoothPermissionHelper.isPostNotificationsRequired()) {
             add(Manifest.permission.POST_NOTIFICATIONS)
         }
     }.toTypedArray()

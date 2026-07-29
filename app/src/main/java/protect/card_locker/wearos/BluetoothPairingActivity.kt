@@ -10,11 +10,6 @@ import protect.card_locker.shared.WearBluetoothSecurity
 
 class BluetoothPairingActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_DEVICE_ADDRESS = "device_address"
-        const val EXTRA_DEVICE_NAME = "device_name"
-    }
-
     private var currentDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,15 +29,28 @@ class BluetoothPairingActivity : AppCompatActivity() {
     }
 
     private fun showPairingDialog(intent: Intent) {
-        val address = intent.getStringExtra(EXTRA_DEVICE_ADDRESS) ?: return finish()
-        val deviceName = intent.getStringExtra(EXTRA_DEVICE_NAME) ?: address
+        val address = intent.getStringExtra(BluetoothPairingConstants.DEVICE_ADDRESS) ?: return finish()
+        val deviceName = intent.getStringExtra(BluetoothPairingConstants.DEVICE_NAME) ?: address
+        val token = intent.getStringExtra(BluetoothPairingConstants.DEVICE_TOKEN)
+        val isMismatch = intent.getBooleanExtra(BluetoothPairingConstants.IS_MISMATCH, false)
+
+        val titleRes = if (isMismatch) {
+            R.string.wear_bt_pairing_mismatch_title
+        } else {
+            R.string.wear_bt_pairing_title
+        }
+        val messageRes = if (isMismatch) {
+            R.string.wear_bt_pairing_mismatch_message
+        } else {
+            R.string.wear_bt_pairing_message
+        }
 
         currentDialog?.dismiss()
         currentDialog = MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.wear_bt_pairing_title)
-            .setMessage(getString(R.string.wear_bt_pairing_message, deviceName))
+            .setTitle(getString(titleRes, deviceName))
+            .setMessage(getString(messageRes, deviceName))
             .setPositiveButton(R.string.wear_bt_pairing_allow) { _, _ ->
-                WearBluetoothSecurity.trustDevice(this, address)
+                WearBluetoothSecurity.trustDevice(this, address, token)
                 BluetoothPairingNotificationManager.updateResultNotification(this, address, deviceName, true)
                 BluetoothPairingNotificationManager.notifyDevicesChanged(this)
                 finish()

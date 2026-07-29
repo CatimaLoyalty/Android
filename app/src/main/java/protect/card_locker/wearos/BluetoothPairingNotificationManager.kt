@@ -18,7 +18,13 @@ object BluetoothPairingNotificationManager {
         context.sendBroadcast(Intent(ACTION_DEVICES_CHANGED).apply { setPackage(context.packageName) })
     }
 
-    fun showAuthorizationNotification(context: Context, deviceName: String, address: String) {
+    fun showAuthorizationNotification(
+        context: Context,
+        deviceName: String,
+        address: String,
+        token: String,
+        isMismatch: Boolean = false
+    ) {
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -30,15 +36,28 @@ object BluetoothPairingNotificationManager {
             notificationManager.createNotificationChannel(channel)
         }
 
+        val titleRes = if (isMismatch) {
+            R.string.wear_bt_pairing_mismatch_title
+        } else {
+            R.string.wear_bt_pairing_title
+        }
+        val messageRes = if (isMismatch) {
+            R.string.wear_bt_pairing_mismatch_message
+        } else {
+            R.string.wear_bt_pairing_message
+        }
+
         val allowIntent = Intent(context, BluetoothPairingReceiver::class.java).apply {
             action = BluetoothPairingReceiver.ACTION_ALLOW
-            putExtra(BluetoothPairingReceiver.EXTRA_DEVICE_ADDRESS, address)
-            putExtra(BluetoothPairingReceiver.EXTRA_DEVICE_NAME, deviceName)
+            putExtra(BluetoothPairingConstants.DEVICE_ADDRESS, address)
+            putExtra(BluetoothPairingConstants.DEVICE_NAME, deviceName)
+            putExtra(BluetoothPairingConstants.DEVICE_TOKEN, token)
         }
         val blockIntent = Intent(context, BluetoothPairingReceiver::class.java).apply {
             action = BluetoothPairingReceiver.ACTION_BLOCK
-            putExtra(BluetoothPairingReceiver.EXTRA_DEVICE_ADDRESS, address)
-            putExtra(BluetoothPairingReceiver.EXTRA_DEVICE_NAME, deviceName)
+            putExtra(BluetoothPairingConstants.DEVICE_ADDRESS, address)
+            putExtra(BluetoothPairingConstants.DEVICE_NAME, deviceName)
+            putExtra(BluetoothPairingConstants.IS_MISMATCH, isMismatch)
         }
 
         val allowPendingIntent = PendingIntent.getBroadcast(
@@ -58,17 +77,19 @@ object BluetoothPairingNotificationManager {
             context,
             address.hashCode() + 2,
             Intent(context, BluetoothPairingActivity::class.java).apply {
-                putExtra(BluetoothPairingActivity.EXTRA_DEVICE_ADDRESS, address)
-                putExtra(BluetoothPairingActivity.EXTRA_DEVICE_NAME, deviceName)
+                putExtra(BluetoothPairingConstants.DEVICE_ADDRESS, address)
+                putExtra(BluetoothPairingConstants.DEVICE_NAME, deviceName)
+                putExtra(BluetoothPairingConstants.DEVICE_TOKEN, token)
+                putExtra(BluetoothPairingConstants.IS_MISMATCH, isMismatch)
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.PAIRING_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_monochrome)
-            .setContentTitle(context.getString(R.string.wear_bt_pairing_title))
-            .setContentText(context.getString(R.string.wear_bt_pairing_message, deviceName))
-            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.wear_bt_pairing_message, deviceName)))
+            .setContentTitle(context.getString(titleRes, deviceName))
+            .setContentText(context.getString(messageRes, deviceName))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(messageRes, deviceName)))
             .addAction(0, context.getString(R.string.wear_bt_pairing_allow), allowPendingIntent)
             .addAction(0, context.getString(R.string.wear_bt_pairing_block), blockPendingIntent)
             .setContentIntent(contentIntent)

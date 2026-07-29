@@ -144,26 +144,75 @@ class BluetoothServerService : Service() {
             try {
                 val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
                 val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
-                val command = reader.readLine()?.trim()
-                Log.d(TAG, "Received command: $command from $deviceName")
-                when (command) {
-                    WearBluetoothProtocol.BT_CMD_VERSIONS -> {
-                        val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
-                        writer.println(versions)
-                        writer.flush()
-                        Log.d(TAG, "Sent supported versions to $deviceName")
+                val firstLine = reader.readLine()?.trim() ?: return
+
+                if (firstLine == WearBluetoothProtocol.BT_CMD_VERSIONS) {
+                    val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
+                    writer.println(versions)
+                    writer.flush()
+                    Log.d(TAG, "Sent supported versions to $deviceName")
+                    return
+                }
+
+                if (!firstLine.startsWith(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)) {
+                    notAuthorized(writer)
+                    Log.w(TAG, "Unauthorized first command: $firstLine from $deviceName")
+                    return
+                }
+
+                var tokenLine: String? = firstLine
+                while (tokenLine != null) {
+                    if (!tokenLine.startsWith(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)) {
+                        Log.w(TAG, "Malformed token line from $deviceName: $tokenLine")
+                        break
                     }
-                    WearBluetoothProtocol.BT_CMD_AUTH,
-                    WearBluetoothProtocol.BT_CMD_AUTH_RESET -> {
-                        // Re-exchange the key on every auth so the watch can never use a stale key
-                        // after the phone has reset/trusted it again.
-                        handleAuthenticatedSession(reader, writer, address, deviceName)
+                    val token = tokenLine.removePrefix(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)
+
+                    val command = reader.readLine()?.trim() ?: break
+                    Log.d(TAG, "Received command: $command from $deviceName")
+
+                    val isTrusted = WearBluetoothSecurity.isDeviceTrusted(this@BluetoothServerService, address)
+                    val storedToken = WearBluetoothSecurity.getDeviceToken(this@BluetoothServerService, address)
+                    val tokenMatches = storedToken != null && storedToken == token
+
+                    when {
+                        WearBluetoothSecurity.isDeviceBlocked(this@BluetoothServerService, address) -> {
+                            notAuthorized(writer)
+                            Log.w(TAG, "Rejected blocked device $deviceName")
+                            break
+                        }
+                        isTrusted && tokenMatches -> {
+                            if (!serveCommand(writer, deviceName, command)) {
+                                break
+                            }
+                        }
+                        isTrusted && !tokenMatches -> {
+                            BluetoothPairingNotificationManager.showAuthorizationNotification(
+                                this@BluetoothServerService,
+                                deviceName,
+                                address,
+                                token,
+                                isMismatch = true
+                            )
+                            notAuthorized(writer)
+                            Log.w(TAG, "Token mismatch for $deviceName")
+                            break
+                        }
+                        else -> {
+                            BluetoothPairingNotificationManager.showAuthorizationNotification(
+                                this@BluetoothServerService,
+                                deviceName,
+                                address,
+                                token,
+                                isMismatch = false
+                            )
+                            notAuthorized(writer)
+                            Log.d(TAG, "Requested authorization for $deviceName")
+                            break
+                        }
                     }
-                    else -> {
-                        writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
-                        writer.flush()
-                        Log.w(TAG, "Unauthorized first command: $command from $deviceName")
-                    }
+
+                    tokenLine = reader.readLine()?.trim()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)
@@ -172,64 +221,35 @@ class BluetoothServerService : Service() {
             }
         }
 
-        private fun handleAuthenticatedSession(
-            reader: BufferedReader,
-            writer: PrintWriter,
-            address: String,
-            deviceName: String
-        ) {
-            if (WearBluetoothSecurity.isDeviceBlocked(this@BluetoothServerService, address)) {
-                writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
-                writer.flush()
-                Log.w(TAG, "Rejected blocked device $deviceName")
-                return
-            }
-
-            if (!WearBluetoothSecurity.isDeviceTrusted(this@BluetoothServerService, address)) {
-                BluetoothPairingNotificationManager.showAuthorizationNotification(this@BluetoothServerService, deviceName, address)
-                writer.println(WearBluetoothProtocol.BT_RESPONSE_AUTH_REQUIRED)
-                writer.flush()
-                Log.d(TAG, "Requested authorization for $deviceName")
-                return
-            }
-
-            // Always generate a fresh key for this session. The watch stores it and uses it for
-            // the rest of the connection, which avoids stale-key mismatches.
-            val key = WearBluetoothSecurity.generateKey().also {
-                WearBluetoothSecurity.setDeviceKey(this@BluetoothServerService, address, it)
-            }
-            writer.println(WearBluetoothProtocol.BT_RESPONSE_KEY_PREFIX + key)
+        private fun notAuthorized(writer: PrintWriter) {
+            writer.println(WearBluetoothProtocol.BT_RESPONSE_NOT_AUTHORIZED)
             writer.flush()
-            Log.d(TAG, "Authenticated $deviceName, key exchanged")
+        }
 
-            try {
-                while (true) {
-                    val encryptedLine = reader.readLine() ?: break
-                    val line = WearBluetoothSecurity.decrypt(encryptedLine, key)
-                    if (line == null) {
-                        Log.w(TAG, "Failed to decrypt message from $deviceName, ending session")
-                        writer.println(WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED)
-                        writer.flush()
-                        break
+        private fun serveCommand(
+            writer: PrintWriter,
+            deviceName: String,
+            command: String
+        ): Boolean {
+            when {
+                command.startsWith(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX) -> {
+                    val pageIndex = command.removePrefix(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX).toIntOrNull()
+                    if (pageIndex == null || pageIndex < 0) {
+                        Log.w(TAG, "Invalid page index from $deviceName: $command")
+                        notAuthorized(writer)
+                        return false
                     }
-
-                    when {
-                        line.startsWith(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX) -> {
-                            val pageIndex = line.removePrefix(WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX).toIntOrNull()
-                            if (pageIndex == null || pageIndex < 0) {
-                                Log.w(TAG, "Invalid page index from $deviceName: $line")
-                            } else {
-                                val json = buildCardsPageJson(pageIndex)
-                                writer.println(WearBluetoothSecurity.encrypt(json, key))
-                                writer.flush()
-                                Log.d(TAG, "Sent encrypted page $pageIndex to $deviceName")
-                            }
-                        }
-                        else -> Log.w(TAG, "Unsupported encrypted command from $deviceName: $line")
-                    }
+                    val json = buildCardsPageJson(pageIndex)
+                    writer.println(json)
+                    writer.flush()
+                    Log.d(TAG, "Sent page $pageIndex to $deviceName")
+                    return true
                 }
-            } catch (e: Exception) {
-                Log.d(TAG, "Session with $deviceName ended: ${e.message}")
+                else -> {
+                    Log.w(TAG, "Unsupported command from $deviceName: $command")
+                    notAuthorized(writer)
+                    return false
+                }
             }
         }
 

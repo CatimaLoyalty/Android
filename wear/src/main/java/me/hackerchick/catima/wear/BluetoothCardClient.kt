@@ -111,31 +111,31 @@ object BluetoothCardClient {
             val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
             val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
 
-            val key = authenticate(context, device.address, reader, writer)
-                ?: return null to SyncStatus.UNAUTHORIZED
+            val token = getOrCreateToken(context, device.address)
 
             val allCards = JSONArray()
             var pageIndex = 0
             var totalPages = 1
 
             while (pageIndex < totalPages) {
+                sendToken(writer, token)
+
                 val command = "${WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX}$pageIndex"
-                writer.println(WearBluetoothSecurity.encrypt(command, key))
+                writer.println(command)
                 writer.flush()
 
-                val encryptedResponse = reader.readLine()?.trim() ?: ""
-                if (encryptedResponse.isEmpty()) {
+                val response = reader.readLine()?.trim() ?: ""
+                if (response.isEmpty()) {
                     Log.w(TAG, "Empty response for page $pageIndex from $deviceName")
                     return null to SyncStatus.PHONE_NOT_REACHABLE
                 }
 
-                val json = WearBluetoothSecurity.decrypt(encryptedResponse, key)
-                if (json == null) {
-                    Log.w(TAG, "Failed to decrypt page $pageIndex from $deviceName")
-                    return null to SyncStatus.SYNC_ERROR
+                if (response == WearBluetoothProtocol.BT_RESPONSE_NOT_AUTHORIZED) {
+                    Log.w(TAG, "Device $deviceName not authorized on phone")
+                    return null to SyncStatus.UNAUTHORIZED
                 }
 
-                val parsed = parsePageResponse(json, pageIndex)
+                val parsed = parsePageResponse(response, pageIndex)
                 if (parsed.second != SyncStatus.OK) {
                     return null to parsed.second
                 }
@@ -163,43 +163,15 @@ object BluetoothCardClient {
         }
     }
 
-    private fun authenticate(
-        context: Context,
-        address: String,
-        reader: BufferedReader,
-        writer: PrintWriter
-    ): String? {
-        val existingKey = WearBluetoothSecurity.getDeviceKey(context, address)
-        val authCommand = if (existingKey == null) {
-            WearBluetoothProtocol.BT_CMD_AUTH_RESET
-        } else {
-            WearBluetoothProtocol.BT_CMD_AUTH
-        }
+    private fun getOrCreateToken(context: Context, address: String): String {
+        return WearBluetoothSecurity.getDeviceToken(context, address)
+            ?: WearBluetoothSecurity.generateToken().also {
+                WearBluetoothSecurity.setDeviceToken(context, address, it)
+            }
+    }
 
-        writer.println(authCommand)
-        writer.flush()
-
-        val response = reader.readLine()?.trim() ?: return null
-
-        if (response == WearBluetoothProtocol.BT_RESPONSE_AUTH_REQUIRED ||
-            response == WearBluetoothProtocol.BT_RESPONSE_UNAUTHORIZED
-        ) {
-            Log.w(TAG, "Device $address not authorized on phone")
-            return null
-        }
-
-        if (response == WearBluetoothProtocol.BT_RESPONSE_AUTH_OK) {
-            return existingKey
-        }
-
-        if (response.startsWith(WearBluetoothProtocol.BT_RESPONSE_KEY_PREFIX)) {
-            val key = response.removePrefix(WearBluetoothProtocol.BT_RESPONSE_KEY_PREFIX)
-            WearBluetoothSecurity.setDeviceKey(context, address, key)
-            return key
-        }
-
-        Log.w(TAG, "Unexpected auth response: $response")
-        return null
+    private fun sendToken(writer: PrintWriter, token: String) {
+        writer.println("${WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX}$token")
     }
 
     private fun requestSupportedVersions(socket: BluetoothSocket): Set<Int>? {

@@ -330,6 +330,8 @@
     <string name="wear_bt_pairing_block">Block</string>
     <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> is now allowed to sync.</string>
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> has been blocked.</string>
+    <string name="wear_bt_pairing_mismatch_title">New authorization request from "<xliff:g>%1$s</xliff:g>"</string>
+    <string name="wear_bt_pairing_mismatch_message">This device was previously authorized but is now presenting a different identity token. This happens when the WearOS app is reinstalled or its data is cleared. It can also indicate a Bluetooth MAC spoofing attempt.\n\nOnly accept if you recently reinstalled the Catima WearOS app on this watch.</string>
     <string name="open_settings">Open settings</string>
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>

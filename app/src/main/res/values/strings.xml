@@ -383,6 +383,6 @@
     <string name="change_settings">Change settings</string>
     <string name="nfc_block_system_error">Failed to pause NFC</string>
     <string name="wear_bt_channel_name">Wear OS companion</string>
-    <string name="wear_bt_notification_title">Catima watch sync active</string>
+    <string name="wear_bt_notification_title">Catima Wear OS sync active</string>
     <string name="settings_category_title_smartwatch">Smartwatch support</string>
 </resources>

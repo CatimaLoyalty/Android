@@ -1,0 +1,3 @@
+- Podpora za skeniranje PDF datotek za iskanje črtnih kod
+- Podpora za slikovne datoteke z več črtnimi kodami
+- Manjše popravke v uporabniškem vmesniku

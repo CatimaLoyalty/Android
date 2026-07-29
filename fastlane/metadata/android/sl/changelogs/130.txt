@@ -1,0 +1,4 @@
+- Manjše popravke v uporabniškem vmesniku
+- Popravek, zaradi katerega sta se datuma veljavnosti in izteka ponastavila ob vrtenju zaslona za urejanje kartice
+- Popravek, zaradi katerega se je aplikacija sesula ob vrtenju zaslona, medtem ko je bil prikazan izbirnik barv
+- Popravki pri uvozu iz Stocard

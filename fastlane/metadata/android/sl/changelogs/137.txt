@@ -1,0 +1,4 @@
+- Omogoča, da se dolga imena trgovin v predogledu razporedijo na več vrstic
+- Možnost uporabe sprednje ali zadnje slike v meniju s sličicami
+- Manjše popravke pri uvozu/izvozu
+- Manjše popravke v uporabniškem vmesniku

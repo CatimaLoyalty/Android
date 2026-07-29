@@ -1,0 +1,3 @@
+- Premestitev »Načina arhiviranja« v meni »Možnosti prikaza« (prej »Pokaži podrobnosti«)
+- Podpora za jezikovne nastavitve po posameznih aplikacijah v sistemu Android 13
+- Vključitev izjave o varstvu osebnih podatkov, seznama sprememb in licence v aplikacijo

@@ -1,0 +1,4 @@
+- Izboljšave pri prikazovanju črtnih kod
+- Osnovna medsebojna združljivost z zunanjimi aplikacijami (Android 6.0+)
+- Preurejen zaslon z nastavitvami
+- Popravek uvoza iz nekaterih brskalnikov, ki na konec URL-ja za deljenje dodajo znak /

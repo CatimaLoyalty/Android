@@ -1,0 +1,14 @@
+- Dodana je možnost iskanja kartice
+- Dodana je možnost deljenja in prejemanja kartic zvestobe
+- Podpora za temni način
+- Kartice zvestobe so zdaj lahko brez črtne kode (npr. nimajo črtne kode)
+- Opombe se lahko raztezajo čez več vrstic
+- Izboljšave pri velikosti opomb
+- Izboljšana vidnost obvestil in ikone aplikacije
+- Posodobitev ciljnega SDK na Android 10
+- Izboljšani so naslednji prevodi:
+  - nemški
+  - italijanski
+  - nizozemski
+  - poljski
+  - ruski

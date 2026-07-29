@@ -1,0 +1,2 @@
+- Dodana je podpora za bližnjice do aplikacij (Android 7.1+), pri čemer se kot bližnjice prikažejo zadnje uporabljene kartice. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Dodan je widget, ki deluje kot pripeta bližnjica do aplikacije, za podporo napravam, ki delujejo z različicami Android starejšimi od 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

@@ -1,0 +1,3 @@
+- Možnost krmarjenja med karticami s pomočjo gumbov za glasnost
+- Popravek uvoza iz Stocarda
+- Popravek sporočila »Uvoz preklican«, ki se je pojavljalo po uspešnem uvozu

@@ -313,4 +313,5 @@
     <string name="zoomFrontImage">Přiblížit přední obrázek</string>
     <string name="zoomBackImage">Přiblížit zadní obrázek</string>
     <string name="show_card_id">Zobrazit ID karty</string>
+    <string name="open_in_gallery">Otevřít v galerii</string>
 </resources>

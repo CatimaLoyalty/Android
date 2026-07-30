@@ -297,4 +297,9 @@
     <string name="nfc_blocked_while_viewing_card">Đã tạm dừng NFC</string>
     <string name="change_settings">Thay đổi cài đặt</string>
     <string name="nfc_block_system_error">Không thể tạm dừng NFC</string>
+    <string name="sort_by_most_recently_added">Đã thêm gần đây nhất</string>
+    <string name="zoomFrontImage">Phóng ảnh mặt trước</string>
+    <string name="zoomBackImage">Phóng ảnh mặt sau</string>
+    <string name="show_card_id">Hiện ID của thẻ</string>
+    <string name="open_in_gallery">Mở trong thư viện ảnh</string>
 </resources>

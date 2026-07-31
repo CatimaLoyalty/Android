@@ -306,4 +306,5 @@
     <string name="zoomFrontImage">Zoom na imaxe frontal</string>
     <string name="zoomBackImage">Zoom na imaxe posterior</string>
     <string name="show_card_id">Mostrar ID da tarxeta</string>
+    <string name="open_in_gallery">Abrir na galería de imaxes</string>
 </resources>

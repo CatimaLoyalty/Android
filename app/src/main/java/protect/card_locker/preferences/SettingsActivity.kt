@@ -107,8 +107,11 @@ class SettingsActivity : CatimaAppCompatActivity() {
                 }
                 findPreference<Preference>(getString(R.string.settings_key_wear_sync_devices))?.let { updateWearSyncAllowedDevicesSummary(it) }
                 findPreference<Preference>(getString(R.string.settings_key_wear_sync_blocked_devices))?.let { updateWearSyncBlockedDevicesSummary(it) }
+                if (currentDevicesDialog?.isShowing != true) {
+                    return
+                }
                 val isBlocked = currentDevicesDialogIsBlocked
-                currentDevicesDialog?.takeIf { it.isShowing }?.dismiss()
+                currentDevicesDialog?.dismiss()
                 if (isBlocked) {
                     showWearSyncBlockedDevicesDialog()
                 } else {

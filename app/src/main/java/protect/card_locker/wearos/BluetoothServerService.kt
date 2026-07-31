@@ -22,6 +22,7 @@ import protect.card_locker.shared.BluetoothPermissionHelper
 import protect.card_locker.shared.WearBluetoothProtocol
 import protect.card_locker.shared.WearBluetoothSecurity
 import java.io.BufferedReader
+import java.io.IOException
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
@@ -216,6 +217,10 @@ class BluetoothServerService : Service() {
 
                     commandLine = reader.readLine()?.trim()
                 }
+            } catch (_: IOException) {
+                // Client closed the socket; this is a normal end-of-stream after
+                // the watch has received the pages it needs.
+                Log.d(TAG, "Connection closed by $deviceName")
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)
             } finally {

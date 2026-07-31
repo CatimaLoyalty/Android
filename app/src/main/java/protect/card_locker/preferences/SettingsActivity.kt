@@ -290,6 +290,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
         private fun showWearSyncDeviceListDialog(
             titleRes: Int,
             noDevicesRes: Int,
+            messageRes: Int,
             addresses: Set<String>,
             isBlocked: Boolean,
             onRemove: (String, String) -> Unit
@@ -330,6 +331,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
 
             currentDevicesDialog = MaterialAlertDialogBuilder(context)
                 .setTitle(titleRes)
+                .setMessage(messageRes)
                 .setItems(entries) { _, which ->
                     val address = knownAddresses[which]
                     val name = deviceName(deviceMap[address], address)
@@ -347,6 +349,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             showWearSyncDeviceListDialog(
                 R.string.settings_wear_sync_devices,
                 R.string.settings_wear_sync_no_devices,
+                R.string.settings_wear_sync_tap_to_remove,
                 WearBluetoothSecurity.listTrustedDevices(requireContext()),
                 isBlocked = false
             ) { address, name -> confirmRemoveAllowedDevice(address, name) }
@@ -356,6 +359,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             showWearSyncDeviceListDialog(
                 R.string.settings_wear_sync_blocked_devices,
                 R.string.settings_wear_sync_no_blocked_devices,
+                R.string.settings_wear_sync_tap_to_remove,
                 WearBluetoothSecurity.listBlockedDevices(requireContext()),
                 isBlocked = true
             ) { address, name -> confirmRemoveBlockedDevice(address, name) }

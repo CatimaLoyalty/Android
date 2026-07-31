@@ -323,6 +323,7 @@
     <string name="settings_wear_sync_unblock_message">Remove <xliff:g>%1$s</xliff:g> from the blocked list? It will be able to request access again.</string>
     <string name="settings_wear_sync_unpair">Remove</string>
     <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Tap a device to remove it.</string>
     <string name="wear_bt_pairing_channel_name">Wear device pairing</string>
     <string name="wear_bt_pairing_title">Wear device wants to sync</string>
     <string name="wear_bt_pairing_message">Allow <xliff:g>%1$s</xliff:g> to access your cards?</string>

@@ -154,22 +154,24 @@ class BluetoothServerService : Service() {
                     return
                 }
 
-                if (!firstLine.startsWith(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)) {
-                    notAuthorized(writer)
-                    Log.w(TAG, "Unauthorized first command: $firstLine from $deviceName")
-                    return
-                }
+                var commandLine: String? = firstLine
+                while (commandLine != null) {
+                    val command = commandLine
+                    Log.d(TAG, "Received command: $command from $deviceName")
 
-                var tokenLine: String? = firstLine
-                while (tokenLine != null) {
-                    if (!tokenLine.startsWith(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)) {
+                    if (!command.startsWith(WearBluetoothProtocol.BT_CMD_VERSION_PREFIX)) {
+                        notAuthorized(writer)
+                        Log.w(TAG, "Unsupported command from $deviceName: $command")
+                        break
+                    }
+
+                    val tokenLine = reader.readLine()?.trim()
+                    if (tokenLine == null || !tokenLine.startsWith(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)) {
+                        notAuthorized(writer)
                         Log.w(TAG, "Malformed token line from $deviceName: $tokenLine")
                         break
                     }
                     val token = tokenLine.removePrefix(WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX)
-
-                    val command = reader.readLine()?.trim() ?: break
-                    Log.d(TAG, "Received command: $command from $deviceName")
 
                     val isTrusted = WearBluetoothSecurity.isDeviceTrusted(this@BluetoothServerService, address)
                     val storedToken = WearBluetoothSecurity.getDeviceToken(this@BluetoothServerService, address)
@@ -212,7 +214,7 @@ class BluetoothServerService : Service() {
                         }
                     }
 
-                    tokenLine = reader.readLine()?.trim()
+                    commandLine = reader.readLine()?.trim()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error handling connection from $deviceName", e)

@@ -118,10 +118,9 @@ object BluetoothCardClient {
             var totalPages = 1
 
             while (pageIndex < totalPages) {
-                sendToken(writer, token)
-
                 val command = "${WearBluetoothProtocol.BT_CMD_CARDS_PAGE_PREFIX}$pageIndex"
                 writer.println(command)
+                sendToken(writer, token)
                 writer.flush()
 
                 val response = reader.readLine()?.trim() ?: ""

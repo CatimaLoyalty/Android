@@ -14,8 +14,8 @@
             android:id="@+id/wear_sync_device_list_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="?attr/dialogPreferredPadding"
-            android:paddingRight="?attr/dialogPreferredPadding"
+            android:paddingStart="?attr/dialogPreferredPadding"
+            android:paddingEnd="?attr/dialogPreferredPadding"
             style="?attr/materialAlertDialogBodyTextStyle" />
 
     </LinearLayout>

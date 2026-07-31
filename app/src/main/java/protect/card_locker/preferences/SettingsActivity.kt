@@ -11,7 +11,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
+import android.view.View
 import android.view.MenuItem
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
@@ -327,19 +331,21 @@ class SettingsActivity : CatimaAppCompatActivity() {
             }
             val deviceMap = bondedDevices.associateBy { it.address }
 
-            val entries = knownAddresses.map { address ->
+            val content = View.inflate(context, R.layout.wear_sync_device_list, null)
+            content.findViewById<TextView>(R.id.wear_sync_device_list_message).text = getString(messageRes)
+            val container = content.findViewById<LinearLayout>(R.id.wear_sync_device_list_container)
+
+            knownAddresses.forEach { address ->
                 val name = deviceName(deviceMap[address], address)
-                getString(R.string.settings_wear_sync_device_name, name, address)
-            }.toTypedArray()
+                val itemView = LayoutInflater.from(context).inflate(R.layout.wear_sync_device_list_item, container, false) as TextView
+                itemView.text = getString(R.string.settings_wear_sync_device_name, name, address)
+                itemView.setOnClickListener { onRemove(address, name) }
+                container.addView(itemView)
+            }
 
             currentDevicesDialog = MaterialAlertDialogBuilder(context)
                 .setTitle(titleRes)
-                .setMessage(messageRes)
-                .setItems(entries) { _, which ->
-                    val address = knownAddresses[which]
-                    val name = deviceName(deviceMap[address], address)
-                    onRemove(address, name)
-                }
+                .setView(content)
                 .setOnDismissListener {
                     currentDevicesDialog = null
                     currentDevicesDialogIsBlocked = false

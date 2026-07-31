@@ -273,7 +273,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             preference.summary = if (count == 0) {
                 getString(R.string.settings_wear_sync_no_devices)
             } else {
-                getString(R.string.settings_wear_sync_devices_summary_count, count)
+                resources.getQuantityString(R.plurals.settings_wear_sync_devices_summary_count, count, count)
             }
         }
 
@@ -282,7 +282,7 @@ class SettingsActivity : CatimaAppCompatActivity() {
             preference.summary = if (count == 0) {
                 getString(R.string.settings_wear_sync_no_blocked_devices)
             } else {
-                getString(R.string.settings_wear_sync_blocked_devices_summary_count, count)
+                resources.getQuantityString(R.plurals.settings_wear_sync_blocked_devices_summary_count, count, count)
             }
         }
 

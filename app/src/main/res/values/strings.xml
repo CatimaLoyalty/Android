@@ -312,12 +312,18 @@
     <string name="settings_wear_sync_devices">Allowed Wear devices</string>
     <string name="settings_wear_sync_devices_summary">Manage devices allowed to sync over Bluetooth</string>
     <string name="settings_wear_sync_no_devices">No allowed devices</string>
-    <string name="settings_wear_sync_devices_summary_count"><xliff:g>%d</xliff:g> devices allowed</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> device allowed</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> devices allowed</item>
+    </plurals>
     <string name="settings_key_wear_sync_blocked_devices" translatable="false">pref_wear_sync_blocked_devices</string>
     <string name="settings_wear_sync_blocked_devices">Blocked Wear devices</string>
     <string name="settings_wear_sync_blocked_devices_summary">Manage blocked Wear devices</string>
     <string name="settings_wear_sync_no_blocked_devices">No blocked devices</string>
-    <string name="settings_wear_sync_blocked_devices_summary_count"><xliff:g>%d</xliff:g> device(s) blocked</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> device blocked</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> devices blocked</item>
+    </plurals>
     <string name="settings_wear_sync_unpair_title">Remove device?</string>
     <string name="settings_wear_sync_unpair_message">Remove <xliff:g>%1$s</xliff:g> from Catima? It will no longer be able to sync your cards.</string>
     <string name="settings_wear_sync_unblock_message">Remove <xliff:g>%1$s</xliff:g> from the blocked list? It will be able to request access again.</string>

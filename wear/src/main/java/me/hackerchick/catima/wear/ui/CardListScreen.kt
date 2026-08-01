@@ -85,17 +85,24 @@ fun CardListScreen(
                             },
                         )
                     }
-                    val footerLabel = syncStatus.labelRes
-                    if (footerLabel != null) {
-                        item {
-                            Text(
-                                text = stringResource(footerLabel),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
+                }
+                val footerLabel = syncStatus.labelRes
+                if (footerLabel != null) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.BottomCenter)
+                            .background(Color.Black.copy(alpha = 0.75f))
+                    ) {
+                        Text(
+                            text = stringResource(footerLabel),
+                            textAlign = TextAlign.Center,
+                            fontSize = 11.sp,
+                            color = Color.LightGray,
+                            modifier = Modifier
+                                .padding(40.dp, 4.dp, 40.dp, 20.dp)
+                                .align(Alignment.Center)
+                        )
                     }
                 }
             }

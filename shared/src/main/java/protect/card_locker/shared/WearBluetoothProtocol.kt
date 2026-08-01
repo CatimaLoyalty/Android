@@ -7,6 +7,9 @@ object WearBluetoothProtocol {
     const val BT_SERVICE_NAME = "CatimaWear"
     const val PROTOCOL_VERSION = 1
     const val BT_CMD_VERSIONS = "/VERSIONS"
-    const val BT_CMD_CARDS_PAGE_PREFIX = "/V${PROTOCOL_VERSION}/CARDS_REQUEST_PAGE/"
+    const val BT_CMD_TOKEN_PREFIX = "TOKEN:"
+    const val BT_CMD_VERSION_PREFIX = "/V$PROTOCOL_VERSION/"
+    const val BT_CMD_CARDS_PAGE_PREFIX = "${BT_CMD_VERSION_PREFIX}CARDS_REQUEST_PAGE/"
+    const val BT_RESPONSE_NOT_AUTHORIZED = "NOT_AUTHORIZED"
     const val PAGE_SIZE = 10
 }

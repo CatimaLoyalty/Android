@@ -39,7 +39,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.Insets;
 import androidx.core.os.LocaleListCompat;
 import androidx.core.view.ViewCompat;
@@ -95,6 +94,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.shared.ForegroundColorHelper;
 
 public class Utils {
     private static final String TAG = "Catima";
@@ -114,8 +114,6 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_ICON = 12;
 
     public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
-
-    static final double LUMINANCE_MIDPOINT = 0.5;
 
     static final int BITMAP_SIZE_SMALL = 512;
     static final int BITMAP_SIZE_BIG = 1600;
@@ -147,11 +145,7 @@ public class Utils {
         }
 
         return new LetterBitmap(context, store, store,
-                tileLetterFontSize, pixelSize, pixelSize, backgroundColor, needsDarkForeground(backgroundColor) ? Color.BLACK : Color.WHITE);
-    }
-
-    static public boolean needsDarkForeground(Integer backgroundColor) {
-        return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
+                tileLetterFontSize, pixelSize, pixelSize, backgroundColor, ForegroundColorHelper.Companion.needsDarkForeground(backgroundColor) ? Color.BLACK : Color.WHITE);
     }
 
     static public List<ParseResult> retrieveBarcodesFromImage(Context context, Uri uri) {
@@ -1070,7 +1064,7 @@ public class Utils {
 
         if (icon != null) {
             // Use header colour to decide if this image will need a white or black background
-            backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            backgroundOrIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
             // Ensure correct cropping style
             backgroundOrIcon.setScaleType(Utils.getRecommendedScaleTypeForThumbnailImage(icon));
@@ -1100,7 +1094,7 @@ public class Utils {
             // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
-            textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            textWhenNoImage.setTextColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
         }
 
         return headerColor;

@@ -15,15 +15,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
-import androidx.wear.compose.material.Chip
-import androidx.wear.compose.material.ChipDefaults
-import androidx.wear.compose.material.CircularProgressIndicator
-import androidx.wear.compose.material.Text
+import androidx.wear.compose.material3.CircularProgressIndicator
+import androidx.wear.compose.material3.Text
+import androidx.wear.compose.material3.Button
+import androidx.wear.compose.material3.ButtonDefaults
+import androidx.wear.compose.material3.SurfaceTransformation
+import androidx.wear.compose.material3.lazy.rememberTransformationSpec
+import androidx.wear.compose.material3.lazy.transformedHeight
 import me.hackerchick.catima.wear.R
 import me.hackerchick.catima.wear.SyncStatus
 import me.hackerchick.catima.wear.WearCard
+import protect.card_locker.shared.ForegroundColorHelper
 
 @Composable
 fun CardListScreen(
@@ -63,14 +67,16 @@ fun CardListScreen(
                 )
             }
             else -> {
-                ScalingLazyColumn(
+                val transformationSpec = rememberTransformationSpec()
+                TransformingLazyColumn(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(horizontal = 8.dp, vertical = 32.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
                     items(cards, key = { it.id }) { card ->
-                        Chip(
-                            modifier = Modifier.fillMaxWidth(),
+                        Button(
+                            modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
+                            transformation = SurfaceTransformation(transformationSpec),
                             label = {
                                 Text(
                                     text = card.store,
@@ -79,23 +85,33 @@ fun CardListScreen(
                             },
                             onClick = { onCardClick(card) },
                             colors = if (card.headerColor != null) {
-                                ChipDefaults.chipColors(backgroundColor = Color(card.headerColor))
+                                ButtonDefaults.buttonColors(
+                                    containerColor = Color(card.headerColor),
+                                    contentColor = if (ForegroundColorHelper.needsDarkForeground(card.headerColor)) Color.Black else Color.White
+                                )
                             } else {
-                                ChipDefaults.primaryChipColors()
+                                ButtonDefaults.buttonColors()
                             },
                         )
                     }
-                    val footerLabel = syncStatus.labelRes
-                    if (footerLabel != null) {
-                        item {
-                            Text(
-                                text = stringResource(footerLabel),
-                                textAlign = TextAlign.Center,
-                                fontSize = 11.sp,
-                                color = Color.Gray,
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            )
-                        }
+                }
+                val footerLabel = syncStatus.labelRes
+                if (footerLabel != null) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.BottomCenter)
+                            .background(Color.Black.copy(alpha = 0.75f))
+                    ) {
+                        Text(
+                            text = stringResource(footerLabel),
+                            textAlign = TextAlign.Center,
+                            fontSize = 11.sp,
+                            color = Color.LightGray,
+                            modifier = Modifier
+                                .padding(40.dp, 4.dp, 40.dp, 20.dp)
+                                .align(Alignment.Center)
+                        )
                     }
                 }
             }

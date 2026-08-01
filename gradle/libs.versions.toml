@@ -47,8 +47,8 @@ ch-acra-acra-mail = { group = "ch.acra", name = "acra-mail", version.ref = "acra
 ch-acra-acra-dialog = { group = "ch.acra", name = "acra-dialog", version.ref = "acra" }
 
 # Wear OS
-androidx-wear-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "wearCompose" }
 androidx-wear-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "wearCompose" }
+androidx-wear-compose-material3 = { group = "androidx.wear.compose", name = "compose-material3", version.ref = "wearCompose" }
 androidx-wear-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "wearCompose" }
 
 # Testing

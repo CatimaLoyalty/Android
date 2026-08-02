@@ -1,1 +1,1 @@
-- Dodaj možnost odpiranja slike v vgrajenem pregledovalniku slik v galeriji
+- Dodana možnost odpiranja slike v vgrajenem pregledovalniku slik v galeriji

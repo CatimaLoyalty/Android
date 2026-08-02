@@ -11,10 +11,10 @@
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
     <string name="ok">Gerai</string>
-    <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
-    <string name="addCardTitle">Pridėti lojalumo kortelę</string>
+    <string name="editCardTitle">Redaguoti kortelę</string>
+    <string name="addCardTitle">Pridėti kortelę</string>
     <string name="scanCardBarcode">Nuskaityti brūkšninį kodą</string>
-    <string name="importExport">Importuoti/Exportuoti</string>
+    <string name="importExport">Importas/Exportas</string>
     <string name="exportName">Exportuoti</string>
     <string name="importFailed">Nepavyko importuoti</string>
     <string name="exportFailed">Nepavyko eksportuoti</string>
@@ -43,7 +43,7 @@
     <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
     <string name="settings_display_barcode_max_brightness">Šviesinti ekraną</string>
-    <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
+    <string name="failedParsingImportUriError">Nepavyko nuskaityti importo URI</string>
     <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
     <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
     <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL</string>
@@ -65,11 +65,9 @@
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
     <string name="sameAsCardId">Tokia pat kaip ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>
-    <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
-\nSukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
+    <string name="importFidmeMessage">Importavimui pasirinkite eksportą iš FidMe ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu. \nSukurkite jį iš savo FidMe profilio pasirinkę \"Duomenų apsauga\" ir po to paspausdami \"Išgauti mano duomenis\".</string>
     <string name="importFidme">Importuoti iš FidMe</string>
-    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportavimą iš Catima.
-\nSukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia ten paspausdami Eksportuoti.</string>
+    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportavimą iš Catima. \nSukurkite ją iš kitos Catima programos importavimo/eksportavimo meniu paspausdami \"Eksportuoti\".</string>
     <string name="importCatima">Importuoti iš Catima</string>
     <string name="accept">Priimti</string>
     <string name="privacy_policy">Privatumo politika</string>
@@ -117,8 +115,8 @@
     <string name="settings">Nustatymai</string>
     <string name="starImage">Mėgstamiausia žvaigždė</string>
     <string name="thumbnailDescription">Miniatiūra</string>
-    <string name="app_resources">Laisvosios trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Laisvosios trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Paremta Loyalty Card Keychain
 \nautorinės teisės © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
@@ -248,7 +246,7 @@
     <string name="add_manually_warning_title">Rekomenduojama skenuoti</string>
     <string name="continue_">Tęsti</string>
     <string name="add_manually_warning_message">Kai kuriuose parduotuvėse brūkšninio kodo vertė gali skirtis nuo kortelėje nurodyto numerio. Dėlto įvedus brūkšninį kodą rankiniu būdu gali nepavykti. Vietoj to, labai rekomenduojama nuskaityti brūkšninį kodą naudojant kamerą. Ar vis tiek norite tęsti?</string>
-    <string name="permissionReadCardsLabel">Skenuoti Catima Korteles</string>
+    <string name="permissionReadCardsLabel">Skaityti Catima korteles</string>
     <string name="settings_category_title_cards">Kortelių peržiūra</string>
     <string name="settings_category_title_general">Bendri</string>
     <string name="settings_category_title_privacy">Privatumąi</string>
@@ -281,4 +279,6 @@
     <string name="settings_column_count_portrait">Stulpeliai vertikaliame režime</string>
     <string name="settings_column_count_landscape">Stulpeliai horizontaliame režime</string>
     <string name="settings_automatic_column_count">Automatiškai</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC pauzė</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pristabdo NFC, kad peržiūrint kortelę nebūtų suaktyvinti NFC mokėjimai</string>
 </resources>

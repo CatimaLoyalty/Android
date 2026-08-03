@@ -16,7 +16,7 @@
     <string name="edit">تعديل</string>
     <string name="delete">حذف</string>
     <string name="confirm">تأكيد</string>
-    <string name="deleteConfirmation">حذف هذه البطاقة نهائيًّا؟</string>
+    <string name="deleteConfirmation">هل ترغب في حذف هذه البطاقة نهائيًّا؟</string>
     <string name="ok">حسنًا</string>
     <string name="share">مشاركة</string>
     <string name="sendLabel">إرسال…</string>
@@ -161,9 +161,9 @@
         <item quantity="zero">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
         <item quantity="one">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
         <item quantity="two">حذف هذه <xliff:g>%d</xliff:g> البطاقتين نهائيًا؟</item>
-        <item quantity="few">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
-        <item quantity="many">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
-        <item quantity="other">حذف هذه <xliff:g>%d</xliff:g> البطاقات نهائيًا؟</item>
+        <item quantity="few">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًّا؟</item>
+        <item quantity="many">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًّا؟</item>
+        <item quantity="other">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًا؟</item>
     </plurals>
     <string name="importOptionFilesystemTitle">الاستيراد من نظام الملفات</string>
     <string name="importOptionFilesystemExplanation">اختر ملفًا محددًا من نظام الملفات</string>

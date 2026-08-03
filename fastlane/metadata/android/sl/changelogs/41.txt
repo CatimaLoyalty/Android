@@ -1,0 +1,2 @@
+- Na glavnem pregledu so bile ikone kartic opremljene z zaobljenimi robovi
+- Dodana je bila podpora za združevanje vnosov v skupine

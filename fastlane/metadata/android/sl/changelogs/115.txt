@@ -1,0 +1,4 @@
+- S podaljšanim pritiskom se odpre slika v galeriji
+- Uporaba sloga Material v pogovornih oknih
+- Podpora za ustvarjanje kartice z deljenjem slike v Catimo
+- Dodan gumb za hitro porabo na zaslon kartice

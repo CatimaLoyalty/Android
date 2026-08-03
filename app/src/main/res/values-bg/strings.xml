@@ -307,4 +307,5 @@
     <string name="zoomFrontImage">Увеличаване на предното изображение</string>
     <string name="zoomBackImage">Увеличаване на задното изображение</string>
     <string name="show_card_id">Показване номера на картата</string>
+    <string name="open_in_gallery">Отваряне в галерията</string>
 </resources>

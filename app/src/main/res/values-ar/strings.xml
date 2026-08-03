@@ -158,9 +158,9 @@
         <item quantity="other">حذف <xliff:g>%d</xliff:g> من البطاقات</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="zero">لن يتم حذف أي بطاقة نهائيًّا</item>
-        <item quantity="one">هل ترغب في حذف هذه البطاقة نهائيًّا؟</item>
-        <item quantity="two">هل ترغب في حذف هذه البطاقتين نهائيًّا؟</item>
+        <item quantity="zero">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
+        <item quantity="one">حذف هذه <xliff:g>%d</xliff:g> البطاقة نهائيًا؟</item>
+        <item quantity="two">حذف هذه <xliff:g>%d</xliff:g> البطاقتين نهائيًا؟</item>
         <item quantity="few">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًّا؟</item>
         <item quantity="many">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًّا؟</item>
         <item quantity="other">هل ترغب في حذف هذه البطاقات الـ <xliff:g>%d</xliff:g> نهائيًا؟</item>

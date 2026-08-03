@@ -62,18 +62,6 @@ public class AboutContent {
         return contributors.replace("\n", "<br />");
     }
 
-    public String getHistoryHtml() {
-        String versionHistory;
-        try {
-            versionHistory = Utils.readTextFile(context, R.raw.changelog)
-                    .replace("# Changelog\n\n", "");
-        }  catch (IOException ignored) {
-            return "";
-        }
-        return Utils.linkify(Utils.basicMDToHTML(versionHistory))
-                .replace("\n", "<br />");
-    }
-
     public String getLicenseHtml() {
         try {
             return Utils.readTextFile(context, R.raw.license);

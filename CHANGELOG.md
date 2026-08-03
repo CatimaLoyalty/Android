@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased (Android) - 1002
+
+- Add a Bluetooth server for Wear OS companion app support
+- Remove embedded CHANGELOG
+
+## Unreleased (Wear OS) - 200
+
+- Initial release of Wear OS companion app
+
 ## v2.43.0 - 167 (2026-07-12)
 
 - Add support for showing the card ID in the card list

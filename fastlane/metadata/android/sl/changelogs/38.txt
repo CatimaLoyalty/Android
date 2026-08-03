@@ -1,0 +1,3 @@
+- S pritiskom na črtno kodo se ta zdaj premakne na vrh zaslona (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Dodan je prazen prostor okoli črtnih kod, da se izboljša skeniranje v temnem načinu (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Popravljena sta zamenjana gumba za uvoz (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

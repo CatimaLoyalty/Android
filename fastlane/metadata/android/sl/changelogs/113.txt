@@ -1,0 +1,3 @@
+- Dodan gumb za prejšnjo in naslednjo stran v pogledu kartice zvestobe
+- Popravljena barva na gumbu za urejanje
+- Zamenjana ikona shranjevanja na disketi z ikono kljukice

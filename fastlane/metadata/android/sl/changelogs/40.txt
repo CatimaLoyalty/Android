@@ -1,0 +1,6 @@
+- Preimenovanje v Catima
+- Odstranjen uvod
+- Dodani plavajoči gumbi za akcijo
+- Popravljena napaka, ki je povzročala sesutje sistema Android 5 ob odpiranju zaslona »O programu«
+- Dodana podpora za priljubljene
+- Popravljeno, da se onemogočeno samodejno vrtenje zaslona ni upoštevalo

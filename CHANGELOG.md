@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased (Android) - 1002
+
+- Add a Bluetooth server for Wear OS companion app support
+- Remove embedded CHANGELOG
+
+## Unreleased (Wear OS) - 200
+
+- Initial release of Wear OS companion app
+
 ## v2.44.0 - 168 (2026-07-28)
 
 - Add option to open image in internal image viewer in gallery

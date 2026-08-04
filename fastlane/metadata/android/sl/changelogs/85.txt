@@ -1,0 +1,5 @@
+Od te različice naprej Android 4.4 ni več podprt. Če želiš uporabljati Catimo na Androidu 4.4, uporabi različico 2.6.1.
+
+- Izboljšana podpora za Android 12
+- Izboljšano okno »O programu«
+- Iskanje zdaj ne upošteva naglasnih znakov

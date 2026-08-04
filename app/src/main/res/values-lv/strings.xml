@@ -309,4 +309,9 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Aptur NFC, lai novērstu NFC maksājumu izsaukšanu kartes apskatīšanas laikā</string>
     <string name="nfc_blocked_while_viewing_card">NFC ir apturēts</string>
     <string name="change_settings">Mainīt iestatījumus</string>
+    <string name="open_in_gallery">Atvērt attēlu galerijā</string>
+    <string name="sort_by_most_recently_added">Visnesenāk pievienotās</string>
+    <string name="zoomFrontImage">Pietuvināt priekšpuses attēlu</string>
+    <string name="zoomBackImage">Pietuvināt aizmugures attēlu</string>
+    <string name="show_card_id">Rādīt kartes Id</string>
 </resources>

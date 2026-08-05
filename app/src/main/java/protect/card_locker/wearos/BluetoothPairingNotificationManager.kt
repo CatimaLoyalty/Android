@@ -87,7 +87,7 @@ object BluetoothPairingNotificationManager {
         )
 
         val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.PAIRING_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_monochrome)
+            .setSmallIcon(R.drawable.ic_notification_catima)
             .setContentTitle(context.getString(titleRes, deviceName))
             .setContentText(context.getString(messageRes, deviceName))
             .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(messageRes, deviceName)))

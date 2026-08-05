@@ -74,7 +74,7 @@ class BluetoothServerService : Service() {
         }
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.wear_bt_notification_title))
-            .setSmallIcon(R.drawable.ic_launcher_monochrome)
+            .setSmallIcon(R.drawable.ic_notification_sync)
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .setSilent(true)
             .build()

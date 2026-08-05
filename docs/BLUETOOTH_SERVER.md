@@ -14,7 +14,14 @@ The Bluetooth server is currently only used by the Catima WearOS companion app. 
 
 ## API versions
 
-There is currently only a single API version. Version 1.
+For each API version, we have a major and a minor version. The rules for versioning are as follows:
+1. A new minor version may add fields or endpoints, but must never modify or remove existing fields or endpoints.
+2. A new minor version must not change any authentication systems compared to the previous minor version.
+3. A device cannot request Catima to use a specific minor version, it will always return data as per the most recently supported minor version.
+
+The main driver of compatibility is the major version.
+
+Due to this system, a device only supporting API version 1.0 can talk to Catima supporting API version 1.1 with no issues, as long as it ignores fields it doesn't know. On the other side, a device wanting to use API version 1.1 with Catima on API version 1.0 has to accept certain fields may not be available. Which minor version introduces which additional fields and endpoints is documented in this file.
 
 ### Unversioned
 
@@ -22,10 +29,19 @@ There is currently only a single API version. Version 1.
 
 Return type: JSON.
 
-Value:
+Returns all supported major versions and the most recent supported minor version.
+
+Example request:
 ```
-[1]
+/VERSIONS
 ```
+
+Example return value:
+```
+["1.0"]
+```
+
+In this example case, the phone supports only API version 1. Of API version 1, the most recent minor version supported is 0.
 
 ### V1
 
@@ -47,14 +63,14 @@ Request a single page of cards with page and total page details. The page ID is 
 
 Each card contains the following fields:
 
-| Column            | Type              | Description                |
-|-------------------|-------------------|----------------------------|
-| `id`              | `int`             | Unique card ID |
-| `store`           | `String`          | Card name |
-| `cardId`          | `String`          | Card ID. |
-| `barcodeId`       | `Nullable String` | Barcode value. If empty, it's the same as the card ID. |
-| `barcodeType`     | `Nullable String` | The barcode type name, matching [com.google.zxing.BarcodeFormat](https://zxing.github.io/zxing/apidocs/com/google/zxing/BarcodeFormat.html). When null, there is no barcode for this card. |
-| `headerColor`     | `int`             | Header color, matching [Android color int](https://developer.android.com/reference/android/graphics/Color). |
+| Column            | Type              | Description                | Introduced in minor version |
+|-------------------|-------------------|----------------------------| --------------------------- |
+| `id`              | `int`             | Unique card ID | 0 |
+| `store`           | `String`          | Card name | 0 |
+| `cardId`          | `String`          | Card ID. | 0 |
+| `barcodeId`       | `Nullable String` | Barcode value. If empty, it's the same as the card ID. | 0 |
+| `barcodeType`     | `Nullable String` | The barcode type name, matching [com.google.zxing.BarcodeFormat](https://zxing.github.io/zxing/apidocs/com/google/zxing/BarcodeFormat.html). When null, there is no barcode for this card. | 0 |
+| `headerColor`     | `int`             | Header color, matching [Android color int](https://developer.android.com/reference/android/graphics/Color). | 0 |
 
 Example request:
 ```

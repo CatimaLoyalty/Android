@@ -1064,7 +1064,7 @@ public class Utils {
 
         if (icon != null) {
             // Use header colour to decide if this image will need a white or black background
-            backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            backgroundOrIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
             // Ensure correct cropping style
             backgroundOrIcon.setScaleType(Utils.getRecommendedScaleTypeForThumbnailImage(icon));
@@ -1094,7 +1094,7 @@ public class Utils {
             // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
-            textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            textWhenNoImage.setTextColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
         }
 
         return headerColor;

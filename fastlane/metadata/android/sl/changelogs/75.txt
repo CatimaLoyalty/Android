@@ -1,0 +1,4 @@
+- Popravek izbrane barve v pogovornem oknu za spreminjanje barve
+- Podpora za hkratno brisanje več kartic
+- Popravek morebitne napake ArithmeticException pri spreminjanju velikosti slike
+- Popravek, zaradi katerega se polnozaslonski način zapre ob vrtenju naprave

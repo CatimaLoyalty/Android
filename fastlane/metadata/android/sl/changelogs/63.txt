@@ -1,0 +1,3 @@
+- Podpora uvozu izvoznih datotek iz storitve Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Možnost, da zaslon ostane vklopljen med ogledom kartice zvestobe
+- Možnost začasne onemogočitve zaklenjenega zaslona med ogledom kartice zvestobe

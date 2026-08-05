@@ -1,0 +1,2 @@
+- Izboljšanje logike razčlenjevanja ravnovesja
+- Popravek prikaza decimalnih mest pri valutah na glavnem zaslonu

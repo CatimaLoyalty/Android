@@ -1,0 +1,4 @@
+- Izboljšanje seznama kartic za prikaz v ležečem načinu in na tabličnih računalnikih
+- Dodana podpora za barve tem (hvala, Subhashish Anand!)
+- Dejavnost skeniranja se ob napaki kamere ne zapre (tako je ročno vnašanje še vedno mogoče)
+- V pogovorno okno »O programu« so dodani vsi sodelavci

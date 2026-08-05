@@ -1,0 +1,1 @@
+- Odpravljena napaka, ko ni bilo mogoče nastaviti fotografij na novi kartici zvestobe

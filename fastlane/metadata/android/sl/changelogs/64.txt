@@ -1,0 +1,1 @@
+- Popravljena je bila napaka, zaradi katere se ročno vnesene črtne kode niso shranile

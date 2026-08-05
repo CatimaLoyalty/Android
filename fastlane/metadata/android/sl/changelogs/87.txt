@@ -1,0 +1,1 @@
+- Popravek regresije, ki je onemogočala uvoz/izvoz

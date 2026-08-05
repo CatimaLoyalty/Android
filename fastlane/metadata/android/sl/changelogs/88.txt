@@ -1,0 +1,1 @@
+- Popravljena napaka pri migraciji, zaradi katere je prva kartica postala nevidna

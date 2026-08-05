@@ -1,0 +1,6 @@
+- Dodana možnost nastavitve vrednosti črtne kode, ki se razlikuje od identifikacijske številke kartice
+- Poenostavljena nastavitev velikosti pisave
+- Nekaj manjših popravkov v uporabniškem vmesniku
+- Ikona črke se uporablja tudi za bližnjice
+- Pri ročnem vnosu se vedno prikažejo vse vrste črtnih kod
+- Odstranjeno pogovorno okno s politiko zasebnosti ob prvem zagonu

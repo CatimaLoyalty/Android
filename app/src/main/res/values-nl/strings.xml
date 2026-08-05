@@ -307,4 +307,5 @@
     <string name="show_card_id">Kaart ID tonen</string>
     <string name="zoomFrontImage">Voorzijde inzoomen</string>
     <string name="zoomBackImage">Achterzijde inzoomen</string>
+    <string name="open_in_gallery">Open in afbeeldingsgalerij</string>
 </resources>

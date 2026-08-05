@@ -97,13 +97,25 @@ object BluetoothCardClient {
             socket.connect()
             val supportedVersions = requestSupportedVersions(socket)
                 ?: return null to SyncStatus.PHONE_NOT_REACHABLE
-            if (WearBluetoothProtocol.PROTOCOL_VERSION !in supportedVersions) {
-                Log.w(TAG, "Phone does not support API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
+            var majorVersionIsSupported = false
+            var mostRecentMinorVersion = -1
+            run breaking@{
+                supportedVersions.forEach {
+                    val supportedVersionParts = it.split('.')
+                    if (supportedVersionParts[0] == WearBluetoothProtocol.PROTOCOL_VERSION.toString()) {
+                        majorVersionIsSupported = true
+                        mostRecentMinorVersion = supportedVersionParts[1].toInt()
+                        return@breaking
+                    }
+                }
+            }
+            if (!majorVersionIsSupported) {
+                Log.w(TAG, "Phone does not support major API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
                 return null to SyncStatus.VERSION_INCOMPATIBLE
             }
             socket.close()
             socket = null
-            Log.d(TAG, "Connected to $deviceName with API version ${WearBluetoothProtocol.PROTOCOL_VERSION}")
+            Log.d(TAG, "Connected to $deviceName with major API version ${WearBluetoothProtocol.PROTOCOL_VERSION}, phone supports up to minor API version ${mostRecentMinorVersion}, we can use up to ${WearBluetoothProtocol.PROTOCOL_MINOR_VERSION}")
 
             socket = device.createRfcommSocketToServiceRecord(WearBluetoothProtocol.BT_SERVICE_UUID)
             socket.connect()
@@ -173,7 +185,7 @@ object BluetoothCardClient {
         writer.println("${WearBluetoothProtocol.BT_CMD_TOKEN_PREFIX}$token")
     }
 
-    private fun requestSupportedVersions(socket: BluetoothSocket): Set<Int>? {
+    private fun requestSupportedVersions(socket: BluetoothSocket): Set<String>? {
         val writer = PrintWriter(OutputStreamWriter(socket.outputStream, "UTF-8"), false)
         val reader = BufferedReader(InputStreamReader(socket.inputStream, "UTF-8"))
         writer.print("${WearBluetoothProtocol.BT_CMD_VERSIONS}\n")
@@ -183,7 +195,7 @@ object BluetoothCardClient {
             val versions = JSONArray(response)
             buildSet {
                 for (index in 0 until versions.length()) {
-                    add(versions.getInt(index))
+                    add(versions.getString(index))
                 }
             }
         } catch (e: Exception) {

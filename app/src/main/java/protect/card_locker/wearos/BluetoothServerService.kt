@@ -148,10 +148,10 @@ class BluetoothServerService : Service() {
                 val firstLine = reader.readLine()?.trim() ?: return
 
                 if (firstLine == WearBluetoothProtocol.BT_CMD_VERSIONS) {
-                    val versions = JSONArray().put(WearBluetoothProtocol.PROTOCOL_VERSION).toString()
+                    val versions = JSONArray().put("${WearBluetoothProtocol.PROTOCOL_VERSION}.${WearBluetoothProtocol.PROTOCOL_MINOR_VERSION}").toString()
                     writer.println(versions)
                     writer.flush()
-                    Log.d(TAG, "Sent supported versions to $deviceName")
+                    Log.d(TAG, "Sent supported versions to $deviceName: $versions")
                     return
                 }
 

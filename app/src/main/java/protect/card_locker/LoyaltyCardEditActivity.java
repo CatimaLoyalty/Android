@@ -92,6 +92,7 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
+import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
     private static final String TAG = "Catima";
@@ -144,6 +145,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     Toolbar toolbar;
 
     SQLiteDatabase mDatabase;
+    Settings settings;
 
     String tempStoredOldBarcodeValue = null;
     boolean initDone = false;
@@ -320,8 +322,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         enableToolbarBackButton();
 
         mDatabase = new DBHelper(this).getWritableDatabase();
-
+        if (settings == null) { settings = new Settings(this); }
         if (!viewModel.getInitialized()) {
+            var prefCurrency = settings.getPreferredCurrency();
+            if(prefCurrency != null) {
+                setLoyaltyCardBalanceType(prefCurrency);
+            }
             if (!extractIntentFields(getIntent())) {
                 return;
             }

@@ -319,4 +319,5 @@
     <string name="zoomFrontImage">Powiększ zdjęcie z przodu</string>
     <string name="zoomBackImage">Powiększ zdjęcie z tyłu</string>
     <string name="show_card_id">Pokaż ID karty</string>
+    <string name="open_in_gallery">Otwórz zdjęcie w galerii</string>
 </resources>

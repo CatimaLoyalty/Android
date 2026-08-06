@@ -1,0 +1,9 @@
+- POMEMBNO: Spremenil se je format varnostne kopije in deljenja URL-jev
+- Omogočen je vklop svetilke med skeniranjem
+- Dodana podpora za UPC-E
+- Podpora dodajanju slike prednje/zadnje strani kartice
+- Podpora uvozu datotek ZIP, zaščitenih z geslom in iz Stocard (Beta)
+- Popravek praznih prostorov v opombah pri uvozu iz Fidme
+- Podpora novemu formatu izvoza Voucher Vault
+- Popravek plavajočih gumbov v Android 4
+- Popravek zgornjega roba vrstice orodij v pregledovalniku

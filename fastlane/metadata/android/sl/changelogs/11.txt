@@ -1,0 +1,5 @@
+- Pri urejanju identifikacijske številke kartice se za začetek samodejno vnese obstoječa identifikacijska številka
+- Omejite širino ustvarjenih črtnih kod, da zmanjšate porabo pomnilnika in napake zaradi pomanjkanja pomnilnika
+- Pri urejanju kartice spremenite gumb »Vnesi kartico« v »Uredi kartico«, če ID kartice že obstaja
+- Spremenite barvno shemo, da bo bolj nežna in skladna z ikono aplikacije, ter spremenite postavitev pri pregledovanju kartice, da bo preglednejša
+- Dodan uvodni čarovnik

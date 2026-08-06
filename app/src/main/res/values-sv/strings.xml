@@ -304,4 +304,8 @@
     <string name="nfc_block_system_error">Lyckades inte pausa NFC</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Pausar NFC för att förhindra att NFC-betalningar genomförs av misstag medan du tittar på ett kort</string>
     <string name="sort_by_most_recently_added">Senast tillagda</string>
+    <string name="zoomFrontImage">Zooma framsidesbilden</string>
+    <string name="zoomBackImage">Zooma baksidesbilden</string>
+    <string name="show_card_id">Visa kort-ID</string>
+    <string name="open_in_gallery">Öppna i bildgalleriet</string>
 </resources>

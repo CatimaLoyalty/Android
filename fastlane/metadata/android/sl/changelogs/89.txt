@@ -1,0 +1,5 @@
+- Popravljeno drsenje med skupinami, ki ne deluje pri prazni skupini
+- Omogočena zaščita izvozov z geslom
+- Izboljšana izraba prostora za QR-kode
+- Shranjevanje zadnje uporabljene stopnje povečave za vsako kartico
+- Popravljeno sesutje programa ob drsenju v desno takoj po dotiku

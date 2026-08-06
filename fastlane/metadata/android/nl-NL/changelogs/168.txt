@@ -1,0 +1,1 @@
+- Optie toegevoegd om afbeeldingen te openen in interne weergavesoftware in gallerij

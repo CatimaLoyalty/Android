@@ -43,8 +43,19 @@ jobs:
         run: ./gradlew assemble${sentenceCasedFlavor}Release
       - name: Check for non-free libraries
         run: |
-          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
-          java -jar apk-scanner_v0.0.7.jar scan-apk "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk')"
+          # Get Katastima APK scanner
+          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.9/apk-scanner_v0.0.9.jar
+          # Print pretty result
+          java -jar apk-scanner_v0.0.9.jar scan-apk "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk')"
+          # Check for offending libraries
+          # Exit code 4 = no result, which is what we want
+          set +e
+          java -jar apk-scanner_v0.0.9.jar scan-apk --json=yes "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk')" | jq --exit-status '.libraryCheckResult.offendingLibraries[] | select((.libraryId == "/org/acra" and .license == "Apache-2.0")|not)'
+          if [ "$?" -ne 4 ]; then
+            echo "Bad libraries found!"
+            exit 1
+          fi
+          set -e
       - name: Check lint
         run: ./gradlew lint${sentenceCasedFlavor}Release
       - name: Run unit tests

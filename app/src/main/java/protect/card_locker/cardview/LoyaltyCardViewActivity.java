@@ -182,11 +182,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void setScalerGuideline(int zoomLevel) {
         float scale = zoomLevel / 100f;
 
-        if (format != null && format.isSquare()) {
-            binding.scalerGuideline.setGuidelinePercent(0.75f * scale);
-        } else {
-            binding.scalerGuideline.setGuidelinePercent(0.5f * scale);
-        }
+        float heightFraction =
+                format != null && format.isSquare()
+                        ? 0.75f * scale
+                        : 0.5f * scale;
+
+        float halfHeight = heightFraction / 2f;
+
+        binding.scalerTopGuideline.setGuidelinePercent(0.5f - halfHeight);
+        binding.scalerGuideline.setGuidelinePercent(0.5f + halfHeight);
     }
 
     private void setScalerWidthGuideline(int zoomLevelWidth) {

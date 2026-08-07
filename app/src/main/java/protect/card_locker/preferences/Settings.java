@@ -112,4 +112,8 @@ public class Settings {
     public boolean useVolumeKeysForNavigation() {
         return getBoolean(R.string.settings_key_use_volume_keys_navigation, false);
     }
+
+    public boolean getWearSyncEnabled() {
+        return getBoolean(R.string.settings_key_wear_sync, false);
+    }
 }

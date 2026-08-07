@@ -59,8 +59,14 @@ android {
             dimension = "type"
             isDefault = true
         }
+        create("fdroidLegacy") {
+            dimension = "type"
+            versionNameSuffix = " (F-Droid)"
+            versionCode = defaultConfig.versionCode!! - 1
+        }
         create("gplay") {
             dimension = "type"
+            versionNameSuffix = " (Google)"
 
             // Google doesn't allow donation links
             buildConfigField("boolean", "showDonate", "false")
@@ -113,6 +119,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     // AndroidX
     implementation(libs.androidx.appcompat.appcompat)
     implementation(libs.androidx.constraintlayout.constraintlayout)
@@ -165,7 +173,6 @@ dependencies {
 
 tasks.register("copyRawResFiles", Copy::class) {
     from(
-        layout.projectDirectory.file("../CHANGELOG.md"),
         layout.projectDirectory.file("../PRIVACY.md")
     )
     into(layout.projectDirectory.dir("src/main/res/raw"))
@@ -173,7 +180,7 @@ tasks.register("copyRawResFiles", Copy::class) {
 }.also {
     tasks.preBuild.dependsOn(it)
     tasks.getByName<Delete>("clean") {
-        val filesNamesToDelete = listOf("CHANGELOG", "PRIVACY")
+        val filesNamesToDelete = listOf("PRIVACY")
         filesNamesToDelete.forEach { fileName ->
             delete(layout.projectDirectory.file("src/main/res/raw/${fileName.lowercase()}.md"))
         }

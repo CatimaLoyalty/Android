@@ -4,11 +4,7 @@ on:
   push:
     branches:
       - main
-      - staging
-      - trying
   pull_request:
-    branches:
-      - main
 permissions:
   actions: none
   checks: none
@@ -30,9 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        flavor: [Foss, Gplay]
+        flavor: [fdroidLegacy, foss, gplay]
     steps:
       - uses: actions/checkout@v7.0.1
+      - name: Ensure sentence-cased flavor variables
+        run: |
+          flavor="$(echo ${{ matrix.flavor }})"
+          echo "sentenceCasedFlavor=${flavor^}" >> "$GITHUB_ENV"
       - uses: gradle/actions/wrapper-validation@v6.2.0
       - name: set up OpenJDK 25
         run: |
@@ -40,15 +40,26 @@ jobs:
           sudo apt-get install -y openjdk-25-jdk-headless
           sudo update-alternatives --auto java
       - name: Build
-        run: ./gradlew assemble${{ matrix.flavor }}Release
+        run: ./gradlew assemble${sentenceCasedFlavor}Release
       - name: Check for non-free libraries
         run: |
-          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.7/apk-scanner_v0.0.7.jar
-          java -jar apk-scanner_v0.0.7.jar scan-apk "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk' | tr '[:upper:]' '[:lower:]')"
+          # Get Katastima APK scanner
+          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.9/apk-scanner_v0.0.9.jar
+          # Print pretty result
+          java -jar apk-scanner_v0.0.9.jar scan-apk "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk')"
+          # Check for offending libraries
+          # Exit code 4 = no result, which is what we want
+          set +e
+          java -jar apk-scanner_v0.0.9.jar scan-apk --json=yes "$(echo 'app/build/outputs/apk/${{ matrix.flavor }}/release/app-${{ matrix.flavor }}-release-unsigned.apk')" | jq --exit-status '.libraryCheckResult.offendingLibraries[] | select((.libraryId == "/org/acra" and .license == "Apache-2.0")|not)'
+          if [ "$?" -ne 4 ]; then
+            echo "Bad libraries found!"
+            exit 1
+          fi
+          set -e
       - name: Check lint
-        run: ./gradlew lint${{ matrix.flavor }}Release
+        run: ./gradlew lint${sentenceCasedFlavor}Release
       - name: Run unit tests
-        run: timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest || { ./gradlew --stop && timeout 5m ./gradlew test${{ matrix.flavor }}DebugUnitTest; }
+        run: timeout 5m ./gradlew test${sentenceCasedFlavor}DebugUnitTest || { ./gradlew --stop && timeout 5m ./gradlew test${sentenceCasedFlavor}DebugUnitTest; }
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -59,16 +70,16 @@ jobs:
         with:
           api-level: 23
           arch: x86_64
-          script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
+          script: ./gradlew connected${sentenceCasedFlavor}DebugAndroidTest
       - name: Run instrumented tests (API 35)
         uses: ReactiveCircus/android-emulator-runner@v2.38.0
         with:
           api-level: 35
           arch: x86_64
-          script: ./gradlew connected${{ matrix.flavor }}DebugAndroidTest
+          script: ./gradlew connected${sentenceCasedFlavor}DebugAndroidTest
       - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v7.0.1
         with:
-          name: test-results-flavor${{ matrix.flavor }}
+          name: test-results-flavor-${{ matrix.flavor }}
           path: app/build/reports

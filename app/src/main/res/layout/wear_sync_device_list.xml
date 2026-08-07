@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/wear_sync_device_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/wear_sync_device_list_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="?attr/dialogPreferredPadding"
+            android:paddingEnd="?attr/dialogPreferredPadding"
+            style="?attr/materialAlertDialogBodyTextStyle" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

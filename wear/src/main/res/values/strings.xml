@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">No cards found.\nOpen Catima on your phone to add cards.</string>
+    <string name="phone_not_connected">Could not reach Catima on your phone.\nMake sure Catima is running on your phone, your watch is connected and Wear OS support is enabled in Catima smartwatch settings.</string>
+    <string name="loading_cards">Loading cards…</string>
+    <string name="no_barcode">No barcode available for this card.</string>
+    <string name="card_id_label">Card ID</string>
+    <string name="syncing">Syncing with phone…</string>
+    <string name="sync_failed">Phone unreachable – showing cached cards</string>
+    <string name="version_incompatible">Catima on your phone and watch are incompatible.\nPlease update both.</string>
+    <string name="bluetooth_permission_denied">Bluetooth permission denied.\nGrant it in Settings to sync cards.</string>
+    <string name="bluetooth_disabled">Bluetooth is turned off.\nEnable it to sync cards from your phone.</string>
+    <string name="sync_error">Failed to read cards from your phone.\nTry syncing again.</string>
+    <string name="unauthorized">Not authorized.\nAllow this watch to read your cards in Catima settings.</string>
+</resources>

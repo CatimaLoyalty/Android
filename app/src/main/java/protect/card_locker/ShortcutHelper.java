@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.LinkedList;
 
 import protect.card_locker.cardview.LoyaltyCardViewActivity;
+import protect.card_locker.shared.ForegroundColorHelper;
 
 public class ShortcutHelper {
     /**
@@ -102,7 +103,7 @@ public class ShortcutHelper {
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
         } else {
-            iconBitmap = createAdaptiveBitmap(iconBitmap, Utils.needsDarkForeground(Utils.getHeaderColor(context, loyaltyCard)) ? Color.BLACK : Color.WHITE);
+            iconBitmap = createAdaptiveBitmap(iconBitmap, ForegroundColorHelper.Companion.needsDarkForeground(Utils.getHeaderColor(context, loyaltyCard)) ? Color.BLACK : Color.WHITE);
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);

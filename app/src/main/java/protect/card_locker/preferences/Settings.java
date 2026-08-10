@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
 import java.util.Locale;
+import java.util.Currency;
 
 import protect.card_locker.R;
 import protect.card_locker.Utils;
@@ -106,6 +107,23 @@ public class Settings {
         } catch (NumberFormatException nfe) {
             Log.e(TAG, "Failed to parseInt the column count pref", nfe);
             return defaultColumnCount;
+        }
+    }
+
+    @Nullable
+    public Currency getPreferredCurrency() {
+        String points = getResString(R.string.points);
+        String stored = getString(R.string.settings_key_default_currency, points);
+
+        if (points.equals(stored)) {
+            return null; 
+        }
+
+        // Guard against invalid or legacy stored currencies
+        try {
+            return Currency.getInstance(stored);
+        } catch (IllegalArgumentException ignored) {
+            return null;
         }
     }
 

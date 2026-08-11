@@ -393,4 +393,6 @@
     <string name="wear_bt_channel_name">Wear OS companion</string>
     <string name="wear_bt_notification_title">Catima Wear OS sync active</string>
     <string name="settings_category_title_smartwatch">Smartwatch support</string>
+    <string name="wear_bt_failed_foreground_notification_title">Failed to start Wear OS sync service</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS sync critical error</string>
 </resources>

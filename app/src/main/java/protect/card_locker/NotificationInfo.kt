@@ -5,5 +5,7 @@ object NotificationInfo {
         const val NOTIFICATION_ID = 1001
         const val CHANNEL_ID = "catima_wear_bt"
         const val PAIRING_CHANNEL_ID = "catima_wear_bt_pairing"
+        const val CRITICAL_ERROR_NOTIFICATION_ID = 1002
+        const val CRITICAL_ERROR_CHANNEL_ID = "catima_wear_bt_critical_error"
     }
 }

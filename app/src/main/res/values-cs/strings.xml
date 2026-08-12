@@ -232,7 +232,7 @@
     <string name="permissionReadCardsDescription">číst vaše karty Catima a všechny jejich podrobnosti, včetně poznámek a obrázků</string>
     <string name="settings_allow_content_provider_read_summary">Aplikace budou i tak muset požádat o povolení k poskytnutí přístupu</string>
     <string name="permissionReadCardsLabel">Číst karty Catima</string>
-    <string name="settings_allow_content_provider_read_title">Umožnit ostatním aplikacím přístup k mým datům</string>
+    <string name="settings_allow_content_provider_read_title">Umožnit ostatním aplikacím přístup k mým datům</string>
     <string name="settings_keep_screen_on_summary">Při prohlížení karty vypnout časovač zhasnutí obrazovky</string>
     <string name="settings_oled_dark_summary">Snižuje používání baterie na displejích OLED</string>
     <string name="settings_category_title_privacy">Soukromí</string>

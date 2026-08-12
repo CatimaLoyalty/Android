@@ -5,7 +5,7 @@
 - Add a Bluetooth server for Wear OS companion app support
 - Remove embedded CHANGELOG
 
-## Unreleased (Wear OS) - 200
+## v1.0.0 (Wear OS) - 200
 
 - Initial release of Wear OS companion app
 

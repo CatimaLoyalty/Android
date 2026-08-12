@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (Android) - 1002
+## v2.45.0 (Android) - 1002
 
 - Add a Bluetooth server for Wear OS companion app support
 - Remove embedded CHANGELOG

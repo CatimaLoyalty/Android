@@ -1,0 +1,2 @@
+- Add a Bluetooth server for Wear OS companion app support
+- Remove embedded CHANGELOG

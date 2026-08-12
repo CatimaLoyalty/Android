@@ -223,10 +223,10 @@
     <string name="show_balance">Betrag anzeigen</string>
     <string name="show_validity">Gültigkeitsdauer anzeigen</string>
     <string name="show_name_below_image_thumbnail">Namen unter dem Vorschaubild anzeigen</string>
-    <string name="settings_allow_content_provider_read_title">Anderen Apps den Zugriff auf meine Daten gestatten</string>
+    <string name="settings_allow_content_provider_read_title">Synchronisiere mit Gadgetbrigde</string>
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
     <string name="permissionReadCardsDescription">Lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
-    <string name="settings_allow_content_provider_read_summary">Apps müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
+    <string name="settings_allow_content_provider_read_summary">Erlaube die Synchronisation der Karten mit den unterstützten Uhren der Gadgetbridge App</string>
     <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
     <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>
@@ -308,4 +308,42 @@
     <string name="zoomFrontImage">Vorderseite vergrößern</string>
     <string name="sort_by_most_recently_added">Zuletzt hinzugefügt</string>
     <string name="open_in_gallery">In Bildergalerie öffnen</string>
+    <string name="wear_bt_critical_error_channel_name">Kritischer Wear OS Synchronisierungsfehler</string>
+    <string name="wear_bt_failed_foreground_notification_title">Synchronisierungsdienst zu Wear OS konnte nicht gestartet werden</string>
+    <string name="settings_category_title_smartwatch">Smartwatch Unterstützung</string>
+    <string name="wear_bt_notification_title">Catima Wear OS Synchronisierung ist aktiv</string>
+    <string name="wear_bt_channel_name">Wear OS Begleit-App</string>
+    <string name="open_settings">Einstellungen öffnen</string>
+    <string name="wear_bt_pairing_mismatch_message">Dieses Gerät wurde zuvor autorisiert, besitzt nun aber einen anderen Identitäts-Token. Dies kann vorkommen, wenn die Daten der Wear OS App gelöscht wurden oder die App erneut installiert wurde. Es kann ebenso auf den Versuch einer Bluetooth MAC Manipulation hindeuten.\n\nAkzeptiere die Autorisierung nur, wenn die Catima Wear OS App kürzlich neu auf dieser Uhr installiert wurde.</string>
+    <string name="wear_bt_pairing_mismatch_title">Neue Anfrage zur Autorisation von <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> wurde blockiert.</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> darf jetzt synchronisieren.</string>
+    <string name="wear_bt_pairing_block">Blockiert</string>
+    <string name="wear_bt_pairing_allow">Zugelassen</string>
+    <string name="wear_bt_pairing_message">Zugang <xliff:g>%1$s</xliff:g> zu deinen Karten zulassen?</string>
+    <string name="wear_bt_pairing_title">Wear OS Gerät möchte synchronisieren</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS Gerät koppeln</string>
+    <string name="settings_wear_sync_tap_to_remove">Tippe auf ein Gerät, um es zu entfernen.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_unpair">Entfernen</string>
+    <string name="settings_wear_sync_unblock_message">Entferne <xliff:g>%1$s</xliff:g> von der Blockierungsliste? Eine erneute Anfrage zum Zugriff ist dann möglich.</string>
+    <string name="settings_wear_sync_unpair_message">Entferne <xliff:g>%1$s</xliff:g> von Catima? Es wird dann nicht mehr möglich sein Karten zu synchronisieren.</string>
+    <string name="settings_wear_sync_unpair_title">Entferne Gerät?</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> Gerät blockiert</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> Geräte blockiert</item>
+    </plurals>
+    <string name="settings_wear_sync_no_blocked_devices">Keine blockierten Geräte</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Blockierte Wear OS Geräte verwalten</string>
+    <string name="settings_wear_sync_blocked_devices">Blockierte Wear OS Geräte</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> Gerät zugelassen</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> Geräte zugelassen</item>
+    </plurals>
+    <string name="settings_wear_sync_no_devices">Keine zugelassenen Geräte</string>
+    <string name="settings_wear_sync_devices_summary">Verwalte die Geräte, die per Bluetooth synchronisieren dürfen</string>
+    <string name="settings_wear_sync_devices">Zugelassene Wear OS Geräte</string>
+    <string name="wear_sync_permission_required">Catima benötigt die von dir verweigerte Erlaubnis, um mit deiner Wear OS Smartwatch zu synchronisieren</string>
+    <string name="settings_wear_sync_summary">Erlaube der Wear OS Begleit-App die Karten per Bluetooth auszulesen</string>
+    <string name="settings_wear_sync">Synchronisiere mit Wear OS</string>
 </resources>

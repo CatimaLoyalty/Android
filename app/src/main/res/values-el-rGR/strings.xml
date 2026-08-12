@@ -210,7 +210,7 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης κατά την προβολή μιας κάρτας</string>
     <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποιους σαρωτές</string>
     <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
-    <string name="settings_allow_content_provider_read_title">Να επιτρέπεται σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
+    <string name="settings_allow_content_provider_read_title">Συγχρονισμός με Gadgetbridge</string>
     <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
     <string name="height">Ύψος</string>
     <string name="switchToFrontImage">Μετάβαση στην εμπρόσθια εικόνα</string>
@@ -255,7 +255,7 @@
     <string name="show_validity">Εμφάνιση εγκυρότητας</string>
     <string name="add_a_card_in_a_different_way">Προσθέστε μια κάρτα με διαφορετικό τρόπο</string>
     <string name="card_id_must_not_be_empty">Ο κωδικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
-    <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ωστόσο να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
+    <string name="settings_allow_content_provider_read_summary">Επιτρέπει στην εφαρμογή Gadgetbridge να συγχρονίζει τις κάρτες σας με τα υποστηριζόμενα ρολόγια</string>
     <string name="field_must_not_be_empty">Το πεδίο δεν πρέπει να είναι κενό</string>
     <string name="manually_enter_barcode_instructions">Εισάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
     <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>

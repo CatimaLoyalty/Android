@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Keine Karten gefunden\nÖffne Catima auf deinem Smartphone, um Karten hinzuzufügen.</string>
+    <string name="phone_not_connected">Konnte Catima nicht auf deinem Smartphone erreichen.\nStelle sicher, dass Catima auf deinem Smartphone läuft, deine Smartwatch verbunden und die Wear OS Unterstützung in den Catima Smartwatch Einstellungen aktiviert ist.</string>
+    <string name="loading_cards">Lade Karten…</string>
+    <string name="no_barcode">Kein Barcode für diese Karte verfügbar.</string>
+    <string name="card_id_label">Karten-ID</string>
+    <string name="syncing">Synchronisiere mit Smartphone…</string>
+    <string name="sync_failed">Smartphone ist unerreichbar – zeige zwischengespeicherte Karten</string>
+    <string name="version_incompatible">Catima auf dem Smartphone und der -Uhr sind inkompatible.\nBeide bitte aktualisieren.</string>
+    <string name="bluetooth_permission_denied">Bluetooth Berechtigung verweigert.\nGib in den Einstellungen die Berechtigung zur Synchronisierung der Karten.</string>
+    <string name="bluetooth_disabled">Bluetooth ist deaktiviert.\nAktiviere es, um die Karten vom Smartphone zu synchronisieren.</string>
+    <string name="sync_error">Die Karten auf dem Smartphone konnten nicht gelesen werden.\nVersuche erneut zu synchronisieren.</string>
+    <string name="unauthorized">Nicht zugelassen.\nErlaube in den Catima Einstellungen dieser Smartwatch die Karten zu lesen.</string>
 </resources>

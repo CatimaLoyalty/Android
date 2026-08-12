@@ -54,6 +54,7 @@ import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
+import protect.card_locker.shared.ForegroundColorHelper;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
@@ -598,20 +599,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
-        Utils.setNavigationBarColor(null, window, darkenedColor, Utils.needsDarkForeground(darkenedColor));
+        Utils.setNavigationBarColor(null, window, darkenedColor, ForegroundColorHelper.Companion.needsDarkForeground(darkenedColor));
 
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         binding.fabEdit.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = binding.fabEdit.getDrawable();
         editButtonIcon.mutate();
-        editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
+        editButtonIcon.setTint(ForegroundColorHelper.Companion.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
         Bitmap icon = loyaltyCard.getImageThumbnail(this);
         Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText, 1);
 
         // If the background is very bright, we should use dark icons
-        backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
+        backgroundNeedsDarkIcons = ForegroundColorHelper.Companion.needsDarkForeground(backgroundHeaderColor);
 
         fixBottomAppBarImageButtonColor(binding.bottomAppBarInfoButton);
         fixBottomAppBarImageButtonColor(binding.bottomAppBarPreviousButton);

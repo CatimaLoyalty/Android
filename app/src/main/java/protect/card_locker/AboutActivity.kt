@@ -69,16 +69,7 @@ fun AboutScreenContent(
                 stringResource(R.string.version_history),
                 content.versionHistory,
                 modifier = Modifier.testTag("card_version_history"),
-                onClickUrl = "https://catima.app/changelog/",
-                onClickDialogText = AnnotatedString.fromHtml(
-                    htmlString = content.historyHtml,
-                    linkStyles = TextLinkStyles(
-                        style = SpanStyle(
-                            textDecoration = TextDecoration.Underline,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    )
-                )
+                onClickUrl = "https://catima.app/changelog/"
             )
             CatimaAboutSection(
                 stringResource(R.string.credits),

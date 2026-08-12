@@ -104,8 +104,8 @@
     <string name="settings_disable_nfc_while_viewing_card">Pause NFC</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Pauses NFC to prevent NFC payments from triggering while viewing a card</string>
     <string name="settings_key_disable_nfc_while_viewing_card" translatable="false">pref_disable_nfc_while_viewing_card</string>
-    <string name="settings_allow_content_provider_read_title">Allow other apps to access my data</string>
-    <string name="settings_allow_content_provider_read_summary">Apps will still have to request permission to be granted access</string>
+    <string name="settings_allow_content_provider_read_title">Sync with Gadgetbridge</string>
+    <string name="settings_allow_content_provider_read_summary">Allows the Gadgetbridge app to sync your cards to supported watches</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
@@ -304,6 +304,42 @@
     <string name="setting_key_column_count_landscape" translatable="false">pref_column_count_landscape</string>
     <string name="settings_category_title_general">General</string>
     <string name="settings_category_title_privacy">Privacy</string>
+    <string name="settings_key_wear_sync" translatable="false">pref_wear_sync</string>
+    <string name="settings_wear_sync">Sync with Wear OS</string>
+    <string name="settings_wear_sync_summary">Allows the Wear OS companion app to read your cards over Bluetooth</string>
+    <string name="wear_sync_permission_required">Catima needs the permissions you denied to sync with your Wear OS smartwatch</string>
+    <string name="settings_key_wear_sync_devices" translatable="false">pref_wear_sync_devices</string>
+    <string name="settings_wear_sync_devices">Allowed Wear OS devices</string>
+    <string name="settings_wear_sync_devices_summary">Manage devices allowed to sync over Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">No allowed devices</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> device allowed</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> devices allowed</item>
+    </plurals>
+    <string name="settings_key_wear_sync_blocked_devices" translatable="false">pref_wear_sync_blocked_devices</string>
+    <string name="settings_wear_sync_blocked_devices">Blocked Wear OS devices</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Manage blocked Wear OS devices</string>
+    <string name="settings_wear_sync_no_blocked_devices">No blocked devices</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> device blocked</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> devices blocked</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Remove device?</string>
+    <string name="settings_wear_sync_unpair_message">Remove <xliff:g>%1$s</xliff:g> from Catima? It will no longer be able to sync your cards.</string>
+    <string name="settings_wear_sync_unblock_message">Remove <xliff:g>%1$s</xliff:g> from the blocked list? It will be able to request access again.</string>
+    <string name="settings_wear_sync_unpair">Remove</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Tap a device to remove it.</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS device pairing</string>
+    <string name="wear_bt_pairing_title">Wear OS device wants to sync</string>
+    <string name="wear_bt_pairing_message">Allow <xliff:g>%1$s</xliff:g> to access your cards?</string>
+    <string name="wear_bt_pairing_allow">Allow</string>
+    <string name="wear_bt_pairing_block">Block</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> is now allowed to sync.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> has been blocked.</string>
+    <string name="wear_bt_pairing_mismatch_title">New authorization request from "<xliff:g>%1$s</xliff:g>"</string>
+    <string name="wear_bt_pairing_mismatch_message">This device was previously authorized but is now presenting a different identity token. This happens when the Wear OS app is reinstalled or its data is cleared. It can also indicate a Bluetooth MAC spoofing attempt.\n\nOnly accept if you recently reinstalled the Catima Wear OS app on this watch.</string>
+    <string name="open_settings">Open settings</string>
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
     <string name="view_online">View online</string>
@@ -354,4 +390,9 @@
     <string name="change_settings">Change settings</string>
     <string name="nfc_block_system_error">Failed to pause NFC</string>
     <string name="open_in_gallery">Open in image gallery</string>
+    <string name="wear_bt_channel_name">Wear OS companion</string>
+    <string name="wear_bt_notification_title">Catima Wear OS sync active</string>
+    <string name="settings_category_title_smartwatch">Smartwatch support</string>
+    <string name="wear_bt_failed_foreground_notification_title">Failed to start Wear OS sync service</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS sync critical error</string>
 </resources>

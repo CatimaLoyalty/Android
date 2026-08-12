@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
+import protect.card_locker.shared.ForegroundColorHelper;
+
 
 @RunWith(RobolectricTestRunner.class)
 public class UtilsTest {
@@ -26,7 +28,7 @@ public class UtilsTest {
                 for (int i = 0; i < colors.length(); i++) {
                     // Grab white as fallback so that if the retrieval somehow fails the test is guaranteed to fail because a white background will have black foreground
                     int color = colors.getColor(i, Color.WHITE);
-                    assertFalse(Utils.needsDarkForeground(color));
+                    assertFalse(ForegroundColorHelper.Companion.needsDarkForeground(color));
                 }
             });
         }

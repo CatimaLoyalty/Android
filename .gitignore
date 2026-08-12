@@ -19,6 +19,8 @@
 /app/*.log
 /app/build
 /app/release
+/wear/build
+/wear/release
 /.idea/*
 !/.idea/icon.svg
 # Bundle
@@ -28,3 +30,4 @@
 
 # Catima-specific
 SHA256SUMS
+/shared/build

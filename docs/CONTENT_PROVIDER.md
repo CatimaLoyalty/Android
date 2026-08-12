@@ -1,8 +1,12 @@
-# Content Provider
+# Content Provider (for Gadgetbridge and other local apps)
 
 Catima implements a [content provider](https://developer.android.com/guide/topics/providers/content-providers) to allow for external apps to interact with the cards database. Right now, this only provides read-only functionality.
 
 Since runtime permissions are only available since Android 6.0 (API level 23), the content provider is disabled for older android versions in order to prevent unwanted access to the data.
+
+The content provider can be controlled with the setting "Sync with Gadgetbridge" under "Smartwatch support". It is enabled by default.
+
+The content provider is currently only used by Gadgetbridge. If your app uses it, please let us know, so we can update the documentation and contact your project in case of planned breaking changes.
 
 ## Package Names
 
@@ -41,23 +45,23 @@ A major version change implies breaking changes (eg. columns being renamed or re
 
 ### /cards
 
-| Column            | Type     | Description                |
-|-------------------|----------|----------------------------|
-| `_id`             | `int`    | Unique card ID |
-| `store`           | `String` | Card name |
-| `validfrom`       | `long`   | Timestamp from which the card is valid (unix epoch millis). |
-| `expiry`          | `long`   | Expiration timestamp (unix epoch millis). |
-| `balance`         | `String` | Current balance, as a string-formatted big decimal. |
-| `balancetype`     | `String` | Balance currency code, ISO 4217. |
-| `note`            | `String` | A note. |
-| `headercolor`     | `int`    | Header color, in RGBA. |
-| `cardid`          | `String` | Card ID. |
-| `barcodeid`       | `String` | Barcode value. If empty, it's the same as the card ID. |
-| `barcodetype`     | `String` | The barcode type name, matching [com.google.zxing.BarcodeFormat](https://zxing.github.io/zxing/apidocs/com/google/zxing/BarcodeFormat.html). |
-| `barcodeencoding` | `String` | The barcode encoding used to render the barcode, matching a [StandardCharset](https://developer.android.com/reference/java/nio/charset/StandardCharsets)'s `.name()` output. Only `ISO-8859-1` and `UTF-8` are user selectable. |
-| `starstatus`      | `int`    | 1 if starred, 0 if not |
-| `lastused`        | `long`   | Timestamp of last card usage (unix epoch millis). |
-| `archive`         | `int`    | 1 if archived, 0 if not |
+| Column            | Type              | Description                |
+|-------------------|-------------------|----------------------------|
+| `_id`             | `int`             | Unique card ID |
+| `store`           | `String`          | Card name |
+| `validfrom`       | `long`            | Timestamp from which the card is valid (unix epoch millis). |
+| `expiry`          | `long`            | Expiration timestamp (unix epoch millis). |
+| `balance`         | `String`          | Current balance, as a string-formatted big decimal. |
+| `balancetype`     | `Nullable String` | Balance currency code, ISO 4217. When null, it's a generic "Points" indicator. |
+| `note`            | `String`          | A note. |
+| `headercolor`     | `int`             | Header color, matching [Android color int](https://developer.android.com/reference/android/graphics/Color). |
+| `cardid`          | `String`          | Card ID. |
+| `barcodeid`       | `Nullable String` | Barcode value. If null, it's the same as the card ID. |
+| `barcodetype`     | `Nullable String` | The barcode type name, matching [com.google.zxing.BarcodeFormat](https://zxing.github.io/zxing/apidocs/com/google/zxing/BarcodeFormat.html). When null, there is no barcode for this card. |
+| `barcodeencoding` | `String`          | The barcode encoding used to render the barcode, matching a [StandardCharset](https://developer.android.com/reference/java/nio/charset/StandardCharsets)'s `.name()` output. Only `ISO-8859-1` and `UTF-8` are user selectable. |
+| `starstatus`      | `int`             | 1 if starred, 0 if not |
+| `lastused`        | `long`            | Timestamp of last card usage (unix epoch millis). |
+| `archive`         | `int`             | 1 if archived, 0 if not |
 
 ### /groups
 

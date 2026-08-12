@@ -91,6 +91,7 @@ import java.util.concurrent.Callable;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
+import protect.card_locker.shared.ForegroundColorHelper;
 import protect.card_locker.viewmodels.LoyaltyCardEditActivityViewModel;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
@@ -896,8 +897,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         Integer headerColor = viewModel.getLoyaltyCard().headerColor;
         if (headerColor != null) {
             thumbnail.setOnClickListener(new ChooseCardImage());
-            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            thumbnailEditIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         }
 
         onResuming = false;
@@ -919,18 +920,18 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
             setLoyaltyCardHeaderColor(headerColor);
 
-            thumbnail.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnail.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
-            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            thumbnailEditIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
             generateIcon(storeFieldEdit.getText().toString().trim());
 
             Integer headerColor = viewModel.getLoyaltyCard().headerColor;
 
             if (headerColor != null) {
-                thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-                thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+                thumbnailEditIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+                thumbnailEditIcon.setColorFilter(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
             }
         }
     }

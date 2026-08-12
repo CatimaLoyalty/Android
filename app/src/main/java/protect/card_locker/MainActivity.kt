@@ -37,6 +37,7 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
+import protect.card_locker.wearos.WearSyncPermissionRequester
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
 import androidx.core.content.edit
@@ -61,6 +62,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mWearSyncPermissionRequester: WearSyncPermissionRequester
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -318,6 +320,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             }
         }
 
+        mWearSyncPermissionRequester = WearSyncPermissionRequester(this, this)
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (mSearchView != null && !mSearchView!!.isIconified) {
@@ -394,6 +398,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             val settings = Settings(this)
             layoutManager.setSpanCount(settings.getPreferredColumnCount())
         }
+
+        mWearSyncPermissionRequester.synchronize()
     }
 
     private fun displayCardSetupOptions(menu: Menu, shouldShow: Boolean) {
@@ -467,11 +473,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         ShortcutHelper.updateShortcuts(mAdapter.mContext)
     }
 
-    private fun processParseResultList(
-        parseResultList: MutableList<ParseResult?>,
-        group: String?,
-        closeAppOnNoBarcode: Boolean
-    ) {
+    private fun processParseResultList(parseResultList: MutableList<ParseResult?>) {
         require(!parseResultList.isEmpty()) { "parseResultList may not be empty" }
 
         Utils.makeUserChooseParseResultFromList(
@@ -482,17 +484,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     val intent =
                         Intent(applicationContext, LoyaltyCardEditActivity::class.java)
                     val bundle = parseResult.toLoyaltyCardBundle(this@MainActivity)
-                    if (group != null) {
-                        bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group)
-                    }
                     intent.putExtras(bundle)
                     startActivity(intent)
                 }
 
                 override fun onUserDismissedSelector() {
-                    if (closeAppOnNoBarcode) {
-                        finish()
-                    }
+                    finish()
                 }
             })
     }
@@ -556,7 +553,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             return
         }
 
-        processParseResultList(parseResultList, null, true)
+        processParseResultList(parseResultList)
     }
 
     private fun extractIntentFields(intent: Intent) {

@@ -1,0 +1,53 @@
+name: Android Wear CI
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+permissions:
+  actions: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+env:
+  JAVA_HOME: /usr/lib/jvm/java-25-openjdk-amd64
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.0
+      - uses: gradle/actions/wrapper-validation@v6.2.0
+      - name: set up OpenJDK 25
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-25-jdk-headless
+          sudo update-alternatives --auto java
+      - name: Build
+        run: ./gradlew :wear:assembleRelease
+      - name: Check for non-free libraries
+        run: |
+          # Get Katastima APK scanner
+          wget -q https://codeberg.org/Katastima/apkscanner/releases/download/v0.0.9/apk-scanner_v0.0.9.jar
+          # Print pretty result
+          java -jar apk-scanner_v0.0.9.jar scan-apk "wear/build/outputs/apk/release/wear-release-unsigned.apk"
+          # Check for offending libraries
+          # Exit code 4 = no result, which is what we want
+          set +e
+          java -jar apk-scanner_v0.0.9.jar scan-apk --json=yes "wear/build/outputs/apk/release/wear-release-unsigned.apk" | jq --exit-status '.libraryCheckResult.offendingLibraries[]'
+          if [ "$?" -ne 4 ]; then
+            echo "Bad libraries found!"
+            exit 1
+          fi
+          set -e
+      - name: Check lint
+        run: ./gradlew :wear:lintRelease

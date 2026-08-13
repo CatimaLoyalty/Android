@@ -33,7 +33,7 @@ jobs:
         run: |
           flavor="$(echo ${{ matrix.flavor }})"
           echo "sentenceCasedFlavor=${flavor^}" >> "$GITHUB_ENV"
-      - uses: gradle/actions/wrapper-validation@v6.2.0
+      - uses: gradle/actions/wrapper-validation@v6.3.0
       - name: set up OpenJDK 25
         run: |
           sudo apt-get update

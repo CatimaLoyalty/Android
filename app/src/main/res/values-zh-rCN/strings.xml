@@ -218,8 +218,8 @@
     <string name="show_name_below_image_thumbnail">在图像缩略图下方显示名称</string>
     <string name="show_validity">显示有效性</string>
     <string name="permissionReadCardsLabel">读取 Catima 卡</string>
-    <string name="settings_allow_content_provider_read_summary">应用程序仍然需要请求权限</string>
-    <string name="settings_allow_content_provider_read_title">允许其他应用程序访问我的数据</string>
+    <string name="settings_allow_content_provider_read_summary">允许 Gadgetbridge 应用同步卡片到支持的手表</string>
+    <string name="settings_allow_content_provider_read_title">与 Gadgetbridge 同步</string>
     <string name="permissionReadCardsDescription">读取你的 Catima 卡片及其所有细节，包括笔记和图像</string>
     <string name="settings_keep_screen_on_summary">在查看卡片时禁止屏幕超时</string>
     <string name="settings_oled_dark_summary">减少 OLED 显示屏上的电池使用量</string>
@@ -302,4 +302,40 @@
     <string name="zoomBackImage">缩放反面图</string>
     <string name="show_card_id">显示卡片 ID</string>
     <string name="open_in_gallery">在图库中打开</string>
+    <string name="settings_wear_sync">与 WearOS 同步</string>
+    <string name="settings_wear_sync_summary">允许 WearOS 伴侣应用通过蓝牙读取你的卡片</string>
+    <string name="wear_sync_permission_required">Catima 需要你拒绝的权限来和你的 Wear OS 智能手表同步</string>
+    <string name="settings_wear_sync_devices">允许的 Wear OS 设备</string>
+    <string name="settings_wear_sync_devices_summary">管理允许经蓝牙同步的设备</string>
+    <string name="settings_wear_sync_no_devices">没有允许的设备</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="other">允许了 <xliff:g>%d</xliff:g> 台设备</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">阻止的 Wear OS 设备</string>
+    <string name="settings_wear_sync_blocked_devices_summary">管理阻止的 Wear OS 设备</string>
+    <string name="settings_wear_sync_no_blocked_devices">无阻止的设备</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="other">阻止了 <xliff:g>%d</xliff:g> 台设备</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">删除设备？</string>
+    <string name="settings_wear_sync_unpair_message">从 Catima 删除 <xliff:g>%1$s</xliff:g> ？它将无法再和你的卡片同步。</string>
+    <string name="settings_wear_sync_unblock_message">从拦截列表删除 <xliff:g>%1$s</xliff:g> ？它将能再次请求访问。</string>
+    <string name="settings_wear_sync_unpair">删除</string>
+    <string name="wear_bt_pairing_mismatch_message">该设备先前已授权但现在提供了不同的身份令牌。重新安装 Wear OS 应用或应用数据被清除时可能发生这种情况。这种情况还可能表明存在蓝牙 MAC 伪造企图。\n\n除非你最近在这块手表上重新安装过 Catima Wear OS 应用，否则请不要接受。</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">轻触设备删除。</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS 设备配对</string>
+    <string name="wear_bt_pairing_title">Wear OS 设备想同步</string>
+    <string name="wear_bt_pairing_message">允许 <xliff:g>%1$s</xliff:g> 访问你的卡片？</string>
+    <string name="wear_bt_pairing_allow">允许</string>
+    <string name="wear_bt_pairing_block">拦截</string>
+    <string name="wear_bt_pairing_allowed">已允许 <xliff:g>%1$s</xliff:g> 同步。</string>
+    <string name="wear_bt_pairing_blocked">已拦截 <xliff:g>%1$s</xliff:g>。</string>
+    <string name="wear_bt_pairing_mismatch_title">来自 <xliff:g>%1$s</xliff:g> 的新授权请求</string>
+    <string name="open_settings">打开设置</string>
+    <string name="wear_bt_channel_name">Wear OS 伴侣</string>
+    <string name="wear_bt_notification_title">Catima Wear OS 同步活跃</string>
+    <string name="settings_category_title_smartwatch">智能手表支持</string>
+    <string name="wear_bt_failed_foreground_notification_title">未能启动 Wear OS 同步服务</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS 同步严重错误</string>
 </resources>

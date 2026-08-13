@@ -86,7 +86,7 @@
     <string name="settings_system_theme">Süsteemi kujundus</string>
     <string name="settings_display_barcode_max_brightness_summary">See on vajalik mõnede skännerite toimimiseks</string>
     <string name="expiryStateSentenceExpired">Aegus: <xliff:g>%s</xliff:g></string>
-    <string name="settings_allow_content_provider_read_summary">Selle valiku sisselülitamisel peavad muud rakendused lisaks küsima õigust vaadata kaartide andmeid</string>
+    <string name="settings_allow_content_provider_read_summary">Selle valiku sisselülitamisel lubad Gadgetbridge\'i abil sünkroonida kaarte toetatud nutikelladesse</string>
     <string name="noGroups">Kui soovid sarnaseid kaarte omavahel liigitada, siis + pluss nupuga lisa kaardigruppe</string>
     <string name="group_name_is_empty">Kaardigrupi nimi ei saa jääda tühjaks</string>
     <string name="groupsList">Grupid: <xliff:g>%s</xliff:g></string>
@@ -139,7 +139,7 @@
     <string name="settings_keep_screen_on_summary">Lülitab kaardi vaatamise ajaks välja ekraani energiahalduse</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Keela ekraanilukustus</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Lülitab kaardi vaatamise ajaks välja ekraani lukustamise</string>
-    <string name="settings_allow_content_provider_read_title">Luba teistel rakendustel minu andmeid lugeda</string>
+    <string name="settings_allow_content_provider_read_title">Sünkrooni Gadgetbridge\'iga</string>
     <string name="importSuccessful">Andmed on imporditud</string>
     <string name="exportSuccessful">Andmed on eksporditud</string>
     <string name="enter_group_name">Sisesta kaardigrupi nimi</string>
@@ -308,4 +308,42 @@
     <string name="zoomBackImage">Suumi tagakaane pilti</string>
     <string name="show_card_id">Näita kaardi tunnust</string>
     <string name="open_in_gallery">Ava pildigaleriis</string>
+    <string name="settings_wear_sync">Sünkrooni Wear OS-iga</string>
+    <string name="settings_wear_sync_devices">Lubatud Wear OS-i seadmed</string>
+    <string name="settings_wear_sync_devices_summary">Halda seadmeid, mis võivad Bluetoothi abil kaarte sünkroonida</string>
+    <string name="settings_wear_sync_summary">Võimaldab Wear OS-i kaasrakendusel lugeda sinu kaarte Bluetoothi abil</string>
+    <string name="wear_sync_permission_required">Catima sinu Wear OS-i põhise nutikellaga sünkroonimiseks sinu luba</string>
+    <string name="settings_wear_sync_no_devices">Ühtegi lubatud seadet pole</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> lubatud seade</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> lubatud seadet</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Blokeeritud Wear OS-i seadmed</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Halda blokeeritud Wear OS-i seadmeid</string>
+    <string name="settings_wear_sync_no_blocked_devices">Ühtegi blokeeritud seadet pole</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> blokeeritud seade</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> blokeeritud seadet</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Kas eemaldad seadme?</string>
+    <string name="settings_wear_sync_unpair_message">Kas eemaldad <xliff:g>%1$s</xliff:g> seadme Catimast? Peale seda pole enam sinu kaarte võimalik sinna sünkroonida.</string>
+    <string name="settings_wear_sync_unblock_message">Kas eemaldad <xliff:g>%1$s</xliff:g> seadme blokeeritud seadmete loendist? Peale seda saab ta uuesti küsida ligipääsuõigusi.</string>
+    <string name="settings_wear_sync_unpair">Eemalda</string>
+    <string name="settings_wear_sync_tap_to_remove">Seadme eemaldamiseks klõpsa temal.</string>
+    <string name="wear_bt_pairing_channel_name">Paardumine Wear OS-i seadmega</string>
+    <string name="wear_bt_pairing_title">Wear OS-i seade soovib sünkroonida</string>
+    <string name="wear_bt_pairing_message">Kas lubad <xliff:g>%1$s</xliff:g> seadmele ligipääsu sinu kaartidele?</string>
+    <string name="wear_bt_pairing_allow">Luba</string>
+    <string name="wear_bt_pairing_block">Blokeeri</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> võib nüüd sünkroonida.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> on nüüd blokeeritud.</string>
+    <string name="wear_bt_pairing_mismatch_title">Uus autentimispäring <xliff:g>%1$s</xliff:g> seadmest</string>
+    <string name="open_settings">Ava seadistused</string>
+    <string name="wear_bt_channel_name">Wear OS-i kaaslasrakendus</string>
+    <string name="wear_bt_notification_title">Catima Wear OS-i sünkroonimine on aktiivne</string>
+    <string name="settings_category_title_smartwatch">Nutikellade tugi</string>
+    <string name="wear_bt_failed_foreground_notification_title">Wear OS-i sünkroonimisteenuse käivitamine ei õnnestunud</string>
+    <string name="wear_bt_critical_error_channel_name">Kriitiline viga Wear OS-iga sünkroonimisel</string>
+    <string name="wear_bt_pairing_mismatch_message">See seade oli varem autoriseeritud, kuid esitab nüüd päringutele teise tunnusloa. See juhtub siis, kui Wear OS-i rakendus on uuesti paigaldatud või selle andmed on kustutatud. See võib viidata ka Bluetoothi MAC-aadressi võltsimise katsele.\n\nNõustu sellega ainult juhul, kui oled hiljuti sellele kellale Catima Wear OS-i rakenduse uuesti paigaldanud.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
 </resources>

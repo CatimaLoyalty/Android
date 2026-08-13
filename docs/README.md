@@ -1,6 +1,6 @@
 # Catima
 
-Copylefted libre software (GPLv3+) card management app.
+Copylefted libre software (GPLv3+) card management app for Android 6.0 and up.
 
 [![GitHub Version](https://img.shields.io/github/v/release/CatimaLoyalty/Android.svg?logo=github&label=GitHub)](https://github.com/CatimaLoyalty/Android/releases)
 [![IzzyOnDroid Version](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/me.hackerchick.catima)](https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima)
@@ -41,7 +41,11 @@ Supported barcodes:
 - UPC_A
 - UPC_E
 
+Works fully offline, supports pkpass ("Add to Apple Wallet") files and select smartwatches through [Gadgetbridge](https://gadgetbridge.org/basics/integrations/cards/) and Wear OS companion app.
+
 # Screenshots
+
+## Core app
 
 [<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-01.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-01.png)
 [<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-02.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-02.png)
@@ -51,6 +55,12 @@ Supported barcodes:
 [<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png)
 [<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png)
 [<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png)
+
+## Wear OS companion app
+
+[<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-01.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-01.png)
+[<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-02.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-02.png)
+[<img src="https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-03.png" width=250>](https://github.com/CatimaLoyalty/Android/raw/main/fastlane/metadata/android/en-US/images/wearScreenshots/screenshot-03.png)
 
 # Moving data from other apps
 

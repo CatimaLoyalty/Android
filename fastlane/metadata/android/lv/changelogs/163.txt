@@ -1,1 +1,2 @@
-- Automātiska URL noteikšana karšu identifikatora un to padarīšana par klikšķināmiem kartes identifikatora informācijas uznirstošajā logā
+- Automātiska URL noteikšana karšu ID un to padarīšana par klikšķināmiem kartes ID informācijas uznirstošajā logā
+- Salabota baltu kvadrātu rādīšanās svītrkoda vietā atlasītāja darbībā

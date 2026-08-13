@@ -25,7 +25,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7.0.0
+      - uses: actions/checkout@v7.0.1
       - uses: gradle/actions/wrapper-validation@v6.2.0
       - name: set up OpenJDK 25
         run: |

@@ -223,10 +223,10 @@
     <string name="show_balance">Betrag anzeigen</string>
     <string name="show_validity">Gültigkeitsdauer anzeigen</string>
     <string name="show_name_below_image_thumbnail">Namen unter dem Vorschaubild anzeigen</string>
-    <string name="settings_allow_content_provider_read_title">Synchronisiere mit Gadgetbrigde</string>
+    <string name="settings_allow_content_provider_read_title">Synchronisation mit Gadgetbrigde</string>
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
     <string name="permissionReadCardsDescription">Lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
-    <string name="settings_allow_content_provider_read_summary">Erlaube die Synchronisation der Karten mit den unterstützten Uhren der Gadgetbridge App</string>
+    <string name="settings_allow_content_provider_read_summary">Ermöglicht der Gadgetbridge-App, deine Karten mit unterstützten Uhren zu synchronisieren</string>
     <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
     <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>

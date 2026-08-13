@@ -217,14 +217,14 @@
     <string name="settings_column_count_4">4</string>
     <string name="settings_category_title_privacy">プライバシー</string>
     <string name="exportCancelled">輸出がキャンセルされた</string>
-    <string name="settings_allow_content_provider_read_title">他のアプリが自分のデータにアクセスすることを許可する</string>
+    <string name="settings_allow_content_provider_read_title">Gadgetbridgeと同期</string>
     <string name="permissionReadCardsDescription">Catimaカードと、ノートや画像を含むすべての詳細を読み取る</string>
     <string name="settings_use_volume_keys_navigation_summary">ボリュームボタンを使ってどのカードを表示するかを変更する</string>
     <string name="unsupportedFile">このファイルはサポートされていません</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">著作権 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os と貢献者一同</string>
     <string name="app_copyright_short">著作権 © Sylvia van Os と貢献者一同</string>
     <string name="app_copyright_old">Loyalty Card Keychain が基になりました\n著作権 © 2016–2020 Branden Archer</string>
-    <string name="settings_allow_content_provider_read_summary">アプリは継続したアクセス許可を要求します</string>
+    <string name="settings_allow_content_provider_read_summary">Gadgetbridge アプリによる対応スマートウォッチとカードの同期を許可する</string>
     <string name="settings_use_volume_keys_navigation">音量ボタンでカードを切り替え</string>
     <plurals name="balancePoints">
         <item quantity="other"><xliff:g>%s</xliff:g> ポイント</item>
@@ -301,4 +301,40 @@
     <string name="zoomBackImage">背面を拡大</string>
     <string name="show_card_id">カードIDを表示</string>
     <string name="open_in_gallery">ギャラリーを開く</string>
+    <string name="settings_wear_sync">Wear OS と同期</string>
+    <string name="settings_wear_sync_summary">Wear OS コンパニオンアプリによる Bluetooth 経由のカード読取を許可する</string>
+    <string name="wear_sync_permission_required">貴方が拒否した権限は Catima が Wear OS スマートウォッチと同期するのに必要です</string>
+    <string name="settings_wear_sync_devices">対応している Wear OS デバイス</string>
+    <string name="settings_wear_sync_devices_summary">Bluetooth 経由での同期が許可されたデバイスの管理</string>
+    <string name="settings_wear_sync_no_devices">デバイスが許可されていません</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> 台のデバイスが許可されています</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">ブロックされた Wear OS デバイス</string>
+    <string name="settings_wear_sync_blocked_devices_summary">ブロックされた Wear OS デバイスの管理</string>
+    <string name="settings_wear_sync_no_blocked_devices">ブロックされているデバイスはありません</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> 台のデバイスがブロックされています</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">デバイスを削除しますか？</string>
+    <string name="settings_wear_sync_unpair_message">Catima から <xliff:g>%1$s</xliff:g> を削除しますか？ 削除するとカードの同期は出来なくなります。</string>
+    <string name="settings_wear_sync_unblock_message">ブロックの一覧から <xliff:g>%1$s</xliff:g> を削除しますか？ 削除すればアクセスを再要求できるようになります。</string>
+    <string name="settings_wear_sync_unpair">削除</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> （<xliff:g>%2$s</xliff:g>）</string>
+    <string name="settings_wear_sync_tap_to_remove">タップしてデバイスを削除します。</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS デバイスを接続しました</string>
+    <string name="wear_bt_pairing_title">Wear OS デバイスとの同期を要求</string>
+    <string name="wear_bt_pairing_message"><xliff:g>%1$s</xliff:g> にカードへのアクセスを許可しますか？</string>
+    <string name="wear_bt_pairing_allow">許可</string>
+    <string name="wear_bt_pairing_block">ブロック</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> への同期が許可されました。</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> はブロックされました。</string>
+    <string name="wear_bt_pairing_mismatch_title"><xliff:g>%1$s</xliff:g>からの新たな認証要求</string>
+    <string name="wear_bt_pairing_mismatch_message">当該デバイスは以前に認証済みでしたが異なる識別トークンを現段階で提示しています。これは Wear OS アプリを再インストールした場合もしくはそのデータが消去された場合に発生します。Bluetooth MACアドレスのなりすまし攻撃の試行の可能性もあります。\n\n当該スマートウォッチで最近 Catima Wear OS アプリを再インストールした場合のみ承認して下さい。</string>
+    <string name="open_settings">設定を開く</string>
+    <string name="wear_bt_channel_name">Wear OS コンパニオン</string>
+    <string name="wear_bt_notification_title">Catima は Wear OS と同期中です</string>
+    <string name="settings_category_title_smartwatch">対応するスマートウォッチです</string>
+    <string name="wear_bt_failed_foreground_notification_title">Wear OSとの同期サービスの開始が失敗しました</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS 同期の深刻なエラー</string>
 </resources>

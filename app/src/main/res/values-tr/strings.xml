@@ -227,10 +227,10 @@
     <string name="permissionReadCardsLabel">Catima kartlarını oku</string>
     <string name="permissionReadCardsDescription">Catima kartlarınızı ve tüm detaylarını, notlar ve resimler de dahil olmak üzere okuyun</string>
     <string name="settings_keep_screen_on_summary">Ekran zaman aşımını bir kart görüntülerken devre dışı bırakır</string>
-    <string name="settings_allow_content_provider_read_title">Diğer uygulamaların verilerime erişmesine izin ver</string>
+    <string name="settings_allow_content_provider_read_title">Gadgetbridge ile eşzamanla</string>
     <string name="settings_display_barcode_max_brightness_summary">Bazı tarayıcıların çalışması için gereklidir</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Ekran kilidini bir kart görüntülerken devre dışı bırakır</string>
-    <string name="settings_allow_content_provider_read_summary">Uygulamaların erişim izni almak için yine de izin istemesi gerekecek</string>
+    <string name="settings_allow_content_provider_read_summary">Gadgetbridge uygulamasının kartlarınızı desteklenen saatlerle eşzamanlamasına izin verir</string>
     <string name="settings_category_title_general">Genel</string>
     <string name="settings_category_title_privacy">Gizlilik</string>
     <string name="settings_oled_dark_summary">OLED ekranlarda güç kullanımını düşürür</string>
@@ -308,4 +308,42 @@
     <string name="zoomBackImage">Arka görüntüyü yakınlaştır</string>
     <string name="show_card_id">Kart numarasını göster</string>
     <string name="open_in_gallery">Resim galerisinde aç</string>
+    <string name="settings_wear_sync">Wear OS ile eşzamanla</string>
+    <string name="settings_wear_sync_summary">Wear OS yardımcı uygulamasının Bluetooth üzerinden kartlarınızı okumasına izin verir</string>
+    <string name="wear_sync_permission_required">Catima, Wear OS akıllı saatinizle eşzamanlama için reddettiğiniz izinlere ihtiyaç duyuyor</string>
+    <string name="settings_wear_sync_devices">İzin verilen Wear OS aygıtları</string>
+    <string name="settings_wear_sync_devices_summary">Bluetooth üzerinden eşzamanlanmasına izin verilen aygıtları yönetin</string>
+    <string name="settings_wear_sync_no_devices">İzin verilen aygıt yok</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> aygıta izin verildi</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> aygıta izin verildi</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Engellenen Wear OS aygıtları</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Engellenen Wear OS aygıtlarını yönetin</string>
+    <string name="settings_wear_sync_no_blocked_devices">Engellenen aygıt yok</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> aygıt engellendi</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> aygıt engellendi</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Aygıt kaldırılsın mı?</string>
+    <string name="settings_wear_sync_unpair_message"><xliff:g>%1$s</xliff:g> Catima\'dan kaldırılsın mı? Artık kartlarınızı eşzamanlayamayacak.</string>
+    <string name="settings_wear_sync_unblock_message"><xliff:g>%1$s</xliff:g> engellenen listesinden kaldırılsın mı? Tekrar erişim isteğinde bulunabilecek.</string>
+    <string name="settings_wear_sync_unpair">Kaldır</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Aygıtı kaldırmak için üzerine dokunun.</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS aygıt eşleştirmesi</string>
+    <string name="wear_bt_pairing_title">Wear OS aygıtı eşzamanlamak istiyor</string>
+    <string name="wear_bt_pairing_message"><xliff:g>%1$s</xliff:g> için kartlarınıza erişim izni verilsin mi?</string>
+    <string name="wear_bt_pairing_allow">İzin ver</string>
+    <string name="wear_bt_pairing_block">Engelle</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> artık eşzamanlayabilir.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> engellendi.</string>
+    <string name="wear_bt_pairing_mismatch_title"><xliff:g>%1$s</xliff:g> için yeni yetkilendirme isteği</string>
+    <string name="wear_bt_pairing_mismatch_message">Bu aygıt daha önce yetkilendirildi, ancak şu anda farklı bir kimlik belirteci sunuyor. Bu durum, Wear OS uygulamasının yeniden kurulması veya verilerinin silinmesi durumunda ortaya çıkar. Ayrıca, bir Bluetooth MAC sahteciliği girişimi olduğunu da gösterebilir.\n\nYalnızca bu saatte Catima Wear OS uygulamasını yakın zamanda yeniden kurduysanız kabul edin.</string>
+    <string name="open_settings">Ayarları aç</string>
+    <string name="wear_bt_channel_name">Wear OS yardımcısı</string>
+    <string name="wear_bt_notification_title">Catima Wear OS eşzamanlaması etkin</string>
+    <string name="settings_category_title_smartwatch">Akıllı saat desteği</string>
+    <string name="wear_bt_failed_foreground_notification_title">Wear OS eşzamanlama hizmeti başlatılamadı</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS eşzamanlaması önemli hata</string>
 </resources>

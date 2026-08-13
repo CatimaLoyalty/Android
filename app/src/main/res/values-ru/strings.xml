@@ -238,8 +238,8 @@
     <string name="show_balance">Показывать баланс</string>
     <string name="permissionReadCardsDescription">чтение ваших карт Catima и всех их данных, включая заметки и изображения</string>
     <string name="permissionReadCardsLabel">Чтение карт Catima</string>
-    <string name="settings_allow_content_provider_read_summary">Приложениям по-прежнему придётся запрашивать разрешение для получения доступа</string>
-    <string name="settings_allow_content_provider_read_title">Разрешать другим приложениям доступ к моим данным</string>
+    <string name="settings_allow_content_provider_read_summary">Разрешить приложению Gadgetbridge синхронизировать ваши карты с поддерживаемыми часами</string>
+    <string name="settings_allow_content_provider_read_title">Синхронизация с Gadgetbridge</string>
     <string name="settings_category_title_privacy">Конфиденциальность</string>
     <string name="settings_display_barcode_max_brightness_summary">Необходимо для работы некоторых сканеров</string>
     <string name="settings_keep_screen_on_summary">Отключение функции автоотключения экрана при отображении карты</string>
@@ -320,4 +320,46 @@
     <string name="zoomFrontImage">Масштабирование лицевого изображения</string>
     <string name="zoomBackImage">Масштабирование заднего изображения</string>
     <string name="open_in_gallery">Открыть в галерее</string>
+    <string name="settings_wear_sync">Синхронизация с Wear OS</string>
+    <string name="settings_wear_sync_summary">Разрешить приложению-компаньону Wear OS читать ваши карты по Bluetooth</string>
+    <string name="wear_sync_permission_required">Для синхронизации умными часами Wear OS Catima требуются разрешения, в которых ранее было отказано</string>
+    <string name="settings_wear_sync_devices">Доверенные устройства Wear OS</string>
+    <string name="settings_wear_sync_devices_summary">Управление устройствами, которым разрешена синхронизация по Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Нет доверенных устройств</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> доверенное устройство</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> доверенных устройства</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> доверенных устройств</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> доверенных устройств</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Заблокированные устройства Wear OS</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Управление заблокированными устройствами Wear OS</string>
+    <string name="settings_wear_sync_no_blocked_devices">Нет заблокированных устройств</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> заблокированное устройство</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> заблокированных устройства</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> заблокированных устройств</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> заблокированных устройств</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Удалить устройство?</string>
+    <string name="settings_wear_sync_unpair_message">Удалить <xliff:g>%1$s</xliff:g> из Catima? Он больше не сможет синхронизировать ваши карты.</string>
+    <string name="settings_wear_sync_unblock_message">Удалить устройство <xliff:g>%1$s</xliff:g> из списка заблокированных? Оно снова сможет запросить доступ.</string>
+    <string name="settings_wear_sync_unpair">Удалить</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Нажмите на устройство, чтобы удалить его.</string>
+    <string name="wear_bt_pairing_channel_name">Сопряжение устройства Wear OS</string>
+    <string name="wear_bt_pairing_title">Устройство Wear OS запрашивает синхронизацию</string>
+    <string name="wear_bt_pairing_message">Разрешить устройству <xliff:g>%1$s</xliff:g> доступ к вашим картам?</string>
+    <string name="wear_bt_pairing_allow">Разрешить</string>
+    <string name="wear_bt_pairing_block">Заблокировать</string>
+    <string name="wear_bt_pairing_allowed">Устройству <xliff:g>%1$s</xliff:g> разрешена синхронизация.</string>
+    <string name="wear_bt_pairing_blocked">Устройство <xliff:g>%1$s</xliff:g> заблокировано.</string>
+    <string name="wear_bt_pairing_mismatch_title">Новый запрос на авторизацию от <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">Данное устройство ранее было авторизовано, но теперь предоставляет другой токен идентификации. Это происходит, когда приложение Wear OS переустанавливается или его данные очищаются. Также это может указывать на попытку подделать MAC-адрес Bluetooth.\n\nРазрешайте только в том случае, если вы недавно переустановили приложение Catima Wear OS на этих часах.</string>
+    <string name="open_settings">Открыть настройки</string>
+    <string name="wear_bt_channel_name">Компаньон Wear OS</string>
+    <string name="wear_bt_notification_title">Синхронизация Catima с Wear OS активна</string>
+    <string name="settings_category_title_smartwatch">Поддержка умных часов</string>
+    <string name="wear_bt_failed_foreground_notification_title">Невозможно запустить службу синхронизации Wear OS</string>
+    <string name="wear_bt_critical_error_channel_name">Критическая ошибка синхронизации Wear OS</string>
 </resources>

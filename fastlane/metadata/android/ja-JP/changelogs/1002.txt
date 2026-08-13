@@ -1,0 +1,2 @@
+- Wear OS のコンパニオンアプリにへ対応するため Bluetooth サーバーを追加
+- 組込みの CHANGELOG を削除

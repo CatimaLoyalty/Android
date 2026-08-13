@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Kart bulunamadı.\nKart eklemek için telefonunuzda Catima uygulamasını açın.</string>
+    <string name="phone_not_connected">Telefonunuzda Catima uygulamasına erişilemedi.\nTelefonunuzda Catima uygulamasının çalıştığından, saatinizin bağlı olduğundan ve Catima akıllı saat ayarlarında Wear OS desteğinin etkinleştirildiğinden emin olun.</string>
+    <string name="loading_cards">Kartlar yükleniyor…</string>
+    <string name="no_barcode">Bu kart için barkod yok.</string>
+    <string name="card_id_label">Kart numarası</string>
+    <string name="syncing">Telefonla eşzamanlanıyor…</string>
+    <string name="sync_failed">Telefona erişilemiyor – önbellekteki kartlar gösteriliyor</string>
+    <string name="version_incompatible">Telefonunuzdaki ve saatinizdeki Catima uygulamaları birbiriyle uyumlu değil.\nLütfen her ikisini de güncelleyin.</string>
+    <string name="bluetooth_permission_denied">Bluetooth izni reddedildi.\nKartları eşzamanlamak için Ayarlardan bu izni verin.</string>
+    <string name="bluetooth_disabled">Bluetooth kapalı.\nTelefonunuzdaki kartları eşzamanlamak için etkinleştirin.</string>
+    <string name="sync_error">Telefonunuzdaki kartlar okunamadı.\nTekrar eşzamanlamayı deneyin.</string>
+    <string name="unauthorized">Yetkilendirilmedi.\nCatima ayarlarından bu saatin kartlarınızı okumasına izin verin.</string>
+</resources>

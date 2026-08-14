@@ -62,8 +62,8 @@
     <string name="selectBarcodeTitle">Odaberi bar-kod</string>
     <string name="thumbnailDescription">Naslovna fotografija</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spreči zaključavanje ekrana</string>
-    <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama da pristupe mojim podacima</string>
-    <string name="settings_allow_content_provider_read_summary">Aplikacije će i dalje morati da zatraže dozvolu da bi im se odobrio pristup</string>
+    <string name="settings_allow_content_provider_read_title">Sinhronizuj sa Gadgetbridge-om</string>
+    <string name="settings_allow_content_provider_read_summary">Omogućava aplikaciji Gadgetbridge da sinhronizuje tvoje kartice na podržane satove</string>
     <string name="intent_import_card_from_url_share_text">Želim da podelim karticu sa tobom</string>
     <string name="importSuccessful">Podaci uvezeni</string>
     <string name="exportSuccessful">Podaci izvezeni</string>
@@ -309,4 +309,35 @@
     <string name="nfc_blocked_while_viewing_card">НФЦ је заустављен</string>
     <string name="change_settings">Измени поставке</string>
     <string name="nfc_block_system_error">Нисам успео застанути НФЦ</string>
+    <string name="sort_by_most_recently_added">Nedavno dodate</string>
+    <string name="zoomBackImage">Uvećaj zadnju sliku</string>
+    <string name="show_card_id">Prikaži ID kartice</string>
+    <string name="settings_wear_sync">Sinhronizuj sa Wear OS-om</string>
+    <string name="settings_wear_sync_summary">Omogućava Wear OS pratnoj aplikaciji da pročita tvoje kartice preko Bluetootha</string>
+    <string name="wear_sync_permission_required">Catima trebaju dozvole koje si odbio da bi mogla sinhronizovati sa tvojim Wear OS pametnim satom</string>
+    <string name="settings_wear_sync_devices">Dozvoljeni Wear OS uređaji</string>
+    <string name="settings_wear_sync_devices_summary">Upravljaj dozvoljenim uređajima za sinhronizovanje preko Bluetootha</string>
+    <string name="settings_wear_sync_no_devices">Nema dozvoljenih uređaja</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one">%d uređaj dozvoljen</item>
+        <item quantity="few">%d uređaja dozvoljena</item>
+        <item quantity="other">%d uređaja dozvoljeno</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Blokirani Wear OS uređaji</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Upravljaj blokiranim Wear OS uređajima</string>
+    <string name="settings_wear_sync_no_blocked_devices">Nema blokiranih uređaja</string>
+    <string name="settings_wear_sync_unpair_title">Obriši uređaj?</string>
+    <string name="settings_wear_sync_unpair">Obriši</string>
+    <string name="settings_wear_sync_tap_to_remove">Dodirni uređaj da ga ukloniš.</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS uređaj se uparuje</string>
+    <string name="wear_bt_pairing_title">Wear OS uređaj želi da se sinhronizuje</string>
+    <string name="wear_bt_pairing_allow">Dozvoli</string>
+    <string name="wear_bt_pairing_block">Blokiraj</string>
+    <string name="wear_bt_pairing_mismatch_message">Ovaj uređaj je bio prethodno autorizovan, ali sada prikazuje drugi token identiteta. Ovo se dešava kada se Wear OS aplikacija ponovno instalira ili se njeni podaci obrišu. To može takođe ukazivati na pokušaj MAC spoofinga preko Bluetootha.\n\nPrihvati samo ako si nedavno ponovno instalirao/la Catima Wear OS aplikaciju na ovaj sat.</string>
+    <string name="open_settings">Otvori podešavanja</string>
+    <string name="open_in_gallery">Otvori u galeriji slika</string>
+    <string name="wear_bt_notification_title">Catima Wear OS sinhronizacija aktivna</string>
+    <string name="settings_category_title_smartwatch">Podrška za pametni sat</string>
+    <string name="wear_bt_failed_foreground_notification_title">Greška pri pokretanju Wear OS servisa sinhronizacije</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS sinhronizacija - kritična greška</string>
 </resources>

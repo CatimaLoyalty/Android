@@ -1,4 +1,4 @@
-Android 4.4 wordt vanaf deze uitgave niet langer ondersteund. Als u Catima op Android 4.4 wilt gebruiken, gebruik dan alstublieft versie 2.6.1.
+Android 4.4 wordt vanaf deze uitgave niet langer ondersteund. Als je Catima op Android 4.4 wilt gebruiken, gebruik dan alstublieft versie 2.6.1.
 
 - Verbeterde Android 12 ondersteuning
 - Verbeterd Over de App scherm

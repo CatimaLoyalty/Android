@@ -220,8 +220,8 @@
     <string name="add_a_card_in_a_different_way">Pievienot karti citā veidā</string>
     <string name="add_manually_warning_message">Dažām kartēm svītrkoda vērtība atšķiras no numura, kas ir rakstīts uz tās. Šī iemesla dēļ pašrocīgi ievadīts svītrkods ne vienmēr var darboties. Ir ieteicams nolasīt svītrkodu ar kameru. Vai joprojām turpināt?</string>
     <string name="noCameraFoundGuideText">Šķiet, ka ierīcei nav kameras. Ja tā tomēr ir, jāmēģina pārsāknēt ierīci. Pretējā gadījumā jāizmanto zemāk esošā poga \"Vairāk iespēju\", lai pievienot svītrkodu citā veidā.</string>
-    <string name="settings_allow_content_provider_read_title">Ļaut citām lietotnēm piekļūt maniem datiem</string>
-    <string name="settings_allow_content_provider_read_summary">Lietotnēm joprojām būs jāpieprasa atļauja, lai nodrošinātu piekļuvi</string>
+    <string name="settings_allow_content_provider_read_title">Vienādot ar Gadgetbridge</string>
+    <string name="settings_allow_content_provider_read_summary">Atļauj Gadgetbridge lietotnei vienādot kartes ar atbalstītajiem pulksteņiem</string>
     <string name="show_note">Rādīt piezīmi</string>
     <string name="show_balance">Rādīt atlikumu</string>
     <string name="settings_category_title_privacy">Privātums</string>
@@ -314,4 +314,44 @@
     <string name="zoomFrontImage">Pietuvināt priekšpuses attēlu</string>
     <string name="zoomBackImage">Pietuvināt aizmugures attēlu</string>
     <string name="show_card_id">Rādīt kartes Id</string>
+    <string name="settings_wear_sync">Vienādot ar Wear OS</string>
+    <string name="settings_wear_sync_summary">Ļauj Wear OS palīglietotnei lasīt kartes ar Bluetooth starpniecību</string>
+    <string name="wear_sync_permission_required">Catima ir nepieciešamas iepriekš noraidītās atļaujas, lai vienādotu ar Wear OS viedpulksteni</string>
+    <string name="settings_wear_sync_devices">Atļautās Wear OS ierīces</string>
+    <string name="wear_bt_critical_error_channel_name">Būtiska Wear OS vienādošanas kļūda</string>
+    <string name="wear_bt_failed_foreground_notification_title">Neizdevās palaist Wear OS vienādošanas pakalpojumu</string>
+    <string name="settings_category_title_smartwatch">Viedpulksteņu atbalsts</string>
+    <string name="wear_bt_notification_title">Catima Wear OS vienādošana darbojas</string>
+    <string name="wear_bt_channel_name">Wear OS palīgs</string>
+    <string name="open_settings">Atvērt iestatījumus</string>
+    <string name="wear_bt_pairing_mismatch_message">Šī ierīce iepriekš bija pilnvarota, bet tagad norāda citu identitātes pilnvaru. Tas notiek, kad Wear OS lietotne ir uzstādīta no jauna vai ir notīrīti tās dati. Tas var norādīt arī uz Bluetooth MAC atdarināšanas mēģinājumu.\n\nPieņemt tikai tad, ja šajā pulkstenī Catima Wear OS lietotne tika uzstādīta no jauna.</string>
+    <string name="wear_bt_pairing_mismatch_title">Jauns pilnvarošanas pieprasījums no <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> tika liegts.</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> tagad ir atļauta vienādošana.</string>
+    <string name="wear_bt_pairing_block">Liegt</string>
+    <string name="wear_bt_pairing_allow">Atļaut</string>
+    <string name="wear_bt_pairing_message">Atļaut <xliff:g>%1$s</xliff:g> piekļūt kartēm?</string>
+    <string name="wear_bt_pairing_title">Wear OS ierīce vēlas vienādot</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS ierīces pārošana</string>
+    <string name="settings_wear_sync_tap_to_remove">Piesist ierīces nosaukumam, lai to noņemtu.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_unpair">Noņemt</string>
+    <string name="settings_wear_sync_unblock_message">Noņemt <xliff:g>%1$s</xliff:g> no liegumu saraksta? Tā atkal varēs pieprasīt piekļuvi.</string>
+    <string name="settings_wear_sync_unpair_message">Noņemt <xliff:g>%1$s</xliff:g> no Catima? Tā vairs nevarēs vienādot kartes.</string>
+    <string name="settings_wear_sync_unpair_title">Noņemt ierīci?</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="zero">Liegtas <xliff:g>%d</xliff:g> ierīces</item>
+        <item quantity="one">Liegta <xliff:g>%d</xliff:g> ierīce</item>
+        <item quantity="other">Liegtas <xliff:g>%d</xliff:g> ierīces</item>
+    </plurals>
+    <string name="settings_wear_sync_no_blocked_devices">Nav liegtu ierīču</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Liegto Wear OS ierīču pārvaldīšana</string>
+    <string name="settings_wear_sync_blocked_devices">Liegtās Wear OS ierīces</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="zero">Atļautas <xliff:g>%d</xliff:g> ierīces</item>
+        <item quantity="one">Atļauta <xliff:g>%d</xliff:g> ierīce</item>
+        <item quantity="other">Atļautas <xliff:g>%d</xliff:g> ierīces</item>
+    </plurals>
+    <string name="settings_wear_sync_no_devices">Nav atļautu ierīču</string>
+    <string name="settings_wear_sync_devices_summary">Ierīču, kurām ir atļauts vienādot ar Bluetooth starpniecību, pārvaldīšana</string>
 </resources>

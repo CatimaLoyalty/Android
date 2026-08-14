@@ -319,9 +319,9 @@
     <string name="settings_wear_sync_devices_summary">Upravljaj dozvoljenim uređajima za sinhronizovanje preko Bluetootha</string>
     <string name="settings_wear_sync_no_devices">Nema dozvoljenih uređaja</string>
     <plurals name="settings_wear_sync_devices_summary_count">
-        <item quantity="one">%d uređaj dozvoljen</item>
-        <item quantity="few">%d uređaja dozvoljena</item>
-        <item quantity="other">%d uređaja dozvoljeno</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> uređaj dozvoljen</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> uređaja dozvoljena</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> uređaja dozvoljeno</item>
     </plurals>
     <string name="settings_wear_sync_blocked_devices">Blokirani Wear OS uređaji</string>
     <string name="settings_wear_sync_blocked_devices_summary">Upravljaj blokiranim Wear OS uređajima</string>

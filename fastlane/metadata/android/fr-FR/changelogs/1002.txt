@@ -1,0 +1,2 @@
+- Ajout d'un serveur Bluetooth pour le support de l'appli compagnon Wear OS
+- Suppression du journal interne des changements

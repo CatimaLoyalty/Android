@@ -11,6 +11,7 @@ Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plas
 - Importez des cartes et des codes depuis des fichiers, Catima, FidMe, Loyalty Card Keychain et Voucher Vault.
 - Faites une sauvegarde de toutes vos cartes et transférez-les sur un nouvel appareil si vous le souhaitez.
 - Partagez des coupons, des offres exclusives, des codes promotionnels ou des cartes et des codes en utilisant n'importe quelle application.
+- Synchroniser avec des montres connectées Gadgetbridge prises en charge ou Wear OS.
 - Thème sombre et options d'accessibilité pour les utilisateurs malvoyants.
 - Fait pour tout le monde par la communauté des logiciels libres.
 - Traductions artisanales localisées pour plus de 40 langues.

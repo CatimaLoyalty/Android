@@ -329,7 +329,7 @@
     <string name="wear_bt_pairing_message"><xliff:g>%1$s</xliff:g> toestaan om toegang te krijgen tot jouw kaarten?</string>
     <string name="settings_wear_sync_summary">Stelt de Wear OS companion app in staat om jouw kaarten via Bluetooth te lezen</string>
     <string name="wear_bt_channel_name">Wear OS companion</string>
-    <string name="settings_wear_sync_unblock_message"><xliff:g>%1$s</xliff:g> van de Blokker ingelijst verwijderen? Het zal opnieuw toegang kunnen aanvragen.</string>
+    <string name="settings_wear_sync_unblock_message"><xliff:g>%1$s</xliff:g> van de lijst van geblokkeerde Wear OS-apparaten verwijderen? Het zal opnieuw toegang kunnen aanvragen.</string>
     <string name="settings_wear_sync_unpair">Verwijderen</string>
     <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
     <string name="settings_wear_sync_tap_to_remove">Tik op een apparaat om het te verwijderen.</string>

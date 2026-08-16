@@ -1,7 +1,7 @@
 Sylvia van Os
 Branden Archer
-J. Lavoie
 solokot
+J. Lavoie
 Allan Nordhøy
 Oğuz Ersen
 Heimen Stoffels
@@ -14,33 +14,33 @@ Katharine Chui / Katie
 Silvério Santos
 mondstern
 IllusiveMan196
-Максим Горпиніч
 Edgars Andersons
+Максим Горпиніч
 Liner Seven
 Fjuro
 GitSpoon
+Priit Jõerüüt
 Joel A
 Altonss
-Priit Jõerüüt
 Michael Moroni
 Eric
 GM
-Petr Novák
 laralem
+Petr Novák
 Vasilis
 Taco
 Milo Ivir
 nadiafekihahmed
 pfaffenrodt
-Aayush Gupta
-damjang
-Scrambled777
 josé m
+Scrambled777
+damjang
+Aayush Gupta
+Kachelkaiser
 ikanakova
 Nyatsuki
 Jiri Grönroos
 Giovanni Donisi
-Kachelkaiser
 109247019824
 HudobniVolk
 Warder
@@ -57,12 +57,12 @@ Arno-github
 Jose Delvani
 Milan Šalka
 Robin
-தமிழ்நேரம்
-huuhaa
-Skrripy
-NooB9496
-Govindgopalyadav
 Gideon
+Govindgopalyadav
+NooB9496
+Skrripy
+huuhaa
+தமிழ்நேரம்
 waffshappen
 Marnick L'Eau
 JungHee Lee
@@ -78,23 +78,24 @@ e-michalak
 தமிழ் நேரம்
 josé m.
 hajertabbane
-inavleb
-Ziad OUALHADJ
-Robin Liu
-Ricky Tigg
-Renko
 Denis Shilin
+Hosted Weblate user 54392
+Renko
+Ricky Tigg
+Robin Liu
+Ziad OUALHADJ
+inavleb
 しいたけ
 Alexander Ivanov
-Thu-Trang Pham
-Tim Trek
-Virginie
-dukezas
-ehrt74
-ezn24
-mrestivill
-stavpup
 Miha Frangež
+stavpup
+mrestivill
+ezn24
+ehrt74
+dukezas
+Virginie
+Tim Trek
+Thu-Trang Pham
 Alì Mortacci
 Andre Costa
 arshbeerSingh

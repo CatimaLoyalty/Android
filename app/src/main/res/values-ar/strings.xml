@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">بحث</string>
     <string name="action_add">إضافة</string>
-    <string name="noGiftCards">انقر على زر + لإضافة بطاقة، أو استوردها من قائمة ⋮</string>
+    <string name="noGiftCards">انقر على زر ”+“ لإضافة بطاقة، أو استوردها من قائمة ”⋮“</string>
     <string name="noMatchingGiftCards">لا توجد نتائج. حاول تغيير بحثك.</string>
     <string name="storeName">الاسم</string>
     <string name="note">ملاحظة</string>

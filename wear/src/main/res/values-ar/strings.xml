@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">كاتيما</string>
+    <string name="no_cards">لم يعثر على أي بطاقات.\nافتح تطبيق كاتيما على هاتفك لإضافة بطاقات.</string>
+    <string name="phone_not_connected">تعذر الوصول إلى تطبيق كاتيما على هاتفك.\nتأكد من تشغيل تطبيق كاتيما على هاتفك، وأن ساعتك متصلة، وأن دعم نظام التشغيل Wear OS مفعل في إعدادات كاتيما على الساعة الذكية.</string>
+    <string name="loading_cards">يجري تحميل البطاقات…</string>
+    <string name="no_barcode">لا يوجد رمز شريطي متاح لهذه البطاقة.</string>
+    <string name="card_id_label">معرف البطاقة</string>
+    <string name="syncing">تجري المزامنة مع الهاتف…</string>
+    <string name="sync_failed">الهاتف غير متاح – عرض البطاقات المخزنة مؤقتًا جارٍ</string>
+    <string name="version_incompatible">تطبيق كاتيما على هاتفك وساعتك غير متوافق.\nيرجى تحديث كليهما.</string>
+    <string name="bluetooth_permission_denied">رُفض إذن البلوتوث.\nامنحه في الإعدادات لمزامنة البطاقات.</string>
+    <string name="bluetooth_disabled">أُوقف تشغيل البلوتوث.\nمكنه لمزامنة البطاقات من هاتفك.</string>
+    <string name="sync_error">فشل في قراءة البطاقات من هاتفك.\nحاول المزامنة مرةً أخرى.</string>
+    <string name="unauthorized">غير مصرح به.\nاسمح لهذه الساعة بقراءة بطاقاتك في إعدادات كاتيما.</string>
 </resources>

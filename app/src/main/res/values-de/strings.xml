@@ -320,7 +320,7 @@
     <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> darf jetzt synchronisieren.</string>
     <string name="wear_bt_pairing_block">Blockiert</string>
     <string name="wear_bt_pairing_allow">Zugelassen</string>
-    <string name="wear_bt_pairing_message">Zugang <xliff:g>%1$s</xliff:g> zu deinen Karten zulassen?</string>
+    <string name="wear_bt_pairing_message">Erlaube <xliff:g>%1$s</xliff:g> den Zugang zu deinen Karten?</string>
     <string name="wear_bt_pairing_title">Wear OS Gerät möchte synchronisieren</string>
     <string name="wear_bt_pairing_channel_name">Wear OS Gerät koppeln</string>
     <string name="settings_wear_sync_tap_to_remove">Tippe auf ein Gerät, um es zu entfernen.</string>

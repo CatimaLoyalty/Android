@@ -2,4 +2,15 @@
 <resources>
     <string name="app_name">Catima</string>
     <string name="no_cards">Ühtegi kaarti ei leidu.\nKaartide lisamiseks ava Catima oma telefonis.</string>
+    <string name="phone_not_connected">Catima pole sinu telefonist leitav.\nPalun kontrolli, et ta oleks töös, sinu nutikell on ühendatud ja Wear OS-i tugi on Catima nutikellade seadistustes sisse lülitatud.</string>
+    <string name="loading_cards">Laadin kaarte…</string>
+    <string name="no_barcode">Selle kaardi jaoks ei leidu triipkoodi.</string>
+    <string name="card_id_label">Kaardi tunnus</string>
+    <string name="syncing">Sünkroonin telefoniga…</string>
+    <string name="sync_failed">Telefon pole leitav - kuvan puhverdatud kaarte</string>
+    <string name="version_incompatible">Sinu telefonis ja nutikellas leiduv Catima pole ühilduvad.\nPalun uuenda mõlemaid.</string>
+    <string name="bluetooth_permission_denied">Bluetoothi kasutamise õigused on puudu.\nEt kaartide sünkroonimine toimiks, lisa seadistustest vastavad õigused.</string>
+    <string name="bluetooth_disabled">Bluetooth on lülitatud välja.\nEt kaartide sünkroonimine toimiks, lülita ta sisse.</string>
+    <string name="sync_error">Kaartide lugemine sinu telefonist ei õnnestunud.\nProovi uuesti sünkroonida.</string>
+    <string name="unauthorized">Pole lubatud.\nEt kaartide lugemine/laadimine toimiks, palun luba Catima seadistustest selle nutikella kasutamine.</string>
 </resources>

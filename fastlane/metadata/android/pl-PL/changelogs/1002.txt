@@ -1,0 +1,2 @@
+- Dodano serwer Bluetooth w celu zapewnienia obsługi aplikacji towarzyszącej dla systemu Wear OS
+- Usunięto wbudowany plik CHANGELOG

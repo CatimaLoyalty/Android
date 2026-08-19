@@ -1,0 +1,1 @@
+- Pierwsza wersja aplikacji towarzyszącej dla systemu Wear OS

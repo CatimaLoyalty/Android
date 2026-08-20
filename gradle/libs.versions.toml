@@ -14,7 +14,7 @@ wearCompose = "1.6.2"
 
 [libraries]
 # AndroidX
-androidx-appcompat-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.7.1" }
+androidx-appcompat-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.8.0" }
 androidx-constraintlayout-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.2.2" }
 androidx-core-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.18.0" }
 androidx-core-core-remoteviews = { group = "androidx.core", name = "core-remoteviews", version = "1.1.0" }

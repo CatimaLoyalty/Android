@@ -2,16 +2,21 @@ package protect.card_locker;
 
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,16 +35,189 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowContentResolver;
+import org.robolectric.shadows.ShadowToast;
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BooleanSupplier;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
     private SharedPreferences prefs;
+
+    @Test
+    @LooperMode(LooperMode.Mode.PAUSED)
+    public void pkpassSharedIntentReadsOffMainThreadAndProcessesOnMainThread() throws Exception {
+        Uri uri = Uri.parse("content://test/cloud-backed.pkpass");
+        CountDownLatch readStarted = new CountDownLatch(1);
+        CountDownLatch streamClosed = new CountDownLatch(1);
+        AtomicReference<Looper> readLooper = new AtomicReference<>();
+        InputStream pkpass = getClass().getResourceAsStream(
+                "pkpass/DCBLN24/DCBLN24-QLUKT-1-passbook.pkpass");
+        assertNotNull(pkpass);
+        new ShadowContentResolver().registerInputStream(
+                uri, new RecordingInputStream(pkpass, readStarted, streamClosed, readLooper));
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri)
+                .setType("application/vnd.apple.pkpass");
+        ActivityController<MainActivity> controller =
+                Robolectric.buildActivity(MainActivity.class, intent).create().start().resume().visible();
+        MainActivity activity = controller.get();
+
+        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        assertTrue(readLooper.get() != getMainLooper());
+        assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
+        assertNull(shadowOf(activity).peekNextStartedActivity());
+
+        waitFor(() -> shadowOf(activity).peekNextStartedActivity() != null);
+        Intent editIntent = shadowOf(activity).getNextStartedActivity();
+        assertEquals(LoyaltyCardEditActivity.class.getName(), editIntent.getComponent().getClassName());
+        assertNotNull(editIntent.getExtras());
+        controller.destroy();
+    }
+
+    @Test
+    @LooperMode(LooperMode.Mode.PAUSED)
+    public void destroyingActivityCancelsPendingPkpassResult() throws Exception {
+        Uri uri = Uri.parse("content://test/pending-cloud-backed.pkpass");
+        CountDownLatch readStarted = new CountDownLatch(1);
+        CountDownLatch releaseRead = new CountDownLatch(1);
+        CountDownLatch streamClosed = new CountDownLatch(1);
+        InputStream pkpass = getClass().getResourceAsStream(
+                "pkpass/DCBLN24/DCBLN24-QLUKT-1-passbook.pkpass");
+        assertNotNull(pkpass);
+        new ShadowContentResolver().registerInputStream(
+                uri, new BlockingInputStream(pkpass, readStarted, releaseRead, streamClosed));
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri)
+                .setType("application/vnd.apple.pkpass");
+        ActivityController<MainActivity> controller =
+                Robolectric.buildActivity(MainActivity.class, intent).create().start().resume();
+        MainActivity activity = controller.get();
+
+        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        controller.destroy();
+        releaseRead.countDown();
+        assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
+        shadowOf(getMainLooper()).idle();
+
+        assertNull(shadowOf(activity).peekNextStartedActivity());
+        assertFalse(ShadowToast.showedToast(activity.getString(R.string.errorReadingFile)));
+    }
+
+    private static void waitFor(BooleanSupplier condition) throws Exception {
+        long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(5);
+        while (!condition.getAsBoolean() && System.nanoTime() < deadline) {
+            shadowOf(getMainLooper()).idle();
+            Thread.sleep(10);
+        }
+        shadowOf(getMainLooper()).idle();
+        assertTrue("Timed out waiting for asynchronous activity work", condition.getAsBoolean());
+    }
+
+    private static class RecordingInputStream extends FilterInputStream {
+        private final CountDownLatch readStarted;
+        private final CountDownLatch streamClosed;
+        private final AtomicReference<Looper> readLooper;
+
+        RecordingInputStream(
+                InputStream inputStream,
+                CountDownLatch readStarted,
+                CountDownLatch streamClosed,
+                AtomicReference<Looper> readLooper) {
+            super(inputStream);
+            this.readStarted = readStarted;
+            this.streamClosed = streamClosed;
+            this.readLooper = readLooper;
+        }
+
+        private void recordRead() {
+            readLooper.compareAndSet(null, Looper.myLooper());
+            readStarted.countDown();
+        }
+
+        @Override
+        public int read() throws IOException {
+            recordRead();
+            return super.read();
+        }
+
+        @Override
+        public int read(byte[] buffer, int offset, int length) throws IOException {
+            recordRead();
+            return super.read(buffer, offset, length);
+        }
+
+        @Override
+        public void close() throws IOException {
+            try {
+                super.close();
+            } finally {
+                streamClosed.countDown();
+            }
+        }
+    }
+
+    private static class BlockingInputStream extends FilterInputStream {
+        private final CountDownLatch readStarted;
+        private final CountDownLatch releaseRead;
+        private final CountDownLatch streamClosed;
+
+        BlockingInputStream(
+                InputStream inputStream,
+                CountDownLatch readStarted,
+                CountDownLatch releaseRead,
+                CountDownLatch streamClosed) {
+            super(inputStream);
+            this.readStarted = readStarted;
+            this.releaseRead = releaseRead;
+            this.streamClosed = streamClosed;
+        }
+
+        private void awaitRelease() throws IOException {
+            readStarted.countDown();
+            try {
+                if (!releaseRead.await(5, TimeUnit.SECONDS)) {
+                    throw new IOException("Timed out waiting to release provider stream");
+                }
+            } catch (InterruptedException exception) {
+                Thread.currentThread().interrupt();
+                throw new IOException(exception);
+            }
+        }
+
+        @Override
+        public int read() throws IOException {
+            awaitRelease();
+            return super.read();
+        }
+
+        @Override
+        public int read(byte[] buffer, int offset, int length) throws IOException {
+            awaitRelease();
+            return super.read(buffer, offset, length);
+        }
+
+        @Override
+        public void close() throws IOException {
+            try {
+                super.close();
+            } finally {
+                streamClosed.countDown();
+            }
+        }
+    }
 
     @Test
     public void initiallyNoLoyaltyCards() {

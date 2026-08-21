@@ -181,7 +181,6 @@ public class Utils {
         Log.i(TAG, "Received Pkpass file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Pkpass did not contain any data");
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
 
@@ -190,7 +189,6 @@ public class Utils {
              pkpassParser = new PkpassParser(context, uri);
         } catch (Exception e) {
             Log.e(TAG, "Error reading pkpass file", e);
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
 
@@ -200,7 +198,6 @@ public class Utils {
                 return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
             } catch (Exception e) {
                 Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
                 return new ArrayList<>();
             }
         }
@@ -212,7 +209,6 @@ public class Utils {
                  parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
             } catch (Exception e) {
                 Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
                 return new ArrayList<>();
             }
             parseResult.setNote(locale);
@@ -226,7 +222,6 @@ public class Utils {
         Log.i(TAG, "Received Pkpasses file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Pkpasses did not contain any data");
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
 
@@ -235,7 +230,6 @@ public class Utils {
             pkpassesParser = new PkpassesParser(context, uri);
         } catch (Exception e) {
             Log.e(TAG, "Error reading pkpasses file", e);
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
 
@@ -249,7 +243,6 @@ public class Utils {
                     parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null));
                 } catch (Exception e) {
                     Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                    Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
                     return new ArrayList<>();
                 }
                 parseResult.setNote(String.format(context.getString(R.string.cardWithNumber), i+1));
@@ -260,7 +253,6 @@ public class Utils {
                         parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
                     } catch (Exception e) {
                         Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                        Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
                         return new ArrayList<>();
                     }
                     parseResult.setNote(String.format(context.getString(R.string.cardWithNumberAndLocale), i+1, locale));
@@ -365,19 +357,23 @@ public class Utils {
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
-            Uri intentData = intent.getData();
+            Uri intentData = intent != null ? intent.getData() : null;
 
             if (intentData == null) {
                 Log.e(TAG, "Uri did not contain any data");
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
                 return new ArrayList<>();
             }
 
-            if (Objects.equals(context.getContentResolver().getType(intentData), "application/vnd.apple.pkpasses")) {
-                return retrieveBarcodesFromPkPasses(context, intentData);
-            }
+            try {
+                if (Objects.equals(context.getContentResolver().getType(intentData), "application/vnd.apple.pkpasses")) {
+                    return retrieveBarcodesFromPkPasses(context, intentData);
+                }
 
-            return retrieveBarcodesFromPkPass(context, intentData);
+                return retrieveBarcodesFromPkPass(context, intentData);
+            } catch (Exception e) {
+                Log.e(TAG, "Error reading pkpass file", e);
+                return new ArrayList<>();
+            }
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {

@@ -23,7 +23,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.edit
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
@@ -40,7 +42,9 @@ import protect.card_locker.preferences.SettingsActivity
 import protect.card_locker.wearos.WearSyncPermissionRequester
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
-import androidx.core.content.edit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var binding: MainActivityBinding
@@ -533,14 +537,17 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     "application/vnd-com.apple.pkpass"
                 ).contains(receivedType)
             ) {
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
+                importPkpass(data, false)
+                return
             } else if (receivedType == "application/vnd.espass-espass") {
                 // FIXME: espass is not pkpass
                 // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
                 // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
+                importPkpass(data, false)
+                return
             } else if (receivedType == "application/vnd.apple.pkpasses") {
-                parseResultList = Utils.retrieveBarcodesFromPkPasses(this, data)
+                importPkpass(data, true)
+                return
             } else {
                 Log.e(TAG, "Wrong mime-type")
                 return
@@ -554,6 +561,26 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
 
         processParseResultList(parseResultList)
+    }
+
+    private fun importPkpass(data: Uri?, multiplePasses: Boolean) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val parseResultList = if (multiplePasses) {
+                Utils.retrieveBarcodesFromPkPasses(this@MainActivity, data)
+            } else {
+                Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+            }
+
+            withContext(Dispatchers.Main) {
+                if (parseResultList.isEmpty()) {
+                    Toast.makeText(this@MainActivity, R.string.errorReadingFile, Toast.LENGTH_LONG).show()
+                    finish()
+                    return@withContext
+                }
+
+                processParseResultList(parseResultList)
+            }
+        }
     }
 
     private fun extractIntentFields(intent: Intent) {

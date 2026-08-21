@@ -30,6 +30,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.zxing.DecodeHintType
 import com.google.zxing.ResultPoint
@@ -37,6 +38,9 @@ import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import protect.card_locker.databinding.CustomBarcodeScannerBinding
 import protect.card_locker.databinding.ScanActivityBinding
 
@@ -322,6 +326,24 @@ class ScanActivity : CatimaAppCompatActivity() {
     private fun handleActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(resultCode, resultCode, intent)
 
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE && resultCode == RESULT_OK) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val parseResultList =
+                    Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this@ScanActivity)
+
+                withContext(Dispatchers.Main) {
+                    if (parseResultList.isEmpty()) {
+                        Toast.makeText(this@ScanActivity, R.string.errorReadingFile, Toast.LENGTH_LONG).show()
+                        setScannerActive(true)
+                        return@withContext
+                    }
+
+                    processParseResultList(parseResultList)
+                }
+            }
+            return
+        }
+
         val parseResultList: List<ParseResult> =
             Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this)
 
@@ -331,6 +353,10 @@ class ScanActivity : CatimaAppCompatActivity() {
         }
 
 
+        processParseResultList(parseResultList)
+    }
+
+    private fun processParseResultList(parseResultList: List<ParseResult>) {
         Utils.makeUserChooseParseResultFromList(
             this,
             parseResultList,

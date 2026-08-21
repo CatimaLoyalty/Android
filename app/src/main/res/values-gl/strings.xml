@@ -64,8 +64,8 @@
     <string name="settings_keep_screen_on_summary">Evita que se apague a pantalla cando se ve unha tarxeta</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitar bloqueo da pantalla</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Desactiva o bloqueo da pantalla cando se ve unha tarxeta</string>
-    <string name="settings_allow_content_provider_read_title">Permitir a outras apps acceder aos meus datos</string>
-    <string name="settings_allow_content_provider_read_summary">As app terán que solicitar igualmente o permiso para acceder aos datos</string>
+    <string name="settings_allow_content_provider_read_title">Sincronizar con Gadgetbridge</string>
+    <string name="settings_allow_content_provider_read_summary">Permite á app Gadgetbridge sincronizar as túas tarxetas cos reloxos compatibles</string>
     <string name="settings_use_volume_keys_navigation">Cambiar de tarxeta cos botóns de volume</string>
     <string name="settings_use_volume_keys_navigation_summary">Usar os botóns de volume para cambiar a tarxeta que se mostra</string>
     <string name="intent_import_card_from_url_share_text">Quero compartir unha tarxeta contigo</string>
@@ -307,4 +307,42 @@
     <string name="zoomBackImage">Zoom na imaxe posterior</string>
     <string name="show_card_id">Mostrar ID da tarxeta</string>
     <string name="open_in_gallery">Abrir na galería de imaxes</string>
+    <string name="settings_wear_sync">Sincronizar con Wear OS</string>
+    <string name="settings_wear_sync_summary">Permite que a app asocidada de Wear OS lea as túas tarxetas utilizando Bluetooth</string>
+    <string name="wear_sync_permission_required">Catima precisa os permisos que non concedeches para sincronizar co teu reloxo Wear OS</string>
+    <string name="settings_wear_sync_devices">Dispositivos Wear OS permitidos</string>
+    <string name="settings_wear_sync_devices_summary">Xestiona os dispositivos con permiso para sincronizar usando Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Sen dispositivos permitidos</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo permitido</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivos permitidos</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Dispositivos Wear OS bloqueados</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Xestiona os dispositivos Wear OS bloquedos</string>
+    <string name="settings_wear_sync_no_blocked_devices">Sen dispositivos bloqueados</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo bloqueado</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivos bloqueados</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Retirar dispositivo?</string>
+    <string name="settings_wear_sync_unpair_message">Retirar <xliff:g>%1$s</xliff:g> de Catima? Non poderá seguir sincronizándose coas túas tarxetas.</string>
+    <string name="settings_wear_sync_unblock_message">Retirar <xliff:g>%1$s</xliff:g> da lista de bloqueados? Poderá volver a solicitar o acceso.</string>
+    <string name="settings_wear_sync_unpair">Retirar</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Toca nun dispositivo para retiralo.</string>
+    <string name="wear_bt_pairing_channel_name">Emparellando dispositivo Wear OS</string>
+    <string name="wear_bt_pairing_title">O dispositivo Wear OS quere sincronizar</string>
+    <string name="wear_bt_pairing_message">Permitirlle a <xliff:g>%1$s</xliff:g> que acceda ás tarxetas?</string>
+    <string name="wear_bt_pairing_allow">Permitir</string>
+    <string name="wear_bt_pairing_block">Bloquear</string>
+    <string name="wear_bt_pairing_allowed">Agora <xliff:g>%1$s</xliff:g> ten permiso para sincronizar.</string>
+    <string name="wear_bt_pairing_blocked">Bloqueaches a <xliff:g>%1$s</xliff:g>.</string>
+    <string name="wear_bt_pairing_mismatch_title">Nova solicitude de autorización desde <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">O dispositivo tiña permiso anteriormente pero agora presenta un token de identidade diferente. Isto acontece cando se reinstala a app Wear OS ou se limparon os datos. Tamén pode indicar un intento de suplantación utilizando a MAC de Bluetooth.\n\nSó acepta se reinstalaches recentemente a app Catima Wear OS neste reloxo.</string>
+    <string name="open_settings">Abrir os axustes</string>
+    <string name="wear_bt_channel_name">Aplicación Wear OS</string>
+    <string name="wear_bt_notification_title">Sincronización activa Wear OS para Catima</string>
+    <string name="settings_category_title_smartwatch">Compatibilidade con reloxos</string>
+    <string name="wear_bt_failed_foreground_notification_title">Fallou o inicio do servizo de sincronización con Wear OS</string>
+    <string name="wear_bt_critical_error_channel_name">Erro crítico ao sincronizar con Wear OS</string>
 </resources>

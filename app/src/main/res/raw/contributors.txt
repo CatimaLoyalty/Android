@@ -18,8 +18,8 @@ Edgars Andersons
 Максим Горпиніч
 Liner Seven
 Fjuro
-GitSpoon
 Priit Jõerüüt
+GitSpoon
 Joel A
 Altonss
 Michael Moroni
@@ -52,22 +52,23 @@ AMIR-G98
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
-Feike
 Arno-github
+Feike
+NooB9496
 Jose Delvani
 Milan Šalka
 Robin
-Gideon
-Govindgopalyadav
-NooB9496
-Skrripy
-huuhaa
 தமிழ்நேரம்
+huuhaa
+Skrripy
+Govindgopalyadav
+Gideon
 waffshappen
 Marnick L'Eau
 JungHee Lee
 pacavarn
 ngocanhtve
+josé m.
 aradxxx
 Watchman89
 StellarSand
@@ -76,26 +77,25 @@ Projjal Moitra
 Aliaksandr Trush
 e-michalak
 தமிழ் நேரம்
-josé m.
 hajertabbane
-Denis Shilin
-Hosted Weblate user 54392
-Renko
-Ricky Tigg
-Robin Liu
-Ziad OUALHADJ
 inavleb
+Ziad OUALHADJ
+Robin Liu
+Ricky Tigg
+Renko
+Hosted Weblate user 54392
+Denis Shilin
 しいたけ
 Alexander Ivanov
-Miha Frangež
-stavpup
-mrestivill
-ezn24
-ehrt74
-dukezas
-Virginie
-Tim Trek
 Thu-Trang Pham
+Tim Trek
+Virginie
+dukezas
+ehrt74
+ezn24
+mrestivill
+stavpup
+Miha Frangež
 Alì Mortacci
 Andre Costa
 arshbeerSingh

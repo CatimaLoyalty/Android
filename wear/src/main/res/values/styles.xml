@@ -1,0 +1,14 @@
+<resources>
+    <style name="Theme.App" parent="@android:style/Theme.DeviceDefault" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen.IconBackground">
+        <!--
+          Google Wear OS guidelines require a black background
+          See https://developer.android.com/design/ui/wear/guides/m2-5/behaviors-and-patterns/launch#branded
+        -->
+        <item name="windowSplashScreenBackground">@android:color/black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.App</item>
+    </style>ss
+</resources>

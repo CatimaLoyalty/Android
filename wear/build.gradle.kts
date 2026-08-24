@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.androidx.core.core.ktx)
     implementation(libs.androidx.activity.activity.compose)
 
+    // AndroidX
+    implementation(libs.androidx.core.core.splashscreen)
+
     // Wear OS Compose
     implementation(libs.androidx.wear.compose.material3)
     implementation(libs.androidx.wear.compose.foundation)

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased (Wear OS) - 201
+
+- Add scroll bar to card list
+- Add splash screen
+- Fix some padding issues
+
 ## v2.45.0 (Android) - 1002 (2026-08-12)
 
 - Add a Bluetooth server for Wear OS companion app support

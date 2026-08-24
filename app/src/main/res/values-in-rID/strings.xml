@@ -221,7 +221,7 @@
     <string name="permissionReadCardsLabel">Bacalah kartu Catima</string>
     <string name="permissionReadCardsDescription">baca kartu Anda dan semua detailnya, termasuk catatan dan gambar</string>
     <string name="settings_allow_content_provider_read_title">Izinkan aplikasi lain mengakses data saya</string>
-    <string name="settings_allow_content_provider_read_summary">Aplikasi masih harus meminta izin untuk diberikan akses</string>
+    <string name="settings_allow_content_provider_read_summary">Memungkinkan aplikasi Gadgetbridge menyinkronkan kartu Anda ke jam tangan yang didukung</string>
     <string name="settings_keep_screen_on_summary">Menonaktifkan batas waktu layar saat melihat kartu</string>
     <string name="settings_oled_dark_summary">Mengurangi penggunaan baterai pada layar OLED</string>
     <string name="settings_category_title_general">Umum</string>
@@ -301,4 +301,41 @@
     <string name="sort_by_most_recently_added">Terakhir ditambahkan</string>
     <string name="zoomFrontImage">Perbesar gambar depan</string>
     <string name="zoomBackImage">Perbesar gambar belakang</string>
+    <string name="settings_wear_sync">Sinkronkan dengan Wear OS</string>
+    <string name="settings_wear_sync_summary">Memungkinkan aplikasi pendamping Wear OS membaca kartu Anda melalui Bluetooth</string>
+    <string name="wear_sync_permission_required">Catima memerlukan izin yang Anda tolak untuk menyinkronkan dengan smartwatch Wear OS Anda</string>
+    <string name="settings_wear_sync_devices">Perangkat Wear OS yang diizinkan</string>
+    <string name="settings_wear_sync_devices_summary">Kelola perangkat yang diizinkan untuk sinkronisasi melalui Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Tidak ada perangkat yang diizinkan</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> perangkat diizinkan</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Perangkat Wear OS yang diblokir</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Kelola perangkat Wear OS yang diblokir</string>
+    <string name="settings_wear_sync_no_blocked_devices">Tidak ada perangkat yang diblokir</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> perangkat diblokir</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Hapus perangkat?</string>
+    <string name="settings_wear_sync_unpair_message">Hapus <xliff:g>%1$s</xliff:g> dari Catima? Perangkat ini tidak akan dapat menyinkronkan kartu Anda lagi.</string>
+    <string name="settings_wear_sync_unblock_message">Hapus <xliff:g>%1$s</xliff:g> dari daftar yang diblokir? Perangkat ini akan dapat meminta akses lagi.</string>
+    <string name="settings_wear_sync_unpair">Hapus</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Ketuk perangkat untuk menghapusnya.</string>
+    <string name="wear_bt_pairing_channel_name">Pemasangan perangkat Wear OS</string>
+    <string name="wear_bt_pairing_title">Perangkat Wear OS ingin menyinkronkan</string>
+    <string name="wear_bt_pairing_message">Izinkan <xliff:g>%1$s</xliff:g> mengakses kartu Anda?</string>
+    <string name="wear_bt_pairing_allow">Izinkan</string>
+    <string name="wear_bt_pairing_block">Blokir</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> kini diizinkan untuk menyinkronkan.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> telah diblokir.</string>
+    <string name="wear_bt_pairing_mismatch_title">Permintaan otorisasi baru dari <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">Perangkat ini sebelumnya diotorisasi tetapi kini menampilkan token identitas yang berbeda. Hal ini terjadi ketika aplikasi Wear OS diinstal ulang atau datanya dihapus. Hal ini juga dapat mengindikasikan upaya spoofing MAC Bluetooth.\n\nTerima hanya jika Anda baru-baru ini menginstal ulang aplikasi Catima Wear OS di jam tangan ini.</string>
+    <string name="open_settings">Buka pengaturan</string>
+    <string name="open_in_gallery">Buka di galeri gambar</string>
+    <string name="wear_bt_channel_name">Pendamping Wear OS</string>
+    <string name="wear_bt_notification_title">Sinkronisasi Catima Wear OS aktif</string>
+    <string name="settings_category_title_smartwatch">Dukungan smartwatch</string>
+    <string name="wear_bt_failed_foreground_notification_title">Gagal memulai layanan sinkronisasi Wear OS</string>
+    <string name="wear_bt_critical_error_channel_name">Kesalahan kritis sinkronisasi Wear OS</string>
 </resources>

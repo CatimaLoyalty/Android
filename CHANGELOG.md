@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased (Android) - 1003
+
+- Fix list widget not updating when opening a card from it
+
 ## Unreleased (Wear OS) - 201
 
 - Add scroll bar to card list

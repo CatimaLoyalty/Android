@@ -17,10 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
+import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import androidx.wear.compose.material3.CircularProgressIndicator
 import androidx.wear.compose.material3.Text
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.ButtonDefaults
+import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.SurfaceTransformation
 import androidx.wear.compose.material3.lazy.rememberTransformationSpec
 import androidx.wear.compose.material3.lazy.transformedHeight
@@ -67,32 +69,43 @@ fun CardListScreen(
                 )
             }
             else -> {
-                val transformationSpec = rememberTransformationSpec()
-                TransformingLazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 32.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    items(cards, key = { it.id }) { card ->
-                        Button(
-                            modifier = Modifier.fillMaxWidth().transformedHeight(this, transformationSpec),
-                            transformation = SurfaceTransformation(transformationSpec),
-                            label = {
-                                Text(
-                                    text = card.store,
-                                    maxLines = 1,
-                                )
-                            },
-                            onClick = { onCardClick(card) },
-                            colors = if (card.headerColor != null) {
-                                ButtonDefaults.buttonColors(
-                                    containerColor = Color(card.headerColor),
-                                    contentColor = if (ForegroundColorHelper.needsDarkForeground(card.headerColor)) Color.Black else Color.White
-                                )
-                            } else {
-                                ButtonDefaults.buttonColors()
-                            },
-                        )
+                val columnState = rememberTransformingLazyColumnState()
+                ScreenScaffold(
+                    scrollState = columnState,
+                ) { contentPadding ->
+                    val transformationSpec = rememberTransformationSpec()
+                    TransformingLazyColumn(
+                        state = columnState,
+                        contentPadding = contentPadding,
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        items(cards, key = { it.id }) { card ->
+                            Button(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .transformedHeight(this, transformationSpec)
+                                    .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
+                                transformation = SurfaceTransformation(transformationSpec),
+                                label = {
+                                    Text(
+                                        text = card.store,
+                                        maxLines = 1,
+                                    )
+                                },
+                                onClick = { onCardClick(card) },
+                                colors = if (card.headerColor != null) {
+                                    ButtonDefaults.buttonColors(
+                                        containerColor = Color(card.headerColor),
+                                        contentColor = if (ForegroundColorHelper.needsDarkForeground(
+                                                card.headerColor
+                                            )
+                                        ) Color.Black else Color.White
+                                    )
+                                } else {
+                                    ButtonDefaults.buttonColors()
+                                },
+                            )
+                        }
                     }
                 }
                 val footerLabel = syncStatus.labelRes

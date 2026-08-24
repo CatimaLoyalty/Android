@@ -1,0 +1,2 @@
+- Adicionar um servidor Bluetooth para suporte ao aplicativo complementar do Wear OS
+- Remover CHANGELOG embutido

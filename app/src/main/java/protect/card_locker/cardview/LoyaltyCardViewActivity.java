@@ -96,6 +96,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private long initTime = System.currentTimeMillis();
 
+    private final ListWidget listWidget = new ListWidget();
+
     private enum AdjacentCardDirection {
         PREVIOUS,
         NEXT
@@ -454,6 +456,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         invalidateOptionsMenu();
 
         ShortcutHelper.updateShortcuts(this);
+        listWidget.updateAll(LoyaltyCardViewActivity.this);
     }
 
     @Override
@@ -775,7 +778,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (id == R.id.action_star_unstar) {
             DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
 
-            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+            listWidget.updateAll(LoyaltyCardViewActivity.this);
 
             // Re-init loyaltyCard with new data from DB
             onResume();
@@ -786,7 +789,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
-            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+            listWidget.updateAll(LoyaltyCardViewActivity.this);
 
             // Re-init loyaltyCard with new data from DB
             onResume();
@@ -811,7 +814,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
                 DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
 
-                new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+                listWidget.updateAll(LoyaltyCardViewActivity.this);
 
                 finish();
                 dialog.dismiss();

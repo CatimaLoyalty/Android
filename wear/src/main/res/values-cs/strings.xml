@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Nenalezeny žádné karty.\nOtevřete aplikaci Catima na telefonu pro přidání karet.</string>
+    <string name="phone_not_connected">Nepodařilo se spojit s aplikací Catima na vašem telefonu.\nUjistěte se, že na vašem telefonu běží aplikace Catima, vaše hodinky jsou připojeny a v nastavení Catima je povolena podpora Wear OS.</string>
+    <string name="loading_cards">Načítání karet…</string>
+    <string name="no_barcode">Pro tuto kartu není k dispozici žádný čárový kód.</string>
+    <string name="card_id_label">ID karty</string>
+    <string name="syncing">Synchronizace s telefonem…</string>
+    <string name="sync_failed">Telefon není dostupný – zobrazuji karty z mezipaměti</string>
+    <string name="version_incompatible">Aplikace Catima na vašem telefonu a hodinkách jsou nekompatibilní.\nAktualizujte prosím obě.</string>
+    <string name="bluetooth_permission_denied">Oprávnění Bluetooth zamítnuto.\nUdělte jej v Nastavení pro synchronizaci karet.</string>
+    <string name="bluetooth_disabled">Bluetooth je vypnut.\nPovolte jej pro synchronizaci karet z vašeho telefonu.</string>
+    <string name="sync_error">Nepodařilo se přečíst karty z vašeho telefonu.\nZkuste znovu provést synchronizaci.</string>
+    <string name="unauthorized">Neautorizováno.\nPovolte těmto hodinkám číst vaše karty v nastavení aplikace Catima.</string>
 </resources>

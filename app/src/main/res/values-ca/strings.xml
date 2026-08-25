@@ -12,7 +12,7 @@
     <string name="action_search">Cerca</string>
     <string name="deleteTitle">Elimina la targeta</string>
     <string name="welcome">Benvingut a Catima</string>
-    <string name="noGiftCards">Fes clic al botó + per afegir una targeta, o importa des del menú ⋮</string>
+    <string name="noGiftCards">Fes clic al botó mes + per afegir una targeta, o importa des del menú ⋮</string>
     <string name="photos">Fotos</string>
     <string name="app_name">Catima</string>
     <string name="moveDown">Baixar abaix</string>
@@ -91,7 +91,7 @@
     <string name="importCancelled">Importació anulada</string>
     <string name="exportCancelled">Exportació cancelada</string>
     <string name="noGiftCardsGroup">Crea algunes targetes i després asigna-les en al grup aquí</string>
-    <string name="noMatchingGiftCards">No hi ha resultats; prova de modificar la cerca.</string>
+    <string name="noMatchingGiftCards">No hi ha resultats. Prova de modificar la cerca.</string>
     <string name="storeName">Nom</string>
     <string name="note">Nota</string>
     <string name="cardId">Id. de la Targeta</string>
@@ -153,7 +153,7 @@
     <string name="enter_card_id">Introdueixi el nombre ID o text de la seva targeta</string>
     <string name="card_id_must_not_be_empty">ID de la Targeta no pot estar buit</string>
     <string name="add_a_card_in_a_different_way">Afegeix una targeta de forma diferent</string>
-    <string name="unstar">Treure entre les preferides</string>
+    <string name="unstar">Treure de les preferides</string>
     <string name="star">Afegir a les preferides</string>
     <string name="cancel">Cancel•la</string>
     <string name="deleteConfirmation">Vols eliminar de forma permanent aquesta targeta?</string>

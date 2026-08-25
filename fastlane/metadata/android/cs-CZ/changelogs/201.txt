@@ -1,0 +1,3 @@
+- Přidán posuvník na seznam karet
+- Přidána úvodní obrazovka
+- Opraveny problémy s odsazením

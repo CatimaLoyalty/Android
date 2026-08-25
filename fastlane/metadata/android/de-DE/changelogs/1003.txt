@@ -1,0 +1,1 @@
+- Fehler behoben, bei welchem das Listen-Widget nicht aktualisiert, wenn eine Karte von dort geöffnet wird

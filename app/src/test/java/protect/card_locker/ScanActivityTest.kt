@@ -52,7 +52,7 @@ class ScanActivityTest {
 
         handlePkpassResult(activity, Intent().setData(uri))
 
-        assertTrue(readStarted.await(5, TimeUnit.SECONDS))
+        waitFor { readStarted.count == 0L }
         assertTrue(readLooper.get() !== Looper.getMainLooper())
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS))
         assertEquals(Activity.RESULT_CANCELED, shadowOf(activity).resultCode)
@@ -100,7 +100,7 @@ class ScanActivityTest {
         val activity = controller.get()
 
         handlePkpassResult(activity, Intent().setData(uri))
-        assertTrue(readStarted.await(5, TimeUnit.SECONDS))
+        waitFor { readStarted.count == 0L }
         controller.destroy()
         releaseRead.countDown()
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS))

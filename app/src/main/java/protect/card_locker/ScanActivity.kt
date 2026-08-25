@@ -326,34 +326,19 @@ class ScanActivity : CatimaAppCompatActivity() {
     private fun handleActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(resultCode, resultCode, intent)
 
-        if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE && resultCode == RESULT_OK) {
-            lifecycleScope.launch(Dispatchers.IO) {
-                val parseResultList =
-                    Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this@ScanActivity)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val parseResultList =
+                Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this@ScanActivity)
 
-                withContext(Dispatchers.Main) {
-                    if (parseResultList.isEmpty()) {
-                        Toast.makeText(this@ScanActivity, R.string.errorReadingFile, Toast.LENGTH_LONG).show()
-                        setScannerActive(true)
-                        return@withContext
-                    }
-
-                    processParseResultList(parseResultList)
+            withContext(Dispatchers.Main) {
+                if (parseResultList.isEmpty()) {
+                    setScannerActive(true)
+                    return@withContext
                 }
+
+                processParseResultList(parseResultList)
             }
-            return
         }
-
-        val parseResultList: List<ParseResult> =
-            Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this)
-
-        if (parseResultList.isEmpty()) {
-            setScannerActive(true)
-            return
-        }
-
-
-        processParseResultList(parseResultList)
     }
 
     private fun processParseResultList(parseResultList: List<ParseResult>) {

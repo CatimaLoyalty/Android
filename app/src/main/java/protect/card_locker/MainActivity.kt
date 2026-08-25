@@ -506,13 +506,11 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             return
         }
 
-        val parseResultList: MutableList<ParseResult?>?
-
         // Check for shared text
         if (receivedAction == Intent.ACTION_SEND && receivedType == "text/plain") {
             val loyaltyCard = LoyaltyCard()
             loyaltyCard.setCardId(intent.getStringExtra(Intent.EXTRA_TEXT)!!)
-            parseResultList = mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard))
+            processParseResultList(mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard)))
         } else {
             // Parse whatever file was sent, regardless of opening or sharing
             val data: Uri? = when (receivedAction) {
@@ -528,52 +526,37 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             }
 
-            if (receivedType.startsWith("image/")) {
-                parseResultList = Utils.retrieveBarcodesFromImage(this, data)
-            } else if (receivedType == "application/pdf") {
-                parseResultList = Utils.retrieveBarcodesFromPdf(this, data)
-            } else if (mutableListOf<String?>(
+            importFile(data, receivedType)
+        }
+    }
+
+    private fun importFile(data: Uri?, receivedType: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val parseResultList: MutableList<ParseResult?> = when {
+                receivedType.startsWith("image/") ->
+                    Utils.retrieveBarcodesFromImage(this@MainActivity, data)
+                receivedType == "application/pdf" ->
+                    Utils.retrieveBarcodesFromPdf(this@MainActivity, data)
+                mutableListOf(
                     "application/vnd.apple.pkpass",
                     "application/vnd-com.apple.pkpass"
-                ).contains(receivedType)
-            ) {
-                importPkpass(data, false)
-                return
-            } else if (receivedType == "application/vnd.espass-espass") {
+                ).contains(receivedType) ->
+                    Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
                 // FIXME: espass is not pkpass
                 // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
                 // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
-                importPkpass(data, false)
-                return
-            } else if (receivedType == "application/vnd.apple.pkpasses") {
-                importPkpass(data, true)
-                return
-            } else {
-                Log.e(TAG, "Wrong mime-type")
-                return
-            }
-        }
-
-        // Give up if we should parse but there is nothing to parse
-        if (parseResultList == null || parseResultList.isEmpty()) {
-            finish()
-            return
-        }
-
-        processParseResultList(parseResultList)
-    }
-
-    private fun importPkpass(data: Uri?, multiplePasses: Boolean) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val parseResultList = if (multiplePasses) {
-                Utils.retrieveBarcodesFromPkPasses(this@MainActivity, data)
-            } else {
-                Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+                receivedType == "application/vnd.espass-espass" ->
+                    Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+                receivedType == "application/vnd.apple.pkpasses" ->
+                    Utils.retrieveBarcodesFromPkPasses(this@MainActivity, data)
+                else -> {
+                    Log.e(TAG, "Wrong mime-type")
+                    return@launch
+                }
             }
 
             withContext(Dispatchers.Main) {
                 if (parseResultList.isEmpty()) {
-                    Toast.makeText(this@MainActivity, R.string.errorReadingFile, Toast.LENGTH_LONG).show()
                     finish()
                     return@withContext
                 }

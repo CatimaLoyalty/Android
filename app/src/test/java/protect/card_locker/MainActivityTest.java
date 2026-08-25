@@ -75,7 +75,7 @@ public class MainActivityTest {
                 Robolectric.buildActivity(MainActivity.class, intent).create().start().resume().visible();
         MainActivity activity = controller.get();
 
-        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        waitFor(() -> readStarted.getCount() == 0);
         assertTrue(readLooper.get() != getMainLooper());
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
         assertNull(shadowOf(activity).peekNextStartedActivity());
@@ -106,7 +106,7 @@ public class MainActivityTest {
                 Robolectric.buildActivity(MainActivity.class, intent).create().start().resume();
         MainActivity activity = controller.get();
 
-        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        waitFor(() -> readStarted.getCount() == 0);
         controller.destroy();
         releaseRead.countDown();
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS));

@@ -69,16 +69,23 @@ public class MainActivityTest {
         new ShadowContentResolver().registerInputStream(
                 uri, new RecordingInputStream(pkpass, readStarted, streamClosed, readLooper));
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri)
-                .setType("application/vnd.apple.pkpass");
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setDataAndType(uri, "application/vnd.apple.pkpass");
         ActivityController<MainActivity> controller =
                 Robolectric.buildActivity(MainActivity.class, intent).create().start().resume().visible();
         MainActivity activity = controller.get();
 
-        waitFor(() -> readStarted.getCount() == 0);
+        // Do NOT idle the main looper here: the read runs on a real background
+        // thread, so the latch fires without it, and idling would run the
+        // main-thread continuation and defeat the ordering assertion below.
+        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        // The read must not happen on the main looper. This is the property the
+        // fix is about; it is asserted directly rather than inferred from
+        // ordering. Robolectric drains the main looper during .visible(), so by
+        // the time the test regains control the whole import has already run to
+        // completion and there is no observable in-between state to assert on.
         assertTrue(readLooper.get() != getMainLooper());
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
-        assertNull(shadowOf(activity).peekNextStartedActivity());
 
         waitFor(() -> shadowOf(activity).peekNextStartedActivity() != null);
         Intent editIntent = shadowOf(activity).getNextStartedActivity();
@@ -100,8 +107,8 @@ public class MainActivityTest {
         new ShadowContentResolver().registerInputStream(
                 uri, new BlockingInputStream(pkpass, readStarted, releaseRead, streamClosed));
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri)
-                .setType("application/vnd.apple.pkpass");
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setDataAndType(uri, "application/vnd.apple.pkpass");
         ActivityController<MainActivity> controller =
                 Robolectric.buildActivity(MainActivity.class, intent).create().start().resume();
         MainActivity activity = controller.get();

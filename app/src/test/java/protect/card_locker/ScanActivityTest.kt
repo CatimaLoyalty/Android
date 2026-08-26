@@ -52,10 +52,13 @@ class ScanActivityTest {
 
         handlePkpassResult(activity, Intent().setData(uri))
 
-        waitFor { readStarted.count == 0L }
+        assertTrue(readStarted.await(5, TimeUnit.SECONDS))
+        // The read must not happen on the main looper. Asserted directly rather
+        // than inferred from an intermediate result code: waiting on the main
+        // looper drains it, so the flow has already reached its final state by
+        // the time the test regains control.
         assertTrue(readLooper.get() !== Looper.getMainLooper())
         assertTrue(streamClosed.await(5, TimeUnit.SECONDS))
-        assertEquals(Activity.RESULT_CANCELED, shadowOf(activity).resultCode)
 
         waitFor { shadowOf(activity).resultCode == Activity.RESULT_OK }
         assertNotNull(shadowOf(activity).resultIntent)

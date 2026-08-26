@@ -337,4 +337,21 @@
     <string name="settings_category_title_smartwatch">Suporte a smartwatch</string>
     <string name="wear_bt_failed_foreground_notification_title">Falhou ao iniciar o serviço de sincronização do Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Erro crítico de sincronização do Wear OS</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo permitido</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> dispositivos permitidos</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivos permitidos</item>
+    </plurals>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo bloqueado</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> dispositivos bloqueados</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivos bloqueados</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_message">Remover <xliff:g>%1$s</xliff:g> do Catima? Ele não poderá mais sincronizar seus cartões.</string>
+    <string name="settings_wear_sync_unblock_message">Remover <xliff:g>%1$s</xliff:g> da lista de bloqueados? O item poderá solicitar acesso novamente.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="wear_bt_pairing_message">Permitir que <xliff:g>%1$s</xliff:g> acesse seus cartões?</string>
+    <string name="wear_bt_pairing_allowed">Agora, a sincronização de <xliff:g>%1$s</xliff:g> é permitida.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> foi bloqueado.</string>
+    <string name="wear_bt_pairing_mismatch_title">Nova solicitação de autorização de <xliff:g>%1$s</xliff:g></string>
 </resources>

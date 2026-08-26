@@ -314,4 +314,5 @@
     <string name="zoomFrontImage">Zoom immagine fronte</string>
     <string name="zoomBackImage">Zoom immagine retro</string>
     <string name="open_in_gallery">Apri nella galleria immagini</string>
+    <string name="open_settings">Apri le impostazioni</string>
 </resources>

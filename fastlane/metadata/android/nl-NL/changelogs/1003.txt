@@ -1,0 +1,1 @@
+- Opgelost dat de lijstwidget niet update als er een kaart door geopend wordt

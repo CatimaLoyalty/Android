@@ -4,7 +4,7 @@
 
 - Fix list widget not updating when opening a card from it
 
-## Unreleased (Wear OS) - 201
+## v1.0.1 (Wear OS) - 201 (2026-08-28)
 
 - Add scroll bar to card list
 - Add splash screen

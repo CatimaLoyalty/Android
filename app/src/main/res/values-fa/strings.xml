@@ -289,11 +289,7 @@
     <string name="pleaseDoNotRotateTheDevice">لطفا دستگاه‌تان را نچرخوانید، زیرا کار در حال انجام را لغو میکند</string>
     <string name="settings_disable_nfc_while_viewing_card">توقف NFC</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">NFC را متوقف می‌کند تا هنگام مشاهده کارت، پرداخت‌های NFC فعال نشوند.</string>
-    <plurals name="settings_wear_sync_devices_summary_count">
-    </plurals>
     <string name="settings_wear_sync_blocked_devices">دستگاه‌های Wear OS مسدودشده</string>
     <string name="settings_wear_sync_blocked_devices_summary">مدیریت دستگاه‌های Wear OS مسدودشده</string>
     <string name="settings_wear_sync_no_blocked_devices">هیچ دستگاه مسدودشده‌ای وجود ندارد</string>
-    <plurals name="settings_wear_sync_blocked_devices_summary_count">
-    </plurals>
 </resources>

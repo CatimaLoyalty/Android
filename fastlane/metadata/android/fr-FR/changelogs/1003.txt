@@ -1,0 +1,1 @@
+- Correction du widget de liste qui ne se met pas à jour lorsqu'on ouvre une carte depuis celui-ci

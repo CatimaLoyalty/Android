@@ -21,6 +21,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
@@ -138,6 +139,9 @@ private fun CardDetail(card: WearCard) {
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 color = ComposeColor.Black,
+                // Hide the barcode value until we can be completely certain the element won't partially fall out of the UI
+                // This is a workaround for a requirement for Google Play: https://github.com/CatimaLoyalty/Android/issues/3284
+                modifier = Modifier.alpha(0f)
             )
         }
     }

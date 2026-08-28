@@ -9,6 +9,7 @@
 - Add scroll bar to card list
 - Add splash screen
 - Fix some padding issues
+- Remove barcode value from card view
 
 ## v2.45.0 (Android) - 1002 (2026-08-12)
 

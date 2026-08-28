@@ -1,0 +1,3 @@
+- Ajout d'une barre de défilement dans la liste des cartes
+- Ajout d'un écran de démarrage
+- Correction de quelques soucis sur les marges

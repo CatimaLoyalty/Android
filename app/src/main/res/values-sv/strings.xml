@@ -232,7 +232,7 @@
     <string name="settings_allow_content_provider_read_summary">Appar måste fortfarande begära åtkomst för att få tillgång</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
-    <string name="settings_allow_content_provider_read_title">Tillåt andra appar att komma åt min data</string>
+    <string name="settings_allow_content_provider_read_title">Synka med Gadgetbridge</string>
     <string name="permissionReadCardsLabel">Läsa Catima-kort</string>
     <string name="donate">Donera</string>
     <string name="show_archived_cards">Visa arkiverade kort</string>
@@ -308,4 +308,26 @@
     <string name="zoomBackImage">Zooma baksidesbilden</string>
     <string name="show_card_id">Visa kort-ID</string>
     <string name="open_in_gallery">Öppna i bildgalleriet</string>
+    <string name="settings_wear_sync">Synka med Wear OS</string>
+    <string name="wear_sync_permission_required">Catima behöver få de behörigheter du nekade appen för att kunna synka med din smarta klocka med Wear OS</string>
+    <string name="settings_wear_sync_devices">Tillåtna Wear OS-enheter</string>
+    <string name="settings_wear_sync_devices_summary">Hantera enheter som tillåts synka över Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Inga tillåtna enheter</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> tillåten enhet</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> tillåtna enheter</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Blockerade Wear OS-enheter</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Hantera blockerade Wear OS-enheter</string>
+    <string name="settings_wear_sync_no_blocked_devices">Inga blockerade enheter</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> blockerad enhet</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> blockerade enheter</item>
+    </plurals>
+    <string name="wear_bt_pairing_allow">Tillåt</string>
+    <string name="wear_bt_pairing_block">Blockera</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> tillåts nu synka.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> har blockerats.</string>
+    <string name="wear_bt_critical_error_channel_name">Kritiskt fel vid Wear OS-synkning</string>
+    <string name="open_settings">Öppna inställningar</string>
 </resources>

@@ -222,8 +222,8 @@
     <string name="app_name">卡提碼</string>
     <string name="permissionReadCardsDescription">讀取卡提碼卡片及卡片資訊，包含註記與圖片</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時避免螢幕鎖定</string>
-    <string name="settings_allow_content_provider_read_summary">其他程式仍然需要取得權限</string>
-    <string name="settings_allow_content_provider_read_title">允許其他程式使用我的資料</string>
+    <string name="settings_allow_content_provider_read_summary">允許 Gadgetbridge 應用程式同步卡片到支援的手表</string>
+    <string name="settings_allow_content_provider_read_title">與 Gadgetbridge 同步</string>
     <string name="settings_keep_screen_on_summary">觀看卡片時避免螢幕關閉</string>
     <string name="balanceParsingFailed">無效餘額</string>
     <string name="view_online">網站上顯示</string>
@@ -296,4 +296,8 @@
     <string name="nfc_blocked_while_viewing_card">NFC 已暫停</string>
     <string name="change_settings">變更設定</string>
     <string name="nfc_block_system_error">暫停 NFC 失敗</string>
+    <string name="sort_by_most_recently_added">最近添加</string>
+    <string name="show_card_id">顯示卡片 ID</string>
+    <string name="settings_wear_sync">與 WearOS 同步</string>
+    <string name="settings_wear_sync_devices">允許的 Wear OS 裝置</string>
 </resources>

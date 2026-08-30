@@ -1,11 +1,11 @@
 Sylvia van Os
 Branden Archer
-solokot
 J. Lavoie
+solokot
 Allan Nordhøy
 Oğuz Ersen
-Heimen Stoffels
 B o d o
+Heimen Stoffels
 FC (Fay) Stegerman
 大王叫我来巡山
 StoyanDimitrov
@@ -14,12 +14,12 @@ Katharine Chui / Katie
 Silvério Santos
 mondstern
 IllusiveMan196
+Fjuro
 Edgars Andersons
 Максим Горпиніч
 Liner Seven
-Fjuro
-Priit Jõerüüt
 GitSpoon
+Priit Jõerüüt
 Joel A
 Altonss
 Michael Moroni
@@ -29,13 +29,13 @@ laralem
 Petr Novák
 Vasilis
 Taco
-Milo Ivir
-nadiafekihahmed
 pfaffenrodt
-josé m
-Scrambled777
-damjang
+nadiafekihahmed
+Milo Ivir
 Aayush Gupta
+damjang
+Scrambled777
+josé m
 Kachelkaiser
 ikanakova
 Nyatsuki
@@ -46,9 +46,9 @@ HudobniVolk
 Warder
 Balázs Meskó
 Traductor
+AMIR-G98
 Samantaz Fox
 mdvhimself
-AMIR-G98
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
@@ -60,6 +60,7 @@ Milan Šalka
 Robin
 தமிழ்நேரம்
 huuhaa
+Watchman89
 Skrripy
 Govindgopalyadav
 Gideon
@@ -70,10 +71,10 @@ pacavarn
 ngocanhtve
 josé m.
 aradxxx
-Watchman89
 StellarSand
 Quentin PAGÈS
 Projjal Moitra
+Hosted Weblate user 54392
 Aliaksandr Trush
 e-michalak
 தமிழ் நேரம்
@@ -83,7 +84,6 @@ Ziad OUALHADJ
 Robin Liu
 Ricky Tigg
 Renko
-Hosted Weblate user 54392
 Denis Shilin
 しいたけ
 Alexander Ivanov

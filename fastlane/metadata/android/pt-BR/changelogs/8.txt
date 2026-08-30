@@ -1,4 +1,4 @@
-- O brilho da tela aumenta para o máximo ao exibir um cartão, para ajudar os leitores de código de barras a capturá-lo com sucesso.
-- Adição de confirmação ao excluir um cartão.
-- Adição de traduções para alemão e tcheco.
-- Alteração para maior clareza na tradução para italiano.
+- Brilho da tela aumenta ao máximo ao exibir cartão para ajudar os leitores na leitura. (pull #54)
+- Adicionada confirmação ao excluir um cartão. (pull #55)
+- Adicionadas traduções para alemão (pull #57) e tcheco (pull #58)
+- Esclarecimento na tradução para o italiano (pull #66)

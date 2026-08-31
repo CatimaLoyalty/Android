@@ -1,3 +1,4 @@
 - Bildlaufleiste zur Kartenliste hinzugefügt
 - Startbildschirm hinzugefügt
 - Einige Probleme mit den Abständen zum Bildschirmrand behoben
+- Barcode vorübergehend aus der Kartenansicht entfernt

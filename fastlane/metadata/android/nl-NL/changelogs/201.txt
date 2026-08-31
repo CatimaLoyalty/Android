@@ -1,3 +1,4 @@
 - Scrollbalk toegevoegd aan kaartenlijst
 - Welkomstscherm toegevoegd
 - Enkele problemen met afstanden tot beeldschermrand opgelost
+- Barcodewaarde verwijderd van kaartweergave

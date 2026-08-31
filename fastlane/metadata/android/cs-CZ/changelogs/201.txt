@@ -1,3 +1,4 @@
 - Přidán posuvník na seznam karet
 - Přidána úvodní obrazovka
 - Opraveny problémy s odsazením
+- Odstraněna hodnota čárového kódu ze zobrazení karty

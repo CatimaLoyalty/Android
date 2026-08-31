@@ -1,0 +1,1 @@
+- Corrigir a não atualização do widget de lista ao abrir um cartão a partir dele

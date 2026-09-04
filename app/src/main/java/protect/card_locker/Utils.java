@@ -120,12 +120,13 @@ public class Utils {
     static final int BITMAP_SIZE_SMALL = 512;
     static final int BITMAP_SIZE_BIG = 1600;
 
-    private static void showToast(Context context, int message) {
+    // Displays the toast immediately on the main UI loop, or asks Android to display it there otherwise.
+    static private void showToast(Context context, int message, int duration) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, message, duration).show();
         } else {
             new Handler(Looper.getMainLooper()).post(
-                    () -> Toast.makeText(context, message, Toast.LENGTH_LONG).show());
+                    () -> Toast.makeText(context, message, duration).show());
         }
     }
 
@@ -164,7 +165,7 @@ public class Utils {
 
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
-            showToast(context, R.string.errorReadingImage);
+            showToast(context, R.string.errorReadingImage, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -174,7 +175,7 @@ public class Utils {
         } catch (IOException e) {
             Log.e(TAG, "Error getting data from image file");
             e.printStackTrace();
-            showToast(context, R.string.errorReadingImage);
+            showToast(context, R.string.errorReadingImage, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -182,7 +183,7 @@ public class Utils {
 
         if (barcodesFromBitmap.isEmpty()) {
             Log.i(TAG, "No barcode found in image file");
-            showToast(context, R.string.noBarcodeFound);
+            showToast(context, R.string.noBarcodeFound, Toast.LENGTH_LONG);
         }
 
         return barcodesFromBitmap;
@@ -192,7 +193,7 @@ public class Utils {
         Log.i(TAG, "Received Pkpass file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Pkpass did not contain any data");
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -201,7 +202,7 @@ public class Utils {
              pkpassParser = new PkpassParser(context, uri);
         } catch (Exception e) {
             Log.e(TAG, "Error reading pkpass file", e);
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -211,7 +212,7 @@ public class Utils {
                 return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
             } catch (Exception e) {
                 Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                showToast(context, R.string.errorReadingFile);
+                showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                 return new ArrayList<>();
             }
         }
@@ -223,7 +224,7 @@ public class Utils {
                  parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
             } catch (Exception e) {
                 Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                showToast(context, R.string.errorReadingFile);
+                showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                 return new ArrayList<>();
             }
             parseResult.setNote(locale);
@@ -237,7 +238,7 @@ public class Utils {
         Log.i(TAG, "Received Pkpasses file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Pkpasses did not contain any data");
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -246,7 +247,7 @@ public class Utils {
             pkpassesParser = new PkpassesParser(context, uri);
         } catch (Exception e) {
             Log.e(TAG, "Error reading pkpasses file", e);
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -260,7 +261,7 @@ public class Utils {
                     parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null));
                 } catch (Exception e) {
                     Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                    showToast(context, R.string.errorReadingFile);
+                    showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                     return new ArrayList<>();
                 }
                 parseResult.setNote(String.format(context.getString(R.string.cardWithNumber), i+1));
@@ -271,7 +272,7 @@ public class Utils {
                         parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
                     } catch (Exception e) {
                         Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                        showToast(context, R.string.errorReadingFile);
+                        showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                         return new ArrayList<>();
                     }
                     parseResult.setNote(String.format(context.getString(R.string.cardWithNumberAndLocale), i+1, locale));
@@ -289,7 +290,7 @@ public class Utils {
         Log.i(TAG, "Received PDF file with possible barcode");
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
             return new ArrayList<>();
         }
 
@@ -326,7 +327,7 @@ public class Utils {
             }
         } catch (IOException e) {
             Log.e(TAG, "Error reading PDF file", e);
-            showToast(context, R.string.errorReadingFile);
+            showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
         } finally {
             // Resource handling
             if (renderer != null) {
@@ -343,7 +344,7 @@ public class Utils {
 
         if (barcodesFromPdfPages.isEmpty()) {
             Log.i(TAG, "No barcode found in pdf file");
-            showToast(context, R.string.noBarcodeFound);
+            showToast(context, R.string.noBarcodeFound, Toast.LENGTH_LONG);
         }
         return barcodesFromPdfPages;
     }
@@ -380,7 +381,7 @@ public class Utils {
 
             if (intentData == null) {
                 Log.e(TAG, "Uri did not contain any data");
-                showToast(context, R.string.errorReadingFile);
+                showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                 return new ArrayList<>();
             }
 
@@ -392,7 +393,7 @@ public class Utils {
                 return retrieveBarcodesFromPkPass(context, intentData);
             } catch (Exception e) {
                 Log.e(TAG, "Error reading pkpass file", e);
-                showToast(context, R.string.errorReadingFile);
+                showToast(context, R.string.errorReadingFile, Toast.LENGTH_LONG);
                 return new ArrayList<>();
             }
         }

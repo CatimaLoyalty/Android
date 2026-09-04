@@ -1,0 +1,1 @@
+- Naprawiono błąd, w wyniku którego widżet listy nie aktualizował się po otwarciu karty z tego widżetu

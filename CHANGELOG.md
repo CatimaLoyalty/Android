@@ -3,6 +3,7 @@
 ## Unreleased (Android) - 1003
 
 - Fix list widget not updating when opening a card from it
+- Fix opening pkpass/pdf files from network locations sometimes failing
 
 ## v1.0.1 (Wear OS) - 201 (2026-08-28)
 

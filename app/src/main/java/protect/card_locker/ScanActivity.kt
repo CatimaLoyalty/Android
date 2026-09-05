@@ -30,6 +30,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.zxing.DecodeHintType
 import com.google.zxing.ResultPoint
@@ -37,6 +38,9 @@ import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import protect.card_locker.databinding.CustomBarcodeScannerBinding
 import protect.card_locker.databinding.ScanActivityBinding
 
@@ -322,15 +326,22 @@ class ScanActivity : CatimaAppCompatActivity() {
     private fun handleActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(resultCode, resultCode, intent)
 
-        val parseResultList: List<ParseResult> =
-            Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val parseResultList =
+                Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this@ScanActivity)
 
-        if (parseResultList.isEmpty()) {
-            setScannerActive(true)
-            return
+            withContext(Dispatchers.Main) {
+                if (parseResultList.isEmpty()) {
+                    setScannerActive(true)
+                    return@withContext
+                }
+
+                processParseResultList(parseResultList)
+            }
         }
+    }
 
-
+    private fun processParseResultList(parseResultList: List<ParseResult>) {
         Utils.makeUserChooseParseResultFromList(
             this,
             parseResultList,

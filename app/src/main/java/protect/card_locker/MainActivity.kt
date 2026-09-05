@@ -23,7 +23,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.edit
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
@@ -40,7 +42,9 @@ import protect.card_locker.preferences.SettingsActivity
 import protect.card_locker.wearos.WearSyncPermissionRequester
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
-import androidx.core.content.edit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var binding: MainActivityBinding
@@ -502,13 +506,11 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             return
         }
 
-        val parseResultList: MutableList<ParseResult?>?
-
         // Check for shared text
         if (receivedAction == Intent.ACTION_SEND && receivedType == "text/plain") {
             val loyaltyCard = LoyaltyCard()
             loyaltyCard.setCardId(intent.getStringExtra(Intent.EXTRA_TEXT)!!)
-            parseResultList = mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard))
+            processParseResultList(mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard)))
         } else {
             // Parse whatever file was sent, regardless of opening or sharing
             val data: Uri? = when (receivedAction) {
@@ -524,36 +526,42 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             }
 
-            if (receivedType.startsWith("image/")) {
-                parseResultList = Utils.retrieveBarcodesFromImage(this, data)
-            } else if (receivedType == "application/pdf") {
-                parseResultList = Utils.retrieveBarcodesFromPdf(this, data)
-            } else if (mutableListOf<String?>(
-                    "application/vnd.apple.pkpass",
-                    "application/vnd-com.apple.pkpass"
-                ).contains(receivedType)
-            ) {
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
-            } else if (receivedType == "application/vnd.espass-espass") {
-                // FIXME: espass is not pkpass
-                // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
-                // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
-            } else if (receivedType == "application/vnd.apple.pkpasses") {
-                parseResultList = Utils.retrieveBarcodesFromPkPasses(this, data)
-            } else {
-                Log.e(TAG, "Wrong mime-type")
-                return
+            importFile(data, receivedType)
+        }
+    }
+
+    private fun importFile(data: Uri?, receivedType: String) {
+        lifecycleScope.launch {
+            val parseResultList: MutableList<ParseResult?> = withContext(Dispatchers.IO) {
+                when {
+                    receivedType.startsWith("image/") ->
+                        Utils.retrieveBarcodesFromImage(this@MainActivity, data)
+                    receivedType == "application/pdf" ->
+                        Utils.retrieveBarcodesFromPdf(this@MainActivity, data)
+                    receivedType == "application/vnd.apple.pkpass" ||
+                        receivedType == "application/vnd-com.apple.pkpass" ->
+                        Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+                    // FIXME: espass is not pkpass
+                    // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
+                    // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
+                    receivedType == "application/vnd.espass-espass" ->
+                        Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+                    receivedType == "application/vnd.apple.pkpasses" ->
+                        Utils.retrieveBarcodesFromPkPasses(this@MainActivity, data)
+                    else -> {
+                        Log.e(TAG, "Wrong mime-type")
+                        return@withContext null
+                    }
+                }
+            } ?: return@launch
+
+            if (parseResultList.isEmpty()) {
+                finish()
+                return@launch
             }
-        }
 
-        // Give up if we should parse but there is nothing to parse
-        if (parseResultList == null || parseResultList.isEmpty()) {
-            finish()
-            return
+            processParseResultList(parseResultList)
         }
-
-        processParseResultList(parseResultList)
     }
 
     private fun extractIntentFields(intent: Intent) {

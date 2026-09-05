@@ -1,1 +1,2 @@
 - Fix list widget not updating when opening a card from it
+- Fix opening pkpass/pdf files from network locations sometimes failing

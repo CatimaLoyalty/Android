@@ -89,12 +89,31 @@ android {
         }
     }
 
-    // Starting with Android Studio 3 Robolectric is unable to find resources.
-    // The following allows it to find the resources.
-    testOptions.unitTests.isIncludeAndroidResources = true
     tasks.withType<Test>().configureEach {
         testLogging {
             events("started", "passed", "skipped", "failed")
+        }
+    }
+
+    testOptions {
+        unitTests {
+            // Starting with Android Studio 3 Robolectric is unable to find resources.
+            // The following allows it to find the resources.
+            isIncludeAndroidResources = true
+            all {
+                // Needed on Java 17 and up
+                it.jvmArgs(
+                    "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                    "--add-opens=java.base/java.util=ALL-UNNAMED",
+                    "--add-opens=java.base/java.io=ALL-UNNAMED",
+                    "--add-opens=java.base/java.net=ALL-UNNAMED",
+                    "--add-opens=java.base/java.security=ALL-UNNAMED",
+                    "--add-opens=java.base/java.text=ALL-UNNAMED",
+                    "--add-opens=java.base/jdk.internal.access=ALL-UNNAMED",
+                    "--add-opens=java.desktop/java.awt.font=ALL-UNNAMED",
+                    "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+                )
+            }
         }
     }
 

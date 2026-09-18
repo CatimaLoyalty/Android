@@ -1,1 +1,2 @@
-- Corrigir a não atualização do widget de lista ao abrir um cartão a partir dele
+- Corrigido o widget de lista que não atualizava ao abrir um cartão a partir dele
+- Corrigida a falha ocasional ao abrir arquivos pkpass/pdf de locais de rede

@@ -229,7 +229,7 @@
     <string name="switchToBackImage">Byt till bilden på baksidan</string>
     <string name="app_copyright_short">Kopieringsskydd © Sylvia van Os och medverkande</string>
     <string name="switchToFrontImage">Byt till bilden på framsidan</string>
-    <string name="settings_allow_content_provider_read_summary">Appar måste fortfarande begära åtkomst för att få tillgång</string>
+    <string name="settings_allow_content_provider_read_summary">Tillåter att Gadgetbridge-appen synkroniserar dina kort till klockor som stöds.</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
     <string name="settings_allow_content_provider_read_title">Synka med Gadgetbridge</string>
@@ -330,4 +330,20 @@
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> har blockerats.</string>
     <string name="wear_bt_critical_error_channel_name">Kritiskt fel vid Wear OS-synkning</string>
     <string name="open_settings">Öppna inställningar</string>
+    <string name="settings_wear_sync_summary">Tillåter att Wear OS-kompanjonsappen läser dina kort via Bluetooth.</string>
+    <string name="settings_wear_sync_unpair_title">Ta bort enhet?</string>
+    <string name="settings_wear_sync_unpair_message">Ta bort <xliff:g>%1$s</xliff:g> från Catima? Enheten kan då inte längre synkronisera dina kort.</string>
+    <string name="settings_wear_sync_unblock_message">Ta bort <xliff:g>%1$s</xliff:g> från blockeringslistan? Enheten kan då begära åtkomst igen.</string>
+    <string name="settings_wear_sync_unpair">Ta bort</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Tryck på en enhet för att ta bort den.</string>
+    <string name="wear_bt_pairing_channel_name">Parkoppling av Wear OS-enhet</string>
+    <string name="wear_bt_pairing_title">Wear OS-enheten vill synkronisera</string>
+    <string name="wear_bt_pairing_message">Tillåt att <xliff:g>%1$s</xliff:g> får åtkomst till dina kort?</string>
+    <string name="wear_bt_pairing_mismatch_title">Ny auktoriseringsbegäran från <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">Enheten har tidigare auktoriserats men presenterar nu en annan identitetstoken. Det händer när Wear OS-appen installeras om eller dess data rensas. Det kan också tyda på ett försök att förfalska en Bluetooth-MAC-adress.\n\nGodkänn endast om du nyligen installerade om Catima Wear OS-appen på den här klockan.</string>
+    <string name="wear_bt_channel_name">Wear OS-kompanjon</string>
+    <string name="wear_bt_notification_title">Catima Wear OS-synkronisering är aktiv</string>
+    <string name="settings_category_title_smartwatch">Stöd för smartklockor</string>
+    <string name="wear_bt_failed_foreground_notification_title">Kunde inte starta synkroniseringstjänsten för Wear OS</string>
 </resources>

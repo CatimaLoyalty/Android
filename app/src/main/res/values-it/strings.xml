@@ -230,8 +230,8 @@
     <string name="show_validity">Mostra validità</string>
     <string name="show_name_below_image_thumbnail">Mostra il nome sotto l\'immagine</string>
     <string name="permissionReadCardsLabel">Leggi Carte Catima</string>
-    <string name="settings_allow_content_provider_read_summary">Le applicazioni dovranno comunque richiedere l\'autorizzazione per ottenere l\'accesso</string>
-    <string name="settings_allow_content_provider_read_title">Consenti ad altre applicazioni di accedere ai miei dati</string>
+    <string name="settings_allow_content_provider_read_summary">Consente all\'app Gadgetbridge di sincronizzare le tue carte con gli orologi compatibili</string>
+    <string name="settings_allow_content_provider_read_title">Sincronizzare con Gadgetbridge</string>
     <string name="permissionReadCardsDescription">Leggere le sue carte e tutti i suoi dettagli, comprese le note e le immagini</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessario per il funzionamento di alcuni scanner</string>
     <string name="settings_keep_screen_on_summary">Disattiva il timeout dello schermo durante la visualizzazione di una carta</string>
@@ -315,4 +315,5 @@
     <string name="zoomBackImage">Zoom immagine retro</string>
     <string name="open_in_gallery">Apri nella galleria immagini</string>
     <string name="open_settings">Apri le impostazioni</string>
+    <string name="settings_wear_sync">Sincronizzare con Wear OS</string>
 </resources>

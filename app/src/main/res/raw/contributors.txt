@@ -24,6 +24,7 @@ Joel A
 Altonss
 Michael Moroni
 Eric
+damjang
 GM
 Petr Novák
 laralem
@@ -33,7 +34,6 @@ Milo Ivir
 nadiafekihahmed
 pfaffenrodt
 Aayush Gupta
-damjang
 Scrambled777
 josé m
 Kachelkaiser
@@ -46,23 +46,23 @@ HudobniVolk
 Warder
 Balázs Meskó
 Traductor
+NooB9496
 AMIR-G98
 Samantaz Fox
 mdvhimself
-NooB9496
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
 Arno-github
 Feike
 Jose Delvani
+Hosted Weblate user 54392
 Milan Šalka
 Robin
 தமிழ்நேரம்
 huuhaa
 Watchman89
 Skrripy
-Hosted Weblate user 54392
 Govindgopalyadav
 Gideon
 waffshappen
@@ -96,6 +96,7 @@ dukezas
 Virginie
 Tim Trek
 Thu-Trang Pham
+Stephan Paternotte
 Alì Mortacci
 Andre Costa
 Arif Budiman

@@ -1,0 +1,2 @@
+- Menambahkan server Bluetooth untuk mendukung aplikasi pendamping Wear OS
+- Menghapus CHANGELOG yang tertanam

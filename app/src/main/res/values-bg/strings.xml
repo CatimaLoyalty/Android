@@ -310,4 +310,16 @@
     <string name="open_in_gallery">Отваряне в галерията</string>
     <string name="settings_wear_sync">Синхронизиране с Wear OS</string>
     <string name="settings_wear_sync_summary">Разрешава на приложението за Wear OS да чете картите чрез Bluetooth</string>
+    <string name="wear_bt_pairing_message">Разрешавате ли на устройството <xliff:g>%1$s</xliff:g> достъп до картите ви?</string>
+    <string name="wear_bt_pairing_allow">Разрешаване</string>
+    <string name="wear_bt_pairing_block">Забраняване</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> отказано устройство</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> отказани устройства</item>
+    </plurals>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> доверено устройство</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> доверени устройства</item>
+    </plurals>
+    <string name="wear_bt_pairing_mismatch_title">Нова заявка за удостоверяване от <xliff:g>%1$s</xliff:g></string>
 </resources>

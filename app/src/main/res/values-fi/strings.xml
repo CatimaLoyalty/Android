@@ -12,8 +12,7 @@
     <string name="barcodeId">Viivakoodin arvo</string>
     <string name="importVoucherVaultMessage">Valitse vienti Voucher Vaultista tuotavaksi. \nLuo se painamalla \"Export\" Voucher Vaultissa.</string>
     <string name="importVoucherVault">Tuo Voucher Vault -varmuuskopiotiedostosta</string>
-    <string name="importLoyaltyCardKeychainMessage">Valitse tuotava <i>LoyaltyCardKeychain.csv</i>-vientitiedostosi Loyalty Card Keychainista.
-\nTai luo se Loyalty Card Keychainin Import/Export-valikosta painamalla ensin Export (Vie).</string>
+    <string name="importLoyaltyCardKeychainMessage">Valitse tuotava vientitiedostosi Loyalty Card Keychainista. \nTai luo se Loyalty Card Keychainin Import/Export-valikosta painamalla Vie.</string>
     <string name="importLoyaltyCardKeychain">Tuo Loyalty Card Keychain varmuuskopiotiedostosta</string>
     <string name="importFidmeMessage">Valitse vienti FidMe:stä tuotavaksi ja valitse viivakoodityypit manuaalisesti sen jälkeen. \nLuo se FidMe-profiilistasi valitsemalla \"Data Protection\" ja painamalla \"Extract my data\".</string>
     <string name="importFidme">Tuo FidMe-varmuuskopiotiedostosta</string>
@@ -132,8 +131,8 @@
         <item quantity="other">Poistetaanko nämä <xliff:g>%d</xliff:g> korttia pysyvästi\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Poista <xliff:g>%d</xliff:g>kortti</item>
-        <item quantity="other">Poista <xliff:g>%d</xliff:g>korttia</item>
+        <item quantity="one">Poista <xliff:g>%d</xliff:g> kortti</item>
+        <item quantity="other">Poista <xliff:g>%d</xliff:g> korttia</item>
     </plurals>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valittu</item>
@@ -217,7 +216,7 @@
     <string name="donate">Lahjoita</string>
     <string name="permissionReadCardsLabel">Lue Catima-kortteja</string>
     <string name="permissionReadCardsDescription">lue korttisi ja kaikki niiden tiedot, mukaan lukien huomautukset ja kuvat</string>
-    <string name="settings_allow_content_provider_read_summary">Sovellusten tulee silti pyytää lupaa saadakseen pääsyn</string>
+    <string name="settings_allow_content_provider_read_summary">Sallii Gadgetbrigde sovelluksen synkronoida sinun korttisi tuetuille kelloille</string>
     <string name="settings_category_title_privacy">Yksityisyys</string>
     <string name="height">Korkeus</string>
     <string name="switchToFrontImage">Vaihda etukuvaan</string>
@@ -225,7 +224,7 @@
     <string name="settings_display_barcode_max_brightness_summary">Välttämätön, jotta jotkin skannerit toimivat</string>
     <string name="settings_keep_screen_on_summary">Poistaa näytön aikakatkaisun korttia katsellessa</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Poistaa näyttölukituksen käytöstä korttia katsellessa</string>
-    <string name="settings_allow_content_provider_read_title">Salli muiden sovellusten käyttää omaa dataa</string>
+    <string name="settings_allow_content_provider_read_title">Synkronoi Gadgetbridgen avulla</string>
     <string name="settings_oled_dark_summary">Vähentää akun käyttöä OLED-näytöillä</string>
     <string name="switchToBackImage">Vaihda takakuvaan</string>
     <string name="setBarcodeHeight">Aseta viivakoodin korkeus</string>
@@ -254,7 +253,7 @@
     <string name="spend">Kuluta</string>
     <string name="receive">Vastaanota</string>
     <string name="amountParsingFailed">Virheellinen määrä</string>
-    <string name="add_manually_warning_message">Joidenkin kauppojen kohdalla viivakoodin arvo eroaa kortilla olevasta numerosta. Tämän takia viivakoodin syöttäminen käsin ei aina toimi. On vahvasti suositeltua skannata viivakoodi kameralla. Haluatko silti jatkaa?</string>
+    <string name="add_manually_warning_message">Joidenkin korttien kohdalla viivakoodin arvo eroaa kortilla olevasta numerosta. Tämän takia viivakoodin syöttäminen käsin ei aina toimi. On suositeltua skannata viivakoodi kameralla. Haluatko silti jatkaa?</string>
     <string name="addFromPdfFile">Valitse PDF-tiedosto</string>
     <string name="errorReadingFile">Tiedostoa ei voitu lukea</string>
     <string name="failedLaunchingFileManager">Tuettua tiedostonhallintasovellusta ei löytynyt</string>
@@ -309,4 +308,41 @@
     <string name="change_settings">Muuta asetuksia</string>
     <string name="nfc_block_system_error">NFC:n keskeyttäminen epäonnistui</string>
     <string name="open_in_gallery">Avaa kuvagalleriassa</string>
+    <string name="settings_wear_sync">Synkronoi Wear OS kanssa</string>
+    <string name="settings_wear_sync_summary">Salli Wear OS kumppani sovelluksen lukea korttejasi Bluetoothin kautta</string>
+    <string name="wear_sync_permission_required">Catima vaatii oikeuden, jonka kielsit synkronoidakseen sinun Wear OS älykellosi kanssa</string>
+    <string name="settings_wear_sync_devices">Sallitut Wear OS laitteet</string>
+    <string name="settings_wear_sync_devices_summary">Hallitse laitteita, joille on sallittu synkronointi Bluetoothin kautta</string>
+    <string name="settings_wear_sync_no_devices">Ei sallittuja laitteita</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> laite sallittu</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> laittetta sallittu</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Estetyt Wear OS laitteet</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Hallitse estettyjä Wear OS laitteita</string>
+    <string name="settings_wear_sync_no_blocked_devices">Ei estettyjä laitteita</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> laite estetty</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> laitetta estetty</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Poista laite?</string>
+    <string name="settings_wear_sync_unpair_message">Poista <xliff:g>%1$s</xliff:g> Catimasta? Se ei voi enää synkronoida korttejasi.</string>
+    <string name="settings_wear_sync_unblock_message">Poista <xliff:g>%1$s</xliff:g> estettyjen listalta? Se voi lähettää pyyntöjä uudelleen.</string>
+    <string name="settings_wear_sync_unpair">Poista</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Poista laite painamalla.</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS laiteyhdistys</string>
+    <string name="wear_bt_pairing_title">Wear OS laite haluaa synkronoida</string>
+    <string name="wear_bt_pairing_message">Salli <xliff:g>%1$s</xliff:g> pääsyn korttiisi?</string>
+    <string name="wear_bt_pairing_allow">Salli</string>
+    <string name="wear_bt_pairing_block">Estä</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> voi nyt synkronoida.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> estettiin.</string>
+    <string name="wear_bt_pairing_mismatch_title">Uusi valtuutuspyyntö <xliff:g>%1$s</xliff:g>:lta</string>
+    <string name="open_settings">Avaa asetukset</string>
+    <string name="wear_bt_channel_name">Wear OS kumppani</string>
+    <string name="wear_bt_notification_title">Catiman synkronointi Wear OS:ään aktiivinen</string>
+    <string name="settings_category_title_smartwatch">Älykellotuki</string>
+    <string name="wear_bt_failed_foreground_notification_title">Wear OS synkronointipalvelun aloitus epäonnistui</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS synkronoinnin kriittinen virhe</string>
 </resources>

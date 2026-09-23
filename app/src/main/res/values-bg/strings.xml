@@ -322,4 +322,15 @@
         <item quantity="other"><xliff:g>%d</xliff:g> доверени устройства</item>
     </plurals>
     <string name="wear_bt_pairing_mismatch_title">Нова заявка за удостоверяване от <xliff:g>%1$s</xliff:g></string>
+    <string name="settings_wear_sync_unpair_message">Премахване на <xliff:g>%1$s</xliff:g> от Catima? Устройството няма да може да синхронизира карти.</string>
+    <string name="settings_wear_sync_unblock_message">Премахване на <xliff:g>%1$s</xliff:g> от черния списък? Устройството отново ще може да поиска достъп.</string>
+    <string name="wear_bt_pairing_allowed">На устройството <xliff:g>%1$s</xliff:g> е забранено да синхронизира.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="wear_bt_pairing_blocked">Устройството <xliff:g>%1$s</xliff:g> е забранено.</string>
+    <string name="settings_category_title_smartwatch">Поддръжка на интелигентни часовниции</string>
+    <string name="settings_wear_sync_tap_to_remove">Докоснете устройство, за да го премахнете.</string>
+    <string name="settings_wear_sync_unpair">Премахване</string>
+    <string name="wear_bt_pairing_channel_name">Сдвояване на Wear OS устройство</string>
+    <string name="wear_bt_pairing_title">Устройството с Wear OS иска синхронизиране</string>
+    <string name="wear_bt_critical_error_channel_name">Критична грешка на Wear OS при синхронизиране</string>
 </resources>

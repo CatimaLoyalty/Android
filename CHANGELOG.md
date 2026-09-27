@@ -4,6 +4,7 @@
 
 - Fix list widget not updating when opening a card from it
 - Fix opening pkpass/pdf files from network locations sometimes failing
+- Fix crash in Wear OS sync when Bluetooth is disabled
 
 ## v1.0.1 (Wear OS) - 201 (2026-08-28)
 

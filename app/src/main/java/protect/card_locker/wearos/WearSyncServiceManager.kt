@@ -2,22 +2,15 @@ package protect.card_locker.wearos
 
 import android.Manifest
 import android.app.ForegroundServiceStartNotAllowedException
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import protect.card_locker.NotificationInfo
 import protect.card_locker.R
 import protect.card_locker.preferences.Settings
 import protect.card_locker.shared.BluetoothPermissionHelper

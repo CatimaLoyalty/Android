@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.45.1 (Android) - 1004
+## v2.45.1 (Android) - 1004 (2026-09-27)
 
 - Fix list widget not updating when opening a card from it
 - Fix opening pkpass/pdf files from network locations sometimes failing

@@ -128,30 +128,7 @@ object WearSyncServiceManager {
                 // We naively assume we have enough permissions to show a notification as the service should never try to start
                 // before the user gave notification access anyway
                 Log.d(TAG, "Foreground service failed to launch: $e")
-                val channel = NotificationChannel(
-                    NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID,
-                    context.getString(R.string.wear_bt_critical_error_channel_name),
-                    NotificationManager.IMPORTANCE_HIGH
-                ).apply { setShowBadge(false) }
-                context.getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
-                val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID)
-                    .setSmallIcon(R.drawable.ic_notification_error)
-                    .setContentTitle(context.getString(R.string.wear_bt_failed_foreground_notification_title))
-                    .setContentText(e.message)
-                    .build()
-                with(NotificationManagerCompat.from(context)) {
-                    if (ActivityCompat.checkSelfPermission(
-                            context,
-                            Manifest.permission.POST_NOTIFICATIONS
-                        ) != PackageManager.PERMISSION_GRANTED
-                    ) {
-                        return@with
-                    }
-                    notify(
-                        NotificationInfo.WearBluetooth.CRITICAL_ERROR_NOTIFICATION_ID,
-                        notification
-                    )
-                }
+                BluetoothServerService.showBluetoothServerError(context, context.getString(R.string.android_blocked_startup))
             }
         } else {
             ContextCompat.startForegroundService(

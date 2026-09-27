@@ -396,5 +396,4 @@
     <string name="wear_bt_failed_foreground_notification_title">Failed to start Wear OS sync service</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS sync critical error</string>
     <string name="android_blocked_startup">Android blocked starting the Wear OS service</string>
-    <string name="bluetooth_disabled">Bluetooth is disabled</string>
 </resources>

@@ -105,7 +105,6 @@ class BluetoothServerService : Service() {
         val adapter = (getSystemService(BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
         if (adapter == null || !adapter.isEnabled) {
             Log.w(TAG, "Bluetooth not available or disabled")
-            showBluetoothServerError(this, getString(R.string.bluetooth_disabled))
             stopSelf()
             return START_STICKY
         }

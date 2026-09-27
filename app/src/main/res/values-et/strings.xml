@@ -346,4 +346,5 @@
     <string name="wear_bt_critical_error_channel_name">Kriitiline viga Wear OS-iga sünkroonimisel</string>
     <string name="wear_bt_pairing_mismatch_message">See seade oli varem autoriseeritud, kuid esitab nüüd päringutele teise tunnusloa. See juhtub siis, kui Wear OS-i rakendus on uuesti paigaldatud või selle andmed on kustutatud. See võib viidata ka Bluetoothi MAC-aadressi võltsimise katsele.\n\nNõustu sellega ainult juhul, kui oled hiljuti sellele kellale Catima Wear OS-i rakenduse uuesti paigaldanud.</string>
     <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="android_blocked_startup">Android blokeeris Wear OS-i teenuse käivitamise</string>
 </resources>

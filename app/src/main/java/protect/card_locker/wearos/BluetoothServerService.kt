@@ -106,7 +106,7 @@ class BluetoothServerService : Service() {
         if (adapter == null || !adapter.isEnabled) {
             Log.w(TAG, "Bluetooth not available or disabled")
             stopSelf()
-            return START_STICKY
+            return START_NOT_STICKY
         }
 
         // Avoid tearing down a working accept socket every time Settings is resumed.

@@ -1,5 +1,6 @@
 package protect.card_locker.wearos
 
+import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
@@ -7,11 +8,15 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothServerSocket
 import android.bluetooth.BluetoothSocket
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import org.json.JSONArray
 import org.json.JSONObject
 import protect.card_locker.DBHelper
@@ -33,37 +38,42 @@ class BluetoothServerService : Service() {
         private const val TAG = "CatimaBtServer"
         private const val NOTIFICATION_ID = NotificationInfo.WearBluetooth.NOTIFICATION_ID
         private const val CHANNEL_ID = NotificationInfo.WearBluetooth.CHANNEL_ID
+
+        fun showBluetoothServerError(context: Context, error: String) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channel = NotificationChannel(
+                    NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID,
+                    context.getString(R.string.wear_bt_critical_error_channel_name),
+                    NotificationManager.IMPORTANCE_HIGH
+                ).apply { setShowBadge(false) }
+                context.getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
+            }
+            val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_notification_error)
+                .setContentTitle(context.getString(R.string.wear_bt_failed_foreground_notification_title))
+                .setContentText(error)
+                .build()
+            with(NotificationManagerCompat.from(context)) {
+                if (ActivityCompat.checkSelfPermission(
+                        context,
+                        Manifest.permission.POST_NOTIFICATIONS
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    return@with
+                }
+                notify(
+                    NotificationInfo.WearBluetooth.CRITICAL_ERROR_NOTIFICATION_ID,
+                    notification
+                )
+            }
+        }
     }
 
     private var serverThread: AcceptThread? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (!BluetoothPermissionHelper.isBluetoothConnectGranted(this)) {
-            Log.w(TAG, "BLUETOOTH_CONNECT permission not granted, stopping")
-            stopSelf()
-            return START_NOT_STICKY
-        }
-        val adapter = (getSystemService(BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
-        if (adapter == null || !adapter.isEnabled) {
-            Log.w(TAG, "Bluetooth not available or disabled")
-            stopSelf()
-            return START_NOT_STICKY
-        }
-
-        // Avoid tearing down a working accept socket every time Settings is resumed.
-        if (serverThread?.isAlive == true) {
-            Log.d(TAG, "Bluetooth server already listening")
-            return START_STICKY
-        }
-
-        startForegroundWithNotification()
-        serverThread?.cancel()
-        serverThread = AcceptThread(adapter).also { it.start() }
-        Log.d(TAG, "Bluetooth server started")
-        return START_STICKY
-    }
-
-    private fun startForegroundWithNotification() {
+        // First, create the foreground service with notification
+        // Android is very picky about requiring the foreground service to be started quickly and will crash the entire app if that doesn't happen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -84,6 +94,31 @@ class BluetoothServerService : Service() {
         } else {
             startForeground(NOTIFICATION_ID, notification)
         }
+
+        // After we have a running notification, try error handling and stopping the service if we have issues
+        if (!BluetoothPermissionHelper.isBluetoothConnectGranted(this)) {
+            Log.w(TAG, "BLUETOOTH_CONNECT permission not granted, stopping")
+            showBluetoothServerError(this, getString(R.string.wear_sync_permission_required))
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        val adapter = (getSystemService(BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
+        if (adapter == null || !adapter.isEnabled) {
+            Log.w(TAG, "Bluetooth not available or disabled")
+            stopSelf()
+            return START_NOT_STICKY
+        }
+
+        // Avoid tearing down a working accept socket every time Settings is resumed.
+        if (serverThread?.isAlive == true) {
+            Log.d(TAG, "Bluetooth server already listening")
+            return START_STICKY
+        }
+
+        serverThread?.cancel()
+        serverThread = AcceptThread(adapter).also { it.start() }
+        Log.d(TAG, "Bluetooth server started")
+        return START_STICKY
     }
 
     override fun onDestroy() {

@@ -2,22 +2,15 @@ package protect.card_locker.wearos
 
 import android.Manifest
 import android.app.ForegroundServiceStartNotAllowedException
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import protect.card_locker.NotificationInfo
 import protect.card_locker.R
 import protect.card_locker.preferences.Settings
 import protect.card_locker.shared.BluetoothPermissionHelper
@@ -128,30 +121,7 @@ object WearSyncServiceManager {
                 // We naively assume we have enough permissions to show a notification as the service should never try to start
                 // before the user gave notification access anyway
                 Log.d(TAG, "Foreground service failed to launch: $e")
-                val channel = NotificationChannel(
-                    NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID,
-                    context.getString(R.string.wear_bt_critical_error_channel_name),
-                    NotificationManager.IMPORTANCE_HIGH
-                ).apply { setShowBadge(false) }
-                context.getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
-                val notification = NotificationCompat.Builder(context, NotificationInfo.WearBluetooth.CRITICAL_ERROR_CHANNEL_ID)
-                    .setSmallIcon(R.drawable.ic_notification_error)
-                    .setContentTitle(context.getString(R.string.wear_bt_failed_foreground_notification_title))
-                    .setContentText(e.message)
-                    .build()
-                with(NotificationManagerCompat.from(context)) {
-                    if (ActivityCompat.checkSelfPermission(
-                            context,
-                            Manifest.permission.POST_NOTIFICATIONS
-                        ) != PackageManager.PERMISSION_GRANTED
-                    ) {
-                        return@with
-                    }
-                    notify(
-                        NotificationInfo.WearBluetooth.CRITICAL_ERROR_NOTIFICATION_ID,
-                        notification
-                    )
-                }
+                BluetoothServerService.showBluetoothServerError(context, context.getString(R.string.android_blocked_startup))
             }
         } else {
             ContextCompat.startForegroundService(

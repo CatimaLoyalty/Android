@@ -104,7 +104,7 @@
     <string name="cardId">カード番号</string>
     <string name="note">メモ</string>
     <string name="storeName">名前</string>
-    <string name="noMatchingGiftCards">該当なし</string>
+    <string name="noMatchingGiftCards">該当するものがありませんでした。検索条件を変更してみてください。</string>
     <string name="noGiftCards">+ ボタンからカードを新規追加、⋮ メニューからカードをインポート出来ます</string>
     <string name="action_add">追加</string>
     <string name="action_search">検索</string>
@@ -337,4 +337,5 @@
     <string name="settings_category_title_smartwatch">対応するスマートウォッチです</string>
     <string name="wear_bt_failed_foreground_notification_title">Wear OSとの同期サービスの開始が失敗しました</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS 同期の深刻なエラー</string>
+    <string name="android_blocked_startup">AndroidがWear OSサービスの開始を妨げています</string>
 </resources>

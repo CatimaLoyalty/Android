@@ -354,4 +354,5 @@
     <string name="wear_bt_pairing_allowed">Agora, a sincronização de <xliff:g>%1$s</xliff:g> é permitida.</string>
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> foi bloqueado.</string>
     <string name="wear_bt_pairing_mismatch_title">Nova solicitação de autorização de <xliff:g>%1$s</xliff:g></string>
+    <string name="android_blocked_startup">O Android bloqueou a inicialização do serviço Wear OS</string>
 </resources>

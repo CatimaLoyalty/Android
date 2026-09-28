@@ -362,4 +362,5 @@
     <string name="settings_category_title_smartwatch">Obsługa smartwatchów</string>
     <string name="wear_bt_failed_foreground_notification_title">Nie udało się uruchomić usługi synchronizacji Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Krytyczny błąd synchronizacji systemu Wear OS</string>
+    <string name="android_blocked_startup">System Android zablokował uruchomienie usługi Wear OS</string>
 </resources>

@@ -362,4 +362,5 @@
     <string name="settings_category_title_smartwatch">Поддержка умных часов</string>
     <string name="wear_bt_failed_foreground_notification_title">Невозможно запустить службу синхронизации Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Критическая ошибка синхронизации Wear OS</string>
+    <string name="android_blocked_startup">Android блокирует запуск службы Wear OS</string>
 </resources>

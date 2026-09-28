@@ -361,4 +361,5 @@
     <string name="settings_category_title_smartwatch">Podpora za pametne ure</string>
     <string name="wear_bt_failed_foreground_notification_title">Zagon storitve sinhronizacije Wear OS ni uspel</string>
     <string name="wear_bt_critical_error_channel_name">Kritična napaka pri sinhronizaciji Wear OS</string>
+    <string name="android_blocked_startup">Android je blokiral zagon storitve Wear OS</string>
 </resources>

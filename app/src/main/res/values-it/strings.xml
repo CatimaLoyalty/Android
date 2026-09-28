@@ -316,4 +316,5 @@
     <string name="open_in_gallery">Apri nella galleria immagini</string>
     <string name="open_settings">Apri le impostazioni</string>
     <string name="settings_wear_sync">Sincronizzare con Wear OS</string>
+    <string name="android_blocked_startup">Android ha bloccato l\'avvio del servizio Wear OS</string>
 </resources>

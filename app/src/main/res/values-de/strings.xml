@@ -346,4 +346,5 @@
     <string name="wear_sync_permission_required">Catima benötigt die von dir verweigerte Erlaubnis, um mit deiner Wear OS Smartwatch zu synchronisieren</string>
     <string name="settings_wear_sync_summary">Erlaube der Wear OS Begleit-App die Karten per Bluetooth auszulesen</string>
     <string name="settings_wear_sync">Synchronisiere mit Wear OS</string>
+    <string name="android_blocked_startup">Der Start des Wear OS-Dienstes wurde von Android blockiert</string>
 </resources>

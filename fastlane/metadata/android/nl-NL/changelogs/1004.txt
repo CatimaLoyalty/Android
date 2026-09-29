@@ -1,2 +1,3 @@
 - Opgelost dat de lijstwidget niet update als er een kaart door geopend wordt
 - Opgelost dat het openen van pkpass/pdf-bestanden vanaf netwerklocaties soms mislukt
+- Crash opgelost tijdens de synchronisatie van Wear OS wanneer Bluetooth is uitgeschakeld

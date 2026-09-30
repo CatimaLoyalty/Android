@@ -346,4 +346,5 @@
     <string name="settings_category_title_smartwatch">Smartwatch-ondersteuning</string>
     <string name="wear_bt_failed_foreground_notification_title">Starten van Wear OS-synchronisatieservice is mislukt</string>
     <string name="wear_bt_critical_error_channel_name">Kritische fout met Wear OS-synchronisatie</string>
+    <string name="android_blocked_startup">Android blokkeerde het starten van de Wear OS-service</string>
 </resources>

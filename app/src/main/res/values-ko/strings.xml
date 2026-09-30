@@ -338,4 +338,5 @@
     <string name="wear_sync_permission_required">Catima에서 Wear OS 스마트워치와 동기화하려면 거절하셨던 권한이 필요합니다</string>
     <string name="zoomFrontImage">전면 사진 확대</string>
     <string name="zoomBackImage">후면 사진 확대</string>
+    <string name="android_blocked_startup">Android에서 Wear OS 서비스 시작을 차단함</string>
 </resources>

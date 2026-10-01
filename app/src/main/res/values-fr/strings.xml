@@ -354,4 +354,5 @@
     <string name="wear_bt_failed_foreground_notification_title">Erreur au démarrage du service de synchronisation Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Erreur critique de synchronisation Wear OS</string>
     <string name="wear_bt_pairing_mismatch_message">Cet appareil était autorisé précédemment mais affiche maintenant un jeton d\'identité différent. Cela arrive lorsque l\'appli Wear OS est réinstallée ou ses données sont supprimées. Cela peut aussi indiquer une tentative d\'usurpation d\'adresse MAC du Bluetooth.\n\nAcceptez uniquement si vous avez récemment réinstallée l\'appli Catima Wear OS sur cette montre.</string>
+    <string name="android_blocked_startup">Android a bloqué le démarrage du service Wear OS</string>
 </resources>

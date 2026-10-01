@@ -229,7 +229,7 @@
     <string name="switchToBackImage">Byt till bilden på baksidan</string>
     <string name="app_copyright_short">Kopieringsskydd © Sylvia van Os och medverkande</string>
     <string name="switchToFrontImage">Byt till bilden på framsidan</string>
-    <string name="settings_allow_content_provider_read_summary">Tillåter att Gadgetbridge-appen synkroniserar dina kort till klockor som stöds.</string>
+    <string name="settings_allow_content_provider_read_summary">Tillåter att Gadgetbridge-appen synkroniserar dina kort mot klockor som stöds</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
     <string name="settings_allow_content_provider_read_title">Synka med Gadgetbridge</string>
@@ -330,7 +330,7 @@
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> har blockerats.</string>
     <string name="wear_bt_critical_error_channel_name">Kritiskt fel vid Wear OS-synkning</string>
     <string name="open_settings">Öppna inställningar</string>
-    <string name="settings_wear_sync_summary">Tillåter att Wear OS-kompanjonsappen läser dina kort via Bluetooth.</string>
+    <string name="settings_wear_sync_summary">Tillåter att Wear OS:s medföljande app får läsa dina kort via Bluetooth</string>
     <string name="settings_wear_sync_unpair_title">Ta bort enhet?</string>
     <string name="settings_wear_sync_unpair_message">Ta bort <xliff:g>%1$s</xliff:g> från Catima? Enheten kan då inte längre synkronisera dina kort.</string>
     <string name="settings_wear_sync_unblock_message">Ta bort <xliff:g>%1$s</xliff:g> från blockeringslistan? Enheten kan då begära åtkomst igen.</string>
@@ -346,4 +346,5 @@
     <string name="wear_bt_notification_title">Catima Wear OS-synkronisering är aktiv</string>
     <string name="settings_category_title_smartwatch">Stöd för smartklockor</string>
     <string name="wear_bt_failed_foreground_notification_title">Kunde inte starta synkroniseringstjänsten för Wear OS</string>
+    <string name="android_blocked_startup">Android blockerade starten av Wear OS-tjänsten</string>
 </resources>

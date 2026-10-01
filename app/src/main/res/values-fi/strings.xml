@@ -345,4 +345,6 @@
     <string name="settings_category_title_smartwatch">Älykellotuki</string>
     <string name="wear_bt_failed_foreground_notification_title">Wear OS synkronointipalvelun aloitus epäonnistui</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS synkronoinnin kriittinen virhe</string>
+    <string name="wear_bt_pairing_mismatch_message">Tämä laite oli ennen auktorisoitu, mutta nyt esittää erilaista identiteettitokenia. Tämä tapahtuu kun Wear OS sovellus uudelleenasennetaan tai kaikki data poistetaan. Tämä voi myös merkitä Bluetooth MAC huijaussyrityksen.\n\nHyväksy vain silloin, jos olet lähiaikoina uudelleenasentanut Catima Wear OS sovelluksen tällä kellolla.</string>
+    <string name="android_blocked_startup">Android esti Wear OS palvelun aloittamisen</string>
 </resources>

@@ -1,9 +1,13 @@
 package protect.card_locker;
 
 import android.app.Application;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.IntentFilter;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
+
 import org.acra.ACRA;
 import org.acra.config.CoreConfigurationBuilder;
 import org.acra.config.DialogConfigurationBuilder;
@@ -11,6 +15,7 @@ import org.acra.config.MailSenderConfigurationBuilder;
 import org.acra.data.StringFormat;
 
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.wearos.BluetoothStateReceiver;
 import protect.card_locker.wearos.WearSyncServiceManager;
 
 public class LoyaltyCardLockerApplication extends Application {
@@ -47,5 +52,12 @@ public class LoyaltyCardLockerApplication extends Application {
         // The service checks BLUETOOTH_CONNECT itself and stops if the permission is missing.
         // The permission is requested from the launcher Activity when the UI resumes.
         WearSyncServiceManager.INSTANCE.synchronize(this, null);
+
+        ContextCompat.registerReceiver(
+                this,
+                new BluetoothStateReceiver(),
+                new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED),
+                ContextCompat.RECEIVER_NOT_EXPORTED
+        );
     }
 }

@@ -337,4 +337,5 @@
     <plurals name="settings_wear_sync_blocked_devices_summary_count">
         <item quantity="other">已封鎖 <xliff:g>%d</xliff:g> 個裝置</item>
     </plurals>
+    <string name="android_blocked_startup">Android 阻擋了啟動 Wear OS 服務</string>
 </resources>

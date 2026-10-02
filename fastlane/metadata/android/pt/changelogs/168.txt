@@ -1,0 +1,1 @@
+- Adiciona a opção para abrir imagens no visualizador interno da galeria

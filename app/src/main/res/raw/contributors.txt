@@ -10,13 +10,13 @@ FC (Fay) Stegerman
 大王叫我来巡山
 StoyanDimitrov
 SlavekB
-Katharine Chui / Katie
 Silvério Santos
+Katharine Chui / Katie
 mondstern
 IllusiveMan196
 Fjuro
-Edgars Andersons
 Liner Seven
+Edgars Andersons
 Максим Горпиніч
 GitSpoon
 Priit Jõerüüt
@@ -26,9 +26,9 @@ Michael Moroni
 Eric
 damjang
 GM
-Petr Novák
-laralem
 Vasilis
+laralem
+Petr Novák
 Taco
 109247019824
 Milo Ivir
@@ -43,23 +43,24 @@ Nyatsuki
 Jiri Grönroos
 Giovanni Donisi
 HudobniVolk
-Warder
-Balázs Meskó
-Traductor
 NooB9496
+Warder
 AMIR-G98
+Traductor
+Balázs Meskó
 Samantaz Fox
 mdvhimself
-Cliff Heraldo
+Hosted Weblate user 54392
+Feike
+Arno-github
 Sergio Paredes
 Ankit Tiwari
-Arno-github
-Feike
+Cliff Heraldo
 Jose Delvani
-Hosted Weblate user 54392
-Milan Šalka
 Robin
+Milan Šalka
 தமிழ்நேரம்
+josé m.
 huuhaa
 Watchman89
 Skrripy
@@ -70,8 +71,8 @@ Marnick L'Eau
 JungHee Lee
 pacavarn
 ngocanhtve
-josé m.
 aradxxx
+Stephan Paternotte
 StellarSand
 Quentin PAGÈS
 Projjal Moitra
@@ -79,6 +80,7 @@ Aliaksandr Trush
 e-michalak
 தமிழ் நேரம்
 hajertabbane
+ezn24
 Denis Shilin
 Renko
 Ricky Tigg
@@ -90,19 +92,19 @@ Alexander Ivanov
 Miha Frangež
 stavpup
 mrestivill
-ezn24
 ehrt74
 dukezas
 Virginie
 Tim Trek
 Thu-Trang Pham
-Stephan Paternotte
+Peter Dave Hello
 Alì Mortacci
 Andre Costa
 Arif Budiman
 arshbeerSingh
 Augustin LAVILLE
 Freddo espresso
+AgenteGabrielofc2023
 Govind S Nair
 Kim Seohyun
 Libre
@@ -110,5 +112,4 @@ echo r"0xX4H" | rev
 rudy3
 Michael Gangolf
 PRATHAMESH BHAGAT 
-Peter Dave Hello
 Thomas Bertels

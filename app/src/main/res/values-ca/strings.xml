@@ -265,4 +265,20 @@
     <string name="errorReadingImage">No s\'ha pogut llegir la imatge</string>
     <string name="balance">Saldo</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="settings_disable_nfc_while_viewing_card">Parar NFC</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Parar NFC per tal de prevenir pagaments per NFC mentre es mostra la targeta</string>
+    <string name="currency">Moneda</string>
+    <string name="points">Punts</string>
+    <string name="balanceParsingFailed">Import invàlid</string>
+    <string name="chooseImportType">Importar dades desde</string>
+    <string name="privacy_policy">Politica de privacitat</string>
+    <string name="accept">Acceptar</string>
+    <string name="importCatima">Importar desde Catima</string>
+    <string name="importCatimaMessage">Per importar sel•lecciona el fitxer generat desde Catima.\nCrea el document desde el menú importar/exportar desde una altra aplicació Catima, clicant Exportar.</string>
+    <string name="importFidme">Importar desde FidMe</string>
+    <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
+    <string name="importVoucherVault">Importar desde Voucher Vault</string>
+    <string name="barcodeId">Valor de codi de barres</string>
+    <string name="sameAsCardId">El mateix que ID</string>
+    <string name="setBarcodeId">Dedar el valor del codi de barres</string>
 </resources>

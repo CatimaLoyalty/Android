@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -23,6 +24,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import protect.card_locker.contentprovider.CardsContentProvider;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
@@ -555,7 +558,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static long insertLoyaltyCard(
-            final SQLiteDatabase database, final String store, final String note, final Date validFrom,
+            final SQLiteDatabase database, final Context context, final String store, final String note, final Date validFrom,
             final Date expiry, final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final @NonNull Charset barcodeEncoding,
             final Integer headerColor,
@@ -586,11 +589,13 @@ public class DBHelper extends SQLiteOpenHelper {
         database.setTransactionSuccessful();
         database.endTransaction();
 
+        notifyChange(database, context, CardsContentProvider.CARDS_URI);
+
         return id;
     }
 
     public static long insertLoyaltyCard(
-            final SQLiteDatabase database, final int id, final String store, final String note,
+            final SQLiteDatabase database, final Context context, final int id, final String store, final String note,
             final Date validFrom, final Date expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final @NonNull Charset barcodeEncoding,
@@ -623,11 +628,13 @@ public class DBHelper extends SQLiteOpenHelper {
         database.setTransactionSuccessful();
         database.endTransaction();
 
+        notifyChange(database, context, CardsContentProvider.CARDS_URI);
+
         return id;
     }
 
     public static boolean updateLoyaltyCard(
-            SQLiteDatabase database, final int id, final String store, final String note,
+            SQLiteDatabase database, final Context context, final int id, final String store, final String note,
             final Date validFrom, final Date expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final @NonNull Charset barcodeEncoding,
@@ -661,24 +668,34 @@ public class DBHelper extends SQLiteOpenHelper {
         database.setTransactionSuccessful();
         database.endTransaction();
 
+        if (rowsUpdated == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+        }
+
         return (rowsUpdated == 1);
     }
 
-    public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
+    public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final Context context, final int id, final int archiveStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
+        if (rowsUpdated == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+        }
         return (rowsUpdated == 1);
     }
 
-    public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) {
+    public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final Context context, final int id, final int starStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
+        if (rowsUpdated == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+        }
         return (rowsUpdated == 1);
     }
 
@@ -688,6 +705,7 @@ public class DBHelper extends SQLiteOpenHelper {
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
+        // Content Provider intentionally not notified, this is called every time a card is displayed
         return (rowsUpdated == 1);
     }
 
@@ -701,15 +719,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(loyaltyCardId));
         Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level = " + zoomLevel + " Zoom level width = " + zoomLevelWidth);
+        // Content Provider intentionally not notified, zoom is an internal column
         return (rowsUpdated >= 1);
     }
 
-    public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {
+    public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final Context context, final int id, final BigDecimal newBalance) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.BALANCE, newBalance.toString());
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
+        if (rowsUpdated == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+        }
         return (rowsUpdated == 1);
     }
 
@@ -752,7 +774,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return groups;
     }
 
-    public static void setLoyaltyCardGroups(SQLiteDatabase database, final int id, List<Group> groups) {
+    public static void setLoyaltyCardGroups(SQLiteDatabase database, final Context context, final int id, List<Group> groups) {
         // First delete lookup table entries associated with this card
         database.delete(LoyaltyCardDbIdsGroups.TABLE,
                 whereAttrs(LoyaltyCardDbIdsGroups.cardID),
@@ -765,6 +787,8 @@ public class DBHelper extends SQLiteOpenHelper {
             contentValues.put(LoyaltyCardDbIdsGroups.groupID, group._id);
             database.insert(LoyaltyCardDbIdsGroups.TABLE, null, contentValues);
         }
+
+        notifyChange(database, context, CardsContentProvider.CARD_GROUPS_URI);
     }
 
     public static boolean deleteLoyaltyCard(SQLiteDatabase database, Context context, final int id) {
@@ -790,6 +814,11 @@ public class DBHelper extends SQLiteOpenHelper {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+        }
+
+        if (rowsDeleted == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+            notifyChange(database, context, CardsContentProvider.CARD_GROUPS_URI);
         }
 
         return (rowsDeleted == 1);
@@ -937,19 +966,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return groups;
     }
 
-    public static void reorderGroups(SQLiteDatabase database, final List<Group> groups) {
+    public static boolean reorderGroups(SQLiteDatabase database, final Context context, final List<Group> groups) {
         Integer order = 0;
+        int groupsChanged = 0;
 
         for (Group group : groups) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(LoyaltyCardDbGroups.ORDER, order);
 
-            database.update(LoyaltyCardDbGroups.TABLE, contentValues,
+            groupsChanged += database.update(LoyaltyCardDbGroups.TABLE, contentValues,
                     whereAttrs(LoyaltyCardDbGroups.ID),
                     withArgs(group._id));
 
             order++;
         }
+
+        if (groupsChanged > 0) {
+            notifyChange(database, context, CardsContentProvider.GROUPS_URI);
+        }
+
+        return groupsChanged > 0;
     }
 
     public static Group getGroup(SQLiteDatabase database, final String groupName) {
@@ -990,16 +1026,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return cardIds;
     }
 
-    public static long insertGroup(SQLiteDatabase database, final String name) {
+    public static long insertGroup(SQLiteDatabase database, final Context context, final String name) {
         if (name.isEmpty()) return -1;
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
         contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount(database));
-        return database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+        long id = database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+
+        if (id != -1) {
+            notifyChange(database, context, CardsContentProvider.GROUPS_URI);
+        }
+
+        return id;
     }
 
-    public static boolean updateGroup(SQLiteDatabase database, final String groupName, final String newName) {
+    public static boolean updateGroup(SQLiteDatabase database, final Context context, final String groupName, final String newName) {
         if (newName.isEmpty()) return false;
 
         boolean success = false;
@@ -1031,10 +1073,15 @@ public class DBHelper extends SQLiteOpenHelper {
             database.endTransaction();
         }
 
+        if (success) {
+            notifyChange(database, context, CardsContentProvider.GROUPS_URI);
+            notifyChange(database, context, CardsContentProvider.CARD_GROUPS_URI);
+        }
+
         return success;
     }
 
-    public static boolean deleteGroup(SQLiteDatabase database, final String groupName) {
+    public static boolean deleteGroup(SQLiteDatabase database, final Context context, final String groupName) {
         boolean success = false;
 
         database.beginTransaction();
@@ -1058,7 +1105,14 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         // Reorder after delete to ensure no bad order IDs
-        reorderGroups(database, getGroups(database));
+        final boolean groupOrderChanged = reorderGroups(database, context, getGroups(database));
+
+        if (success) {
+            if (!groupOrderChanged) {
+                notifyChange(database, context, CardsContentProvider.GROUPS_URI);
+            }
+            notifyChange(database, context, CardsContentProvider.CARD_GROUPS_URI);
+        }
 
         return success;
     }
@@ -1066,6 +1120,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public static int getGroupCardCount(SQLiteDatabase database, final String groupName) {
         return (int) DatabaseUtils.queryNumEntries(database, LoyaltyCardDbIdsGroups.TABLE,
                 whereAttrs(LoyaltyCardDbIdsGroups.groupID), withArgs(groupName));
+    }
+
+    private static void notifyChange(final SQLiteDatabase database, final Context context, final Uri uri) {
+        // Do not notify while inside a transaction, the caller notifies after the commit
+        if (database.inTransaction()) {
+            return;
+        }
+        context.getContentResolver().notifyChange(uri, null);
     }
 
     static private String whereAttrs(String... attrs) {

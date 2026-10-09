@@ -1521,9 +1521,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         // This makes the DBHelper set it to the current date
         // So that new and edited card are always on top when sorting by recently used
         if (viewModel.getUpdateLoyaltyCard()) {
-            DBHelper.updateLoyaltyCard(mDatabase, viewModel.getLoyaltyCardId(), viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, viewModel.getLoyaltyCard().starStatus, null, viewModel.getLoyaltyCard().archiveStatus);
+            DBHelper.updateLoyaltyCard(mDatabase, this, viewModel.getLoyaltyCardId(), viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, viewModel.getLoyaltyCard().starStatus, null, viewModel.getLoyaltyCard().archiveStatus);
         } else {
-            viewModel.setLoyaltyCardId((int) DBHelper.insertLoyaltyCard(mDatabase, viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, 0, null, 0));
+            viewModel.setLoyaltyCardId((int) DBHelper.insertLoyaltyCard(mDatabase, this, viewModel.getLoyaltyCard().store, viewModel.getLoyaltyCard().note, viewModel.getLoyaltyCard().validFrom, viewModel.getLoyaltyCard().expiry, viewModel.getLoyaltyCard().balance, viewModel.getLoyaltyCard().balanceType, viewModel.getLoyaltyCard().cardId, viewModel.getLoyaltyCard().barcodeId, viewModel.getLoyaltyCard().barcodeType, viewModel.getLoyaltyCard().barcodeEncoding, viewModel.getLoyaltyCard().headerColor, 0, null, 0));
         }
 
         try {
@@ -1534,7 +1534,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             e.printStackTrace();
         }
 
-        DBHelper.setLoyaltyCardGroups(mDatabase, viewModel.getLoyaltyCardId(), selectedGroups);
+        DBHelper.setLoyaltyCardGroups(mDatabase, this, viewModel.getLoyaltyCardId(), selectedGroups);
 
         ShortcutHelper.updateShortcuts(this);
 

@@ -95,7 +95,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
             } else {
                 groups.remove(mGroup);
             }
-            DBHelper.setLoyaltyCardGroups(mDatabase, cardId, groups);
+            DBHelper.setLoyaltyCardGroups(mDatabase, mContext, cardId, groups);
         }
     }
 

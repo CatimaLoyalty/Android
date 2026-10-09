@@ -129,7 +129,7 @@ class ManageGroupsActivity : CatimaAppCompatActivity(), GroupAdapterListener {
 
         // Buttons
         builder.setPositiveButton(getString(R.string.ok)) { dialog: DialogInterface, which: Int ->
-            DBHelper.insertGroup(mDatabase, input.text.trim().toString())
+            DBHelper.insertGroup(mDatabase, this@ManageGroupsActivity, input.text.trim().toString())
             updateGroupList()
         }
         builder.setNegativeButton(getString(R.string.cancel)) { dialog: DialogInterface, which: Int ->
@@ -195,7 +195,7 @@ class ManageGroupsActivity : CatimaAppCompatActivity(), GroupAdapterListener {
         groups.add(newIndex, group)
 
         // Update database
-        DBHelper.reorderGroups(mDatabase, groups)
+        DBHelper.reorderGroups(mDatabase, this, groups)
 
         // Update UI
         updateGroupList()
@@ -227,7 +227,7 @@ class ManageGroupsActivity : CatimaAppCompatActivity(), GroupAdapterListener {
             setMessage(groupName)
 
             setPositiveButton(getString(R.string.ok)) { dialog: DialogInterface, which: Int ->
-                DBHelper.deleteGroup(mDatabase, groupName)
+                DBHelper.deleteGroup(mDatabase, this@ManageGroupsActivity, groupName)
                 updateGroupList()
                 // Delete may change ordering, so invalidate
                 invalidateHomescreenActiveTab()

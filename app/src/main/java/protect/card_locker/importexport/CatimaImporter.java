@@ -127,17 +127,17 @@ public class CatimaImporter implements Importer {
         for (LoyaltyCard card : data.cards) {
             LoyaltyCard existing = DBHelper.getLoyaltyCard(context, database, card.id);
             if (existing == null) {
-                DBHelper.insertLoyaltyCard(database, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                DBHelper.insertLoyaltyCard(database, context, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
             } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
-                long newId = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                long newId = DBHelper.insertLoyaltyCard(database, context, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
             }
         }
 
         for (String group : data.groups) {
-            DBHelper.insertGroup(database, group);
+            DBHelper.insertGroup(database, context, group);
         }
 
         for (Map.Entry<Integer, String> entry : data.cardGroups) {
@@ -146,7 +146,7 @@ public class CatimaImporter implements Importer {
             // For existing & newly imported cards, add the groups from the import to the internal state
             List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
             cardGroups.add(DBHelper.getGroup(database, groupId));
-            DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
+            DBHelper.setLoyaltyCardGroups(database, context, cardId, cardGroups);
         }
 
         return idMap;

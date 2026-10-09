@@ -74,7 +74,7 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1,  index, 1, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, activity, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1,  index, 1, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -82,7 +82,7 @@ public class ImportExportTest {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, activity, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, index, 0, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -91,7 +91,7 @@ public class ImportExportTest {
 
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
+        long id = DBHelper.insertLoyaltyCard(mDatabase, activity, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
         boolean result = (id != -1);
         assertTrue(result);
 
@@ -109,7 +109,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, activity, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -127,7 +127,7 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, activity, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -148,7 +148,7 @@ public class ImportExportTest {
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
+        id = DBHelper.insertLoyaltyCard(mDatabase, activity, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, 0, 0, null,0);
         result = (id != -1);
         assertTrue(result);
 
@@ -315,7 +315,7 @@ public class ImportExportTest {
     public void multipleCardsExportImport() throws IOException {
         final int NUM_CARDS = 10;
 
-        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -345,7 +345,7 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
         List<char[]> passwords = Arrays.asList(null, "123456789".toCharArray());
         for (char[] password : passwords) {
-            TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+            TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -418,8 +418,8 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
         final int NUM_GROUPS = 3;
 
-        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
-        TestHelpers.addGroups(mDatabase, NUM_GROUPS);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
+        TestHelpers.addGroups(activity, mDatabase, NUM_GROUPS);
 
         List<Group> emptyGroup = new ArrayList<>();
 
@@ -444,11 +444,11 @@ public class ImportExportTest {
         groupsForFive.add(DBHelper.getGroup(mDatabase,"group, \"   1"));
         groupsForFive.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
 
-        DBHelper.setLoyaltyCardGroups(mDatabase, 1, groupsForOne);
-        DBHelper.setLoyaltyCardGroups(mDatabase, 2, groupsForTwo);
-        DBHelper.setLoyaltyCardGroups(mDatabase, 3, groupsForThree);
-        DBHelper.setLoyaltyCardGroups(mDatabase, 4, groupsForFour);
-        DBHelper.setLoyaltyCardGroups(mDatabase, 5, groupsForFive);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, 1, groupsForOne);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, 2, groupsForTwo);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, 3, groupsForThree);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, 4, groupsForFour);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, 5, groupsForFive);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -491,7 +491,7 @@ public class ImportExportTest {
     public void importExistingCardsNotReplace() throws IOException {
         final int NUM_CARDS = 10;
 
-        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -519,7 +519,7 @@ public class ImportExportTest {
     public void importExistingCardsAfterModification() throws IOException {
         final int NUM_CARDS = 10;
 
-        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -532,7 +532,7 @@ public class ImportExportTest {
         // Modify existing cards
         for (int index = 1; index <= NUM_CARDS; index++) {
             int id = NUM_CARDS - index + 1;
-            DBHelper.updateLoyaltyCardBalance(mDatabase, id, new BigDecimal(String.valueOf(index * 2)));
+            DBHelper.updateLoyaltyCardBalance(mDatabase, activity, id, new BigDecimal(String.valueOf(index * 2)));
         }
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
@@ -554,7 +554,7 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
 
         for (DataFormat format : DataFormat.values()) {
-            TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+            TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -599,7 +599,7 @@ public class ImportExportTest {
         final File sdcardDir = Environment.getExternalStorageDirectory();
         final File exportFile = new File(sdcardDir, "Catima.csv");
 
-        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, NUM_CARDS);
 
         TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
@@ -845,11 +845,11 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.UTF_8, 1, 0, null,0);
+        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, activity, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), StandardCharsets.UTF_8, 1, 0, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
-        DBHelper.insertGroup(mDatabase, "One");
+        DBHelper.insertGroup(mDatabase, activity, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
-        DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, groups);
+        DBHelper.setLoyaltyCardGroups(mDatabase, activity, loyaltyCardId, groups);
         loyaltyCardGroups.put(loyaltyCardId, groups);
         Utils.saveCardImage(activity.getApplicationContext(), bitmap1, loyaltyCardId, ImageLocationType.front);
         Utils.saveCardImage(activity.getApplicationContext(), bitmap2, loyaltyCardId, ImageLocationType.back);
@@ -859,7 +859,7 @@ public class ImportExportTest {
         loyaltyCardIconImages.put(loyaltyCardId, bitmap1);
 
         // Create card 2
-        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, StandardCharsets.ISO_8859_1, 2, 1, null,0);
+        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, activity, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, StandardCharsets.ISO_8859_1, 2, 1, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, loyaltyCardId));
 
         // Export everything

@@ -115,7 +115,7 @@ class ManageGroupActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
             mAdapter.commitToDatabase()
             if (currentGroupName != mGroup._id) {
-                DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName)
+                DBHelper.updateGroup(mDatabase, this@ManageGroupActivity, mGroup._id, currentGroupName)
             }
             Toast.makeText(
                 applicationContext,

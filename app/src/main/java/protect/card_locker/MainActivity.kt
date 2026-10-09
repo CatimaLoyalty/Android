@@ -181,7 +181,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 R.id.action_archive -> {
                     for (loyaltyCard in mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Archiving card: " + loyaltyCard.id)
-                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1)
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, this@MainActivity, loyaltyCard.id, 1)
                         updateLoyaltyCardList(false)
                         inputMode.finish()
                         invalidateOptionsMenu()
@@ -191,7 +191,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 R.id.action_unarchive -> {
                     for (loyaltyCard in mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Unarchiving card: " + loyaltyCard.id)
-                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0)
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, this@MainActivity, loyaltyCard.id, 0)
                         updateLoyaltyCardList(false)
                         inputMode.finish()
                         invalidateOptionsMenu()
@@ -201,7 +201,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 R.id.action_star -> {
                     for (loyaltyCard in mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Starring card: " + loyaltyCard.id)
-                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1)
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, this@MainActivity, loyaltyCard.id, 1)
                         updateLoyaltyCardList(false)
                         inputMode.finish()
                     }
@@ -210,7 +210,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 R.id.action_unstar -> {
                     for (loyaltyCard in mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Unstarring card: " + loyaltyCard.id)
-                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0)
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, this@MainActivity, loyaltyCard.id, 0)
                         updateLoyaltyCardList(false)
                         inputMode.finish()
                     }

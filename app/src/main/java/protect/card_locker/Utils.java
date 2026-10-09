@@ -1152,7 +1152,7 @@ public class Utils {
     public static void applyWindowInsets(View root) {
         /* This function basically fakes the activity being edge-to-edge. Useful for those activities that are really hard to get to behave well */
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
 
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             layoutParams.leftMargin = insets.left;
@@ -1168,7 +1168,7 @@ public class Utils {
     public static void applyWindowInsetsAndFabOffset(View root, FloatingActionButton fab) {
         /* This function is a copy of applyWindowInsets, with the added behaviour that it ensures the FAB will be displayed vertically above the keyboard at all times */
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
             
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             layoutParams.leftMargin = insets.left;

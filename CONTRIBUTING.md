@@ -59,16 +59,20 @@ Thus, prefer Kotlin and Jetpack Compose for new code/UI where practical, especia
 
 ### Test Your Code
 
-There are four possible tests you can run to verify your code.  The first
+There are three possible tests you can run to verify your code.  The first
 is unit tests, which check the basic functionality of the application, and
 can be run by gradle using:
 
-    # ./gradlew testReleaseUnitTest
+```sh
+./gradlew testFossDebugUnitTest
+```
 
-The second and third check for common problems using static analysis.
-These are the Android lint checker, run using:
+The second checks for common problems using static analysis.
+This is the Android lint checker, run using:
 
-    # ./gradlew lintRelease
+```sh
+./gradlew lintFossRelease
+```
 
 The final check is by testing the application on a live device and verifying
 the basic functionality works as expected.

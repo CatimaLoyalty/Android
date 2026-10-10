@@ -157,6 +157,11 @@ class BluetoothServerService : Service() {
             Log.d(TAG, "Listening for Bluetooth connections")
             while (running) {
                 val socket: BluetoothSocket = try {
+                    // FIXME: This throws an IOException when Bluetooth gets turned off
+                    // java.io.IOException: read failed, socket might closed or timeout, read ret: -1
+                    //
+                    // For now, the BluetoothStateReceiver will restart when bluetooth gets turned back on
+                    // However, this only works if the Catima process has not been killed
                     serverSocket?.accept() ?: break
                 } catch (e: Exception) {
                     if (running) Log.e(TAG, "Accept failed", e)

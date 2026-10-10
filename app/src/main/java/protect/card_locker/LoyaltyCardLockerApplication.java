@@ -53,6 +53,10 @@ public class LoyaltyCardLockerApplication extends Application {
         // The permission is requested from the launcher Activity when the UI resumes.
         WearSyncServiceManager.INSTANCE.synchronize(this, null);
 
+        // Watch Bluetooth for state changes so we can start the sync service on Bluetooth start
+        // This may fail if the Catima background process gets killed,
+        // so for the future it's worth considering potentially extending the sync manager to keep
+        // regardless of Bluetooth state (at the cost of having the notification visible more often)
         ContextCompat.registerReceiver(
                 this,
                 new BluetoothStateReceiver(),

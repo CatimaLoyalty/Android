@@ -1,0 +1,1 @@
+- Start Wear OS sync if enabled when turning on Bluetooth

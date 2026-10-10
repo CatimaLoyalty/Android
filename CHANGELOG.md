@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased (Android) - 1006
+
+- Start Wear OS sync if enabled when turning on Bluetooth
+
 ## v2.45.1 (Android) - 1004 (2026-09-27)
 
 - Fix list widget not updating when opening a card from it

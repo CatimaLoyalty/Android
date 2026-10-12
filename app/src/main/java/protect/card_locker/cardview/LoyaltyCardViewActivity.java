@@ -266,7 +266,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         );
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view ->
                 dialogs.showBalanceUpdateDialog(this, loyaltyCard, newBalance -> {
-                    DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+                    DBHelper.updateLoyaltyCardBalance(database, LoyaltyCardViewActivity.this, loyaltyCardId, newBalance);
                     onResume();
                 })
         );
@@ -776,7 +776,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_star_unstar) {
-            DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
+            DBHelper.updateLoyaltyCardStarStatus(database, this, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
 
             listWidget.updateAll(LoyaltyCardViewActivity.this);
 
@@ -786,7 +786,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_archive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+            DBHelper.updateLoyaltyCardArchiveStatus(database, this, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
             listWidget.updateAll(LoyaltyCardViewActivity.this);
@@ -797,7 +797,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_unarchive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+            DBHelper.updateLoyaltyCardArchiveStatus(database, this, loyaltyCardId, 0);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
 
             // Re-init loyaltyCard with new data from DB

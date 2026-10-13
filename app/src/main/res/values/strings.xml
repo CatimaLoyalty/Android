@@ -99,8 +99,8 @@
     <string name="settings_keep_screen_on">Keep screen on</string>
     <string name="settings_keep_screen_on_summary">Extend screen timeout while viewing a card</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Disables screen lock while viewing a card</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Display above lock screen</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Bypass screen locker while viewing a card</string>
     <string name="settings_disable_nfc_while_viewing_card">Pause NFC</string>
     <string name="settings_disable_nfc_while_viewing_card_summary">Pauses NFC to prevent NFC payments from triggering while viewing a card</string>
     <string name="settings_key_disable_nfc_while_viewing_card" translatable="false">pref_disable_nfc_while_viewing_card</string>

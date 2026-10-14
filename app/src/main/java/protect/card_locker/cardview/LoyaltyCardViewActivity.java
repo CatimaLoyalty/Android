@@ -12,6 +12,8 @@ import android.graphics.drawable.Drawable;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -59,6 +61,8 @@ import protect.card_locker.shared.ForegroundColorHelper;
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
+
+    private Handler extendScreenOnHandler = null;
 
     int loyaltyCardId;
     ArrayList<Integer> cardList;
@@ -201,6 +205,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        extendScreenOnHandler = new Handler(Looper.getMainLooper());
+
         if (savedInstanceState == null) {
             Bundle incomingIntentExtras = getIntent().getExtras();
 
@@ -464,6 +470,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Some devices have broken NFC, which will cause a crash if reader mode is enabled
         // So ensure we disable it explicitly before letting Android "save" the NFC state
         configurePausedNfc(false);
+
+        // When Catima leaves foreground, kill the delayed screen off timer
+        // This should never be null as it is created in onCreate, but this makes lint happier
+        if (extendScreenOnHandler != null) {
+            extendScreenOnHandler.removeCallbacksAndMessages(null);
+        }
+
         super.onPause();
     }
 
@@ -488,8 +501,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             attributes.screenBrightness = 1F;
         }
 
+        // Extend screen timeout by 5 minutes
+        // This ensures the screen stays on for at least 5 minutes (to be precise: 5 minutes + user configured screen timeout)
+        // This prevents the screen from staying on forever while hopefully giving any user sufficient time to show the code to a worker or scan it
         if (settings.getKeepScreenOn()) {
+            Log.d(TAG, "KeepScreenOn enabled, setting flag");
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            extendScreenOnHandler.postDelayed(() -> {
+                Log.d(TAG, "5 minutes passed, removing keep on flag");
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }, 1000 * 60 * 5);
         }
 
         // Some users scan cards directly from the lock screen, so keep the historical unlock behavior.

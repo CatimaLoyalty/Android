@@ -321,6 +321,8 @@ class BluetoothServerService : Service() {
                     val barcodeIdIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID)
                     val barcodeTypeIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)
                     val headerColorIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)
+                    val noteIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE)
+                    val expiryIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY)
                     var count = 0
                     do {
                         array.put(JSONObject().apply {
@@ -330,6 +332,8 @@ class BluetoothServerService : Service() {
                             put("barcodeId", if (it.isNull(barcodeIdIdx)) JSONObject.NULL else it.getString(barcodeIdIdx))
                             put("barcodeType", if (it.isNull(barcodeTypeIdx)) JSONObject.NULL else it.getString(barcodeTypeIdx))
                             put("headerColor", if (it.isNull(headerColorIdx)) JSONObject.NULL else it.getInt(headerColorIdx))
+                            put("note", it.getString(noteIdx) ?: "")
+                            put("expiry", if (it.isNull(expiryIdx)) JSONObject.NULL else it.getLong(expiryIdx))
                         })
                         count++
                     } while (count < WearBluetoothProtocol.PAGE_SIZE && it.moveToNext())

@@ -6,6 +6,11 @@
     <string name="loading_cards">Loading cards…</string>
     <string name="no_barcode">No barcode available for this card.</string>
     <string name="card_id_label">Card ID</string>
+    <string name="about_card">About card</string>
+    <string name="barcode_value_label">Barcode value</string>
+    <string name="barcode_type_label">Barcode type</string>
+    <string name="note_label">Note</string>
+    <string name="expiry_label">Expiry</string>
     <string name="syncing">Syncing with phone…</string>
     <string name="sync_failed">Phone unreachable – showing cached cards</string>
     <string name="version_incompatible">Catima on your phone and watch are incompatible.\nPlease update both.</string>

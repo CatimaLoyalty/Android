@@ -10,6 +10,8 @@ data class WearCard(
     val barcodeId: String?,
     val barcodeType: String?,
     val headerColor: Int?,
+    val note: String?,
+    val expiry: Long?,
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
         put("id", id)
@@ -18,6 +20,8 @@ data class WearCard(
         put("barcodeId", barcodeId ?: JSONObject.NULL)
         put("barcodeType", barcodeType ?: JSONObject.NULL)
         put("headerColor", headerColor ?: JSONObject.NULL)
+        put("note", note ?: JSONObject.NULL)
+        put("expiry", expiry ?: JSONObject.NULL)
     }
 
     companion object {
@@ -28,6 +32,8 @@ data class WearCard(
             barcodeId = if (json.isNull("barcodeId")) null else json.optString("barcodeId").takeIf { it.isNotEmpty() },
             barcodeType = if (json.isNull("barcodeType")) null else json.optString("barcodeType").takeIf { it.isNotEmpty() },
             headerColor = if (json.isNull("headerColor")) null else json.getInt("headerColor"),
+            note = if (json.isNull("note")) null else json.optString("note").takeIf { it.isNotEmpty() },
+            expiry = if (json.isNull("expiry")) null else json.optLong("expiry").takeIf { it > 0 },
         )
 
         fun listToJson(cards: List<WearCard>): String {

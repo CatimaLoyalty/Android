@@ -28,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.CircularProgressIndicator
+import androidx.wear.compose.material3.EdgeButton
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.google.zxing.BarcodeFormat
@@ -37,7 +38,7 @@ import me.hackerchick.catima.wear.R
 import me.hackerchick.catima.wear.WearCard
 
 @Composable
-fun CardViewScreen(card: WearCard?) {
+fun CardViewScreen(card: WearCard?, onAboutClick: (WearCard) -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -48,6 +49,12 @@ fun CardViewScreen(card: WearCard?) {
             CircularProgressIndicator()
         } else {
             CardDetail(card = card)
+            EdgeButton(
+                onClick = { onAboutClick(card) },
+                modifier = Modifier.align(Alignment.BottomCenter),
+            ) {
+                Text(text = stringResource(R.string.about_card))
+            }
         }
     }
 }

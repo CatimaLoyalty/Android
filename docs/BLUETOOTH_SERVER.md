@@ -38,10 +38,10 @@ Example request:
 
 Example return value:
 ```
-["1.0"]
+["1.1"]
 ```
 
-In this example case, the phone supports only API version 1. Of API version 1, the most recent minor version supported is 0.
+In this example case, the phone supports only API version 1. Of API version 1, the most recent minor version supported is 1.
 
 ### V1
 
@@ -71,6 +71,8 @@ Each card contains the following fields:
 | `barcodeId`       | `Nullable String` | Barcode value. If empty, it's the same as the card ID. | 0 |
 | `barcodeType`     | `Nullable String` | The barcode type name, matching [com.google.zxing.BarcodeFormat](https://zxing.github.io/zxing/apidocs/com/google/zxing/BarcodeFormat.html). When null, there is no barcode for this card. | 0 |
 | `headerColor`     | `int`             | Header color, matching [Android color int](https://developer.android.com/reference/android/graphics/Color). | 0 |
+| `note`            | `String`          | Card note. Empty if no note is set. | 1 |
+| `expiry`          | `Nullable long`   | Expiry date in milliseconds since the Unix epoch. Null if no expiry date is set. | 1 |
 
 Example request:
 ```
@@ -90,7 +92,9 @@ Example return value:
             "cardId": "123456",
             "barcodeId": null,
             "barcodeType": "QR_CODE",
-            "headerColor": -1
+            "headerColor": -1,
+            "note": "",
+            "expiry": null
         }
     ]
 }

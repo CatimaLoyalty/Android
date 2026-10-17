@@ -1,0 +1,7 @@
+- Podpora za arabski jezik
+- Prikaz števila arhiviranih kartic v pregledu skupine
+- Popravek napak pri razčlenjevanju stanja (kartice ni bilo mogoče shraniti v arabščini in drugih jezikih z nezahodnimi številkami)
+- Popravek teme, ki se ni pravilno uporabljala na glavnem zaslonu
+- Izboljšanje prikaza izbranih kartic
+- Popravek sesutja ob zapustitvi pogleda kartice v postavitev RTL za kartice z rokom veljavnosti ali stanjem
+- Popravek puščice za vrnitev v pogledu kartice

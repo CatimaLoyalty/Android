@@ -1,0 +1,2 @@
+- Melhore o contraste usando sempre texto branco em botões vermelhos
+- Painel inferior arrastável na visualização do cartão de fidelidade

@@ -1,0 +1,4 @@
+- Dodana je podpora za prilagajanje velikosti črtne kode ob premiku na vrh, da se prilagodi še manjšim skenerjem
+- Popravljeno je preskakovanje spodnjega lista po preklopu na polni zaslon
+- V pokončnem načinu je glava v pogledu kartice zvestobe zdaj manjša
+- Popravljeno, da se kartice ne ohranijo v skupini, ko se skupina preimenuje

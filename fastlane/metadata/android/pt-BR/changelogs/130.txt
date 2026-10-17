@@ -1,0 +1,4 @@
+- Pequenas correções na interface
+- Correção da redefinição das datas de início de validade e de expiração ao girar a tela de edição do cartão
+- Correção de falha ao girar a tela com o seletor de cores aberto
+- Correções na importação do Stocard

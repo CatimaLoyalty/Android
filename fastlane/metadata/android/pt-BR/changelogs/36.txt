@@ -1,0 +1,14 @@
+- Adicionada busca de cartões.
+- Permite compartilhar e receber cartões de fidelidade.
+- Suporte ao modo escuro.
+- Cartões de fidelidade agora podem não ter código de barras.
+- Notas agora podem ocupar múltiplas linhas.
+- Melhorias no tamanho das notas.
+- Melhoria na visibilidade de notificações e do ícone do app.
+- Atualização do SDK de destino para Android 10.
+- Melhoria nas seguintes traduções:
+  - Alemão
+  - Italiano
+  - Holandês
+  - Polonês
+  - Russo

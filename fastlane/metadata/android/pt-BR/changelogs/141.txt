@@ -1,0 +1,4 @@
+- Alterar o número padrão de colunas para 4 em telas largas
+- Permitir substituir a contagem de colunas para os modos retrato e paisagem nas configurações
+- Manter o filtro de busca da tela principal ao girar a tela ou abrir um cartão
+- Limitar o tamanho máximo de exibição da nota na tela principal

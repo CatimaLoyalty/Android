@@ -1,0 +1,4 @@
+- Maak links in notities klikbaar
+- Voor-selectie van de groep waar de gebruiker momenteel in is bij het maken van een nieuwe kaart
+- Kommageacheiden groepnamen in spaarkaartweergave
+- Opgelost dat de maximalizeerknop op geen enkele barcode verschijnt

@@ -19,6 +19,8 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.Layout;
@@ -39,7 +41,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.Insets;
 import androidx.core.os.LocaleListCompat;
 import androidx.core.view.ViewCompat;
@@ -95,6 +96,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.shared.ForegroundColorHelper;
 
 public class Utils {
     private static final String TAG = "Catima";
@@ -115,10 +117,18 @@ public class Utils {
 
     public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
 
-    static final double LUMINANCE_MIDPOINT = 0.5;
-
     static final int BITMAP_SIZE_SMALL = 512;
     static final int BITMAP_SIZE_BIG = 1600;
+
+    // Displays the toast immediately on the main UI loop, or asks Android to display it there otherwise.
+    static public void showToast(Context context, int message, int duration) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            Toast.makeText(context, message, duration).show();
+        } else {
+            new Handler(Looper.getMainLooper()).post(
+                    () -> Toast.makeText(context, message, duration).show());
+        }
+    }
 
     static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
         return generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, forShortcut);
@@ -147,57 +157,38 @@ public class Utils {
         }
 
         return new LetterBitmap(context, store, store,
-                tileLetterFontSize, pixelSize, pixelSize, backgroundColor, needsDarkForeground(backgroundColor) ? Color.BLACK : Color.WHITE);
+                tileLetterFontSize, pixelSize, pixelSize, backgroundColor, ForegroundColorHelper.Companion.needsDarkForeground(backgroundColor) ? Color.BLACK : Color.WHITE);
     }
 
-    static public boolean needsDarkForeground(Integer backgroundColor) {
-        return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
-    }
-
-    static public List<ParseResult> retrieveBarcodesFromImage(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromImage(Context context, Uri uri) throws FileNotFoundException {
         Log.i(TAG, "Received image file with possible barcode");
 
         if (uri == null) {
-            Log.e(TAG, "Uri did not contain any data");
-            Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new FileNotFoundException("Uri did not contain any data");
         }
 
         Bitmap bitmap;
         try {
             bitmap = retrieveImageFromUri(context, uri);
         } catch (IOException e) {
-            Log.e(TAG, "Error getting data from image file");
-            e.printStackTrace();
-            Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Error reading image file", e);
         }
 
-        List<ParseResult> barcodesFromBitmap = getBarcodesFromBitmap(bitmap);
-
-        if (barcodesFromBitmap.isEmpty()) {
-            Log.i(TAG, "No barcode found in image file");
-            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-        }
-
-        return barcodesFromBitmap;
+        // Returns barcodes or an empty list if nothing found
+        return getBarcodesFromBitmap(bitmap);
     }
 
-    static public List<ParseResult> retrieveBarcodesFromPkPass(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromPkPass(Context context, Uri uri) throws FileNotFoundException {
         Log.i(TAG, "Received Pkpass file with possible barcode");
         if (uri == null) {
-            Log.e(TAG, "Pkpass did not contain any data");
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new FileNotFoundException("Uri did not contain any data");
         }
 
         PkpassParser pkpassParser;
         try {
              pkpassParser = new PkpassParser(context, uri);
         } catch (Exception e) {
-            Log.e(TAG, "Error reading pkpass file", e);
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Error reading pkpass file", e);
         }
 
         List<String> locales = pkpassParser.listLocales();
@@ -205,9 +196,7 @@ public class Utils {
             try {
                 return Collections.singletonList(new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null)));
             } catch (Exception e) {
-                Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                return new ArrayList<>();
+                throw new IllegalArgumentException("Error calling toLoyaltyCard on pkpass file", e);
             }
         }
 
@@ -217,9 +206,7 @@ public class Utils {
             try {
                  parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
             } catch (Exception e) {
-                Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                return new ArrayList<>();
+                throw new IllegalArgumentException("Error calling toLoyaltyCard on pkpass file", e);
             }
             parseResult.setNote(locale);
             parseResultList.add(parseResult);
@@ -228,21 +215,17 @@ public class Utils {
         return parseResultList;
     }
 
-    static public List<ParseResult> retrieveBarcodesFromPkPasses(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromPkPasses(Context context, Uri uri) throws FileNotFoundException {
         Log.i(TAG, "Received Pkpasses file with possible barcode");
         if (uri == null) {
-            Log.e(TAG, "Pkpasses did not contain any data");
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new FileNotFoundException("Uri did not contain any data");
         }
 
         PkpassesParser pkpassesParser;
         try {
             pkpassesParser = new PkpassesParser(context, uri);
         } catch (Exception e) {
-            Log.e(TAG, "Error reading pkpasses file", e);
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new IllegalArgumentException("Error reading pkpasses file", e);
         }
 
         List<ParseResult> parseResultList = new ArrayList<>();
@@ -254,9 +237,7 @@ public class Utils {
                 try {
                     parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(null));
                 } catch (Exception e) {
-                    Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                    Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                    return new ArrayList<>();
+                    throw new IllegalArgumentException("Error calling toLoyaltyCard on pkpass file", e);
                 }
                 parseResult.setNote(String.format(context.getString(R.string.cardWithNumber), i+1));
                 parseResultList.add(parseResult);
@@ -265,9 +246,7 @@ public class Utils {
                     try {
                         parseResult = new ParseResult(ParseResultType.FULL, pkpassParser.toLoyaltyCard(locale));
                     } catch (Exception e) {
-                        Log.e(TAG, "Error calling toLoyaltyCard on pkpass file", e);
-                        Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                        return new ArrayList<>();
+                        throw new IllegalArgumentException("Error calling toLoyaltyCard on pkpass file", e);
                     }
                     parseResult.setNote(String.format(context.getString(R.string.cardWithNumberAndLocale), i+1, locale));
                     parseResultList.add(parseResult);
@@ -280,12 +259,10 @@ public class Utils {
         return parseResultList;
     }
 
-    static public List<ParseResult> retrieveBarcodesFromPdf(Context context, Uri uri) {
+    static public List<ParseResult> retrieveBarcodesFromPdf(Context context, Uri uri) throws FileNotFoundException {
         Log.i(TAG, "Received PDF file with possible barcode");
         if (uri == null) {
-            Log.e(TAG, "Uri did not contain any data");
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
+            throw new FileNotFoundException("Uri did not contain any data");
         }
 
         ParcelFileDescriptor parcelFileDescriptor = null;
@@ -320,8 +297,7 @@ public class Utils {
                 }
             }
         } catch (IOException e) {
-            Log.e(TAG, "Error reading PDF file", e);
-            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            throw new IllegalArgumentException("Error reading PDF file", e);
         } finally {
             // Resource handling
             if (renderer != null) {
@@ -336,10 +312,7 @@ public class Utils {
             }
         }
 
-        if (barcodesFromPdfPages.isEmpty()) {
-            Log.i(TAG, "No barcode found in pdf file");
-            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-        }
+        // Returns barcodes or an empty list if nothing found
         return barcodesFromPdfPages;
     }
 
@@ -354,6 +327,7 @@ public class Utils {
      * @param context
      * @return List<ParseResult>
      */
+    @Nullable
     static public List<ParseResult> parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
         String contents;
         String format;
@@ -362,28 +336,35 @@ public class Utils {
             return new ArrayList<>();
         }
 
-        if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
-            return retrieveBarcodesFromImage(context, intent.getData());
-        }
-
-        if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
-            return retrieveBarcodesFromPdf(context, intent.getData());
-        }
-
-        if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
-            Uri intentData = intent.getData();
-
-            if (intentData == null) {
-                Log.e(TAG, "Uri did not contain any data");
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                return new ArrayList<>();
+        try {
+            if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
+                return retrieveBarcodesFromImage(context, intent.getData());
             }
 
-            if (Objects.equals(context.getContentResolver().getType(intentData), "application/vnd.apple.pkpasses")) {
-                return retrieveBarcodesFromPkPasses(context, intentData);
+            if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
+                return retrieveBarcodesFromPdf(context, intent.getData());
             }
 
-            return retrieveBarcodesFromPkPass(context, intentData);
+            if (requestCode == Utils.BARCODE_IMPORT_FROM_PKPASS_FILE) {
+                Uri intentData = intent != null ? intent.getData() : null;
+
+                if (intentData == null) {
+                    throw new FileNotFoundException("Uri did not contain any data");
+                }
+
+                // Mime type info is not always available. So we're going to first guess it's a pkpass file and if that fails, try pkpasses
+                try {
+                    return retrieveBarcodesFromPkPass(context, intentData);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error reading pkpass file, attempting as pkpasses file", e);
+                    return retrieveBarcodesFromPkPasses(context, intentData);
+                }
+            }
+        } catch (Exception e) {
+            // Return null instead of an empty list to differentiate between error or no result
+            Log.e(TAG, "Parsing failed: " + e);
+            e.printStackTrace();
+            return null;
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {
@@ -1070,7 +1051,7 @@ public class Utils {
 
         if (icon != null) {
             // Use header colour to decide if this image will need a white or black background
-            backgroundOrIcon.setBackgroundColor(needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            backgroundOrIcon.setBackgroundColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
 
             // Ensure correct cropping style
             backgroundOrIcon.setScaleType(Utils.getRecommendedScaleTypeForThumbnailImage(icon));
@@ -1100,7 +1081,7 @@ public class Utils {
             // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
-            textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            textWhenNoImage.setTextColor(ForegroundColorHelper.Companion.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
         }
 
         return headerColor;
@@ -1171,7 +1152,7 @@ public class Utils {
     public static void applyWindowInsets(View root) {
         /* This function basically fakes the activity being edge-to-edge. Useful for those activities that are really hard to get to behave well */
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
 
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             layoutParams.leftMargin = insets.left;
@@ -1187,7 +1168,7 @@ public class Utils {
     public static void applyWindowInsetsAndFabOffset(View root, FloatingActionButton fab) {
         /* This function is a copy of applyWindowInsets, with the added behaviour that it ensures the FAB will be displayed vertically above the keyboard at all times */
         ViewCompat.setOnApplyWindowInsetsListener(root, (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
             
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             layoutParams.leftMargin = insets.left;

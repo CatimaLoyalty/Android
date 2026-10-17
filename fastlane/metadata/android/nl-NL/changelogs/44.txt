@@ -1,0 +1,2 @@
+- Toegevoegd dat u kan slepen tussen groepen op het thuisscherm
+- Crash met kaarten zonder kopkleur opgelost

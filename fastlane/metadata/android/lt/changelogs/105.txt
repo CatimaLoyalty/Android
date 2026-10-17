@@ -1,0 +1,2 @@
+- Ištaisytas pilkas blokas, atsirandantis ties neteisinga brūkšninio kodo reikšme.
+- Ištaisytos „Stocard“ importavimo klaidos

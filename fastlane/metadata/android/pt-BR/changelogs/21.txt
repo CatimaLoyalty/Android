@@ -1,0 +1,2 @@
+- Layout aprimorado para a lista de cartões. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- Layout aprimorado ao visualizar um cartão. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

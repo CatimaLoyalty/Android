@@ -1,0 +1,4 @@
+- Corrigida a cor incorreta dos pontos na visualização de cartões ao alterar o tema manualmente
+- Corrigida falha na visualização de cartões durante rotação ou alteração de tema
+- Corrigido o efeito de cintilação na lista de cartões
+- Corrigida a sobreposição de texto ao ícone de estrela

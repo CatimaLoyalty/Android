@@ -2,16 +2,21 @@ package protect.card_locker;
 
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.test.core.app.ApplicationProvider;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
@@ -29,16 +35,196 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowContentResolver;
+import org.robolectric.shadows.ShadowToast;
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BooleanSupplier;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
     private SharedPreferences prefs;
+
+    @Test
+    @LooperMode(LooperMode.Mode.PAUSED)
+    public void pkpassSharedIntentReadsOffMainThreadAndProcessesOnMainThread() throws Exception {
+        Uri uri = Uri.parse("content://test/cloud-backed.pkpass");
+        CountDownLatch readStarted = new CountDownLatch(1);
+        CountDownLatch streamClosed = new CountDownLatch(1);
+        AtomicReference<Looper> readLooper = new AtomicReference<>();
+        InputStream pkpass = getClass().getResourceAsStream(
+                "pkpass/DCBLN24/DCBLN24-QLUKT-1-passbook.pkpass");
+        assertNotNull(pkpass);
+        new ShadowContentResolver().registerInputStream(
+                uri, new RecordingInputStream(pkpass, readStarted, streamClosed, readLooper));
+
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setDataAndType(uri, "application/vnd.apple.pkpass");
+        ActivityController<MainActivity> controller =
+                Robolectric.buildActivity(MainActivity.class, intent).create().start().resume().visible();
+        MainActivity activity = controller.get();
+
+        // Do NOT idle the main looper here: the read runs on a real background
+        // thread, so the latch fires without it, and idling would run the
+        // main-thread continuation and defeat the ordering assertion below.
+        assertTrue(readStarted.await(5, TimeUnit.SECONDS));
+        // The read must not happen on the main looper. This is the property the
+        // fix is about; it is asserted directly rather than inferred from
+        // ordering. Robolectric drains the main looper during .visible(), so by
+        // the time the test regains control the whole import has already run to
+        // completion and there is no observable in-between state to assert on.
+        assertTrue(readLooper.get() != getMainLooper());
+        assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
+
+        waitFor(() -> shadowOf(activity).peekNextStartedActivity() != null);
+        Intent editIntent = shadowOf(activity).getNextStartedActivity();
+        assertEquals(LoyaltyCardEditActivity.class.getName(), editIntent.getComponent().getClassName());
+        assertNotNull(editIntent.getExtras());
+        controller.destroy();
+    }
+
+    @Test
+    @LooperMode(LooperMode.Mode.PAUSED)
+    public void destroyingActivityCancelsPendingPkpassResult() throws Exception {
+        Uri uri = Uri.parse("content://test/pending-cloud-backed.pkpass");
+        CountDownLatch readStarted = new CountDownLatch(1);
+        CountDownLatch releaseRead = new CountDownLatch(1);
+        CountDownLatch streamClosed = new CountDownLatch(1);
+        InputStream pkpass = getClass().getResourceAsStream(
+                "pkpass/DCBLN24/DCBLN24-QLUKT-1-passbook.pkpass");
+        assertNotNull(pkpass);
+        new ShadowContentResolver().registerInputStream(
+                uri, new BlockingInputStream(pkpass, readStarted, releaseRead, streamClosed));
+
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setDataAndType(uri, "application/vnd.apple.pkpass");
+        ActivityController<MainActivity> controller =
+                Robolectric.buildActivity(MainActivity.class, intent).create().start().resume();
+        MainActivity activity = controller.get();
+
+        waitFor(() -> readStarted.getCount() == 0);
+        controller.destroy();
+        releaseRead.countDown();
+        assertTrue(streamClosed.await(5, TimeUnit.SECONDS));
+        shadowOf(getMainLooper()).idle();
+
+        assertNull(shadowOf(activity).peekNextStartedActivity());
+        assertFalse(ShadowToast.showedToast(activity.getString(R.string.errorReadingFile)));
+    }
+
+    private static void waitFor(BooleanSupplier condition) throws Exception {
+        long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(5);
+        while (!condition.getAsBoolean() && System.nanoTime() < deadline) {
+            shadowOf(getMainLooper()).idle();
+            Thread.sleep(10);
+        }
+        shadowOf(getMainLooper()).idle();
+        assertTrue("Timed out waiting for asynchronous activity work", condition.getAsBoolean());
+    }
+
+    private static class RecordingInputStream extends FilterInputStream {
+        private final CountDownLatch readStarted;
+        private final CountDownLatch streamClosed;
+        private final AtomicReference<Looper> readLooper;
+
+        RecordingInputStream(
+                InputStream inputStream,
+                CountDownLatch readStarted,
+                CountDownLatch streamClosed,
+                AtomicReference<Looper> readLooper) {
+            super(inputStream);
+            this.readStarted = readStarted;
+            this.streamClosed = streamClosed;
+            this.readLooper = readLooper;
+        }
+
+        private void recordRead() {
+            readLooper.compareAndSet(null, Looper.myLooper());
+            readStarted.countDown();
+        }
+
+        @Override
+        public int read() throws IOException {
+            recordRead();
+            return super.read();
+        }
+
+        @Override
+        public int read(byte[] buffer, int offset, int length) throws IOException {
+            recordRead();
+            return super.read(buffer, offset, length);
+        }
+
+        @Override
+        public void close() throws IOException {
+            try {
+                super.close();
+            } finally {
+                streamClosed.countDown();
+            }
+        }
+    }
+
+    private static class BlockingInputStream extends FilterInputStream {
+        private final CountDownLatch readStarted;
+        private final CountDownLatch releaseRead;
+        private final CountDownLatch streamClosed;
+
+        BlockingInputStream(
+                InputStream inputStream,
+                CountDownLatch readStarted,
+                CountDownLatch releaseRead,
+                CountDownLatch streamClosed) {
+            super(inputStream);
+            this.readStarted = readStarted;
+            this.releaseRead = releaseRead;
+            this.streamClosed = streamClosed;
+        }
+
+        private void awaitRelease() throws IOException {
+            readStarted.countDown();
+            try {
+                if (!releaseRead.await(5, TimeUnit.SECONDS)) {
+                    throw new IOException("Timed out waiting to release provider stream");
+                }
+            } catch (InterruptedException exception) {
+                Thread.currentThread().interrupt();
+                throw new IOException(exception);
+            }
+        }
+
+        @Override
+        public int read() throws IOException {
+            awaitRelease();
+            return super.read();
+        }
+
+        @Override
+        public int read(byte[] buffer, int offset, int length) throws IOException {
+            awaitRelease();
+            return super.read(buffer, offset, length);
+        }
+
+        @Override
+        public void close() throws IOException {
+            try {
+                super.close();
+            } finally {
+                streamClosed.countDown();
+            }
+        }
+    }
 
     @Test
     public void initiallyNoLoyaltyCards() {
@@ -112,6 +298,76 @@ public class MainActivityTest {
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getAdapter().getItemCount());
+
+        database.close();
+    }
+
+    @Test
+    public void cardIdHiddenByDefault() {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity) activityController.get();
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        RecyclerView list = mainActivity.findViewById(R.id.list);
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "", null, null, new BigDecimal("0"), null, "1234567890", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+
+        activityController.pause();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Make sure there is enough space to render all
+        list.measure(0, 0);
+        list.layout(0, 0, 100, 1000);
+
+        // Card ID is hidden by default
+        TextView cardIdField = list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.cardId);
+        assertEquals(View.GONE, cardIdField.getVisibility());
+
+        database.close();
+    }
+
+    @Test
+    public void showCardIdDisplayOption() {
+        // The display option is read in the adapter's constructor (during onCreate), so the
+        // preference must be set before the activity is built.
+        SharedPreferences cardDetailsPref = ApplicationProvider.getApplicationContext().getSharedPreferences(
+                ApplicationProvider.getApplicationContext().getString(R.string.sharedpreference_card_details),
+                Activity.MODE_PRIVATE);
+        cardDetailsPref.edit().putBoolean(
+                ApplicationProvider.getApplicationContext().getString(R.string.sharedpreference_card_details_show_card_id), true).apply();
+
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity) activityController.get();
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        RecyclerView list = mainActivity.findViewById(R.id.list);
+
+        SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "", null, null, new BigDecimal("0"), null, "1234567890", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+
+        activityController.pause();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(1, list.getAdapter().getItemCount());
+
+        // Make sure there is enough space to render all
+        list.measure(0, 0);
+        list.layout(0, 0, 100, 1000);
+
+        TextView cardIdField = list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.cardId);
+        assertEquals(View.VISIBLE, cardIdField.getVisibility());
+        assertEquals("1234567890", cardIdField.getText().toString());
 
         database.close();
     }

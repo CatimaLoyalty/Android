@@ -1,0 +1,6 @@
+- Refinamento do fluxo de "Adicionar cartão"
+- Melhorias no fluxo de validação
+- Correção de caso atípico que causava estado inválido da interface ao alternar a exibição de itens arquivados
+- Uso da cor do tema ou do cartão na barra de navegação (Android 8.1+)
+- Atualização do seletor de validade e data de expiração
+- Adição de opção para sempre rotacionar (ignorando as configurações do sistema)

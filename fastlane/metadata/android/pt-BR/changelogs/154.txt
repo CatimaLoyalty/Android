@@ -1,0 +1,1 @@
+- Correção de uma possível falha que poderia ocorrer com cartas sem informações de cor no banco de dados

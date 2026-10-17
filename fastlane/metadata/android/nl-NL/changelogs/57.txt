@@ -1,0 +1,4 @@
+- Ondersteuning toegevoegd om de schaal van de barcodes te veranderen als het naar bover wordt verplaatst om op kleine scanners te passen
+- Opgelost dat de onderste plaat verspringt na het wisselen naar volledig scherm
+- De kop van een spaarkaart weergave is klein in landschapsmodus
+- Opgelost dat kaarten niet in een groep blijven als een groep wordt hernoemd

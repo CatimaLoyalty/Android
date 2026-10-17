@@ -1,0 +1,3 @@
+- Popravek ustvarjanja bližnjic
+- Ustvarjanje ikone bližnjice, prilagojene posamezni kartici
+- Popravek možnosti spreminjanja barve kartice zvestobe

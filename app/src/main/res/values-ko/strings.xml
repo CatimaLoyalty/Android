@@ -82,7 +82,7 @@
     <string name="takePhoto">사진 찍기</string>
     <string name="yes">예</string>
     <string name="no">아니오</string>
-    <string name="failedGeneratingShareURL">공유 가능한 URL을 생성할 수 없습니다. 이를 개발자에게 알려 주십시오.</string>
+    <string name="failedGeneratingShareURL">공유 가능한 URL을 생성할 수 없습니다</string>
     <string name="turn_flashlight_off">손전등 끄기</string>
     <string name="settings_locale">언어</string>
     <string name="settings_system_locale">시스템</string>
@@ -91,7 +91,6 @@
     <string name="showMoreInfo">정보 보기</string>
     <string name="updateBalance">잔액 업데이트</string>
     <string name="failedToRetrieveImageFile">이미지 파일을 검색하지 못했습니다</string>
-    <string name="barcodeLongPressMessage">갤러리 앱에서는 이미지만 열 수 있습니다</string>
     <string name="sort_by_name">이름</string>
     <string name="reverse">... 역순으로</string>
     <string name="sort_by">정렬 기준</string>
@@ -138,8 +137,6 @@
     <string name="group_updated">그룹 업데이트됨</string>
     <string name="moveBarcodeToTopOfScreen">바코드를 화면 상단으로 이동</string>
     <string name="height">키</string>
-    <string name="openFrontImageInGalleryApp">갤러리 앱에서 전면 이미지 열기</string>
-    <string name="openBackImageInGalleryApp">갤러리 앱에서 다시 이미지 열기</string>
     <string name="setBarcodeHeight">바코드 높이 설정</string>
     <string name="setFrontImage">전면 이미지 설정</string>
     <plurals name="selectedCardCount">
@@ -149,12 +146,12 @@
     <string name="noCameraPermissionDirectToSystemSetting">바코드를 스캔하려면 Catima가 카메라에 접근해야 합니다. 권한 설정을 변경하려면 여기를 탭하세요.</string>
     <string name="exportOptionExplanation">데이터는 선택한 위치에 기록됩니다</string>
     <string name="app_license">GPL v3+로 라이선스된 카피레프트 자유 소프트웨어</string>
-    <string name="failedOpeningFileManager">먼저 파일 관리자를 설치하십시오.</string>
+    <string name="failedOpeningFileManager">파일 관리자를 열 수 없습니다</string>
     <string name="importSuccessful">데이터 들여옴</string>
     <string name="group_name_is_empty">그룹 이름은 필수임</string>
     <string name="chooseExpiryDate">만료일 선택</string>
     <string name="settings_oled_dark">어두운 테마를 위한 검정색 배경</string>
-    <string name="noGroups">+ 더하기 버튼을 클릭하여 분류할 그룹을 추가합니다.</string>
+    <string name="noGroups">+ 더하기 버튼을 눌러 카테고리 그룹 추가</string>
     <string name="deleteConfirmationGroup">그룹을 삭제하시겠습니까\?</string>
     <string name="errorReadingImage">이미지를 읽을 수 없습니다</string>
     <string name="expiryStateSentence">만료: <xliff:g>%s</xliff:g></string>
@@ -225,8 +222,8 @@
     <string name="permissionReadCardsDescription">당신의 Catima 카드와 그에 대한 모든 세부 정보, 메모 및 이미지를 읽으세요</string>
     <string name="settings_oled_dark_summary">OLED 화면에서의 배터리 사용량 줄임</string>
     <string name="app_copyright_short">저작권 © Sylvia van Os 및 기여자</string>
-    <string name="settings_allow_content_provider_read_summary">접근을 위해서는 해당 앱에서 별도로 권한 요청을 해야 합니다</string>
-    <string name="settings_allow_content_provider_read_title">다른 앱의 내 정보 접근 허용</string>
+    <string name="settings_allow_content_provider_read_summary">Gadgetbridge 앱이 카드를 지원하는 시계와 동기화하도록 허용</string>
+    <string name="settings_allow_content_provider_read_title">Gadgetbridge와 동기화</string>
     <string name="permissionReadCardsLabel">Catima 카드 읽기</string>
     <string name="settings_keep_screen_on_summary">카드가 보일 때 화면 꺼짐 방지</string>
     <string name="view_online">온라인에서 보기</string>
@@ -262,7 +259,7 @@
     <string name="useFrontImage">전면 이미지 사용</string>
     <string name="useBackImage">후면 이미지 사용</string>
     <string name="addFromPkpass">Passbook 파일 선택하기 (.pkpass)</string>
-    <string name="generic_error_please_retry">죄송합니다, 문제가 발생했습니다. 다시 시도해 주세요...</string>
+    <string name="generic_error_please_retry">오류가 발생했습니다</string>
     <string name="settings_use_volume_keys_navigation">볼륨 버튼을 사용하여 카드 전환하기</string>
     <string name="unsupportedFile">이 파일은 지원되지 않습니다</string>
     <string name="settings_use_volume_keys_navigation_summary">볼륨 버튼을 사용하여 표시되는 카드를 변경합니다</string>
@@ -281,4 +278,65 @@
     <string name="width">너비</string>
     <string name="setBarcodeWidth">바코드 너비를 설정하세요</string>
     <string name="card_list_widget_name">카드 목록</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC 일시 중지</string>
+    <string name="card_list_widget_empty">Catima에 멤버십 카드를 추가하면 여기에 표시됩니다. 카드가 있는데도 보이지 않는다면 모두 보관 처리되어 있지 않은지 확인해 보세요.</string>
+    <string name="pleaseDoNotRotateTheDevice">기기를 회전하지 마세요. 진행 중인 작업이 취소될 수 있습니다</string>
+    <string name="acra_catima_has_crashed">죄송합니다. <xliff:g id="app_name">%s</xliff:g> 앱이 종료되었습니다. 문제 해결을 위해 오류 리포트를 보내주세요.</string>
+    <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> 크래시 리포트</string>
+    <string name="pref_enable_acra">오류 리포트 전송 요청</string>
+    <string name="pref_enable_acra_summary">이 기능을 켜면 오류가 발생했을 때 보고서 전송 여부를 확인합니다. 오류 리포트는 절대 자동으로 전송되지 않습니다.</string>
+    <string name="copy_value">값 복사</string>
+    <string name="copied_to_clipboard">클립보드에 복사됨</string>
+    <string name="nothing_to_copy">데이터를 찾을 수 없습니다</string>
+    <string name="back">돌아가기</string>
+    <string name="nfc_blocked_while_viewing_card">NFC 일시 중지됨</string>
+    <string name="change_settings">설정 변경</string>
+    <string name="nfc_block_system_error">NFC 일시 중지에 실패</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">카드를 보는 동안 NFC 결제가 실행되는 것을 방지하기 위해 NFC 기능을 일시 중지합니다</string>
+    <string name="cardWithNumber"><xliff:g>%d</xliff:g>번 카드</string>
+    <string name="cardWithNumberAndLocale"><xliff:g>%d</xliff:g> 번 카드 (<xliff:g>%s</xliff:g>)</string>
+    <string name="acra_explain_crash">가능하다면, 오류가 발생했을 때 어떤 작업을 하고 계셨는지 자세히 적어주세요:</string>
+    <string name="barcodeEncoding">바코드 인코딩</string>
+    <string name="settings_wear_sync_devices">허용한 Wear OS 기기</string>
+    <string name="settings_wear_sync_devices_summary">블루투스 동기화를 허용한 기기 관리</string>
+    <string name="settings_wear_sync_no_devices">허용한 기기 없음</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="other">기기 <xliff:g>%d</xliff:g>개 허용함</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">차단한 Wear OS 기기</string>
+    <string name="settings_wear_sync_blocked_devices_summary">차단한 Wear OS 기기 관리</string>
+    <string name="settings_wear_sync_no_blocked_devices">차단한 기기 없음</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="other">기기 <xliff:g>%d</xliff:g>개 차단함</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">기기를 제거하시겠습니까?</string>
+    <string name="settings_wear_sync_unpair_message">Catima에서 <xliff:g>%1$s</xliff:g> 기기를 제거하시겠습니까? 더 이상 카드를 동기화하지 못하게 됩니다.</string>
+    <string name="settings_wear_sync_unblock_message">차단한 목록에서 <xliff:g>%1$s</xliff:g> 기기를 제거하시겠습니까? 접근 요청을 다시 할 수 있게 됩니다.</string>
+    <string name="settings_wear_sync_unpair">제거</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">기기를 눌러 제거하십시오.</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS 기기 페어링</string>
+    <string name="wear_bt_pairing_title">Wear OS 기기가 동기화하려 함</string>
+    <string name="wear_bt_pairing_message"><xliff:g>%1$s</xliff:g> 기기가 카드에 접근하도록 허용합니까?</string>
+    <string name="wear_bt_pairing_allow">허용</string>
+    <string name="wear_bt_pairing_block">차단</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g>의 동기화를 허용했습니다.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> 기기를 차단했습니다.</string>
+    <string name="wear_bt_pairing_mismatch_title"><xliff:g>%1$s</xliff:g>의 새 인증 요청</string>
+    <string name="wear_bt_pairing_mismatch_message">이 기기는 이전에 인증되었지만 지금은 다른 식별 토큰을 제시하고 있습니다. Wear OS 앱을 재설치하거나 데이터를 지웠을 때 이런 현상이 발생할 수 있습니다. 또한 블루투스 MAC 스푸핑 시도일 수도 있습니다.\n\n최근 이 시계에 Catima Wear OS 앱을 재설치한 경우에만 수락하십시오.</string>
+    <string name="open_settings">설정 열기</string>
+    <string name="open_in_gallery">사진 갤러리에서 열기</string>
+    <string name="settings_category_title_smartwatch">스마트워치 지원</string>
+    <string name="wear_bt_failed_foreground_notification_title">Wear OS 동기화 서비스 시작 실패</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS 동기화 치명적 오류</string>
+    <string name="wear_bt_channel_name">Wear OS 컴패니언</string>
+    <string name="wear_bt_notification_title">Catima Wear OS 동기화 활성화됨</string>
+    <string name="sort_by_most_recently_added">가장 최근에 추가함</string>
+    <string name="show_card_id">카드 ID 표시</string>
+    <string name="settings_wear_sync">Wear OS와 동기화</string>
+    <string name="settings_wear_sync_summary">Wear OS 연동 앱이 블루투스로 카드를 읽을 수 있도록 허용</string>
+    <string name="wear_sync_permission_required">Catima에서 Wear OS 스마트워치와 동기화하려면 거절하셨던 권한이 필요합니다</string>
+    <string name="zoomFrontImage">전면 사진 확대</string>
+    <string name="zoomBackImage">후면 사진 확대</string>
+    <string name="android_blocked_startup">Android에서 Wear OS 서비스 시작을 차단함</string>
 </resources>

@@ -1,0 +1,1 @@
+- Popravek razčlenjevanja vrednosti za države, ki kot ločilo uporabljajo presledek

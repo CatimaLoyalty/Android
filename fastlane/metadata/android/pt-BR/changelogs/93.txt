@@ -1,0 +1,2 @@
+- Adicionar Catima aos Controles de Dispositivo de Acesso Rápido (https://developer.android.com/guide/topics/ui/device-control)
+- Corrigir a exibição incorreta de alguns grupos na tela de gerenciamento de grupos

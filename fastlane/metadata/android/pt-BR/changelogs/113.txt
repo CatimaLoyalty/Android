@@ -1,0 +1,3 @@
+- Adicionar botões de anterior e próximo à visualização do cartão de fidelidade
+- Corrigir a cor de primeiro plano do botão de edição
+- Substituir o ícone de disquete de salvamento por um ícone de verificação (check)

@@ -1,0 +1,4 @@
+- Podpora uvozu izvoznih datotek iz Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Omogočanje uvoza kartice iz slike, shranjene v galeriji uporabnikovega naprave Android
+- Popravek preloma večvrstičnih opomb
+- Sprememba besedila »Hvala« v pogovornem oknu o zasebnosti v »Sprejmi«, ker je Huawei preveč pedanten

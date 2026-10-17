@@ -1,0 +1,2 @@
+- Correction du widget de liste qui ne se met pas à jour lorsqu'on ouvre une carte depuis celui-ci
+- Correction de l'ouverture de fichiers pkpass/PDF qui échoue parfois depuis des répertoires réseau

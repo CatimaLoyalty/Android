@@ -1,0 +1,1 @@
+- Option hinzugefügt, um Bilder aus dem integrierten Bildbetrachter in der Galerie App zu öffnen

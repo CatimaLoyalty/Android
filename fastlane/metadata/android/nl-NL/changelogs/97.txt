@@ -1,0 +1,4 @@
+- Opgelost dat meerder keren op de Opslaan knop drukken meerdere kopiën aanmaakt
+- Kleinere maat voor de kaart kop als details verborgen zijn om nog meer kaarten op het scherm te passen
+- Aanpassen scherm geherstructureerd
+- Contrast van sterpictogrammen in het hoofdscherm verbeterd

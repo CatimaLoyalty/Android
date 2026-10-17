@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Kartic ni bilo mogoče najti.\nOdpri aplikacijo Catima na svojem telefonu, da dodaš kartice.</string>
+    <string name="phone_not_connected">Na tvojem telefonu ni bilo mogoče vzpostaviti povezave z aplikacijo Catima.\nPreveri, ali aplikacija Catima na tvojem telefonu deluje, ali je tvoja ura povezana in ali je v nastavitvah Catime za pametne ure omogočena podpora za Wear OS.</string>
+    <string name="loading_cards">Nalaganje kartic …</string>
+    <string name="no_barcode">Za to kartico ni na voljo črtne kode.</string>
+    <string name="card_id_label">ID kartice</string>
+    <string name="syncing">Sinhronizacija s telefonom …</string>
+    <string name="sync_failed">Telefon ni dosegljiv – prikazujejo se kartice iz predpomnilnika</string>
+    <string name="version_incompatible">Aplikacija Catima na tvojem telefonu in uri nista združljivi.\nProsimo, posodobi obe.</string>
+    <string name="bluetooth_permission_denied">Dovoljenje za Bluetooth je bilo zavrnjeno.\nPodeli ga v nastavitvah, da bo mogoče sinhronizirati kartice.</string>
+    <string name="bluetooth_disabled">Bluetooth je izklopljen.\nVklopi ga, da boš lahko sinhroniziral/a kartice iz telefona.</string>
+    <string name="sync_error">Branje kartic iz telefona ni uspelo.\nPoskusi še enkrat zagnati sinhronizacijo.</string>
+    <string name="unauthorized">Ni dovoljeno.\nV nastavitvah Catima tej uri omogoči branje svojih kartic.</string>
+</resources>

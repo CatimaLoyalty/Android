@@ -1,0 +1,2 @@
+- Z dolgim pritiskom na kartico se prikaže možnost kopiranja ID-ja kartice v odložišče. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Gumb »Nazaj« v pogledu »Uvoz/Izvoz« zdaj deluje in uporabnika preusmeri v glavni pogled

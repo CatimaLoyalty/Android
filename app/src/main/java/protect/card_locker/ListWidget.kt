@@ -14,6 +14,7 @@ import android.widget.RemoteViews
 import androidx.core.widget.RemoteViewsCompat
 import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
 import protect.card_locker.cardview.LoyaltyCardViewActivity
+import protect.card_locker.shared.ForegroundColorHelper
 
 class ListWidget : AppWidgetProvider() {
     fun updateAll(context: Context) {
@@ -100,7 +101,7 @@ class ListWidget : AppWidgetProvider() {
         // Note: Android 5 will not use bitmaps
         val remoteViews = RemoteViews(context.packageName, R.layout.list_widget_item).apply {
             val headerColor = Utils.getHeaderColor(context, loyaltyCard)
-            val foreground = if (Utils.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE
+            val foreground = if (ForegroundColorHelper.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE
             setInt(R.id.item_container_foreground, "setBackgroundColor", headerColor)
             val icon = loyaltyCard.getImageThumbnail(context)
             // FIXME: The icon flow causes a crash up to Android 12L, so force anything below 33 down this path

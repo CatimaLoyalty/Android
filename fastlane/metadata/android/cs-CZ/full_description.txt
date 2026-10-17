@@ -11,6 +11,7 @@ S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradi
 - Import karet a kódů ze souborů a aplikací Catima, FidMe, Loyalty Card Keychain a Voucher Vault.
 - Vytvořte si zálohu všech karet a v případě potřeby je přeneste do nového zařízení.
 - Sdílejte kupony, exkluzivní nabídky, propagační kódy nebo karty a kódy pomocí libovolné aplikace.
+- Synchronizujte s podporovanými chytrými hodinkami Gadgetbridge nebo Wear OS.
 - Tmavý motiv a možnosti zpřístupnění pro uživatele se zrakovým postižením.
 - Vytvořeno pro všechny komunitou svobodného softwaru.
 - Lokalizované ručně prováděné překlady pro více než 40 jazyků.

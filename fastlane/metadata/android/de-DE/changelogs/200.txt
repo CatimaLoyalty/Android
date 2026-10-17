@@ -1,0 +1,1 @@
+- Erste Version der Wear OS Begleit-App

@@ -1,0 +1,4 @@
+- Podpora za Android 14
+- Ikona kartice se v galeriji odpre ob dotiku
+- Izboljšana zasnova zavihka »Fotografije« v pogledu za urejanje
+- Posodobljen zaslon izdatkov, ki zdaj podpira tudi prejemanje

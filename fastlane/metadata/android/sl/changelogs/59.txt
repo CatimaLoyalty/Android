@@ -1,0 +1,2 @@
+- Dodana podporo za stanje
+- Preurejen zavihek črtne kode v pogledu za urejanje

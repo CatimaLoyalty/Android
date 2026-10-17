@@ -1,0 +1,1 @@
+- Solução alternativa para travamento durante a instalação em algumas versões do Android (provavelmente Android 5 e anteriores). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

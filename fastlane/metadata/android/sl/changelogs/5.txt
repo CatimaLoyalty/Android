@@ -1,0 +1,2 @@
+- Z glavnega zaslona je mogoče odpreti pogovorno okno »O programu«, ki vsebuje podrobnosti o aplikaciji in projektu na GitHubu (vprašanje št. 19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Omogočena uvoz in izvoz podatkov o karticah zvestobe v datoteko CSV v zunanjem pomnilniku (vprašanje št. 36 (https://github.com/brarcher/loyalty-card-locker/issues/36), vprašanje št. 20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

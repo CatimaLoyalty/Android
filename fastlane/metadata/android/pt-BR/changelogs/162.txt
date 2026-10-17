@@ -1,0 +1,5 @@
+- Corrigir o widget de lista que, às vezes, abria o cartão errado
+- Corrigir vários bugs no tratamento de atalhos
+- Corrigir a tela "Sobre", que não usava uma barra de título em preto puro no modo OLED
+- Remover completamente a detecção automática de codificação de código de barras
+- Expor a codificação do código de barras via ContentProvider (utilizado pelo Gadgetbridge)

@@ -1,0 +1,2 @@
+- Een dialoogvenster kan geopend worden vanuit het hoofdscherm, die details bevat over de app en het project op GitHub (probleem #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Sta toe dat spaarkaart informatie geïmporteerd kan worden uit/geëxporteerd naar een CSV-bestand in externe opslag (probleem #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), probleem #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

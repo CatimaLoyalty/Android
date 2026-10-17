@@ -1,0 +1,3 @@
+- Premestite zaslona O programu v samostojno aktivnost
+- Vprašanje uporabniku, ali želi uporabiti kamero ali ročno vnesti ID pri dodajanju/urejanju kartice
+- Omogočeno ročno razvrščanje skupin namesto obveznega razvrščanja po abecednem redu

@@ -1,0 +1,4 @@
+- Na širokih zaslonih spremeni privzeto število stolpcev na 4
+- V nastavitvah omogoči prepisovanje števila stolpcev za pokončni in ležeči način
+- Ob vrtenju zaslona ali odpiranju kartice ohrani iskalni filter na glavnem zaslonu
+- Omeji največjo dolžino prikaza opombe na glavnem zaslonu

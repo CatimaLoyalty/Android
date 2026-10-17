@@ -1,11 +1,12 @@
 **Last updated**  
-April 29 2026
+August 7 2026
 
 # Privacy Policy
 Catima does not collect or transmit any personal information.
 
 To ensure correct app functionality, we require access to the following:
 
+- Bluetooth: When using Catima together with the Wear OS companion app, Bluetooth access is needed to be able to communicate to Wear OS. This may show up as "find, connect to, and determine the relative position of nearby devices" because Android considers Bluetooth as part of location, but location information is never collected or used. The app can still be used when Bluetooth permission is denied, but you will not be able to use the Wear OS companion app.
 - Camera: We need access to your camera to be able to scan barcodes. The app can still be used when camera access is denied, but you will have to manually type the barcode information.
 - NFC: We need NFC access to temporarily disable NFC while showing a barcode to prevent NFC payment apps from triggering (such as when using a check-in gates which support both barcodes and NFC payments). This functionality can be disabled in settings.
 - Storage (Android 5 and 6 only): We need access to your device storage to create or import backups. The app can still be used when storage access is denied, but you will not be able to create or import backups.

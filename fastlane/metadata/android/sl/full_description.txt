@@ -11,11 +11,12 @@ S tem osnovnim orodjem na svoji elektronski napravi, lahko neuporabno plastiko n
 - Uvozi kartice in kode iz datotek, Catima, FidMe, Loyalty Card Keychain in Voucher Vault.
 - Naredi varnostno kopijo vseh svojih kartic in jih po želji prenesi v novo napravo.
 - Deli kupone, ekskluzivne ponudbe, promocijske kode ali kartice in kode s katero koli aplikacijo.
+- Sinhronizacija s podprtimi pametnimi urami Gadgetbridge ali Wear OS.
 - Temna tema in možnosti dostopnosti za uporabnike z okvarami vida.
-- Izdelana za vsakogar s strani skupnosti programske opreme libre.
+- Izdelana za vsakogar s strani skupnosti proste programske opreme.
 - Lokalizirani ročno izdelani prevodi za več kot 40 jezikov.
 - Brezplačno, podprto s prispevki skupnosti.
-- Uporabljaj, preučuj, spreminjaj in delite po želji; <i>z vsemi</i>.
+- Uporabljaj, preučuj, spreminjaj in deli po želji; <i>z vsemi</i>.
 - Programska oprema je odprtokodna in brezplačna. Upravljanje kartic s pomočjo <i>Copylefted</i> proste programske opreme (GPLv3+ licenca).
 
 Poenostavi si življenje in nakupovanje ter nikoli več ne izgubi papirnatega računa, darilne kartice za plačilo v trgovini ali letalske karte.

@@ -1,0 +1,6 @@
+- Mudança de marca para Catima
+- Remoção da introdução
+- Adição de botões de ação flutuantes
+- Correção de falha no Android 5 ao abrir a tela "Sobre"
+- Adição de suporte a favoritos
+- Correção de erro onde a rotação automática desativada era ignorada

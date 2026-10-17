@@ -1,0 +1,2 @@
+- Dodajanje drsenja med skupinami na začetnem zaslonu
+- Odprava napake, ki je povzročala sesutje programa pri karticah brez barve naslova

@@ -1,0 +1,3 @@
+- Reformulação completa das telas principais e de visualização do cartão de fidelidade
+- Design "Material You" para a tela de configurações
+- Correção de falha ao usar a opção "Tirar foto" com o aplicativo de câmera desativado

@@ -23,7 +23,9 @@ for good reason.
 
 ## Code Changes
 
-Note: submitting LLM ("AI") generated code is strongly discouraged, as such
+### LLM ("AI") and coding agents
+
+**Note:** submitting LLM ("AI") generated code is strongly discouraged, as such
 code is often (subtly) incorrect or overcomplicated (for example: unnecessarily
 pulling in extra libraries for functionality already covered by existing
 libraries). It also often makes unrelated changes that increase the risk of
@@ -47,18 +49,30 @@ risk.
 
 Please never submit LLM-generated code as-is.
 
+### Kotlin and Compose migration
+
+Catima uses a lot of "legacy" tech, Java, Android XML. This will be ported to Kotlin,
+then Jetpack Compose; for further details, see
+<https://github.com/CatimaLoyalty/Android/issues/2483>.
+
+Thus, prefer Kotlin and Jetpack Compose for new code/UI where practical, especially new files/features.
+
 ### Test Your Code
 
-There are four possible tests you can run to verify your code.  The first
+There are three possible tests you can run to verify your code.  The first
 is unit tests, which check the basic functionality of the application, and
 can be run by gradle using:
 
-    # ./gradlew testReleaseUnitTest
+```sh
+./gradlew testFossDebugUnitTest
+```
 
-The second and third check for common problems using static analysis.
-These are the Android lint checker, run using:
+The second checks for common problems using static analysis.
+This is the Android lint checker, run using:
 
-    # ./gradlew lintRelease
+```sh
+./gradlew lintFossRelease
+```
 
 The final check is by testing the application on a live device and verifying
 the basic functionality works as expected.

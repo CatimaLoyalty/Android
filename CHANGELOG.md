@@ -1,5 +1,47 @@
 # Changelog
 
+## Unreleased (Android) - 1006
+
+- Start Wear OS sync if enabled when turning on Bluetooth
+- Limit extra screen on time while viewing a card to 5 minutes to prevent overheating
+- Avoid camera inset in full screen view
+
+## v2.45.1 (Android) - 1004 (2026-09-27)
+
+- Fix list widget not updating when opening a card from it
+- Fix opening pkpass/pdf files from network locations sometimes failing
+- Fix crash in Wear OS sync when Bluetooth is disabled
+
+## v1.0.1 (Wear OS) - 201 (2026-08-28)
+
+- Add scroll bar to card list
+- Add splash screen
+- Fix some padding issues
+- Remove barcode value from card view
+
+## v2.45.0 (Android) - 1002 (2026-08-12)
+
+- Add a Bluetooth server for Wear OS companion app support
+- Remove embedded CHANGELOG
+
+## v1.0.0 (Wear OS) - 200 (2026-08-12)
+
+- Initial release of Wear OS companion app
+
+## v2.44.0 - 168 (2026-07-28)
+
+- Add option to open image in internal image viewer in gallery
+
+## v2.43.0 - 167 (2026-07-12)
+
+- Add support for showing the card ID in the card list
+- Add support to sort by most recently added
+- Add internal image viewer for zooming card front/back/icon images
+
+## v2.42.1 - 166 (2026-05-16)
+
+- Prevent crash on devices with misbehaving NFC
+
 ## v2.42.0 - 165 (2026-05-06)
 
 - Disable NFC while showing a card by default

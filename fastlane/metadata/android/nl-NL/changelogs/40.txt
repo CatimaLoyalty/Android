@@ -1,0 +1,6 @@
+- Rebrand tot Catima
+- Intro verwijderd
+- Drijvende actieknoppen toegevoegd
+- Crash op Android 5 bij het openen van het Over de App scherm opgelost
+- Onsersteuning voor favorieten
+- Negeren van uitschakelen van auto-rotatie opgelost

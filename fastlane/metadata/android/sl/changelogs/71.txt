@@ -1,0 +1,2 @@
+- Nekaj manjših popravkov prevodov in uporabniškega vmesnika
+- Odpravljena napaka, ki je povzročala sesutje aplikacije pri uvozu/deljenju kartice zvestobe v sistemu Android 6

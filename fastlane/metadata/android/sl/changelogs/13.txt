@@ -1,0 +1,2 @@
+- Sprememba v različici v0.11 je zmanjšala porabo pomnilnika pri risanju črtnih kod, vendar je vplivala na njihove dimenzije. To je bilo zdaj popravljeno tako, da se ohranijo dimenzije črtnih kod, hkrati pa se zmanjša poraba pomnilnika.
+- Posodobljeni so nemški in francoski prevodi

@@ -1,0 +1,6 @@
+- Dodana podpora za črtne kode v formatu UTF-8
+- Na glavni zaslon dodana možnost »podvojitev« in rahlo spremenjeni vrstni red možnosti
+- Popravljena napaka, zaradi katere se nastavitev števila stolpcev ni uporabljala za seznam kartic v skupinah
+- Odstranjena podpora za barve tem
+- Zmanjšana največja velikost fotografij za zmanjšanje porabe prostora za shranjevanje (velja le za novo dodane fotografije)
+- Migracija dejavnosti »O aplikaciji« iz XML-ja za Android v Jetpack Compose

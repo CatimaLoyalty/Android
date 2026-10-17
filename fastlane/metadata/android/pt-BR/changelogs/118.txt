@@ -1,0 +1,2 @@
+- Suporte para definir o início da validade do cartão
+- Correção da importação do Stocard (o formato de exportação do Stocard mudou)

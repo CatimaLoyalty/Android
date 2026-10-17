@@ -1,0 +1,1 @@
+- Corrigir a sobreposição do botão de edição ou do painel inferior de informações sobre o código de barras de identificação

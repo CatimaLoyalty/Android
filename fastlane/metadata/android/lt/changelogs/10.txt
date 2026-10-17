@@ -1,0 +1,3 @@
+- Pakeistas numatytasis importo / eksporto failo pavadinimas. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Ištaisyta eilutė importo / eksporto puslapyje. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Patobulintas kortelės peržiūros puslapio išdėstymas. Tekstas turėtų būti lengviau skaitomas ir pasirenkamas ilgu spustelėjimu. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

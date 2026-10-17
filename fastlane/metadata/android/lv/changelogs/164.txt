@@ -1,3 +1,4 @@
 Sākot ar šo laidienu Android 5.0 un 5.1 vairs netiek atbalstīts. Ja ir vēlēšanās izmantot Catima ar šīm versijām, lūgums izmantot Catima 2.41.6.
 
 - Novērsta avārija, kad pārslēdzas starp kartēm ar skaļuma kartēm, ja ir pieejama tikai viena karte
+- Salabots īsceļš, kas atgriež uz iepriekšējo karti pēc pagriešanas

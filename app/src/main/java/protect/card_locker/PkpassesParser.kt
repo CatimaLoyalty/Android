@@ -22,6 +22,8 @@ class PkpassesParser(context: Context, uri: Uri?) {
             throw IOException(context.getString(R.string.errorReadingFile))
         }
 
+        var hasPkpassFiles = false
+
         try {
             mContext.contentResolver.openInputStream(uri).use { inputStream ->
                 ZipInputStream(inputStream).use { zipInputStream ->
@@ -42,6 +44,9 @@ class PkpassesParser(context: Context, uri: Uri?) {
                         // Ignore non-pkpass files
                         if (!localFileHeader.fileName.endsWith(".pkpass")) continue
 
+                        // Mark as found
+                        hasPkpassFiles = true
+
                         // Extract .pkpass (.zip) inside .pkpasses to cache directory
                         val tempFileName = "pkpassparser_" + System.currentTimeMillis() + "_" + localFileHeader.fileName
                         val tempFile = Utils.copyToTempFile(mContext, zipInputStream, tempFileName)
@@ -60,6 +65,11 @@ class PkpassesParser(context: Context, uri: Uri?) {
             throw IOException(mContext.getString(R.string.errorReadingFile))
         } catch (e: Exception) {
             throw e
+        }
+
+        if (!hasPkpassFiles) {
+            Log.d(TAG, "No pkpass files found")
+            throw IOException(mContext.getString(R.string.errorReadingFile))
         }
     }
 

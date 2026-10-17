@@ -1,0 +1,4 @@
+- Stocard import verbeterd
+- Import van Catima exportbestand met notities met meerdere regels opgelost
+- Schaalt de kaarttitel naar een acceptabele ratio
+- Verbeterde animaties

@@ -1,0 +1,4 @@
+- Melhorar a lista de cartões para visualização em modo paisagem e em tablets
+- Adicionar suporte a temas com cores personalizadas (obrigado, Subhashish Anand!)
+- Não fechar a tela de leitura em caso de erro na câmera (para permitir a inserção manual)
+- Incluir todos os colaboradores na tela "Sobre"

@@ -1,0 +1,2 @@
+- Corrigida a falha na aplicação da seleção manual de idioma em todos os locais
+- Corrigido travamento na tela de edição em localidades sem região definida

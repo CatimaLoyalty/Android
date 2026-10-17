@@ -1,0 +1,2 @@
+- Opgelist dat de widget anders uiziende snelkoppelingen maakt dan de app
+- Standaard zwart Android scherm vervangen met opstartscherm

@@ -1,0 +1,4 @@
+- Suporte à importação de arquivos exportados do Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Possibilidade de importar um cartão a partir de uma imagem armazenada na galeria do Android do usuário
+- Correção do corte de notas com múltiplas linhas
+- Alteração do texto "Obrigado" na caixa de diálogo de privacidade para "Aceitar", devido ao rigor excessivo da Huawei

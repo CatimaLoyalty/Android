@@ -1,0 +1,1 @@
+- Preparativos para melhorias futuras (reescrita de muitas classes em Kotlin)

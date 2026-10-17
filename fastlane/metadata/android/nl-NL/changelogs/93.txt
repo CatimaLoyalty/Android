@@ -1,0 +1,2 @@
+- Catima toegevoegd aan Snelle Toegang Apparaatbesturing (https://developer.android.com/guide/topics/ui/device-control)
+- Opgelost dat sommige groepen niet correct tonen in het groepsbeheerscherm

@@ -8,7 +8,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> தேர்ந்தெடுக்கப்பட்டன</item>
     </plurals>
     <string name="noGiftCards">ஒரு அட்டையைச் சேர்க்க + சேர் பொத்தானைக் சொடுக்கு செய்க அல்லது ⋮ பட்டியலிருந்து இறக்குமதி செய்</string>
-    <string name="noGiftCardsGroup">சில அட்டைகளை உருவாக்கி, பின்னர் அவற்றை இங்கே குழுவிற்கு ஒதுக்குங்கள்.</string>
+    <string name="noGiftCardsGroup">சில அட்டைகளை உருவாக்கி, பின்னர் அவற்றை இங்கே குழுவிற்கு ஒதுக்குங்கள்</string>
     <string name="storeName">பெயர்</string>
     <string name="note">குறிப்பு</string>
     <string name="cardId">அட்டை ஐடி</string>
@@ -58,7 +58,7 @@
     <string name="errorReadingImage">படத்தைப் படிக்க முடியவில்லை</string>
     <string name="balance">இருப்பு</string>
     <string name="currency">நாணயம்</string>
-    <string name="importFidme">FIDME இலிருந்து இறக்குமதி</string>
+    <string name="importFidme">FidMe இலிருந்து இறக்குமதி</string>
     <string name="barcodeId">பார்கோடு மதிப்பு</string>
     <string name="backImageDescription">பின் படம்</string>
     <string name="photos">புகைப்படங்கள்</string>
@@ -138,7 +138,7 @@
     <string name="importCatima">கேட்டிமாவில் இருந்து இறக்குமதி செய்</string>
     <string name="importCatimaMessage">நீங்கள் பூனையம்மாவிலிருந்து ஏற்றுமதியை தேர்ந்துஎடுத்து இறக்குமதி செய்.\nமற்றொரு பூனையம்மா செயலியில் இறக்குமதி/ஏற்றுமதி பட்டியலிலிருந்து ஏற்றுமதியை தேர்ந்துஎடுத்து இக்கோப்பை உருவாக்கு.</string>
     <string name="importLoyaltyCardKeychain">விசுவாச அட்டை கீச்சினிலிருந்து இறக்குமதி செய்யுங்கள்</string>
-    <string name="importFidmeMessage">"உங்கள்  இறக்குமதியை FIDME இலிருந்து ஏற்றுமதி செய்து, பின்னர் பட்டைகோடு வகைகளைக் கைமுறையாகத் தேர்ந்தெடு.\n தரவு பாதுகாப்பைத் தேர்ந்தெடுப்பதன் மூலம் உங்கள் FIDME தன்விவரத்திலிருந்து அதை உருவாக்கவும், பின்னர் எனது தரவைப் பிரித்தெடு அழுத்தவும்."</string>
+    <string name="importFidmeMessage">உங்கள் இறக்குமதியை FidMe இலிருந்து ஏற்றுமதி செய்து, பின்னர் பட்டைகோடு வகைகளைக் கைமுறையாகத் தேர்ந்தெடு.\n தரவு பாதுகாப்பைத் தேர்ந்தெடுப்பதன் மூலம் உங்கள் FidMe தன்விவரத்திலிருந்து அதை உருவாக்கவும், பின்னர் எனது தரவைப் பிரித்தெடு அழுத்தவும்.</string>
     <string name="importVoucherVault">வவுச்சர் பெட்டகத்திலிருந்து இறக்குமதி</string>
     <string name="sameAsCardId">ஐடி அதே</string>
     <string name="setBarcodeId">பார்கோடு மதிப்பை அமைக்கவும்</string>
@@ -166,7 +166,6 @@
     <string name="updateBalance">இருப்பு புதுப்பிக்கவும்</string>
     <string name="failedToRetrieveImageFile">படக் கோப்பை மீட்டெடுப்பதில் தோல்வி</string>
     <string name="sort_by">வரிசைப்படுத்தவும்</string>
-    <string name="barcodeLongPressMessage">கேலரி பயன்பாட்டில் படங்களை மட்டுமே திறக்க முடியும்</string>
     <string name="version_history">பதிப்பு வரலாறு</string>
     <string name="credits">வரவு</string>
     <string name="on_google_play">கூகிள் பிளேயில்</string>
@@ -201,8 +200,6 @@
     <string name="switchToFrontImage">முன் படத்திற்கு மாறவும்</string>
     <string name="switchToBackImage">பின் படத்திற்கு மாறவும்</string>
     <string name="switchToBarcode">பார்கோடு மாறவும்</string>
-    <string name="openFrontImageInGalleryApp">இமேச் வியூவர் ஆப்சில் முன் படத்தைத் திறக்கவும்</string>
-    <string name="openBackImageInGalleryApp">இமேச் வியூவர் ஆப்சில் மீண்டும் படத்தைத் திறக்கவும்</string>
     <string name="setBarcodeHeight">பார்கோடு உயரத்தை அமைக்கவும்</string>
     <string name="donate">நன்கொடை</string>
     <string name="icon_header_click_text">சிறுபடத்தைத் திருத்த நீண்ட அழுத்தவும்</string>
@@ -246,18 +243,18 @@
     <string name="addFromPkpass">பாச்புக் கோப்பைத் தேர்ந்தெடுக்கவும் (.pkpass / .pkpasses)</string>
     <string name="useFrontImage">முன் படத்தைப் பயன்படுத்தவும்</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one"><xliff:g>%d</xliff:g> அட்டை நீக்கு</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> அட்டைகளை நீக்கு</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> கார்டை நீக்கவும்</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> கார்டுகளை நீக்கவும்</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">இந்த <xliff:g>%d</xliff:g> அட்டையை நிரந்தரமாக நீக்கவா?</item>
-        <item quantity="other">இந்த <xliff:g>%d</xliff:g> அட்டைகளை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="one">இந்த <xliff:g>%d</xliff:g> கார்டை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="other">இந்த <xliff:g>%d</xliff:g> கார்டுகளை நிரந்தரமாக நீக்கவா?</item>
     </plurals>
     <string name="editGroup">திருத்துதல் குழு: <xliff:g>%s</xliff:g></string>
     <string name="debug_version_fmt">பதிப்பு: <xliff:g id="version">%s</xliff:g></string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> அட்டை</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> அட்டைகள்</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> கார்டுகள்</item>
     </plurals>
     <string name="expiryStateSentenceExpired">காலாவதியானது: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">
@@ -277,7 +274,7 @@
     <string name="balanceSentence">இருப்பு: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> அட்டை (<xliff:g id="archivedCount">%2$d</xliff:g> காப்பகப்படுத்தப்பட்டது)</item>
-        <item quantity="other"><xliff:g>%1$d</xliff:g> அட்டைகள் (<xliff:g id="archivedCount">%2$d</xliff:g> காப்பகப்படுத்தப்பட்டது)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> கார்டுகள் (<xliff:g id="archivedCount">%2$d</xliff:g> காப்பகப்படுத்தப்பட்டது)</item>
     </plurals>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">பதிப்புரிமை © 2019–<xliff:g>%d</xliff:g> சில்வியா வான் ஓஎச் மற்றும் பங்களிப்பாளர்கள்</string>
     <string name="app_resources">மூன்றாம் தரப்பு வளங்கள்: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -289,7 +286,7 @@
     <string name="card_list_widget_empty">கேட்டிமாவில் நீங்கள் விசுவாச அட்டைகளை சேர்த்த பிறகு, அவை இங்கு தோன்றும். அட்டைகள் காப்பகப்படுத்த படவில்லை என உறுதி செய்க.</string>
     <string name="cardWithNumber">அட்டை <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">அட்டை<xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
-    <string name="pleaseDoNotRotateTheDevice">தயவுசெய்து சாதனத்தை சுழற்றாதீர்கள், இது செயலை ரத்து செய்யும்.</string>
+    <string name="pleaseDoNotRotateTheDevice">தயவுசெய்து சாதனத்தை சுழற்றாதீர்கள், இது செயலை கைவிடும்</string>
     <string name="acra_catima_has_crashed">மன்னிக்கவும், <xliff:g id="app_name">%s</xliff:g> செயலி செயலிழந்துள்ளது. தயவுசெய்து பிழை அறிக்கையை அனுப்பி, இந்த பிரச்சினையை சரிசெய்ய எங்களுக்கு உதவுங்கள்.</string>
     <string name="acra_explain_crash">சாத்தியமானால், நீங்கள் இங்கே என்ன செய்தீர்கள் என்பதைப் பற்றிய மேலும் விவரங்களைச் சேர்க்கவும்:</string>
     <string name="acra_crash_email_subject"><xliff:g id="app_name">%s</xliff:g> செயலிழப்பு அறிக்கை</string>
@@ -300,4 +297,9 @@
     <string name="nothing_to_copy">மதிப்பு இல்லை</string>
     <string name="barcodeEncoding">பார்கோடு குறியாக்கம்</string>
     <string name="back">பின்</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC ஐ இடைநிறுத்து</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">கார்டைப் பார்க்கும்போது NFC பேமெண்ட்கள் தூண்டப்படுவதைத் தடுக்க NFCஐ இடைநிறுத்துகிறது</string>
+    <string name="nfc_blocked_while_viewing_card">NFC இடைநிறுத்தப்பட்டது</string>
+    <string name="change_settings">அமைப்புகளை மாற்றவும்</string>
+    <string name="nfc_block_system_error">NFC ஐ இடைநிறுத்த முடியவில்லை</string>
 </resources>

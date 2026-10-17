@@ -23,7 +23,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.edit
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
@@ -37,9 +39,12 @@ import protect.card_locker.databinding.MainActivityBinding
 import protect.card_locker.databinding.SortingOptionBinding
 import protect.card_locker.preferences.Settings
 import protect.card_locker.preferences.SettingsActivity
+import protect.card_locker.wearos.WearSyncPermissionRequester
 import java.io.UnsupportedEncodingException
 import java.util.concurrent.atomic.AtomicInteger
-import androidx.core.content.edit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var binding: MainActivityBinding
@@ -61,6 +66,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
     private lateinit var mUpdateLoyaltyCardListRunnable: Runnable
     private lateinit var mBarcodeScannerLauncher: ActivityResultLauncher<Intent>
     private lateinit var mSettingsLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mWearSyncPermissionRequester: WearSyncPermissionRequester
 
     private val mCurrentActionModeCallback: ActionMode.Callback = object : ActionMode.Callback {
         override fun onCreateActionMode(inputMode: ActionMode, inputMenu: Menu?): Boolean {
@@ -318,6 +324,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             }
         }
 
+        mWearSyncPermissionRequester = WearSyncPermissionRequester(this, this)
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (mSearchView != null && !mSearchView!!.isIconified) {
@@ -394,6 +402,8 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             val settings = Settings(this)
             layoutManager.setSpanCount(settings.getPreferredColumnCount())
         }
+
+        mWearSyncPermissionRequester.synchronize()
     }
 
     private fun displayCardSetupOptions(menu: Menu, shouldShow: Boolean) {
@@ -467,11 +477,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         ShortcutHelper.updateShortcuts(mAdapter.mContext)
     }
 
-    private fun processParseResultList(
-        parseResultList: MutableList<ParseResult?>,
-        group: String?,
-        closeAppOnNoBarcode: Boolean
-    ) {
+    private fun processParseResultList(parseResultList: MutableList<ParseResult?>) {
         require(!parseResultList.isEmpty()) { "parseResultList may not be empty" }
 
         Utils.makeUserChooseParseResultFromList(
@@ -482,17 +488,12 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                     val intent =
                         Intent(applicationContext, LoyaltyCardEditActivity::class.java)
                     val bundle = parseResult.toLoyaltyCardBundle(this@MainActivity)
-                    if (group != null) {
-                        bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group)
-                    }
                     intent.putExtras(bundle)
                     startActivity(intent)
                 }
 
                 override fun onUserDismissedSelector() {
-                    if (closeAppOnNoBarcode) {
-                        finish()
-                    }
+                    finish()
                 }
             })
     }
@@ -505,13 +506,11 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
             return
         }
 
-        val parseResultList: MutableList<ParseResult?>?
-
         // Check for shared text
         if (receivedAction == Intent.ACTION_SEND && receivedType == "text/plain") {
             val loyaltyCard = LoyaltyCard()
             loyaltyCard.setCardId(intent.getStringExtra(Intent.EXTRA_TEXT)!!)
-            parseResultList = mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard))
+            processParseResultList(mutableListOf(ParseResult(ParseResultType.BARCODE_ONLY, loyaltyCard)))
         } else {
             // Parse whatever file was sent, regardless of opening or sharing
             val data: Uri? = when (receivedAction) {
@@ -527,36 +526,54 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
                 }
             }
 
-            if (receivedType.startsWith("image/")) {
-                parseResultList = Utils.retrieveBarcodesFromImage(this, data)
-            } else if (receivedType == "application/pdf") {
-                parseResultList = Utils.retrieveBarcodesFromPdf(this, data)
-            } else if (mutableListOf<String?>(
-                    "application/vnd.apple.pkpass",
-                    "application/vnd-com.apple.pkpass"
-                ).contains(receivedType)
-            ) {
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
-            } else if (receivedType == "application/vnd.espass-espass") {
-                // FIXME: espass is not pkpass
-                // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
-                // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
-                parseResultList = Utils.retrieveBarcodesFromPkPass(this, data)
-            } else if (receivedType == "application/vnd.apple.pkpasses") {
-                parseResultList = Utils.retrieveBarcodesFromPkPasses(this, data)
-            } else {
-                Log.e(TAG, "Wrong mime-type")
-                return
+            importFile(data, receivedType)
+        }
+    }
+
+    private fun importFile(data: Uri?, receivedType: String) {
+        lifecycleScope.launch {
+            val parseResultList: MutableList<ParseResult?> = withContext(Dispatchers.IO) {
+                try {
+                    when {
+                        receivedType.startsWith("image/") ->
+                            Utils.retrieveBarcodesFromImage(this@MainActivity, data)
+
+                        receivedType == "application/pdf" ->
+                            Utils.retrieveBarcodesFromPdf(this@MainActivity, data)
+
+                        receivedType == "application/vnd.apple.pkpass" ||
+                                receivedType == "application/vnd-com.apple.pkpass" ->
+                            Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+                        // FIXME: espass is not pkpass
+                        // However, several users stated in https://github.com/CatimaLoyalty/Android/issues/2197 that the formats are extremely similar to the point they could rename an .espass file to .pkpass and have it imported
+                        // So it makes sense to "unofficially" treat it as a PKPASS for now, even though not completely correct
+                        receivedType == "application/vnd.espass-espass" ->
+                            Utils.retrieveBarcodesFromPkPass(this@MainActivity, data)
+
+                        receivedType == "application/vnd.apple.pkpasses" ->
+                            Utils.retrieveBarcodesFromPkPasses(this@MainActivity, data)
+
+                        else -> {
+                            Log.e(TAG, "Wrong mime-type")
+                            return@withContext null
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Parsing failed: $e");
+                    e.printStackTrace();
+                    Utils.showToast(this@MainActivity, R.string.errorReadingFile, Toast.LENGTH_LONG);
+                    return@withContext null;
+                }
+            } ?: return@launch
+
+            if (parseResultList.isEmpty()) {
+                Utils.showToast(this@MainActivity, R.string.noBarcodeFound, Toast.LENGTH_LONG);
+                finish()
+                return@launch
             }
-        }
 
-        // Give up if we should parse but there is nothing to parse
-        if (parseResultList == null || parseResultList.isEmpty()) {
-            finish()
-            return
+            processParseResultList(parseResultList)
         }
-
-        processParseResultList(parseResultList, null, true)
     }
 
     private fun extractIntentFields(intent: Intent) {

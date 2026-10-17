@@ -1,0 +1,2 @@
+- Uporabniku omogoči ročni vnos črtne kode. Če se uporabnik odloči za ročni vnos črtne kode, se prikaže seznam vseh veljavnih in podprtih slik črtnih kod. Uporabnik lahko nato izbere sliko črtne kode, ki ustreza njegovim željam
+- Odpravljena je bila težava, zaradi katere so bile nekatere prikazane črtne kode zamegljene

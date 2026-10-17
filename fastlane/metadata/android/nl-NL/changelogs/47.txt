@@ -1,0 +1,2 @@
+- Toon altijd alle import/export-opties en toon een toast voor echte problemen (verbetert compatibiliteit met XPrivacyLuca)
+- Vraag om bevestiging als een aanpassingsscherm wordt gesloten zonder aanpassingen op te slaan

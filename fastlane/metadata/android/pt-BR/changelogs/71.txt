@@ -1,0 +1,2 @@
+- Várias pequenas correções de tradução e interface
+- Correção de falha ao importar/compartilhar cartão de fidelidade no Android 6

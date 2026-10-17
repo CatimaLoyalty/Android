@@ -1,0 +1,6 @@
+- Izboljšanje poteka postopka »Dodaj kartico«
+- Izboljšave v postopku preverjanja veljavnosti
+- Odpravljena redka napaka, ki je povzročala neveljavno stanje uporabniškega vmesnika ob vklopu/izklopu prikaza arhiva
+- Uporaba barve teme ali kartice za navigacijsko vrstico (Android 8.1+)
+- Posodobljen izbirnik datuma veljavnosti in izteka veljavnosti
+- Dodana možnost, da se slika vedno zavrti (ne glede na sistemske nastavitve)

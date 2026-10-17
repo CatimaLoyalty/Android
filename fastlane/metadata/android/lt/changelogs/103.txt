@@ -1,0 +1,2 @@
+- Ištaisyta rankinio kalbos pasirinkimo klaida, nebuvo pritaikoma visur
+- Ištaisyta gedimo klaida redagavimo rodinyje, kai naudojama lokalizacija be regiono

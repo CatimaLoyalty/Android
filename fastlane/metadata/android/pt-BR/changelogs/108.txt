@@ -1,0 +1,5 @@
+- Adicionar recurso de duplicação de cartão
+- Impedir a seleção de data de validade anterior a 1970 (elas nunca funcionavam de qualquer forma)
+- Adicionar suporte para arquivamento de cartões
+- Mover a opção de exclusão da tela de edição para a de visualização
+- Remover o ícone de bloqueio de rotação em favor de uma nova configuração de bloqueio de rotação

@@ -1,0 +1,6 @@
+- Añade soporte para códigos UTF-8
+- Añade opción duplicada a las opciones de pantalla principal y reordena ligeramente
+- Soluciona el conteo de columna no se aplica a la lista de tarjetas de grupo
+- Retira el soporte de color temático
+- Reduce el tamaño máximo de la foto para reducir el uso de almacenamiento (sólo para fotos nuevas)
+- Migra actividad Acerca de Android XML a Jetpack Compose

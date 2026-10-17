@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
     <!-- FIXME: Disable the MissingQuantity check until https://github.com/WeblateOrg/weblate/issues/7520 gets fixed -->
-    <issue id="MissingQuantity" severity="ignore" />
+    <issue id="MissingQuantity" severity="error">
+        <ignore path="*/src/*/res/values-cs/strings.xml" />
+        <ignore path="*/src/*/res/values-he-rIL/strings.xml" />
+        <ignore path="*/src/*/res/values-iw/strings.xml" />
+        <ignore path="*/src/*/res/values-lt/strings.xml" />
+        <ignore path="*/src/*/res/values-sk/strings.xml" />
+    </issue>
 </lint>

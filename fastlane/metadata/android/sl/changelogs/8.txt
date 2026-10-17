@@ -1,0 +1,4 @@
+- Svetlost zaslona se pri prikazovanju kartice poveča na najvišjo raven, da se skenerjem črtnih kod olajša uspešno branje črtne kode.
+- Dodano je potrdilo za brisanje ob brisanju kartice.
+- Dodani so prevodi v nemščino.
+- Sprememba pojasnila v italijanskem prevodu

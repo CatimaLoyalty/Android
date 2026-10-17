@@ -1,0 +1,3 @@
+- Dodano możliwość wyświetlania identyfikatora karty na liście kart
+- Dodano możliwość sortowania według daty dodania
+- Dodano wbudowaną przeglądarkę obrazów umożliwiającą powiększanie obrazów przedniej i tylnej strony karty oraz ikon

@@ -1,0 +1,4 @@
+- Dodan drsnik na seznam kartic
+- Dodan začetni zaslon
+- Popravljene nekatere težave z razmiki
+- Odstranjena vrednost črtne kode iz pogleda kartice

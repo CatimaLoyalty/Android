@@ -1,0 +1,2 @@
+- Ločitev uporabniškega vmesnika za urejanje v zavihke, da bo videti bolj prostoren
+- Dodajanje podpore za polje z rokom veljavnosti

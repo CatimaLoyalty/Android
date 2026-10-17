@@ -1,0 +1,6 @@
+- Aggiunto supporto per codici a barre UTF-8
+- Aggiunta opzione duplicata alla schermata principale e riordino le opzioni
+- Corretto il problema relativo all'impostazione del numero di colonne che non veniva applicata all'elenco delle schede di gruppo
+- Rimosso il supporto per i colori del tema
+- Ridotta la dimensione massima delle foto per ridurre l'utilizzo dello spazio di archiviazione (solo per le foto aggiunte)
+- Migrazione dell'attività "Informazioni" da Android XML a Jetpack Compose

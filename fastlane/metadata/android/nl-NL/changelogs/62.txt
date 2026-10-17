@@ -1,0 +1,1 @@
+- Parseerbalans gerepareerd voor landen waar een spatie gebruikt wordt als numerieke separator

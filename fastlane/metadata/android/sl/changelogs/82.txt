@@ -1,0 +1,4 @@
+- Izboljšana podpora za bralnike zaslona
+- Program se ne sesuje več pri poskusu odpiranja videoposnetka iz galerije
+- Podpora za drsenje na zaslonu za prikaz kartice zvestobe
+- Skupina se ne ponastavi več ob pritisku na gumb »Nazaj«

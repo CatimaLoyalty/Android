@@ -1,0 +1,4 @@
+- Direcionado ao Android 16
+- Correção de possível falha após remover imagem do cartão
+- Remoção do recurso de "Orientação da tela" (o Google removeu a capacidade de aplicativos controlarem a rotação da tela ao direcionar para o Android 16)
+- Adição de relatório de falhas à compilação FOSS (não utilizado na versão da Google Play, apenas em outras lojas de aplicativos)

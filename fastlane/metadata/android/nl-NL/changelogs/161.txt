@@ -1,0 +1,1 @@
+- Schakel automatisch barcode coderingsdetectie voor nu uit (maakt te veel kaarten defect)

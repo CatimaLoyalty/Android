@@ -1,0 +1,3 @@
+- Izboljšani uvoznik Catima (odpravljena napaka, zaradi katere so pri uvozu manjkale kartice)
+- Odpravljena napaka, ki je povzročala sesutje programa ob vrtenju zaslona med nastavljanjem datuma veljavnosti in datuma poteka veljavnosti
+- Manjše izboljšave uporabniškega vmesnika

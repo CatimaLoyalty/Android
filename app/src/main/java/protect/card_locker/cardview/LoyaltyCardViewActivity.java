@@ -1,6 +1,5 @@
 package protect.card_locker.cardview;
 
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -13,6 +12,8 @@ import android.graphics.drawable.Drawable;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -34,7 +35,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -44,7 +44,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
@@ -53,13 +52,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.*;
+import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
+import protect.card_locker.shared.ForegroundColorHelper;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
+
+    private Handler extendScreenOnHandler = null;
 
     int loyaltyCardId;
     ArrayList<Integer> cardList;
@@ -96,6 +99,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public static final String BUNDLE_TRANSITION_RIGHT = "transition_right";
 
     private long initTime = System.currentTimeMillis();
+
+    private final ListWidget listWidget = new ListWidget();
 
     private enum AdjacentCardDirection {
         PREVIOUS,
@@ -136,46 +141,27 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
-        // If this is an image, open it in the gallery.
-        openImageInGallery(imageType);
+        openImage(imageType);
     }
 
-    private void openImageInGallery(LoyaltyCardImageType imageType) {
-        File file = null;
-
+    private void openImage(LoyaltyCardImageType imageType) {
         switch (imageType) {
-            case NONE:
-                return;
             case ICON:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.icon);
+                startImageActivity(ImageLocationType.icon);
                 break;
             case IMAGE_FRONT:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
+                startImageActivity(ImageLocationType.front);
                 break;
             case IMAGE_BACK:
-                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+                startImageActivity(ImageLocationType.back);
                 break;
-            case BARCODE:
-                Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
-                return;
+            default:
+                Log.w(TAG, "openImage called with unsupported image type!");
         }
+    }
 
-        // Do nothing if there is no file
-        if (file == null) {
-            Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW)
-                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
-                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // Display a toast message if an image viewer is not installed on device
-            Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+    private void startImageActivity(ImageLocationType imageLocationType) {
+        startActivity(LoyaltyCardImageViewActivity.createIntent(this, loyaltyCardId, imageLocationType));
     }
 
     @Override
@@ -219,6 +205,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        extendScreenOnHandler = new Handler(Looper.getMainLooper());
+
         if (savedInstanceState == null) {
             Bundle incomingIntentExtras = getIntent().getExtras();
 
@@ -291,7 +279,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         binding.iconContainer.setOnClickListener(view -> {
             if (loyaltyCard.getImageThumbnail(this) != null) {
-                openImageInGallery(LoyaltyCardImageType.ICON);
+                openImage(LoyaltyCardImageType.ICON);
             } else {
                 Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
             }
@@ -456,7 +444,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Window window = getWindow();
         applyWindowPreferences(window);
-        enablePausedNfcIfConfigured();
+        configurePausedNfc(settings.getDisableNfcWhileViewingCard());
 
         if (!loadCurrentCardFromDatabase()) {
             finish();
@@ -474,6 +462,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         invalidateOptionsMenu();
 
         ShortcutHelper.updateShortcuts(this);
+        listWidget.updateAll(LoyaltyCardViewActivity.this);
+    }
+
+    @Override
+    protected void onPause() {
+        // Some devices have broken NFC, which will cause a crash if reader mode is enabled
+        // So ensure we disable it explicitly before letting Android "save" the NFC state
+        configurePausedNfc(false);
+
+        // When Catima leaves foreground, kill the delayed screen off timer
+        // This should never be null as it is created in onCreate, but this makes lint happier
+        if (extendScreenOnHandler != null) {
+            extendScreenOnHandler.removeCallbacksAndMessages(null);
+        }
+
+        super.onPause();
     }
 
     @Override
@@ -497,8 +501,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             attributes.screenBrightness = 1F;
         }
 
+        // Extend screen timeout by 5 minutes
+        // This ensures the screen stays on for at least 5 minutes (to be precise: 5 minutes + user configured screen timeout)
+        // This prevents the screen from staying on forever while hopefully giving any user sufficient time to show the code to a worker or scan it
         if (settings.getKeepScreenOn()) {
+            Log.d(TAG, "KeepScreenOn enabled, setting flag");
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            extendScreenOnHandler.postDelayed(() -> {
+                Log.d(TAG, "5 minutes passed, removing keep on flag");
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }, 1000 * 60 * 5);
         }
 
         // Some users scan cards directly from the lock screen, so keep the historical unlock behavior.
@@ -513,28 +525,36 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         window.setAttributes(attributes);
     }
 
-    private void enablePausedNfcIfConfigured() {
+    private void configurePausedNfc(boolean pause) {
         // Pause NFC to prevent NFC payments from triggering while showing a barcode
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {
             return;
         }
 
-        if (settings.getDisableNfcWhileViewingCard()) {
-            nfcAdapter.enableReaderMode(this, tag -> {
-                Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.fabEdit)
-                        .setAction(R.string.change_settings, view -> {
-                            // Open settings activity
-                            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                            startActivity(intent);
-                        });
-                snackbar.show();
-            }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
-                    | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
-                    | NfcAdapter.FLAG_READER_NFC_BARCODE
-                    | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
-                    | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+        if (pause) {
+            try {
+                nfcAdapter.enableReaderMode(this, tag -> {
+                    Snackbar snackbar = Snackbar.make(binding.container, R.string.nfc_blocked_while_viewing_card, Snackbar.LENGTH_LONG)
+                            .setAnchorView(binding.fabEdit)
+                            .setAction(R.string.change_settings, view -> {
+                                // Open settings activity
+                                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                                startActivity(intent);
+                            });
+                    snackbar.show();
+                }, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_NFC_B
+                        | NfcAdapter.FLAG_READER_NFC_F | NfcAdapter.FLAG_READER_NFC_V
+                        | NfcAdapter.FLAG_READER_NFC_BARCODE
+                        | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+                        | NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS, null);
+            } catch (Exception e) {
+                // For some unknown reason, this can throw a DeadObjectException.
+                // Mostly got reports from FOSS users, which implies it may be more common with custom ROMs? Uncertain.
+                Toast.makeText(this, R.string.nfc_block_system_error, Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed to pause NFC: " + e);
+                e.printStackTrace();
+            }
         } else {
             nfcAdapter.disableReaderMode(this);
         }
@@ -603,20 +623,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
-        Utils.setNavigationBarColor(null, window, darkenedColor, Utils.needsDarkForeground(darkenedColor));
+        Utils.setNavigationBarColor(null, window, darkenedColor, ForegroundColorHelper.Companion.needsDarkForeground(darkenedColor));
 
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         binding.fabEdit.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = binding.fabEdit.getDrawable();
         editButtonIcon.mutate();
-        editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
+        editButtonIcon.setTint(ForegroundColorHelper.Companion.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
         Bitmap icon = loyaltyCard.getImageThumbnail(this);
         Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText, 1);
 
         // If the background is very bright, we should use dark icons
-        backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
+        backgroundNeedsDarkIcons = ForegroundColorHelper.Companion.needsDarkForeground(backgroundHeaderColor);
 
         fixBottomAppBarImageButtonColor(binding.bottomAppBarInfoButton);
         fixBottomAppBarImageButtonColor(binding.bottomAppBarPreviousButton);
@@ -779,7 +799,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (id == R.id.action_star_unstar) {
             DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
 
-            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+            listWidget.updateAll(LoyaltyCardViewActivity.this);
 
             // Re-init loyaltyCard with new data from DB
             onResume();
@@ -790,7 +810,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
-            new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+            listWidget.updateAll(LoyaltyCardViewActivity.this);
 
             // Re-init loyaltyCard with new data from DB
             onResume();
@@ -815,7 +835,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
                 DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
 
-                new ListWidget().updateAll(LoyaltyCardViewActivity.this);
+                listWidget.updateAll(LoyaltyCardViewActivity.this);
 
                 finish();
                 dialog.dismiss();
@@ -871,9 +891,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int accessibilityClickAction;
         LoyaltyCardImageType currentImageType = cardNavigator.getCurrent();
         if (currentImageType == LoyaltyCardImageType.IMAGE_FRONT) {
-            accessibilityClickAction = R.string.openFrontImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomFrontImage;
         } else if (currentImageType == LoyaltyCardImageType.IMAGE_BACK) {
-            accessibilityClickAction = R.string.openBackImageInGalleryApp;
+            accessibilityClickAction = R.string.zoomBackImage;
         } else {
             accessibilityClickAction = R.string.moveBarcodeToTopOfScreen;
         }

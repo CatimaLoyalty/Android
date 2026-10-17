@@ -1,0 +1,3 @@
+- Corrigir ferramenta de corte que não utilizava a cor do tema
+- Corrigir pequenos problemas de tema
+- Adicionar tema escuro totalmente preto para telas OLED

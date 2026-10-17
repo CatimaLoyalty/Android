@@ -1,0 +1,3 @@
+- Adicionar suporte ao Passbook (.pkpass)
+- Corrigir a importação de arquivos PDF com transparência
+- Melhorar a exibição de miniaturas com transparência

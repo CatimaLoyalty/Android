@@ -1,0 +1,1 @@
+- Dodana možnost odpiranja slike v vgrajenem pregledovalniku slik v galeriji

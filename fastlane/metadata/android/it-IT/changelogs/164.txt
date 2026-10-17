@@ -1,0 +1,4 @@
+A partire da questa versione, Android 5.0 e 5.1 non sono più supportati. Se desideri utilizzare Catima su queste versioni, ti preghiamo di utilizzare la versione 2.41.6.
+
+- Risolto il problema di arresto anomalo che si verificava cambiando scheda tramite i pulsanti del volume se era disponibile una sola scheda.
+- Risolto il problema della scorciatoia che tornava alla scheda precedente dopo la rotazione

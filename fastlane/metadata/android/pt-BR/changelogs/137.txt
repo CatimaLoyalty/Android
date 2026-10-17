@@ -1,0 +1,4 @@
+- Permitir que nomes longos de lojas sejam divididos em várias linhas na visualização
+- Opção de usar a imagem frontal ou traseira no menu de miniaturas
+- Pequenas correções na importação/exportação
+- Pequenos ajustes na interface do usuário

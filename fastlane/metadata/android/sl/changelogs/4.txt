@@ -1,0 +1,4 @@
+- prevod v nizozemščino
+- omogočeno urejanje polja za ime po dodajanju kartice zvestobe
+- dodano polje za opombe (neobvezno)
+- odpravljene vse napake, ki jih je zaznal FindBugs, in zahtevano, da se vse napake v FindBugs odpravijo pred sprejetjem zahtevka za združitev

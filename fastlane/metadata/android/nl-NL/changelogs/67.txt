@@ -1,0 +1,6 @@
+- Optie toegevoegd om een aparte barcode waarde in te stellen van de kaart ID
+- Lettertypemaatconfiguratie vereenvoudigd
+- Meerdere kleine UI verbeteringen
+- Gebruik letterpictogrammen ook voor snelkoppelingen
+- Toon altijd alle barcode types tijdens handmatig invullen
+- Privacybeleid eerste opstart dialoogvenster verwijderd

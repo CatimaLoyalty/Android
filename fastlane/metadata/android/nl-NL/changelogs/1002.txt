@@ -1,0 +1,2 @@
+- Bluetooth-server toegevoegd voor ondersteuning van de Wear OS companion app
+- Ingesloten CHANGELOG verwijderd

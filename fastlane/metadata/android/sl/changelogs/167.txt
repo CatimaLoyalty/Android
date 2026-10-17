@@ -1,0 +1,3 @@
+- Dodana je podpora za prikaz ID kartice na seznamu kartic
+- Dodana je podpora za razvrščanje po najnovejših dodanih karticah
+- Dodan je notranji pregledovalnik slik za povečavo slik sprednje in zadnje strani kartice ter ikon

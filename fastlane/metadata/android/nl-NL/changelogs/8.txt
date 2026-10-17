@@ -1,0 +1,4 @@
+- Schermhelderheid wordt maximaal verhoogd als een kaart getoond wordt, om barcodescanners successvol de barcode te laten scannen. (pull #54 )
+- Toon een verwijderingsbevestiging als een kaart wordt verwijderd. (pull #55)
+- Vertalingen toegevoegd in het Duits (pull #57 ) en Tsjechisch (pull #58).
+- Verduidelijking voor Italiaanse vertaling. (pull #66)

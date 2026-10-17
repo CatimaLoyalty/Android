@@ -1,0 +1,3 @@
+- Direcionamento para o Android 15
+- Correção do teclado cobrindo o botão de salvar na tela de edição
+- Correção de falha na detecção de alguns arquivos pkpass (suporte ao tipo mime application/vnd-com.apple.pkpass)

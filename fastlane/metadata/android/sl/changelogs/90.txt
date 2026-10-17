@@ -1,0 +1,4 @@
+- Popravljena je napaka, zaradi katere so imele pike v pogledu s karticami napačno barvo ob ročni spremembi teme
+- Popravljena je napaka, zaradi katere je pri vrtenju zaslona ali spremembi teme prišlo do sesutja v pogledu s karticami
+- Popravljeno je utripanje seznama kartic
+- Popravljeno je prekrivanje besedila z ikono zvezdice

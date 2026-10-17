@@ -1,0 +1,4 @@
+- Tradução para o holandês
+- Permitir a edição do campo de nome após adicionar o cartão de fidelidade
+- Adicionar um campo de observação opcional
+- Resolver todos os problemas identificados pelo FindBugs e exigir a resolução de todos os problemas do FindBugs antes da aceitação do *pull request*

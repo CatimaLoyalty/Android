@@ -1,0 +1,3 @@
+- Desativar NFC ao mostrar um cartão por padrão
+- Peça ao teclado a capitalizar cada palavra no nome da loja no ecrã de edição
+- Colocar a data no nome do ficheiro de exportação

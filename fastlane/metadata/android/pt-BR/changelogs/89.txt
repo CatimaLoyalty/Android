@@ -1,0 +1,5 @@
+- Corrigir falha ao deslizar entre grupos em um grupo vazio
+- Permitir proteger exportações com senha
+- Otimizar o uso de espaço para códigos QR
+- Salvar o último nível de zoom utilizado por cartão
+- Corrigir travamento ao deslizar para a direita logo após um toque

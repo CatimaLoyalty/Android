@@ -1,0 +1,1 @@
+- Zabránění pádu na zařízeních s nesprávně fungujícím NFC

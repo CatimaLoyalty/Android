@@ -1,0 +1,5 @@
+- Ao editar o ID de um cartão, o campo é preenchido com o ID existente.
+- Limita a largura dos códigos de barras para poupar memória e evitar travamentos.
+- Botão "Inserir Cartão" muda para "Editar Cartão" se o ID já existir.
+- Cores mais suaves alinhadas ao ícone e tela de visualização mais limpa.
+- Novo assistente de introdução ao abrir o aplicativo pela primeira vez

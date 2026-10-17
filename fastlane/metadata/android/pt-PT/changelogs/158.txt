@@ -1,0 +1,1 @@
+- Corrigir a cor da barra de estado e de navegação na atividade nova «Sobre»

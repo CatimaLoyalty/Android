@@ -1,0 +1,2 @@
+- Acompanhamento para correção em 2.41.2 para cartões explicitamente definidos em ISO-8859- 1
+- Migrar cartões antigos para ISO-8859-1 para corrigir diferenças de comportamento súbita para cartões existentes

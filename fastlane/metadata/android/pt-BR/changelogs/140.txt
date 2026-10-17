@@ -1,0 +1,1 @@
+- Corrigir quebra de texto na caixa de diálogo de adição

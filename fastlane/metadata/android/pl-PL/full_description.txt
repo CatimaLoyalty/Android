@@ -1,22 +1,23 @@
-Skończ z szukaniem plastikowych kart w sklepie lub w sklepie internetowym.
-<b>Skanuj kody kreskowe do urządzenia za pomocą jego kamery, zapomnij o kartach.</b>
+Koniec z szukaniem plastikowych kart lojalnościowych przy kasie w sklepie stacjonarnym lub internetowym.
+<b>Skanuj kody kreskowe za pomocą aparatu w swoim urządzeniu i zapomnij o kartach.</b>
 
-Zapomnij o portfelu lub zachowaj ultralekki portfel na cenne przedmioty.
+Zostaw portfel w domu lub zabierz ze sobą tylko najpotrzebniejsze rzeczy.
 
-Dzięki temu niezbędnemu narzędziu codziennego noszenia (CDN) możesz zastąpić bezużyteczny plastik gotówką.
+Dzięki temu niezbędnemu narzędziu do codziennego noszenia (EDC) możesz zastąpić bezużyteczny plastik gotówką.
 
-- Unikaj szpiegowania dzięki niewielkiej liczbie uprawnień. Niepotrzebny dostęp do Internetu oraz brak reklam.
-- Dodaj karty lub kody z nazwami i dostosuj je kolorami.
+- Unikaj inwigilacji dzięki minimalnej liczbie uprawnień. Brak dostępu do Internetu i brak reklam.
+- Dodawaj karty lub kody wraz z nazwami i dostosowywanymi kolorami.
 - Ręczne wprowadzanie kodu, jeśli nie ma kodu kreskowego do zapisania lub nie można go użyć.
-- Importuj karty lub kody z plików „Catima”, „FidMe”, „Loyalty Card Keychain” oraz „Voucher Vault”.
-- Utwórz kopię zapasową wszystkich swoich kart i przenieś je na nowe urządzenie, jeśli chcesz.
+- Importuj karty i kody z plików, aplikacji Catima, FidMe, Loyalty Card Keychain i Voucher Vault.
+- Twórz kopie zapasowe wszystkich swoich kart i przenoś je na nowe urządzenie, jeśli chcesz.
 - Udostępniaj kupony, ekskluzywne oferty, kody promocyjne lub karty i kody za pomocą dowolnej aplikacji.
-- Ciemny motyw i opcje dostępności dla użytkowników z upośledzeniem wzroku.
-- Stworzony dla wszystkich przez „libre software community”.
-- Ręcznie wykonane lokalne tłumaczenia dla ponad 40 języków.
-- Gratis, wspierany przez wkłady społeczności.
-- Używajcie, studiujcie, zmieniajcie i dzielcie się tym, jak chcecie; <i>ze wszystkimi</i>.
-- Nie tylko „Free Software” / „Open Source”. <i>Copylefted</i> libre software (GPLv3+) system zarządzający kartami.
+- Synchronizuj z obsługiwanymi smartwatchami Gadgetbridge lub Wear OS.
+- Ciemny motyw i opcje ułatwień dostępu dla użytkowników z wadami wzroku.
+- Stworzone dla wszystkich przez społeczność wolnego oprogramowania.
+- Ręcznie przygotowane tłumaczenia na ponad 40 języków.
+- Bezpłatne, wspierane przez datki społeczności.
+- Korzystaj, studiuj, modyfikuj i udostępniaj aplikację według własnego uznania; <i>z zachowaniem wszystkich</i>.
+- To nie tylko wolne oprogramowanie / oprogramowanie open source. <i>Oprogramowanie wolne na licencji copyleft</i> (GPLv3+) do zarządzania kartami.
 
-Uprość sobie życie i zakupy, i już nigdy nie zgubisz papierowego paragonu, karty podarunkowej do płatności w sklepie czy biletu lotniczego.
-Zabierz ze sobą wszystkie nagrody i bonusy i oszczędzaj w trakcie podróży.
+Uprość swoje życie i zakupy – już nigdy nie zgubisz papierowego paragonu, karty podarunkowej do wykorzystania w sklepie ani biletu lotniczego.
+Zabierz ze sobą wszystkie nagrody i bonusy i oszczędzaj na bieżąco.

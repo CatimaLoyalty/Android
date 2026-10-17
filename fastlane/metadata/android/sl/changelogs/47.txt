@@ -1,0 +1,2 @@
+- Vedno prikaže vse možnosti uvoza/izvoza in prikaže obvestilo v obliki »toasta« ob dejanskih težavah (izboljša združljivost z XPrivacyLua)
+- Zahteva potrditev ob zapustitvi urejevalnega pogleda po opravljenih spremembah brez shranjevanja

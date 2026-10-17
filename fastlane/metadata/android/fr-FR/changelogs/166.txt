@@ -1,0 +1,1 @@
+- Éviter les arrêts intempestifs sur les appareils dont le NFC ne fonctionne pas correctement

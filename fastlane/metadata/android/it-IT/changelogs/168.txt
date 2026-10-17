@@ -1,0 +1,1 @@
+- Aggiunta l'opzione per aprire l'immagine nel visualizzatore interno della galleria

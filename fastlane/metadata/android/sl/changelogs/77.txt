@@ -1,0 +1,4 @@
+- Izboljšave uvoznika Stocard
+- Popravek uvoza izvozne datoteke z večvrstnimi opombami iz Catime
+- Prilagajanje velikosti naslova kartice v sprejemljivem obsegu
+- Izboljšave animacij

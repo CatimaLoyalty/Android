@@ -1,0 +1,4 @@
+- Dodano pasek przewijania do listy kart
+- Dodano ekran powitalny
+- Naprawiono pewne problemy związane z odstępami
+- Usunięto wartość kodu kreskowego z widoku karty

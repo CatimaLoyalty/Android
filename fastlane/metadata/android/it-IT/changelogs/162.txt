@@ -1,0 +1,5 @@
+- Risolto il problema per cui il widget elenco a volte apriva la scheda sbagliata
+- Risolti diversi bug relativi alla gestione delle scorciatoie
+- Risolto il problema per cui l'attività "Informazioni" non utilizzava la barra del titolo completamente nera in modalità OLED
+- Rimossa completamente la rilevazione automatica della codifica del codice a barre
+- Resa visibile la codifica del codice a barre tramite ContentProvider (utilizzato da Gadgetbridge)

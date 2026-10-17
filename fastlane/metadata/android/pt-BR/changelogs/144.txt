@@ -1,0 +1,1 @@
+- Melhorar a exibição dos ícones de arquivar/favoritar

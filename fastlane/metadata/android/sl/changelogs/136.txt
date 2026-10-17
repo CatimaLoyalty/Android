@@ -1,0 +1,4 @@
+- Podpora za ustvarjanje kartice pri deljenju navadnega besedila
+- Prikaz vrste slike namesto črtne kode pod slikami
+- Odpravljena možna napaka, ki je povzročila sesutje aplikacije pri poskusu uvoza varnostne kopije iz aplikacije Nextcloud
+- Izboljšana podpora za naprave brez kamere

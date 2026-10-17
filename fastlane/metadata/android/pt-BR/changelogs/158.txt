@@ -1,0 +1,1 @@
+- Corrigir a cor da barra de status e da barra de navegação na nova activity "Sobre"

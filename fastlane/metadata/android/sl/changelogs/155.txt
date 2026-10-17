@@ -1,0 +1,1 @@
+- Priprave na prihodnje izboljšave (prenovitev mnogih razredov v Kotlin)

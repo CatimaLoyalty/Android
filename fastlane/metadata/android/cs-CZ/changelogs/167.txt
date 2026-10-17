@@ -1,0 +1,3 @@
+- Přidána podpora zobrazení ID karty v seznamu karet
+- Přidána podpora řazení dle nedávno přidaných
+- Přidán interní prohlížeč obrázků pro přibližování předních/zadních/ikonových obrázků

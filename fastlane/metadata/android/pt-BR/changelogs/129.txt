@@ -1,0 +1,3 @@
+- Importador do Catima aprimorado (corrige a ausência de cartões durante a importação)
+- Correção de falha ao girar a tela durante a definição das datas de início e validade
+- Pequenos ajustes na interface

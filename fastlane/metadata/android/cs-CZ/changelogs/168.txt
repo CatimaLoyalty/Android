@@ -1,0 +1,1 @@
+- Přidána možnost otevření obrázku v interním prohlížeči obrázků v galerii

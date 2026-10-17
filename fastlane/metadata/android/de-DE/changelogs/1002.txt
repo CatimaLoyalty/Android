@@ -1,0 +1,2 @@
+- Bluetooth Server zur Unterstützung der Wear OS Begleit-App hinzugefügt
+- Eingebettete Änderungen entfernt

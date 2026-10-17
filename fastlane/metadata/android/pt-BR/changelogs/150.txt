@@ -1,0 +1,2 @@
+- Adicionar um widget que exibe todos os cartões não arquivados
+- Impedir que o teclado sobreponha o botão de salvar nas telas de edição e de grupo

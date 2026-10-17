@@ -4,4 +4,4 @@
 - Aangepast thema nu correct op hoofdscherm.
 - Verbeterde weergave van geselecteerde kaarten.
 - Fix crash bij verlaten kaartweergave in RTL-layouts.
-- Fix terugpijl in kaartweergave voor RTL-layouts.
+- Fix terugpijl in kaartweergave voor RTL-layouts

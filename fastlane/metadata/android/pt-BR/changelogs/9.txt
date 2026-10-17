@@ -1,0 +1,7 @@
+A parte "Locker" do nome não era intuitiva. Para resolver isso, betsythefc criou um novo ícone que representa melhor a função do app: guardar cartões de fidelidade com código de barras. O nome também mudou para "Loyalty Card Keychain".
+
+Recursos/melhorias adicionais:
+
+- A importação e exportação de cartões ficou mais flexível.
+- Adição de tradução para o lituano.
+- Adição de tradução para o francês

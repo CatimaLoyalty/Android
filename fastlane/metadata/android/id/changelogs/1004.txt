@@ -1,0 +1,2 @@
+- Memperbaiki masalah widget daftar yang tidak diperbarui saat membuka kartu dari widget tersebut
+- Memperbaiki masalah kegagalan saat membuka berkas pkpass/pdf dari lokasi jaringan

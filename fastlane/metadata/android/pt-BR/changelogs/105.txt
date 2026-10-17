@@ -1,0 +1,2 @@
+- Correção de bloco cinza que aparecia em valores inválidos de código de barras
+- Correções na importação do Stocard

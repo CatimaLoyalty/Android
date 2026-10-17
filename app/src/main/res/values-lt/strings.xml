@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridėti</string>
-    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + arba importuokite kortelę iš ⋮ meniu.</string>
+    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + arba importuokite iš ⋮ meniu</string>
     <string name="storeName">Pavadinimas</string>
     <string name="note">Užrašas</string>
     <string name="cardId">Kortelės ID</string>
@@ -11,10 +11,10 @@
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
     <string name="ok">Gerai</string>
-    <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
-    <string name="addCardTitle">Pridėti lojalumo kortelę</string>
+    <string name="editCardTitle">Redaguoti kortelę</string>
+    <string name="addCardTitle">Pridėti kortelę</string>
     <string name="scanCardBarcode">Nuskaityti brūkšninį kodą</string>
-    <string name="importExport">Importuoti/Exportuoti</string>
+    <string name="importExport">Importas/Exportas</string>
     <string name="exportName">Exportuoti</string>
     <string name="importFailed">Nepavyko importuoti</string>
     <string name="exportFailed">Nepavyko eksportuoti</string>
@@ -43,10 +43,10 @@
     <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
     <string name="settings_display_barcode_max_brightness">Šviesinti ekraną</string>
-    <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
+    <string name="failedParsingImportUriError">Nepavyko nuskaityti importo URI</string>
     <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
     <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
-    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL. Praneškite apie tai.</string>
+    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL</string>
     <string name="passwordRequired">Įveskite slaptažodį</string>
     <string name="no">Ne</string>
     <string name="yes">Taip</string>
@@ -65,11 +65,9 @@
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
     <string name="sameAsCardId">Tokia pat kaip ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>
-    <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
-\nSukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
+    <string name="importFidmeMessage">Importavimui pasirinkite eksportą iš FidMe ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu. \nSukurkite jį iš savo FidMe profilio pasirinkę \"Duomenų apsauga\" ir po to paspausdami \"Išgauti mano duomenis\".</string>
     <string name="importFidme">Importuoti iš FidMe</string>
-    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportavimą iš Catima.
-\nSukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia ten paspausdami Eksportuoti.</string>
+    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportavimą iš Catima. \nSukurkite ją iš kitos Catima programos importavimo/eksportavimo meniu paspausdami \"Eksportuoti\".</string>
     <string name="importCatima">Importuoti iš Catima</string>
     <string name="accept">Priimti</string>
     <string name="privacy_policy">Privatumo politika</string>
@@ -87,14 +85,14 @@
     <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>
-    <string name="groupsList">Grupės: <xliff:g> %s </xliff:g></string>
+    <string name="groupsList">Grupės: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Pasirinkti vaizdą iš galerijos</string>
-    <string name="addManually">Rankiniu būdu įvesti ID</string>
+    <string name="addManually">Įvesti barcodą rankiniu būdu</string>
     <string name="leaveWithoutSaveConfirmation">Išeiti neišsaugojus\?</string>
     <string name="leaveWithoutSaveTitle">Išeiti</string>
     <string name="moveDown">Judėti žemyn</string>
     <string name="moveUp">Judėti aukštyn</string>
-    <string name="failedOpeningFileManager">Pirmiausia įdiekite failų tvarkyklę.</string>
+    <string name="failedOpeningFileManager">Nepavyko atidaryti failų tvarkyklės</string>
     <string name="deleteConfirmationGroup">Ištrinti grupę\?</string>
     <string name="all">Visos</string>
     <plurals name="groupCardCount">
@@ -102,7 +100,7 @@
         <item quantity="few"><xliff:g>%d</xliff:g> kortelės</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
-    <string name="noGroups">Spustelėkite mygtuką +, kad pridėtumėte grupes kategorizavimui.</string>
+    <string name="noGroups">Spustelėkite mygtuką +, kad pridėtumėte grupes kategorizavimui</string>
     <string name="groups">Grupės</string>
     <string name="enter_group_name">Įvesti grupės pavadinimą</string>
     <string name="exportSuccessful">Duomenys eksportuoti</string>
@@ -117,20 +115,20 @@
     <string name="settings">Nustatymai</string>
     <string name="starImage">Mėgstamiausia žvaigždė</string>
     <string name="thumbnailDescription">Miniatiūra</string>
-    <string name="app_resources">Laisvosios trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Laisvosios trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Paremta Loyalty Card Keychain
 \nautorinės teisės © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importOptionFilesystemButton">Iš failų sistemos</string>
-    <string name="importOptionFilesystemExplanation">Pasirinkite konkretų failą iš failų sistemos.</string>
+    <string name="importOptionFilesystemExplanation">Pasirinkite konkretų failą iš failų sistemos</string>
     <string name="importOptionFilesystemTitle">Importuoti iš failų sistemos</string>
-    <string name="exportOptionExplanation">Duomenys bus įrašyti į jūsų pasirinktą vietą.</string>
+    <string name="exportOptionExplanation">Duomenys bus įrašyti į jūsų pasirinktą vietą</string>
     <string name="exportFailedTitle">Eksportuoti nepavyko</string>
     <string name="exportSuccessfulTitle">Eksportuota</string>
     <string name="importFailedTitle">Importuoti nepavyko</string>
     <string name="importSuccessfulTitle">Importuota</string>
-    <string name="importExportHelp">Duomenų atsarginių kopijų darymas leidžia perkelti juos į kitą įrenginį.</string>
+    <string name="importExportHelp">Duomenų atsarginių kopijų darymas leidžia perkelti juos į kitą įrenginį</string>
     <string name="noCardExistsError">Nepavyko rasti šios kortelės</string>
     <string name="share">Dalintis</string>
     <plurals name="selectedCardCount">
@@ -178,7 +176,7 @@
     <string name="editGroup">Redaguojama grupė: <xliff:g>%s</xliff:g></string>
     <string name="group_updated">Grupė atnaujinta</string>
     <string name="group_edit">Redaguoti grupę</string>
-    <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
+    <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>
@@ -191,7 +189,6 @@
     </plurals>
     <string name="updateBalance">Atnaujinti balansą</string>
     <string name="failedToRetrieveImageFile">Nepavyko gauti vaizdo failo</string>
-    <string name="barcodeLongPressMessage">Galerijos programėlėje galima atidaryti tik vaizdus</string>
     <string name="translate_platform">Weblate svetainėje</string>
     <string name="shortcutSelectCard">Pasirinkti kortelę</string>
     <string name="options">Parinktys</string>
@@ -220,7 +217,6 @@
     <string name="importCards">Importuoti korteles</string>
     <string name="storageReadPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie saugyklos…</string>
     <string name="cameraPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie kameros…</string>
-    <string name="openBackImageInGalleryApp">Atidarykite galinį vaizdą galerijos programėlėje</string>
     <string name="setBarcodeHeight">Nustatyti brūkšninio kodo aukštį</string>
     <string name="validFromDate">Galioja nuo</string>
     <string name="anyDate">Bet kuri data</string>
@@ -230,7 +226,6 @@
     <string name="switchToBarcode">Perjungti į brūkšninį kodą</string>
     <string name="height">Aukštis</string>
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
-    <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>
     <string name="donate">Aukoti</string>
     <string name="settings_keep_screen_on_summary">Išjungti ekrano užmigdymą kol peržiūrite kortelę</string>
     <string name="manually_enter_barcode_instructions">Įveskite ID numerį arba tekstą ant jūsų kortelės ir paspauskite brūkšninį kodą, kuris atrodo kaip ant jūsų kortelės.</string>
@@ -251,7 +246,7 @@
     <string name="add_manually_warning_title">Rekomenduojama skenuoti</string>
     <string name="continue_">Tęsti</string>
     <string name="add_manually_warning_message">Kai kuriuose parduotuvėse brūkšninio kodo vertė gali skirtis nuo kortelėje nurodyto numerio. Dėlto įvedus brūkšninį kodą rankiniu būdu gali nepavykti. Vietoj to, labai rekomenduojama nuskaityti brūkšninį kodą naudojant kamerą. Ar vis tiek norite tęsti?</string>
-    <string name="permissionReadCardsLabel">Skenuoti Catima Korteles</string>
+    <string name="permissionReadCardsLabel">Skaityti Catima korteles</string>
     <string name="settings_category_title_cards">Kortelių peržiūra</string>
     <string name="settings_category_title_general">Bendri</string>
     <string name="settings_category_title_privacy">Privatumąi</string>
@@ -284,4 +279,6 @@
     <string name="settings_column_count_portrait">Stulpeliai vertikaliame režime</string>
     <string name="settings_column_count_landscape">Stulpeliai horizontaliame režime</string>
     <string name="settings_automatic_column_count">Automatiškai</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC pauzė</string>
+    <string name="settings_disable_nfc_while_viewing_card_summary">Pristabdo NFC, kad peržiūrint kortelę nebūtų suaktyvinti NFC mokėjimai</string>
 </resources>

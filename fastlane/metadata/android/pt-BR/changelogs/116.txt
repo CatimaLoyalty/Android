@@ -1,0 +1,2 @@
+- Corrigido o diálogo de gasto rápido que não permitia o uso da vírgula como separador
+- Adicionado suporte para carregar imagem a partir do gerenciador de arquivos

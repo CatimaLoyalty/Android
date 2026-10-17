@@ -1,0 +1,1 @@
+- Corrigir a alteração introduzida na versão 2.41.0 que impedia apoiar alguns leitores de códigos de barras que não utilizavam o formato UTF-8

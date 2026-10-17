@@ -1,0 +1,4 @@
+- Tornar clicáveis os links nas notas
+- Pré-selecionar o grupo em que o usuário está no momento ao criar um novo cartão
+- Separar nomes de grupos por vírgula na visualização do cartão de fidelidade
+- Corrigir a exibição do botão de maximizar quando não houver código de barras

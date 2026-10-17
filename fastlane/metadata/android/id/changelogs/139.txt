@@ -1,0 +1,3 @@
+- Opsi untuk menavigasi kartu menggunakan tombol volume
+- Perbaikan fitur impor Stocard
+- Perbaikan pesan "Impor dibatalkan" yang muncul setelah impor berhasil

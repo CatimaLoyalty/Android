@@ -1,0 +1,3 @@
+- Adicionado bloqueio de rotação ao exibir cartão. Se bloqueado, a tela muda para orientação "natural" e impede novas rotações.
+- Se um cartão na tela principal falhar ao carregar, o app trata o erro e exibe mensagem. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Corrigido erro de IDs de layout do assistente não encontrados. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

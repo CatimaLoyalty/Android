@@ -1,0 +1,2 @@
+- Meerdere kleine vertalings- en UI-verbeteringen
+- Crash bij importeren/delen van spaarkaarten op Android 6 opgelost

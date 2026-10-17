@@ -110,8 +110,8 @@
     <string name="addFromImage">Seleziona un\'immagine dalla galleria</string>
     <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
-    <string name="app_resources">Risorse di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
-    <string name="app_libraries">Librerie di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
+    <string name="app_resources">Risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Voglio condividere alcune carte con te</string>
     <string name="no">No</string>
     <string name="yes">Sì</string>
@@ -204,7 +204,6 @@
     <string name="welcome">Benvenuti su Catima</string>
     <string name="failedToOpenUrl">Installa prima un browser web</string>
     <string name="failedToRetrieveImageFile">Impossibile ottenere il file dell\'immagine</string>
-    <string name="barcodeLongPressMessage">Si possono aprire solo immagini dell\'app della galleria</string>
     <string name="cameraPermissionDeniedTitle">Impossibile accedere alla fotocamera</string>
     <string name="noCameraPermissionDirectToSystemSetting">Per poter scansionare i codici a barre, Catima ha bisogno di accedere alla tua fotocamera. Premi qui per poter cambiare le impostazioni dei permessi.</string>
     <string name="updateBalance">Aggiorna bilancio</string>
@@ -223,9 +222,7 @@
     <string name="switchToFrontImage">Passa all\'immagine frontale</string>
     <string name="switchToBackImage">Passa all\'immagine dietro</string>
     <string name="switchToBarcode">Passa al codice a barre</string>
-    <string name="openFrontImageInGalleryApp">Apri immagine frontale nell\'app per la visualizzazione di immagini</string>
     <string name="donate">Dona</string>
-    <string name="openBackImageInGalleryApp">Apri l\'immagine retro nell\'app per la visualizzazione di immagini</string>
     <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
     <string name="icon_header_click_text">Premi a lungo per modificare l\'immagine</string>
     <string name="show_note">Mostra nota</string>
@@ -233,8 +230,8 @@
     <string name="show_validity">Mostra validità</string>
     <string name="show_name_below_image_thumbnail">Mostra il nome sotto l\'immagine</string>
     <string name="permissionReadCardsLabel">Leggi Carte Catima</string>
-    <string name="settings_allow_content_provider_read_summary">Le applicazioni dovranno comunque richiedere l\'autorizzazione per ottenere l\'accesso</string>
-    <string name="settings_allow_content_provider_read_title">Consenti ad altre applicazioni di accedere ai miei dati</string>
+    <string name="settings_allow_content_provider_read_summary">Consente all\'app Gadgetbridge di sincronizzare le tue carte con gli orologi compatibili</string>
+    <string name="settings_allow_content_provider_read_title">Sincronizzare con Gadgetbridge</string>
     <string name="permissionReadCardsDescription">Leggere le sue carte e tutti i suoi dettagli, comprese le note e le immagini</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessario per il funzionamento di alcuni scanner</string>
     <string name="settings_keep_screen_on_summary">Disattiva il timeout dello schermo durante la visualizzazione di una carta</string>
@@ -311,4 +308,41 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Sospende la funzione NFC per impedire che i pagamenti NFC vengano attivati durante la visualizzazione di una carta</string>
     <string name="nfc_blocked_while_viewing_card">La funzione NFC è disattivata</string>
     <string name="change_settings">Modifica impostazioni</string>
+    <string name="nfc_block_system_error">Impossibile mettere in pausa l\'NFC</string>
+    <string name="sort_by_most_recently_added">Aggiunte più di recente</string>
+    <string name="show_card_id">Mostra ID carta</string>
+    <string name="zoomFrontImage">Zoom immagine fronte</string>
+    <string name="zoomBackImage">Zoom immagine retro</string>
+    <string name="open_in_gallery">Apri nella galleria immagini</string>
+    <string name="open_settings">Apri le impostazioni</string>
+    <string name="settings_wear_sync">Sincronizzare con Wear OS</string>
+    <string name="android_blocked_startup">Android ha bloccato l\'avvio del servizio Wear OS</string>
+    <string name="settings_wear_sync_summary">Consente all\'app complementare Wear OS di leggere le tue carte tramite Bluetooth</string>
+    <string name="wear_sync_permission_required">Catima ha bisogno delle autorizzazioni che hai negato per sincronizzarsi con il tuo smartwatch Wear OS</string>
+    <string name="settings_wear_sync_devices">Dispositivi con sistema operativo Wear OS consentiti</string>
+    <string name="settings_wear_sync_devices_summary">Gestisci i dispositivi autorizzati alla sincronizzazione tramite Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Nessun dispositivo consentito</string>
+    <string name="settings_wear_sync_blocked_devices">Dispositivi con sistema operativo Wear OS bloccati</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Gestisci i dispositivi Wear OS bloccati</string>
+    <string name="settings_wear_sync_no_blocked_devices">Nessun dispositivo bloccato</string>
+    <string name="settings_wear_sync_unpair_title">Rimuovere il dispositivo?</string>
+    <string name="settings_wear_sync_unpair_message">Rimuovere <xliff:g>%1$s</xliff:g> da Catima? Non sarà più possibile sincronizzare le tue carte.</string>
+    <string name="settings_wear_sync_unblock_message">Rimuovere <xliff:g>%1$s</xliff:g> dall\'elenco bloccato? Sarà possibile richiedere nuovamente l\'accesso.</string>
+    <string name="settings_wear_sync_unpair">Eliminare</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>\n%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Tocca un dispositivo per rimuoverlo.</string>
+    <string name="wear_bt_pairing_channel_name">Accoppiamento dispositivo Wear OS</string>
+    <string name="wear_bt_pairing_title">Il dispositivo Wear OS deve sincronizzarsi</string>
+    <string name="wear_bt_pairing_message">Consentire a <xliff:g>%1$s</xliff:g> di accedere alle tue carte?</string>
+    <string name="wear_bt_pairing_allow">Consenti</string>
+    <string name="wear_bt_pairing_block">Blocca</string>
+    <string name="wear_bt_pairing_allowed">Ora è consentita la sincronizzazione di <xliff:g>%1$s</xliff:g>.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> è stato bloccato.</string>
+    <string name="wear_bt_pairing_mismatch_title">Nuova richiesta di autorizzazione da <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">Questo dispositivo era precedentemente autorizzato ma ora presenta un token di identità diverso. Ciò accade quando l\'app Wear OS viene reinstallata o i suoi dati vengono cancellati. Può anche indicare un tentativo di spoofing MAC Bluetooth.\nAccetta solo se hai reinstallato di recente l\'app Catima Wear OS su questo orologio.</string>
+    <string name="wear_bt_channel_name">Wear OS companion app</string>
+    <string name="wear_bt_notification_title">Sincronizzazione di Catima Wear OS attiva</string>
+    <string name="settings_category_title_smartwatch">Supporto per smartwatch</string>
+    <string name="wear_bt_failed_foreground_notification_title">Impossibile avviare il servizio di sincronizzazione di Wear OS</string>
+    <string name="wear_bt_critical_error_channel_name">Wear OS errore critico sincronizzazione</string>
 </resources>

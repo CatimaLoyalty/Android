@@ -1,0 +1,4 @@
+- Adicionar barra de rolagem à lista de cartões
+- Adicionar tela de abertura (splash screen)
+- Corrigir alguns problemas de espaçamento (padding)
+- Remover o valor do código de barras da visualização do cartão

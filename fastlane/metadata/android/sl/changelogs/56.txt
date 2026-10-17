@@ -1,0 +1,1 @@
+- Odpravljena je napaka sesutja programa ob preklopu na zavihek s črtno kodo v načinu urejanja, če črtna koda ni bila navedena

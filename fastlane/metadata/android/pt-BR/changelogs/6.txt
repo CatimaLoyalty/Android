@@ -1,0 +1,2 @@
+- Permite inserir código de barras manualmente. Se optado, é exibida lista de imagens válidas e suportadas para seleção. (issue #33, pull #44)
+- Corrigido problema onde alguns códigos de barras exibidos ficavam borrados (issue #37)

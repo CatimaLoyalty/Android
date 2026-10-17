@@ -1,0 +1,4 @@
+- Omogočen klik na povezave v opombah
+- Pri ustvarjanju nove kartice se v naprej izbere skupina, v kateri se uporabnik trenutno nahaja
+- Imena skupin v pogledu kartice zvestobe loči vejica
+- Popravljena napaka, zaradi katere se gumb za povečanje pojavi, če ni črtne kode

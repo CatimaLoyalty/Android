@@ -198,7 +198,6 @@
     <string name="nextCard">Следваща</string>
     <string name="failedToOpenUrl">Първо инсталирайте уеб браузър</string>
     <string name="welcome">Добре дошли при Катима</string>
-    <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
     <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
     <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>
     <string name="updateBalanceTitle">Колко е похарчено или получено?</string>
@@ -218,8 +217,6 @@
     <string name="switchToFrontImage">Показване на предната страна</string>
     <string name="switchToBackImage">Показване на задната страна</string>
     <string name="switchToBarcode">Показване на щрихкода</string>
-    <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложение за преглед за изображения</string>
-    <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложение за преглед за изображения</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
     <string name="donate">Даряване</string>
     <string name="icon_header_click_text">Задръжте, за да промените миниатюрата</string>
@@ -229,10 +226,10 @@
     <string name="show_name_below_image_thumbnail">Наименование</string>
     <string name="permissionReadCardsLabel">Четене на карти на Catima</string>
     <string name="permissionReadCardsDescription">четене на картите на Catima с всички подробности, включително бележки и изображения</string>
-    <string name="settings_allow_content_provider_read_title">Разрешаване на достъп на други приложения до данните</string>
+    <string name="settings_allow_content_provider_read_title">Синхронизиране чрез Gadgetbridge</string>
     <string name="settings_display_barcode_max_brightness_summary">Необходимо за работата на някои скенери</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Без заключване на екрана при преглед на карта</string>
-    <string name="settings_allow_content_provider_read_summary">Приложенията ще искат разрешение, за да получат достъп</string>
+    <string name="settings_allow_content_provider_read_summary">Разрешава на приложението Gadgetbridge да синхронизира картите с поддържаните часовници</string>
     <string name="settings_oled_dark_summary">Намалява разхода на батерия от OLED дисплеи</string>
     <string name="settings_category_title_cards">Преглед на карта</string>
     <string name="settings_category_title_general">Общи</string>
@@ -305,4 +302,35 @@
     <string name="settings_disable_nfc_while_viewing_card_summary">Спира NFC, за да бъдат предотвратени безконтактни плащания при преглед на карта</string>
     <string name="nfc_blocked_while_viewing_card">NFC е на пауза</string>
     <string name="change_settings">Настройки</string>
+    <string name="nfc_block_system_error">Грешка при спиране на NFC</string>
+    <string name="sort_by_most_recently_added">Поредност на добавяне</string>
+    <string name="zoomFrontImage">Увеличаване на предното изображение</string>
+    <string name="zoomBackImage">Увеличаване на задното изображение</string>
+    <string name="show_card_id">Показване номера на картата</string>
+    <string name="open_in_gallery">Отваряне в галерията</string>
+    <string name="settings_wear_sync">Синхронизиране с Wear OS</string>
+    <string name="settings_wear_sync_summary">Разрешава на приложението за Wear OS да чете картите чрез Bluetooth</string>
+    <string name="wear_bt_pairing_message">Разрешавате ли на устройството <xliff:g>%1$s</xliff:g> достъп до картите ви?</string>
+    <string name="wear_bt_pairing_allow">Разрешаване</string>
+    <string name="wear_bt_pairing_block">Забраняване</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> отказано устройство</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> отказани устройства</item>
+    </plurals>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> доверено устройство</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> доверени устройства</item>
+    </plurals>
+    <string name="wear_bt_pairing_mismatch_title">Нова заявка за удостоверяване от <xliff:g>%1$s</xliff:g></string>
+    <string name="settings_wear_sync_unpair_message">Премахване на <xliff:g>%1$s</xliff:g> от Catima? Устройството няма да може да синхронизира карти.</string>
+    <string name="settings_wear_sync_unblock_message">Премахване на <xliff:g>%1$s</xliff:g> от черния списък? Устройството отново ще може да поиска достъп.</string>
+    <string name="wear_bt_pairing_allowed">На устройството <xliff:g>%1$s</xliff:g> е забранено да синхронизира.</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="wear_bt_pairing_blocked">Устройството <xliff:g>%1$s</xliff:g> е забранено.</string>
+    <string name="settings_category_title_smartwatch">Поддръжка на интелигентни часовниции</string>
+    <string name="settings_wear_sync_tap_to_remove">Докоснете устройство, за да го премахнете.</string>
+    <string name="settings_wear_sync_unpair">Премахване</string>
+    <string name="wear_bt_pairing_channel_name">Сдвояване на Wear OS устройство</string>
+    <string name="wear_bt_pairing_title">Устройството с Wear OS иска синхронизиране</string>
+    <string name="wear_bt_critical_error_channel_name">Критична грешка на Wear OS при синхронизиране</string>
 </resources>

@@ -1,0 +1,3 @@
+- Izboljšani uporabniški vmesnik za urejanje
+- Odstranjena možnost izbire barve besedila v glavi (zdaj se barva samodejno prilagaja glede na svetlost)
+- Posodobljeni prevodi

@@ -1,0 +1,3 @@
+- Salabota izskata krāsas neizmantošanas apcirpējā
+- Salabotas sīkas izskata nepilnības
+- Pievienots pilnīgi melns izskats OLED ekrāniem

@@ -1,0 +1,2 @@
+- Adicionada a navegação por deslize entre grupos na tela inicial
+- Corrigida falha ao carregar cartões sem cor de cabeçalho

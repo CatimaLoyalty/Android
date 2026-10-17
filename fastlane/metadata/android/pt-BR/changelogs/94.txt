@@ -1,0 +1,3 @@
+- Corrigido o aspecto borrado dos ícones de letras na tela principal
+- Corrigido o problema de ícones que às vezes desapareciam após a seleção
+- Corrigido o problema de ícones da barra de status que podiam ficar invisíveis no Android 5

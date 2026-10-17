@@ -105,6 +105,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setNoteField(null);
         }
 
+        if (mLoyaltyCardListDisplayOptions.showingCardId() && !loyaltyCard.cardId.isEmpty()) {
+            inputHolder.setExtraField(inputHolder.mCardIdField, loyaltyCard.cardId, null, showDivider);
+        } else {
+            inputHolder.setExtraField(inputHolder.mCardIdField, null, null, false);
+        }
+
         if (mLoyaltyCardListDisplayOptions.showingBalance() && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
             inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null, showDivider);
         } else {
@@ -211,7 +217,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mCardText, mStoreField, mNoteField, mBalanceField, mValidFromField, mExpiryField;
+        public TextView mCardText, mStoreField, mNoteField, mCardIdField, mBalanceField, mValidFromField, mExpiryField;
         public ImageView mCardIcon, mTickIcon;
         public MaterialCardView mRow;
         public ConstraintLayout mStar, mArchived;
@@ -224,6 +230,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mDivider = loyaltyCardLayoutBinding.infoDivider;
             mStoreField = loyaltyCardLayoutBinding.store;
             mNoteField = loyaltyCardLayoutBinding.note;
+            mCardIdField = loyaltyCardLayoutBinding.cardId;
             mBalanceField = loyaltyCardLayoutBinding.balance;
             mValidFromField = loyaltyCardLayoutBinding.validFrom;
             mExpiryField = loyaltyCardLayoutBinding.expiry;

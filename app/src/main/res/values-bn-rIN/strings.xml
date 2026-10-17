@@ -3,13 +3,13 @@
     <string name="save">সংরক্ষণ</string>
     <string name="cancel">বাতিল</string>
     <string name="unstar">তারা মুক্ত</string>
-    <string name="star">তারা</string>
-    <string name="barcodeType">বারকোড ধরন</string>
-    <string name="note">বিঃদ্রঃ</string>
-    <string name="storeName">দোকানের নাম</string>
+    <string name="star">পছন্দের তালিকায় যোগ করুন</string>
+    <string name="barcodeType">বারকোডের ধরন</string>
+    <string name="note">উল্লেখ্য</string>
+    <string name="storeName">নাম</string>
     <string name="noMatchingGiftCards">কোনো ফলাফল পাওয়া যায়নি। অনুসন্ধানের বাক্যটি বদলে দেখুন।</string>
     <string name="noGiftCards">প্লাস বোতামটি টিপে একটি কার্ড যোগ করুন বা ⋮ মেনু থেকে কিছু নিয়ে আসুন।</string>
-    <string name="action_add">কর্ম যোগ</string>
+    <string name="action_add">যোগ করুন</string>
     <string name="all">সব</string>
     <string name="noGroupCards">এই গ্রুপটি খালি</string>
     <string name="noGroups">+ যোগ বোতামটি টিপে গ্রুপ যোগ করুন যাতে তাদের শ্রেণীকরণ করা যায়।</string>
@@ -193,7 +193,6 @@
     <string name="settings_oled_dark">অন্ধকার থিমের জন্য খাঁটি কালো পটভূমি</string>
     <string name="setIcon">আইকন সেট করুন</string>
     <string name="updateBalance">ব্যালেন্স আপডেট করুন</string>
-    <string name="barcodeLongPressMessage">গ্যালারি অ্যাপে শুধুমাত্র ছবি খোলা যাবে</string>
     <string name="translate_platform">Weblate-এ</string>
     <string name="on_google_play">Google Play-তে</string>
     <string name="shortcutSelectCard">একটি কার্ড নির্বাচন করুন</string>
@@ -225,8 +224,6 @@
     <string name="switchToBackImage">পিছনের ছবিটিতে সুইচ করুন</string>
     <string name="switchToFrontImage">সামনের ছবিটিতে সুইচ করুন</string>
     <string name="switchToBarcode">বারকোডে সুইচ করুন</string>
-    <string name="openFrontImageInGalleryApp">সামনের ছবিটি গ্যালারি অ্যাপে খুলুন</string>
-    <string name="openBackImageInGalleryApp">পিছনের ছবিটি গ্যালারি অ্যাপে খুলুন</string>
     <string name="setBarcodeHeight">বারকোডের উচ্চতা সেট করুন</string>
     <string name="icon_header_click_text">দীর্ঘক্ষন টাচ করে থাম্বনেইল এডিট করবেন</string>
     <string name="show_balance">ব্যালান্স দেখান</string>

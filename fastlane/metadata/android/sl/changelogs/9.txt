@@ -1,0 +1,7 @@
+Del imena »Locker« ni bil intuitiven. Da bi to popravili, je betsythefc ustvarila novo ikono aplikacije, ki bolje odraža namen aplikacije: shranjevanje kartic zvestobe, ki uporabljajo črtne kode. Skupaj s to novo ikono se je ime aplikacije spremenilo v »Loyalty Card Keychain«.
+
+Dodatne funkcije/izboljšave:
+
+- Uvoz/izvoz kartic je bil spremenjen, da je zdaj bolj prilagodljiv.
+- Dodani so prevodi v litovščino.
+- Dodani so prevodi v francoščino

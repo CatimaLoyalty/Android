@@ -1,0 +1,1 @@
+- Odpravljena je bila napaka pri deljenju kartic brez barve ozadja (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

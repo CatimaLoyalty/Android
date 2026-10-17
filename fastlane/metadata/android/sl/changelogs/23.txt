@@ -1,0 +1,3 @@
+- Dodajanje praznega prostora na začetku/koncu črtnih kod. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Dodajanje možnosti za nastavitev barv pisave in ozadja imena trgovine. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Dodajte možnosti za prilagajanje velikosti pisave na strani s seznamom kartic in na strani posamezne kartice. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

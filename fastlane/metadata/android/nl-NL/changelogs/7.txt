@@ -1,0 +1,2 @@
+- Druk lang op een kaart om de optie te geven om de kaart ID naar het klembord te kopiëren. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Terugknop in het Import/Export scherm werkt nu, verplaatst gebruiker naar het hoofdscherm

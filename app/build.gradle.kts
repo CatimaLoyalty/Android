@@ -19,8 +19,8 @@ android {
         applicationId = "me.hackerchick.catima"
         minSdk = 23
         targetSdk = 36
-        versionCode = 165
-        versionName = "2.42.0"
+        versionCode = 1004
+        versionName = "2.45.1"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
@@ -59,8 +59,14 @@ android {
             dimension = "type"
             isDefault = true
         }
+        create("fdroidLegacy") {
+            dimension = "type"
+            versionNameSuffix = " (F-Droid)"
+            versionCode = defaultConfig.versionCode!! - 1
+        }
         create("gplay") {
             dimension = "type"
+            versionNameSuffix = " (Google)"
 
             // Google doesn't allow donation links
             buildConfigField("boolean", "showDonate", "false")
@@ -83,12 +89,31 @@ android {
         }
     }
 
-    // Starting with Android Studio 3 Robolectric is unable to find resources.
-    // The following allows it to find the resources.
-    testOptions.unitTests.isIncludeAndroidResources = true
     tasks.withType<Test>().configureEach {
         testLogging {
             events("started", "passed", "skipped", "failed")
+        }
+    }
+
+    testOptions {
+        unitTests {
+            // Starting with Android Studio 3 Robolectric is unable to find resources.
+            // The following allows it to find the resources.
+            isIncludeAndroidResources = true
+            all {
+                // Needed on Java 17 and up
+                it.jvmArgs(
+                    "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                    "--add-opens=java.base/java.util=ALL-UNNAMED",
+                    "--add-opens=java.base/java.io=ALL-UNNAMED",
+                    "--add-opens=java.base/java.net=ALL-UNNAMED",
+                    "--add-opens=java.base/java.security=ALL-UNNAMED",
+                    "--add-opens=java.base/java.text=ALL-UNNAMED",
+                    "--add-opens=java.base/jdk.internal.access=ALL-UNNAMED",
+                    "--add-opens=java.desktop/java.awt.font=ALL-UNNAMED",
+                    "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+                )
+            }
         }
     }
 
@@ -113,6 +138,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     // AndroidX
     implementation(libs.androidx.appcompat.appcompat)
     implementation(libs.androidx.constraintlayout.constraintlayout)
@@ -165,7 +192,6 @@ dependencies {
 
 tasks.register("copyRawResFiles", Copy::class) {
     from(
-        layout.projectDirectory.file("../CHANGELOG.md"),
         layout.projectDirectory.file("../PRIVACY.md")
     )
     into(layout.projectDirectory.dir("src/main/res/raw"))
@@ -173,7 +199,7 @@ tasks.register("copyRawResFiles", Copy::class) {
 }.also {
     tasks.preBuild.dependsOn(it)
     tasks.getByName<Delete>("clean") {
-        val filesNamesToDelete = listOf("CHANGELOG", "PRIVACY")
+        val filesNamesToDelete = listOf("PRIVACY")
         filesNamesToDelete.forEach { fileName ->
             delete(layout.projectDirectory.file("src/main/res/raw/${fileName.lowercase()}.md"))
         }

@@ -1,0 +1,11 @@
+- BELANGRIJKE VERANDERING: Backup formaat is veranderd, zie
+- BELANGRIJKE VERANDERING: Het URL-deelformaat is veranderd, zie
+- Mogelijk zaklamp te gebruiken voor scannen
+- UPC-E ondersteund
+- Voor- en achterfoto toevoegen per kaart
+- Importeer wachtwoord beschermde zip bestanden
+- Imporeer Stocard (Beta)
+- Witruimte in Fidme notities opgelost
+- Nieuw Voucher Vault exportformaat
+- Drijvende Actieknoppen staan niet achter andere UI elemenen op Android 4
+- Bovenmarge van de spaarkaart gerepareerd

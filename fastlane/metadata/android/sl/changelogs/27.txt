@@ -1,0 +1,2 @@
+- Znižanje minimalne različice SDK s 17 na 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Odstranitev uporabe stare knjižnice Apache, ki se je uporabljala le v enotnih testih, a ni več potrebna. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

@@ -1,0 +1,2 @@
+- Išsaugoti kortelės informacijos išplėtimo būseną
+- Nedideli vartotojo sąsajos pataisymai

@@ -1,0 +1,4 @@
+- Kaartenlijst voor landschaps- en tabletscherm verbeterd
+- Themakleur ondersteuning toegevoegd (bedankt, Subhashish Anand!)
+- Sluit scanactiviteit niet bij camerafout ( zodat handmatig invullen nog mogelijk is)
+- Alle contributeurs toegevoegd aan het Over de App venster

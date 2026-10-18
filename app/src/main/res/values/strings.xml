@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY appname "Catima">
+]>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Catima</string>
     <string name="action_search">Search</string>
@@ -63,10 +66,10 @@
     <string name="exporting">Exporting…</string>
     <string name="storageReadPermissionRequired">Permission to read storage needed for this action…</string>
     <string name="cameraPermissionRequired">Permission to access camera needed for this action…</string>
-    <string name="permissionReadCardsLabel">Read Catima cards</string>
-    <string name="permissionReadCardsDescription">read your Catima cards and all its details, including notes and images</string>
+    <string name="permissionReadCardsLabel">Read &appname; cards</string>
+    <string name="permissionReadCardsDescription">read your &appname; cards and all its details, including notes and images</string>
     <string name="cameraPermissionDeniedTitle">Couldn\'t access the camera</string>
-    <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, &appname; will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem</string>
@@ -172,9 +175,9 @@
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="accept">Accept</string>
-    <string name="importCatima">Import from Catima</string>
-    <string name="importCatimaMessage">Select your export from Catima to import.
-\nCreate it from the "Import/export" menu of another Catima app by pressing "Export".</string>
+    <string name="importCatima">Import from &appname;</string>
+    <string name="importCatimaMessage">Select your export from &appname; to import.
+\nCreate it from the "Import/export" menu of another &appname; app by pressing "Export".</string>
     <string name="importFidme">Import from FidMe</string>
     <string name="importFidmeMessage">Select your export from FidMe to import, and select the barcode types manually afterwards.
 \nCreate it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data".</string>
@@ -257,7 +260,7 @@
     <string name="previousCard">Previous</string>
     <string name="nextCard">Next</string>
     <string name="failedToOpenUrl">Install a web browser first</string>
-    <string name="welcome">Welcome to Catima</string>
+    <string name="welcome">Welcome to &appname;</string>
     <string name="importCards">Import cards</string>
     <string name="updateBalanceTitle">How much did you spend or receive?</string>
     <string name="updateBalanceHint">Enter amount</string>
@@ -307,7 +310,7 @@
     <string name="settings_key_wear_sync" translatable="false">pref_wear_sync</string>
     <string name="settings_wear_sync">Sync with Wear OS</string>
     <string name="settings_wear_sync_summary">Allows the Wear OS companion app to read your cards over Bluetooth</string>
-    <string name="wear_sync_permission_required">Catima needs the permissions you denied to sync with your Wear OS smartwatch</string>
+    <string name="wear_sync_permission_required">&appname; needs the permissions you denied to sync with your Wear OS smartwatch</string>
     <string name="settings_key_wear_sync_devices" translatable="false">pref_wear_sync_devices</string>
     <string name="settings_wear_sync_devices">Allowed Wear OS devices</string>
     <string name="settings_wear_sync_devices_summary">Manage devices allowed to sync over Bluetooth</string>
@@ -325,7 +328,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> devices blocked</item>
     </plurals>
     <string name="settings_wear_sync_unpair_title">Remove device?</string>
-    <string name="settings_wear_sync_unpair_message">Remove <xliff:g>%1$s</xliff:g> from Catima? It will no longer be able to sync your cards.</string>
+    <string name="settings_wear_sync_unpair_message">Remove <xliff:g>%1$s</xliff:g> from &appname;? It will no longer be able to sync your cards.</string>
     <string name="settings_wear_sync_unblock_message">Remove <xliff:g>%1$s</xliff:g> from the blocked list? It will be able to request access again.</string>
     <string name="settings_wear_sync_unpair">Remove</string>
     <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
@@ -338,7 +341,7 @@
     <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> is now allowed to sync.</string>
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> has been blocked.</string>
     <string name="wear_bt_pairing_mismatch_title">New authorization request from "<xliff:g>%1$s</xliff:g>"</string>
-    <string name="wear_bt_pairing_mismatch_message">This device was previously authorized but is now presenting a different identity token. This happens when the Wear OS app is reinstalled or its data is cleared. It can also indicate a Bluetooth MAC spoofing attempt.\n\nOnly accept if you recently reinstalled the Catima Wear OS app on this watch.</string>
+    <string name="wear_bt_pairing_mismatch_message">This device was previously authorized but is now presenting a different identity token. This happens when the Wear OS app is reinstalled or its data is cleared. It can also indicate a Bluetooth MAC spoofing attempt.\n\nOnly accept if you recently reinstalled the &appname; Wear OS app on this watch.</string>
     <string name="open_settings">Open settings</string>
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
@@ -372,7 +375,7 @@
     <string name="width">Width</string>
     <string name="card_list_widget_name">Card list</string>
     <string name="setBarcodeWidth">Set barcode width</string>
-    <string name="card_list_widget_empty">After you add some loyalty cards in Catima, they will appear here. If you have cards, make sure they are not all archived.</string>
+    <string name="card_list_widget_empty">After you add some loyalty cards in &appname;, they will appear here. If you have cards, make sure they are not all archived.</string>
     <string name="cardWithNumber">Card <xliff:g>%d</xliff:g></string>
     <string name="cardWithNumberAndLocale">Card <xliff:g>%d</xliff:g> (<xliff:g>%s</xliff:g>)</string>
     <string name="pleaseDoNotRotateTheDevice">Please do not rotate the device, as this will cancel the action</string>
@@ -391,7 +394,7 @@
     <string name="nfc_block_system_error">Failed to pause NFC</string>
     <string name="open_in_gallery">Open in image gallery</string>
     <string name="wear_bt_channel_name">Wear OS companion</string>
-    <string name="wear_bt_notification_title">Catima Wear OS sync active</string>
+    <string name="wear_bt_notification_title">&appname; Wear OS sync active</string>
     <string name="settings_category_title_smartwatch">Smartwatch support</string>
     <string name="wear_bt_failed_foreground_notification_title">Failed to start Wear OS sync service</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS sync critical error</string>

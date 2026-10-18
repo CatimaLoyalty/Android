@@ -48,12 +48,22 @@ fun CardViewScreen(card: WearCard?, onAboutClick: (WearCard) -> Unit) {
         if (card == null) {
             CircularProgressIndicator()
         } else {
-            CardDetail(card = card)
-            EdgeButton(
-                onClick = { onAboutClick(card) },
-                modifier = Modifier.align(Alignment.BottomCenter),
-            ) {
-                Text(text = stringResource(R.string.about_card))
+            // Place the EdgeButton below the barcode in the layout flow instead of
+            // overlaying it, so it can never obscure any part of the barcode,
+            // even on small or round displays
+            Column(modifier = Modifier.fillMaxSize()) {
+                CardDetail(
+                    card = card,
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                )
+                EdgeButton(
+                    onClick = { onAboutClick(card) },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(text = stringResource(R.string.about_card))
+                }
             }
         }
     }
@@ -78,14 +88,14 @@ private fun KeepScreenOnAtMaxBrightness() {
 }
 
 @Composable
-private fun CardDetail(card: WearCard) {
+private fun CardDetail(card: WearCard, modifier: Modifier = Modifier) {
     val barcodeValue = card.barcodeId ?: card.cardId
     val barcodeType = card.barcodeType
 
     KeepScreenOnAtMaxBrightness()
 
     BoxWithConstraints(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(ComposeColor.White)
             .padding(8.dp),

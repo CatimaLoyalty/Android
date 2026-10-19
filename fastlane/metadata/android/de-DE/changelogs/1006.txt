@@ -1,0 +1,3 @@
+- Start der Synchronisierung mit Wear OS, wenn diese aktiviert ist, beim Einschalten von Bluetooth
+- Bei Ansicht einer Karte wird die extra Bildschirmzeit zur Vermeidung einer Überhitzung auf 5 Minuten begrenzt
+- Vermeidung der Kameraeinblendung im Vollbildmodus

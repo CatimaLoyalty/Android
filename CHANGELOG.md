@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (Android) - 1006
+## v2.45.2 (Android) - 1006 (2026-10-19)
 
 - Start Wear OS sync if enabled when turning on Bluetooth
 - Limit extra screen on time while viewing a card to 5 minutes to prevent overheating

@@ -90,7 +90,7 @@
     <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Anzeige auf dem gesperrten Bildschirm</string>
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
@@ -228,8 +228,8 @@
     <string name="permissionReadCardsDescription">Lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
     <string name="settings_allow_content_provider_read_summary">Ermöglicht der Gadgetbridge-App, deine Karten mit unterstützten Uhren zu synchronisieren</string>
     <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
-    <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>
+    <string name="settings_keep_screen_on_summary">Zeitabschaltung des Bildschirms während der Anzeige einer Karte verlängern</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Bildschirmsperre während der Anzeige einer Karte umgehen</string>
     <string name="settings_oled_dark_summary">Reduziert den Batterieverbrauch bei OLED-Displays</string>
     <string name="settings_category_title_cards">Kartenansicht</string>
     <string name="settings_category_title_privacy">Datenschutz</string>

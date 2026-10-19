@@ -136,9 +136,9 @@
     <string name="shortcutSelectCard">Vali kaart</string>
     <string name="starred">Tähekesega märgitud</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ma soovin sinuga jagada mõnda oma kliendikaarti</string>
-    <string name="settings_keep_screen_on_summary">Lülitab kaardi vaatamise ajaks välja ekraani energiahalduse</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Keela ekraanilukustus</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Lülitab kaardi vaatamise ajaks välja ekraani lukustamise</string>
+    <string name="settings_keep_screen_on_summary">Pikenda kaardi vaatamise ajal ekraani väljalülitamise viiteaega</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Kuva lukustusvaate kohal</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Lülita kaardi vaatamise ajaks ekraanilukustus välja</string>
     <string name="settings_allow_content_provider_read_title">Sünkrooni Gadgetbridge\'iga</string>
     <string name="importSuccessful">Andmed on imporditud</string>
     <string name="exportSuccessful">Andmed on eksporditud</string>

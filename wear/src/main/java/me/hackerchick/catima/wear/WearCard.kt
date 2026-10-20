@@ -11,6 +11,7 @@ data class WearCard(
     val barcodeType: String?,
     val headerColor: Int?,
     val note: String?,
+    val validFrom: Long?,
     val expiry: Long?,
 ) {
     fun toJson(): JSONObject = JSONObject().apply {
@@ -21,6 +22,7 @@ data class WearCard(
         put("barcodeType", barcodeType ?: JSONObject.NULL)
         put("headerColor", headerColor ?: JSONObject.NULL)
         put("note", note ?: JSONObject.NULL)
+        put("validFrom", validFrom ?: JSONObject.NULL)
         put("expiry", expiry ?: JSONObject.NULL)
     }
 
@@ -33,6 +35,7 @@ data class WearCard(
             barcodeType = if (json.isNull("barcodeType")) null else json.optString("barcodeType").takeIf { it.isNotEmpty() },
             headerColor = if (json.isNull("headerColor")) null else json.getInt("headerColor"),
             note = if (json.isNull("note")) null else json.optString("note").takeIf { it.isNotEmpty() },
+            validFrom = if (json.isNull("validFrom")) null else json.optLong("validFrom").takeIf { it > 0 },
             expiry = if (json.isNull("expiry")) null else json.optLong("expiry").takeIf { it > 0 },
         )
 

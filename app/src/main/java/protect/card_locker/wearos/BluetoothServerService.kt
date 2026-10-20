@@ -322,6 +322,7 @@ class BluetoothServerService : Service() {
                     val barcodeTypeIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)
                     val headerColorIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)
                     val noteIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE)
+                    val validFromIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM)
                     val expiryIdx = it.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY)
                     var count = 0
                     do {
@@ -333,6 +334,7 @@ class BluetoothServerService : Service() {
                             put("barcodeType", if (it.isNull(barcodeTypeIdx)) JSONObject.NULL else it.getString(barcodeTypeIdx))
                             put("headerColor", if (it.isNull(headerColorIdx)) JSONObject.NULL else it.getInt(headerColorIdx))
                             put("note", it.getString(noteIdx) ?: "")
+                            put("validFrom", if (it.isNull(validFromIdx)) JSONObject.NULL else it.getLong(validFromIdx))
                             put("expiry", if (it.isNull(expiryIdx)) JSONObject.NULL else it.getLong(expiryIdx))
                         })
                         count++

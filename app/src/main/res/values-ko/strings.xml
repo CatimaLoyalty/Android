@@ -133,7 +133,7 @@
     <string name="barcodeId">바코드 값</string>
     <string name="setBackImage">이미지 설정</string>
     <string name="exportSuccessful">데이터 내보냄</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">화면 잠금 방지</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">잠금 화면 위에 표시</string>
     <string name="group_updated">그룹 업데이트됨</string>
     <string name="moveBarcodeToTopOfScreen">바코드를 화면 상단으로 이동</string>
     <string name="height">키</string>
@@ -218,14 +218,14 @@
     <string name="previousCard">이전의</string>
     <string name="nextCard">다음</string>
     <string name="failedToOpenUrl">먼저 웹 브라우저를 설치하십시오</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">카드가 보일 때 화면 잠금 방지</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">카드가 보일 때 화면 잠금 우회</string>
     <string name="permissionReadCardsDescription">당신의 Catima 카드와 그에 대한 모든 세부 정보, 메모 및 이미지를 읽으세요</string>
     <string name="settings_oled_dark_summary">OLED 화면에서의 배터리 사용량 줄임</string>
     <string name="app_copyright_short">저작권 © Sylvia van Os 및 기여자</string>
     <string name="settings_allow_content_provider_read_summary">Gadgetbridge 앱이 카드를 지원하는 시계와 동기화하도록 허용</string>
     <string name="settings_allow_content_provider_read_title">Gadgetbridge와 동기화</string>
     <string name="permissionReadCardsLabel">Catima 카드 읽기</string>
-    <string name="settings_keep_screen_on_summary">카드가 보일 때 화면 꺼짐 방지</string>
+    <string name="settings_keep_screen_on_summary">카드가 보일 때 화면 꺼짐 시간 연장</string>
     <string name="view_online">온라인에서 보기</string>
     <string name="settings_category_title_general">일반</string>
     <string name="action_display_options">디스플레이 옵션</string>

@@ -46,7 +46,7 @@
     <string name="settings_keep_screen_on">Manter ecrã ligado</string>
     <string name="enter_group_name">Introduza o nome do grupo</string>
     <string name="groups">Grupos</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Desativar bloqueio do ecrã</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mostrar acima do ecrã de bloqueio</string>
     <string name="exportSuccessful">Dados exportados</string>
     <string name="all">Todos</string>
     <string name="deleteConfirmationGroup">Eliminar o grupo\?</string>
@@ -231,9 +231,9 @@
     <string name="permissionReadCardsDescription">leia seus cartões do Catima e todos os seus detalhes, incluindo notas e imagens</string>
     <string name="show_note">Mostrar nota</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome abaixo da miniatura do ícone</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa o bloqueio de tela ao visualizar um cartão</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Contornar o bloqueio do ecrã durante a visualização de um cartão</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessário para alguns scanners funcionarem</string>
-    <string name="settings_keep_screen_on_summary">Desativa o tempo limite da tela ao visualizar um cartão</string>
+    <string name="settings_keep_screen_on_summary">Estender o tempo limite do ecrã enquanto ver um cartão</string>
     <string name="settings_allow_content_provider_read_title">Sincronizar com Gadgetbridge</string>
     <string name="settings_allow_content_provider_read_summary">Permite que a app Gadgetbridge sincronize os seus cartões com relógios apoiados</string>
     <string name="settings_oled_dark_summary">Reduz a utilização da bateria em ecrãs OLED</string>

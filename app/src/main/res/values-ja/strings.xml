@@ -46,7 +46,7 @@
     <string name="exportSuccessful">データがエクスポートされました</string>
     <string name="importSuccessful">データがインポートされました</string>
     <string name="intent_import_card_from_url_share_text">カードを共有しましょう</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中に画面をロックしない</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">ロック画面上へ表示</string>
     <string name="settings_keep_screen_on">バーコード表示中に画面を点けたままにする</string>
     <string name="settings_display_barcode_max_brightness">画面を明るくする</string>
     <string name="settings_dark_theme">ダーク</string>
@@ -187,10 +187,10 @@
     <string name="unarchived">アーカイブを解除しました</string>
     <string name="welcome">Catimaへようこそ</string>
     <string name="show_name_below_image_thumbnail">画像サムネイルの下に名前を表示</string>
-    <string name="settings_keep_screen_on_summary">画面の自動消灯を無効化します</string>
+    <string name="settings_keep_screen_on_summary">カード表示中は画面タイムアウトの時間を延長</string>
     <string name="settings_category_title_cards">カードビュー</string>
     <string name="settings_category_title_general">一般</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">画面のロックを無効化します</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">カード表示中は画面ロック機能を無効化</string>
     <string name="action_display_options">表示の設定</string>
     <string name="unarchive">アーカイブ解除</string>
     <string name="archive">アーカイブ</string>

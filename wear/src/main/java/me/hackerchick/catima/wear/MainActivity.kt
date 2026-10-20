@@ -13,7 +13,6 @@ import androidx.navigation.navArgument
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
-import me.hackerchick.catima.wear.ui.AboutCardScreen
 import me.hackerchick.catima.wear.ui.CardListScreen
 import me.hackerchick.catima.wear.ui.CardViewScreen
 import me.hackerchick.catima.wear.ui.theme.CatimaWearTheme
@@ -65,18 +64,7 @@ class MainActivity : ComponentActivity() {
                     ) { backStackEntry ->
                         val cardId = backStackEntry.arguments?.getInt("cardId") ?: return@composable
                         val card = cards?.find { it.id == cardId }
-                        CardViewScreen(
-                            card = card,
-                            onAboutClick = { navController.navigate("card_about/${it.id}") }
-                        )
-                    }
-                    composable(
-                        route = "card_about/{cardId}",
-                        arguments = listOf(navArgument("cardId") { type = NavType.IntType })
-                    ) { backStackEntry ->
-                        val cardId = backStackEntry.arguments?.getInt("cardId") ?: return@composable
-                        val card = cards?.find { it.id == cardId }
-                        AboutCardScreen(card = card)
+                        CardViewScreen(card = card)
                     }
                 }
             }

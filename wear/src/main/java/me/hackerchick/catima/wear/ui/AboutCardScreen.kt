@@ -48,8 +48,12 @@ private fun AboutCardDetail(card: WearCard) {
         scrollState = columnState,
     ) { contentPadding ->
         TransformingLazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 24.dp),
             state = columnState,
             contentPadding = contentPadding,
+            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             item {
@@ -99,18 +103,31 @@ private fun AboutCardDetail(card: WearCard) {
                 }
             }
 
+            val validFrom = card.validFrom
+            if (validFrom != null) {
+                item {
+                    AboutCardRow(
+                        label = stringResource(R.string.valid_from_label),
+                        value = formatDate(validFrom),
+                    )
+                }
+            }
+
             val expiry = card.expiry
             if (expiry != null) {
                 item {
                     AboutCardRow(
                         label = stringResource(R.string.expiry_label),
-                        value = DateFormat.getDateInstance().format(Date(expiry)),
+                        value = formatDate(expiry),
                     )
                 }
             }
         }
     }
 }
+
+private fun formatDate(epochMillis: Long): String =
+    DateFormat.getDateInstance().format(Date(epochMillis))
 
 @Composable
 private fun AboutCardRow(label: String, value: String) {

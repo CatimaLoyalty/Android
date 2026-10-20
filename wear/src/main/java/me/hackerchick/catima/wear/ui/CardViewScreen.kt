@@ -6,7 +6,6 @@ import android.view.WindowManager
 import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -16,19 +15,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.CircularProgressIndicator
-import androidx.wear.compose.material3.EdgeButton
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.google.zxing.BarcodeFormat
@@ -48,22 +46,45 @@ fun CardViewScreen(card: WearCard?, onAboutClick: (WearCard) -> Unit) {
         if (card == null) {
             CircularProgressIndicator()
         } else {
-            // Place the EdgeButton below the barcode in the layout flow instead of
-            // overlaying it, so it can never obscure any part of the barcode,
-            // even on small or round displays
-            Column(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 18.dp, bottom = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = card.store,
+                    color = MaterialTheme.colorScheme.onBackground,
+                    maxLines = 1,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 32.dp),
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
                 CardDetail(
                     card = card,
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxWidth(),
                 )
-                EdgeButton(
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Button(
                     onClick = { onAboutClick(card) },
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(text = stringResource(R.string.about_card))
-                }
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 24.dp),
+                    label = {
+                        Text(
+                            text = stringResource(R.string.about_card),
+                            maxLines = 1,
+                        )
+                    },
+                )
             }
         }
     }
@@ -95,70 +116,43 @@ private fun CardDetail(card: WearCard, modifier: Modifier = Modifier) {
     KeepScreenOnAtMaxBrightness()
 
     BoxWithConstraints(
-        modifier = modifier
-            .fillMaxSize()
-            .background(ComposeColor.White)
-            .padding(8.dp),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
-        val screenSize = minOf(maxWidth, maxHeight)
-        val roundInset = screenSize * 0.15f
-        val barcodeMaxSize = screenSize - roundInset * 2
+        if (barcodeType != null) {
+            val barcodeResult = remember(barcodeValue, barcodeType) {
+                generateBarcode(barcodeValue, barcodeType)
+            }
 
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text(
-                text = card.store,
-                textAlign = TextAlign.Center,
-                maxLines = 2,
-                color = ComposeColor.Black,
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            if (barcodeType != null) {
-                val barcodeResult = remember(barcodeValue, barcodeType) {
-                    generateBarcode(barcodeValue, barcodeType)
-                }
-
-                if (barcodeResult != null) {
-                    Image(
-                        bitmap = barcodeResult.bitmap.asImageBitmap(),
-                        contentDescription = card.cardId,
-                        modifier = if (barcodeResult.isSquare) {
-                            Modifier.size(barcodeMaxSize)
-                        } else {
-                            Modifier.fillMaxWidth(0.85f).height(60.dp)
-                        },
-                    )
+            if (barcodeResult != null) {
+                val barcodeModifier = if (barcodeResult.isSquare) {
+                    val barcodeSize = minOf(maxWidth * 0.68f, maxHeight)
+                    Modifier.size(barcodeSize)
                 } else {
-                    Text(
-                        text = stringResource(R.string.no_barcode),
-                        textAlign = TextAlign.Center,
-                        color = ComposeColor.Black,
-                    )
+                    Modifier
+                        .width(maxWidth * 0.76f)
+                        .height(minOf(60.dp, maxHeight))
                 }
+
+                Image(
+                    bitmap = barcodeResult.bitmap.asImageBitmap(),
+                    contentDescription = card.cardId,
+                    modifier = barcodeModifier,
+                )
             } else {
                 Text(
                     text = stringResource(R.string.no_barcode),
                     textAlign = TextAlign.Center,
-                    color = ComposeColor.Black,
+                    color = MaterialTheme.colorScheme.onBackground,
+                    modifier = Modifier.padding(horizontal = 32.dp),
                 )
             }
-
-            Spacer(modifier = Modifier.height(4.dp))
-
+        } else {
             Text(
-                text = barcodeValue,
+                text = stringResource(R.string.no_barcode),
                 textAlign = TextAlign.Center,
-                maxLines = 2,
-                color = ComposeColor.Black,
-                // Hide the barcode value until we can be completely certain the element won't partially fall out of the UI
-                // This is a workaround for a requirement for Google Play: https://github.com/CatimaLoyalty/Android/issues/3284
-                modifier = Modifier.alpha(0f)
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.padding(horizontal = 32.dp),
             )
         }
     }

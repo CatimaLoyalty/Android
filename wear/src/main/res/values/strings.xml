@@ -10,6 +10,7 @@
     <string name="barcode_value_label">Barcode value</string>
     <string name="barcode_type_label">Barcode type</string>
     <string name="note_label">Note</string>
+    <string name="valid_from_label">Valid from</string>
     <string name="expiry_label">Expiry</string>
     <string name="syncing">Syncing with phone…</string>
     <string name="sync_failed">Phone unreachable – showing cached cards</string>

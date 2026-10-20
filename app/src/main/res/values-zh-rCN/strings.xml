@@ -57,7 +57,7 @@
     <string name="exportSuccessful">已导出数据</string>
     <string name="importSuccessful">已导入数据</string>
     <string name="intent_import_card_from_url_share_text">我想和你分享一张卡</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">防止锁屏</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">显示在锁屏上方</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
     <string name="settings_display_barcode_max_brightness">提高屏幕亮度</string>
     <string name="settings_dark_theme">暗色</string>
@@ -221,10 +221,10 @@
     <string name="settings_allow_content_provider_read_summary">允许 Gadgetbridge 应用同步卡片到支持的手表</string>
     <string name="settings_allow_content_provider_read_title">与 Gadgetbridge 同步</string>
     <string name="permissionReadCardsDescription">读取你的 Catima 卡片及其所有细节，包括笔记和图像</string>
-    <string name="settings_keep_screen_on_summary">在查看卡片时禁止屏幕超时</string>
+    <string name="settings_keep_screen_on_summary">在查看卡片时延长屏幕超时</string>
     <string name="settings_oled_dark_summary">减少 OLED 显示屏上的电池使用量</string>
     <string name="settings_category_title_privacy">隐私</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">查看卡片时禁用屏幕锁</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">查看卡片时绕过屏幕锁</string>
     <string name="settings_display_barcode_max_brightness_summary">一些扫描仪工作所必需的</string>
     <string name="settings_category_title_cards">卡片视图</string>
     <string name="settings_category_title_general">常规</string>

@@ -89,7 +89,7 @@
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Gegevens importeren uit</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Schermvergrendeling uitschakelen</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Weergave boven het vergrendelscherm</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
     <string name="privacy_policy">Privacybeleid</string>
     <string name="accept">Accepteren</string>
@@ -228,10 +228,10 @@
     <string name="settings_allow_content_provider_read_summary">Hiermee kan de Gadgetbridge-app jouw kaarten synchroniseren met ondersteunde horloges</string>
     <string name="permissionReadCardsDescription">Lees alle Catima-kaarten uit, inclusief alle details, aantekeningen en afbeeldingen</string>
     <string name="settings_allow_content_provider_read_title">Synchroniseren met Gadgetbridge</string>
-    <string name="settings_keep_screen_on_summary">Laat het scherm niet op zwart gaan tijdens het bekijken van een kaart</string>
+    <string name="settings_keep_screen_on_summary">Schermtijd verlengen bij de weergave van een kaart</string>
     <string name="settings_category_title_privacy">Privacy</string>
     <string name="settings_display_barcode_max_brightness_summary">Benodigd voor de werking van sommige scanners</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Schakelt schermvergrendeling uit tijdens het bekijken van een kaart</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Schermvergrendeling omzeilen bij de weergave van een kaart</string>
     <string name="settings_oled_dark_summary">Verlaagt het accuverbruik op oledschermen</string>
     <string name="settings_category_title_cards">Kaart</string>
     <string name="settings_category_title_general">Algemeen</string>

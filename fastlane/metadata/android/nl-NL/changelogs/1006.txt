@@ -1,0 +1,3 @@
+- Start Wear OS synchronisatie indien ingeschakeld bij het inschakelen van Bluetooth
+- Beperk extra schermtijd tijdens het bekijken van een kaart tot 5 minuten om oververhitting te voorkomen
+- Vermijd camera-inzet op volledig scherm

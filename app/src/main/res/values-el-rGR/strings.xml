@@ -144,7 +144,7 @@
     </plurals>
     <string name="points">Πόντοι</string>
     <string name="exportSuccessful">Δεδομένα εξήχθησαν</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Αποτροπή κλειδώματος οθόνης</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Εμφάνιση πάνω από την οθόνη κλειδώματος</string>
     <string name="failedLaunchingPhotoPicker">Δεν βρέθηκε υποστηριζόμενος επιλογέας εικόνων</string>
     <string name="noBarcode">Χωρίς γραμμωτό κώδικα</string>
     <string name="starImage">Αγαπημένο αστέρι</string>
@@ -207,7 +207,7 @@
     <string name="newBalanceSentence">Νέο υπόλοιπο: <xliff:g>%s</xliff:g></string>
     <string name="failedToOpenUrl">Εγκαταστήστε έναν περιηγητή πρώτα</string>
     <string name="welcome">Καλώς ήρθατε στο Catima</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης κατά την προβολή μιας κάρτας</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Παρακάμπτει το κλείδωμα οθόνης κατά την προβολή μιας κάρτας</string>
     <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποιους σαρωτές</string>
     <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
     <string name="settings_allow_content_provider_read_title">Συγχρονισμός με Gadgetbridge</string>

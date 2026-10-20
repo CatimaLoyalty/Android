@@ -1,0 +1,3 @@
+- Při zapnutí Bluetooth spustit synchronizaci Wear OS, pokud je tato funkce povolena
+- Omezení doby, po kterou zůstává displej zapnutý při prohlížení karty, na 5 minut, aby se zabránilo přehřátí
+- V režimu celé obrazovky zabránění zobrazení rámečku fotoaparátu

@@ -70,7 +70,7 @@
     </plurals>
     <string name="importSuccessful">Data importována</string>
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Nezamykat obrazovku</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Zobrazit nad zamykací obrazovkou</string>
     <string name="settings_keep_screen_on">Nevypínat obrazovku</string>
     <string name="settings_dark_theme">Tmavý</string>
     <string name="settings_light_theme">Světlý</string>
@@ -233,11 +233,11 @@
     <string name="settings_allow_content_provider_read_summary">Umožňuje aplikaci Gadgetbridge synchronizovat vaše karty do podporovaných chytrých hodinek</string>
     <string name="permissionReadCardsLabel">Číst karty Catima</string>
     <string name="settings_allow_content_provider_read_title">Synchronizace s Gadgetbridge</string>
-    <string name="settings_keep_screen_on_summary">Při prohlížení karty vypnout časovač zhasnutí obrazovky</string>
+    <string name="settings_keep_screen_on_summary">Při prohlížení karty prodloužit časovač zhasnutí obrazovky</string>
     <string name="settings_oled_dark_summary">Snižuje používání baterie na displejích OLED</string>
     <string name="settings_category_title_privacy">Soukromí</string>
     <string name="settings_display_barcode_max_brightness_summary">U některých čteček je to potřeba</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Při prohlížení karty zabránit zamčení obrazovky</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Při prohlížení karty obejít zamčení obrazovky</string>
     <string name="settings_category_title_cards">Zobrazení karty</string>
     <string name="settings_category_title_general">Obecné</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a přispěvatelé</string>

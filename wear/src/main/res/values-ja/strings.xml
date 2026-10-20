@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">カードが見つかりません。\nカードを追加するには、スマートフォンでCatimaを開いてください。</string>
+    <string name="phone_not_connected">スマートフォンのCatimaに接続できませんでした。\nスマートフォンでCatimaが起動していること、スマートウォッチが接続されていること、Catimaのスマートウォッチ設定でWear OSサポートが有効になっていることを確認してください。</string>
+    <string name="loading_cards">カードを読み込み中…</string>
+    <string name="no_barcode">このカードにはバーコードがありません。</string>
+    <string name="card_id_label">カードID</string>
+    <string name="syncing">スマートフォンと同期中…</string>
+    <string name="sync_failed">スマートフォンに接続できません – 保存済みのカードを表示中</string>
+    <string name="version_incompatible">スマートフォンとスマートウォッチのCatimaのバージョンが合いません。\n両方を最新版にアップデートしてください。</string>
+    <string name="bluetooth_permission_denied">Bluetoothの使用が許可されていません。\nカードを同期するには、設定で許可してください。</string>
+    <string name="bluetooth_disabled">Bluetoothがオフになっています。\nスマートフォンからカードを同期するには、Bluetoothをオンにしてください。</string>
+    <string name="sync_error">スマートフォンからカードを読み込めませんでした。\nもう一度同期してください。</string>
+    <string name="unauthorized">このスマートウォッチは許可されていません。\nCatimaの設定で、このスマートウォッチがカードを読み込めるように許可してください。</string>
 </resources>

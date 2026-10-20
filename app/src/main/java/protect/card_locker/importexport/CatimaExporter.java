@@ -29,7 +29,7 @@ import protect.card_locker.Group;
 import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
-import protect.card_locker.Settings
+import protect.card_locker.preferences.Settings;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
@@ -66,7 +66,22 @@ public class CatimaExporter implements Exporter {
 
         // Add settings.json to zip file
         if (includeSettings) {
-            String settingsJson = "{\"version\":1}";
+            Settings settings = new Settings(context);
+
+            JSONObject settingsObject = new JSONObject();
+            JSONObject rootObject = new JSONObject();
+
+            try{
+                settingsObject.put("keepScreenOn", settings.getKeepScreenOn());
+
+                rootObject.put("version", 1);
+                rootObject.put("settings", settingsObject);
+
+            } catch(JSONException e){
+                throw new IOException("Failed to create settings JSON", e);
+            }
+
+            String settingsJson = rootObject.toString();
 
             ZipParameters settingsZipParameters = createZipParameters("settings.json", password);
             zipOutputStream.putNextEntry(settingsZipParameters);

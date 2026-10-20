@@ -15,6 +15,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Environment;
 import android.os.Looper;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -26,6 +29,8 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowLooper;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -104,8 +109,30 @@ public class ImportExportTest {
                 }
             }
         }
-
         return false;
+    }
+
+    private String readZipEntry(byte[] zipData, String expectedFileName) throws IOException {
+        try (ZipInputStream zipInputStream = new ZipInputStream(new ByteArrayInputStream(zipData))){
+
+            LocalFileHeader header;
+
+            while((header = zipInputStream.getNextEntry()) != null){
+                if(expectedFileName.equals(header.getFileName())){
+                    ByteArrayOutputStream entryData = new ByteArrayOutputStream();
+
+                    byte[] buffer = new byte[1024];
+                    int length;
+
+                    while((length = zipInputStream.read(buffer)) != -1){
+                        entryData.write(buffer, 0, length);
+                    }
+
+                    return entryData.toString(StandardCharsets.UTF_8.name());
+                }
+            }
+        }
+        return null;
     }
 
     @Test
@@ -1262,5 +1289,33 @@ public class ImportExportTest {
         assertEquals(ImportExportResultType.Success, result.resultType());
 
         assertTrue(zipContainsEntry(outData.toByteArray(), "settings.json"));
+    }
+
+    @Test
+    public void exportSettingsContainsKeepScreenOn() throws IOException, JSONException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        preferences.edit().putBoolean(activity.getString(R.string.settings_key_keep_screen_on), false).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        String settingsJson = readZipEntry(outData.toByteArray(), "settings.json");
+        assertNotNull(settingsJson);
+
+        JSONObject root = new JSONObject(settingsJson);
+        assertEquals(1, root.getInt("version"));
+
+        JSONObject settings = root.getJSONObject("settings");
+        assertFalse(settings.getBoolean("keepScreenOn"));
     }
 }

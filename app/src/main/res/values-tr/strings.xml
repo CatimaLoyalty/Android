@@ -71,7 +71,7 @@
     <string name="exportSuccessful">Veriler dışa aktarıldı</string>
     <string name="importSuccessful">Veriler içe aktarıldı</string>
     <string name="intent_import_card_from_url_share_text">Seninle bir kart paylaşmak istiyorum</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Kilit ekranının üstünde göster</string>
     <string name="settings_keep_screen_on">Ekranı açık tut</string>
     <string name="settings_display_barcode_max_brightness">Ekranı aydınlat</string>
     <string name="settings_dark_theme">Koyu</string>
@@ -226,10 +226,10 @@
     <string name="show_validity">Geçerliliği göster</string>
     <string name="permissionReadCardsLabel">Catima kartlarını oku</string>
     <string name="permissionReadCardsDescription">Catima kartlarınızı ve tüm detaylarını, notlar ve resimler de dahil olmak üzere okuyun</string>
-    <string name="settings_keep_screen_on_summary">Ekran zaman aşımını bir kart görüntülerken devre dışı bırakır</string>
+    <string name="settings_keep_screen_on_summary">Ekran zaman aşımını bir kart görüntülerken uzat</string>
     <string name="settings_allow_content_provider_read_title">Gadgetbridge ile eşzamanla</string>
     <string name="settings_display_barcode_max_brightness_summary">Bazı tarayıcıların çalışması için gereklidir</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Ekran kilidini bir kart görüntülerken devre dışı bırakır</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Bir kartı görüntülerken ekran kilidini atla</string>
     <string name="settings_allow_content_provider_read_summary">Gadgetbridge uygulamasının kartlarınızı desteklenen saatlerle eşzamanlamasına izin verir</string>
     <string name="settings_category_title_general">Genel</string>
     <string name="settings_category_title_privacy">Gizlilik</string>

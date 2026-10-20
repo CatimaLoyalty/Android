@@ -1294,7 +1294,13 @@ public class ImportExportTest {
     @Test
     public void exportSettingsContainsKeepScreenOn() throws IOException, JSONException {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        preferences.edit().putBoolean(activity.getString(R.string.settings_key_keep_screen_on), false).commit();
+        preferences.edit()
+        .putBoolean(activity.getString(R.string.settings_key_keep_screen_on), false)
+        .putBoolean(activity.getString(R.string.settings_key_oled_dark), true)
+        .putBoolean(activity.getString(R.string.settings_key_use_volume_keys_navigation), true)
+        .putBoolean(activity.getString(R.string.settings_key_display_barcode_max_brightness), false)
+        .putBoolean(activity.getString(R.string.settings_key_disable_lockscreen_while_viewing_card), false)
+        .putBoolean(activity.getString(R.string.settings_key_disable_nfc_while_viewing_card), false).commit();
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
 
@@ -1317,5 +1323,10 @@ public class ImportExportTest {
 
         JSONObject settings = root.getJSONObject("settings");
         assertFalse(settings.getBoolean("keepScreenOn"));
+        assertTrue(settings.getBoolean("oledDark"));
+        assertTrue(settings.getBoolean("useVolumeKeysNavigation"));
+        assertFalse(settings.getBoolean("displayBarcodeMaxBrightness"));
+        assertFalse(settings.getBoolean("disableLockscreenWhileViewingCard"));
+        assertFalse(settings.getBoolean("disableNfcWhileViewingCard"));
     }
 }

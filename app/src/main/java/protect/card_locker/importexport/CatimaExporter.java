@@ -73,6 +73,11 @@ public class CatimaExporter implements Exporter {
 
             try{
                 settingsObject.put("keepScreenOn", settings.getKeepScreenOn());
+                settingsObject.put("oledDark", settings.getOledDark());
+                settingsObject.put("useVolumeKeysNavigation", settings.useVolumeKeysForNavigation());
+                settingsObject.put("displayBarcodeMaxBrightness", settings.useMaxBrightnessDisplayingBarcode());
+                settingsObject.put("disableLockscreenWhileViewingCard", settings.getDisableLockscreenWhileViewingCard());
+                settingsObject.put("disableNfcWhileViewingCard", settings.getDisableNfcWhileViewingCard());
 
                 rootObject.put("version", 1);
                 rootObject.put("settings", settingsObject);

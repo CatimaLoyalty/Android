@@ -61,9 +61,9 @@
     <string name="settings">Axustes</string>
     <string name="settings_theme">Decorado</string>
     <string name="settings_display_barcode_max_brightness">Brillo da pantalla</string>
-    <string name="settings_keep_screen_on_summary">Evita que se apague a pantalla cando se ve unha tarxeta</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Evitar bloqueo da pantalla</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Desactiva o bloqueo da pantalla cando se ve unha tarxeta</string>
+    <string name="settings_keep_screen_on_summary">Extende o tempo coa pantalla activada cando se ve unha tarxeta</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mostrar sobre o bloqueo da pantalla</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Obvia o bloqueo da pantalla cando se mostra unha tarxeta</string>
     <string name="settings_allow_content_provider_read_title">Sincronizar con Gadgetbridge</string>
     <string name="settings_allow_content_provider_read_summary">Permite á app Gadgetbridge sincronizar as túas tarxetas cos reloxos compatibles</string>
     <string name="settings_use_volume_keys_navigation">Cambiar de tarxeta cos botóns de volume</string>

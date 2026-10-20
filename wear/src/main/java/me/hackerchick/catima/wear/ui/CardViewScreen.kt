@@ -208,6 +208,24 @@ private fun CardDetail(card: WearCard) {
                 }
             }
 
+            val validFrom = card.validFrom
+            if (validFrom != null) {
+                item {
+                    CardDetailRow(
+                        label = stringResource(R.string.valid_from_label),
+                        value = DateFormat.getDateInstance().format(Date(validFrom)),
+                        modifier = Modifier
+                            .transformedHeight(this, transformationSpec)
+                            .graphicsLayer {
+                                with(transformationSpec) {
+                                    applyContentTransformation(scrollProgress)
+                                }
+                            }
+                            .padding(horizontal = metadataPadding),
+                    )
+                }
+            }
+
             val expiry = card.expiry
             if (expiry != null) {
                 item {

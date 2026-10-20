@@ -92,7 +92,7 @@
     <string name="balanceSentence">Solde : <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expiré le : <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expire le : <xliff:g>%s</xliff:g></string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Afficher par-dessus l\'écran de verrouillage</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
     <string name="importVoucherVaultMessage">Sélectionnez votre exportation de Voucher Vault à importer. \nCréez-la en appuyant sur Exporter dans Voucher Vault.</string>
     <string name="importVoucherVault">Importer depuis Voucher Vault</string>
@@ -234,7 +234,7 @@
     <string name="settings_allow_content_provider_read_title">Synchroniser avec Gadgetbridge</string>
     <string name="settings_allow_content_provider_read_summary">Permet à l\'appli Gadgetbridge de synchroniser vos cartes vers des montres prises en charge</string>
     <string name="settings_display_barcode_max_brightness_summary">Nécessaire au fonctionnement de certains scanneurs</string>
-    <string name="settings_keep_screen_on_summary">Désactive la temporisation de l\'écran lors de la visualisation d\'une carte</string>
+    <string name="settings_keep_screen_on_summary">Étend la temporisation de l\'écran lors de la visualisation d\'une carte</string>
     <string name="settings_oled_dark_summary">Réduit l\'utilisation de la batterie sur les écrans OLED</string>
     <string name="settings_category_title_cards">Vue carte</string>
     <string name="settings_category_title_general">Généraux</string>

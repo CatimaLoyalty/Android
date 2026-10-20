@@ -60,6 +60,13 @@
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/exportOptionExplanation"/>
 
+            <CheckBox
+                android:id="@+id/includeSettingsCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/includeSettings" />
+
             <Button
                 android:id="@+id/exportButton"
                 android:layout_width="match_parent"

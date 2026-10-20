@@ -40,6 +40,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
     private var importAlertMessage: String? = null
     private var importDataFormat: DataFormat? = null
     private var exportPassword: String? = null
+    private var exportIncludeSettings: Boolean = false
 
     private lateinit var fileCreateLauncher: ActivityResultLauncher<Intent>
     private lateinit var fileOpenLauncher: ActivityResultLauncher<String>
@@ -89,7 +90,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
                     try {
                         val writer = contentResolver.openOutputStream(uri)
                         Log.d(TAG, "Starting file export with: $result")
-                        startExport(writer, uri, exportPassword?.toCharArray(), true)
+                        startExport(writer, uri, exportPassword?.toCharArray(), exportIncludeSettings, true)
                     } catch (e: IOException) {
                         Log.e(TAG, "Failed to export file: $result", e)
                         onExportComplete(
@@ -145,6 +146,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
             builder.setView(container)
             builder.setPositiveButton(R.string.ok) { _, _ ->
                 exportPassword = input.text.toString()
+                exportIncludeSettings = binding.includeSettingsCheckbox.isChecked
                 try {
                     fileCreateLauncher.launch(intentCreateDocumentAction)
                 } catch (e: ActivityNotFoundException) {
@@ -290,8 +292,11 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         target: OutputStream?,
         targetUri: Uri,
         password: CharArray?,
+        includeSettings: Boolean,
         closeWhenDone: Boolean
     ) {
+        Log.d(TAG, "startedExport: includeSettings=$includeSettings")
+
         mTasks.flushTaskList(TaskHandler.TYPE.EXPORT, true, false, false)
         val listener = ImportExportTask.TaskCompleteListener { result, dataFormat ->
             onExportComplete(result, targetUri)
@@ -306,7 +311,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
 
         importExporter = ImportExportTask(
             this@ImportExportActivity,
-            DataFormat.Catima, target, password, listener
+            DataFormat.Catima, target, password, includeSettings, listener
         )
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, importExporter)
     }

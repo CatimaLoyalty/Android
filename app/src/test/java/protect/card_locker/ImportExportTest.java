@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
@@ -52,6 +53,9 @@ import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
 
+import net.lingala.zip4j.io.inputstream.ZipInputStream;
+import net.lingala.zip4j.model.LocalFileHeader;
+
 @RunWith(RobolectricTestRunner.class)
 public class ImportExportTest {
     private Activity activity;
@@ -87,6 +91,21 @@ public class ImportExportTest {
             assertTrue(result);
         }
         assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
+    }
+
+    private boolean zipContainsEntry(byte[] zipData, String expectedFileName) throws IOException{
+        try(ZipInputStream zipInputStream = new ZipInputStream(new ByteArrayInputStream(zipData))){
+
+            LocalFileHeader header;
+
+            while((header = zipInputStream.getNextEntry()) != null){
+                if(expectedFileName.equals(header.getFileName())){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     @Test
@@ -321,7 +340,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -351,7 +370,7 @@ public class ImportExportTest {
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, password);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, password, false);
             assertEquals(ImportExportResultType.Success, result.resultType());
             outStream.close();
 
@@ -383,7 +402,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -454,7 +473,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -497,7 +516,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -525,7 +544,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -560,7 +579,7 @@ public class ImportExportTest {
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
             assertEquals(ImportExportResultType.Success, result.resultType());
 
             TestHelpers.getEmptyDb(activity);
@@ -606,7 +625,7 @@ public class ImportExportTest {
         // Export to the file
         final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), listener);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), false, listener);
         TaskHandler mTasks = new TaskHandler();
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, task);
 
@@ -864,7 +883,7 @@ public class ImportExportTest {
 
         // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outputStream, DataFormat.Catima, null);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outputStream, DataFormat.Catima, null, false);
 
         // Wipe database
         TestHelpers.getEmptyDb(activity);
@@ -1207,5 +1226,41 @@ public class ImportExportTest {
         assertEquals(0, card.starStatus);
 
         TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void exportWithoutSettingsDoesNotIncludeSettingsFile() throws IOException{
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            false
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertFalse(zipContainsEntry(outData.toByteArray(), "settings.json"));
+    }
+
+    @Test
+    public void exportWithoutSettingsIncludeSettingsFile() throws IOException{
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertTrue(zipContainsEntry(outData.toByteArray(), "settings.json"));
     }
 }

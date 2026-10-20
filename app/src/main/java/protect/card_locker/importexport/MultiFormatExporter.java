@@ -19,7 +19,7 @@ public class MultiFormatExporter {
      * another ImportExportResult otherwise. If not Success, partial data may have been
      * written to the output stream, and it should be discarded.
      */
-    public static ImportExportResult exportData(Context context, SQLiteDatabase database, OutputStream output, DataFormat format, char[] password) {
+    public static ImportExportResult exportData(Context context, SQLiteDatabase database, OutputStream output, DataFormat format, char[] password, boolean includeSettings) {
         Exporter exporter = null;
 
         switch (format) {
@@ -34,7 +34,7 @@ public class MultiFormatExporter {
         String error;
         if (exporter != null) {
             try {
-                exporter.exportData(context, database, output, password);
+                exporter.exportData(context, database, output, password, includeSettings);
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (Exception e) {
                 Log.e(TAG, "Failed to export data", e);

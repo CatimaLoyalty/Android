@@ -36,13 +36,14 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private InputStream inputStream;
     private char[] password;
     private TaskCompleteListener listener;
+    private boolean includeSettings;
 
     private AlertDialog progress;
 
     /**
      * Constructor which will setup a task for exporting to the given file
      */
-    ImportExportTask(Activity activity, DataFormat format, OutputStream output, char[] password,
+    ImportExportTask(Activity activity, DataFormat format, OutputStream output, char[] password, boolean includeSettings,
                      TaskCompleteListener listener) {
         super();
         this.activity = activity;
@@ -51,6 +52,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         this.outputStream = output;
         this.password = password;
         this.listener = listener;
+        this.includeSettings = includeSettings;
     }
 
     /**
@@ -75,12 +77,12 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         return importResult;
     }
 
-    private ImportExportResult performExport(Context context, OutputStream stream, SQLiteDatabase database, char[] password) {
+    private ImportExportResult performExport(Context context, OutputStream stream, SQLiteDatabase database, char[] password, boolean includeSettings) {
         ImportExportResult result;
 
         try {
             OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
-            result = MultiFormatExporter.exportData(context, database, stream, format, password);
+            result = MultiFormatExporter.exportData(context, database, stream, format, password, includeSettings);
             writer.close();
         } catch (IOException e) {
             result = new ImportExportResult(ImportExportResultType.GenericFailure, e.toString());
@@ -137,7 +139,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         if (doImport) {
             result = performImport(activity.getApplicationContext(), inputStream, database, password);
         } else {
-            result = performExport(activity.getApplicationContext(), outputStream, database, password);
+            result = performExport(activity.getApplicationContext(), outputStream, database, password, includeSettings);
         }
 
         database.close();

@@ -103,9 +103,9 @@
     <string name="settings_light_theme">Claro</string>
     <string name="settings_dark_theme">Escuro</string>
     <string name="settings_keep_screen_on">Manter tela ligada</string>
-    <string name="settings_keep_screen_on_summary">Desativa o tempo limite de tela enquanto estiver vendo um cartão</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Previnir bloqueio de tela</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa bloqueio de tela enquanto estiver vendo um cartão</string>
+    <string name="settings_keep_screen_on_summary">Estender o tempo limite do ecrã enquanto ver um cartão</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mostrar acima do ecrã de bloqueio</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Contornar o bloqueio do ecrã durante a visualização de um cartão</string>
     <string name="settings_allow_content_provider_read_title">Sincronizar com Gadgetbridge</string>
     <string name="settings_allow_content_provider_read_summary">Permite que a app Gadgetbridge sincronize os seus cartões com relógios apoiados</string>
     <string name="settings_use_volume_keys_navigation">Trocar de cartão usando botões de volume</string>
@@ -353,4 +353,5 @@
     <string name="wear_bt_critical_error_channel_name">Erro crítico de sincronização do Wear OS</string>
     <string name="android_blocked_startup">O Android bloqueou a inicialização do serviço Wear OS</string>
     <string name="zoomBackImage">Desamplificar imagem</string>
+    <string name="wear_bt_pairing_mismatch_title">Nova solicitação de autorização de <xliff:g>%1$s</xliff:g></string>
 </resources>

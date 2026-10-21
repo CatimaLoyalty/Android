@@ -303,8 +303,8 @@
     <string name="open_in_gallery">ギャラリーを開く</string>
     <string name="settings_wear_sync">Wear OS と同期</string>
     <string name="settings_wear_sync_summary">Wear OS コンパニオンアプリによる Bluetooth 経由のカード読取を許可する</string>
-    <string name="wear_sync_permission_required">貴方が拒否した権限は Catima が Wear OS スマートウォッチと同期するのに必要です</string>
-    <string name="settings_wear_sync_devices">対応している Wear OS デバイス</string>
+    <string name="wear_sync_permission_required">Catima が Wear OS スマートウォッチと同期するには拒否された権限の許可が必要です</string>
+    <string name="settings_wear_sync_devices">許可された Wear OS デバイス</string>
     <string name="settings_wear_sync_devices_summary">Bluetooth 経由での同期が許可されたデバイスの管理</string>
     <string name="settings_wear_sync_no_devices">デバイスが許可されていません</string>
     <plurals name="settings_wear_sync_devices_summary_count">
@@ -322,7 +322,7 @@
     <string name="settings_wear_sync_unpair">削除</string>
     <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> （<xliff:g>%2$s</xliff:g>）</string>
     <string name="settings_wear_sync_tap_to_remove">タップしてデバイスを削除します。</string>
-    <string name="wear_bt_pairing_channel_name">Wear OS デバイスを接続しました</string>
+    <string name="wear_bt_pairing_channel_name">Wear OS デバイスのペア設定</string>
     <string name="wear_bt_pairing_title">Wear OS デバイスとの同期を要求</string>
     <string name="wear_bt_pairing_message"><xliff:g>%1$s</xliff:g> にカードへのアクセスを許可しますか？</string>
     <string name="wear_bt_pairing_allow">許可</string>
@@ -334,7 +334,7 @@
     <string name="open_settings">設定を開く</string>
     <string name="wear_bt_channel_name">Wear OS コンパニオン</string>
     <string name="wear_bt_notification_title">Catima は Wear OS と同期中です</string>
-    <string name="settings_category_title_smartwatch">対応するスマートウォッチです</string>
+    <string name="settings_category_title_smartwatch">スマートウォッチ対応</string>
     <string name="wear_bt_failed_foreground_notification_title">Wear OSとの同期サービスの開始が失敗しました</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS 同期の深刻なエラー</string>
     <string name="android_blocked_startup">AndroidがWear OSサービスの開始を妨げています</string>

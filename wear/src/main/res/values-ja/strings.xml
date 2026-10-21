@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Catima</string>
     <string name="no_cards">カードが見つかりません。\nカードを追加するには、スマートフォンでCatimaを開いてください。</string>
-    <string name="phone_not_connected">スマートフォンのCatimaに接続できませんでした。\nスマートフォンでCatimaが起動していること、スマートウォッチが接続されていること、Catimaのスマートウォッチ設定でWear OSサポートが有効になっていることを確認してください。</string>
+    <string name="phone_not_connected">デバイス上のCatimaへ接続できませんでした。\nご利用のデバイスでCatimaが起動している事、スマートウォッチが接続されている事と、Catimaのスマートウォッチ設定でWear OSサポートが有効になっていることを確認して下さい。</string>
     <string name="loading_cards">カードを読み込み中…</string>
     <string name="no_barcode">このカードにはバーコードがありません。</string>
     <string name="card_id_label">カードID</string>

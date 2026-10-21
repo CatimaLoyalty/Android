@@ -268,4 +268,5 @@
     <string name="amountParsingFailed">Nevalida kvanto</string>
     <string name="useBackImage">Uzi la malantaŭan bildon</string>
     <string name="useFrontImage">Uzi la antaŭan bildon</string>
+    <string name="settings_disable_nfc_while_viewing_card">Paŭzigi NFC</string>
 </resources>

@@ -41,7 +41,6 @@ import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.ScreenScaffoldDefaults
 import androidx.wear.compose.material3.Text
 import androidx.wear.compose.material3.lazy.rememberTransformationSpec
-import androidx.wear.compose.material3.lazy.transformedHeight
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
@@ -128,7 +127,6 @@ private fun CardDetail(card: WearCard) {
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .transformedHeight(this, transformationSpec)
                         .graphicsLayer {
                             with(transformationSpec) {
                                 applyContentTransformation(scrollProgress)
@@ -144,7 +142,6 @@ private fun CardDetail(card: WearCard) {
                     label = stringResource(R.string.card_id_label),
                     value = card.cardId,
                     modifier = Modifier
-                        .transformedHeight(this, transformationSpec)
                         .graphicsLayer {
                             with(transformationSpec) {
                                 applyContentTransformation(scrollProgress)
@@ -161,7 +158,6 @@ private fun CardDetail(card: WearCard) {
                         label = stringResource(R.string.barcode_value_label),
                         value = barcodeId,
                         modifier = Modifier
-                            .transformedHeight(this, transformationSpec)
                             .graphicsLayer {
                                 with(transformationSpec) {
                                     applyContentTransformation(scrollProgress)
@@ -179,7 +175,6 @@ private fun CardDetail(card: WearCard) {
                         label = stringResource(R.string.barcode_type_label),
                         value = barcodeType,
                         modifier = Modifier
-                            .transformedHeight(this, transformationSpec)
                             .graphicsLayer {
                                 with(transformationSpec) {
                                     applyContentTransformation(scrollProgress)
@@ -197,7 +192,23 @@ private fun CardDetail(card: WearCard) {
                         label = stringResource(R.string.note_label),
                         value = note,
                         modifier = Modifier
-                            .transformedHeight(this, transformationSpec)
+                            .graphicsLayer {
+                                with(transformationSpec) {
+                                    applyContentTransformation(scrollProgress)
+                                }
+                            }
+                            .padding(horizontal = metadataPadding),
+                    )
+                }
+            }
+
+            val validFrom = card.validFrom
+            if (validFrom != null) {
+                item {
+                    CardDetailRow(
+                        label = stringResource(R.string.valid_from_label),
+                        value = formatDate(validFrom),
+                        modifier = Modifier
                             .graphicsLayer {
                                 with(transformationSpec) {
                                     applyContentTransformation(scrollProgress)
@@ -213,9 +224,8 @@ private fun CardDetail(card: WearCard) {
                 item {
                     CardDetailRow(
                         label = stringResource(R.string.expiry_label),
-                        value = DateFormat.getDateInstance().format(Date(expiry)),
+                        value = formatDate(expiry),
                         modifier = Modifier
-                            .transformedHeight(this, transformationSpec)
                             .graphicsLayer {
                                 with(transformationSpec) {
                                     applyContentTransformation(scrollProgress)
@@ -310,6 +320,9 @@ private fun CardDetailRow(label: String, value: String, modifier: Modifier = Mod
         )
     }
 }
+
+private fun formatDate(epochMillis: Long): String =
+    DateFormat.getDateInstance().format(Date(epochMillis))
 
 private data class BarcodeResult(val bitmap: Bitmap, val isSquare: Boolean)
 

@@ -1,0 +1,3 @@
+- Démarre la synchronisation Wear OS si elle est activée lorsqueble Bluetooth est actif.
+- Limite le temps d'écran supplémentaire lors de la consultation d'une carte à 5 minutes pour éviter la surchauffe
+- Évite l’incrustation de la caméra en plein écran

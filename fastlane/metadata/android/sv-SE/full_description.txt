@@ -11,6 +11,7 @@ Med detta essentiella verktyg kan du ersätta värdelös plast med kontanter.
 - Importera kort och koder från filer, Catima, FidMe, Loyalty Card Keychain och Voucher Vault.
 - Gör säkerhetskopior av alla dina kort och överför dem till en ny enhet om du vill.
 - Dela kuponger, exklusiva erbjudanden, kampanjkoder, eller kort och koder genom valfri app.
+- Synkronisera med smarta klockor från Gadgetbridge eller Wear OS.
 - Mörkt tema och tillgänglighetsfunktioner för användare med nedsatt synförmåga.
 - Skapad för alla av gemenskapen för fri programvara.
 - Lokalt anpassad med handgjorda översättningar till mer än 40 språk.

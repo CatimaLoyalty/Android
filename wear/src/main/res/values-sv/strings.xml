@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Inga kort hittades.\nÖppna Catima på din telefon för att lägga till kort.</string>
+    <string name="loading_cards">Läser in kort…</string>
+    <string name="no_barcode">Ingen streckkod är tillgänglig för detta kort.</string>
+    <string name="card_id_label">Kort-ID</string>
+    <string name="syncing">Synkar med telefon…</string>
+    <string name="version_incompatible">Catima på din telefon och din klocka är inte kompatibla.\nVänligen uppdatera båda.</string>
+    <string name="bluetooth_permission_denied">Bluetoothbehörighet nekas.\nTillåt den i Inställningar för att kunna synka kort.</string>
+    <string name="bluetooth_disabled">Bluetooth är avstängt.\nAktivera det för att synka kort från din telefon.</string>
 </resources>

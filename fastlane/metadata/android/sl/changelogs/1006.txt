@@ -1,0 +1,3 @@
+- Ob vklopu Bluetootha se zažene sinhronizacija Wear OS, če je ta omogočena
+- Čas dodatnega delovanja zaslona med pregledovanjem kartice je sedaj omejen na 5 minut, da se prepreči pregrevanje
+- V celozaslonskem načinu aplikacija ne uporabljala dela zaslona okoli sprednje kamere

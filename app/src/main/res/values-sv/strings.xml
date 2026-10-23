@@ -134,7 +134,7 @@
     <string name="app_libraries">Tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Visa ovanför låsskärm</string>
     <string name="importCatimaMessage">Välj den exporterade från Catima som du vill importera.\nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera.</string>
     <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Data exporterad</string>
@@ -218,7 +218,7 @@
     <string name="height">Höjd</string>
     <string name="settings_category_title_general">Generellt</string>
     <string name="switchToBarcode">Byt till streckkod</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset medans kort visas</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Runda skärmlåset under tiden som ett kort visas</string>
     <string name="permissionReadCardsDescription">läsa dina Catima-kort med alla dess detaljer, inklusive anteckningar och bilder</string>
     <string name="action_display_options">Visningsalternativ</string>
     <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
@@ -227,7 +227,7 @@
     <string name="settings_category_title_cards">Kortvy</string>
     <string name="show_note">Visa anteckning</string>
     <string name="switchToBackImage">Byt till bilden på baksidan</string>
-    <string name="app_copyright_short">Kopieringsskydd © Sylvia van Os och medverkande</string>
+    <string name="app_copyright_short">Upphovsrätt © Sylvia van Os och medverkande</string>
     <string name="switchToFrontImage">Byt till bilden på framsidan</string>
     <string name="settings_allow_content_provider_read_summary">Tillåter att Gadgetbridge-appen synkroniserar dina kort mot klockor som stöds</string>
     <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
@@ -238,7 +238,7 @@
     <string name="show_archived_cards">Visa arkiverade kort</string>
     <string name="settings_category_title_privacy">Sekretess</string>
     <string name="show_balance">Visa konto</string>
-    <string name="settings_keep_screen_on_summary">Stänger av skärmtidsgräns medans ett kort visas</string>
+    <string name="settings_keep_screen_on_summary">Skjuter upp skärmtidsgränsen medan ett kort visas</string>
     <string name="card_id_must_not_be_empty">Kort id får inte vara tomt</string>
     <string name="balanceParsingFailed">Ogiltiga balanser</string>
     <string name="add_a_card_in_a_different_way">Lägg till kort på annat sätt</string>

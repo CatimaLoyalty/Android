@@ -39,10 +39,10 @@ public class ShortcutHelperTest {
         mDatabase = TestHelpers.getEmptyDb(mActivity).getWritableDatabase();
 
         long now = System.currentTimeMillis();
-        id1 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now,0);
-        id2 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store2", "note2", null, null, new BigDecimal("0"), null, "cardId2", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 10,0);
-        id3 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store3", "note3", null, null, new BigDecimal("0"), null, "cardId3", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 20,0);
-        id4 = (int) DBHelper.insertLoyaltyCard(mDatabase, "store4", "note4", null, null, new BigDecimal("0"), null, "cardId4", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 30,0);
+        id1 = (int) DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now,0);
+        id2 = (int) DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store2", "note2", null, null, new BigDecimal("0"), null, "cardId2", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 10,0);
+        id3 = (int) DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store3", "note3", null, null, new BigDecimal("0"), null, "cardId3", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 20,0);
+        id4 = (int) DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store4", "note4", null, null, new BigDecimal("0"), null, "cardId4", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, Color.BLACK, 0, now + 30,0);
 
         ShortcutHelper.maxShortcuts = 3;
     }
@@ -70,7 +70,7 @@ public class ShortcutHelperTest {
 
         assertArrayEquals(new Integer[] {id4, id3, id2}, ids);
 
-        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, id4, 1);
+        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, mActivity, id4, 1);
 
         activityController.pause();
         activityController.resume();
@@ -79,7 +79,7 @@ public class ShortcutHelperTest {
 
         assertArrayEquals(new Integer[] {id3, id2, id1}, idsAfterArchive);
 
-        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, id4, 0);
+        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, mActivity, id4, 0);
 
         activityController.pause();
         activityController.resume();
@@ -104,7 +104,7 @@ public class ShortcutHelperTest {
 
         assertArrayEquals(new Integer[] {id4, id3, id2}, ids);
 
-        DBHelper.updateLoyaltyCardStarStatus(mDatabase, id1, 1);
+        DBHelper.updateLoyaltyCardStarStatus(mDatabase, mActivity, id1, 1);
 
         activityController.pause();
         activityController.resume();
@@ -113,7 +113,7 @@ public class ShortcutHelperTest {
 
         assertArrayEquals(new Integer[] {id1, id4, id3}, idsAfterFav);
 
-        DBHelper.updateLoyaltyCardStarStatus(mDatabase, id1, 0);
+        DBHelper.updateLoyaltyCardStarStatus(mDatabase, mActivity, id1, 0);
 
         activityController.pause();
         activityController.resume();

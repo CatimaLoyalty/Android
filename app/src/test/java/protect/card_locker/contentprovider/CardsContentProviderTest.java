@@ -2,13 +2,19 @@ package protect.card_locker.contentprovider;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.pm.ProviderInfo;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 
 import org.junit.After;
 import org.junit.Before;
@@ -32,6 +38,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -75,7 +82,7 @@ public class CardsContentProviderTest {
             assertArrayEquals("column names", new String[]{"major", "minor"}, cursor.getColumnNames());
             cursor.moveToNext();
             assertEquals("major version", 1, cursor.getInt(cursor.getColumnIndexOrThrow("major")));
-            assertEquals("minor version", 1, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
+            assertEquals("minor version", 2, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
         }
     }
 
@@ -102,7 +109,7 @@ public class CardsContentProviderTest {
         final long lastUsed = 1687112282000L;
         final int archiveStatus = 1;
         long id = DBHelper.insertLoyaltyCard(
-                mDatabase, store, note, validFrom, expiry, balance, balanceType,
+                mDatabase, RuntimeEnvironment.getApplication(), store, note, validFrom, expiry, balance, balanceType,
                 cardId, barcodeId, barcodeType, barcodeEncoding, headerColor, starStatus, lastUsed,
                 archiveStatus
         );
@@ -168,7 +175,7 @@ public class CardsContentProviderTest {
             assertEquals(cursor.getCount(), 0);
         }
 
-        TestHelpers.addLoyaltyCards(mDatabase, 1);
+        TestHelpers.addLoyaltyCards(RuntimeEnvironment.getApplication(), mDatabase, 1);
 
         // Query with projection of columns, including internal column names, which should be filtered out
         try (Cursor cursor = mResolver.query(cardsUri, new String[] {"_id", "store", "zoomlevel"}, null, null)) {
@@ -195,7 +202,7 @@ public class CardsContentProviderTest {
             assertEquals("start without groups", 0, cursor.getCount());
         }
 
-        TestHelpers.addGroups(mDatabase, 4);
+        TestHelpers.addGroups(RuntimeEnvironment.getApplication(), mDatabase, 4);
 
         try (Cursor cursor = mResolver.query(groupsUri, null, null, null)) {
             assertEquals("number of groups", 4, cursor.getCount());
@@ -225,8 +232,8 @@ public class CardsContentProviderTest {
             assertEquals(cursor.getCount(), 0);
         }
 
-        TestHelpers.addLoyaltyCards(mDatabase, 5);
-        TestHelpers.addGroups(mDatabase, 4);
+        TestHelpers.addLoyaltyCards(RuntimeEnvironment.getApplication(), mDatabase, 5);
+        TestHelpers.addGroups(RuntimeEnvironment.getApplication(), mDatabase, 4);
 
         final List<Group> groupsForOne = new ArrayList<>();
         groupsForOne.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
@@ -235,8 +242,8 @@ public class CardsContentProviderTest {
         groupsForTwo.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
         groupsForTwo.add(DBHelper.getGroup(mDatabase, "group, \"   2"));
 
-        DBHelper.setLoyaltyCardGroups(mDatabase, 1, groupsForOne);
-        DBHelper.setLoyaltyCardGroups(mDatabase, 2, groupsForTwo);
+        DBHelper.setLoyaltyCardGroups(mDatabase, RuntimeEnvironment.getApplication(), 1, groupsForOne);
+        DBHelper.setLoyaltyCardGroups(mDatabase, RuntimeEnvironment.getApplication(), 2, groupsForTwo);
 
         final Map<String, List<String>> expectedGroups = new HashMap<>() {{
             put("group, \"   1", Arrays.asList("1", "2"));
@@ -256,6 +263,140 @@ public class CardsContentProviderTest {
             }
             assertEquals("expected groups with cards", expectedGroups, groups);
         }
+    }
+
+    @Test
+    public void testCardsChangeNotification() {
+        final AtomicBoolean changed = new AtomicBoolean(false);
+        final ContentObserver observer = newObserver(changed);
+
+        mResolver.registerContentObserver(CardsContentProvider.CARDS_URI, false, observer);
+        try {
+            long id = DBHelper.insertLoyaltyCard(
+                    mDatabase, RuntimeEnvironment.getApplication(), "store", "note", null, null,
+                    new BigDecimal("0"), null, "cardId", null, null, StandardCharsets.UTF_8,
+                    null, 0, null, 0
+            );
+            assertObserverNotified(changed, "observer notified after card insert");
+
+            changed.set(false);
+            DBHelper.updateLoyaltyCardStarStatus(mDatabase, RuntimeEnvironment.getApplication(), (int) id, 1);
+            assertObserverNotified(changed, "observer notified after star status update");
+
+            changed.set(false);
+            DBHelper.deleteLoyaltyCard(mDatabase, RuntimeEnvironment.getApplication(), (int) id);
+            assertObserverNotified(changed, "observer notified after card delete");
+        } finally {
+            mResolver.unregisterContentObserver(observer);
+        }
+    }
+
+    @Test
+    public void testCardsZoomLevelUpdateDoesNotNotify() {
+        long id = DBHelper.insertLoyaltyCard(
+                mDatabase, RuntimeEnvironment.getApplication(), "store", "note", null, null,
+                new BigDecimal("0"), null, "cardId", null, null, StandardCharsets.UTF_8,
+                null, 0, null, 0
+        );
+
+        final AtomicBoolean changed = new AtomicBoolean(false);
+        final ContentObserver observer = newObserver(changed);
+
+        mResolver.registerContentObserver(CardsContentProvider.CARDS_URI, false, observer);
+        try {
+            DBHelper.updateLoyaltyCardZoomLevel(mDatabase, (int) id, 150, 150);
+            shadowOf(Looper.getMainLooper()).idle();
+
+            assertFalse("observer should not be notified for zoom level change", changed.get());
+        } finally {
+            mResolver.unregisterContentObserver(observer);
+        }
+    }
+
+    @Test
+    public void testGroupsChangeNotification() {
+        final AtomicBoolean changed = new AtomicBoolean(false);
+        final ContentObserver observer = newObserver(changed);
+
+        mResolver.registerContentObserver(CardsContentProvider.GROUPS_URI, false, observer);
+        try {
+            DBHelper.insertGroup(mDatabase, RuntimeEnvironment.getApplication(), "a group");
+            assertObserverNotified(changed, "observer notified after group insert");
+
+            changed.set(false);
+            DBHelper.updateGroup(mDatabase, RuntimeEnvironment.getApplication(), "a group", "renamed group");
+            assertObserverNotified(changed, "observer notified after group rename");
+
+            changed.set(false);
+            DBHelper.deleteGroup(mDatabase, RuntimeEnvironment.getApplication(), "renamed group");
+            assertObserverNotified(changed, "observer notified after group delete");
+        } finally {
+            mResolver.unregisterContentObserver(observer);
+        }
+    }
+
+    @Test
+    public void testCardGroupsChangeNotification() {
+        long cardId = DBHelper.insertLoyaltyCard(
+                mDatabase, RuntimeEnvironment.getApplication(), "store", "note", null, null,
+                new BigDecimal("0"), null, "cardId", null, null, StandardCharsets.UTF_8,
+                null, 0, null, 0
+        );
+        DBHelper.insertGroup(mDatabase, RuntimeEnvironment.getApplication(), "a group");
+        List<Group> groups = new ArrayList<>();
+        groups.add(DBHelper.getGroup(mDatabase, "a group"));
+
+        final AtomicBoolean changed = new AtomicBoolean(false);
+        final ContentObserver observer = newObserver(changed);
+
+        mResolver.registerContentObserver(CardsContentProvider.CARD_GROUPS_URI, false, observer);
+        try {
+            DBHelper.setLoyaltyCardGroups(mDatabase, RuntimeEnvironment.getApplication(), (int) cardId, groups);
+            assertObserverNotified(changed, "observer notified after card-group change");
+        } finally {
+            mResolver.unregisterContentObserver(observer);
+        }
+    }
+
+    @Test
+    public void testNoNotificationInsideTransaction() {
+        final AtomicBoolean changed = new AtomicBoolean(false);
+        final ContentObserver observer = newObserver(changed);
+
+        mResolver.registerContentObserver(CardsContentProvider.CARDS_URI, false, observer);
+        try {
+            mDatabase.beginTransaction();
+            try {
+                DBHelper.insertLoyaltyCard(
+                        mDatabase, RuntimeEnvironment.getApplication(), "store", "note", null, null,
+                        new BigDecimal("0"), null, "cardId", null, null, StandardCharsets.UTF_8,
+                        null, 0, null, 0
+                );
+                mDatabase.setTransactionSuccessful();
+            } finally {
+                mDatabase.endTransaction();
+            }
+            shadowOf(Looper.getMainLooper()).idle();
+
+            assertFalse("observer should not be notified inside a transaction", changed.get());
+        } finally {
+            mResolver.unregisterContentObserver(observer);
+        }
+    }
+
+    private ContentObserver newObserver(final AtomicBoolean changed) {
+        return new ContentObserver(new Handler(Looper.getMainLooper())) {
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                changed.set(true);
+            }
+        };
+    }
+
+    private void assertObserverNotified(final AtomicBoolean changed, final String message) {
+        // Robolectric Looper is paused by default - run all the tasks in the queue before asserting
+        shadowOf(Looper.getMainLooper()).idle();
+        assertTrue(message, changed.get());
     }
 
     private Uri getUri(final String endpoint) {

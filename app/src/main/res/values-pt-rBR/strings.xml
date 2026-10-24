@@ -212,12 +212,12 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_dark_theme">Escuro</string>
     <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo da tela</string>
-    <string name="settings_keep_screen_on_summary">Desativa o tempo limite de tela enquanto estiver vendo um cartão</string>
+    <string name="settings_keep_screen_on_summary">Aumente o tempo limite da tela ao visualizar um cartão</string>
     <string name="importSuccessful">Dados importados</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa bloqueio de tela enquanto estiver vendo um cartão</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Ignorar o bloqueio de tela ao visualizar um cartão</string>
     <string name="intent_import_card_from_url_share_text">Eu quero compartilhar um cartão com você</string>
     <string name="settings_keep_screen_on">Manter tela ligada</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Previnir bloqueio de tela</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mostrar na tela de bloqueio</string>
     <string name="settings_allow_content_provider_read_title">Sincronização com o Gadgetbridge</string>
     <string name="settings_allow_content_provider_read_summary">Permite que o aplicativo Gadgetbridge sincronize seus cartões com relógios suportados</string>
     <string name="group_edit">Editar grupo</string>

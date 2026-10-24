@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
@@ -89,8 +90,12 @@ private fun CardDetail(card: WearCard) {
 
     val columnState = rememberTransformingLazyColumnState()
     val defaultContentPadding = ScreenScaffoldDefaults.contentPadding
-    val metadataPadding =
-        defaultContentPadding.calculateLeftPadding(LocalLayoutDirection.current) * 2
+    val layoutDirection = LocalLayoutDirection.current
+    val startPadding = when (layoutDirection) {
+        LayoutDirection.Ltr -> defaultContentPadding.calculateLeftPadding(layoutDirection)
+        LayoutDirection.Rtl -> defaultContentPadding.calculateRightPadding(layoutDirection)
+    }
+    val metadataPadding = startPadding * 2
 
     // Size the barcode page to exactly fill the viewport, so the barcode is
     // shown fullscreen at full brightness and the card details below are only
@@ -149,40 +154,6 @@ private fun CardDetail(card: WearCard) {
                         }
                         .padding(horizontal = metadataPadding),
                 )
-            }
-
-            val barcodeId = card.barcodeId
-            if (barcodeId != null && barcodeId != card.cardId) {
-                item {
-                    CardDetailRow(
-                        label = stringResource(R.string.barcode_value_label),
-                        value = barcodeId,
-                        modifier = Modifier
-                            .graphicsLayer {
-                                with(transformationSpec) {
-                                    applyContentTransformation(scrollProgress)
-                                }
-                            }
-                            .padding(horizontal = metadataPadding),
-                    )
-                }
-            }
-
-            val barcodeType = card.barcodeType
-            if (barcodeType != null) {
-                item {
-                    CardDetailRow(
-                        label = stringResource(R.string.barcode_type_label),
-                        value = barcodeType,
-                        modifier = Modifier
-                            .graphicsLayer {
-                                with(transformationSpec) {
-                                    applyContentTransformation(scrollProgress)
-                                }
-                            }
-                            .padding(horizontal = metadataPadding),
-                    )
-                }
             }
 
             val note = card.note

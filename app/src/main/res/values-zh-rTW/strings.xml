@@ -127,7 +127,7 @@
     <string name="settings_dark_theme">深色</string>
     <string name="settings_display_barcode_max_brightness">調高螢幕亮度</string>
     <string name="settings_keep_screen_on">螢幕恆亮</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">防止螢幕鎖定</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">顯示在螢幕鎖定上方</string>
     <string name="importSuccessful">已匯入資料</string>
     <string name="moveUp">往上移動</string>
     <string name="moveDown">往下移動</string>
@@ -221,10 +221,10 @@
     <string name="permissionReadCardsLabel">讀取卡提碼卡片</string>
     <string name="app_name">卡提碼</string>
     <string name="permissionReadCardsDescription">讀取卡提碼卡片及卡片資訊，包含註記與圖片</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時避免螢幕鎖定</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時繞過螢幕鎖定功能</string>
     <string name="settings_allow_content_provider_read_summary">允許 Gadgetbridge 應用程式同步卡片到支援的手表</string>
     <string name="settings_allow_content_provider_read_title">與 Gadgetbridge 同步</string>
-    <string name="settings_keep_screen_on_summary">觀看卡片時避免螢幕關閉</string>
+    <string name="settings_keep_screen_on_summary">觀看卡片時延長螢幕超時設定</string>
     <string name="balanceParsingFailed">無效餘額</string>
     <string name="view_online">網站上顯示</string>
     <string name="action_more_options">更多選項</string>

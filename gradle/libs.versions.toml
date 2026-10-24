@@ -10,7 +10,7 @@ acra = "5.13.1"
 androidXTest = "1.7.0"
 
 # Wear OS
-wearCompose = "1.6.2"
+wearCompose = "1.7.0"
 
 [libraries]
 # AndroidX

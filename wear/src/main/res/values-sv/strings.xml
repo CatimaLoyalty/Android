@@ -9,4 +9,8 @@
     <string name="version_incompatible">Catima på din telefon och din klocka är inte kompatibla.\nVänligen uppdatera båda.</string>
     <string name="bluetooth_permission_denied">Bluetoothbehörighet nekas.\nTillåt den i Inställningar för att kunna synka kort.</string>
     <string name="bluetooth_disabled">Bluetooth är avstängt.\nAktivera det för att synka kort från din telefon.</string>
+    <string name="phone_not_connected">Kunde inte nå Catima på din telefon.\nSe till att Catima körs på din telefon, att din klocka är ansluten och att stöd för Wear OS är aktiverat i Catimas inställningar för smarta klockor.</string>
+    <string name="sync_failed">Telefon går ej att nå – visar cachade kort</string>
+    <string name="sync_error">Lyckades inte läsa in kort från din telefon.\nFörsök att synka igen.</string>
+    <string name="unauthorized">Inte auktoriserad.\nTillåt den här klockan att läsa in dina kort i Catimas inställningar.</string>
 </resources>

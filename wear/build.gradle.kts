@@ -10,12 +10,12 @@ kotlin {
 
 android {
     namespace = "me.hackerchick.catima.wear"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 201
         versionName = "1.0.1 Wear OS"
     }

@@ -1,7 +1,7 @@
 [versions]
 # AndroidX
 compose = "2026.09.00"
-kotlin = "2.4.20"
+kotlin = "2.4.21"
 
 # Third-party
 acra = "5.14.2"

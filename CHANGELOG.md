@@ -3,6 +3,7 @@
 ## Unreleased (Android) - 1008
 
 - Target Android 17
+- Send card note, valid from and expiry over Bluetooth server
 
 ## Unreleased (Wear OS) - 202
 

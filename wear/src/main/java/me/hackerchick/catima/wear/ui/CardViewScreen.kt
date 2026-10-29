@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,7 +32,6 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
@@ -90,12 +90,8 @@ private fun CardDetail(card: WearCard) {
 
     val columnState = rememberTransformingLazyColumnState()
     val defaultContentPadding = ScreenScaffoldDefaults.contentPadding
-    val layoutDirection = LocalLayoutDirection.current
-    val startPadding = when (layoutDirection) {
-        LayoutDirection.Ltr -> defaultContentPadding.calculateLeftPadding(layoutDirection)
-        LayoutDirection.Rtl -> defaultContentPadding.calculateRightPadding(layoutDirection)
-    }
-    val metadataPadding = startPadding * 2
+    val metadataPadding =
+        defaultContentPadding.calculateStartPadding(LocalLayoutDirection.current) * 2
 
     // Size the barcode page to exactly fill the viewport, so the barcode is
     // shown fullscreen at full brightness and the card details below are only

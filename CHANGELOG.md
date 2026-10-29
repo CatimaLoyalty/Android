@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased (Android) - 1008
+
+- Target Android 17
+
+## Unreleased (Wear OS) - 202
+
+- Target Android 17
+- Add ability to swipe up on card screen to show card details
+
 ## v2.45.2 (Android) - 1006 (2026-10-19)
 
 - Start Wear OS sync if enabled when turning on Bluetooth

@@ -104,7 +104,9 @@ object BluetoothCardClient {
                     val supportedVersionParts = it.split('.')
                     if (supportedVersionParts[0] == WearBluetoothProtocol.PROTOCOL_VERSION.toString()) {
                         majorVersionIsSupported = true
-                        mostRecentMinorVersion = supportedVersionParts[1].toInt()
+                        // Assume 0 for minor version if no minor version is specified
+                        // The Bluetooth server should always send a minor version, but it can't hurt to be safe
+                        mostRecentMinorVersion = supportedVersionParts.getOrNull(1)?.toIntOrNull() ?: 0
                         return@breaking
                     }
                 }
@@ -167,7 +169,7 @@ object BluetoothCardClient {
             Log.d(TAG, "Fetched ${allCards.length()} cards in $totalPages page(s) from $deviceName")
             allCards.toString() to SyncStatus.OK
         } catch (e: Exception) {
-            Log.d(TAG, "Failed to connect to $deviceName: ${e.message}")
+            Log.d(TAG, "Failed to connect to $deviceName", e)
             null to SyncStatus.PHONE_NOT_REACHABLE
         } finally {
             try { socket?.close() } catch (_: Exception) { }

@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,20 +23,32 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
+import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import androidx.wear.compose.material3.CircularProgressIndicator
 import androidx.wear.compose.material3.MaterialTheme
+import androidx.wear.compose.material3.ScreenScaffold
+import androidx.wear.compose.material3.ScreenScaffoldDefaults
 import androidx.wear.compose.material3.Text
+import androidx.wear.compose.material3.lazy.rememberTransformationSpec
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
 import me.hackerchick.catima.wear.R
 import me.hackerchick.catima.wear.WearCard
+import java.text.DateFormat
+import java.util.Date
 
 @Composable
 fun CardViewScreen(card: WearCard?) {
@@ -72,14 +86,134 @@ private fun KeepScreenOnAtMaxBrightness() {
 
 @Composable
 private fun CardDetail(card: WearCard) {
+    KeepScreenOnAtMaxBrightness()
+
+    val columnState = rememberTransformingLazyColumnState()
+    val defaultContentPadding = ScreenScaffoldDefaults.contentPadding
+    val metadataPadding =
+        defaultContentPadding.calculateStartPadding(LocalLayoutDirection.current) * 2
+
+    // Size the barcode page to exactly fill the viewport, so the barcode is
+    // shown fullscreen at full brightness and the card details below are only
+    // revealed by scrolling down, like Google Pay on Wear OS
+    val viewportHeight = columnState.layoutInfo.viewportSize.height
+    val barcodePageHeight = if (viewportHeight > 0) {
+        with(LocalDensity.current) { viewportHeight.toDp() }
+    } else {
+        LocalConfiguration.current.screenHeightDp.dp
+    }
+
+    ScreenScaffold(
+        scrollState = columnState,
+        contentPadding = PaddingValues(0.dp),
+    ) {
+        val transformationSpec = rememberTransformationSpec()
+        TransformingLazyColumn(
+            state = columnState,
+            contentPadding = PaddingValues(bottom = barcodePageHeight * 0.4f),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            item {
+                BarcodePage(
+                    card = card,
+                    modifier = Modifier.height(barcodePageHeight),
+                )
+            }
+
+            item {
+                Text(
+                    text = card.store,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .graphicsLayer {
+                            with(transformationSpec) {
+                                applyContentTransformation(scrollProgress)
+                            }
+                        }
+                        .padding(horizontal = metadataPadding)
+                        .padding(bottom = 4.dp),
+                )
+            }
+
+            item {
+                CardDetailRow(
+                    label = stringResource(R.string.card_id_label),
+                    value = card.cardId,
+                    modifier = Modifier
+                        .graphicsLayer {
+                            with(transformationSpec) {
+                                applyContentTransformation(scrollProgress)
+                            }
+                        }
+                        .padding(horizontal = metadataPadding),
+                )
+            }
+
+            val note = card.note
+            if (note != null) {
+                item {
+                    CardDetailRow(
+                        label = stringResource(R.string.note_label),
+                        value = note,
+                        modifier = Modifier
+                            .graphicsLayer {
+                                with(transformationSpec) {
+                                    applyContentTransformation(scrollProgress)
+                                }
+                            }
+                            .padding(horizontal = metadataPadding),
+                    )
+                }
+            }
+
+            val validFrom = card.validFrom
+            if (validFrom != null) {
+                item {
+                    CardDetailRow(
+                        label = stringResource(R.string.valid_from_label),
+                        value = formatDate(validFrom),
+                        modifier = Modifier
+                            .graphicsLayer {
+                                with(transformationSpec) {
+                                    applyContentTransformation(scrollProgress)
+                                }
+                            }
+                            .padding(horizontal = metadataPadding),
+                    )
+                }
+            }
+
+            val expiry = card.expiry
+            if (expiry != null) {
+                item {
+                    CardDetailRow(
+                        label = stringResource(R.string.expiry_label),
+                        value = formatDate(expiry),
+                        modifier = Modifier
+                            .graphicsLayer {
+                                with(transformationSpec) {
+                                    applyContentTransformation(scrollProgress)
+                                }
+                            }
+                            .padding(horizontal = metadataPadding),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun BarcodePage(card: WearCard, modifier: Modifier = Modifier) {
     val barcodeValue = card.barcodeId ?: card.cardId
     val barcodeType = card.barcodeType
 
-    KeepScreenOnAtMaxBrightness()
-
     BoxWithConstraints(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = modifier
+            .fillMaxWidth()
             .background(ComposeColor.White)
             .padding(8.dp),
         contentAlignment = Alignment.Center,
@@ -131,21 +265,31 @@ private fun CardDetail(card: WearCard) {
                     color = ComposeColor.Black,
                 )
             }
-
-            Spacer(modifier = Modifier.height(4.dp))
-
-            Text(
-                text = barcodeValue,
-                textAlign = TextAlign.Center,
-                maxLines = 2,
-                color = ComposeColor.Black,
-                // Hide the barcode value until we can be completely certain the element won't partially fall out of the UI
-                // This is a workaround for a requirement for Google Play: https://github.com/CatimaLoyalty/Android/issues/3284
-                modifier = Modifier.alpha(0f)
-            )
         }
     }
 }
+
+@Composable
+private fun CardDetailRow(label: String, value: String, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 2.dp),
+    ) {
+        Text(
+            text = label,
+            fontSize = 12.sp,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            text = value,
+            fontSize = 16.sp,
+        )
+    }
+}
+
+private fun formatDate(epochMillis: Long): String =
+    DateFormat.getDateInstance().format(Date(epochMillis))
 
 private data class BarcodeResult(val bitmap: Bitmap, val isSquare: Boolean)
 

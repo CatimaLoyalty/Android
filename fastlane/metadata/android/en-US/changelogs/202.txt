@@ -1,0 +1,2 @@
+- Target Android 17
+- Add ability to swipe up on card screen to show card details

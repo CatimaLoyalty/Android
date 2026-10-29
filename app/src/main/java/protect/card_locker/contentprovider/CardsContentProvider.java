@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -28,11 +27,15 @@ public class CardsContentProvider extends ContentProvider {
 
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".contentprovider.cards";
 
+    public static final Uri CARDS_URI = Uri.parse("content://" + AUTHORITY + "/cards");
+    public static final Uri GROUPS_URI = Uri.parse("content://" + AUTHORITY + "/groups");
+    public static final Uri CARD_GROUPS_URI = Uri.parse("content://" + AUTHORITY + "/card_groups");
+
     public static class Version {
         public static final String MAJOR_COLUMN = "major";
         public static final String MINOR_COLUMN = "minor";
         public static final int MAJOR = 1;
-        public static final int MINOR = 1;
+        public static final int MINOR = 2;
     }
 
     private static final int URI_VERSION = 0;
@@ -113,7 +116,7 @@ public class CardsContentProvider extends ContentProvider {
         final DBHelper dbHelper = new DBHelper(getContext());
         final SQLiteDatabase database = dbHelper.getReadableDatabase();
 
-        return database.query(
+        final Cursor cursor = database.query(
                 table,
                 updatedProjection,
                 selection,
@@ -122,6 +125,8 @@ public class CardsContentProvider extends ContentProvider {
                 null,
                 sortOrder
         );
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
     }
 
     private Cursor queryVersion() {

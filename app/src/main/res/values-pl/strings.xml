@@ -131,7 +131,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kart</item>
     </plurals>
     <string name="noGroupCards">Ta grupa jest pusta</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Zapobiegaj wyłączeniu ekranu</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Wyświetlanie nad ekranem blokady</string>
     <string name="settings_keep_screen_on">Nie wygaszaj ekranu</string>
     <string name="app_resources">Zasoby zewnętrzne: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Biblioteki zewnętrzne: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -240,8 +240,8 @@
     <string name="permissionReadCardsDescription">odczytywanie swoich kart Catima i ich szczegółów, włącznie z notatkami i obrazkami</string>
     <string name="settings_allow_content_provider_read_title">Synchronizacja z Gadgetbridge</string>
     <string name="settings_display_barcode_max_brightness_summary">Potrzebne aby niektóre skanery działały</string>
-    <string name="settings_keep_screen_on_summary">Wyłącza wygaszanie ekranu kiedy wyświetlana jest karta</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Wyłącza blokadę ekranu kiedy wyświetlana jest karta</string>
+    <string name="settings_keep_screen_on_summary">Wydłuż czas wygaszania ekranu podczas przeglądania karty</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Omiń blokadę ekranu podczas przeglądania karty</string>
     <string name="settings_allow_content_provider_read_summary">Umożliwia aplikacji Gadgetbridge synchronizację kart z obsługiwanymi zegarkami</string>
     <string name="settings_oled_dark_summary">Zmniejsza zużycie baterii na wyświetlaczach OLED</string>
     <string name="settings_category_title_cards">Widok karty</string>

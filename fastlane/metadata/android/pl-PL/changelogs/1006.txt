@@ -1,0 +1,3 @@
+- Uruchom synchronizację Wear OS, jeśli jest włączona, po włączeniu Bluetooth
+- Ogranicz dodatkowy czas pracy ekranu podczas przeglądania karty do 5 minut, aby zapobiec przegrzaniu
+- Unikaj wyświetlania okienka aparatu w trybie pełnoekranowym

@@ -1,0 +1,3 @@
+- Iniciar a sincronização com o Wear OS, caso esteja ativada, ao ligar o Bluetooth
+- Limitar o tempo extra de tela ligada durante a visualização de um card a 5 minutos, para evitar o superaquecimento
+- Evitar a área de recorte da câmera na visualização em tela cheia

@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetooth ist deaktiviert.\nAktiviere es, um die Karten vom Smartphone zu synchronisieren.</string>
     <string name="sync_error">Die Karten auf dem Smartphone konnten nicht gelesen werden.\nVersuche erneut zu synchronisieren.</string>
     <string name="unauthorized">Nicht zugelassen.\nErlaube in den Catima Einstellungen dieser Smartwatch die Karten zu lesen.</string>
+    <string name="note_label">Notiz</string>
+    <string name="valid_from_label">Gültig ab</string>
+    <string name="expiry_label">Gültig bis</string>
 </resources>

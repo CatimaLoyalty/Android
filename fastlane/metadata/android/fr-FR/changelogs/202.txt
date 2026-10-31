@@ -1,0 +1,2 @@
+- Cible Android 17
+- Ajout de la capacité à glisser vers le haut depuis l'écran d'une carte pour afficher ses détails

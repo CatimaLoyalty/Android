@@ -1,0 +1,2 @@
+- Doel Android 17
+- Kaartnotitie, geldig vanaf en verlopen via Bluetooth-server verzenden

@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetooth on lülitatud välja.\nEt kaartide sünkroonimine toimiks, lülita ta sisse.</string>
     <string name="sync_error">Kaartide lugemine sinu telefonist ei õnnestunud.\nProovi uuesti sünkroonida.</string>
     <string name="unauthorized">Pole lubatud.\nEt kaartide lugemine/laadimine toimiks, palun luba Catima seadistustest selle nutikella kasutamine.</string>
+    <string name="note_label">Märkus</string>
+    <string name="valid_from_label">Kehtib alates</string>
+    <string name="expiry_label">Aegumine</string>
 </resources>

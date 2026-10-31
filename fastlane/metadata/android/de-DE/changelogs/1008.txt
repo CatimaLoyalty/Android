@@ -1,0 +1,2 @@
+- Angepasst für Android 17
+- Sende Kartennotiz, „Gültig ab“ und „Gültig bis“, über den Bluetooth Server

@@ -1,0 +1,2 @@
+- Angepasst für Android 17
+- Wischgeste „nach oben“ hinzugefügt, welche Kartendetails zur aktuellen Karte auf dem Bildschirm anzeigt

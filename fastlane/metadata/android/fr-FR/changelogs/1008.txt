@@ -1,0 +1,2 @@
+- Cible Android 17
+- Envoyer pour une carte ses notes, la date de début et fin de validité via un serveur Bluetooth

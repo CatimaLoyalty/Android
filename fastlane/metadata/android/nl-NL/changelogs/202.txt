@@ -1,0 +1,2 @@
+- Doel Android 17
+- Mogelijkheid toevoegen om omhoog te vegen op het kaartscherm om kaartgegevens weer te geven

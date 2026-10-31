@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetooth kapalı.\nTelefonunuzdaki kartları eşzamanlamak için etkinleştirin.</string>
     <string name="sync_error">Telefonunuzdaki kartlar okunamadı.\nTekrar eşzamanlamayı deneyin.</string>
     <string name="unauthorized">Yetkilendirilmedi.\nCatima ayarlarından bu saatin kartlarınızı okumasına izin verin.</string>
+    <string name="note_label">Not</string>
+    <string name="valid_from_label">Geçerlilik başlangıcı</string>
+    <string name="expiry_label">Son kullanma tarihi</string>
 </resources>

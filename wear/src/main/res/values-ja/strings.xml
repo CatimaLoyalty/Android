@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetoothがオフになっています。\nスマートフォンからカードを同期するには、Bluetoothをオンにしてください。</string>
     <string name="sync_error">スマートフォンからカードを読み込めませんでした。\nもう一度同期してください。</string>
     <string name="unauthorized">このスマートウォッチは許可されていません。\nCatimaの設定で、このスマートウォッチがカードを読み込めるように許可してください。</string>
+    <string name="note_label">備考</string>
+    <string name="valid_from_label">有効基準日</string>
+    <string name="expiry_label">失効日</string>
 </resources>

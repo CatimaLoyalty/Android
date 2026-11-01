@@ -90,7 +90,7 @@ public class FidmeImporter implements Importer {
         zipInputStream.close();
         input.close();
 
-        saveAndDeduplicate(database, importedData);
+        saveAndDeduplicate(context, database, importedData);
     }
 
     /**
@@ -176,12 +176,12 @@ public class FidmeImporter implements Importer {
         );
     }
 
-    public void saveAndDeduplicate(SQLiteDatabase database, final ImportedData data) {
+    public void saveAndDeduplicate(final Context context, final SQLiteDatabase database, final ImportedData data) {
         // This format does not have IDs that can cause conflicts
         // Proper deduplication for all formats will be implemented later
         for (LoyaltyCard card : data.cards) {
             // Do not use card.id which is set to -1
-            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+            DBHelper.insertLoyaltyCard(database, context, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                     card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
         }
     }

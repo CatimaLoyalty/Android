@@ -1,5 +1,6 @@
 package protect.card_locker.importexport;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import protect.card_locker.Utils;
+import protect.card_locker.contentprovider.CardsContentProvider;
 
 public class MultiFormatImporter {
     private static final String TAG = "Catima";
@@ -42,15 +44,17 @@ public class MultiFormatImporter {
                 break;
         }
 
-        String error = null;
+        String error;
         if (importer != null) {
             File inputFile;
             try {
                 inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
+                boolean imported = false;
                 database.beginTransaction();
                 try {
                     importer.importData(context, database, inputFile, password);
                     database.setTransactionSuccessful();
+                    imported = true;
                     return new ImportExportResult(ImportExportResultType.Success);
                 } catch (ZipException e) {
                     if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
@@ -64,6 +68,13 @@ public class MultiFormatImporter {
                     error = e.toString();
                 } finally {
                     database.endTransaction();
+                    if (imported) {
+                        // DBHelper does not notify while the import transaction is open
+                        final ContentResolver resolver = context.getContentResolver();
+                        resolver.notifyChange(CardsContentProvider.CARDS_URI, null);
+                        resolver.notifyChange(CardsContentProvider.GROUPS_URI, null);
+                        resolver.notifyChange(CardsContentProvider.CARD_GROUPS_URI, null);
+                    }
                     if (!inputFile.delete()) {
                         Log.w(TAG, "Failed to delete temporary ZIP file (should not be a problem) " + inputFile);
                     }

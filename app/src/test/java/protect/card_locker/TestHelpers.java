@@ -52,12 +52,12 @@ public class TestHelpers {
      * @param mDatabase
      * @param cardsToAdd
      */
-    public static void addLoyaltyCards(final SQLiteDatabase mDatabase, final int cardsToAdd) {
+    public static void addLoyaltyCards(final Context context, final SQLiteDatabase mDatabase, final int cardsToAdd) {
         // Add in reverse order to test sorting
         for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, index, 0, null,0);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, context, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, StandardCharsets.ISO_8859_1, index, 0, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -65,11 +65,11 @@ public class TestHelpers {
         assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
     }
 
-    public static void addGroups(final SQLiteDatabase mDatabase, int groupsToAdd) {
+    public static void addGroups(final Context context, final SQLiteDatabase mDatabase, int groupsToAdd) {
         // Add in reverse order to test sorting
         for (int index = groupsToAdd; index > 0; index--) {
             String groupName = String.format("group, \"%4d", index);
-            long id = DBHelper.insertGroup(mDatabase, groupName);
+            long id = DBHelper.insertGroup(mDatabase, context, groupName);
             boolean result = (id != -1);
             assertTrue(result);
         }

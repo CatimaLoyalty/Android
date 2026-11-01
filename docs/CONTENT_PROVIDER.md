@@ -30,6 +30,12 @@ The content provider requires the following permissions:
 
 - `<package_name>.READ_CARDS` - in order to access any of the URIs.
 
+## Change Notifications
+
+Since version 1.2, the content provider sends change notifications when the data in any of the URI changes. You can receive these notifications by using a [ContentObserver](https://developer.android.com/reference/android/database/ContentObserver).
+
+Note: a change to the `lastused` column of a card does not send a notification, since that would happen every time a card is opened in Catima.
+
 ## URIs
 
 ### /version
@@ -41,7 +47,7 @@ A major version change implies breaking changes (eg. columns being renamed or re
 | Column  | Type  | Description       | Value |
 |---------|-------|-------------------|-------|
 | `major` | `int` | The major version | `1`   |
-| `minor` | `int` | The minor version | `1`   |
+| `minor` | `int` | The minor version | `2`   |
 
 ### /cards
 

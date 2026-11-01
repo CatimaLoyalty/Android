@@ -16,8 +16,8 @@ android {
         applicationId = "me.hackerchick.catima"
         minSdk = 26
         targetSdk = 37
-        versionCode = 201
-        versionName = "1.0.1 Wear OS"
+        versionCode = 202
+        versionName = "1.1.0 Wear OS"
     }
 
     buildTypes {

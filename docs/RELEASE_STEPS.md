@@ -28,4 +28,5 @@ Version codes below 200 are from the pre-WearOS days.
 10. Create a new release on GitHub and attach the non-Google APKs and `SHA256SUMS` files
     - For Android releases, this is `app/build/outputs/apk/foss/release/app-foss-release.apk` and `SHA256SUMS`. Releases are tagged vX.X.X.
     - For Wear OS releases, this is `wear/build/outputs/apk/release/wear-release.apk` and `SHA256SUMs` (Wear OS currently does not use flavours). Releases are tagged vX.X.X-wearos.
-11. When pushing the release to Google Play Production, update the metadata there: `bundle exec fastlane supply --version_code <VERSION_CODE>`
+11. Link the GitHub buttons in the README directly to the latest releases
+12. When pushing the release to Google Play Production, update the metadata there: `bundle exec fastlane supply --version_code <VERSION_CODE>`

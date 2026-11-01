@@ -5,7 +5,7 @@
 - Target Android 17
 - Send card note, valid from and expiry over Bluetooth server
 
-## Unreleased (Wear OS) - 202
+## v1.1.0 (Wear OS) - 202 (2026-11-01)
 
 - Target Android 17
 - Add ability to swipe up on card screen to show card details

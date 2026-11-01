@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">카드를 찾을 수 없습니다.\n폰에서 Catima를 열어 카드를 추가하세요.</string>
+    <string name="phone_not_connected">폰의 Catima에 연결할 수 없습니다.\n폰에서 Catima를 실행 중인지, 워치가 연결되었는지, Catima 스마트워치 설정에서 Wear OS 지원이 켜졌는지 확인하세요.</string>
+    <string name="loading_cards">카드 불러오는 중…</string>
+    <string name="no_barcode">이 카드에 사용 가능한 바코드가 없습니다.</string>
+    <string name="card_id_label">카드 ID</string>
+    <string name="note_label">메모</string>
+    <string name="valid_from_label">유효 시작</string>
+    <string name="expiry_label">만료</string>
+    <string name="syncing">폰과 동기화 중…</string>
+    <string name="sync_failed">폰에 연결 불가 – 캐시된 카드 표시 중</string>
+    <string name="version_incompatible">폰과 워치의 Catima가 호환되지 않습니다.\n모두 업데이트해주세요.</string>
+    <string name="bluetooth_permission_denied">블루투스 권한이 거부되었습니다.\n카드를 동기화하려면 설정에서 허용하세요.</string>
+    <string name="bluetooth_disabled">블루투스가 꺼졌습니다.\n폰에서 카드를 동기화하려면 켜세요.</string>
+    <string name="sync_error">폰에서 카드를 읽는 데 실패했습니다.\n다시 동기화해보세요.</string>
+    <string name="unauthorized">인증되지 않았습니다.\nCatima 설정에서 이 워치가 카드를 읽을 수 있게 허용하세요.</string>
 </resources>

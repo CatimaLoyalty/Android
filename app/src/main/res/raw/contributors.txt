@@ -17,9 +17,9 @@ Liner Seven
 IllusiveMan196
 Fjuro
 Edgars Andersons
+Joel A
 Максим Горпиніч
 GitSpoon
-Joel A
 Priit Jõerüüt
 Altonss
 Michael Moroni
@@ -42,9 +42,9 @@ ikanakova
 Nyatsuki
 Jiri Grönroos
 Giovanni Donisi
-HudobniVolk
-Hosted Weblate user 54392
 NooB9496
+Hosted Weblate user 54392
+HudobniVolk
 Warder
 AMIR-G98
 Traductor
@@ -56,11 +56,11 @@ Arno-github
 Sergio Paredes
 Ankit Tiwari
 Cliff Heraldo
+Stephan Paternotte
 Jose Delvani
 Robin
 Milan Šalka
 josé m.
-Stephan Paternotte
 தமிழ்நேரம்
 huuhaa
 Watchman89
@@ -91,16 +91,16 @@ José Rebelo
 Denis Shilin
 しいたけ
 Alexander Ivanov
-PRATHAMESH BHAGAT 
+Alì Mortacci
 Peter Dave Hello
 Thu-Trang Pham
 Tim Trek
 Virginie
 dukezas
 ehrt74
+justcontributor
 stavpup
 Miha Frangež
-Alì Mortacci
 Andre Costa
 Arif Budiman
 arshbeerSingh
@@ -113,4 +113,5 @@ Libre
 echo r"0xX4H" | rev
 rudy3
 Michael Gangolf
+PRATHAMESH BHAGAT 
 Thomas Bertels

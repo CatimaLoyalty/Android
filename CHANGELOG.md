@@ -4,6 +4,7 @@
 
 - Target Android 17
 - Send card note, valid from and expiry over Bluetooth server
+- Notify content provider on card change (allows Gadgetbridge to instantly notify card changes)
 
 ## v1.1.0 (Wear OS) - 202 (2026-11-01)
 

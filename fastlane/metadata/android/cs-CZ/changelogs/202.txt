@@ -1,0 +1,2 @@
+- Cílová verze Android 17
+- Přidána možnost posunout nahoru na obrazovce karty pro zobrazení podrobností

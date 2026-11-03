@@ -1,0 +1,3 @@
+- Cílová verze Android 17
+- Odesílání poznámek na kartách, platnost od a do, přes server Bluetooth
+- Upozornění poskytovatele obsahu na změnu karty (umožňuje službě Gadgetbridge okamžitě zaznamenat změny na kartách)

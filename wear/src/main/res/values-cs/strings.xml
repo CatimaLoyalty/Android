@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetooth je vypnut.\nPovolte jej pro synchronizaci karet z vašeho telefonu.</string>
     <string name="sync_error">Nepodařilo se přečíst karty z vašeho telefonu.\nZkuste znovu provést synchronizaci.</string>
     <string name="unauthorized">Neautorizováno.\nPovolte těmto hodinkám číst vaše karty v nastavení aplikace Catima.</string>
+    <string name="note_label">Poznámka</string>
+    <string name="valid_from_label">Platné od</string>
+    <string name="expiry_label">Expirace</string>
 </resources>

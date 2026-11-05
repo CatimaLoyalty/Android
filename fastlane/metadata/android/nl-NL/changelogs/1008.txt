@@ -1,2 +1,3 @@
 - Doel Android 17
 - Kaartnotitie, geldig vanaf en verlopen via Bluetooth-server verzenden
+- Informeer de contentprovider over kaartwijziging (stelt Gadgetbridge in staat kaartwijzigingen onmiddellijk op te merken)

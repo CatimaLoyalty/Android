@@ -1,0 +1,2 @@
+- Wersja dla systemu Android 17
+- Dodano możliwość przesunięcia palcem w górę na ekranie karty, aby wyświetlić szczegóły karty

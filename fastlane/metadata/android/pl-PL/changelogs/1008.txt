@@ -1,0 +1,3 @@
+- Obsługa systemu Android 17
+- Wysyłanie notatek z kart, daty ważności i daty wygaśnięcia za pośrednictwem serwera Bluetooth
+- Powiadamianie dostawcy treści o zmianach na karcie (umożliwia to serwisowi Gadgetbridge natychmiastowe wykrywanie zmian na karcie)

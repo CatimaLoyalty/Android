@@ -13,4 +13,7 @@
     <string name="sync_failed">Telefon går ej att nå – visar cachade kort</string>
     <string name="sync_error">Lyckades inte läsa in kort från din telefon.\nFörsök att synka igen.</string>
     <string name="unauthorized">Inte auktoriserad.\nTillåt den här klockan att läsa in dina kort i Catimas inställningar.</string>
+    <string name="note_label">Anteckning</string>
+    <string name="valid_from_label">Giltigt från</string>
+    <string name="expiry_label">Förfallodag</string>
 </resources>

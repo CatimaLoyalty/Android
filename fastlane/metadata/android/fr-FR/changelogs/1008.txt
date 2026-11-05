@@ -1,2 +1,3 @@
 - Cible Android 17
 - Envoyer pour une carte ses notes, la date de début et fin de validité via un serveur Bluetooth
+- Notifier le fournisseur de contenu lors d'un changement de carte (permet à Gadgetbridge de détecter instantanément les changements de carte)

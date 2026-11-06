@@ -1,0 +1,3 @@
+- Alvo: Android 17
+- Envio de dados do cartão (identificador, data de início de validade e data de expiração) via servidor Bluetooth
+- Notificação ao provedor de conteúdo sobre alterações no cartão (permite que o Gadgetbridge detecte instantaneamente mudanças no cartão)

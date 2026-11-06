@@ -1,0 +1,2 @@
+- Alvo: Android 17
+- Adicionar a possibilidade de deslizar para cima na tela de cartões para exibir os detalhes do cartão

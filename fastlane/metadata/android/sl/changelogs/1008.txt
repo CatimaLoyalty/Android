@@ -1,0 +1,3 @@
+- Podpora za Android 17
+- Pošiljanje opombe kartice in veljavnost od / do prek strežnika Bluetooth
+- Obveščanje ponudnika vsebin o spremembi kartice (omogoča Gadgetbridgeu, da takoj zazna spremembe na kartici)

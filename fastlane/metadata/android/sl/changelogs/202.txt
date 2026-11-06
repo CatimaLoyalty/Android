@@ -1,0 +1,2 @@
+- Podpora za Android 17
+- Dodana možnost, da s potegom navzgor na zaslonu kartice se prikažejo podrobnosti o kartici

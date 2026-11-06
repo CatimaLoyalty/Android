@@ -1,0 +1,2 @@
+-Thêm máy chủ Bluetooth cho hỗ trợ ứng dụng đồng hành Wear OS
+-Xoá CHANGELOG được nhúng

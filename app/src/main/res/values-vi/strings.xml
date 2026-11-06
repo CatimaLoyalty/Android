@@ -52,7 +52,7 @@
     <string name="settings_dark_theme">Tối</string>
     <string name="importFidme">Nhập dữ liệu từ FidMe</string>
     <string name="cardId">ID thẻ</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Tắt tính năng khóa màng hình khi đang xem thẻ</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Tắt tính năng khóa màn hình khi đang xem thẻ</string>
     <string name="action_more_options">Tùy chọn mở rộng</string>
     <string name="exportOptionExplanation">Dữ liệu sẽ được ghi vào vị trí mà bạn chọn</string>
     <string name="app_copyright_old">Dựa trên Loyalty Card Keychain
@@ -120,7 +120,7 @@
     <string name="validFromSentence">Hợp lệ từ: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Xuất dữ liệu xong</string>
     <string name="previousCard">Trước</string>
-    <string name="settings_allow_content_provider_read_summary">Mọi ứng dụng vẫn phải cần phải xin cấp phép để được truy cập</string>
+    <string name="settings_allow_content_provider_read_summary">Cho phép Gadgetbridge đồng bộ thẻ của bạn với các đồng hồ được hỗ trợ</string>
     <string name="license">Giấy phép</string>
     <string name="newBalanceSentence">Số dư mới: <xliff:g>%s</xliff:g></string>
     <string name="editGroup">Sửa nhóm: <xliff:g>%s</xliff:g></string>
@@ -129,7 +129,7 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> thẻ (lưu trữ <xliff:g id="archivedCount">%2$d</xliff:g>)</item>
     </plurals>
     <string name="importExport">Nhập/Xuất dữ liệu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Chặn tính năng khóa màng hình</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Hiển thị trên màn hình khoá</string>
     <string name="importing">Đang nhập dữ liệu…</string>
     <string name="about">Giới thiệu</string>
     <string name="sameAsCardId">Giống như ID</string>
@@ -161,7 +161,7 @@
     <string name="settings_theme">Chủ đề</string>
     <string name="balance">Số dư</string>
     <string name="cameraPermissionRequired">Tác vụ này cần được cấp quyền sử dụng camera…</string>
-    <string name="settings_allow_content_provider_read_title">Cho phép ứng dụng khác truy cập vào dữ liệu của tôi</string>
+    <string name="settings_allow_content_provider_read_title">Đồng bộ với Gadgetbridge</string>
     <string name="updateBarcodeQuestionText">Bạn đã thay đổi ID. Bạn có muốn cập nhật mã vạch dùng chung giá trị này\?</string>
     <string name="importLoyaltyCardKeychainMessage">Chọn tập tin được xuất từ Loyalty Card Keychain để nhập liệu. \nTạo tập tin này bằng cách vào menu Import/Export của Loyalty Card Keychain và bấm Export.</string>
     <string name="settings_light_theme">Sáng</string>
@@ -228,7 +228,7 @@
     <string name="action_add">Thêm</string>
     <string name="updateBarcodeQuestionTitle">Cập nhật giá trị cho mã vạch chứ\?</string>
     <string name="deleteTitle">Xóa thẻ</string>
-    <string name="settings_keep_screen_on_summary">Vô hiệu hóa thời gian tắt màng hình khi đang xem thẻ</string>
+    <string name="settings_keep_screen_on_summary">Tăng thời gian tắt màng hình khi đang xem thẻ</string>
     <string name="thumbnailDescription">Ảnh con</string>
     <string name="deleteConfirmationGroup">Xóa nhóm\?</string>
     <string name="rate_this_app">Đánh giá ứng dụng</string>
@@ -302,4 +302,41 @@
     <string name="zoomBackImage">Phóng ảnh mặt sau</string>
     <string name="show_card_id">Hiện ID của thẻ</string>
     <string name="open_in_gallery">Mở trong thư viện ảnh</string>
+    <string name="settings_wear_sync">Đồng bộ với Wear OS</string>
+    <string name="settings_wear_sync_summary">Cho phép ứng dụng hỗ trợ Wear OS đọc thẻ của bạn qua Bluetooth</string>
+    <string name="wear_sync_permission_required">Catima cần quyền bạn đã từ chối cấp để đồng bộ với đồng hồ thông minh Wear OS</string>
+    <string name="settings_wear_sync_devices">Các thiết bị Wear OS được cho phép</string>
+    <string name="settings_wear_sync_devices_summary">Quản lý các thiết bị được phép đồng bộ qua Bluetooth</string>
+    <string name="settings_wear_sync_no_devices">Không có thiết bị được cho phép</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> thiết bị được cho phép</item>
+    </plurals>
+    <string name="settings_wear_sync_blocked_devices">Các thiết bị Wear OS bị chặn</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Quản lý các thiết bị Wear OS bị chặn</string>
+    <string name="settings_wear_sync_no_blocked_devices">Không có thiết bị đã chặn</string>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="other"><xliff:g>%d</xliff:g> thiết bị đã chặn</item>
+    </plurals>
+    <string name="settings_wear_sync_unpair_title">Xoá thiết bị?</string>
+    <string name="settings_wear_sync_unpair_message">Xoá <xliff:g>%1$s</xliff:g> khỏi Catima? Thiết bị sẽ không thể đồng bộ các thẻ của bạn nữa.</string>
+    <string name="settings_wear_sync_unblock_message">Xoá <xliff:g>%1$s</xliff:g> khỏi danh sách chặn? Thiết bị có thể yêu cầu lại quyền truy cập.</string>
+    <string name="settings_wear_sync_unpair">Xoá</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Chạm một thiết bị để xoá.</string>
+    <string name="wear_bt_pairing_channel_name">Ghép đôi thiết bị Wear OS</string>
+    <string name="wear_bt_pairing_title">Thiết bị Wear OS muốn đồng bộ</string>
+    <string name="wear_bt_pairing_message">Cho phép <xliff:g>%1$s</xliff:g> truy cập thẻ của bạn?</string>
+    <string name="wear_bt_pairing_allow">Cho phép</string>
+    <string name="wear_bt_pairing_block">Chặn</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> đã được cho phép đồng bộ.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> đã bị chặn.</string>
+    <string name="wear_bt_pairing_mismatch_title">Yêu cầu xác thực mới từ <xliff:g>%1$s</xliff:g></string>
+    <string name="wear_bt_pairing_mismatch_message">Thiết bị này đã được xác thực trước đây nhưng hiện đang hiển thị một mã nhận dạng khác. Tình trạng này xảy ra khi ứng dụng Wear OS được cài đặt lại hoặc dữ liệu của ứng dụng bị xóa. Đây cũng có thể là dấu hiệu của một nỗ lực giả mạo địa chỉ MAC Bluetooth.\n\nChỉ chấp nhận nếu bạn vừa cài đặt lại ứng dụng Catima Wear OS trên đồng hồ này.</string>
+    <string name="open_settings">Mở cài đặt</string>
+    <string name="wear_bt_channel_name">Ứng dụng đồng hành Wear OS</string>
+    <string name="wear_bt_notification_title">Đồng bộ Catima Wear OS đang bật</string>
+    <string name="settings_category_title_smartwatch">Hỗ trợ đồng hồ thông minh</string>
+    <string name="wear_bt_failed_foreground_notification_title">Khởi động dịch vụ đồng bộ Wear OS thất bại</string>
+    <string name="wear_bt_critical_error_channel_name">Lỗi nghiêm trọng đồng bộ Wear OS</string>
+    <string name="android_blocked_startup">Android chặn khởi động dịch vụ Wear OS</string>
 </resources>

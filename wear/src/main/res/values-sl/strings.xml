@@ -13,4 +13,7 @@
     <string name="bluetooth_disabled">Bluetooth je izklopljen.\nVklopi ga, da boš lahko sinhroniziral/a kartice iz telefona.</string>
     <string name="sync_error">Branje kartic iz telefona ni uspelo.\nPoskusi še enkrat zagnati sinhronizacijo.</string>
     <string name="unauthorized">Ni dovoljeno.\nV nastavitvah Catima tej uri omogoči branje svojih kartic.</string>
+    <string name="note_label">Opomba</string>
+    <string name="valid_from_label">Velja od</string>
+    <string name="expiry_label">Potek</string>
 </resources>

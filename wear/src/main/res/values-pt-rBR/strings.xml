@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Catima</string>
+    <string name="no_cards">Nenhum cartão encontrado.\nAbra o Catima no seu celular para adicionar cartões.</string>
+    <string name="phone_not_connected">Não foi possível acessar o Catima no seu celular.\nCertifique-se de que o Catima esteja em execução no seu celular, que o seu relógio esteja conectado e que o suporte ao Wear OS esteja ativado nas configurações do Catima para smartwatch.</string>
+    <string name="loading_cards">Carregando cartões…</string>
+    <string name="no_barcode">Não há código de barras disponível para este cartão.</string>
+    <string name="card_id_label">ID do cartão</string>
+    <string name="note_label">Observação</string>
+    <string name="valid_from_label">Válido a partir de</string>
+    <string name="expiry_label">Vencimento</string>
+    <string name="syncing">Sincronizando com o celular…</string>
+    <string name="sync_failed">Celular indisponível – exibindo cartões armazenados em cache</string>
+    <string name="version_incompatible">O Catima no seu celular e no seu relógio não são compatíveis.\nAtualize os dois.</string>
+    <string name="bluetooth_permission_denied">Permissão de Bluetooth negada.\nConceda essa permissão em “Configurações” para sincronizar os cartões.</string>
+    <string name="bluetooth_disabled">O Bluetooth está desativado.\nAtive-o para sincronizar os cartões do seu celular.</string>
+    <string name="sync_error">Não foi possível ler os cartões do seu celular.\nTente sincronizar novamente.</string>
+    <string name="unauthorized">Não autorizado.\nPermita que este relógio leia seus cartões nas configurações do Catima.</string>
 </resources>

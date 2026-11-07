@@ -1,0 +1,3 @@
+- Ret fejl, hvor beskæringsværktøjet ikke brugte temafarven
+- Ret mindre problemer med temaet
+- Tilføj et kulsort mørkt tema til OLED-skærme

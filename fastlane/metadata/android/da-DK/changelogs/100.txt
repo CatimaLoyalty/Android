@@ -1,0 +1,2 @@
+- Skjul ikoner til søgning, udvidelse og sortering, indtil der er mindst 1 kort
+- Diverse rettelser til temaet

@@ -1,0 +1,23 @@
+Stop med at lede efter loyalitetskort i plastik, når du står ved kassen i en butik eller handler i en webshop.
+<b>Scan stregkoder med din enheds kamera – glem alt om fysiske kort.</b>
+
+Glem din pung, eller hold den ultra-let, så der kun er plads til de vigtigste værdigenstande.
+
+Med dette uundværlige redskab til hverdagsbrug kan du erstatte overflødige plastikkort med en digital løsning.
+
+- Beskyt dit privatliv: Appen kræver kun et minimum af tilladelser. Ingen internetadgang og ingen reklamer.
+- Tilføj kort eller koder med navne og farver, du selv kan vælge.
+- Indtast koder manuelt, hvis der ikke er nogen stregkode, eller hvis den ikke kan scannes.
+- Importér kort og koder fra filer eller fra apps som Catima, FidMe, Loyalty Card Keychain og Voucher Vault.
+- Lav en sikkerhedskopi af alle dine kort, og overfør dem til en ny enhed, hvis du får brug for det.
+- Del kuponer, eksklusive tilbud, rabatkoder eller andre kort og koder via hvilken som helst app.
+- Synkronisér med understøttede smartwatches (Gadgetbridge eller Wear OS).
+- Mørkt tema og tilgængelighedsfunktioner til synshandicappede.
+- Udviklet til alle af fællesskabet for fri software (libre software).
+- Lokaliserede, menneskeskabte oversættelser til over 40 sprog.
+- Gratis – støttet af bidrag fra fællesskabet.
+- Brug, undersøg, ændr og del appen, præcis som du har lyst til; <i>med alle</i>.
+- Ikke blot fri software / open source, men "libre"-software med *copyleft* (GPLv3+) til håndtering af dine kort.
+
+Gør din hverdag og dine indkøb enklere – og undgå fremover at miste kvitteringer, gavekort eller flybilletter.
+Hav alle dine loyalitetskort og bonusser lige ved hånden, og spar penge, hver gang du handler.

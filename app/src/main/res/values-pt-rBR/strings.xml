@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Catima</string>
-    <string name="action_search">Pesquisar</string>
+    <string name="action_search">Buscar</string>
     <string name="action_add">Adicionar</string>
     <string name="noGiftCards">Clique no botão \"+\" para adicionar um cartão ou importar a partir do menu \"⋮\"</string>
     <string name="noGiftCardsGroup">Crie alguns cartões e, em seguida, atribua-os ao grupo aqui</string>
-    <string name="noMatchingGiftCards">Nenhum resultado. Tente alterar sua pesquisa.</string>
+    <string name="noMatchingGiftCards">Nenhum resultado. Tente alterar sua busca.</string>
     <string name="storeName">Nome</string>
     <string name="note">Nota</string>
     <string name="cardId">ID do cartão</string>

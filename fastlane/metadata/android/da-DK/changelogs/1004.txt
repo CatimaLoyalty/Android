@@ -1,0 +1,3 @@
+- Rettelse af fejl i listewidgeten, når et kort åbnes fra den
+- Rettelse af fejl i åbning af pkpass/pdf-filer fra netværksplaceringer
+- Rettelse af nedbrud i Wear OS-synkronisering, når Bluetooth er deaktiveret

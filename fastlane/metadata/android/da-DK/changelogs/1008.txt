@@ -1,0 +1,3 @@
+- Målret Android 17
+- Send kortnotat, gyldighedsperiode og udløbsdato via Bluetooth-server
+- Giv indholdsudbyderen besked ved ændringer i kortet (gør det muligt for Gadgetbridge øjeblikkeligt at registrere ændringer i kortet)

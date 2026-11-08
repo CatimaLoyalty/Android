@@ -1,0 +1,2 @@
+- Tilføj en Bluetooth-server til understøttelse af Wear OS-ledsagerapp
+- Fjern indlejret CHANGELOG

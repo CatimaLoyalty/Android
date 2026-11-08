@@ -329,7 +329,7 @@
     <string name="settings_wear_sync_unpair_message">Rimuovere <xliff:g>%1$s</xliff:g> da Catima? Non sarà più possibile sincronizzare le tue carte.</string>
     <string name="settings_wear_sync_unblock_message">Rimuovere <xliff:g>%1$s</xliff:g> dall\'elenco bloccato? Sarà possibile richiedere nuovamente l\'accesso.</string>
     <string name="settings_wear_sync_unpair">Eliminare</string>
-    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>\n%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
     <string name="settings_wear_sync_tap_to_remove">Tocca un dispositivo per rimuoverlo.</string>
     <string name="wear_bt_pairing_channel_name">Accoppiamento dispositivo Wear OS</string>
     <string name="wear_bt_pairing_title">Il dispositivo Wear OS deve sincronizzarsi</string>
@@ -339,10 +339,20 @@
     <string name="wear_bt_pairing_allowed">Ora è consentita la sincronizzazione di <xliff:g>%1$s</xliff:g>.</string>
     <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> è stato bloccato.</string>
     <string name="wear_bt_pairing_mismatch_title">Nuova richiesta di autorizzazione da <xliff:g>%1$s</xliff:g></string>
-    <string name="wear_bt_pairing_mismatch_message">Questo dispositivo era precedentemente autorizzato ma ora presenta un token di identità diverso. Ciò accade quando l\'app Wear OS viene reinstallata o i suoi dati vengono cancellati. Può anche indicare un tentativo di spoofing MAC Bluetooth.\nAccetta solo se hai reinstallato di recente l\'app Catima Wear OS su questo orologio.</string>
+    <string name="wear_bt_pairing_mismatch_message">Questo dispositivo era precedentemente autorizzato ma ora presenta un token di identità diverso. Ciò accade quando l\'app Wear OS viene reinstallata o i suoi dati vengono cancellati. Può anche indicare un tentativo di spoofing MAC Bluetooth.\n\nAccetta solo se hai reinstallato di recente l\'app Catima Wear OS su questo orologio.</string>
     <string name="wear_bt_channel_name">Wear OS companion app</string>
     <string name="wear_bt_notification_title">Sincronizzazione di Catima Wear OS attiva</string>
     <string name="settings_category_title_smartwatch">Supporto per smartwatch</string>
     <string name="wear_bt_failed_foreground_notification_title">Impossibile avviare il servizio di sincronizzazione di Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS errore critico sincronizzazione</string>
+    <plurals name="settings_wear_sync_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo consentito</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> dispositivi consentiti</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivi consentiti</item>
+    </plurals>
+    <plurals name="settings_wear_sync_blocked_devices_summary_count">
+        <item quantity="one"><xliff:g>%d</xliff:g> dispositivo bloccato</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> dispositivi bloccati</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> dispositivi bloccati</item>
+    </plurals>
 </resources>

@@ -1,0 +1,3 @@
+- Ændret standardfilnavnet for import/eksport. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Rettet tekst på siden for import/eksport. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Forbedret layoutet på siden, hvor kort vises. Teksten er nu lettere at læse og kan markeres ved et langt tryk. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

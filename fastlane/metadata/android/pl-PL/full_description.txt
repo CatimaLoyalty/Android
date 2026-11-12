@@ -3,21 +3,21 @@ Koniec z szukaniem plastikowych kart lojalnościowych przy kasie w sklepie stacj
 
 Zostaw portfel w domu lub zabierz ze sobą tylko najpotrzebniejsze rzeczy.
 
-Dzięki temu niezbędnemu narzędziu do codziennego noszenia (EDC) możesz zastąpić bezużyteczny plastik gotówką.
+Dzięki temu niezbędnemu narzędziu do codziennego użytku (EDC) możesz zastąpić bezużyteczny plastik gotówką.
 
 - Unikaj inwigilacji dzięki minimalnej liczbie uprawnień. Brak dostępu do Internetu i brak reklam.
-- Dodawaj karty lub kody wraz z nazwami i dostosowywanymi kolorami.
+- Dodawaj karty lub kody wraz z nazwami i dostosowywalnymi kolorami.
 - Ręczne wprowadzanie kodu, jeśli nie ma kodu kreskowego do zapisania lub nie można go użyć.
 - Importuj karty i kody z plików, aplikacji Catima, FidMe, Loyalty Card Keychain i Voucher Vault.
 - Twórz kopie zapasowe wszystkich swoich kart i przenoś je na nowe urządzenie, jeśli chcesz.
 - Udostępniaj kupony, ekskluzywne oferty, kody promocyjne lub karty i kody za pomocą dowolnej aplikacji.
 - Synchronizuj z obsługiwanymi smartwatchami Gadgetbridge lub Wear OS.
 - Ciemny motyw i opcje ułatwień dostępu dla użytkowników z wadami wzroku.
-- Stworzone dla wszystkich przez społeczność wolnego oprogramowania.
+- Stworzona dla wszystkich przez społeczność wolnego oprogramowania.
 - Ręcznie przygotowane tłumaczenia na ponad 40 języków.
-- Bezpłatne, wspierane przez datki społeczności.
+- Bezpłatna, wspierana przez datki społeczności.
 - Korzystaj, studiuj, modyfikuj i udostępniaj aplikację według własnego uznania; <i>z zachowaniem wszystkich</i>.
-- To nie tylko wolne oprogramowanie / oprogramowanie open source. <i>Oprogramowanie wolne na licencji copyleft</i> (GPLv3+) do zarządzania kartami.
+- To nie tylko wolne oprogramowanie / oprogramowanie open source. <i>Oprogramowanie wolne z licencją copyleft</i> (GPLv3+) do zarządzania kartami.
 
 Uprość swoje życie i zakupy – już nigdy nie zgubisz papierowego paragonu, karty podarunkowej do wykorzystania w sklepie ani biletu lotniczego.
-Zabierz ze sobą wszystkie nagrody i bonusy i oszczędzaj na bieżąco.
+Zabierz ze sobą wszystkie swoje nagrody i bonusy oraz oszczędzaj na bieżąco.

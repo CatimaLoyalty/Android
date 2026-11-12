@@ -1,2 +1,3 @@
 - Naprawiono błąd, w wyniku którego widżet listy nie aktualizował się po otwarciu karty z tego widżetu
 - Naprawiono błąd, w wyniku którego otwieranie plików pkpass/pdf z lokalizacji sieciowych czasami kończyło się niepowodzeniem
+- Naprawiono awarię synchronizacji w systemie Wear OS przy wyłączonym Bluetooth

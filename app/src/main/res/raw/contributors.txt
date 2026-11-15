@@ -12,10 +12,10 @@ StoyanDimitrov
 SlavekB
 Silvério Santos
 Katharine Chui / Katie
-mondstern
 Liner Seven
-IllusiveMan196
 Fjuro
+mondstern
+IllusiveMan196
 Edgars Andersons
 Joel A
 Максим Горпиніч
@@ -35,6 +35,7 @@ Milo Ivir
 nadiafekihahmed
 pfaffenrodt
 Aayush Gupta
+NooB9496
 Scrambled777
 josé m
 Kachelkaiser
@@ -42,7 +43,6 @@ ikanakova
 Nyatsuki
 Jiri Grönroos
 Giovanni Donisi
-NooB9496
 Hosted Weblate user 54392
 HudobniVolk
 Warder
@@ -51,21 +51,23 @@ Traductor
 Balázs Meskó
 Samantaz Fox
 mdvhimself
+delvani
+Stephan Paternotte
 Feike
 Arno-github
 Sergio Paredes
-Ankit Tiwari
 Cliff Heraldo
-Stephan Paternotte
+Ankit Tiwari
 Jose Delvani
 Robin
 Milan Šalka
 josé m.
 தமிழ்நேரம்
+justcontributor
 huuhaa
 Watchman89
 Skrripy
-Govindgopalyadav
+Yadav
 Gideon
 waffshappen
 Marnick L'Eau
@@ -76,31 +78,31 @@ aradxxx
 StellarSand
 Quentin PAGÈS
 Projjal Moitra
+José Rebelo
 Aliaksandr Trush
 e-michalak
 தமிழ் நேரம்
 mrestivill
 hajertabbane
-ezn24
-inavleb
-Ziad OUALHADJ
-Robin Liu
-Ricky Tigg
-Renko
-José Rebelo
 Denis Shilin
+Renko
+Ricky Tigg
+Robin Liu
+Ziad OUALHADJ
+inavleb
+ezn24
 しいたけ
 Alexander Ivanov
-Alì Mortacci
-Peter Dave Hello
-Thu-Trang Pham
-Tim Trek
-Virginie
-dukezas
-ehrt74
-justcontributor
-stavpup
 Miha Frangež
+stavpup
+ehrt74
+dukezas
+Virginie
+Tim Trek
+Thu-Trang Pham
+Sylvain Pichon
+Peter Dave Hello
+Alì Mortacci
 Andre Costa
 Arif Budiman
 arshbeerSingh

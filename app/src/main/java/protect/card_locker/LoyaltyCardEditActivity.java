@@ -1461,6 +1461,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         return maxDateCalendar.getTimeInMillis();
     }
 
+    // FIXME: The saveCardImage calls should not be running on the UI thread, as they can lock up the UI
+    // However, this threading is a lot easier in Kotlin as we can just use a context with Dispatchers.IO there
+    // So let's do that when we migrate this to Kotlin.
+    @SuppressLint("ThreadConstraint")
     private void doSave() {
         if (isFinishing()) {
             // If we are done saving, ignore any queued up save button presses

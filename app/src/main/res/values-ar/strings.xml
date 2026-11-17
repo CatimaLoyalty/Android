@@ -175,7 +175,7 @@
     <string name="settings_keep_screen_on">حافظ على الشاشة قيد التشغيل</string>
     <string name="intent_import_card_from_url_share_text">اريد مشاركة بطاقة معك</string>
     <string name="groupsList">مجموعات: <xliff:g>%s</xliff:g></string>
-    <string name="settings_disable_lockscreen_while_viewing_card">منع قفل الشاشة</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">اظهر أعلى شاشة القفل</string>
     <string name="leaveWithoutSaveTitle">خروج</string>
     <string name="editGroup">تعديل المجموعة: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCount">
@@ -247,7 +247,7 @@
     <string name="view_online">مشاهدة حية</string>
     <string name="settings_category_title_general">عام</string>
     <string name="switchToBarcode">التبديل إلى الباركود</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">تعطيل قفل الشاشة أثناء عرض البطاقة</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">يتجاوز قفل الشاشة في أثناء عرض بطاقةٍ ما</string>
     <string name="action_display_options">خيارات العرض</string>
     <string name="settings_oled_dark_summary">يقلل من استخدام البطارية على شاشات OLED</string>
     <string name="icon_header_click_text">اضغط لفترة طويلة لتحرير الصورة المصغرة</string>
@@ -262,7 +262,7 @@
     <string name="show_archived_cards">عرض البطاقات المؤرشفة</string>
     <string name="settings_category_title_privacy">خصوصية</string>
     <string name="show_balance">إظهار التوازن</string>
-    <string name="settings_keep_screen_on_summary">تعطيل مهلة الشاشة أثناء عرض البطاقة</string>
+    <string name="settings_keep_screen_on_summary">يمدّد مهلة الشاشة في أثناء عرض البطاقة</string>
     <string name="balanceParsingFailed">رصيد غير صالح</string>
     <string name="card_id_must_not_be_empty">يجب ألا يكون معرف البطاقة فارغا</string>
     <string name="add_a_card_in_a_different_way">أضف بطاقة بطريقة مختلفة</string>

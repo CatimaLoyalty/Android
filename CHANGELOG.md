@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (Android) - 1008
+## v2.46.0 (Android) - 1008 (2026-11-18)
 
 - Target Android 17
 - Send card note, valid from and expiry over Bluetooth server

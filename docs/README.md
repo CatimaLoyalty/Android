@@ -2,7 +2,7 @@
 
 Copylefted libre software (GPLv3+) card management app for Android 6.0 and up.
 
-[![GitHub Version](https://img.shields.io/github/v/release/CatimaLoyalty/Android.svg?logo=github&label=GitHub&filter=!*-wearos)](https://github.com/CatimaLoyalty/Android/releases/tag/v2.46.0)
+[![GitHub Version](https://img.shields.io/github/v/release/CatimaLoyalty/Android.svg?logo=github&label=GitHub&filter=!*-wearos)](https://github.com/CatimaLoyalty/Android/releases/tag/v2.45.2)
 [![GitHub Wear OS Version](https://img.shields.io/github/v/release/CatimaLoyalty/Android.svg?logo=github&label=GitHub%20(Wear%20OS)&filter=*-wearos)](https://github.com/CatimaLoyalty/Android/releases/tag/v1.1.0-wearos)
 [![IzzyOnDroid Version](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/me.hackerchick.catima)](https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima)
 [![F-Droid Version](https://img.shields.io/f-droid/v/me.hackerchick.catima.svg?logo=f-droid&label=F-Droid)](https://f-droid.org/packages/me.hackerchick.catima/)

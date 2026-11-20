@@ -1,0 +1,3 @@
+- Iniciar sincronização do sistema operativo Wear se ativado ao ligar Bluetooth
+- Limite o ecrã adicional no tempo ao visualizar um cartão a 5 minutos para evitar o superaquecimento
+- Evite o início da câmera na visualização de ecrã cheio

@@ -1,0 +1,2 @@
+- Alvo Android 17
+- Adicionar capacidade de deslizar para cima no ecrã do cartão para mostrar detalhes do cartão

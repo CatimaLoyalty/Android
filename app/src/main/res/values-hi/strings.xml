@@ -65,7 +65,7 @@
     <string name="noGiftCards">कार्ड जोड़ने के लिए + प्लस बटन पर क्लिक करें, या ⋮ मेनू से आयात करें</string>
     <string name="importExportHelp">आपके डाटा को बैकअप करना उसे दूसरे डिवाइस में भेजना संभव कर देता है</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> का बारकोड</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">स्क्रीन को लॉक होने से रोकें</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">लॉक स्क्रीन के ऊपर दिखाएँ</string>
     <string name="intent_import_card_from_url_share_text">मैं तुम्हें एक कार्ड भेजना चाहता हूँ</string>
     <string name="selectBarcodeTitle">बारकोड चुनें</string>
     <string name="thumbnailDescription">छोटा चित्र</string>
@@ -151,7 +151,7 @@
     <string name="expiryStateSentenceExpired">समय अवधि समाप्त: <xliff:g>%s</xliff:g></string>
     <string name="app_libraries">तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट बंद करें</string>
+    <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट बढ़ाएँ</string>
     <string name="removeImage">छवि हटाएं</string>
     <string name="setBackImage">पीछे की छवि सेट करें</string>
     <string name="unsupportedBarcodeType">इस प्रकार का बारकोड को प्रदर्शित नहीं किया जा सकता। यह आने वाले संस्करण मे समर्थन हो सकता है।</string>
@@ -297,4 +297,5 @@
     <string name="nothing_to_copy">कोई मूल्य नहीं मिला</string>
     <string name="barcodeEncoding">बारकोड एन्कोडिंग</string>
     <string name="back">वापस</string>
+    <string name="settings_disable_nfc_while_viewing_card">NFC रोकें</string>
 </resources>

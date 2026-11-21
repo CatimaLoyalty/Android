@@ -1,0 +1,3 @@
+- Alvo Android 17
+- Enviar nota de cartão, válido de e expirar sobre servidor Bluetooth
+- Notifique o provedor de conteúdo em troca de cartão (permite que Gadgetbridge note imediatamente as alterações do cartão)

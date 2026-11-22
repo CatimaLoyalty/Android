@@ -138,7 +138,8 @@ public class CatimaExporter implements Exporter {
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS,
                 DBHelper.LoyaltyCardDbIds.LAST_USED,
-                DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS);
+                DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS,
+                DBHelper.LoyaltyCardDbIds.UUID);
 
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);
 
@@ -159,7 +160,8 @@ public class CatimaExporter implements Exporter {
                     card.headerColor,
                     card.starStatus,
                     card.lastUsed,
-                    card.archiveStatus);
+                    card.archiveStatus,
+                    card.uuid);
 
             if (Thread.currentThread().isInterrupted()) {
                 throw new InterruptedException();

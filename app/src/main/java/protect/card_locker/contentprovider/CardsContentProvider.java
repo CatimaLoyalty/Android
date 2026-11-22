@@ -35,7 +35,7 @@ public class CardsContentProvider extends ContentProvider {
         public static final String MAJOR_COLUMN = "major";
         public static final String MINOR_COLUMN = "minor";
         public static final int MAJOR = 1;
-        public static final int MINOR = 2;
+        public static final int MINOR = 3;
     }
 
     private static final int URI_VERSION = 0;
@@ -59,6 +59,7 @@ public class CardsContentProvider extends ContentProvider {
             LoyaltyCardDbIds.STAR_STATUS,
             LoyaltyCardDbIds.LAST_USED,
             LoyaltyCardDbIds.ARCHIVE_STATUS,
+            LoyaltyCardDbIds.UUID,
     };
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH) {{

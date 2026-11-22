@@ -1,6 +1,8 @@
 package protect.card_locker.importexport;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
@@ -10,6 +12,8 @@ import net.lingala.zip4j.model.LocalFileHeader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+
+import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -38,6 +42,11 @@ import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
+import protect.card_locker.R;
+
+import androidx.preference.PreferenceManager;
+
+import org.json.JSONObject;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -71,6 +80,7 @@ public class CatimaImporter implements Importer {
         LocalFileHeader localFileHeader;
         Map<String, String> imageChecksums = new HashMap<>();
         ImportedData importedData = null;
+        JSONObject importedSettings = null;
 
         while ((localFileHeader = zipInputStream1.getNextEntry()) != null) {
             isZipFile = true;
@@ -78,6 +88,14 @@ public class CatimaImporter implements Importer {
             String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
             if (fileName.equals("catima.csv")) {
                 importedData = importCSV(zipInputStream1);
+            
+            } else if (fileName.equals("settings.json")){
+                try{
+                    importedSettings = ZipUtils.readJSON(zipInputStream1);
+                } catch (JSONException e) {
+                    throw new FormatException("Invalid settings.json", e);
+                }
+            
             } else if (fileName.endsWith(".png")) {
                 if (!fileName.matches(Utils.CARD_IMAGE_FILENAME_REGEX)) {
                     throw new FormatException("Unexpected PNG file in import: " + fileName);
@@ -117,6 +135,10 @@ public class CatimaImporter implements Importer {
             }
 
             input2.close();
+        }
+
+        if (importedSettings != null){
+            importSettings(context, importedSettings);
         }
     }
 
@@ -554,5 +576,106 @@ public class CatimaImporter implements Importer {
         }
 
         return Map.entry(cardId, groupId);
+    }
+
+    private void importSettings(Context context, JSONObject root) throws FormatException{
+        try{
+            int version = root.getInt("version");
+
+            if (version != 1){
+                throw new FormatException("Unsupported settings version: " + version);
+            }
+
+            JSONObject settings = root.getJSONObject("settings");
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            if(settings.has("keepScreenOn")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_keep_screen_on),
+                    settings.getBoolean("keepScreenOn")
+                );
+            }
+
+            if(settings.has("oledDark")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_oled_dark),
+                    settings.getBoolean("oledDark")
+                );
+            }
+
+            if(settings.has("useVolumeKeysNavigation")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_use_volume_keys_navigation),
+                    settings.getBoolean("useVolumeKeysNavigation")
+                );
+            }
+
+            if(settings.has("displayBarcodeMaxBrightness")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_display_barcode_max_brightness),
+                    settings.getBoolean("displayBarcodeMaxBrightness")
+                );
+            }
+
+            if(settings.has("disableLockscreenWhileViewingCard")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_disable_lockscreen_while_viewing_card),
+                    settings.getBoolean("disableLockscreenWhileViewingCard")
+                );
+            }
+
+            if(settings.has("disableNfcWhileViewingCard")){
+                editor.putBoolean(
+                    context.getString(R.string.settings_key_disable_nfc_while_viewing_card),
+                    settings.getBoolean("disableNfcWhileViewingCard")
+                );
+            }
+
+            if(settings.has("theme")){
+                String theme = settings.getString("theme");
+                String systemTheme = context.getString(R.string.settings_key_system_theme);
+                String lightTheme = context.getString(R.string.settings_key_light_theme);
+                String darkTheme = context.getString(R.string.settings_key_dark_theme);
+
+                if(!theme.equals(systemTheme) && !theme.equals(lightTheme) && !theme.equals(darkTheme)){
+                    throw new FormatException("Invalid theme setting: "+theme);
+                }
+
+                editor.putString(
+                    context.getString(R.string.settings_key_theme),
+                    theme
+                );
+            }
+
+            if(settings.has("locale")){
+                editor.putString(
+                    context.getString(R.string.settings_key_locale),
+                    settings.getString("locale")
+                );
+            }
+
+            if(settings.has("columnCountPortrait")){
+                editor.putString(
+                    context.getString(R.string.setting_key_column_count_portrait),
+                    settings.getString("columnCountPortrait")
+                );
+            }
+
+            if(settings.has("columnCountLandscape")){
+                editor.putString(
+                    context.getString(R.string.setting_key_column_count_landscape),
+                    settings.getString("columnCountLandscape")
+                );
+            }
+
+            if(!editor.commit()) {
+                throw new FormatException("Failed to save imported settings");
+            }
+
+        } catch (JSONException e){
+            throw new FormatException("Invalid settings.json", e);
+        }
     }
 }

@@ -72,12 +72,19 @@ public class CatimaExporter implements Exporter {
             JSONObject rootObject = new JSONObject();
 
             try{
+                //exporting boolean stuff
                 settingsObject.put("keepScreenOn", settings.getKeepScreenOn());
                 settingsObject.put("oledDark", settings.getOledDark());
                 settingsObject.put("useVolumeKeysNavigation", settings.useVolumeKeysForNavigation());
                 settingsObject.put("displayBarcodeMaxBrightness", settings.useMaxBrightnessDisplayingBarcode());
                 settingsObject.put("disableLockscreenWhileViewingCard", settings.getDisableLockscreenWhileViewingCard());
                 settingsObject.put("disableNfcWhileViewingCard", settings.getDisableNfcWhileViewingCard());
+                
+                //exporting string value stuff
+                settingsObject.put("theme", settings.getThemeSetting());
+                settingsObject.put("locale", settings.getLocaleSetting());
+                settingsObject.put("columnCountPortrait", settings.getPortraitColumnCountSetting());
+                settingsObject.put("columnCountLandscape", settings.getLandscapeColumnCountSetting());
 
                 rootObject.put("version", 1);
                 rootObject.put("settings", settingsObject);

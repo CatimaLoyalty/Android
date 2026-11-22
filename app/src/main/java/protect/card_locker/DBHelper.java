@@ -24,17 +24,20 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import protect.card_locker.contentprovider.CardsContentProvider;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 20;
+    public static final int DATABASE_VERSION = 21;
 
     // NB: changing these values requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
     public static final int DEFAULT_ZOOM_LEVEL_WIDTH = 100;
+
+    public static final String UUID_INDEX = "cards_uuid_index";
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
@@ -62,6 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String ZOOM_LEVEL = "zoomlevel";
         public static final String ZOOM_LEVEL_WIDTH = "zoomlevelwidth";
         public static final String ARCHIVE_STATUS = "archive";
+        public static final String UUID = "uuid";
     }
 
     public static class LoyaltyCardDbIdsGroups {
@@ -126,7 +130,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
                 LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL + "', " +
                 LoyaltyCardDbIds.ZOOM_LEVEL_WIDTH + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL_WIDTH + "', " +
-                LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
+                LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0', " +
+                LoyaltyCardDbIds.UUID + " TEXT)");
+        db.execSQL("CREATE UNIQUE INDEX " + UUID_INDEX + " ON " + LoyaltyCardDbIds.TABLE + "(" + LoyaltyCardDbIds.UUID + ")");
 
         // create associative table for cards in groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -499,6 +505,21 @@ public class DBHelper extends SQLiteOpenHelper {
             db.endTransaction();
         }
 
+        if (oldVersion < 21 && newVersion >= 21) {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.UUID + " TEXT");
+            Cursor cursor = db.rawQuery("SELECT " + LoyaltyCardDbIds.ID + " FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+
+            while (cursor.moveToNext()) {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(LoyaltyCardDbIds.ID));
+                ContentValues uuidValues = new ContentValues();
+                uuidValues.put(LoyaltyCardDbIds.UUID, generateUuid());
+                db.update(LoyaltyCardDbIds.TABLE, uuidValues, whereAttrs(LoyaltyCardDbIds.ID), withArgs(id));
+            }
+
+            cursor.close();
+            db.execSQL("CREATE UNIQUE INDEX " + UUID_INDEX + " ON " + LoyaltyCardDbIds.TABLE + "(" + LoyaltyCardDbIds.UUID + ")");
+        }
     }
 
     public static Set<String> imageFiles(Context context, final SQLiteDatabase database) {
@@ -581,6 +602,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        contentValues.put(LoyaltyCardDbIds.UUID, generateUuid());
         long id = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -620,6 +642,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        contentValues.put(LoyaltyCardDbIds.UUID, generateUuid());
         database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -690,6 +713,27 @@ public class DBHelper extends SQLiteOpenHelper {
     public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final Context context, final int id, final int starStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(id));
+        if (rowsUpdated == 1) {
+            notifyChange(database, context, CardsContentProvider.CARDS_URI);
+        }
+        return (rowsUpdated == 1);
+    }
+
+    private static String generateUuid() {
+        return UUID.randomUUID().toString();
+    }
+
+    public static boolean loyaltyCardUuidExists(SQLiteDatabase database, String uuid) {
+        return DatabaseUtils.queryNumEntries(database, LoyaltyCardDbIds.TABLE,
+                whereAttrs(LoyaltyCardDbIds.UUID), withArgs(uuid)) > 0;
+    }
+
+    public static boolean updateLoyaltyCardUuid(SQLiteDatabase database, final Context context, final int id, final String uuid) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.UUID, uuid);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));

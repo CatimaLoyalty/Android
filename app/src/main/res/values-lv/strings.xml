@@ -61,7 +61,7 @@
     <string name="settings_dark_theme">Tumša</string>
     <string name="settings_display_barcode_max_brightness">Izgaismot ekrānu</string>
     <string name="settings_keep_screen_on">Turēt ekrānu ieslēgtu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Neļaut ekrānam aizslēgties</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Attēlot virs ekrānslēga</string>
     <string name="intent_import_card_from_url_share_text">Es vēlos ar Tevi kopīgot karti</string>
     <string name="importSuccessful">Dati ievietoti</string>
     <string name="exportSuccessful">Dati izgūti</string>
@@ -261,8 +261,8 @@
     <string name="switchToFrontImage">Pārslēgties uz priekšpuses attēlu</string>
     <string name="show_validity">Rādīt derīgumu</string>
     <string name="app_name">Catima</string>
-    <string name="settings_keep_screen_on_summary">Atspējo ekrāna noildzi kartes skatīšanas laikā</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Atspējo ekrāna aizslēgšanu kartes skatīšanas laikā</string>
+    <string name="settings_keep_screen_on_summary">Paplašina ekrāna noildzi kartes apskatīšanas laikā</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Kartes apskatīšanas laikā apiet ekrānslēgu</string>
     <string name="useFrontImage">Izmantot priekšpuses attēlu</string>
     <string name="useBackImage">Izmantot aizmugures attēlu</string>
     <string name="settings_use_volume_keys_navigation">Pārslēgt kartes ar skaļuma pogām</string>
@@ -354,4 +354,5 @@
     </plurals>
     <string name="settings_wear_sync_no_devices">Nav atļautu ierīču</string>
     <string name="settings_wear_sync_devices_summary">Ierīču, kurām ir atļauts vienādot ar Bluetooth starpniecību, pārvaldīšana</string>
+    <string name="android_blocked_startup">Android liedza Wear OS pakalpojuma palaišanu</string>
 </resources>

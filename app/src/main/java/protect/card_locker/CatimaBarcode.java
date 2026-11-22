@@ -73,6 +73,26 @@ public class CatimaBarcode {
                 || mBarcodeFormat == BarcodeFormat.QR_CODE;
     }
 
+    public boolean isOneDimensional() {
+        switch (mBarcodeFormat) {
+            case CODABAR:
+            case CODE_39:
+            case CODE_93:
+            case CODE_128:
+            case EAN_8:
+            case EAN_13:
+            case ITF:
+            case UPC_A:
+            case UPC_E:
+            case RSS_14:
+            case RSS_EXPANDED:
+            case UPC_EAN_EXTENSION:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     public boolean hasInternalPadding() {
         return mBarcodeFormat == BarcodeFormat.PDF_417
                 || mBarcodeFormat == BarcodeFormat.QR_CODE;

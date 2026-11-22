@@ -44,6 +44,8 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     // squished, whereas 2D barcodes look fine.
     private static final int MAX_WIDTH_1D = 1500;
     private static final int MAX_WIDTH_2D = 500;
+    private static final int MIN_ASPECT_RATIO_1D = 3;
+    private static final int PREVIEW_VERTICAL_MARGIN_DP = 4;
 
     private final WeakReference<ImageView> imageViewReference;
     private final WeakReference<TextView> textViewReference;
@@ -81,7 +83,8 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         // Some barcodes already have internal whitespace and shouldn't get extra padding
         // TODO: Get rid of this hack by somehow detecting this extra whitespace
         if (roundCornerPadding && !barcodeFormat.hasInternalPadding()) {
-            imagePadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
+            int paddingDp = format.isOneDimensional() && !isFullscreen ? PREVIEW_VERTICAL_MARGIN_DP : 10;
+            imagePadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, paddingDp, context.getResources().getDisplayMetrics()));
         } else {
             imagePadding = 0;
         }
@@ -95,6 +98,12 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         }
 
         final int MAX_WIDTH = getMaxWidth(format);
+
+        // A tall preview must not stretch linear bars to fill all available space.
+        // Fullscreen keeps the height chosen by the user's independent zoom controls.
+        if (format.isOneDimensional() && !isFullscreen) {
+            imageViewHeight = Math.min(imageViewHeight, Math.max(1, imageViewWidth / MIN_ASPECT_RATIO_1D));
+        }
 
         if (format.isSquare()) {
             imageHeight = imageWidth = Math.min(imageViewHeight, Math.min(MAX_WIDTH, imageViewWidth));

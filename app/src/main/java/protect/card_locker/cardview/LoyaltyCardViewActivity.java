@@ -706,6 +706,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void renderCurrentMainImage(boolean waitForResize) {
+        boolean showingBarcode = cardNavigator.getCurrent() == LoyaltyCardImageType.BARCODE;
+        ViewGroup.LayoutParams cardLayoutParams = binding.mainCardView.getLayoutParams();
+        cardLayoutParams.height = showingBarcode
+                ? ViewGroup.LayoutParams.WRAP_CONTENT
+                : ViewGroup.LayoutParams.MATCH_PARENT;
+        binding.mainCardView.setLayoutParams(cardLayoutParams);
+
         mainImageRenderer.renderCurrent(
                 cardNavigator.getCurrent(),
                 frontImageBitmap,

@@ -30,11 +30,15 @@ public class MultiFormatImporter {
      * the database.
      */
     public static ImportExportResult importData(Context context, SQLiteDatabase database, InputStream input, DataFormat format, char[] password) {
+        return importData(context, database, input, format, password, true);
+    }
+
+    public static ImportExportResult importData(Context context, SQLiteDatabase database, InputStream input, DataFormat format, char[] password, boolean importSettings) {
         Importer importer = null;
 
         switch (format) {
             case Catima:
-                importer = new CatimaImporter();
+                importer = new CatimaImporter(importSettings);
                 break;
             case Fidme:
                 importer = new FidmeImporter();

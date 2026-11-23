@@ -116,4 +116,32 @@ public class Settings {
     public boolean getWearSyncEnabled() {
         return getBoolean(R.string.settings_key_wear_sync, false);
     }
+
+    public String getThemeSetting(){
+        return getString(
+            R.string.settings_key_theme,
+            getResString(R.string.settings_key_system_theme)
+        );
+    }
+
+    public String getLocaleSetting(){
+        return getString(
+            R.string.settings_key_locale,
+            ""
+        );
+    }
+
+    public String getPortraitColumnCountSetting(){
+        return getString(
+            R.string.setting_key_column_count_portrait,
+            getResString(R.string.settings_key_automatic_column_count)
+        );
+    }
+
+    public String getLandscapeColumnCountSetting(){
+        return getString(
+            R.string.setting_key_column_count_landscape,
+            getResString(R.string.settings_key_automatic_column_count)
+        );
+    }
 }

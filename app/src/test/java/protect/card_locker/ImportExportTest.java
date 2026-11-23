@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
@@ -14,6 +15,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Environment;
 import android.os.Looper;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -25,6 +29,8 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowLooper;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -51,6 +57,9 @@ import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
+
+import net.lingala.zip4j.io.inputstream.ZipInputStream;
+import net.lingala.zip4j.model.LocalFileHeader;
 
 @RunWith(RobolectricTestRunner.class)
 public class ImportExportTest {
@@ -87,6 +96,43 @@ public class ImportExportTest {
             assertTrue(result);
         }
         assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
+    }
+
+    private boolean zipContainsEntry(byte[] zipData, String expectedFileName) throws IOException{
+        try(ZipInputStream zipInputStream = new ZipInputStream(new ByteArrayInputStream(zipData))){
+
+            LocalFileHeader header;
+
+            while((header = zipInputStream.getNextEntry()) != null){
+                if(expectedFileName.equals(header.getFileName())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private String readZipEntry(byte[] zipData, String expectedFileName) throws IOException {
+        try (ZipInputStream zipInputStream = new ZipInputStream(new ByteArrayInputStream(zipData))){
+
+            LocalFileHeader header;
+
+            while((header = zipInputStream.getNextEntry()) != null){
+                if(expectedFileName.equals(header.getFileName())){
+                    ByteArrayOutputStream entryData = new ByteArrayOutputStream();
+
+                    byte[] buffer = new byte[1024];
+                    int length;
+
+                    while((length = zipInputStream.read(buffer)) != -1){
+                        entryData.write(buffer, 0, length);
+                    }
+
+                    return entryData.toString(StandardCharsets.UTF_8.name());
+                }
+            }
+        }
+        return null;
     }
 
     @Test
@@ -321,7 +367,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -351,7 +397,7 @@ public class ImportExportTest {
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, password);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, password, false);
             assertEquals(ImportExportResultType.Success, result.resultType());
             outStream.close();
 
@@ -383,7 +429,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -454,7 +500,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -497,7 +543,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -525,7 +571,7 @@ public class ImportExportTest {
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
         assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
@@ -560,7 +606,7 @@ public class ImportExportTest {
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null, false);
             assertEquals(ImportExportResultType.Success, result.resultType());
 
             TestHelpers.getEmptyDb(activity);
@@ -606,7 +652,7 @@ public class ImportExportTest {
         // Export to the file
         final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), listener);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), false, listener);
         TaskHandler mTasks = new TaskHandler();
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, task);
 
@@ -864,7 +910,7 @@ public class ImportExportTest {
 
         // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outputStream, DataFormat.Catima, null);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outputStream, DataFormat.Catima, null, false);
 
         // Wipe database
         TestHelpers.getEmptyDb(activity);
@@ -1207,5 +1253,593 @@ public class ImportExportTest {
         assertEquals(0, card.starStatus);
 
         TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void exportWithoutSettingsDoesNotIncludeSettingsFile() throws IOException{
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            false
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertFalse(zipContainsEntry(outData.toByteArray(), "settings.json"));
+    }
+
+    @Test
+    public void exportWithoutSettingsIncludeSettingsFile() throws IOException{
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertTrue(zipContainsEntry(outData.toByteArray(), "settings.json"));
+    }
+
+    @Test
+    public void exportSettingsContainsKeepScreenOn() throws IOException, JSONException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        preferences.edit()
+        .putBoolean(activity.getString(R.string.settings_key_keep_screen_on), false)
+        .putBoolean(activity.getString(R.string.settings_key_oled_dark), true)
+        .putBoolean(activity.getString(R.string.settings_key_use_volume_keys_navigation), true)
+        .putBoolean(activity.getString(R.string.settings_key_display_barcode_max_brightness), false)
+        .putBoolean(activity.getString(R.string.settings_key_disable_lockscreen_while_viewing_card), false)
+        .putBoolean(activity.getString(R.string.settings_key_disable_nfc_while_viewing_card), false).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        String settingsJson = readZipEntry(outData.toByteArray(), "settings.json");
+        assertNotNull(settingsJson);
+
+        JSONObject root = new JSONObject(settingsJson);
+        assertEquals(1, root.getInt("version"));
+
+        JSONObject settings = root.getJSONObject("settings");
+        assertFalse(settings.getBoolean("keepScreenOn"));
+        assertTrue(settings.getBoolean("oledDark"));
+        assertTrue(settings.getBoolean("useVolumeKeysNavigation"));
+        assertFalse(settings.getBoolean("displayBarcodeMaxBrightness"));
+        assertFalse(settings.getBoolean("disableLockscreenWhileViewingCard"));
+        assertFalse(settings.getBoolean("disableNfcWhileViewingCard"));
+    }
+
+    @Test
+    public void exportWithSettingsCanBeImported() throws IOException {
+        TestHelpers.addLoyaltyCards(activity, mDatabase, 1);
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(ImportExportResultType.Success, exportResult.resultType());
+        
+        TestHelpers.getEmptyDb(activity);
+        
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
+    }
+
+    @Test
+    public void importSettingsRestoresKeepScreenOn() throws IOException{
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String keepScreenOnKey = activity.getString(R.string.settings_key_keep_screen_on);
+
+        // Value to backup
+        preferences.edit().putBoolean(keepScreenOnKey, false).commit();
+
+        // Export settings include
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            exportResult.resultType()
+        );
+
+        // setting change
+        preferences.edit().putBoolean(keepScreenOnKey, true).commit();
+
+        assertTrue(
+            preferences.getBoolean(keepScreenOnKey, true)
+        );
+
+        // import old settings (true (new) -> flase (old to import))
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        // import should restore the false value
+        assertFalse(
+            preferences.getBoolean(keepScreenOnKey, true)
+        );
+    }
+
+    @Test
+    public void importSettingsRestoresAll() throws IOException{
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        // Value to backup
+        preferences.edit()
+            .putBoolean(activity.getString(R.string.settings_key_keep_screen_on), false)
+            .putBoolean(activity.getString(R.string.settings_key_oled_dark), true)
+            .putBoolean(activity.getString(R.string.settings_key_use_volume_keys_navigation), true)
+            .putBoolean(activity.getString(R.string.settings_key_display_barcode_max_brightness), false)
+            .putBoolean(activity.getString(R.string.settings_key_disable_lockscreen_while_viewing_card), false)
+            .putBoolean(activity.getString(R.string.settings_key_disable_nfc_while_viewing_card), false)
+            .commit();
+
+        // Export settings include
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            exportResult.resultType()
+        );
+
+        // setting change
+        preferences.edit()
+            .putBoolean(activity.getString(R.string.settings_key_keep_screen_on), true)
+            .putBoolean(activity.getString(R.string.settings_key_oled_dark), false)
+            .putBoolean(activity.getString(R.string.settings_key_use_volume_keys_navigation), false)
+            .putBoolean(activity.getString(R.string.settings_key_display_barcode_max_brightness), true)
+            .putBoolean(activity.getString(R.string.settings_key_disable_lockscreen_while_viewing_card), true)
+            .putBoolean(activity.getString(R.string.settings_key_disable_nfc_while_viewing_card), true)
+            .commit();
+
+        // import old settings (true (new) -> flase (old to import))
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        // import should restore the false value
+        assertFalse(
+            preferences.getBoolean(activity.getString(R.string.settings_key_keep_screen_on), true)
+        );
+
+        assertTrue(
+            preferences.getBoolean(activity.getString(R.string.settings_key_oled_dark), false)
+        );
+
+        assertTrue(
+            preferences.getBoolean(activity.getString(R.string.settings_key_use_volume_keys_navigation), false)
+        );
+
+        assertFalse(
+            preferences.getBoolean(activity.getString(R.string.settings_key_display_barcode_max_brightness), true)
+        );
+
+        assertFalse(
+            preferences.getBoolean(activity.getString(R.string.settings_key_disable_lockscreen_while_viewing_card), true)
+        );
+
+        assertFalse(
+            preferences.getBoolean(activity.getString(R.string.settings_key_disable_nfc_while_viewing_card), true)
+        );
+    }
+
+    @Test
+    public void exportSettingsContainsTheme() throws IOException, JSONException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String themeKey = activity.getString(R.string.settings_key_theme);
+        String darkTheme = activity.getString(R.string.settings_key_dark_theme);
+
+        // set to dark before export
+        preferences.edit().putString(themeKey, darkTheme).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            result.resultType()
+        );
+
+        String settingsJson = readZipEntry(outData.toByteArray(), "settings.json");
+
+        assertNotNull(settingsJson);
+
+        JSONObject root = new JSONObject(settingsJson);
+        JSONObject settings = root.getJSONObject("settings");
+
+        assertEquals(
+            darkTheme,
+            settings.getString("theme")
+        );
+    }
+
+    @Test
+    public void importSettingsRestoresTheme() throws IOException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String themeKey = activity.getString(R.string.settings_key_theme);
+        String darkTheme = activity.getString(R.string.settings_key_dark_theme);
+        String lightTheme = activity.getString(R.string.settings_key_light_theme);
+
+        // value to back up
+        preferences.edit().putString(themeKey, darkTheme).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            exportResult.resultType()
+        );
+
+        // change of theme
+        preferences.edit().putString(themeKey, lightTheme).commit();
+
+        assertEquals(
+            lightTheme,
+            preferences.getString(themeKey, null)
+        );
+
+        // importing backup
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        // theme should be restored to dark theme
+        assertEquals(
+            darkTheme,
+            preferences.getString(themeKey, null)
+        );
+    }
+
+    @Test
+    public void exportSettingsContainsLocale() throws IOException, JSONException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String localeKey = activity.getString(R.string.settings_key_locale);
+
+        preferences.edit().putString(localeKey, "sk").commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            result.resultType()
+        );
+
+        String settingsJson = readZipEntry(outData.toByteArray(), "settings.json");
+        assertNotNull(settingsJson);
+
+        JSONObject root = new JSONObject(settingsJson);
+        JSONObject settings = root.getJSONObject("settings");
+
+        assertEquals(
+            "sk",
+            settings.getString("locale")
+        );
+    }
+
+    @Test
+    public void importSettingsRestoresLocale() throws IOException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String localeKey = activity.getString(R.string.settings_key_locale);
+
+        //value to export
+        preferences.edit().putString(localeKey, "sk").commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            result.resultType()
+        );
+
+        //locale change
+        preferences.edit().putString(localeKey, "en").commit();
+
+        assertEquals(
+            "en",
+            preferences.getString(localeKey, null)
+        );
+
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        //locale should restore
+        assertEquals(
+            "sk",
+            preferences.getString(localeKey, null)
+        );
+    }
+
+    @Test
+    public void exportSettingsContainColumnCounts() throws IOException, JSONException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String portraitKey = activity.getString(R.string.setting_key_column_count_portrait);
+        String landscapeKey = activity.getString(R.string.setting_key_column_count_landscape);
+
+        preferences.edit().putString(portraitKey, "2").putString(landscapeKey, "4").commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+        
+        assertEquals(
+            ImportExportResultType.Success,
+            result.resultType()
+        );
+
+        String settingsJson = readZipEntry(outData.toByteArray(), "settings.json");
+
+        assertNotNull(settingsJson);
+
+        JSONObject root = new JSONObject(settingsJson);
+        JSONObject settings = root.getJSONObject("settings");
+
+        assertEquals(
+            "2",
+            settings.getString("columnCountPortrait")
+        );
+
+        assertEquals(
+            "4",
+            settings.getString("columnCountLandscape")
+        );
+    }
+
+    @Test
+    public void importSettingsRestoreColumnCounts() throws IOException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String portraitKey = activity.getString(R.string.setting_key_column_count_portrait);
+        String landscapeKey = activity.getString(R.string.setting_key_column_count_landscape);
+
+        //to backup
+        preferences.edit().putString(portraitKey, "2").putString(landscapeKey, "4").commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        ImportExportResult result = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+        
+        assertEquals(
+            ImportExportResultType.Success,
+            result.resultType()
+        );
+
+        //do a change
+        preferences.edit().putString(portraitKey, "1").putString(landscapeKey, "3").commit();
+
+        assertEquals(
+            "1",
+            preferences.getString(portraitKey, null)
+        );
+
+        assertEquals(
+            "3",
+            preferences.getString(landscapeKey, null)
+        );
+
+        //importbackup
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        assertEquals(
+            "2",
+            preferences.getString(portraitKey, null)
+        );
+
+        assertEquals(
+            "4",
+            preferences.getString(landscapeKey, null)
+        );
+    }
+
+    @Test
+    public void importSettingsCanBeSkipped() throws IOException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String keepScreenOnKey = activity.getString(R.string.settings_key_keep_screen_on);
+
+        // backed up value
+        preferences.edit().putBoolean(keepScreenOnKey, false).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            exportResult.resultType()
+        );
+
+        // change of value
+        preferences.edit().putBoolean(keepScreenOnKey, true).commit();
+
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null,
+            false
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        assertTrue(
+            preferences.getBoolean(keepScreenOnKey, false)
+        );
     }
 }

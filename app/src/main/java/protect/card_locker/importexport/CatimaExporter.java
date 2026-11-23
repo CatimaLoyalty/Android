@@ -13,6 +13,9 @@ import net.lingala.zip4j.util.InternalZipConstants;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -26,13 +29,14 @@ import protect.card_locker.Group;
 import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
+import protect.card_locker.preferences.Settings;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
  * format.
  */
 public class CatimaExporter implements Exporter {
-    public void exportData(Context context, SQLiteDatabase database, OutputStream output, char[] password) throws IOException, InterruptedException {
+    public void exportData(Context context, SQLiteDatabase database, OutputStream output, char[] password, boolean includeSettings) throws IOException, InterruptedException {
         // Necessary vars
         int readLen;
         byte[] readBuffer = new byte[InternalZipConstants.BUFF_SIZE];
@@ -59,6 +63,46 @@ public class CatimaExporter implements Exporter {
             zipOutputStream.write(readBuffer, 0, readLen);
         }
         zipOutputStream.closeEntry();
+
+        // Add settings.json to zip file
+        if (includeSettings) {
+            Settings settings = new Settings(context);
+
+            JSONObject settingsObject = new JSONObject();
+            JSONObject rootObject = new JSONObject();
+
+            try{
+                //exporting boolean stuff
+                settingsObject.put("keepScreenOn", settings.getKeepScreenOn());
+                settingsObject.put("oledDark", settings.getOledDark());
+                settingsObject.put("useVolumeKeysNavigation", settings.useVolumeKeysForNavigation());
+                settingsObject.put("displayBarcodeMaxBrightness", settings.useMaxBrightnessDisplayingBarcode());
+                settingsObject.put("disableLockscreenWhileViewingCard", settings.getDisableLockscreenWhileViewingCard());
+                settingsObject.put("disableNfcWhileViewingCard", settings.getDisableNfcWhileViewingCard());
+                
+                //exporting string value stuff
+                settingsObject.put("theme", settings.getThemeSetting());
+                settingsObject.put("locale", settings.getLocaleSetting());
+                settingsObject.put("columnCountPortrait", settings.getPortraitColumnCountSetting());
+                settingsObject.put("columnCountLandscape", settings.getLandscapeColumnCountSetting());
+
+                rootObject.put("version", 1);
+                rootObject.put("settings", settingsObject);
+
+            } catch(JSONException e){
+                throw new IOException("Failed to create settings JSON", e);
+            }
+
+            String settingsJson = rootObject.toString();
+
+            ZipParameters settingsZipParameters = createZipParameters("settings.json", password);
+            zipOutputStream.putNextEntry(settingsZipParameters);
+
+            byte[] settingsBytes = settingsJson.getBytes(StandardCharsets.UTF_8);
+
+            zipOutputStream.write(settingsBytes);
+            zipOutputStream.closeEntry();
+        }
 
         // Loop over all cards again
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(database);

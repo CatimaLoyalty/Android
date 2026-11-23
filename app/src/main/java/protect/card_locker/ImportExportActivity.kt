@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import protect.card_locker.async.TaskHandler
@@ -24,6 +25,7 @@ import protect.card_locker.databinding.ImportExportActivityBinding
 import protect.card_locker.importexport.DataFormat
 import protect.card_locker.importexport.ImportExportResult
 import protect.card_locker.importexport.ImportExportResultType
+import protect.card_locker.preferences.Settings
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
@@ -407,6 +409,10 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         if (resultType == ImportExportResultType.BadPassword) {
             retryWithPassword(dataFormat!!, path)
             return
+        }
+
+        if (resultType == ImportExportResultType.Success && importSettings) {
+            AppCompatDelegate.setDefaultNightMode(Settings(this).theme)
         }
 
         val builder = MaterialAlertDialogBuilder(this)

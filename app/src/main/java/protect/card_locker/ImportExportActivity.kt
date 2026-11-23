@@ -40,7 +40,8 @@ class ImportExportActivity : CatimaAppCompatActivity() {
     private var importAlertMessage: String? = null
     private var importDataFormat: DataFormat? = null
     private var exportPassword: String? = null
-    private var exportIncludeSettings: Boolean = false
+    private var importSettings: Boolean = true
+    private var shouldAskImportSettings: Boolean = false
 
     private lateinit var fileCreateLauncher: ActivityResultLauncher<Intent>
     private lateinit var fileOpenLauncher: ActivityResultLauncher<String>
@@ -90,7 +91,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
                     try {
                         val writer = contentResolver.openOutputStream(uri)
                         Log.d(TAG, "Starting file export with: $result")
-                        startExport(writer, uri, exportPassword?.toCharArray(), exportIncludeSettings, true)
+                        startExport(writer, uri, exportPassword?.toCharArray(), true, true)
                     } catch (e: IOException) {
                         Log.e(TAG, "Failed to export file: $result", e)
                         onExportComplete(
@@ -109,7 +110,11 @@ class ImportExportActivity : CatimaAppCompatActivity() {
                     Log.e(TAG, "Activity returned NULL data")
                     return@registerForActivityResult
                 }
-                openFileForImport(result, null)
+                if (shouldAskImportSettings) {
+                    askImportSettings(result, null)
+                } else {
+                    openFileForImport(result, null)
+                }
             }
 
         // Check that there is a file manager available
@@ -146,7 +151,6 @@ class ImportExportActivity : CatimaAppCompatActivity() {
             builder.setView(container)
             builder.setPositiveButton(R.string.ok) { _, _ ->
                 exportPassword = input.text.toString()
-                exportIncludeSettings = binding.includeSettingsCheckbox.isChecked
                 try {
                     fileCreateLauncher.launch(intentCreateDocumentAction)
                 } catch (e: ActivityNotFoundException) {
@@ -171,14 +175,14 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
-    private fun openFileForImport(uri: Uri, password: CharArray?) {
+    private fun openFileForImport(uri: Uri, password: CharArray?, importSettings: Boolean = true) {
         // Running this in a thread prevents Android from throwing a NetworkOnMainThreadException for large files
         // FIXME: This is still suboptimal, because showing that the import started is delayed until the network request finishes
         Thread {
             try {
                 val reader = contentResolver.openInputStream(uri)
                 Log.d(TAG, "Starting file import with: $uri")
-                startImport(reader, uri, importDataFormat, password, true)
+                startImport(reader, uri, importDataFormat, password, importSettings, true)
             } catch (e: IOException) {
                 Log.e(TAG, "Failed to import file: $uri", e)
                 onImportComplete(
@@ -213,31 +217,39 @@ class ImportExportActivity : CatimaAppCompatActivity() {
                         importAlertTitle = getString(R.string.importCatima)
                         importAlertMessage = getString(R.string.importCatimaMessage)
                         importDataFormat = DataFormat.Catima
+                        shouldAskImportSettings = true
                     }
                     // Fidme
                     1 -> {
                         importAlertTitle = getString(R.string.importFidme)
                         importAlertMessage = getString(R.string.importFidmeMessage)
                         importDataFormat = DataFormat.Fidme
+                        shouldAskImportSettings = false
                     }
                     // Loyalty Card Keychain
                     2 -> {
                         importAlertTitle = getString(R.string.importLoyaltyCardKeychain)
                         importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage)
                         importDataFormat = DataFormat.Catima
+                        shouldAskImportSettings = false
                     }
                     // Voucher Vault
                     3 -> {
                         importAlertTitle = getString(R.string.importVoucherVault)
                         importAlertMessage = getString(R.string.importVoucherVaultMessage)
                         importDataFormat = DataFormat.VoucherVault
+                        shouldAskImportSettings = false
                     }
 
                     else -> throw IllegalArgumentException("Unknown DataFormat")
                 }
 
                 if (fileData != null) {
-                    openFileForImport(fileData, null)
+                    if (shouldAskImportSettings){
+                        askImportSettings(fileData, null)
+                    }else{
+                        openFileForImport(fileData, null)
+                    }
                     return@setItems
                 }
 
@@ -267,6 +279,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         targetUri: Uri,
         dataFormat: DataFormat?,
         password: CharArray?,
+        importSettings: Boolean,
         closeWhenDone: Boolean
     ) {
         mTasks.flushTaskList(TaskHandler.TYPE.IMPORT, true, false, false)
@@ -283,7 +296,11 @@ class ImportExportActivity : CatimaAppCompatActivity() {
 
         importExporter = ImportExportTask(
             this@ImportExportActivity,
-            dataFormat, target, password, listener
+            dataFormat,
+            target,
+            password,
+            importSettings,
+            listener
         )
         mTasks.executeTask(TaskHandler.TYPE.IMPORT, importExporter)
     }
@@ -359,7 +376,7 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         builder.setView(container)
 
         builder.setPositiveButton(R.string.ok) { _, _ ->
-            openFileForImport(uri, input.text.toString().toCharArray())
+            openFileForImport(uri, input.text.toString().toCharArray(), importSettings)
         }
         builder.setNegativeButton(R.string.cancel) { dialogInterface, _ -> dialogInterface.cancel() }
 
@@ -425,5 +442,23 @@ class ImportExportActivity : CatimaAppCompatActivity() {
         }
 
         builder.create().show()
+    }
+
+    private fun askImportSettings(
+        uri: Uri,
+        password: CharArray?
+    ){
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.importSettingsTitle)
+            .setMessage(R.string.importSettingsMessage)
+            .setPositiveButton(R.string.yes) {_, _ ->
+                importSettings = true
+                openFileForImport(uri, password, true)
+            }
+            .setNegativeButton(R.string.no) {_, _ -> 
+                importSettings = false
+                openFileForImport(uri, password, false)
+            }
+            .show()
     }
 }

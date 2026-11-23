@@ -37,6 +37,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private char[] password;
     private TaskCompleteListener listener;
     private boolean includeSettings;
+    private boolean importSettings = true;
 
     private AlertDialog progress;
 
@@ -60,17 +61,30 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
      */
     ImportExportTask(Activity activity, DataFormat format, InputStream input, char[] password,
                      TaskCompleteListener listener) {
+        this(
+            activity,
+            format,
+            input,
+            password,
+            true,
+            listener
+        );
+    }
+
+    ImportExportTask(Activity activity, DataFormat format, InputStream input, char[] password,
+                     boolean importSettings, TaskCompleteListener listener) {
         super();
         this.activity = activity;
         this.doImport = true;
         this.format = format;
         this.inputStream = input;
         this.password = password;
+        this.importSettings = importSettings;
         this.listener = listener;
     }
 
     private ImportExportResult performImport(Context context, InputStream stream, SQLiteDatabase database, char[] password) {
-        ImportExportResult importResult = MultiFormatImporter.importData(context, database, stream, format, password);
+        ImportExportResult importResult = MultiFormatImporter.importData(context, database, stream, format, password, importSettings);
 
         Log.i(TAG, "Import result: " + importResult);
 

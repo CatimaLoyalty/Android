@@ -1793,4 +1793,53 @@ public class ImportExportTest {
             preferences.getString(landscapeKey, null)
         );
     }
+
+    @Test
+    public void importSettingsCanBeSkipped() throws IOException {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String keepScreenOnKey = activity.getString(R.string.settings_key_keep_screen_on);
+
+        // backed up value
+        preferences.edit().putBoolean(keepScreenOnKey, false).commit();
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+
+        ImportExportResult exportResult = MultiFormatExporter.exportData(
+            activity.getApplicationContext(),
+            mDatabase,
+            outData,
+            DataFormat.Catima,
+            null,
+            true
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            exportResult.resultType()
+        );
+
+        // change of value
+        preferences.edit().putBoolean(keepScreenOnKey, true).commit();
+
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        ImportExportResult importResult = MultiFormatImporter.importData(
+            activity.getApplicationContext(),
+            mDatabase,
+            inData,
+            DataFormat.Catima,
+            null,
+            false
+        );
+
+        assertEquals(
+            ImportExportResultType.Success,
+            importResult.resultType()
+        );
+
+        assertTrue(
+            preferences.getBoolean(keepScreenOnKey, false)
+        );
+    }
 }

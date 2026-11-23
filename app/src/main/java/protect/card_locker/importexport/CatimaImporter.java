@@ -56,6 +56,16 @@ import org.json.JSONObject;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
+    private final boolean shouldImportSettings;
+
+    public CatimaImporter() {
+        this(true);
+    }
+
+    public CatimaImporter(boolean shouldImportSettings){
+        this.shouldImportSettings = shouldImportSettings;
+    }
+    
     public static class ImportedData {
         public final List<LoyaltyCard> cards;
         public final List<String> groups;
@@ -90,12 +100,15 @@ public class CatimaImporter implements Importer {
                 importedData = importCSV(zipInputStream1);
             
             } else if (fileName.equals("settings.json")){
-                try{
-                    importedSettings = ZipUtils.readJSON(zipInputStream1);
-                } catch (JSONException e) {
-                    throw new FormatException("Invalid settings.json", e);
+                if(shouldImportSettings){
+                    try{
+                        importedSettings = ZipUtils.readJSON(zipInputStream1);
+                    } catch (JSONException e) {
+                        throw new FormatException("Invalid settings.json", e);
+                    }   
+                } else {
+                    ZipUtils.read(zipInputStream1);
                 }
-            
             } else if (fileName.endsWith(".png")) {
                 if (!fileName.matches(Utils.CARD_IMAGE_FILENAME_REGEX)) {
                     throw new FormatException("Unexpected PNG file in import: " + fileName);

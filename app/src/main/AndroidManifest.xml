@@ -47,6 +47,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="${applicationId}.listwidget.ACTION_WIDGET_ITEM_CLICK" />
             </intent-filter>
 
             <meta-data

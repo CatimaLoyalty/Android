@@ -1332,7 +1332,7 @@ public class ImportExportTest {
 
     @Test
     public void exportWithSettingsCanBeImported() throws IOException {
-        TestHelpers.addLoyaltyCards(mDatabase, 1);
+        TestHelpers.addLoyaltyCards(activity, mDatabase, 1);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
 

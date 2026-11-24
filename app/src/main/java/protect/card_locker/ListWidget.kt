@@ -6,10 +6,12 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.Icon
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.RemoteViews
@@ -18,8 +20,8 @@ import protect.card_locker.DBHelper.LoyaltyCardArchiveFilter
 import protect.card_locker.cardview.LoyaltyCardViewActivity
 import protect.card_locker.shared.ForegroundColorHelper
 import androidx.core.graphics.scale
-import kotlin.math.ceil
-import kotlin.math.max
+
+private const val TAG = "catima.listwidget"
 
 private const val FALLBACK_MAX_BYTES = 15_000_000L
 private const val ITEM_CLICK = "listwidget.ACTION_WIDGET_ITEM_CLICK"
@@ -93,6 +95,7 @@ class ListWidget : AppWidgetProvider() {
             )
 
             // Loop over cards to get count for scaling the bitmaps
+            // We may need to scale the bitmaps to stay within the max memory size limitations added in Android 17
             // Add at most 26 cards and mark if we have more. If we have more, add a fake "Show more" card
             // This amount is chosen because a fullscreen widget on the Fairphone 6 would fit 27 cards (26 cards + 1 fake one) at most
             val loyaltyCards = mutableListOf<LoyaltyCard>()
@@ -169,6 +172,35 @@ class ListWidget : AppWidgetProvider() {
         }
     }
 
+    private fun tryMakeBitmapFit(bitmap: Bitmap?, maxBitmapSize: Long): Bitmap? {
+        if (bitmap == null) {
+            return null
+        }
+
+        if (bitmap.allocationByteCount <= maxBitmapSize) {
+            return bitmap;
+        }
+
+        // To calculate the size needed, we figure out how many bytes we currently use compared to how much we are allowed to use
+        // Then, we add a 10% margin to be safe
+        // The .toDouble() cast is to prevent Kotlin from rounding this to a full digit (for example: 1.03 -> 1)
+        val scaleNeeded = (bitmap.allocationByteCount.toDouble() / maxBitmapSize) * 1.1
+
+        val newWidth = (bitmap.width / scaleNeeded).toInt()
+        val newHeight = (bitmap.height / scaleNeeded).toInt()
+
+        if (newWidth <= 0 || newHeight <= 0) {
+            Log.w(TAG, "Tried to resize bitmap to impossibly small size to fit, returning nothing")
+            return null
+        }
+
+        val output = bitmap.scale(newWidth, newHeight)
+
+        Log.d(TAG, "Resized ${bitmap.width}x${bitmap.height} bitmap of ${bitmap.allocationByteCount} by $scaleNeeded to fit within ${maxBitmapSize}, ended up with ${output.width}x${output.height} bitmap of ${output.allocationByteCount}")
+
+        return output
+    }
+
     private fun createRemoteViews(context: Context, loyaltyCard: LoyaltyCard, maxBitmapSize: Long, isRealCard: Boolean): RemoteViews {
         // Create a single cell for the grid view, bind it to open in the LoyaltyCardViewActivity
         // Note: Android 5 will not use bitmaps
@@ -176,20 +208,9 @@ class ListWidget : AppWidgetProvider() {
             val headerColor = Utils.getHeaderColor(context, loyaltyCard)
             val foreground = if (ForegroundColorHelper.needsDarkForeground(headerColor)) Color.BLACK else Color.WHITE
             setInt(R.id.item_container_foreground, "setBackgroundColor", headerColor)
-            var icon = loyaltyCard.getImageThumbnail(context)
+            val icon = tryMakeBitmapFit(loyaltyCard.getImageThumbnail(context), maxBitmapSize)
             // FIXME: The icon flow causes a crash up to Android 12L, so force anything below 33 down this path
             if (icon != null && Build.VERSION.SDK_INT >= 32) {
-                // Ensure image does not go over max size
-                while (icon!!.allocationByteCount > maxBitmapSize) {
-                    // Hardcode a minimum of 1.1 scale, to prevent exact 1.0 scale from causing an infinite loop if the numbers are too close
-                    val scaleNeeded = max(1.1, ceil((icon.allocationByteCount / maxBitmapSize).toDouble()))
-
-                    icon = icon.scale(
-                        (icon.width / scaleNeeded).toInt(),
-                        (icon.height / scaleNeeded).toInt()
-                    )
-                }
-
                 setInt(R.id.item_container_foreground, "setBackgroundColor", foreground)
                 setImageViewIcon(R.id.item_image, Icon.createWithBitmap(icon))
                 setViewVisibility(R.id.item_text, View.INVISIBLE)

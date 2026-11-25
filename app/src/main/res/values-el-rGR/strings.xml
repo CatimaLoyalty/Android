@@ -347,4 +347,5 @@
     <string name="wear_bt_failed_foreground_notification_title">Αποτυχία εκκίνησης της υπηρεσίας συγχρονισμού Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Σοβαρό σφάλμα συγχρονισμού Wear OS</string>
     <string name="android_blocked_startup">Το Android απέκλεισε την εκκίνηση της υπηρεσίας Wear OS</string>
+    <string name="view_more">Εμφάνιση περισσότερων</string>
 </resources>

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (Android) - 1010
+## v2.46.0 (Android) - 1010 (2026-11-25)
 
 - Fix crash in list widget for some Android 17 users
 

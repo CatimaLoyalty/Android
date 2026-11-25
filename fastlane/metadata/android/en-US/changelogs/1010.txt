@@ -1,0 +1,1 @@
+- Fix crash in list widget for some Android 17 users

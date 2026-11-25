@@ -339,4 +339,5 @@
     <string name="zoomFrontImage">전면 사진 확대</string>
     <string name="zoomBackImage">후면 사진 확대</string>
     <string name="android_blocked_startup">Android에서 Wear OS 서비스 시작을 차단함</string>
+    <string name="view_more">자세히 보기</string>
 </resources>

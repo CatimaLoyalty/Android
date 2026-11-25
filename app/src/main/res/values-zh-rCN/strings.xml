@@ -339,4 +339,5 @@
     <string name="wear_bt_failed_foreground_notification_title">未能启动 Wear OS 同步服务</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS 同步严重错误</string>
     <string name="android_blocked_startup">Android 阻止了启动 Wear OS 服务</string>
+    <string name="view_more">查看更多</string>
 </resources>

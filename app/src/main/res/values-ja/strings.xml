@@ -338,4 +338,5 @@
     <string name="wear_bt_failed_foreground_notification_title">Wear OSとの同期サービスの開始が失敗しました</string>
     <string name="wear_bt_critical_error_channel_name">Wear OS 同期の深刻なエラー</string>
     <string name="android_blocked_startup">AndroidがWear OSサービスの開始を妨げています</string>
+    <string name="view_more">さらに表示</string>
 </resources>

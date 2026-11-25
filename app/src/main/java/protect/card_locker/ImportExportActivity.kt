@@ -179,12 +179,14 @@ class ImportExportActivity : CatimaAppCompatActivity() {
                 startImport(reader, uri, importDataFormat, password, true)
             } catch (e: IOException) {
                 Log.e(TAG, "Failed to import file: $uri", e)
-                onImportComplete(
-                    ImportExportResult(
-                        ImportExportResultType.GenericFailure,
-                        e.toString()
-                    ), uri, importDataFormat
-                )
+                runOnUiThread {
+                    onImportComplete(
+                        ImportExportResult(
+                            ImportExportResultType.GenericFailure,
+                            e.toString()
+                        ), uri, importDataFormat
+                    )
+                }
             }
         }.start()
     }

@@ -164,8 +164,6 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
 
                                 DBHelper.deleteLoyaltyCard(mDatabase, this@MainActivity, loyaltyCard.id)
                             }
-                            val tab = groupsTabLayout.getTabAt(selectedTab)
-                            mGroup = tab?.tag
 
                             updateLoyaltyCardList(true)
                             dialog.dismiss()
@@ -576,6 +574,7 @@ class MainActivity : CatimaAppCompatActivity(), CardAdapterListener {
         }
     }
 
+    @Suppress("ThreadConstraint")
     private fun extractIntentFields(intent: Intent) {
         onSharedIntent(intent)
     }

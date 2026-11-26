@@ -1,0 +1,1 @@
+- Opraven pád ve widgetu seznamu na některých zařízeních s Androidem 17

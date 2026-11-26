@@ -1,0 +1,1 @@
+- Corrigida a falha no widget de listas para alguns utilizadores do Android 17

@@ -357,4 +357,5 @@
     <string name="wear_bt_failed_foreground_notification_title">Nepodařilo se spustit synchronizační službu Wear OS</string>
     <string name="wear_bt_critical_error_channel_name">Kritická chyba synchronizace s Wear OS</string>
     <string name="android_blocked_startup">Systém Android zablokoval spuštění služby Wear OS</string>
+    <string name="view_more">Zobrazit více</string>
 </resources>

@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -1205,6 +1206,134 @@ public class ImportExportTest {
         assertEquals(StandardCharsets.ISO_8859_1, card.barcodeEncoding);
         assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
         assertEquals(0, card.starStatus);
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    private static final String UUID_A = "123e4567-e89b-42d3-a456-426614174000";
+
+    /**
+     * Builds a v2 CSV with one line per card: {_id, store, cardid, uuid}
+     * (uuid column omitted when uuidColumn is false).
+     */
+    private String csvWithUuids(boolean uuidColumn, String[]... cards) {
+        StringBuilder csv = new StringBuilder("2\n\n_id\n\n");
+        csv.append("_id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,barcodetype,barcodeencoding,headercolor,starstatus,lastused,archive");
+        if (uuidColumn) {
+            csv.append(",uuid");
+        }
+        csv.append("\n");
+        for (String[] card : cards) {
+            csv.append(card[0]).append(",").append(card[1]).append(",,,,0,,").append(card[2]).append(",,,ISO-8859-1,,0,0,0");
+            if (uuidColumn) {
+                csv.append(",").append(card[3]);
+            }
+            csv.append("\n");
+        }
+        csv.append("\ncardId,groupId\n");
+        return csv.toString();
+    }
+
+    private ImportExportResult importCsv(String csv) {
+        return MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, new ByteArrayInputStream(csv.getBytes(StandardCharsets.UTF_8)), DataFormat.Catima, null);
+    }
+
+    private LoyaltyCard getCard(int id) {
+        return DBHelper.getLoyaltyCard(activity.getApplicationContext(), mDatabase, id);
+    }
+
+    @Test
+    public void exportImportRoundTripKeepsUuid() {
+        TestHelpers.addLoyaltyCards(activity, mDatabase, 2);
+        String uuid1 = getCard(1).uuid;
+        String uuid2 = getCard(2).uuid;
+        assertNotEquals(uuid1, uuid2);
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        TestHelpers.getEmptyDb(activity);
+
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, new ByteArrayInputStream(outData.toByteArray()), DataFormat.Catima, null);
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertEquals(uuid1, getCard(1).uuid);
+        assertEquals(uuid2, getCard(2).uuid);
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importWithoutUuidColumnGeneratesUuid() {
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(false, new String[]{"1", "store", "1234"})).resultType());
+
+        assertTrue(getCard(1).uuid.matches(TestHelpers.UUID_V4_REGEX));
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importMalformedOrEmptyUuidGeneratesUuid() {
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(true, new String[]{"1", "a", "1", "abc"}, new String[]{"2", "b", "2", ""})).resultType());
+
+        assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertTrue(getCard(1).uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertTrue(getCard(2).uuid.matches(TestHelpers.UUID_V4_REGEX));
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importSameUuidTwiceInFile() {
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(true, new String[]{"1", "a", "1", UUID_A}, new String[]{"2", "b", "2", UUID_A})).resultType());
+
+        assertEquals(UUID_A, getCard(1).uuid);
+        assertTrue(getCard(2).uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertNotEquals(UUID_A, getCard(2).uuid);
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importUppercaseUuidIsLowercased() {
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(true, new String[]{"1", "a", "1", UUID_A.toUpperCase()})).resultType());
+
+        assertEquals(UUID_A, getCard(1).uuid);
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importUppercaseUuidMatchesExistingLowercase() {
+        DBHelper.insertLoyaltyCard(mDatabase, activity.getApplicationContext(), 1, "x", "", null, null, new BigDecimal("0"), null, "1", null, null, StandardCharsets.ISO_8859_1, 0, 0, 0L, 0);
+        DBHelper.updateLoyaltyCardUuid(mDatabase, activity.getApplicationContext(), 1, UUID_A);
+
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(true, new String[]{"5", "a", "1", UUID_A.toUpperCase()})).resultType());
+
+        assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals(UUID_A, getCard(1).uuid);
+        assertTrue(getCard(5).uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertNotEquals(UUID_A, getCard(5).uuid);
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void reimportModifiedCardKeepsExistingUuid() {
+        DBHelper.insertLoyaltyCard(mDatabase, activity.getApplicationContext(), 1, "old", "", null, null, new BigDecimal("0"), null, "1234", null, null, StandardCharsets.ISO_8859_1, 0, 0, 0L, 0);
+        DBHelper.updateLoyaltyCardUuid(mDatabase, activity.getApplicationContext(), 1, UUID_A);
+
+        assertEquals(ImportExportResultType.Success, importCsv(csvWithUuids(true, new String[]{"1", "new", "1234", UUID_A})).resultType());
+
+        assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals("old", getCard(1).store);
+        assertEquals(UUID_A, getCard(1).uuid);
+
+        LoyaltyCard other = getCard(2);
+        assertEquals("new", other.store);
+        assertTrue(other.uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertNotEquals(UUID_A, other.uuid);
 
         TestHelpers.getEmptyDb(activity);
     }

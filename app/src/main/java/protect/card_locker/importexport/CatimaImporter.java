@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
+import androidx.annotation.Nullable;
+
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
 
@@ -27,8 +29,10 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -47,6 +51,8 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
+    private static final Pattern UUID_PATTERN = Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+
     public static class ImportedData {
         public final List<LoyaltyCard> cards;
         public final List<String> groups;
@@ -129,10 +135,12 @@ public class CatimaImporter implements Importer {
             if (existing == null) {
                 DBHelper.insertLoyaltyCard(database, context, card.id, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+                applyImportedUuid(context, database, card.id, card.uuid);
             } else if (!isDuplicate(context, existing, card, existingImages, imageChecksums)) {
                 long newId = DBHelper.insertLoyaltyCard(database, context, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
                         card.cardId, card.barcodeId, card.barcodeType, card.barcodeEncoding, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
                 idMap.put(card.id, (int) newId);
+                applyImportedUuid(context, database, (int) newId, card.uuid);
             }
         }
 
@@ -150,6 +158,22 @@ public class CatimaImporter implements Importer {
         }
 
         return idMap;
+    }
+
+    /**
+     * Gives the just inserted card the UUID from the imported file, if it is
+     * well-formed and no other card in the database has it yet. Otherwise the
+     * card keeps the UUID generated on insertion.
+     */
+    private void applyImportedUuid(Context context, SQLiteDatabase database, int id, @Nullable String uuid) {
+        if (uuid == null) {
+            return;
+        }
+
+        String normalizedUuid = uuid.trim().toLowerCase(Locale.ROOT);
+        if (UUID_PATTERN.matcher(normalizedUuid).matches() && !DBHelper.loyaltyCardUuidExists(database, normalizedUuid)) {
+            DBHelper.updateLoyaltyCardUuid(database, context, id, normalizedUuid);
+        }
     }
 
     public boolean isDuplicate(Context context, final LoyaltyCard existing, final LoyaltyCard card, final Set<String> existingImages, final Map<String, String> imageChecksums) throws IOException {
@@ -500,7 +524,7 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        return new LoyaltyCard(
+        LoyaltyCard loyaltyCard = new LoyaltyCard(
                 id,
                 store,
                 note,
@@ -525,6 +549,10 @@ public class CatimaImporter implements Importer {
                 null,
                 null
         );
+        // This field did not exist in earlier backups
+        loyaltyCard.setUuid(CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.UUID, record, null));
+
+        return loyaltyCard;
     }
 
     /**

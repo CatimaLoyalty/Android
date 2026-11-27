@@ -47,7 +47,7 @@ A major version change implies breaking changes (eg. columns being renamed or re
 | Column  | Type  | Description       | Value |
 |---------|-------|-------------------|-------|
 | `major` | `int` | The major version | `1`   |
-| `minor` | `int` | The minor version | `2`   |
+| `minor` | `int` | The minor version | `3`   |
 
 ### /cards
 
@@ -68,6 +68,7 @@ A major version change implies breaking changes (eg. columns being renamed or re
 | `starstatus`      | `int`             | 1 if starred, 0 if not |
 | `lastused`        | `long`            | Timestamp of last card usage (unix epoch millis). |
 | `archive`         | `int`             | 1 if archived, 0 if not |
+| `uuid`            | `String`          | Card UUID (v4, lowercase), unique within this Catima database. Kept by Catima export/import, so a card keeps the same UUID on every device a backup is restored to. Available since version 1.3. |
 
 ### /groups
 

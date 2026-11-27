@@ -82,7 +82,7 @@ public class CardsContentProviderTest {
             assertArrayEquals("column names", new String[]{"major", "minor"}, cursor.getColumnNames());
             cursor.moveToNext();
             assertEquals("major version", 1, cursor.getInt(cursor.getColumnIndexOrThrow("major")));
-            assertEquals("minor version", 2, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
+            assertEquals("minor version", 3, cursor.getInt(cursor.getColumnIndexOrThrow("minor")));
         }
     }
 
@@ -121,7 +121,7 @@ public class CardsContentProviderTest {
             final String[] expectedColumns = new String[]{
                     "_id", "store", "validfrom", "expiry", "balance", "balancetype",
                     "note", "headercolor", "cardid", "barcodeid",
-                    "barcodetype", "barcodeencoding", "starstatus", "lastused", "archive"
+                    "barcodetype", "barcodeencoding", "starstatus", "lastused", "archive", "uuid"
             };
 
             assertEquals("number of columns", expectedColumns.length, cursor.getColumnCount());
@@ -148,6 +148,7 @@ public class CardsContentProviderTest {
             final int actualStarred = cursor.getInt(cursor.getColumnIndexOrThrow("starstatus"));
             final long actualLastUsed = cursor.getLong(cursor.getColumnIndexOrThrow("lastused"));
             final int actualArchiveStatus = cursor.getInt(cursor.getColumnIndexOrThrow("archive"));
+            final String actualUuid = cursor.getString(cursor.getColumnIndexOrThrow("uuid"));
 
             assertEquals("Id", 1, actualId);
             assertEquals("Name", store, actualName);
@@ -164,6 +165,7 @@ public class CardsContentProviderTest {
             assertEquals("Starred", starStatus, actualStarred);
             assertEquals("LastUsed", lastUsed, actualLastUsed);
             assertEquals("ArchiveStatus", archiveStatus, actualArchiveStatus);
+            assertEquals("Uuid", DBHelper.getLoyaltyCard(RuntimeEnvironment.getApplication(), mDatabase, (int) id).uuid, actualUuid);
         }
     }
 

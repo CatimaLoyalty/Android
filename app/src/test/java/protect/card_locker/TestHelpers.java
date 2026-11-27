@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 public class TestHelpers {
     private static final String BARCODE_DATA = "428311627547";
     private static final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
+    public static final String UUID_V4_REGEX = "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$";
 
     public static DBHelper getEmptyDb(Context context) {
         DBHelper db = new DBHelper(context);

@@ -40,6 +40,8 @@ public class LoyaltyCard {
     public int zoomLevel;
     public int zoomLevelWidth;
     public int archiveStatus;
+    @Nullable
+    public String uuid;
 
 
     @Nullable
@@ -292,6 +294,10 @@ public class LoyaltyCard {
         }
 
         this.archiveStatus = archiveStatus;
+    }
+
+    public void setUuid(@Nullable String uuid) {
+        this.uuid = uuid;
     }
 
     public void setImageThumbnail(@Nullable Bitmap imageThumbnail, @Nullable String imageThumbnailPath) {
@@ -573,7 +579,7 @@ public class LoyaltyCard {
         // archiveStatus
         int archiveStatus = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
 
-        return new LoyaltyCard(
+        LoyaltyCard loyaltyCard = new LoyaltyCard(
                 id,
                 store,
                 note,
@@ -598,6 +604,10 @@ public class LoyaltyCard {
                 null,
                 Utils.getCardImageFileName(id, ImageLocationType.back)
         );
+        // uuid
+        loyaltyCard.setUuid(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.UUID)));
+
+        return loyaltyCard;
     }
 
     public static boolean isDuplicate(Context context, final LoyaltyCard a, final LoyaltyCard b) {
@@ -642,7 +652,7 @@ public class LoyaltyCard {
         return String.format(
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
                         + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n barcodeEncoding=%s,%n"
-                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  zoomLevelWidth=%s,%n  archiveStatus=%s%n"
+                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  zoomLevelWidth=%s,%n  archiveStatus=%s,%n  uuid=%s%n"
                         + "  imageThumbnail=%s,%n  imageThumbnailPath=%s,%n  imageFront=%s,%n  imageFrontPath=%s,%n  imageBack=%s,%n  imageBackPath=%s,%n}",
                 this.id,
                 this.store,
@@ -661,6 +671,7 @@ public class LoyaltyCard {
                 this.zoomLevel,
                 this.zoomLevelWidth,
                 this.archiveStatus,
+                this.uuid,
                 this.imageThumbnail,
                 this.imageThumbnailPath,
                 this.imageFront,

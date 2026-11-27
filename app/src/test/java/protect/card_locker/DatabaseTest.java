@@ -2,13 +2,16 @@ package protect.card_locker;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 
@@ -521,6 +524,68 @@ public class DatabaseTest {
         assertEquals(0, card2.lastUsed);
         assertEquals(100, card2.zoomLevel);
         assertEquals(100, card2.zoomLevelWidth);
+        assertTrue(card.uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertTrue(card2.uuid.matches(TestHelpers.UUID_V4_REGEX));
+        assertNotEquals(card.uuid, card2.uuid);
+    }
+
+    @Test
+    public void insertGeneratesUniqueUuid() {
+        long id1 = DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        long id2 = DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        String uuid1 = DBHelper.getLoyaltyCard(mActivity, mDatabase, (int) id1).uuid;
+        String uuid2 = DBHelper.getLoyaltyCard(mActivity, mDatabase, (int) id2).uuid;
+        assertTrue(uuid1.matches(TestHelpers.UUID_V4_REGEX));
+        assertTrue(uuid2.matches(TestHelpers.UUID_V4_REGEX));
+        assertNotEquals(uuid1, uuid2);
+    }
+
+    @Test
+    public void insertWithExplicitIdGeneratesUuid() {
+        DBHelper.insertLoyaltyCard(mDatabase, mActivity, 42, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        assertTrue(DBHelper.getLoyaltyCard(mActivity, mDatabase, 42).uuid.matches(TestHelpers.UUID_V4_REGEX));
+    }
+
+    @Test
+    public void updateKeepsUuid() {
+        long id = DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        String before = DBHelper.getLoyaltyCard(mActivity, mDatabase, (int) id).uuid;
+        assertTrue(DBHelper.updateLoyaltyCard(mDatabase, mActivity, (int) id, "store1", "note1", null, null, new BigDecimal("10"), null, "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), StandardCharsets.UTF_8, DEFAULT_HEADER_COLOR, 0, null, 0));
+        assertEquals(before, DBHelper.getLoyaltyCard(mActivity, mDatabase, (int) id).uuid);
+    }
+
+    @Test
+    public void uuidHelpers() {
+        long id1 = DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        long id2 = DBHelper.insertLoyaltyCard(mDatabase, mActivity, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), StandardCharsets.ISO_8859_1, DEFAULT_HEADER_COLOR, 0, null, 0);
+        String fixed = "123e4567-e89b-42d3-a456-426614174000";
+        assertFalse(DBHelper.loyaltyCardUuidExists(mDatabase, fixed));
+        assertTrue(DBHelper.updateLoyaltyCardUuid(mDatabase, mActivity, (int) id1, fixed));
+        assertTrue(DBHelper.loyaltyCardUuidExists(mDatabase, fixed));
+        assertEquals(fixed, DBHelper.getLoyaltyCard(mActivity, mDatabase, (int) id1).uuid);
+        assertFalse(DBHelper.updateLoyaltyCardUuid(mDatabase, mActivity, 9999, "123e4567-e89b-42d3-a456-426614174001"));
+        // The unique index refuses a second card with the same UUID
+        assertThrows(SQLiteConstraintException.class, () -> DBHelper.updateLoyaltyCardUuid(mDatabase, mActivity, (int) id2, fixed));
+    }
+
+    @Test
+    public void databaseUpgradeEmptyDatabaseCreatesUuidIndex() {
+        DBHelper dbHelper = TestHelpers.getEmptyDb(mActivity);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        setupDatabaseVersion1(database);
+        dbHelper.onUpgrade(database, DBHelper.ORIGINAL_DATABASE_VERSION, DBHelper.DATABASE_VERSION);
+        assertUuidIndexExists(database);
+    }
+
+    @Test
+    public void freshDatabaseHasUuidIndex() {
+        assertUuidIndexExists(mDatabase);
+    }
+
+    private void assertUuidIndexExists(SQLiteDatabase database) {
+        try (Cursor cursor = database.rawQuery("SELECT name FROM sqlite_master WHERE type = 'index' AND name = ?", new String[]{DBHelper.UUID_INDEX})) {
+            assertEquals(1, cursor.getCount());
+        }
     }
 
     @Test

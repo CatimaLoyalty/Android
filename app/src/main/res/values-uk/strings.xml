@@ -63,7 +63,7 @@
     <string name="exportSuccessful">Дані експортовано</string>
     <string name="importSuccessful">Дані імпортовано</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою карткою</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Показувати над екраном блокування</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
     <string name="settings_dark_theme">Темна</string>
     <string name="settings_light_theme">Світла</string>
@@ -237,12 +237,12 @@
     <string name="show_validity">Показати термін дії</string>
     <string name="show_balance">Показати баланс</string>
     <string name="permissionReadCardsLabel">Читайте картки Catima</string>
-    <string name="settings_allow_content_provider_read_summary">Застосунки все ще муситимуть запитувати дозвіл на отримання доступу</string>
+    <string name="settings_allow_content_provider_read_summary">Дозволити Gadgetbridge синхронізувати ваші картки з підтримуваними смарт-годинниками</string>
     <string name="permissionReadCardsDescription">читайте ваші картки Catima та всю інформацію на них, включно з примітками та зображеннями</string>
     <string name="settings_display_barcode_max_brightness_summary">Необхідно для роботи деяких сканерів</string>
-    <string name="settings_keep_screen_on_summary">Вимикає тайм-аут екрана під час перегляду картки</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Вимикає блокування екрана під час перегляду картки</string>
-    <string name="settings_allow_content_provider_read_title">Дозволити іншим застосункам доступ до моїх даних</string>
+    <string name="settings_keep_screen_on_summary">Продовжити тайм-аут екрана під час перегляду картки</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Ігнорування блокування екрана під час перегляду картки</string>
+    <string name="settings_allow_content_provider_read_title">Синхронізація з Gadgetbridge</string>
     <string name="settings_oled_dark_summary">Зменшує використання батареї на OLED екранах</string>
     <string name="settings_category_title_cards">Перегляд картки</string>
     <string name="settings_category_title_general">Загальні</string>
@@ -315,4 +315,6 @@
     <string name="nfc_blocked_while_viewing_card">NFC зупинений</string>
     <string name="change_settings">Змінити налаштування</string>
     <string name="nfc_block_system_error">Не вдалось зупинити NFC</string>
+    <string name="zoomFrontImage">Масштабування переднього зображення</string>
+    <string name="zoomBackImage">Масштабування зворотного зображення</string>
 </resources>

@@ -336,7 +336,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
-                            android:digits="0123456789,.٠١٢٣٤٥٦٧٨٩٫" />
+                            android:digits="@string/balanceDigits" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

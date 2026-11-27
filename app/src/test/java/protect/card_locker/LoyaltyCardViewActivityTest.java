@@ -76,7 +76,6 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.cardview.LoyaltyCardViewActivity;
@@ -856,32 +855,59 @@ public class LoyaltyCardViewActivityTest {
     @Test
     @Config(qualifiers="ar")
     public void saveArabicBalanceAfterLosingFocus() {
-        Locale originalLocale = Locale.getDefault();
-        try {
-            Locale.setDefault(Locale.forLanguageTag("ar"));
-            final Context context = ApplicationProvider.getApplicationContext();
-            for (Currency currency : new Currency[]{null, Currency.getInstance("USD")}) {
-                SQLiteDatabase database = getWritableEmptyDatabase(context);
-                long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("0"), currency, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
-                ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
-                activityController.start().visible().resume();
-                Activity activity = (Activity) activityController.get();
-                EditText balanceField = activity.findViewById(R.id.balanceField);
-                String input = currency == null ? "\u0665" : "\u0665\u066b\u0662\u0665";
+        checkKeyboardBalanceIsSaved("\u0665", "\u0665\u066b\u0662\u0665");
+    }
 
-                // Editable.replace applies the keyboard input filter; setText does not.
-                balanceField.getText().replace(0, balanceField.length(), input);
-                balanceField.getOnFocusChangeListener().onFocusChange(balanceField, false);
-                activity.findViewById(R.id.fabSave).performClick();
+    @Test
+    @Config(qualifiers="fa")
+    public void savePersianBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u06f5", "\u06f5\u066b\u06f2\u06f5");
+    }
 
-                assertTrue(activity.isFinishing());
-                BigDecimal expected = new BigDecimal(currency == null ? "5" : "5.25");
-                assertEquals(0, expected.compareTo(DBHelper.getLoyaltyCard(context, database, (int) cardId).balance));
-                database.close();
-            }
-        } finally {
-            Locale.setDefault(originalLocale);
+    private void checkKeyboardBalanceIsSaved(String pointsInput, String usdInput) {
+        final Context context = ApplicationProvider.getApplicationContext();
+        for (Currency currency : new Currency[]{null, Currency.getInstance("USD")}) {
+            SQLiteDatabase database = getWritableEmptyDatabase(context);
+            long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("0"), currency, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+            ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
+            activityController.start().visible().resume();
+            Activity activity = (Activity) activityController.get();
+            EditText balanceField = activity.findViewById(R.id.balanceField);
+
+            // Editable.replace applies the keyboard input filter; setText does not.
+            balanceField.getText().replace(0, balanceField.length(), currency == null ? pointsInput : usdInput);
+            balanceField.getOnFocusChangeListener().onFocusChange(balanceField, false);
+            activity.findViewById(R.id.fabSave).performClick();
+
+            assertTrue(activity.isFinishing());
+            assertEquals(new BigDecimal(currency == null ? "5" : "5.25"), DBHelper.getLoyaltyCard(context, database, (int) cardId).balance);
+            database.close();
         }
+    }
+
+    @Test
+    @Config(qualifiers="ar")
+    public void updateBalanceDialogAcceptsArabicDigits() {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+        long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("10"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        ActivityController activityController = createActivityWithLoyaltyCard(false, (int) cardId);
+        activityController.start().visible().resume();
+        Activity activity = (Activity) activityController.get();
+
+        activity.findViewById(R.id.bottom_app_bar_update_balance_button).performClick();
+        shadowOf(getMainLooper()).idle();
+        AlertDialog dialog = (AlertDialog) ShadowDialog.getLatestDialog();
+        EditText input = (EditText) dialog.getCurrentFocus();
+
+        // Editable.replace applies the keyboard input filter; setText does not.
+        input.getText().replace(0, input.length(), "\u0665");
+        assertTrue(dialog.getButton(AlertDialog.BUTTON_NEGATIVE).isEnabled());
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).performClick();
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(new BigDecimal("15"), DBHelper.getLoyaltyCard(context, database, (int) cardId).balance);
+        database.close();
     }
 
     @Test

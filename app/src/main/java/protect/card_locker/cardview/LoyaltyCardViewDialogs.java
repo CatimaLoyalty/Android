@@ -129,7 +129,7 @@ final class LoyaltyCardViewDialogs {
 
         final TextInputEditText input = new TextInputEditText(context);
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
+        input.setKeyListener(DigitsKeyListener.getInstance(context.getString(R.string.balanceDigits)));
         input.setHint(R.string.updateBalanceHint);
 
         layout.addView(input);

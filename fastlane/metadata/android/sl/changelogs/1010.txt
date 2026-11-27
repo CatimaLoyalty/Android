@@ -1,0 +1,1 @@
+- Odpravljena napaka, ki je pri nekaterih uporabnikih sistema Android 17 povzročala sesutje pripomočka s seznamom

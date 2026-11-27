@@ -317,4 +317,21 @@
     <string name="nfc_block_system_error">Не вдалось зупинити NFC</string>
     <string name="zoomFrontImage">Масштабування переднього зображення</string>
     <string name="zoomBackImage">Масштабування зворотного зображення</string>
+    <string name="settings_wear_sync_blocked_devices">Заблоковані пристрої Wear OS</string>
+    <string name="settings_wear_sync_blocked_devices_summary">Керування заблокованими пристроями Wear OS</string>
+    <string name="settings_wear_sync_no_blocked_devices">Немає заблокованих пристроїв</string>
+    <string name="settings_wear_sync_unpair_title">Видалити пристрій?</string>
+    <string name="settings_wear_sync_unpair_message">Видалити <xliff:g>%1$s</xliff:g> з Catima? Синхронізацію карток буде вимкнено.</string>
+    <string name="settings_wear_sync_unblock_message">Видалити <xliff:g>%1$s</xliff:g> зі списку заблокованих? Запит на з\'єднання буде знову доступний.</string>
+    <string name="settings_wear_sync_unpair">Видалити</string>
+    <string name="settings_wear_sync_device_name"><xliff:g>%1$s</xliff:g> (<xliff:g>%2$s</xliff:g>)</string>
+    <string name="settings_wear_sync_tap_to_remove">Натисніть на пристрій для видалення.</string>
+    <string name="wear_bt_pairing_channel_name">Парування пристроїв Wear OS</string>
+    <string name="wear_bt_pairing_title">Пристрій Wear OS хоче синхронізуватися</string>
+    <string name="wear_bt_pairing_message">Дозволити <xliff:g>%1$s</xliff:g> доступ до ваших карток?</string>
+    <string name="wear_bt_pairing_allow">Дозволити</string>
+    <string name="wear_bt_pairing_block">Заблокувати</string>
+    <string name="wear_bt_pairing_allowed"><xliff:g>%1$s</xliff:g> тепер дозволено синхронізацію.</string>
+    <string name="wear_bt_pairing_blocked"><xliff:g>%1$s</xliff:g> було заблоковано.</string>
+    <string name="wear_bt_pairing_mismatch_title">Новий запит на авторизацію від <xliff:g>%1$s</xliff:g></string>
 </resources>

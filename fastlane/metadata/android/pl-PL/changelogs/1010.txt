@@ -1,0 +1,1 @@
+- Naprawiono awarię widżetu listy u niektórych użytkowników systemu Android 17

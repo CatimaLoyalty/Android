@@ -76,6 +76,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import protect.card_locker.cardimageview.LoyaltyCardImageViewActivity;
 import protect.card_locker.cardview.LoyaltyCardViewActivity;
@@ -850,6 +851,37 @@ public class LoyaltyCardViewActivityTest {
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), "ISO-8859-1", null, null);
 
         database.close();
+    }
+
+    @Test
+    @Config(qualifiers="ar")
+    public void saveArabicBalanceAfterLosingFocus() {
+        Locale originalLocale = Locale.getDefault();
+        try {
+            Locale.setDefault(Locale.forLanguageTag("ar"));
+            final Context context = ApplicationProvider.getApplicationContext();
+            for (Currency currency : new Currency[]{null, Currency.getInstance("USD")}) {
+                SQLiteDatabase database = getWritableEmptyDatabase(context);
+                long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("0"), currency, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+                ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
+                activityController.start().visible().resume();
+                Activity activity = (Activity) activityController.get();
+                EditText balanceField = activity.findViewById(R.id.balanceField);
+                String input = currency == null ? "\u0665" : "\u0665\u066b\u0662\u0665";
+
+                // Editable.replace applies the keyboard input filter; setText does not.
+                balanceField.getText().replace(0, balanceField.length(), input);
+                balanceField.getOnFocusChangeListener().onFocusChange(balanceField, false);
+                activity.findViewById(R.id.fabSave).performClick();
+
+                assertTrue(activity.isFinishing());
+                BigDecimal expected = new BigDecimal(currency == null ? "5" : "5.25");
+                assertEquals(0, expected.compareTo(DBHelper.getLoyaltyCard(context, database, (int) cardId).balance));
+                database.close();
+            }
+        } finally {
+            Locale.setDefault(originalLocale);
+        }
     }
 
     @Test

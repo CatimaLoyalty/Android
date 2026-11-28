@@ -26,6 +26,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowInsets;
@@ -849,6 +850,84 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), "ISO-8859-1", null, null);
 
+        database.close();
+    }
+
+    @Test
+    @Config(qualifiers="ar")
+    public void saveArabicBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u0665", "\u0665\u066b\u0662\u0665");
+    }
+
+    @Test
+    @Config(qualifiers="ar-rAE")
+    public void saveArabicDigitsWhenLocaleFormatsLatinDigits() {
+        checkKeyboardBalanceIsSaved("\u0665", "\u0665\u066b\u0662\u0665");
+    }
+
+    @Test
+    @Config(qualifiers="fa")
+    public void savePersianBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u06f5", "\u06f5\u066b\u06f2\u06f5");
+    }
+
+    @Test
+    @Config(qualifiers="bn")
+    public void saveBengaliBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u09eb", "\u09eb.\u09e8\u09eb");
+    }
+
+    @Test
+    @Config(qualifiers="mr")
+    public void saveMarathiBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u096b", "\u096b.\u0968\u096b");
+    }
+
+    private void checkKeyboardBalanceIsSaved(String pointsInput, String usdInput) {
+        final Context context = ApplicationProvider.getApplicationContext();
+        for (Currency currency : new Currency[]{null, Currency.getInstance("USD")}) {
+            SQLiteDatabase database = getWritableEmptyDatabase(context);
+            long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("0"), currency, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+            ActivityController activityController = createActivityWithLoyaltyCard(true, (int) cardId);
+            activityController.start().visible().resume();
+            Activity activity = (Activity) activityController.get();
+            EditText balanceField = activity.findViewById(R.id.balanceField);
+            assertEquals(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, balanceField.getInputType());
+
+            // Editable.replace applies the keyboard input filter; setText does not.
+            balanceField.getText().replace(0, balanceField.length(), currency == null ? pointsInput : usdInput);
+            balanceField.getOnFocusChangeListener().onFocusChange(balanceField, false);
+            activity.findViewById(R.id.fabSave).performClick();
+
+            assertTrue(activity.isFinishing());
+            assertEquals(new BigDecimal(currency == null ? "5" : "5.25"), DBHelper.getLoyaltyCard(context, database, (int) cardId).balance);
+            database.close();
+        }
+    }
+
+    @Test
+    @Config(qualifiers="ar")
+    public void updateBalanceDialogAcceptsArabicDigits() {
+        final Context context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabase database = getWritableEmptyDatabase(context);
+        long cardId = DBHelper.insertLoyaltyCard(database, context, "store", "note", null, null, new BigDecimal("10"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, StandardCharsets.ISO_8859_1, Color.BLACK, 0, null, 0);
+        ActivityController activityController = createActivityWithLoyaltyCard(false, (int) cardId);
+        activityController.start().visible().resume();
+        Activity activity = (Activity) activityController.get();
+
+        activity.findViewById(R.id.bottom_app_bar_update_balance_button).performClick();
+        shadowOf(getMainLooper()).idle();
+        AlertDialog dialog = (AlertDialog) ShadowDialog.getLatestDialog();
+        EditText input = (EditText) dialog.getCurrentFocus();
+        assertEquals(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, input.getInputType());
+
+        // Editable.replace applies the keyboard input filter; setText does not.
+        input.getText().replace(0, input.length(), "\u0665");
+        assertTrue(dialog.getButton(AlertDialog.BUTTON_NEGATIVE).isEnabled());
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).performClick();
+        shadowOf(getMainLooper()).idle();
+
+        assertEquals(new BigDecimal("15"), DBHelper.getLoyaltyCard(context, database, (int) cardId).balance);
         database.close();
     }
 

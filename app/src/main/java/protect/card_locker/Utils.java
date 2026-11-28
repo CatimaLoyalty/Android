@@ -540,6 +540,28 @@ public class Utils {
         return currencyFormat.format(value);
     }
 
+    static public String getBalanceDigits() {
+        // Latin digits and separators, Arabic-Indic and Persian digits (keyboards may type them even
+        // when the locale formats with Latin digits, as plain "ar" does since Android 16), and the
+        // current locale's own digits and decimal separator, so a balance formatted with native
+        // digits can also be typed back in. No grouping separator, because parseBalance doesn't
+        // accept one.
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+        StringBuilder digits = new StringBuilder("0123456789,.\u066b");
+        for (char zeroDigit : new char[]{'\u0660', '\u06f0', symbols.getZeroDigit()}) {
+            if (digits.indexOf(String.valueOf(zeroDigit)) < 0) {
+                for (int i = 0; i < 10; i++) {
+                    digits.append((char) (zeroDigit + i));
+                }
+            }
+        }
+        char decimalSeparator = symbols.getDecimalSeparator();
+        if (digits.indexOf(String.valueOf(decimalSeparator)) < 0) {
+            digits.append(decimalSeparator);
+        }
+        return digits.toString();
+    }
+
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setGroupingUsed(false);

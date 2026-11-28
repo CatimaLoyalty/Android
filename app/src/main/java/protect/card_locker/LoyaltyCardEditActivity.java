@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.LocaleList;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.method.DigitsKeyListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -437,6 +438,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 balanceCurrencyField.setAdapter(currencyAdapter);
             }
         });
+
+        balanceField.setKeyListener(DigitsKeyListener.getInstance(Utils.getBalanceDigits()));
+        // setKeyListener() replaces the input type, so restore the decimal number keyboard
+        balanceField.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus && !onResuming && !onRestoring) {

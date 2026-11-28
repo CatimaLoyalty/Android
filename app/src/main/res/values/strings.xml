@@ -168,7 +168,6 @@
     <string name="currency">Currency</string>
     <string name="points">Points</string>
     <string name="balanceParsingFailed">Invalid balance</string>
-    <string name="balanceDigits" translatable="false">0123456789,.٠١٢٣٤٥٦٧٨٩٫۰۱۲۳۴۵۶۷۸۹</string>
     <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy policy</string>

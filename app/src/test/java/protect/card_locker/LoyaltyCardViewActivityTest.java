@@ -26,6 +26,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowInsets;
@@ -859,9 +860,27 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
+    @Config(qualifiers="ar-rAE")
+    public void saveArabicDigitsWhenLocaleFormatsLatinDigits() {
+        checkKeyboardBalanceIsSaved("\u0665", "\u0665\u066b\u0662\u0665");
+    }
+
+    @Test
     @Config(qualifiers="fa")
     public void savePersianBalanceAfterLosingFocus() {
         checkKeyboardBalanceIsSaved("\u06f5", "\u06f5\u066b\u06f2\u06f5");
+    }
+
+    @Test
+    @Config(qualifiers="bn")
+    public void saveBengaliBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u09eb", "\u09eb.\u09e8\u09eb");
+    }
+
+    @Test
+    @Config(qualifiers="mr")
+    public void saveMarathiBalanceAfterLosingFocus() {
+        checkKeyboardBalanceIsSaved("\u096b", "\u096b.\u0968\u096b");
     }
 
     private void checkKeyboardBalanceIsSaved(String pointsInput, String usdInput) {
@@ -873,6 +892,7 @@ public class LoyaltyCardViewActivityTest {
             activityController.start().visible().resume();
             Activity activity = (Activity) activityController.get();
             EditText balanceField = activity.findViewById(R.id.balanceField);
+            assertEquals(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, balanceField.getInputType());
 
             // Editable.replace applies the keyboard input filter; setText does not.
             balanceField.getText().replace(0, balanceField.length(), currency == null ? pointsInput : usdInput);
@@ -899,6 +919,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(getMainLooper()).idle();
         AlertDialog dialog = (AlertDialog) ShadowDialog.getLatestDialog();
         EditText input = (EditText) dialog.getCurrentFocus();
+        assertEquals(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL, input.getInputType());
 
         // Editable.replace applies the keyboard input filter; setText does not.
         input.getText().replace(0, input.length(), "\u0665");

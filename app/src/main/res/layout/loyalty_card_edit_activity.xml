@@ -335,8 +335,7 @@
                             android:id="@+id/balanceField"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:digits="@string/balanceDigits" />
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

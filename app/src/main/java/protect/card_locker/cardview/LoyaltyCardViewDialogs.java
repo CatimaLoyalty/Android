@@ -129,7 +129,9 @@ final class LoyaltyCardViewDialogs {
 
         final TextInputEditText input = new TextInputEditText(context);
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        input.setKeyListener(DigitsKeyListener.getInstance(context.getString(R.string.balanceDigits)));
+        input.setKeyListener(DigitsKeyListener.getInstance(Utils.getBalanceDigits()));
+        // setKeyListener() replaces the input type, so restore the decimal number keyboard
+        input.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setHint(R.string.updateBalanceHint);
 
         layout.addView(input);
